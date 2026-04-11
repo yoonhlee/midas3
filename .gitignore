@@ -1,0 +1,23 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Node.js
+node_modules/
+.next/
+.env.local
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# DB
+*.db
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
