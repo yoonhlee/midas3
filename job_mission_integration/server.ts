@@ -940,7 +940,7 @@ app.post("/api/admin/mission-generation/runs/:runId/export", requireApiToken, as
   }
 });
 
-app.post("/api/evaluate", requireApiToken, evaluateRateLimit, async (req, res) => {
+app.post("/api/evaluate", evaluateRateLimit, async (req, res) => {
   try {
     const parsed = EvaluateRequestSchema.safeParse(req.body);
     if (!parsed.success) {
@@ -973,7 +973,7 @@ app.post("/api/evaluate", requireApiToken, evaluateRateLimit, async (req, res) =
   }
 });
 
-app.post("/api/recommendations", requireApiToken, async (req, res) => {
+app.post("/api/recommendations", async (req, res) => {
   try {
     const parsed = RecommendationsRequestSchema.safeParse(req.body);
     if (!parsed.success) {
@@ -1032,7 +1032,7 @@ app.post("/api/recommendations", requireApiToken, async (req, res) => {
   }
 });
 
-app.post("/api/logs", requireApiToken, async (req, res) => {
+app.post("/api/logs", async (req, res) => {
   try {
     const parsed = LogEntrySchema.safeParse(req.body);
     if (!parsed.success) {
