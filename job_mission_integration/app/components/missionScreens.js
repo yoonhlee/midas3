@@ -117,6 +117,42 @@ function renderLog(data, esc) {
   return `<pre class="mat-log">${esc(JSON.stringify(data, null, 2))}</pre>`;
 }
 
+export function renderMissionListScreen({ state, missions, jobDef, esc }) {
+  const difficultyLabel = { easy: "쉬움", normal: "보통", hard: "어려움" };
+
+  const cards = missions.map((mission) => {
+    const isSelected = state.selectedMissionKey === mission.key;
+    const missionSpec = (mission._raw || {}).mission || {};
+    const difficulty = missionSpec.difficulty || {};
+    const diffLevelKey = difficulty.level || "normal";
+    const contextText = missionSpec.scenario?.context || "";
+
+    return `<div class="mc${isSelected ? " sel" : ""}" data-mk="${esc(mission.key || mission.mission_id)}">
+      <div class="mc-check">✓</div>
+      <div class="mc-header">
+        <div class="mc-title">${esc(mission.title)}</div>
+        <div class="mc-badges">
+          <span class="mc-diff mc-diff-${esc(diffLevelKey)}">${difficultyLabel[diffLevelKey] || esc(diffLevelKey)}</span>
+          ${difficulty.estimated_time_minutes ? `<span class="mc-time">약 ${difficulty.estimated_time_minutes}분</span>` : ""}
+        </div>
+      </div>
+      ${missionSpec.scenario?.role ? `<div class="mc-role">역할: ${esc(missionSpec.scenario.role)}</div>` : ""}
+      ${contextText ? `<div class="mc-context">${esc(contextText.length > 120 ? contextText.slice(0, 120) + "…" : contextText)}</div>` : ""}
+    </div>`;
+  }).join("");
+
+  return `<div class="sec-head">
+    <div class="eyebrow">${jobDef.icon} ${esc(jobDef.job_name)}</div>
+    <div class="sec-h">문제를 선택하세요</div>
+    <div class="sec-sub">풀고 싶은 미션을 하나 선택하세요 · 선택한 미션만 수행합니다</div>
+  </div>
+  <div class="mission-list">${cards || `<div style="color:var(--t3);padding:24px 0">이 직무의 미션이 없습니다.</div>`}</div>
+  <div style="display:flex;gap:10px;margin-top:24px">
+    <button class="btn btn-g" id="btn-ml-back">← 이전</button>
+    <button class="btn btn-p btn-lg" id="btn-ml-start" style="margin-left:auto"${state.selectedMissionKey ? "" : " disabled"}>미션 시작 →</button>
+  </div>`;
+}
+
 export function renderSelectScreen({ state, jobDefs, renderBrand }) {
   const cards = jobDefs.map((job) => `<div class="jc${state.selectedJobs.includes(job.job_code) ? " sel" : ""}" data-jc="${job.job_code}">
       <div class="jc-check">✓</div>

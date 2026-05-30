@@ -33,6 +33,7 @@ import {
   renderRecommendationsSection
 } from "./components/resultDashboard.js";
 import {
+  renderMissionListScreen,
   renderMissionScreen,
   renderPreQuestionScreen,
   renderSelectScreen
@@ -104,14 +105,19 @@ const {
 } = evaluationWorkflow;
 
 function getMissions(jc) { return getMissionsByJobCode(ALL_MISSIONS, jc); }
-function curMission() { return getCurrentMission({ allMissions: ALL_MISSIONS, state }); }
-function totalM() { return getTotalMissionCount({ allMissions: ALL_MISSIONS, selectedJobs: state.selectedJobs }); }
-function doneM() { return getDoneMissionCount({ allMissions: ALL_MISSIONS, state }); }
-function isLast() { return isLastMission({ allMissions: ALL_MISSIONS, state }); }
+function curMission() {
+  if (state.selectedMissionKey) {
+    return ALL_MISSIONS.find((m) => m.key === state.selectedMissionKey) || null;
+  }
+  return getCurrentMission({ allMissions: ALL_MISSIONS, state });
+}
+function totalM() { return 1; }
+function doneM() { return 0; }
+function isLast() { return true; }
 
 const APP = document.getElementById("app");
 function render() {
-  const fn = { select: rSelect, preq: rPreq, mission: rMission, result: rResult }[state.screen];
+  const fn = { select: rSelect, preq: rPreq, "mission-list": rMissionList, mission: rMission, result: rResult }[state.screen];
   if (fn) {
     APP.innerHTML = fn();
     bindEvents();
@@ -135,6 +141,14 @@ function rPreq() {
   });
 }
 
+function rMissionList() {
+  const jobCode = state.selectedJobs[state.missionJobIndex];
+  const jobDef = JOB_DEFS.find((j) => j.job_code === jobCode);
+  if (!jobDef) return "<p>직무 정보를 찾을 수 없습니다.</p>";
+  const missions = getMissions(jobCode);
+  return renderMissionListScreen({ state, missions, jobDef, esc });
+}
+
 function rMission() {
   const mission = curMission();
   if (!mission) return "<p>미션을 찾을 수 없습니다.</p>";
@@ -145,10 +159,10 @@ function rMission() {
     state,
     mission,
     jobDef,
-    missionProgressPct: Math.round(doneM() / totalM() * 100),
-    missionCount: getMissions(jobCode).length,
+    missionProgressPct: 0,
+    missionCount: 1,
     renderBrand: brand,
-    isLastMission: isLast(),
+    isLastMission: true,
     esc
   });
 }
@@ -313,7 +327,7 @@ window.resetAll = function () {
   resetState();
   delete state.sessionId;
   try { localStorage.removeItem("jobsim:evaluation_logs:v1"); } catch (_) {}
-  render();
+  bootstrap();
   document.getElementById("simulation").scrollIntoView({ behavior: "smooth" });
 };
 bootstrap();
