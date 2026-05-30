@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001122</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>패턴사, 재단사 및 재봉사</jobMdclNm><jobSmclNm>재단사</jobSmclNm><jobSum>의복류·모자류 등을 패턴모형에 맞춰 재단용 가위나 칼 또는 전기재단기로 재단한다.</jobSum><execJob>-생산의뢰서 또는 작업지시서를 확인한 후 원단 및 부자재를 수령한다.
+-패턴사로부터 받은 패턴모형을 원단의 소모량이 최소화 되도록 배치한다
+-작업대 위에 원단을 포개놓고 패턴 모양대로 재단용 초크 또는 연필로 표시한다.
+-표시선을 따라 가위나 칼로 재단하고 대량 생산인 경우 전기재단기 또는 레이저로 절단하기도 한다.
+-색상에 따라 원단부품을 짝짓기한다.
+-부품 위에 확인번호를 표시한다.
+-재단대 위에 원단을 펼치는 연단원의 업무를 병행하는 경우도 있다.
+-재단이 완료된 각 원단 부분품은 다음 공정을 위해 재봉라인 등으로 이송한다.
+-완성품의 결함을 조사하고 설정된 표준과 비교한다.</execJob><relJobList><jobCd>K000000848</jobCd><jobNm>재봉사</jobNm></relJobList><relJobList><jobCd>K000001182</jobCd><jobNm>패턴사</jobNm></relJobList></jobsDo>

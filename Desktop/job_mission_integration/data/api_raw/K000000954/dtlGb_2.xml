@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000954</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>택배원 및 기타 운송 종사자</jobMdclNm><jobSmclNm>하역·적재종사원</jobSmclNm><jobSum>각종 제조업체, 시장, 부두, 화물운송업체 등에서 상품을 포장, 운반, 선적, 하역 및 적재한다.</jobSum><execJob>[하역원]
+-작업지시서나 하역반장의 지시에 따라 작업방법 및 절차를 숙지한다.
+-필요한 장비 및 도구를 사용하여 화물을 부두, 선박, 항공기, 열차 및 화물차 등에 운반하여 적재하거나 하역한다.
+-적재한 화물이 파손되지 않도록 로프를 사용하여 고정한다.
+-화물을 분류하고 정리하기도 한다.
+
+[적재원]
+-적재시킬 제품의 종류, 형상, 크기 등에 따라 적재 방법 및 절차를 결정한다.
+-적재하는데 필요한 수동도구를 준비한다.
+-적재장소의 바닥을 고르거나 나무 등을 놓는다.
+-손으로 들거나 운반도구를 이용하여 물품을 운반하고 균형을 잡으며 적재한다.
+-적재량을 작업일지에 기록한다.
+-자연재해로부터 적재품을 보호하기 위하여 방호조치를 하기도 한다.</execJob><relJobList><jobCd>K000000884</jobCd><jobNm>선박갑판원</jobNm></relJobList><relJobList><jobCd>K000007455</jobCd><jobNm>집배원</jobNm></relJobList><relJobList><jobCd>K000007469</jobCd><jobNm>선박기관사</jobNm></relJobList><relJobList><jobCd>K000007557</jobCd><jobNm>택배원</jobNm></relJobList></jobsDo>

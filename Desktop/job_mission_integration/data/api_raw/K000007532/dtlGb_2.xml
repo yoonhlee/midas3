@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007532</jobCd><jobLrclNm>예술·디자인·방송·스포츠직</jobLrclNm><jobMdclNm>학예사·사서·기록물관리사</jobMdclNm><jobSmclNm>사서</jobSmclNm><jobSum>도서관 및 자료실에서 도서 및 자료를 관리하고 이용자가 원하는 자료를 대출 및 수납하는 업무를 한다.</jobSum><execJob>-책, 비디오, DVD, 연간물 등 이용자가 희망한 자료나 신간자료를 구입한다.
+-구입한 자료에 등록번호인 바코드를 붙이고 책 윗면, 아랫면에 도장을 찍는다.
+-자료명칭, 저자, 출판사항, 분류 및 주제명 등을 확인하여 컴퓨터에 입력한다.
+-자료에 숫자와 문자의 기호체계가 적힌 각각의 라벨을 붙인다.
+-관련 코너로 운반하여 서가상에 배열한다.
+-이용자에게 자료를 대출하고 반납된 자료를 확인하여 정리한 후 배열한다.
+-대출 및 반납자료의 현황을 파악하고 주제별, 자료형태별로 이용률을 계산하여 장서개발에 필요한 자료를 작성한다.
+-이용자들이 원하는 자료를 찾아주는 참고봉사를 하며, 모든 자료들이 배치되어 있는지 장서점검을 한다.</execJob><relJobList><jobCd>K000001019</jobCd><jobNm>학예사</jobNm></relJobList><relJobList><jobCd>K000001100</jobCd><jobNm>기록물관리사</jobNm></relJobList><relJobList><jobCd>K000001119</jobCd><jobNm>문화재보존원</jobNm></relJobList></jobsDo>

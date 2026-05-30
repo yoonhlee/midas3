@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001155</jobCd><jobLrclNm>경영·사무·금융·보험직</jobLrclNm><jobMdclNm>무역·운송·생산·품질 사무원</jobMdclNm><jobSmclNm>철도·지하철운송사무원</jobSmclNm><jobSum>철도운송 사업체에서 열차의 운행시간, 노선, 승무원 배정 및 지도와 화물의 크기 및 중량을 파악하여 적재량을 계산하고 작업원에게 할당한다.</jobSum><execJob>-철도운송 사업체에서 열차의 운행시간, 노선, 승무원 배정한다.
+-차량운행계획표에 따라 운행 예정 열차번호별로 승무원수와 승무원을 결정한다.
+-해당 승무원에게 연락하여 운행열차번호, 운행일시, 운행구간 등을 통보하고 내용을 정리한다.
+-승무원의 승무여부를 확인하고 교번일지를 기록한다.
+-도착 승무원으로부터 열차주행거리, 도착시간, 열차 입고여부 등의 내용을 보고 받아 교번일지에 기록·정리한다.
+-근무할 수 없는 승무원은 교체하고 그 이유를 정리하여 관리한다.
+-화물의 크기 및 중량을 파악하여 적재량을 계산하고 작업원에게 할당한다.</execJob><relJobList><jobCd>K000000843</jobCd><jobNm>자재·구매사무원</jobNm></relJobList><relJobList><jobCd>K000000855</jobCd><jobNm>물류사무원</jobNm></relJobList><relJobList><jobCd>K000000918</jobCd><jobNm>무역사무원</jobNm></relJobList><relJobList><jobCd>K000000929</jobCd><jobNm>수상운송사무원</jobNm></relJobList><relJobList><jobCd>K000001001</jobCd><jobNm>생산관리사무원</jobNm></relJobList><relJobList><jobCd>K000001002</jobCd><jobNm>항공운송사무원</jobNm></relJobList><relJobList><jobCd>K000001010</jobCd><jobNm>도로운송사무원</jobNm></relJobList><relJobList><jobCd>K000001022</jobCd><jobNm>품질관리사무원</jobNm></relJobList></jobsDo>

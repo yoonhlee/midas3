@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000923</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건축마감 기능원</jobMdclNm><jobSmclNm>단열공</jobSmclNm><jobSum>냉난방기기, 위생기구, 상하수도 설비 등의 동파 또는 열손실을 방지하기 위하여 보일러, 파이프, 탱크 등과 같이 노출된 장비나 부품에 보온재를 설치한다.</jobSum><execJob>-단열시공에 필요한 장비 또는 부품을 점검한다.
+-표면의 녹과 이물질 등을 제거한 후 방청페인트를 칠하여 방청 처리한다.
+-시공조건에 따라 적합한 보온재(매트, 보드, 파이프커버, 아티론 등)를 선택한다.
+-일반적인 경우 보온재(커버), 보르(종이 두루마리), 프리마테이프(비닐테이프) 순으로 감아 마감한다.
+-온냉수 및 위생설비의 경우 보온재(암면, 매트 등)를 붙이고 은박테이프로 마감한 후 일정 간격으로 알루미늄밴드를 감는다.
+-냉각수의 경우 속비닐을 감고 보온재를 그 위에 감은 후 은박테이프로 마감하고 알루미늄밴드를 감는다.
+</execJob><relJobList><jobCd>K000000932</jobCd><jobNm>유리부착원</jobNm></relJobList><relJobList><jobCd>K000001034</jobCd><jobNm>섀시조립·설치원</jobNm></relJobList><relJobList><jobCd>K000001038</jobCd><jobNm>방수공</jobNm></relJobList><relJobList><jobCd>K000001053</jobCd><jobNm>타일·대리석시공원</jobNm></relJobList><relJobList><jobCd>K000001102</jobCd><jobNm>미장공</jobNm></relJobList><relJobList><jobCd>K000001188</jobCd><jobNm>도배공</jobNm></relJobList><relJobList><jobCd>K000007480</jobCd><jobNm>건물도장공</jobNm></relJobList></jobsDo>

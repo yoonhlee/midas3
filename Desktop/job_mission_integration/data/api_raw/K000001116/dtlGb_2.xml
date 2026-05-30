@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001116</jobCd><jobLrclNm>예술·디자인·방송·스포츠직</jobLrclNm><jobMdclNm>창작·공연 전문가(작가, 연극 제외)</jobMdclNm><jobSmclNm>만화영화작가(애니메이터)</jobSmclNm><jobSum>애니메이터(animator)는 각종 게임물, 텔레비전과 극장용 애니메이션, CD타이틀, 인터넷을 이용한 각종 동영상물 등에 활용되는 애니메이션을 제작하기 위하여 기획과 콘티의 제작, 촬영, 편집 등을 수행한다.</jobSum><execJob>-시장조사, 관람대상설정, 상영시기결정, 예산기획 및 준비, 작품의 소재발굴, 자료조사, 제작인력 섭외 및 배치 등을 포함하는 기획안을 작성한다.
+-시나리오를 작성하고 문장으로 이루어진 시나리오를 구체적인 그림과 기호로 전체적인 설계도를 만드는 콘티를 만든다.
+-캐릭터를 설정하고 캐릭터의 형태, 질감, 성격, 행동방식, 부착물, 몸의 귀조를 디자인하기 위하여 물체를 삼차원의 수치정보로 바꾸어 입력시키는 모델링을 한다.
+-모델링된 선들을 빛과 시점을 포함한 다각형으로 만드는 렌더링을 한다.
+-렌더링된 물체표면에 색을 부여하고 금속,유리,나무 등 실재와 같은 질감을 입히는 맵핑작업을 한다.
+-모션 캡쳐를 하여 움직임을 주는 애니메이팅을 한다.
+-배경 및 특수효과를 첨가하여 입체감을 살리기도 한다.
+-촬영이 끝난 필름을 시나리오와 콘티에 맞춰 일관된 이야기가 되도록 이어붙이는 작업(편집)을 하고 새보정을 한다.
+-성우의 목소리를 더빙하고 음악 및 음향효과를 추가한다.
+-감독(연출가)은 작품기획 및 제작 스케줄 관리, 스탭모집에서부터 작품제작 전반을 총책임지는 사람으로 여러 작화맨들을 지휘하고 콘티에 따라 작품을 완성한다.</execJob><relJobList><jobCd>K000000851</jobCd><jobNm>지휘자</jobNm></relJobList><relJobList><jobCd>K000001007</jobCd><jobNm>사진작가 및 사진사</jobNm></relJobList><relJobList><jobCd>K000001089</jobCd><jobNm>가수</jobNm></relJobList><relJobList><jobCd>K000001110</jobCd><jobNm>국악인</jobNm></relJobList><relJobList><jobCd>K000001181</jobCd><jobNm>연주가</jobNm></relJobList><relJobList><jobCd>K000007479</jobCd><jobNm>안무가</jobNm></relJobList><relJobList><jobCd>K000007505</jobCd><jobNm>성악가</jobNm></relJobList><relJobList><jobCd>K000007511</jobCd><jobNm>대중무용수</jobNm></relJobList><relJobList><jobCd>K000007518</jobCd><jobNm>만화가</jobNm></relJobList><relJobList><jobCd>K000007546</jobCd><jobNm>무용가</jobNm></relJobList><relJobList><jobCd>K000007551</jobCd><jobNm>화가</jobNm></relJobList><relJobList><jobCd>K000007571</jobCd><jobNm>조각가</jobNm></relJobList><relJobList><jobCd>K000007583</jobCd><jobNm>작곡가</jobNm></relJobList></jobsDo>

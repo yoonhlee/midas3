@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001010</jobCd><jobLrclNm>경영·사무·금융·보험직</jobLrclNm><jobMdclNm>무역·운송·생산·품질 사무원</jobMdclNm><jobSmclNm>도로운송사무원</jobSmclNm><jobSum>도로운송 사업체에서 여객차나  화물차의 노선계획과  운행시간 설정, 차량 배차와 운전사 배치 및 화물의 적재, 하역작업 등 운영상의 서비스와 관련된 계획을 수립하거나 자료를 작성한다.</jobSum><execJob>-도로운송 사업체에서 여객차나  화물차의 노선계획과  운행시간을 설정한다.
+-차량 배차와 운전사 배치 및 화물의 적재, 하역작업 등 운영상의 서비스와 관련된 계획을 수립하거나 자료를 작성한다.
+-운전원의 승무순서, 승무시간 및 승무차량을 확인하여 기록한다.
+-비상사태 발생시 운전기사 대체를 위하여 계획표를 조정한다.
+-교통상황, 노선상황 및 도로상태를 파악하여 배차간격 및 운행시간을 조정하기도 한다.
+-화물의 종류와 규모, 운송지역을 확인하여 화물의 규모에 맞는 차량을 점검한다.
+-운행거리 및 시간 등을 확인하여 운송비용을 계산하고 관련서류를 정리하여 운전기사에게 발급한다.</execJob><relJobList><jobCd>K000000843</jobCd><jobNm>자재·구매사무원</jobNm></relJobList><relJobList><jobCd>K000000855</jobCd><jobNm>물류사무원</jobNm></relJobList><relJobList><jobCd>K000000918</jobCd><jobNm>무역사무원</jobNm></relJobList><relJobList><jobCd>K000000929</jobCd><jobNm>수상운송사무원</jobNm></relJobList><relJobList><jobCd>K000001001</jobCd><jobNm>생산관리사무원</jobNm></relJobList><relJobList><jobCd>K000001002</jobCd><jobNm>항공운송사무원</jobNm></relJobList><relJobList><jobCd>K000001022</jobCd><jobNm>품질관리사무원</jobNm></relJobList><relJobList><jobCd>K000001155</jobCd><jobNm>철도·지하철운송사무원</jobNm></relJobList></jobsDo>

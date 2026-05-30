@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007455</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>택배원 및 기타 운송 종사자</jobMdclNm><jobSmclNm>집배원</jobSmclNm><jobSum>우체국의 관할구역에 설치되어 있는 우체통에서 우편물을 수집하고, 관할 구역에 송달할 우편물을 표기주소지에 배달한다.</jobSum><execJob>-우체국 관할구역 내에 설치되어 있는 우체통에 투함된 우편물을 지정된 시간에 수집하여 우체국 발착실에 인계한다.&#xd;
+-관할구역 내에 배달될 우편물을 담당구역별 및 배달순서별로 구분·파속하고 특수통상우편물(등기, 속달, 소포 등)은 따로 구별하여 집배포에 투입한다.&#xd;
+-지정된 순서에 따라 자전거 또는 오토바이로 우편물을 표기주소지에 배달하며 특수통상우편물과 경조환·전신환·전신우편대체 등은 배달 증에 수령자의 수령인을 날인 받는다.&#xd;
+-주소불명, 수취인불명 및 기타 배달불능 우편물은 부전사유를 기재하여 사고우편물 처리원에게 인계한다.</execJob><relJobList><jobCd>K000000884</jobCd><jobNm>선박갑판원</jobNm></relJobList><relJobList><jobCd>K000000954</jobCd><jobNm>하역·적재종사원</jobNm></relJobList><relJobList><jobCd>K000007469</jobCd><jobNm>선박기관사</jobNm></relJobList><relJobList><jobCd>K000007557</jobCd><jobNm>택배원</jobNm></relJobList></jobsDo>

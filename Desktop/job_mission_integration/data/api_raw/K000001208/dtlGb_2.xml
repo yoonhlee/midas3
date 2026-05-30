@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001208</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건설구조 기능원</jobMdclNm><jobSmclNm>조적원</jobSmclNm><jobSum>건축물의 내·외벽, 기둥, 담장과 같은 수직구조물을 구축하기 위하여 벽돌, 콘크리트 블록 등을 쌓는다.</jobSum><execJob>-설계도면과 시방서를 검토하여 건물의 규모, 모양 등을 파악한다.
+-시공에 필요한 조적용 공구, 장비 및 재료를 준비한다.
+-조적위치를 측정, 표시하고 규준틀을 설치한다.
+-시공 바닥면을 모르타르나 기타 재료로 수평을 맞춘다.
+-시멘트, 모래, 물을 일정 배합비로 혼합하여 모르타르를 준비한 후 벽돌이나 블록을 설계도면에 맞게 쌓는다.
+-조적면의 균열방지를 위하여 일정 간격으로 매쉬 등 고정철물을 묻어 쌓는다.
+-버팀대, 연결대 등을 써서 위치를 정확히 유지하고, 창문 등 개구부 상부에 인방을 설치한 후 벽돌을 쌓는다.
+-물, 빛, 소음 등이 차단되도록 벽돌사이 공간을 보강한다.
+-작업완료 후 시공의 결함 유무를 확인한다.
+
+</execJob><relJobList><jobCd>K000000897</jobCd><jobNm>철골공(강구조물건립원)</jobNm></relJobList><relJobList><jobCd>K000001046</jobCd><jobNm>전통건축기능원</jobNm></relJobList><relJobList><jobCd>K000001117</jobCd><jobNm>건축목공</jobNm></relJobList><relJobList><jobCd>K000007467</jobCd><jobNm>콘크리트공</jobNm></relJobList><relJobList><jobCd>K000007475</jobCd><jobNm>건축석공</jobNm></relJobList><relJobList><jobCd>K000007488</jobCd><jobNm>경량철골공</jobNm></relJobList><relJobList><jobCd>K000007533</jobCd><jobNm>철근공</jobNm></relJobList></jobsDo>

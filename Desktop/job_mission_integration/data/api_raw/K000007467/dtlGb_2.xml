@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007467</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건설구조 기능원</jobMdclNm><jobSmclNm>콘크리트공</jobSmclNm><jobSum>건축·토목 등의 콘크리트 공사 시 콘크리트 차량을 유도하고, 콘크리트를 포설하여 평탄하게 다지고 마무리한다.</jobSum><execJob>-콘크리트반장의 지시에 따라 작업공정을 파악하고 콘크리트를 포설할 거푸집과 철근을 점검한다.
+-콘크리트를 포설 위치에 타설하기 위해 레미콘차량, 펌프카 등을 유도한다.
+-철판 위에 시멘트,모래,자갈을 일정비율로 배합하여 섞고, 물을 부어넣고 콘크리트 혼합물을 손차나 리어카를 이용하여 작업현장으로 운반한다.
+-콘크리트를 거푸집이나 포설위치에 포설하고, 콘크리트가 평탄하도록 고른다.
+-포설된 콘크리트의 기공을 없애기 위해 진동기나 다짐기를 이용하여 평탄하게 다지고 철근 및 거푸집 구석까지 채워졌는지 확인한다.
+-산업시설, 주택, 농장, 아파트경계에 콘크리트를 사용하여 울타리를 설치하기도 한다.</execJob><relJobList><jobCd>K000000897</jobCd><jobNm>철골공(강구조물건립원)</jobNm></relJobList><relJobList><jobCd>K000001046</jobCd><jobNm>전통건축기능원</jobNm></relJobList><relJobList><jobCd>K000001117</jobCd><jobNm>건축목공</jobNm></relJobList><relJobList><jobCd>K000001208</jobCd><jobNm>조적원</jobNm></relJobList><relJobList><jobCd>K000007475</jobCd><jobNm>건축석공</jobNm></relJobList><relJobList><jobCd>K000007488</jobCd><jobNm>경량철골공</jobNm></relJobList><relJobList><jobCd>K000007533</jobCd><jobNm>철근공</jobNm></relJobList></jobsDo>

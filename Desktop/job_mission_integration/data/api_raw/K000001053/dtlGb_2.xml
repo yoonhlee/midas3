@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001053</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건축마감 기능원</jobMdclNm><jobSmclNm>타일·대리석시공원</jobSmclNm><jobSum>건축구조물 내외부의 방음, 방수, 장식 등을 목적으로 대리석, 점토 등으로 만든 타일을 부착하거나 보수한다.</jobSum><execJob>-시공면을 점검하여 요철, 굴곡이 없게 하고 기름, 페인트, 왁스, 먼지 등접착에 유해한 이물질을 제거한다.
+-타일을 부착할 면적을 자로 측정하여 부착할 타일의 양과 형태를 결정한다.
+-타일 접착면에 접착제를 도포하고 타일을 눌러 부착시키며, 빠른 시간 내에 고정한다.
+-줄눈재를 타일과 타일 사이에 밀어 넣어 봉합한다.
+-줄눈시공 중 또는 후 빗물침투로 인한 백화현상(건물의 벽면이 하얗게 굳는 현상)을 예방하기 위하여 방수시트를 부착하기도 한다.
+-물수건, 스폰지 등을 사용하여 타일 표면을 닦아낸다.
+-카펫시공의 경우 카펫 부착시 특수압착기로 접합부분을 눌러 표시가 나지 않게 하며, 카펫의 중류에 따라 들뜬 곳이 없도록 핸드롤러로 부착한 카펫 타일을 눌러준다.
+-카펫 시공 후 무거운 물건을 이동시킬 경우에는 보양재를 덮어 카펫을 보호한다.</execJob><relJobList><jobCd>K000000923</jobCd><jobNm>단열공</jobNm></relJobList><relJobList><jobCd>K000000932</jobCd><jobNm>유리부착원</jobNm></relJobList><relJobList><jobCd>K000001034</jobCd><jobNm>섀시조립·설치원</jobNm></relJobList><relJobList><jobCd>K000001038</jobCd><jobNm>방수공</jobNm></relJobList><relJobList><jobCd>K000001102</jobCd><jobNm>미장공</jobNm></relJobList><relJobList><jobCd>K000001188</jobCd><jobNm>도배공</jobNm></relJobList><relJobList><jobCd>K000007480</jobCd><jobNm>건물도장공</jobNm></relJobList></jobsDo>

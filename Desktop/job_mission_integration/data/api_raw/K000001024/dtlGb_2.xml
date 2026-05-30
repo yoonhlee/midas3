@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001024</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>식품 가공 기계 조작원</jobMdclNm><jobSmclNm>제분·도정기계조작원</jobSmclNm><jobSum>인간 또는 동물소비용 곡물, 양념 및 관련 식료품을 분쇄·마쇄·혼합 등의 방법으로 가공하는 기계를 조작한다.</jobSum><execJob>-분쇄할 곡물의 종류와 건조상태에 따라 제분기의 롤러의 간격이나 날의 방향을 조절한다.
+-제분기의 호퍼(hopper : 곡물 등을 아래로 떨어뜨리기 위한 깔대기 모양의 장치)에 곡물을 투입하고, 제분기를 가동하여 곡물을 분쇄한다. -제분된 곡물의 견본을 채취하여 입자 크기를 측정한다.
+-작업이 완료되면 원료의 투입량을 기록하고 분쇄된 입자의 굵기, 품질, 중량 등을 작업일지에 기록한다.
+-도정할 곡물의 견본을 채취하여 수분 함량, 곡물의 크기 등을 확인한다.
+-정미기의 도정도(搗精度: 쌀에서 겨가 깎여나간 정도)를 맞추기 위하여 분동추의 마찰압력을 조절한다.
+-곡물의 이물질을 제거하고 기계설비를 점검한 후 기계를 가동한다.
+-도정이 완료된 곡물의 견본을 채취하여 도정도를 확인하고, 저장탱크로 운반하기 위하여 버킷컨베이어(bucket conveyor)를 가동한다.
+-작업이 완료되면 기계의 각 부위에 기름을 치고 파손되거나 낡은 기계부품을 수리한다.</execJob><relJobList><jobCd>K000000905</jobCd><jobNm>음료제조기계조작원</jobNm></relJobList><relJobList><jobCd>K000001016</jobCd><jobNm>곡물가공제품기계조작원</jobNm></relJobList><relJobList><jobCd>K000001045</jobCd><jobNm>과실·채소기계조작원</jobNm></relJobList><relJobList><jobCd>K000001166</jobCd><jobNm>육류·어패류·낙농품가공기계조작원</jobNm></relJobList></jobsDo>

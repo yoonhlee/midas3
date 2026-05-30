@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007492</jobCd><jobLrclNm>보건·의료직</jobLrclNm><jobMdclNm>보건·의료 종사자</jobMdclNm><jobSmclNm>보건의료정보관리사</jobSmclNm><jobSum>보건 의료기관 이용자의 건강 및 질병에 관련된 자료를 수집, 분석, 관리한다.</jobSum><execJob>-환자들의 기본정보 및 의무기록 자료를 수집한다.
+-의무기록의 충실성과 완결성을 분석한 후 미비기록체크리스트를 작성하여 관리한다.
+-질병분류번호, 사인분류번호, 의료행위 분류번호, DRG분류번호 등을 부여한다.
+-초진기록지를 생성한다.
+-새로운 의무기록서식을 개발한다.
+-의무기록지를 정리하여 보관한다.
+-진료기록지를 전사한다.
+-수집된 정보를 컴퓨터 데이터베이스에 정리한다.
+-의학연구정보, 경영지원정보, 병원평가정보 등을 생성, 분석, 제공한다.
+-의료 정보자료를 분석하여 통계자료를 만든다.
+-의료기록 대출 등 의무기록 이용에 대해 지원한다.
+-의무기록정보보호를 위한 의료진 서명관리 접근권한관리, 의무기록복사·열람·정보요구에 대한 권한관리를 한다.
+-전자의무기록 개발, 의료자료보관체계 등 의료정보체계 구축에 참여한다.</execJob><relJobList><jobCd>K000007461</jobCd><jobNm>응급구조사</jobNm></relJobList><relJobList><jobCd>K000007509</jobCd><jobNm>안경사</jobNm></relJobList><relJobList><jobCd>K000007547</jobCd><jobNm>안마사</jobNm></relJobList><relJobList><jobCd>K000007576</jobCd><jobNm>간호조무사</jobNm></relJobList></jobsDo>

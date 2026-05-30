@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007557</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>택배원 및 기타 운송 종사자</jobMdclNm><jobSmclNm>택배원</jobSmclNm><jobSum>차량을 이용하여 고객이 주문·구매한 상품을 고객이 원하는 장소로 운반한다.</jobSum><execJob>-물류관련 사무원으로부터 배송물의 목록, 품목, 수량, 장소, 시간 등이 기록된 출고장, 배송장을 수령한다.
+-물품을 출고하고 배송장에 기재된 바코드를 스캔하여 출고 내역을 전산시스템에 입력한다.
+-물품을 차량에 싣고 담당지역을 순회하며 배송지로 이동한다.
+-배송지에 도착한 후 수취인을 확인하고 물품을 전달한다.
+-물품에 부착된 배송장의 바코드를 스캔하여 전산시스템에 배송 완료 내역을 입력한다.
+-차량 사고, 배달 지연, 품목 오류, 수취인 불명 및 부재중, 물품파손 등 이상이 발생하면 관련 규정에 따라 조치한다.</execJob><relJobList><jobCd>K000000884</jobCd><jobNm>선박갑판원</jobNm></relJobList><relJobList><jobCd>K000000954</jobCd><jobNm>하역·적재종사원</jobNm></relJobList><relJobList><jobCd>K000007455</jobCd><jobNm>집배원</jobNm></relJobList><relJobList><jobCd>K000007469</jobCd><jobNm>선박기관사</jobNm></relJobList></jobsDo>

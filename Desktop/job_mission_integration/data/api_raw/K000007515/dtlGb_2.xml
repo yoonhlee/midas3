@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007515</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>항공기·선박·철도 조종사 및 관제사</jobMdclNm><jobSmclNm>철도교통관제사</jobSmclNm><jobSum>열차의 안전 운행을 위해 종합사령실에서 운행상황을 모니터링하여 열차의 운행을 감시 및 통제한다.</jobSum><execJob>-철도 및 지하철 종합사령실의 감시탁, 감시모니터 및 대형표시반을 통하여 열차의 운행상황을 파악한다.
+-신호기 및 전철기의 동작상태를 확인한다.
+-유무선 설비를 이용해 열차기관사에게 운행을 지시하여 열차의 운행간격을 조정한다.
+-비상상황 발생시 처리방안을 마련하여 열차기관사에게 업무연락 및 조치를 취한다.
+-열차종합운행제어장치(TTC:Total Traffic Control, 전구간의 열차운행 상황 및 자동진로설정기능, 열차번호이동기능 등을 수행하는 신호관제시스템)를 취급하고, 주전산기의 제어정보 출력을 확인한다.
+-데이터를 조작하고, 출력되는 데이터를 기록·관리한다.
+-열차의 이상 유무, 차량상태, 입출고 상태 등을 확인한다.
+-사고 및 지연열차에 대한 회복운전을 지시한다.
+-임시열차운행 및 선로 내 작업을 통제한다. </execJob><relJobList><jobCd>K000000921</jobCd><jobNm>선박교통관제사</jobNm></relJobList><relJobList><jobCd>K000000941</jobCd><jobNm>철도·전동차기관사</jobNm></relJobList><relJobList><jobCd>K000000974</jobCd><jobNm>선장 및 항해사</jobNm></relJobList><relJobList><jobCd>K000001086</jobCd><jobNm>헬리콥터조종사</jobNm></relJobList><relJobList><jobCd>K000001137</jobCd><jobNm>신호원 및 수송원</jobNm></relJobList><relJobList><jobCd>K000007489</jobCd><jobNm>항공교통관제사</jobNm></relJobList><relJobList><jobCd>K000007552</jobCd><jobNm>항공기조종사</jobNm></relJobList></jobsDo>

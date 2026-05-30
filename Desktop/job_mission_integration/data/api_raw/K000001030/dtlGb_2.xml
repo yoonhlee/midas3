@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001030</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>운송장비 정비원</jobMdclNm><jobSmclNm>철도기관차·전동차정비원</jobSmclNm><jobSum>철도차량의 각 부분을 정기 및 비정기적으로 점검하여 이상 유무를 확인하고, 부품을 교환하고 정비한다.</jobSum><execJob>-검사를 위한 차량이 입환되면 차체를 분리한다.
+-각종 볼트, 너트 이완 여부 및 균열 여부를 점검하고, 윤축(축에 바퀴를 고정하여 바퀴와 축을 동시에 회전시키는 장치)의 각종 부품을 교환하거나 수리한다.
+-바퀴의 상태, 차체 내의 공기배관설비, 출입문, 차내 시설, 냉방장치등을 분해·점검하고, 이상이 있는 부품을 교체하거나 수리한다.
+-전기기관차 및 전동차의 경우 전자장치 및 PCB(운전속도나 제동과관련한 전자회로) 등을 검사하여 불량상태를 파악한다.
+-공기압축기, ATS(발전기 열차자동정지장치), 전자기판을 전압조정기, 오실로스코프 등을 이용하여 검사한다.
+-전자식속도기록계를 분석한다.
+-회전기를 분해하여 정비한다.
+-객차, 화차를 전문적으로 정비·수리하기도 한다.</execJob><relJobList><jobCd>K000000822</jobCd><jobNm>항공기정비원</jobNm></relJobList><relJobList><jobCd>K000000914</jobCd><jobNm>헬리콥터정비원</jobNm></relJobList><relJobList><jobCd>K000000976</jobCd><jobNm>선박정비원</jobNm></relJobList><relJobList><jobCd>K000001070</jobCd><jobNm>자동차정비원</jobNm></relJobList><relJobList><jobCd>K000001214</jobCd><jobNm>자전거판매 및 정비원</jobNm></relJobList><relJobList><jobCd>K000001217</jobCd><jobNm>오토바이정비원</jobNm></relJobList></jobsDo>

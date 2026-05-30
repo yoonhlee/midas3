@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001176</jobCd><jobLrclNm>연구직 및 공학 기술직</jobLrclNm><jobMdclNm>소프트웨어 개발자</jobMdclNm><jobSmclNm>응용소프트웨어개발자</jobSmclNm><jobSum>각종 응용분야의 컴퓨터 소프트웨어를 설계하고 개발한다.</jobSum><execJob>-응용소프트웨어의 개발 범위와 목표를 설정한다.&#xd;
+-소프트웨어를 개발·완성시키기 위한 전체적인 개발 계획과 자원 조달 계획을 편성한다.&#xd;
+-응용시스템에 대한 정보보호의 방법과 계획을 설정한다.&#xd;
+-소프트웨어의 세부적인 기능 및 사양에 관한 상세 설계를 한다.&#xd;
+-상세 설계에 따라서 단위 프로그램을 개발하고, 개발된 여러 프로그램들을 모아서 응용시스템으로 결합시킨다.&#xd;
+-해당 컴퓨터시스템에 개발된 프로그램을 설치하고 기능 및 성능을 종합적으로 평가·분석한다.&#xd;
+-패키지성의 개발 소프트웨어에 대해서는 체계적인 버전관리를 한다.&#xd;
+-테스트를 통해 버그를 수정한다.&#xd;
+-응용소프트웨어에 대한 사용자의 운영 교육과 기술을 지원한다.</execJob><relJobList><jobCd>K000000853</jobCd><jobNm>시스템소프트웨어개발자</jobNm></relJobList><relJobList><jobCd>K000001042</jobCd><jobNm>모바일앱개발자</jobNm></relJobList><relJobList><jobCd>K000001106</jobCd><jobNm>웹개발자</jobNm></relJobList><relJobList><jobCd>K000001153</jobCd><jobNm>IT테스터 및 IT QA전문가</jobNm></relJobList><relJobList><jobCd>K000001172</jobCd><jobNm>웹기획자</jobNm></relJobList><relJobList><jobCd>K000007452</jobCd><jobNm>가상현실전문가</jobNm></relJobList><relJobList><jobCd>K000007580</jobCd><jobNm>게임프로그래머</jobNm></relJobList></jobsDo>

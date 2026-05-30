@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001150</jobCd><jobLrclNm>미용·여행·숙박·음식·경비·청소직</jobLrclNm><jobMdclNm>경호·보안 종사자</jobMdclNm><jobSmclNm>시설·특수경비원</jobSmclNm><jobSum>보안관제원의 지시에 따라 현장에 출동하여 이상의 원인을 확인·처리하고 상황을 정상화한다.</jobSum><execJob>-보안감지기기의 경보(도둑의 침입, 화재, 가스누출, 보안기기의 사용미숙, 자체고장 신호 등)을 받은 보안관제원의 대처지시에 따라 현장에 출동한다.
+-보안이상 상황을 파악하고 사고확대방지, 재발방지, 원상복구 등의 조치를 취한다.
+-보안경보를 해제하고 조치 결과를 관제실에 보고한다.
+-보안대상의 내·외부를 점검하여 안전을 확인하고 도난, 화재 등에 의한 피해를 예방한다.
+-관할지역을 정기적으로 순찰하고, 보안감지기기의 작동상태를 점검하여 이상 유무를 기록한다.
+-설치된 보안감지기기의 작동 및 운영방법을 고객에게 설명하기도 한다.</execJob><relJobList><jobCd>K000001212</jobCd><jobNm>청원경찰</jobNm></relJobList><relJobList><jobCd>K000007549</jobCd><jobNm>경호원</jobNm></relJobList></jobsDo>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001209</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>식품 가공 기능원</jobMdclNm><jobSmclNm>정육원 및 도축원</jobSmclNm><jobSum>가축을 도살·도축하고, 세척·절단·손질 및 가공 처리하여 관련 식품을 제조하며, 건조·염장 등의 보존처리를 한다.</jobSum><execJob>-[가축해체원] 모노레일(monorail)이나 컨베이어(conveyer)에 거꾸로 걸려있는 가축의 머리, 다리, 항문 및 엉덩이, 앞가슴을 절단하고 가죽을 벗기며, 복부를 절개하여 내장을 적출한다.
+-[가축세척원] 도축된 가축의 오염부위를 찾아 분리제거하고, 겉과 안에 부착되어 있는 혈액과 오염물을 씻어낸다.
+-[골발작업원] 육가공품을 제조하거나 포장육으로 판매하기 위하여 돼지의 식용 또는 소시육을 부위별로 해체한다.
+-[육류포장원] 골발 및 정선공정을 마친 정선육을 사양에 따라 진공 포장 또는 비닐 포장을 하고 냉동실로 운반한다.
+-[가금육가공원] 부위별로 가공된 가금육(닭, 오리 등)에 튀김가루를 입혀 기름에 튀기거나 훈제하는 업무를 수행한다.
+
+ </execJob><relJobList><jobCd>K000000841</jobCd><jobNm>김치·밑반찬 제조종사원</jobNm></relJobList><relJobList><jobCd>K000001105</jobCd><jobNm>식품·담배등급원</jobNm></relJobList></jobsDo>

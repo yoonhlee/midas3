@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001134</jobCd><jobLrclNm>연구직 및 공학 기술직</jobLrclNm><jobMdclNm>데이터·네트워크 및 시스템 운영 전문가</jobMdclNm><jobSmclNm>데이터베이스운영·관리자</jobSmclNm><jobSum>데이터베이스를 관리하고 성능향상을 추진한다.</jobSum><execJob>-데이터베이스의 사용자를 등록 관리하고 모니터링을 실시한다.&#xd;
+-데이터베이스의 자료에 대한 백업 및 복구절차를 마련하고 백업 주기에 따른 데이터의 백업을 실시한다.&#xd;
+-데이터베이스의 보안 정책을 수립하고, 이에 따른 보안 관리를 준수해 나간다.&#xd;
+-데이터베이스의 성능을 모니터링하고, 성능 향상을 위한 시스템 튜닝을 실시하여 최대 성능을 유지시켜 나간다.&#xd;
+-데이터베이스 시스템의 고장 및 사용상의 문제가 발생 되었을 시, 신속히 원인을 파악하여 이를 최단 복구시킨다.&#xd;
+-데이터베이스 시스템의 기술적, 환경적 변화의 추세에 따른 지속적인 시스템의 업그레이드를 계획하고 이를 추진한다.</execJob><relJobList><jobCd>K000000968</jobCd><jobNm>네트워크시스템개발자</jobNm></relJobList><relJobList><jobCd>K000000978</jobCd><jobNm>IT기술지원전문가</jobNm></relJobList><relJobList><jobCd>K000001061</jobCd><jobNm>웹운영자</jobNm></relJobList><relJobList><jobCd>K000001080</jobCd><jobNm>데이터분석가(빅데이터분석가)</jobNm></relJobList><relJobList><jobCd>K000001132</jobCd><jobNm>정보시스템운영자</jobNm></relJobList><relJobList><jobCd>K000007499</jobCd><jobNm>네트워크관리자</jobNm></relJobList></jobsDo>

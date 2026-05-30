@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001164</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>자동차 운전원</jobMdclNm><jobSmclNm>화물차·특수차운전원</jobSmclNm><jobSum>각종 화물을 수송하기 위하여 트럭을 운전하거나 특수한 목적의 운송차량을 운전한다.</jobSum><execJob>-화물의 종류, 수량 및 행선지 등이 기록된 운송기록장을 확인하고 화물을 적재할 장소까지 화물차를 운전한다.
+-화물의 적재높이, 무게 등을 고려하여 차량을 행선지까지 운전한다.
+-화물의 파손상태 및 수량을 확인하여 하역하고, 운송기록장을 인계한다.
+-화물 적재 및 하역을 돕기도 한다.
+-사고나 고장차량 및 주차위반 차량을 견인한다.
+-가스나 유류를 운반하기 위하여 탱크의 밀폐상태 및 압력을 점검한다.</execJob><relJobList><jobCd>K000007465</jobCd><jobNm>택시운전원</jobNm></relJobList><relJobList><jobCd>K000007468</jobCd><jobNm>버스운전원</jobNm></relJobList></jobsDo>

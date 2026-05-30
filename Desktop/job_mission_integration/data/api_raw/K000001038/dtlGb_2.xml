@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001038</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건축마감 기능원</jobMdclNm><jobSmclNm>방수공</jobSmclNm><jobSum>건축구조물의 바닥, 지붕, 벽체 등에 물이 스며드는 것을 방지하기 위하여 모르타르, 아스팔트 등의 방수재를 바르거나 도포한다.</jobSum><execJob>-망치, 정, 연삭기 등을 이용하여 방수시공면의 요철을 다듬는다.
+-방수시공면에 생긴 공극을 모르타르나 방수콤파운드로 메운다.
+-방수액과 시멘트를 희석하여 만든 방수시멘트풀을 시공면에 바르고 보호모르타르를 두껍게 입힌다.
+-아스팔트 접착제를 방수시공면에 바른 후 녹인 아스팔트콤파운드를 도포한다.
+-루핑을 깔고 보호용 시멘트모르타르를 타설한다.
+-롤러를 이용해 시공면에 프라이머로를 칠하고, 합성수지 시트(sheet)를 붙인 후 시트가 겹친부분을 토치램프로 녹여 접착시킨다.
+-시공면에 우레탄 또는 에폭시 액상을 롤러나 붓으로 곱게 바르고 보호용 시멘트몰타르를 바른다.</execJob><relJobList><jobCd>K000000923</jobCd><jobNm>단열공</jobNm></relJobList><relJobList><jobCd>K000000932</jobCd><jobNm>유리부착원</jobNm></relJobList><relJobList><jobCd>K000001034</jobCd><jobNm>섀시조립·설치원</jobNm></relJobList><relJobList><jobCd>K000001053</jobCd><jobNm>타일·대리석시공원</jobNm></relJobList><relJobList><jobCd>K000001102</jobCd><jobNm>미장공</jobNm></relJobList><relJobList><jobCd>K000001188</jobCd><jobNm>도배공</jobNm></relJobList><relJobList><jobCd>K000007480</jobCd><jobNm>건물도장공</jobNm></relJobList></jobsDo>

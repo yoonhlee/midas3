@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007468</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>자동차 운전원</jobMdclNm><jobSmclNm>버스운전원</jobSmclNm><jobSum>노선버스(시내버스, 시외버스, 고속버스, 좌석버스 마을버스 등), 관광버스를 운전하거나 학교, 기업체 등의 비영업용 버스를 운전한다.</jobSum><execJob>-배차계획에 따라 차량을 배차받고, 운행전 일상점검표에 의거하여 연료, 타이어, 냉각수 및 차량의 각 부분을 점검한다.
+-운행시간과 노선, 또는 수송 운행표에 따라 또는 목적지까지 버스를 운전한다.
+-출입문을 여닫고 정차신호벨에 따라 정해진 정류장 또는 목적지에 정차하여 승객 또는 물건을 싣고 내린다.
+-운행이 종료되면 차량을 입고하고, 수입금을 납입하며 출발시간, 도착시간, 주행, 거리, 연료소모량, 고장, 장애 등에 대한 운행일지를 작성한다.
+-차량의 청결을 유지하고, 교통법규를 준수한다.</execJob><relJobList><jobCd>K000001164</jobCd><jobNm>화물차·특수차운전원</jobNm></relJobList><relJobList><jobCd>K000007465</jobCd><jobNm>택시운전원</jobNm></relJobList></jobsDo>

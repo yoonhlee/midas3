@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001105</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>식품 가공 기능원</jobMdclNm><jobSmclNm>식품·담배등급원</jobSmclNm><jobSum>원료와 최종 생산품이 표준에 맞는지를 검사하고 등급을 매긴다.</jobSum><execJob>-[냉동육등급분류원] 냉각(chiling)처리된 가금육(닭고기 등)을 중량별로 선별하여 규격별, 등급별로 포장한다.
+-[육류등급판정원] 도축된 지육상태의 소, 돼지, 닭, 오리 등을 일정한 기준에 따라서 검사한 후 등급을 판정한다.
+-[잎담배품질관리원] 잎담배를 제조하는 과정에서 수분 함량, 이물질 여부, 니코틴 함량 등을 검사하여 등급을 분류하고, 완제품을 수거하여 중량, 맛, 향, 니코틴·타르 함유량 등을 검사하여 제품표준과 비교한다.
+-[주류품질관리원] 맥주·소주·막걸리 등의 원료 및 제품의 품질관리를 위하여 샘플을 채취하고, PH미터 등 각종 분석기기 등을 사용하여 성분함량검사, 원료품질검사, 미생물검사 등을 실시·분석하고 품질규격과 비교한다.</execJob><relJobList><jobCd>K000000841</jobCd><jobNm>김치·밑반찬 제조종사원</jobNm></relJobList><relJobList><jobCd>K000001209</jobCd><jobNm>정육원 및 도축원</jobNm></relJobList></jobsDo>

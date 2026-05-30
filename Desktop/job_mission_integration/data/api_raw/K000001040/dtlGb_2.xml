@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001040</jobCd><jobLrclNm>경영·사무·금융·보험직</jobLrclNm><jobMdclNm>정부·공공 행정 사무원</jobMdclNm><jobSmclNm>관세행정사무원</jobSmclNm><jobSum>수출 및 수입통관, 환급 등 관련 서류를 작성하고 신청한다.</jobSum><execJob>-수출입 대상 품목을 분류하고 세액을 산출한다.
+-수출 및 수입통관 관련 문서를 검토하고 신고한다.
+-환급요건을 확인하고 신청서류를 작성하여 신청한다.
+-통관검사에 입회한다.
+-수출입에 관련된 세금을 납부하고 수출입신고 필증을 통보한다.</execJob><relJobList><jobCd>K000000995</jobCd><jobNm>일반행정공무원</jobNm></relJobList><relJobList><jobCd>K000001201</jobCd><jobNm>법원공무원</jobNm></relJobList><relJobList><jobCd>K000007456</jobCd><jobNm>병무행정사무원</jobNm></relJobList><relJobList><jobCd>K000007516</jobCd><jobNm>조세행정사무원</jobNm></relJobList></jobsDo>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000914</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>운송장비 정비원</jobMdclNm><jobSmclNm>헬리콥터정비원</jobSmclNm><jobSum>헬리콥터의 운항 중에 발생할 수 있는 위험요인을 제거하기 위해 비행 전·후 및 정기적으로 기체, 엔진을 점검하여 수리정비·한다.</jobSum><execJob>-작업표준서를 보고 필요한 공구 및 시험기를 준비한다.
+-헬리콥터 이륙전, 착륙후 규정된 명세표에 의거 기내·외부, 엔진, 주요 계통의 작동을 점검한다.
+-운항 일정 주기별로 설정된 정기점검 카드를 수령하고, 관련 내용에 의거 헬리콥터를 점검한다.
+-오일 및 공압류의 유출 등 이상이 없는지 확인하고 이상 발견 시 원인을 찾고 수리한다.
+-부품을 점검하고 교환주기를 확인하여 사용 수명이 완료된 부품을 교체한다.</execJob><relJobList><jobCd>K000000822</jobCd><jobNm>항공기정비원</jobNm></relJobList><relJobList><jobCd>K000000976</jobCd><jobNm>선박정비원</jobNm></relJobList><relJobList><jobCd>K000001030</jobCd><jobNm>철도기관차·전동차정비원</jobNm></relJobList><relJobList><jobCd>K000001070</jobCd><jobNm>자동차정비원</jobNm></relJobList><relJobList><jobCd>K000001214</jobCd><jobNm>자전거판매 및 정비원</jobNm></relJobList><relJobList><jobCd>K000001217</jobCd><jobNm>오토바이정비원</jobNm></relJobList></jobsDo>

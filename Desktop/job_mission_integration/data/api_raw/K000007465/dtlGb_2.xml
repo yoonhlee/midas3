@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007465</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>자동차 운전원</jobMdclNm><jobSmclNm>택시운전원</jobSmclNm><jobSum>승객을 목적지까지 신속하고 안전하게 운송하기 위하여 택시를 운전한다.</jobSum><execJob>-운행전에 일상점검표에 따라 차량을 점검하고, 고장이 발견되면 정비책임자 또는 정비공장에 수리를 의뢰한다.
+-승객의 목적지를 확인하고 도로사정에 따라 가장 빠른 지름길을 선택하여 목적지까지 운송하고 요금을 받는다.
+-운행이 종료되면 차량을 차고에 입고한다.
+-수입금을 납입하며 출발시간, 도착시간, 주행거리, 연료소모량, 고장, 장애 등에 대한 운행일지를 작성한다.
+-차량의 청결을 유지하고 청소를 한다.</execJob><relJobList><jobCd>K000001164</jobCd><jobNm>화물차·특수차운전원</jobNm></relJobList><relJobList><jobCd>K000007468</jobCd><jobNm>버스운전원</jobNm></relJobList></jobsDo>

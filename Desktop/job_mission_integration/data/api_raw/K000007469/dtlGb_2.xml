@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007469</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>택배원 및 기타 운송 종사자</jobMdclNm><jobSmclNm>선박기관사</jobSmclNm><jobSum>선박의 엔진, 보일러, 갑판의 기계장치 및 전기장치 등을 조작·정비한다.</jobSum><execJob>-시동전 각종 계기류의 작동상황에 따라 회전속도의 변동, 이상진동, 이상음의 발생, 온도, 배기색의 변동, 윤활유의 소비량 등을 점검한다.
+-선박기관장의 지시에 따라 선박을 가동하기 위하여 시동을 걸고 엔진상태를 조절한다.
+-기간의 주유상태, 보일러의 수압·증기압 등의 상태를 확인한다.
+-선박의 기계설비를 검사하고 결함이 있는 부품을 교체한다.
+-기계의 청소, 급유, 검사 또는 수리작업시 기계의 운전을 정지하거나 동력원에서 작동부분을 차단한다.
+-항해중에 소모되는 연료의 양을 기록한다.</execJob><relJobList><jobCd>K000000884</jobCd><jobNm>선박갑판원</jobNm></relJobList><relJobList><jobCd>K000000954</jobCd><jobNm>하역·적재종사원</jobNm></relJobList><relJobList><jobCd>K000007455</jobCd><jobNm>집배원</jobNm></relJobList><relJobList><jobCd>K000007557</jobCd><jobNm>택배원</jobNm></relJobList></jobsDo>

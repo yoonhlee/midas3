@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000932</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건축마감 기능원</jobMdclNm><jobSmclNm>유리부착원</jobSmclNm><jobSum>건축구조물의 내벽 또는 외벽의 창문이나 문, 그외 진열장 및 기타 틀에 유리를 부착한다.</jobSum><execJob>-유리면에 부착된 종이, 기름, 먼지 등을 제거하고, 마른헝겊으로 유리홈을 청소한다.
+-도면의 규격에 맞추어 유리면에 표시하고 유리칼이나 유리절단기를 사용하여 절단한다.
+-중량이 큰 유리를 운발할 때에는 압축기 등을 사용하여 미끄러지지 않도록 한다.
+-유리의 파손 방지를 위하여 세팅블록 및 단부 스페이서(edge spacer)를 설치한다.
+-유리를 끼운 뒤 유리와 틀 사이에 백업(back-up)제를 삽입하여 유리의 유동을 방지한다.
+-유리 끼우기 완료 후, 파손 및 흠이 생기지 않도록 널, 종이 등 보양재로 보호하며, 일정 시한 후 보양재를 제거하고 유리면을 닦아준다.
+-교회나 기념관 등에 특수목적으로 유리를 설치하는 경우 스테인드글라스로 디자인하여 설치하기도 한다.</execJob><relJobList><jobCd>K000000923</jobCd><jobNm>단열공</jobNm></relJobList><relJobList><jobCd>K000001034</jobCd><jobNm>섀시조립·설치원</jobNm></relJobList><relJobList><jobCd>K000001038</jobCd><jobNm>방수공</jobNm></relJobList><relJobList><jobCd>K000001053</jobCd><jobNm>타일·대리석시공원</jobNm></relJobList><relJobList><jobCd>K000001102</jobCd><jobNm>미장공</jobNm></relJobList><relJobList><jobCd>K000001188</jobCd><jobNm>도배공</jobNm></relJobList><relJobList><jobCd>K000007480</jobCd><jobNm>건물도장공</jobNm></relJobList></jobsDo>

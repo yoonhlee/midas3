@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007488</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건설구조 기능원</jobMdclNm><jobSmclNm>경량철골공</jobSmclNm><jobSum>경량철골을 사용하여 건물내부에 천장틀이나 경량벽체틀을 설치하고 합판, 무늬판, 석고보드 등을 시공하여 천정이나 경량벽체를 설치한다.</jobSum><execJob>-콘크리트 타설 전에 매립한 천장틀 앵커인서트(anchor insert)에 천장으로부터 일정 간격 떨어져서 격자로 달대(반자틀을 위에서 달아 매는 세로 재)를 설치한다.
+-절단기를 사용하여 경량철골을 치수에 맞도록 절단한다.
+-아연 도금된 M형 금속막대(M-bar)를 찬넬크립으로 견고하게 고정시켜 천장틀을 시공한다.
+-석고보드를 M형 금속막대의 중심이 되게 붙이고, 이음새가 M형 금속막대의 중심에 오게 한다.
+-석고보드는 M형 금속막대에 수평을 맞추고, 나사못의 머리는 보드표면보다 약간 들어가게 부착한다.
+-설치된 천장틀에 합판, 무늬목, 석고보드를 올려 설치하고 못, 나사로 고정시킨다.
+-환기통, 전기기구를 설치하기 위해 간단한 용접을 하기도 한다.</execJob><relJobList><jobCd>K000000897</jobCd><jobNm>철골공(강구조물건립원)</jobNm></relJobList><relJobList><jobCd>K000001046</jobCd><jobNm>전통건축기능원</jobNm></relJobList><relJobList><jobCd>K000001117</jobCd><jobNm>건축목공</jobNm></relJobList><relJobList><jobCd>K000001208</jobCd><jobNm>조적원</jobNm></relJobList><relJobList><jobCd>K000007467</jobCd><jobNm>콘크리트공</jobNm></relJobList><relJobList><jobCd>K000007475</jobCd><jobNm>건축석공</jobNm></relJobList><relJobList><jobCd>K000007533</jobCd><jobNm>철근공</jobNm></relJobList></jobsDo>

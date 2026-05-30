@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000858</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>운송장비 조립원</jobMdclNm><jobSmclNm>자동차부품조립·검사원</jobSmclNm><jobSum>엔진, 도어, 타이어 등 자동차의 각 구성품을 조립한다.</jobSum><execJob>-조립품의 종류에 따라 각종 공구 및 장비, 조립부품, 소모품을 준비한다.
+-차량생산계획에 의해 순서대로 조립라인에 투입되는 차체에 수동 및 동력공구를 사용하여 엔진, 도어, 타이어 등 각종 부품을 조립한다.
+-조립 과정에서 전 부품을 검사하여 부품의 이상 여부를 확인하고 조치한다.
+-타이어 공기압을 확인하고 공기를 주입한다.
+-자동화된 공정라인에서는 로봇을 제어·조작하여 부분품을 조립한다.
+-최종 생산품을 검사하고 시험하여 작업이 정확하고 품질기준에 적합한가 확인한다.</execJob><relJobList><jobCd>K000000909</jobCd><jobNm>선박조립원</jobNm></relJobList><relJobList><jobCd>K000007548</jobCd><jobNm>자동차조립원</jobNm></relJobList></jobsDo>

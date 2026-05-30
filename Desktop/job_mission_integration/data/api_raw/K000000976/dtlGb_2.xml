@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000976</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>운송장비 정비원</jobMdclNm><jobSmclNm>선박정비원</jobSmclNm><jobSum>증기, 휘발유, 디젤 및 기타 형태의 선박기관의 고장을 수리하고 부품을 교체하여 정비한다.</jobSum><execJob>-정비할 선박의 제원, 설계도, 정비이력카드, 검사 관련 규정 등을 파악한다.
+-정비 범위, 요구 품질, 공사기간 등을 반영하여 정비계획서를 작성한다.
+-정비에 필요한 자재목록을 작성해 발주하고, 입고되면 검사 후 운반,보관한다.
+-시험·측정기구를 사용하여 선박의 각 부분을 진단·검사하여 고장의 위치, 범위, 정도와 잠재적 불량상태 등을 확인한다.
+-고장 부위를 분해하고 수리 또는 교체의 필요성을 판단하기 위하여 명세서와 비교·검사하고 작동상태를 평가한다.
+-고장나거나 사용 한계치를 초과한 부품을 교체한다.
+-연료, 오일 및 기타 보급품을 채운다.
+-부품의 교체설치 또는 수리한 부분의 작동상태를 검사하여 확인한다.
+-관련 규정 및 법규에 따라 검사결과를 기록한다.
+-완공사양서, 정비이력서를 작성하고 정비품을 인도한다.</execJob><relJobList><jobCd>K000000822</jobCd><jobNm>항공기정비원</jobNm></relJobList><relJobList><jobCd>K000000914</jobCd><jobNm>헬리콥터정비원</jobNm></relJobList><relJobList><jobCd>K000001030</jobCd><jobNm>철도기관차·전동차정비원</jobNm></relJobList><relJobList><jobCd>K000001070</jobCd><jobNm>자동차정비원</jobNm></relJobList><relJobList><jobCd>K000001214</jobCd><jobNm>자전거판매 및 정비원</jobNm></relJobList><relJobList><jobCd>K000001217</jobCd><jobNm>오토바이정비원</jobNm></relJobList></jobsDo>

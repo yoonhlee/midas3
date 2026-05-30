@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001039</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>방송·통신장비 설치·정비원</jobMdclNm><jobSmclNm>통신장비설치·수리원</jobSmclNm><jobSum>전신, 전화장비, 구내 통신선로 및 보조기기를 설치하거나 전화국 간 중계선로의 연결 상태를 점검 및 유지보수한다.</jobSum><execJob>-통신장비의 설치접수증을 확인하여 설치할 장소와 통신장비의 종류를 확인한다.
+-통신배선도면을 검토하여 주배선반(MDF, Main Distribution Frame)에서부터 중간배선반(IDF, intermediate distributing frame)으로 통신선로를 연결하거나, 구내단자로 직접 연결한다.
+-전화기, 인터넷모뎀 등의 통신장비의 설치가 완료되면 선로시험원에게 연락하여 선로의 장애 유무를 확인한다.
+-전류계, 저항계 등 각종 측정장비를 사용하여 구내의 통신선로를 점검하기도 하며 파손된 장비를 수리하기도 한다.
+-통신장비의 설치 또는 보수의뢰를 확인하고 장소와 통신장비의 종류를 확인한다.
+-설계도면을 참고하여 통신선로를 분리·연결한다.
+-수동공구나 전기인두를 사용하여 전화기나 팩시밀리 등에 연결한다.
+-선로테스트를 통해 선로의 장애 유무를 확인한다.
+-테스터기를 이용하여 각종 통신선로를 점검하고 파손된 장비를 수리한다.
+-파손된 선로가 확인될 시 케이블의 파손 상태 및 수리 가능 여부를 확인하고 선로고장을 보수한다.</execJob><relJobList><jobCd>K000000958</jobCd><jobNm>방송장비설치·수리원</jobNm></relJobList><relJobList><jobCd>K000001075</jobCd><jobNm>방송·통신·인터넷케이블 설치·수리원</jobNm></relJobList></jobsDo>

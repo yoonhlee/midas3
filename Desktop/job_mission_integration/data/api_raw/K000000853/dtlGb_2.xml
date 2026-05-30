@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000853</jobCd><jobLrclNm>연구직 및 공학 기술직</jobLrclNm><jobMdclNm>소프트웨어 개발자</jobMdclNm><jobSmclNm>시스템소프트웨어개발자</jobSmclNm><jobSum>컴퓨터시스템의 동작, 제어 및 관리와 관련된 시스템소프트웨어를 개발한다.</jobSum><execJob>-유닉스(Unix), 리눅스(Linux), 윈도우(windows) 등과 같은 컴퓨터시스템의 운영체계를 설계하고 개발한다.
+-FORTRAN, C, C++, JAVA 등과 같은 컴퓨터 프로그램 언어의 컴파일러(compiler : 고급언어로 쓰인 프로그램을 그와 의미적으로 동등하며 컴퓨터에서 즉시 실행될 수 있는 형태의 목적 프로그램으로 바꾸어 주는 번역 프로그램)를 설계하고 개발한다.
+-응용소프트웨어를 개발하기 위한 델파이(Delphi), 파워빌더(PowerBuilder) 등과 같은 개발용 도구를 설계하고 개발한다.
+-네트워크시스템에서 운영되는 네트워크 프로토콜 처리에 관련된 소프트웨어를 설계하고 개발한다.
+-정보보호에 필요한 방화벽, 인증, 인가 관련 소프트웨어를 설계하고 개발한다.
+-각종 산업용 제어시스템에서 운영되는 산업 설비의 제어, 모니터링 및 관리용 유틸리티 소프트웨어를 설계하고 개발한다.
+-컴퓨터시스템의 각종 주변 장치의 제어 및 인터페이스에 관련된 소프트웨어를 설계하고 개발한다.
+-컴퓨터시스템에서 운용되는 각종 유틸리티 소프트웨어를 설계하고 개발한다.
+-운영체계를 해당 컴퓨터 하드웨어 시스템에 이식(Potting)시키고 기능과 성능을 종합적으로 평가한다.
+-개발된 시스템소프트웨어에 대한 단계별 과정을 기록하고, 사용자의 교육과 기술 자문에 응한다.
+-지속적으로 컴퓨터의 하드웨어 및 소프트웨어에 대한 새로운 기술을 연구한다.</execJob><relJobList><jobCd>K000001042</jobCd><jobNm>모바일앱개발자</jobNm></relJobList><relJobList><jobCd>K000001106</jobCd><jobNm>웹개발자</jobNm></relJobList><relJobList><jobCd>K000001153</jobCd><jobNm>IT테스터 및 IT QA전문가</jobNm></relJobList><relJobList><jobCd>K000001172</jobCd><jobNm>웹기획자</jobNm></relJobList><relJobList><jobCd>K000001176</jobCd><jobNm>응용소프트웨어개발자</jobNm></relJobList><relJobList><jobCd>K000007452</jobCd><jobNm>가상현실전문가</jobNm></relJobList><relJobList><jobCd>K000007580</jobCd><jobNm>게임프로그래머</jobNm></relJobList></jobsDo>

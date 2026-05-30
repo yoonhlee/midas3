@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007475</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건설구조 기능원</jobMdclNm><jobSmclNm>건축석공</jobSmclNm><jobSum>건축물의 미관과 견고성을 제고하기 위하여 화강암·대리석 등 건축용 석재를 재단·절단·가공하여 일정한 형태로 쌓거나 설치한다.</jobSum><execJob>-가공된 돌을 지정된 위치, 번호, 크기, 형태, 색상에 따라 선별한다.
+-공법에 맞추어 시공면에 모르타르를 바르거나 제작된 앵글을 조립한다.
+-손 또는 인양장비를 이용하여 가공 석재를 들어올려 모르타르면 위에 붙이거나 앵글에 고정시킨다.
+-석재 표면을 망치로 두들겨 고르게 한다.
+-흙손을 사용하여 돌의 연결 부분에 모르타르나 치장용재를 채운다.
+-수평기·측연추 등을 사용하여 석재의 정위치 상태와 무늬·형태를 점검한다.
+-시공에 편리하도록 수공구나 전동공구를 사용하여 석재를 재단·절단·가공하기도 한다.</execJob><relJobList><jobCd>K000000897</jobCd><jobNm>철골공(강구조물건립원)</jobNm></relJobList><relJobList><jobCd>K000001046</jobCd><jobNm>전통건축기능원</jobNm></relJobList><relJobList><jobCd>K000001117</jobCd><jobNm>건축목공</jobNm></relJobList><relJobList><jobCd>K000001208</jobCd><jobNm>조적원</jobNm></relJobList><relJobList><jobCd>K000007467</jobCd><jobNm>콘크리트공</jobNm></relJobList><relJobList><jobCd>K000007488</jobCd><jobNm>경량철골공</jobNm></relJobList><relJobList><jobCd>K000007533</jobCd><jobNm>철근공</jobNm></relJobList></jobsDo>

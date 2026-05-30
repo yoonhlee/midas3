@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001046</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건설구조 기능원</jobMdclNm><jobSmclNm>전통건축기능원</jobSmclNm><jobSum>한식건물을 전통적인 기법으로 신축 또는 보수하는 업무를 수행한다.</jobSum><execJob>[도편수]
+-공사와 인력을 관리·감독하는 총책임자. 통상적으로 대목수중에서 많이 배출되고 있으며, 전통한식 건조물의 신축 또는 보수 시 설계도를 해독하고 한식 목공을 총괄·지휘한다.
+-개인적으로 계약을 맺고 필요한 인력을 모집하여 일을 하기도 한다.
+[소목장]
+-전통한식기법으로 한옥, 사원, 궁궐 등의 전통창호와 가구를 제작하는 소목을 지휘한다.
+[목조각공]
+-목조불상, 한식건축물의 장식물인 포부재, 화반, 대공 등의 조각을 담당하여 새김질을 한다.
+[대목수]
+-도편수의 지휘아래 전통한식 기법으로 목재마름질 등 목조건조물의 나무를 치목하여 깎고 다듬어서 기물이나 건물을 짜는 일을 한다.
+[소목수]
+-나무를 치목해 깎고 다듬어서 한옥, 사원, 궁궐 등의 전통창호와 가구를 제작한다.
+[드잡이공]
+-내려앉거나 기울어진 목조건조물, 석조건조물을 바로잡는 일을 한다.
+[한식와공]
+-전통한식 건조물의 지붕을 전통적인 기법대로 기와를 잇거나 보수한다.
+[석조각공]
+-석조불상, 기단우석, 석탑 등 석조건조물의 조각을 담당한다.
+[화공(화원)]
+-타분, 채색 및 색긋기, 먹긋기, 가칠을 비롯해 안료배합 등 고유단청을 시공한다.
+[한식미장공]
+-미장바름재(진흙, 회삼물, 강회 등)를 사용하여 한식벽체, 양벽, 온돌, 외역기 등을 전통기법대로 시공한다.</execJob><relJobList><jobCd>K000000897</jobCd><jobNm>철골공(강구조물건립원)</jobNm></relJobList><relJobList><jobCd>K000001117</jobCd><jobNm>건축목공</jobNm></relJobList><relJobList><jobCd>K000001208</jobCd><jobNm>조적원</jobNm></relJobList><relJobList><jobCd>K000007467</jobCd><jobNm>콘크리트공</jobNm></relJobList><relJobList><jobCd>K000007475</jobCd><jobNm>건축석공</jobNm></relJobList><relJobList><jobCd>K000007488</jobCd><jobNm>경량철골공</jobNm></relJobList><relJobList><jobCd>K000007533</jobCd><jobNm>철근공</jobNm></relJobList></jobsDo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007552</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>항공기·선박·철도 조종사 및 관제사</jobMdclNm><jobSmclNm>항공기조종사</jobSmclNm><jobSum>여객 및 화물을 목적지까지 운송하기 위하여 항공기를 조종한다.</jobSum><execJob>-비행스케줄에 따라 항로, 목적지, 승객 수, 연료량, 기상조건 등이 적혀진 비행관계서류를 수령한다.
+-비행노선 및 도착공항 정보가 있는 비디오를 시청한다.
+-비행관계 서류를 검토하고 운항 시 주의사항, 사전에 확인해야 할 항목을 점검한다.
+-비행일지, 항공기 상태, 연료의 탑재량, 조종실 시스템 등을 점검한다.
+-비행시간, 비행조건, 난기류 지역 및 시간 등의 비행 일정 및 계획에 대하여 항공기객실승무원과 의논한다.
+-승객탑승 완료 후 탑승인원을 확인하고 항로, 항공기 하중 등 각종 비행 자료를 컴퓨터에 입력한다.
+-이륙 허가를 받기 위해 목적지, 항로 및 소속 항공사 등을 관제탑에 보고한다.
+-활주로에 진입 후 이륙하고, 이륙 후 관제탑에 보고한다.
+-기상도 및 기상레이더를 비교 확인하고 고도계 등을 점검하며 자동조종장치를 조정한다.
+-착륙안내방송 및 승무원에게 착륙 준비를 지시한다.
+-착륙공항의 기상상태, 접근절차, 비행장시설, 주기장 활주경로 등을 브리핑한 후 착륙허가를 받고 착륙한다.
+-항공기 비행시간, 비행구간별 연료소모량, 항로, 풍속 등을 운항일지에 기록한다.
+-비행 중에 발생한 각종 설비고장 및 이상현상에 대해 보고한다.
+-새로운 항공기 기종에 대하여 적응 훈련을 받고 기술을 습득한다.</execJob><relJobList><jobCd>K000000921</jobCd><jobNm>선박교통관제사</jobNm></relJobList><relJobList><jobCd>K000000941</jobCd><jobNm>철도·전동차기관사</jobNm></relJobList><relJobList><jobCd>K000000974</jobCd><jobNm>선장 및 항해사</jobNm></relJobList><relJobList><jobCd>K000001086</jobCd><jobNm>헬리콥터조종사</jobNm></relJobList><relJobList><jobCd>K000001137</jobCd><jobNm>신호원 및 수송원</jobNm></relJobList><relJobList><jobCd>K000007489</jobCd><jobNm>항공교통관제사</jobNm></relJobList><relJobList><jobCd>K000007515</jobCd><jobNm>철도교통관제사</jobNm></relJobList></jobsDo>

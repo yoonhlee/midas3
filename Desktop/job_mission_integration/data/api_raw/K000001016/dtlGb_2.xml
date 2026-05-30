@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001016</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>식품 가공 기계 조작원</jobMdclNm><jobSmclNm>곡물가공제품기계조작원</jobSmclNm><jobSum>밀가루, 코코아 및 기타 성분으로부터 라면, 과자, 국수, 빵, 초콜릿 등의 제품을 제조하는 기기를 조작한다.</jobSum><execJob>-작업표준에 따라 배합원료와 배합비를 확인한 후 원료(밀가루, 소금, 물, 포도당, 효모, 계란분 등)를 운반한다.
+-혼합기의 호퍼(hopper)에 준비된 원료를 일정 비율로 투입한다.
+-교반기를 가동하여 원료를 균일하게 혼합한다.
+-혼합이 완료되면 견본을 채취하여 색, 반죽 정도 등을 검사하고, 제품표준과 비교한 후 이후 공정(성형공정, 발효공정 등)으로 이송한다.
+-제조하려는 라면의 종류에 따라 롤러를 교체하고, 면발 규격에 맞추기 위해 롤러의 간격을 조절한다.
+-이전 공정(배합공정)에서 배합된 라면 반죽을 롤러를 이용해 얇게 눌러펴서 면대(sheet)를 만든다.
+-면대를 제면기를 이용하여 국수 모양(국수발)으로 만들면서, 컨베이어 벨트의 속도를 조절해 라면 특유의 꼬불꼬불한 면발 형태를 만든다.
+-라면의 웨이브(꼬부라진 정도, wave)가 적당한지 제품 표준과 비교한다.</execJob><relJobList><jobCd>K000000905</jobCd><jobNm>음료제조기계조작원</jobNm></relJobList><relJobList><jobCd>K000001024</jobCd><jobNm>제분·도정기계조작원</jobNm></relJobList><relJobList><jobCd>K000001045</jobCd><jobNm>과실·채소기계조작원</jobNm></relJobList><relJobList><jobCd>K000001166</jobCd><jobNm>육류·어패류·낙농품가공기계조작원</jobNm></relJobList></jobsDo>

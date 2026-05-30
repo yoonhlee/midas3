@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000938</jobCd><jobLrclNm>연구직 및 공학 기술직</jobLrclNm><jobMdclNm>에너지·환경공학 기술자 및 시험원</jobMdclNm><jobSmclNm>대기환경기술자 및 연구원</jobSmclNm><jobSum>환경오염원을 분석하여 환경상태를 평가하고 각종 기준을 세우며 관련 기술을 개발하는 등 대기오염 문제를 예방하고 대기환경을 개선하는 것과 관련된 분야를 연구·개발한다.</jobSum><execJob>-사업장 대기오염물질 총량관리 업무를 대행하고, 대기총량관리 및 굴뚝원격감시체계 사업장에 대한 기술지원을 한다.
+-대기총량관리 및 굴뚝자동측정관제센터 운영 관련 정책지원을 한다.
+-대기총량관리시스템, 굴뚝원격감시체계 관제센터를 설치·운영한다.
+-배출허용총량관리를 위한 전산장비를 도입·설치 및 유지관리하고, 측정자료 수집 및 배출량 산정 프로그램 개발 및 유지관리한다.
+-배출 허용 기준을 초과한 사업장의 부과금 산정자료를 제공한다.
+-도로 재비산먼지 이동측정시스템을 구축·운영한다.
+-측정기로부터 사업장 굴뚝에서 배출되는 오염물질(먼지, CO, NOx, SO₂, HCI, HF, NH₃), 보정자료(온도, 유량, 산소 등)를 수집한다.
+-측정값을 평균자료로 생성하여 저장한다.
+-유선, 무선 및 인터넷 통신 등을 통해 측정된 자료를 실시간으로 관제센터로 전송하고, 각 사업장의 자체관리시스템으로 전송해 사업장의 배출 및 방지시설 개선 등에 활용한다.
+-배출 허용 기준을 초과할 우려가 있거나 초과 시 각 사업장과 지방자치단체에 유·무선통신을 통하여 자동으로 송신한다.
+-자료수집기의 미송신 자료를 전송받고, 원격제어를 통하여 측정기기에 표준가스를 주입함으로써 측정기의 정상 작동 여부를 확인하여 측정자료의 신뢰성을 확보한다.</execJob><relJobList><jobCd>K000000863</jobCd><jobNm>원자력공학기술자</jobNm></relJobList><relJobList><jobCd>K000000887</jobCd><jobNm>수질환경기술자 및 연구원</jobNm></relJobList><relJobList><jobCd>K000000920</jobCd><jobNm>토양환경기술자 및 연구원</jobNm></relJobList><relJobList><jobCd>K000001026</jobCd><jobNm>소음진동기술자 및 연구원</jobNm></relJobList><relJobList><jobCd>K000001036</jobCd><jobNm>가스·에너지시험원 및 진단전문가</jobNm></relJobList><relJobList><jobCd>K000001064</jobCd><jobNm>보건위생·환경검사원</jobNm></relJobList><relJobList><jobCd>K000001084</jobCd><jobNm>태양광발전연구 및 개발자</jobNm></relJobList><relJobList><jobCd>K000001097</jobCd><jobNm>환경시험원</jobNm></relJobList><relJobList><jobCd>K000001159</jobCd><jobNm>풍력발전연구 및 개발자</jobNm></relJobList><relJobList><jobCd>K000007554</jobCd><jobNm>폐기물처리기술자</jobNm></relJobList><relJobList><jobCd>K000007582</jobCd><jobNm>환경영향평가원</jobNm></relJobList></jobsDo>

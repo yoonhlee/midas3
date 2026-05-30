@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001132</jobCd><jobLrclNm>연구직 및 공학 기술직</jobLrclNm><jobMdclNm>데이터·네트워크 및 시스템 운영 전문가</jobMdclNm><jobSmclNm>정보시스템운영자</jobSmclNm><jobSum>정보 시스템을 안정적으로 관리·운영하고, 시스템의 성능을 최적의 상태로 유지하기 위한 제반 업무를 수행한다.</jobSum><execJob>-정보시스템의 관리와 운영에 대한 지침서를 작성한다.
+-컴퓨터시스템의 구성요소에 대한 유지, 보수 등 관리방안을 마련한다.
+-전산실의 온도, 습도 분진 등을 체크하여 적정 수준을 유지시켜 시스템장비를 보호한다.
+-정보시스템의 사용자를 등록, 관리하고 이들에 대하여 시스템 접근을 관리한다.
+-정보시스템의 자원을 보호하기 위한 관리적·기술적 보안 조치를 마련하고, 이를 관리·통제한다.
+-정보시스템의 안정적인 운영을 위하여 수시로 시스템의 성능 및 기능을 점검하고, 문제를 해결한다.
+-시스템에서 운영되고 있는 실제 데이터를 정기적으로 백업한다.
+-시스템 운영상의 문제점 및 고장이 발생되었을 경우 원인을 파악하여 시스템을 최단 시간 내에 복구한다.
+-정보시스템의 관리 현황을 문서로 기록·관리한다.
+-시스템 성능 향상 시 종합적으로 시스템의 기능 및 성능을 평가한다.
+-사용자의 불편 및 요구 사항을 수시로 점검하고, 개선책을 마련한다.
+-사용자의 기술 관련 문의에 응대하고, 시스템 사용 교육을 실시한다. -정보시스템의 가동 및 정지의 권한을 갖고 필요시 시스템을 가동 및 정지시킨다.
+-하드웨어 및 소프트웨어에 대한 정보기술의 발전 동향과 추세를 분석하여 향후 시스템의 성능 향상 시 반영한다.</execJob><relJobList><jobCd>K000000968</jobCd><jobNm>네트워크시스템개발자</jobNm></relJobList><relJobList><jobCd>K000000978</jobCd><jobNm>IT기술지원전문가</jobNm></relJobList><relJobList><jobCd>K000001061</jobCd><jobNm>웹운영자</jobNm></relJobList><relJobList><jobCd>K000001080</jobCd><jobNm>데이터분석가(빅데이터분석가)</jobNm></relJobList><relJobList><jobCd>K000001134</jobCd><jobNm>데이터베이스운영·관리자</jobNm></relJobList><relJobList><jobCd>K000007499</jobCd><jobNm>네트워크관리자</jobNm></relJobList></jobsDo>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001106</jobCd><jobLrclNm>연구직 및 공학 기술직</jobLrclNm><jobMdclNm>소프트웨어 개발자</jobMdclNm><jobSmclNm>웹개발자</jobSmclNm><jobSum>웹상에서 각종 자료들을 보여줄 수 있도록 웹 프로그래밍 언어를 이용하여 프로그램을 설계하고 작성한다.</jobSum><execJob>-웹상에 올릴 자료의 성격과 형태에 대한 요구를 파악하고 분석한다.
+-프로그래밍언어(Php, Asp, Java, Jsp 등)를 이용하여 프로그램을 코딩한다.
+-웹상에서 테스트한 후 문제점을 확인하고 수정한다.
+-기존에 개발된 프로그램을 유지 및 보수한다.
+-웹디자이너와 업무를 협의한다.</execJob><relJobList><jobCd>K000000853</jobCd><jobNm>시스템소프트웨어개발자</jobNm></relJobList><relJobList><jobCd>K000001042</jobCd><jobNm>모바일앱개발자</jobNm></relJobList><relJobList><jobCd>K000001153</jobCd><jobNm>IT테스터 및 IT QA전문가</jobNm></relJobList><relJobList><jobCd>K000001172</jobCd><jobNm>웹기획자</jobNm></relJobList><relJobList><jobCd>K000001176</jobCd><jobNm>응용소프트웨어개발자</jobNm></relJobList><relJobList><jobCd>K000007452</jobCd><jobNm>가상현실전문가</jobNm></relJobList><relJobList><jobCd>K000007580</jobCd><jobNm>게임프로그래머</jobNm></relJobList></jobsDo>

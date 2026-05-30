@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007489</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>항공기·선박·철도 조종사 및 관제사</jobMdclNm><jobSmclNm>항공교통관제사</jobSmclNm><jobSum>항공기의 운항을 통제하고 이·착륙 순서를 배정하여 안전한 이·착륙을 유도한다.</jobSum><execJob>-관제탑에서 항공기의 이륙 및 착륙신고서를 확인하고 활주로 및 공항 주변의 기상상태를 점검한다.
+-레이더스코프 및 교신장비를 이용하여 이륙 및 착륙하고자 하는 항공기조종사와 항공기의 목적지, 항공기 상태, 연료의 잔유량 등에 대해 교신한다.
+-해당 항공기의 이·착륙 활주로, 예정시간, 순서 등을 배정하여 유도하고 이·착륙을 허가한다.
+-접근관제소에서 운항중인 항공기의 위치와 고도 등을 확인하고 항로의 상태를 파악하여 고도의 상승 및 강하수준을 지시한다.
+-관련 기관과 협조하여 관제할 항공기의 정보를 수집한다.
+-비상상황 발생시 관련기관에 연락을 취하고 비상착륙방법 및 비상활주로에 대해 안내한다.</execJob><relJobList><jobCd>K000000921</jobCd><jobNm>선박교통관제사</jobNm></relJobList><relJobList><jobCd>K000000941</jobCd><jobNm>철도·전동차기관사</jobNm></relJobList><relJobList><jobCd>K000000974</jobCd><jobNm>선장 및 항해사</jobNm></relJobList><relJobList><jobCd>K000001086</jobCd><jobNm>헬리콥터조종사</jobNm></relJobList><relJobList><jobCd>K000001137</jobCd><jobNm>신호원 및 수송원</jobNm></relJobList><relJobList><jobCd>K000007515</jobCd><jobNm>철도교통관제사</jobNm></relJobList><relJobList><jobCd>K000007552</jobCd><jobNm>항공기조종사</jobNm></relJobList></jobsDo>

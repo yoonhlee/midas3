@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001107</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>기계장비 설치·정비원(운송장비 제외)</jobMdclNm><jobSmclNm>크레인 및 지게차설치 및 정비원</jobSmclNm><jobSum>전기·기계동력에 의하여 가동되는 다양한 종류의 호이스트를 건설현장, 공장, 창고 등에 설치하고, 점검 및 수리한다. 지게차의 바퀴, 연결고리 등을 정비, 점검 및 수리하는 업무를 수행한다.</jobSum><execJob>-크레인을 설치하고 점검 및 수리한다.&#xd;
+-호이스트를 설치하고 점검 및 수리한다.&#xd;
+-지게차를 점검 및 정비한다.&#xd;
+-작업반경, 하중지지력, 인양능력 등을 고려하여 크레인 및 호이스트의 설치위치를 파악한다.&#xd;
+-시운전을 통해 크레인, 호이스트 및 지게차의 이상 유무를 점검하고, 부품교체, 조정 및 수리, 정비가 필요한 부분을 파악한다.</execJob><relJobList><jobCd>K000000885</jobCd><jobNm>승강기설치·정비원</jobNm></relJobList><relJobList><jobCd>K000000886</jobCd><jobNm>냉동·냉장·공조기설치·정비원</jobNm></relJobList><relJobList><jobCd>K000001023</jobCd><jobNm>공업기계설치 및 정비원</jobNm></relJobList><relJobList><jobCd>K000001031</jobCd><jobNm>보일러설치·정비원</jobNm></relJobList><relJobList><jobCd>K000001043</jobCd><jobNm>농업용 및 기타기계장비설치 및 정비원</jobNm></relJobList><relJobList><jobCd>K000001211</jobCd><jobNm>건설·광업기계설치·정비원</jobNm></relJobList></jobsDo>

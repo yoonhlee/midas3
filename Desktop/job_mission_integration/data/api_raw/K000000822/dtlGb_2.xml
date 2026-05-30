@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000822</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>운송장비 정비원</jobMdclNm><jobSmclNm>항공기정비원</jobSmclNm><jobSum>항공기 운항 중에 발생할 수 있는 위험요인을 제거하기 위해 비행 전·후 주기적으로 항공기의 동력장치, 착륙장치, 조종장치, 기체, 유압 및 기압 시스템 등을 조립·조정·정비한다.</jobSum><execJob>-항공 일정 및 운항시간 등을 확인한다.
+-주기장에서 비행 전후의 항공기를 대상으로 검사장비를 이용하거나 육안으로 기체부분의 변형 및 파손, 부식상태 등을 점검한다.
+-고장 부위를 분해하고 수리 또는 교체의 필요성을 판단하기 위하여 명세서와 비교·검사하여 작동상태를 살핀다.
+-점검 카드 목록에 따라 전기, 보기 계통을 점검하고, 항공기에 장착되어 있는 기관의 작동상태를 정비한다.
+-부품을 점검하고 교환주기를 확인하여 사용 수명이 완료된 부품을 교체한다.
+-설치 또는 수리부분의 작동상태를 검사·확인한다.
+-연료, 오일 및 기타 보급품을 채운다.
+-오일 및 공압류의 유출 등 이상이 없는지 확인하고 이상 발견 시 원인을 찾고 수리한다.
+-신종 항공기 기술정보, 안전운항 규정 등의 교육을 이수한다.</execJob><relJobList><jobCd>K000000914</jobCd><jobNm>헬리콥터정비원</jobNm></relJobList><relJobList><jobCd>K000000976</jobCd><jobNm>선박정비원</jobNm></relJobList><relJobList><jobCd>K000001030</jobCd><jobNm>철도기관차·전동차정비원</jobNm></relJobList><relJobList><jobCd>K000001070</jobCd><jobNm>자동차정비원</jobNm></relJobList><relJobList><jobCd>K000001214</jobCd><jobNm>자전거판매 및 정비원</jobNm></relJobList><relJobList><jobCd>K000001217</jobCd><jobNm>오토바이정비원</jobNm></relJobList></jobsDo>

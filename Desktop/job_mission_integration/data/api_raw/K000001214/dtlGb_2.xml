@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001214</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>운송장비 정비원</jobMdclNm><jobSmclNm>자전거판매 및 정비원</jobSmclNm><jobSum>자전거를 판매하거나 정비하는 자를 말한다.</jobSum><execJob>-고객에 요구에 맞춰 자전거를 추천하고 판매한다.&#xd;
+-자전거 프레임, 휠, 타이어 등을 점검하여 고장난 부위를 파악한다. &#xd;
+-정비 공구를 사용하여 부품을 교체하거나 기존 부품을 수리한다. &#xd;
+-운전자의 체형에 맞게 안장, 핸들, 페달 등을 조절하고 여러 가지 액세서리를 장착한다.</execJob><relJobList><jobCd>K000000822</jobCd><jobNm>항공기정비원</jobNm></relJobList><relJobList><jobCd>K000000914</jobCd><jobNm>헬리콥터정비원</jobNm></relJobList><relJobList><jobCd>K000000976</jobCd><jobNm>선박정비원</jobNm></relJobList><relJobList><jobCd>K000001030</jobCd><jobNm>철도기관차·전동차정비원</jobNm></relJobList><relJobList><jobCd>K000001070</jobCd><jobNm>자동차정비원</jobNm></relJobList><relJobList><jobCd>K000001217</jobCd><jobNm>오토바이정비원</jobNm></relJobList></jobsDo>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001182</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>패턴사, 재단사 및 재봉사</jobMdclNm><jobSmclNm>패턴사</jobSmclNm><jobSum>의류의 디자인스케치를 보고 패턴제작법을 이용하여 패턴을 제작한다.</jobSum><execJob>-작업지시서의 디자인을 따르거나 제품별로 요척(옷을 만드는데 필요한 원단의 최소 야드 수)을 계산하여 패턴모형을 종이에 그린다.
+-컴퓨터 캐드를 이용해 패턴모형을 그리기도 한다.
+-원단 재질의 축소 여부를 확인하고 패턴제작에 반영한다.
+-가위나 칼로 패턴을 재단한다.
+-패턴모형에 치수와 모양 등의 내용을 명시한다.
+-체형이나 크기에 따라서 다른 규격의 패턴을 그리는 그레이딩(grading) 작업을 하기도 한다.
+-패턴모형과 시제품을 비교하여 패턴을 수정보완하고 의복재단사에게 넘긴다.
+-완성된 제품에 결점이 있는지를 검사한다.</execJob><relJobList><jobCd>K000000848</jobCd><jobNm>재봉사</jobNm></relJobList><relJobList><jobCd>K000001122</jobCd><jobNm>재단사</jobNm></relJobList></jobsDo>

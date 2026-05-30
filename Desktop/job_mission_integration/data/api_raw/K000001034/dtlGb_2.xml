@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001034</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건축마감 기능원</jobMdclNm><jobSmclNm>섀시조립·설치원</jobSmclNm><jobSum>알루미늄, 스테인리스, 철사 등 구조체에 알루미늄, 스테인리스 등의 재질로 된 문틀, 새시, 철망문 등을 설치한다.</jobSum><execJob>-새시를 설치할 공간의 크기를 잰다.
+-공간의 크기에 맞춰 각종 재료에 절단 표시를 하고 쇠톱, 동력톱, 파이프절단기계 등으로 자른다.
+-새시를 조립하기 위해 부속품에 구멍을 뚫고 동력렌치로 볼트를 조인다.
+-조립된 새시를 설치대에 놓고 볼팅·용접 등으로 고정·접합한다.
+-새시, 틀 및 문에 각종 장식물을 볼팅 및 용접하여 고정한다.
+-용접된 부위의 거친 면을 끌, 줄, 망치 등을 사용하여 다듬는다.
+-설치된 새시에 색상을 입히고, 녹을 방지하기 위해 페인트를 칠한다.</execJob><relJobList><jobCd>K000000923</jobCd><jobNm>단열공</jobNm></relJobList><relJobList><jobCd>K000000932</jobCd><jobNm>유리부착원</jobNm></relJobList><relJobList><jobCd>K000001038</jobCd><jobNm>방수공</jobNm></relJobList><relJobList><jobCd>K000001053</jobCd><jobNm>타일·대리석시공원</jobNm></relJobList><relJobList><jobCd>K000001102</jobCd><jobNm>미장공</jobNm></relJobList><relJobList><jobCd>K000001188</jobCd><jobNm>도배공</jobNm></relJobList><relJobList><jobCd>K000007480</jobCd><jobNm>건물도장공</jobNm></relJobList></jobsDo>

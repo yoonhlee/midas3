@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000941</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>항공기·선박·철도 조종사 및 관제사</jobMdclNm><jobSmclNm>철도·전동차기관사</jobSmclNm><jobSum>화물 및 승객을 수송하고, 객화차 및 기관차를 이동시키기 위해 디젤기관차, 전기기관차, 전동기관차를 운전한다.</jobSum><execJob>-운행스케줄을 확인하고 전달사항 및 운행 주의사항, 운전조건 등에 대하여 교번운용원에게 전달받아 운행일지에 기록한다.
+-운행할 열차의 주행장치, 제어장치, 열차연결상태 및 연료를 점검한다.
+-철도수송원이나 운용원, 여객전무나 열차차장 등과 신호를 교신하며 기관차를 운전한다.
+-운전 시 장애물 등을 확인하고, 열차의 진행방향 및 철로를 주시하며 조종장치를 조작한다.
+-열차승무원 및 운전사령실 및 철도운용원 등과 무선 및 신호를 이용해 열차의 도착 및 연착시간, 사고사항 등에 대한 정보를 주고받는다.
+-안전운행을 위하여 수신호, 철도규정, 운전명령서 등을 이해하고 적용한다.</execJob><relJobList><jobCd>K000000921</jobCd><jobNm>선박교통관제사</jobNm></relJobList><relJobList><jobCd>K000000974</jobCd><jobNm>선장 및 항해사</jobNm></relJobList><relJobList><jobCd>K000001086</jobCd><jobNm>헬리콥터조종사</jobNm></relJobList><relJobList><jobCd>K000001137</jobCd><jobNm>신호원 및 수송원</jobNm></relJobList><relJobList><jobCd>K000007489</jobCd><jobNm>항공교통관제사</jobNm></relJobList><relJobList><jobCd>K000007515</jobCd><jobNm>철도교통관제사</jobNm></relJobList><relJobList><jobCd>K000007552</jobCd><jobNm>항공기조종사</jobNm></relJobList></jobsDo>

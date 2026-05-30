@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001217</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>운송장비 정비원</jobMdclNm><jobSmclNm>오토바이정비원</jobSmclNm><jobSum>오토바이 제품별 특성을 파악하고, 엔진 및 동력전달장치, 바퀴, 브레이크 계통, 연료주입부 등을 정비·점검·수리한다.</jobSum><execJob>-수리를 의뢰한 오토바이의 시동 상태와 엔진 상태를 점검하여 정비사항을 점검한다.
+-상태에 따라 점화 플러그를 교체하거나 배터리, 등화장치, 체인 등을 정비하고 교체한다.
+-손상된 외부판넬 부분의 교체 또는 접합 작업을 한다.
+-브레이크 계통의 점검을 통해 패드 및 오일을 보충한다.
+-타이어의 흔들림과 마모도를 점검하여 정비 및 교체한다.
+-정비목록을 작성하고 견적을 산출하며 정비된 모터사이클을 소비자에게 인도한다.
+-소비자의 요구에 따라 개조작업을 하기도 한다.</execJob><relJobList><jobCd>K000000822</jobCd><jobNm>항공기정비원</jobNm></relJobList><relJobList><jobCd>K000000914</jobCd><jobNm>헬리콥터정비원</jobNm></relJobList><relJobList><jobCd>K000000976</jobCd><jobNm>선박정비원</jobNm></relJobList><relJobList><jobCd>K000001030</jobCd><jobNm>철도기관차·전동차정비원</jobNm></relJobList><relJobList><jobCd>K000001070</jobCd><jobNm>자동차정비원</jobNm></relJobList><relJobList><jobCd>K000001214</jobCd><jobNm>자전거판매 및 정비원</jobNm></relJobList></jobsDo>

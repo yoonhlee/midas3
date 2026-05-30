@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001070</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>운송장비 정비원</jobMdclNm><jobSmclNm>자동차정비원</jobSmclNm><jobSum>승용차나 버스, 트럭, 특장차(소방차, 제설차, 믹서 트럭, 탱크로리 등) 등의 차체, 엔진, 관련 부품 등을 조정·수리·교체하고, 안전성을 점검한다.</jobSum><execJob>-자동차의 동력전달장치, 조향장치(자동차의 진행 방향을 바꾸기 위한 장치), 현가장치(차량의 차대 등 프레임에 바퀴를 고정하는 완충장치), 브레이크 등의 제동장치, 타이어 등을 점검하고 교체·수리한다.
+-엔진의 연료장치, 윤활장치, 냉각 장치, 흡기 및 배기 장치 등을 점검하고 부품을 교체한다.
+-각종 전자 장비와 테스터기를 이용해 엔진의 고장 여부를 판단하고 수리.
+-각종 센서, 램프, 배선, 발전기나 전자제어시스템 등 자동차 전기·전자 장치의 이상 유무를 점검하고 수리한다.
+-수리수공기, 용접기, 유압기, 연삭기 등을 사용하여 휘어진 차체를 펴거나 용접하고 교환한다.
+-자동차 표면의 흠집을 없애기 위하여 페인트 및 분무기로 도색한다.
+-자동차를 해체나 시운전을 통해서 자동차의 운행이나 기타 성능상의 문제 등 고장 원인을 찾아낸다.
+-냉각수, 윤활유, 유압, 충전상태 등을 점검하고 낡고 고장 난 부품을 조정하거나 교체하는 등의 사전정비를 한다.
+-자동차의 안전도와 환경검사(배출가스 등)를 실시하고 자동차등록원부와 동일성 여부 등을 확인한다. </execJob><relJobList><jobCd>K000000822</jobCd><jobNm>항공기정비원</jobNm></relJobList><relJobList><jobCd>K000000914</jobCd><jobNm>헬리콥터정비원</jobNm></relJobList><relJobList><jobCd>K000000976</jobCd><jobNm>선박정비원</jobNm></relJobList><relJobList><jobCd>K000001030</jobCd><jobNm>철도기관차·전동차정비원</jobNm></relJobList><relJobList><jobCd>K000001214</jobCd><jobNm>자전거판매 및 정비원</jobNm></relJobList><relJobList><jobCd>K000001217</jobCd><jobNm>오토바이정비원</jobNm></relJobList></jobsDo>

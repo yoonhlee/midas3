@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001128</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>판매 종사자</jobMdclNm><jobSmclNm>상점판매원</jobSmclNm><jobSum>매장에서 고객에게 상품의 내용을 설명하고 다양한 모델 및 색상을 보여줌으로써 고객이 상품을 선택·구매하도록 유도하고 구매 한 상품의 가격을 계산하고 상품을 포장하는 등 상품을 판매하는데 관련된 업무를 수행한다.</jobSum><execJob>-고객을 응대하고 고객이 사거나 임대하려는 상품의 종류, 품질, 수량에 대해 의논한다.
+-제품의 사용법 및 보관요령에 대해 설명한다.
+-가격, 판매 조건, 배달일자 등을 협의한다.
+-고객이 구매한 물품의 가격을 계산하고 영수증을 발급한다.
+-상품에 가격표를 부착하고 진열대에 상품을 진열한다.
+-수시로 재고량을 조사하여 부족상품을 신속히 보충한다.</execJob><relJobList><jobCd>K000000827</jobCd><jobNm>노점 및 이동판매원</jobNm></relJobList><relJobList><jobCd>K000000874</jobCd><jobNm>주유원</jobNm></relJobList><relJobList><jobCd>K000001050</jobCd><jobNm>상품대여원</jobNm></relJobList><relJobList><jobCd>K000001109</jobCd><jobNm>통신기기·서비스판매원</jobNm></relJobList><relJobList><jobCd>K000001154</jobCd><jobNm>온라인판매원</jobNm></relJobList><relJobList><jobCd>K000007513</jobCd><jobNm>방문판매원</jobNm></relJobList></jobsDo>

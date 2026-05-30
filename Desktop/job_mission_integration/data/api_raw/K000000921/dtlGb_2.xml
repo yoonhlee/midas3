@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000000921</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>항공기·선박·철도 조종사 및 관제사</jobMdclNm><jobSmclNm>선박교통관제사</jobSmclNm><jobSum>지정된 수로 범위 내에서 근해와 내륙 해양교통을 모니터하고 통제한다.</jobSum><execJob>-레이더나 폐쇄회로모니터, 원격무전시스템 및 기타 통신장비를 이용하여 선박의 이동을 지휘하고 감시한다.
+-선박의 위치, 항로, 속도 및 추정도착시간과 통행지역을 통과하는 선박의 진행과정을 감시한다.
+-선박에게 출항인가를 내고 선박교통량, 기후조건에 대해 조언하며 선박교통관제소에 대한 정보를 전해준다.
+-관계자에게 사고, 조난 신호, 항해 위험 및 기타 비상사태에 대하여 보고한다.
+-인근 해양관제구역과 관할권 내의 선박들과 무전 및 전화연결을 유지한다.
+-항해일지에 선박이동, 크기 및 구조에 대하여 기록하고 보관한다. </execJob><relJobList><jobCd>K000000941</jobCd><jobNm>철도·전동차기관사</jobNm></relJobList><relJobList><jobCd>K000000974</jobCd><jobNm>선장 및 항해사</jobNm></relJobList><relJobList><jobCd>K000001086</jobCd><jobNm>헬리콥터조종사</jobNm></relJobList><relJobList><jobCd>K000001137</jobCd><jobNm>신호원 및 수송원</jobNm></relJobList><relJobList><jobCd>K000007489</jobCd><jobNm>항공교통관제사</jobNm></relJobList><relJobList><jobCd>K000007515</jobCd><jobNm>철도교통관제사</jobNm></relJobList><relJobList><jobCd>K000007552</jobCd><jobNm>항공기조종사</jobNm></relJobList></jobsDo>

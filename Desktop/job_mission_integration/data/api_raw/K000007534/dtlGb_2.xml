@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007534</jobCd><jobLrclNm>미용·여행·숙박·음식·경비·청소직</jobLrclNm><jobMdclNm>식당 서비스원</jobMdclNm><jobSmclNm>음식배달원</jobSmclNm><jobSum>고객이 주문한 음식을 약속한 장소까지 배달한다.</jobSum><execJob>-고객으로부터 음식배달을 주문받고, 배달장소를 확인한다.
+-배달할 음식과 수저 등을 준비한다.
+-자전거, 오토바이 등을 운전하여 배달장소로 배달한다.
+-고객에게 음식물을 전달하고 음식요금을 계산한다.
+-빈 그릇을 수거하거나 식당을 청소하기도 한다.</execJob><relJobList><jobCd>K000000913</jobCd><jobNm>홀서빙원</jobNm></relJobList><relJobList><jobCd>K000000982</jobCd><jobNm>패스트푸드준비원</jobNm></relJobList><relJobList><jobCd>K000001192</jobCd><jobNm>주방보조원</jobNm></relJobList></jobsDo>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001188</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건축마감 기능원</jobMdclNm><jobSmclNm>도배공</jobSmclNm><jobSum>종이, 천, 플라스틱재 재질의 도배지를 건축구조물의 천장, 벽, 바닥, 창호 등에 풀 또는 접착제를 사용하여 부착한다.</jobSum><execJob>-벽,천정 등의 넓이를 측정하여 도배에 필요한 도배지, 풀 등의 양을 산출한다.
+-바탕면을 충분히 건조시키고 못, 철선, 모르타르 찌꺼기 등을 제거한다.
+-갈라진 틈이나 구멍은 모르타르나 회반죽으로 메운다.
+-낡은 벽지가 붙어 있을 때는 물로 적신 스폰지를 이용해 제거한다.
+-단열모르타르, 판상단열재, 압착스티로폼 등 도배지가 잘 부착되지 않는 곳에는 바니시 또는 바인더를 바른다.
+-벽, 천정 등 고르지 않는 곳에는 초배지, 부직포, 하드롱지를 바른다.
+-종이벽지, 발포벽지, 실크벽지 등의 정배지에 풀을 고르게 도포한 후  주름살이 생기거나 들뜨지 않도록 솔, 헝겊 등으로 눌러준다.
+-작업 후 도배지의 잔재를 수거하고 걸레받이, 반자돌림, 타일 등에 묻은 풀을 깨끗이 닦아낸다.  </execJob><relJobList><jobCd>K000000923</jobCd><jobNm>단열공</jobNm></relJobList><relJobList><jobCd>K000000932</jobCd><jobNm>유리부착원</jobNm></relJobList><relJobList><jobCd>K000001034</jobCd><jobNm>섀시조립·설치원</jobNm></relJobList><relJobList><jobCd>K000001038</jobCd><jobNm>방수공</jobNm></relJobList><relJobList><jobCd>K000001053</jobCd><jobNm>타일·대리석시공원</jobNm></relJobList><relJobList><jobCd>K000001102</jobCd><jobNm>미장공</jobNm></relJobList><relJobList><jobCd>K000007480</jobCd><jobNm>건물도장공</jobNm></relJobList></jobsDo>

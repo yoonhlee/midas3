@@ -1,0 +1,3225 @@
+<jobsList>
+<total>537</total>
+<jobList>
+<jobClcd>011</jobClcd>
+<jobClcdNM>의회의원·고위공무원 및 기업 고위임원</jobClcdNM>
+<jobCd>K000000847</jobCd>
+<jobNm>기업고위임원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>011</jobClcd>
+<jobClcdNM>의회의원·고위공무원 및 기업 고위임원</jobClcdNM>
+<jobCd>K000000933</jobCd>
+<jobNm>행정부고위공무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>012</jobClcd>
+<jobClcdNM>행정·경영·금융·보험 관리자　</jobClcdNM>
+<jobCd>K000000919</jobCd>
+<jobNm>마케팅·광고·홍보관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>012</jobClcd>
+<jobClcdNM>행정·경영·금융·보험 관리자　</jobClcdNM>
+<jobCd>K000001059</jobCd>
+<jobNm>경영지원관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>012</jobClcd>
+<jobClcdNM>행정·경영·금융·보험 관리자　</jobClcdNM>
+<jobCd>K000001081</jobCd>
+<jobNm>정부행정관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>012</jobClcd>
+<jobClcdNM>행정·경영·금융·보험 관리자　</jobClcdNM>
+<jobCd>K000001210</jobCd>
+<jobNm>금융관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>012</jobClcd>
+<jobClcdNM>행정·경영·금융·보험 관리자　</jobClcdNM>
+<jobCd>K000007471</jobCd>
+<jobNm>보험관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>013</jobClcd>
+<jobClcdNM>전문서비스 관리자</jobClcdNM>
+<jobCd>K000000833</jobCd>
+<jobNm>사회복지관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>013</jobClcd>
+<jobClcdNM>전문서비스 관리자</jobClcdNM>
+<jobCd>K000000838</jobCd>
+<jobNm>초등학교 교장 및 교감</jobNm>
+</jobList>
+<jobList>
+<jobClcd>013</jobClcd>
+<jobClcdNM>전문서비스 관리자</jobClcdNM>
+<jobCd>K000000910</jobCd>
+<jobNm>경찰·소방·교도관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>013</jobClcd>
+<jobClcdNM>전문서비스 관리자</jobClcdNM>
+<jobCd>K000000912</jobCd>
+<jobNm>중고등학교 교장 및 교감</jobNm>
+</jobList>
+<jobList>
+<jobClcd>013</jobClcd>
+<jobClcdNM>전문서비스 관리자</jobClcdNM>
+<jobCd>K000000931</jobCd>
+<jobNm>보건·의료관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>013</jobClcd>
+<jobClcdNM>전문서비스 관리자</jobClcdNM>
+<jobCd>K000000969</jobCd>
+<jobNm>예술·디자인·방송관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>013</jobClcd>
+<jobClcdNM>전문서비스 관리자</jobClcdNM>
+<jobCd>K000000990</jobCd>
+<jobNm>대학교 총장 및 대학학장</jobNm>
+</jobList>
+<jobList>
+<jobClcd>013</jobClcd>
+<jobClcdNM>전문서비스 관리자</jobClcdNM>
+<jobCd>K000001032</jobCd>
+<jobNm>정보통신관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>013</jobClcd>
+<jobClcdNM>전문서비스 관리자</jobClcdNM>
+<jobCd>K000001171</jobCd>
+<jobNm>유치원 원장 및 원감</jobNm>
+</jobList>
+<jobList>
+<jobClcd>013</jobClcd>
+<jobClcdNM>전문서비스 관리자</jobClcdNM>
+<jobCd>K000001190</jobCd>
+<jobNm>연구관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>014</jobClcd>
+<jobClcdNM>미용·여행·숙박·음식·경비·청소 관리자</jobClcdNM>
+<jobCd>K000000950</jobCd>
+<jobNm>음식서비스관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>014</jobClcd>
+<jobClcdNM>미용·여행·숙박·음식·경비·청소 관리자</jobClcdNM>
+<jobCd>K000000989</jobCd>
+<jobNm>환경∙청소∙경비 관련 관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>014</jobClcd>
+<jobClcdNM>미용·여행·숙박·음식·경비·청소 관리자</jobClcdNM>
+<jobCd>K000000991</jobCd>
+<jobNm>여행·호텔관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>015</jobClcd>
+<jobClcdNM>영업·판매·운송 관리자</jobClcdNM>
+<jobCd>K000001028</jobCd>
+<jobNm>영업·판매관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>015</jobClcd>
+<jobClcdNM>영업·판매·운송 관리자</jobClcdNM>
+<jobCd>K000001094</jobCd>
+<jobNm>운송관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>016</jobClcd>
+<jobClcdNM>건설·채굴·제조·생산 관리자</jobClcdNM>
+<jobCd>K000000895</jobCd>
+<jobNm>건설·채굴관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>016</jobClcd>
+<jobClcdNM>건설·채굴·제조·생산 관리자</jobClcdNM>
+<jobCd>K000001018</jobCd>
+<jobNm>전기·가스·수도관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>016</jobClcd>
+<jobClcdNM>건설·채굴·제조·생산 관리자</jobClcdNM>
+<jobCd>K000001173</jobCd>
+<jobNm>제조·생산관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>021</jobClcd>
+<jobClcdNM>정부·공공행정 전문가</jobClcdNM>
+<jobCd>K000000925</jobCd>
+<jobNm>정부·공공행정전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>022</jobClcd>
+<jobClcdNM>경영·인사 전문가</jobClcdNM>
+<jobCd>K000000875</jobCd>
+<jobNm>인적자원전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>022</jobClcd>
+<jobClcdNM>경영·인사 전문가</jobClcdNM>
+<jobCd>K000000944</jobCd>
+<jobNm>경영·진단전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>022</jobClcd>
+<jobClcdNM>경영·인사 전문가</jobClcdNM>
+<jobCd>K000007562</jobCd>
+<jobNm>노무사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>023</jobClcd>
+<jobClcdNM>회계·세무·감정 전문가</jobClcdNM>
+<jobCd>K000007449</jobCd>
+<jobNm>회계사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>023</jobClcd>
+<jobClcdNM>회계·세무·감정 전문가</jobClcdNM>
+<jobCd>K000007500</jobCd>
+<jobNm>관세사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>023</jobClcd>
+<jobClcdNM>회계·세무·감정 전문가</jobClcdNM>
+<jobCd>K000007514</jobCd>
+<jobNm>감정평가사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>023</jobClcd>
+<jobClcdNM>회계·세무·감정 전문가</jobClcdNM>
+<jobCd>K000007525</jobCd>
+<jobNm>세무사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>024</jobClcd>
+<jobClcdNM>광고·조사·상품기획·행사기획 전문가</jobClcdNM>
+<jobCd>K000000872</jobCd>
+<jobNm>광고·홍보·마케팅전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>024</jobClcd>
+<jobClcdNM>광고·조사·상품기획·행사기획 전문가</jobClcdNM>
+<jobCd>K000000955</jobCd>
+<jobNm>행사기획자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>024</jobClcd>
+<jobClcdNM>광고·조사·상품기획·행사기획 전문가</jobClcdNM>
+<jobCd>K000000997</jobCd>
+<jobNm>상품기획자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>024</jobClcd>
+<jobClcdNM>광고·조사·상품기획·행사기획 전문가</jobClcdNM>
+<jobCd>K000001139</jobCd>
+<jobNm>조사전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>025</jobClcd>
+<jobClcdNM>정부·공공 행정 사무원</jobClcdNM>
+<jobCd>K000000995</jobCd>
+<jobNm>일반행정공무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>025</jobClcd>
+<jobClcdNM>정부·공공 행정 사무원</jobClcdNM>
+<jobCd>K000001040</jobCd>
+<jobNm>관세행정사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>025</jobClcd>
+<jobClcdNM>정부·공공 행정 사무원</jobClcdNM>
+<jobCd>K000001201</jobCd>
+<jobNm>법원공무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>025</jobClcd>
+<jobClcdNM>정부·공공 행정 사무원</jobClcdNM>
+<jobCd>K000007456</jobCd>
+<jobNm>병무행정사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>025</jobClcd>
+<jobClcdNM>정부·공공 행정 사무원</jobClcdNM>
+<jobCd>K000007516</jobCd>
+<jobNm>조세행정사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>026</jobClcd>
+<jobClcdNM>경영지원 사무원</jobClcdNM>
+<jobCd>K000001069</jobCd>
+<jobNm>광고·홍보·마케팅사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>026</jobClcd>
+<jobClcdNM>경영지원 사무원</jobClcdNM>
+<jobCd>K000001079</jobCd>
+<jobNm>경영기획사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>026</jobClcd>
+<jobClcdNM>경영지원 사무원</jobClcdNM>
+<jobCd>K000001196</jobCd>
+<jobNm>인사·교육·훈련사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>026</jobClcd>
+<jobClcdNM>경영지원 사무원</jobClcdNM>
+<jobCd>K000001200</jobCd>
+<jobNm>영업기획·관리·지원사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>026</jobClcd>
+<jobClcdNM>경영지원 사무원</jobClcdNM>
+<jobCd>K000007517</jobCd>
+<jobNm>총무사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>026</jobClcd>
+<jobClcdNM>경영지원 사무원</jobClcdNM>
+<jobCd>K000007553</jobCd>
+<jobNm>감사사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>027</jobClcd>
+<jobClcdNM>회계·경리 사무원</jobClcdNM>
+<jobCd>K000007466</jobCd>
+<jobNm>경리사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>027</jobClcd>
+<jobClcdNM>회계·경리 사무원</jobClcdNM>
+<jobCd>K000007487</jobCd>
+<jobNm>회계사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>028</jobClcd>
+<jobClcdNM>무역·운송·생산·품질 사무원</jobClcdNM>
+<jobCd>K000000843</jobCd>
+<jobNm>자재·구매사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>028</jobClcd>
+<jobClcdNM>무역·운송·생산·품질 사무원</jobClcdNM>
+<jobCd>K000000855</jobCd>
+<jobNm>물류사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>028</jobClcd>
+<jobClcdNM>무역·운송·생산·품질 사무원</jobClcdNM>
+<jobCd>K000000918</jobCd>
+<jobNm>무역사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>028</jobClcd>
+<jobClcdNM>무역·운송·생산·품질 사무원</jobClcdNM>
+<jobCd>K000000929</jobCd>
+<jobNm>수상운송사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>028</jobClcd>
+<jobClcdNM>무역·운송·생산·품질 사무원</jobClcdNM>
+<jobCd>K000001001</jobCd>
+<jobNm>생산관리사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>028</jobClcd>
+<jobClcdNM>무역·운송·생산·품질 사무원</jobClcdNM>
+<jobCd>K000001002</jobCd>
+<jobNm>항공운송사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>028</jobClcd>
+<jobClcdNM>무역·운송·생산·품질 사무원</jobClcdNM>
+<jobCd>K000001010</jobCd>
+<jobNm>도로운송사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>028</jobClcd>
+<jobClcdNM>무역·운송·생산·품질 사무원</jobClcdNM>
+<jobCd>K000001022</jobCd>
+<jobNm>품질관리사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>028</jobClcd>
+<jobClcdNM>무역·운송·생산·품질 사무원</jobClcdNM>
+<jobCd>K000001155</jobCd>
+<jobNm>철도·지하철운송사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>029</jobClcd>
+<jobClcdNM>안내·고객상담·통계·비서·사무보조 및 기타 사무원</jobClcdNM>
+<jobCd>K000000866</jobCd>
+<jobNm>출판·자료편집사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>029</jobClcd>
+<jobClcdNM>안내·고객상담·통계·비서·사무보조 및 기타 사무원</jobClcdNM>
+<jobCd>K000001127</jobCd>
+<jobNm>의료코디네이터</jobNm>
+</jobList>
+<jobList>
+<jobClcd>029</jobClcd>
+<jobClcdNM>안내·고객상담·통계·비서·사무보조 및 기타 사무원</jobClcdNM>
+<jobCd>K000001170</jobCd>
+<jobNm>안내 및 접수사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>029</jobClcd>
+<jobClcdNM>안내·고객상담·통계·비서·사무보조 및 기타 사무원</jobClcdNM>
+<jobCd>K000001183</jobCd>
+<jobNm>속기사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>029</jobClcd>
+<jobClcdNM>안내·고객상담·통계·비서·사무보조 및 기타 사무원</jobClcdNM>
+<jobCd>K000001194</jobCd>
+<jobNm>고객상담원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>029</jobClcd>
+<jobClcdNM>안내·고객상담·통계·비서·사무보조 및 기타 사무원</jobClcdNM>
+<jobCd>K000001219</jobCd>
+<jobNm>전산자료입력원 및 사무보조원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>029</jobClcd>
+<jobClcdNM>안내·고객상담·통계·비서·사무보조 및 기타 사무원</jobClcdNM>
+<jobCd>K000007453</jobCd>
+<jobNm>취업알선원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>029</jobClcd>
+<jobClcdNM>안내·고객상담·통계·비서·사무보조 및 기타 사무원</jobClcdNM>
+<jobCd>K000007478</jobCd>
+<jobNm>비서</jobNm>
+</jobList>
+<jobList>
+<jobClcd>029</jobClcd>
+<jobClcdNM>안내·고객상담·통계·비서·사무보조 및 기타 사무원</jobClcdNM>
+<jobCd>K000007524</jobCd>
+<jobNm>행정사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>029</jobClcd>
+<jobClcdNM>안내·고객상담·통계·비서·사무보조 및 기타 사무원</jobClcdNM>
+<jobCd>K000007550</jobCd>
+<jobNm>통계사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>031</jobClcd>
+<jobClcdNM>금융·보험 전문가</jobClcdNM>
+<jobCd>K000000987</jobCd>
+<jobNm>자산운용가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>031</jobClcd>
+<jobClcdNM>금융·보험 전문가</jobClcdNM>
+<jobCd>K000001163</jobCd>
+<jobNm>금융상품개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>031</jobClcd>
+<jobClcdNM>금융·보험 전문가</jobClcdNM>
+<jobCd>K000001168</jobCd>
+<jobNm>증권·외환딜러</jobNm>
+</jobList>
+<jobList>
+<jobClcd>031</jobClcd>
+<jobClcdNM>금융·보험 전문가</jobClcdNM>
+<jobCd>K000001179</jobCd>
+<jobNm>투자분석가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>031</jobClcd>
+<jobClcdNM>금융·보험 전문가</jobClcdNM>
+<jobCd>K000001215</jobCd>
+<jobNm>신용분석가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>031</jobClcd>
+<jobClcdNM>금융·보험 전문가</jobClcdNM>
+<jobCd>K000007519</jobCd>
+<jobNm>보험상품개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>031</jobClcd>
+<jobClcdNM>금융·보험 전문가</jobClcdNM>
+<jobCd>K000007561</jobCd>
+<jobNm>손해사정사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>032</jobClcd>
+<jobClcdNM>금융·보험 사무원</jobClcdNM>
+<jobCd>K000000908</jobCd>
+<jobNm>보험인수심사원(언더라이터)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>032</jobClcd>
+<jobClcdNM>금융·보험 사무원</jobClcdNM>
+<jobCd>K000001104</jobCd>
+<jobNm>신용추심원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>032</jobClcd>
+<jobClcdNM>금융·보험 사무원</jobClcdNM>
+<jobCd>K000001114</jobCd>
+<jobNm>증권사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>032</jobClcd>
+<jobClcdNM>금융·보험 사무원</jobClcdNM>
+<jobCd>K000001131</jobCd>
+<jobNm>출납창구사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>032</jobClcd>
+<jobClcdNM>금융·보험 사무원</jobClcdNM>
+<jobCd>K000001136</jobCd>
+<jobNm>은행사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>032</jobClcd>
+<jobClcdNM>금융·보험 사무원</jobClcdNM>
+<jobCd>K000001162</jobCd>
+<jobNm>보험보상사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>033</jobClcd>
+<jobClcdNM>금융·보험 영업원</jobClcdNM>
+<jobCd>K000000977</jobCd>
+<jobNm>보험대리인 및 중개인</jobNm>
+</jobList>
+<jobList>
+<jobClcd>033</jobClcd>
+<jobClcdNM>금융·보험 영업원</jobClcdNM>
+<jobCd>K000001206</jobCd>
+<jobNm>보험모집인</jobNm>
+</jobList>
+<jobList>
+<jobClcd>110</jobClcd>
+<jobClcdNM>인문·사회과학 연구원</jobClcdNM>
+<jobCd>K000000834</jobCd>
+<jobNm>정치학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>110</jobClcd>
+<jobClcdNM>인문·사회과학 연구원</jobClcdNM>
+<jobCd>K000000898</jobCd>
+<jobNm>경제학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>110</jobClcd>
+<jobClcdNM>인문·사회과학 연구원</jobClcdNM>
+<jobCd>K000000949</jobCd>
+<jobNm>철학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>110</jobClcd>
+<jobClcdNM>인문·사회과학 연구원</jobClcdNM>
+<jobCd>K000001052</jobCd>
+<jobNm>사회학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>110</jobClcd>
+<jobClcdNM>인문·사회과학 연구원</jobClcdNM>
+<jobCd>K000007493</jobCd>
+<jobNm>역사학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>110</jobClcd>
+<jobClcdNM>인문·사회과학 연구원</jobClcdNM>
+<jobCd>K000007512</jobCd>
+<jobNm>언어학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>110</jobClcd>
+<jobClcdNM>인문·사회과학 연구원</jobClcdNM>
+<jobCd>K000007522</jobCd>
+<jobNm>교육학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>110</jobClcd>
+<jobClcdNM>인문·사회과학 연구원</jobClcdNM>
+<jobCd>K000007559</jobCd>
+<jobNm>심리학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>121</jobClcd>
+<jobClcdNM>자연과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000000825</jobCd>
+<jobNm>자연과학시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>121</jobClcd>
+<jobClcdNM>자연과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000000903</jobCd>
+<jobNm>천문 및 기상학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>121</jobClcd>
+<jobClcdNM>자연과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000000960</jobCd>
+<jobNm>화학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>121</jobClcd>
+<jobClcdNM>자연과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000001048</jobCd>
+<jobNm>생물학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>121</jobClcd>
+<jobClcdNM>자연과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000001125</jobCd>
+<jobNm>수학 및 통계연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>121</jobClcd>
+<jobClcdNM>자연과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000007531</jobCd>
+<jobNm>지질학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>121</jobClcd>
+<jobClcdNM>자연과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000007568</jobCd>
+<jobNm>물리학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>122</jobClcd>
+<jobClcdNM>생명과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000000836</jobCd>
+<jobNm>농학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>122</jobClcd>
+<jobClcdNM>생명과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000000852</jobCd>
+<jobNm>생명과학시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>122</jobClcd>
+<jobClcdNM>생명과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000000959</jobCd>
+<jobNm>축산학 및 수의학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>122</jobClcd>
+<jobClcdNM>생명과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000000973</jobCd>
+<jobNm>임학 및 산림학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>122</jobClcd>
+<jobClcdNM>생명과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000001012</jobCd>
+<jobNm>수산학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>122</jobClcd>
+<jobClcdNM>생명과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000001140</jobCd>
+<jobNm>의학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>122</jobClcd>
+<jobClcdNM>생명과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000001157</jobCd>
+<jobNm>농림어업시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>122</jobClcd>
+<jobClcdNM>생명과학 연구원 및 시험원</jobClcdNM>
+<jobCd>K000007535</jobCd>
+<jobNm>약학연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>131</jobClcd>
+<jobClcdNM>컴퓨터하드웨어·통신공학 기술자</jobClcdNM>
+<jobCd>K000000900</jobCd>
+<jobNm>통신망운영기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>131</jobClcd>
+<jobClcdNM>컴퓨터하드웨어·통신공학 기술자</jobClcdNM>
+<jobCd>K000000924</jobCd>
+<jobNm>통신기기·장비기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>131</jobClcd>
+<jobClcdNM>컴퓨터하드웨어·통신공학 기술자</jobClcdNM>
+<jobCd>K000000936</jobCd>
+<jobNm>통신기술개발자 </jobNm>
+</jobList>
+<jobList>
+<jobClcd>131</jobClcd>
+<jobClcdNM>컴퓨터하드웨어·통신공학 기술자</jobClcdNM>
+<jobCd>K000000994</jobCd>
+<jobNm>컴퓨터하드웨어기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>132</jobClcd>
+<jobClcdNM>컴퓨터시스템 전문가</jobClcdNM>
+<jobCd>K000000856</jobCd>
+<jobNm>컴퓨터시스템설계 및 분석가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>132</jobClcd>
+<jobClcdNM>컴퓨터시스템 전문가</jobClcdNM>
+<jobCd>K000001085</jobCd>
+<jobNm>정보통신컨설턴트 및 감리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>133</jobClcd>
+<jobClcdNM>소프트웨어 개발자</jobClcdNM>
+<jobCd>K000000853</jobCd>
+<jobNm>시스템소프트웨어개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>133</jobClcd>
+<jobClcdNM>소프트웨어 개발자</jobClcdNM>
+<jobCd>K000001042</jobCd>
+<jobNm>모바일앱개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>133</jobClcd>
+<jobClcdNM>소프트웨어 개발자</jobClcdNM>
+<jobCd>K000001106</jobCd>
+<jobNm>웹개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>133</jobClcd>
+<jobClcdNM>소프트웨어 개발자</jobClcdNM>
+<jobCd>K000001153</jobCd>
+<jobNm>IT테스터 및 IT QA전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>133</jobClcd>
+<jobClcdNM>소프트웨어 개발자</jobClcdNM>
+<jobCd>K000001172</jobCd>
+<jobNm>웹기획자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>133</jobClcd>
+<jobClcdNM>소프트웨어 개발자</jobClcdNM>
+<jobCd>K000001176</jobCd>
+<jobNm>응용소프트웨어개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>133</jobClcd>
+<jobClcdNM>소프트웨어 개발자</jobClcdNM>
+<jobCd>K000007452</jobCd>
+<jobNm>가상현실전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>133</jobClcd>
+<jobClcdNM>소프트웨어 개발자</jobClcdNM>
+<jobCd>K000007580</jobCd>
+<jobNm>게임프로그래머</jobNm>
+</jobList>
+<jobList>
+<jobClcd>134</jobClcd>
+<jobClcdNM>데이터·네트워크 및 시스템 운영 전문가</jobClcdNM>
+<jobCd>K000000968</jobCd>
+<jobNm>네트워크시스템개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>134</jobClcd>
+<jobClcdNM>데이터·네트워크 및 시스템 운영 전문가</jobClcdNM>
+<jobCd>K000000978</jobCd>
+<jobNm>IT기술지원전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>134</jobClcd>
+<jobClcdNM>데이터·네트워크 및 시스템 운영 전문가</jobClcdNM>
+<jobCd>K000001061</jobCd>
+<jobNm>웹운영자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>134</jobClcd>
+<jobClcdNM>데이터·네트워크 및 시스템 운영 전문가</jobClcdNM>
+<jobCd>K000001080</jobCd>
+<jobNm>데이터분석가(빅데이터분석가)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>134</jobClcd>
+<jobClcdNM>데이터·네트워크 및 시스템 운영 전문가</jobClcdNM>
+<jobCd>K000001132</jobCd>
+<jobNm>정보시스템운영자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>134</jobClcd>
+<jobClcdNM>데이터·네트워크 및 시스템 운영 전문가</jobClcdNM>
+<jobCd>K000001134</jobCd>
+<jobNm>데이터베이스운영·관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>134</jobClcd>
+<jobClcdNM>데이터·네트워크 및 시스템 운영 전문가</jobClcdNM>
+<jobCd>K000007499</jobCd>
+<jobNm>네트워크관리자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>135</jobClcd>
+<jobClcdNM>정보보안 전문가</jobClcdNM>
+<jobCd>K000000832</jobCd>
+<jobNm>정보보안전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>136</jobClcd>
+<jobClcdNM>통신·방송송출 장비 기사</jobClcdNM>
+<jobCd>K000001041</jobCd>
+<jobNm>방송송출장비기사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>136</jobClcd>
+<jobClcdNM>통신·방송송출 장비 기사</jobClcdNM>
+<jobCd>K000001074</jobCd>
+<jobNm>통신장비기사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000829</jobCd>
+<jobNm>토목안전·환경기술자 및 토목품질기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000878</jobCd>
+<jobNm>도시계획·설계가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000888</jobCd>
+<jobNm>지적 및 측량기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000891</jobCd>
+<jobNm>교통계획·설계가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000915</jobCd>
+<jobNm>건축감리기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000922</jobCd>
+<jobNm>건축설비기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000940</jobCd>
+<jobNm>건축시공기술자 및 견적원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000956</jobCd>
+<jobNm>건축구조기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000985</jobCd>
+<jobNm>조경기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000992</jobCd>
+<jobNm>토목구조설계기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001014</jobCd>
+<jobNm>건축가(건축설계사)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001021</jobCd>
+<jobNm>지리정보시스템전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001067</jobCd>
+<jobNm>토목감리기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001073</jobCd>
+<jobNm>토목시공기술자 및 견적원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001120</jobCd>
+<jobNm>교통영향평가원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001142</jobCd>
+<jobNm>건축안전·환경기술자 및 건축품질기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>140</jobClcd>
+<jobClcdNM>건축·토목공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001177</jobCd>
+<jobNm>건설자재시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>151</jobClcd>
+<jobClcdNM>기계·로봇공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000860</jobCd>
+<jobNm>로봇공학기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>151</jobClcd>
+<jobClcdNM>기계·로봇공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000870</jobCd>
+<jobNm>플랜트기계공학기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>151</jobClcd>
+<jobClcdNM>기계·로봇공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000877</jobCd>
+<jobNm>항공공학기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>151</jobClcd>
+<jobClcdNM>기계·로봇공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001082</jobCd>
+<jobNm>기계‧로봇공학시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>151</jobClcd>
+<jobClcdNM>기계·로봇공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001101</jobCd>
+<jobNm>조선·해양공학기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>151</jobClcd>
+<jobClcdNM>기계·로봇공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001103</jobCd>
+<jobNm>건설기계공학기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>151</jobClcd>
+<jobClcdNM>기계·로봇공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001185</jobCd>
+<jobNm>자동차공학기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>152</jobClcd>
+<jobClcdNM>금속·재료공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000942</jobCd>
+<jobNm>재료(금속)공학기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>152</jobClcd>
+<jobClcdNM>금속·재료공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001189</jobCd>
+<jobNm>금속·재료공학시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000826</jobCd>
+<jobNm>전기기기·제품개발기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000840</jobCd>
+<jobNm>송·배전설비기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000876</jobCd>
+<jobNm>전기감리기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000879</jobCd>
+<jobNm>디스플레이연구 및 개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000975</jobCd>
+<jobNm>발전설비기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000984</jobCd>
+<jobNm>전자제품 및 부품 개발기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001184</jobCd>
+<jobNm>반도체공학기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001191</jobCd>
+<jobNm>전자계측제어기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001202</jobCd>
+<jobNm>전기계측제어기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001205</jobCd>
+<jobNm>전기·전자공학시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>153</jobClcd>
+<jobClcdNM>전기·전자공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000007491</jobCd>
+<jobNm>전기안전기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>154</jobClcd>
+<jobClcdNM>화학공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000865</jobCd>
+<jobNm>석유화학공학기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>154</jobClcd>
+<jobClcdNM>화학공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000934</jobCd>
+<jobNm>화학공학시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>154</jobClcd>
+<jobClcdNM>화학공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000946</jobCd>
+<jobNm>도료 및 농약품화학공학기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>154</jobClcd>
+<jobClcdNM>화학공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000998</jobCd>
+<jobNm>의약품공학기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>154</jobClcd>
+<jobClcdNM>화학공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001141</jobCd>
+<jobNm>비누 및 화장품화학공학기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>154</jobClcd>
+<jobClcdNM>화학공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001193</jobCd>
+<jobNm>고무 및 플라스틱화학공학기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000863</jobCd>
+<jobNm>원자력공학기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000887</jobCd>
+<jobNm>수질환경기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000920</jobCd>
+<jobNm>토양환경기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000938</jobCd>
+<jobNm>대기환경기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001026</jobCd>
+<jobNm>소음진동기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001036</jobCd>
+<jobNm>가스·에너지시험원 및 진단전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001064</jobCd>
+<jobNm>보건위생·환경검사원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001084</jobCd>
+<jobNm>태양광발전연구 및 개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001097</jobCd>
+<jobNm>환경시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001159</jobCd>
+<jobNm>풍력발전연구 및 개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000007554</jobCd>
+<jobNm>폐기물처리기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>155</jobClcd>
+<jobClcdNM>에너지·환경공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000007582</jobCd>
+<jobNm>환경영향평가원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>156</jobClcd>
+<jobClcdNM>섬유공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001123</jobCd>
+<jobNm>섬유공학기술자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>156</jobClcd>
+<jobClcdNM>섬유공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001151</jobCd>
+<jobNm>섬유공학시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>157</jobClcd>
+<jobClcdNM>식품공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000000970</jobCd>
+<jobNm>식품공학시험원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>157</jobClcd>
+<jobClcdNM>식품공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001063</jobCd>
+<jobNm>식품공학기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>158</jobClcd>
+<jobClcdNM>소방·방재·산업안전·비파괴 기술자</jobClcdNM>
+<jobCd>K000000835</jobCd>
+<jobNm>산업안전원 및 위험관리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>158</jobClcd>
+<jobClcdNM>소방·방재·산업안전·비파괴 기술자</jobClcdNM>
+<jobCd>K000000953</jobCd>
+<jobNm>소방공학기술자 및 연구원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>158</jobClcd>
+<jobClcdNM>소방·방재·산업안전·비파괴 기술자</jobClcdNM>
+<jobCd>K000001147</jobCd>
+<jobNm>위험관리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>158</jobClcd>
+<jobClcdNM>소방·방재·산업안전·비파괴 기술자</jobClcdNM>
+<jobCd>K000007545</jobCd>
+<jobNm>비파괴검사원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>159</jobClcd>
+<jobClcdNM>제도사 및 기타 인쇄·목재 등 공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000001090</jobCd>
+<jobNm>제도사(캐드원)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>159</jobClcd>
+<jobClcdNM>제도사 및 기타 인쇄·목재 등 공학 기술자 및 시험원</jobClcdNM>
+<jobCd>K000007581</jobCd>
+<jobNm>3D프린팅모델러</jobNm>
+</jobList>
+<jobList>
+<jobClcd>211</jobClcd>
+<jobClcdNM>대학 교수 및 강사</jobClcdNM>
+<jobCd>K000000906</jobCd>
+<jobNm>대학교수</jobNm>
+</jobList>
+<jobList>
+<jobClcd>211</jobClcd>
+<jobClcdNM>대학 교수 및 강사</jobClcdNM>
+<jobCd>K000001220</jobCd>
+<jobNm>대학시간강사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>212</jobClcd>
+<jobClcdNM>학교 교사</jobClcdNM>
+<jobCd>K000000849</jobCd>
+<jobNm>보조교사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>212</jobClcd>
+<jobClcdNM>학교 교사</jobClcdNM>
+<jobCd>K000001065</jobCd>
+<jobNm>중·고등학교교사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>212</jobClcd>
+<jobClcdNM>학교 교사</jobClcdNM>
+<jobCd>K000001113</jobCd>
+<jobNm>특수교육교사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>212</jobClcd>
+<jobClcdNM>학교 교사</jobClcdNM>
+<jobCd>K000007558</jobCd>
+<jobNm>초등학교교사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>213</jobClcd>
+<jobClcdNM>유치원 교사</jobClcdNM>
+<jobCd>K000007530</jobCd>
+<jobNm>유치원교사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>214</jobClcd>
+<jobClcdNM>문리·기술·예능 강사</jobClcdNM>
+<jobCd>K000000837</jobCd>
+<jobNm>외국어강사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>214</jobClcd>
+<jobClcdNM>문리·기술·예능 강사</jobClcdNM>
+<jobCd>K000000883</jobCd>
+<jobNm>학습지·교육교구방문강사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>214</jobClcd>
+<jobClcdNM>문리·기술·예능 강사</jobClcdNM>
+<jobCd>K000000911</jobCd>
+<jobNm>예능강사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>214</jobClcd>
+<jobClcdNM>문리·기술·예능 강사</jobClcdNM>
+<jobCd>K000000947</jobCd>
+<jobNm>문리학원강사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>214</jobClcd>
+<jobClcdNM>문리·기술·예능 강사</jobClcdNM>
+<jobCd>K000000967</jobCd>
+<jobNm>기술·기능계강사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>214</jobClcd>
+<jobClcdNM>문리·기술·예능 강사</jobClcdNM>
+<jobCd>K000007539</jobCd>
+<jobNm>컴퓨터강사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>215</jobClcd>
+<jobClcdNM>장학관 및 기타 교육 종사자</jobClcdNM>
+<jobCd>K000001149</jobCd>
+<jobNm>교재·교구 및 이러닝교육전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>221</jobClcd>
+<jobClcdNM>법률 전문가</jobClcdNM>
+<jobCd>K000001221</jobCd>
+<jobNm>법무사 및 집행관</jobNm>
+</jobList>
+<jobList>
+<jobClcd>221</jobClcd>
+<jobClcdNM>법률 전문가</jobClcdNM>
+<jobCd>K000007470</jobCd>
+<jobNm>변리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>221</jobClcd>
+<jobClcdNM>법률 전문가</jobClcdNM>
+<jobCd>K000007482</jobCd>
+<jobNm>변호사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>221</jobClcd>
+<jobClcdNM>법률 전문가</jobClcdNM>
+<jobCd>K000007527</jobCd>
+<jobNm>판사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>221</jobClcd>
+<jobClcdNM>법률 전문가</jobClcdNM>
+<jobCd>K000007573</jobCd>
+<jobNm>검사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>222</jobClcd>
+<jobClcdNM>법률 사무원</jobClcdNM>
+<jobCd>K000001180</jobCd>
+<jobNm>법률사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>231</jobClcd>
+<jobClcdNM>사회복지사 및 상담사</jobClcdNM>
+<jobCd>K000000857</jobCd>
+<jobNm>사회복지사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>231</jobClcd>
+<jobClcdNM>사회복지사 및 상담사</jobClcdNM>
+<jobCd>K000001049</jobCd>
+<jobNm>심리상담전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>231</jobClcd>
+<jobClcdNM>사회복지사 및 상담사</jobClcdNM>
+<jobCd>K000007485</jobCd>
+<jobNm>사회단체활동가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>231</jobClcd>
+<jobClcdNM>사회복지사 및 상담사</jobClcdNM>
+<jobCd>K000007526</jobCd>
+<jobNm>청소년지도사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>231</jobClcd>
+<jobClcdNM>사회복지사 및 상담사</jobClcdNM>
+<jobCd>K000007565</jobCd>
+<jobNm>직업상담사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>232</jobClcd>
+<jobClcdNM>보육교사 및 기타 사회복지 종사자</jobClcdNM>
+<jobCd>K000007502</jobCd>
+<jobNm>보육교사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>232</jobClcd>
+<jobClcdNM>보육교사 및 기타 사회복지 종사자</jobClcdNM>
+<jobCd>K000007541</jobCd>
+<jobNm>생활지도원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>240</jobClcd>
+<jobClcdNM>경찰관, 소방관 및 교도관</jobClcdNM>
+<jobCd>K000007495</jobCd>
+<jobNm>소방관</jobNm>
+</jobList>
+<jobList>
+<jobClcd>240</jobClcd>
+<jobClcdNM>경찰관, 소방관 및 교도관</jobClcdNM>
+<jobCd>K000007521</jobCd>
+<jobNm>경찰관</jobNm>
+</jobList>
+<jobList>
+<jobClcd>240</jobClcd>
+<jobClcdNM>경찰관, 소방관 및 교도관</jobClcdNM>
+<jobCd>K000007540</jobCd>
+<jobNm>해양경찰관</jobNm>
+</jobList>
+<jobList>
+<jobClcd>240</jobClcd>
+<jobClcdNM>경찰관, 소방관 및 교도관</jobClcdNM>
+<jobCd>K000007570</jobCd>
+<jobNm>교도관</jobNm>
+</jobList>
+<jobList>
+<jobClcd>250</jobClcd>
+<jobClcdNM>군인</jobClcdNM>
+<jobCd>K000001175</jobCd>
+<jobNm>위관급 장교</jobNm>
+</jobList>
+<jobList>
+<jobClcd>250</jobClcd>
+<jobClcdNM>군인</jobClcdNM>
+<jobCd>K000007508</jobCd>
+<jobNm>부사관</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000000844</jobCd>
+<jobNm>비뇨기과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000000862</jobCd>
+<jobNm>안과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000000889</jobCd>
+<jobNm>외과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000000892</jobCd>
+<jobNm>성형외과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000000928</jobCd>
+<jobNm>정신과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000000939</jobCd>
+<jobNm>가정의학과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000000948</jobCd>
+<jobNm>소아청소년과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000001068</jobCd>
+<jobNm>피부과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000001071</jobCd>
+<jobNm>방사선과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000001108</jobCd>
+<jobNm>이비인후과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000001129</jobCd>
+<jobNm>마취병리과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000001133</jobCd>
+<jobNm>내과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000001146</jobCd>
+<jobNm>산부인과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000007472</jobCd>
+<jobNm>치과의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000007504</jobCd>
+<jobNm>일반의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>301</jobClcd>
+<jobClcdNM>의사, 한의사 및 치과의사</jobClcdNM>
+<jobCd>K000007542</jobCd>
+<jobNm>한의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>302</jobClcd>
+<jobClcdNM>수의사</jobClcdNM>
+<jobCd>K000001011</jobCd>
+<jobNm>수의사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>303</jobClcd>
+<jobClcdNM>약사 및 한약사</jobClcdNM>
+<jobCd>K000000993</jobCd>
+<jobNm>약사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>303</jobClcd>
+<jobClcdNM>약사 및 한약사</jobClcdNM>
+<jobCd>K000007474</jobCd>
+<jobNm>한약사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>304</jobClcd>
+<jobClcdNM>간호사</jobClcdNM>
+<jobCd>K000007490</jobCd>
+<jobNm>보건교사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>304</jobClcd>
+<jobClcdNM>간호사</jobClcdNM>
+<jobCd>K000007494</jobCd>
+<jobNm>간호사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>305</jobClcd>
+<jobClcdNM>영양사</jobClcdNM>
+<jobCd>K000001144</jobCd>
+<jobNm>영양사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000000830</jobCd>
+<jobNm>치과위생사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000000864</jobCd>
+<jobNm>재활공학기사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000001017</jobCd>
+<jobNm>방사선사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000001088</jobCd>
+<jobNm>언어치료사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000001186</jobCd>
+<jobNm>청능사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000001216</jobCd>
+<jobNm>예술치료사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000007501</jobCd>
+<jobNm>물리치료사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000007529</jobCd>
+<jobNm>임상심리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000007537</jobCd>
+<jobNm>작업치료사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000007544</jobCd>
+<jobNm>임상병리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000007564</jobCd>
+<jobNm>놀이치료사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>306</jobClcd>
+<jobClcdNM>의료기사·치료사·재활사</jobClcdNM>
+<jobCd>K000007577</jobCd>
+<jobNm>치과기공사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>307</jobClcd>
+<jobClcdNM>보건·의료 종사자</jobClcdNM>
+<jobCd>K000007461</jobCd>
+<jobNm>응급구조사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>307</jobClcd>
+<jobClcdNM>보건·의료 종사자</jobClcdNM>
+<jobCd>K000007492</jobCd>
+<jobNm>보건의료정보관리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>307</jobClcd>
+<jobClcdNM>보건·의료 종사자</jobClcdNM>
+<jobCd>K000007509</jobCd>
+<jobNm>안경사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>307</jobClcd>
+<jobClcdNM>보건·의료 종사자</jobClcdNM>
+<jobCd>K000007547</jobCd>
+<jobNm>안마사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>307</jobClcd>
+<jobClcdNM>보건·의료 종사자</jobClcdNM>
+<jobCd>K000007576</jobCd>
+<jobNm>간호조무사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>411</jobClcd>
+<jobClcdNM>작가·통번역가</jobClcdNM>
+<jobCd>K000000824</jobCd>
+<jobNm>번역가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>411</jobClcd>
+<jobClcdNM>작가·통번역가</jobClcdNM>
+<jobCd>K000001029</jobCd>
+<jobNm>영화시나리오작가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>411</jobClcd>
+<jobClcdNM>작가·통번역가</jobClcdNM>
+<jobCd>K000001051</jobCd>
+<jobNm>통역가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>411</jobClcd>
+<jobClcdNM>작가·통번역가</jobClcdNM>
+<jobCd>K000001169</jobCd>
+<jobNm>방송작가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>411</jobClcd>
+<jobClcdNM>작가·통번역가</jobClcdNM>
+<jobCd>K000001198</jobCd>
+<jobNm>출판물기획자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>411</jobClcd>
+<jobClcdNM>작가·통번역가</jobClcdNM>
+<jobCd>K000007572</jobCd>
+<jobNm>소설가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>412</jobClcd>
+<jobClcdNM>기자 및 언론 전문가</jobClcdNM>
+<jobCd>K000000937</jobCd>
+<jobNm>신문기자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>412</jobClcd>
+<jobClcdNM>기자 및 언론 전문가</jobClcdNM>
+<jobCd>K000000966</jobCd>
+<jobNm>잡지기자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>412</jobClcd>
+<jobClcdNM>기자 및 언론 전문가</jobClcdNM>
+<jobCd>K000001222</jobCd>
+<jobNm>방송기자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>413</jobClcd>
+<jobClcdNM>학예사·사서·기록물관리사</jobClcdNM>
+<jobCd>K000001019</jobCd>
+<jobNm>학예사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>413</jobClcd>
+<jobClcdNM>학예사·사서·기록물관리사</jobClcdNM>
+<jobCd>K000001100</jobCd>
+<jobNm>기록물관리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>413</jobClcd>
+<jobClcdNM>학예사·사서·기록물관리사</jobClcdNM>
+<jobCd>K000001119</jobCd>
+<jobNm>문화재보존원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>413</jobClcd>
+<jobClcdNM>학예사·사서·기록물관리사</jobClcdNM>
+<jobCd>K000007532</jobCd>
+<jobNm>사서</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000000851</jobCd>
+<jobNm>지휘자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000001007</jobCd>
+<jobNm>사진작가 및 사진사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000001089</jobCd>
+<jobNm>가수</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000001110</jobCd>
+<jobNm>국악인</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000001116</jobCd>
+<jobNm>만화영화작가(애니메이터)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000001181</jobCd>
+<jobNm>연주가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000007479</jobCd>
+<jobNm>안무가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000007505</jobCd>
+<jobNm>성악가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000007511</jobCd>
+<jobNm>대중무용수</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000007518</jobCd>
+<jobNm>만화가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000007546</jobCd>
+<jobNm>무용가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000007551</jobCd>
+<jobNm>화가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000007571</jobCd>
+<jobNm>조각가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>414</jobClcd>
+<jobClcdNM>창작·공연 전문가(작가, 연극 제외)</jobClcdNM>
+<jobCd>K000007583</jobCd>
+<jobNm>작곡가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>415</jobClcd>
+<jobClcdNM>디자이너</jobClcdNM>
+<jobCd>K000000890</jobCd>
+<jobNm>UX·UI디자이너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>415</jobClcd>
+<jobClcdNM>디자이너</jobClcdNM>
+<jobCd>K000001000</jobCd>
+<jobNm>제품디자이너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>415</jobClcd>
+<jobClcdNM>디자이너</jobClcdNM>
+<jobCd>K000001008</jobCd>
+<jobNm>패션소품디자이너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>415</jobClcd>
+<jobClcdNM>디자이너</jobClcdNM>
+<jobCd>K000001060</jobCd>
+<jobNm>시각디자이너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>415</jobClcd>
+<jobClcdNM>디자이너</jobClcdNM>
+<jobCd>K000007454</jobCd>
+<jobNm>의상디자이너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>415</jobClcd>
+<jobClcdNM>디자이너</jobClcdNM>
+<jobCd>K000007459</jobCd>
+<jobNm>영상그래픽디자이너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>415</jobClcd>
+<jobClcdNM>디자이너</jobClcdNM>
+<jobCd>K000007463</jobCd>
+<jobNm>웹디자이너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>415</jobClcd>
+<jobClcdNM>디자이너</jobClcdNM>
+<jobCd>K000007498</jobCd>
+<jobNm>실내장식디자이너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>415</jobClcd>
+<jobClcdNM>디자이너</jobClcdNM>
+<jobCd>K000007567</jobCd>
+<jobNm>게임그래픽디자이너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000000873</jobCd>
+<jobNm>음향·녹음기사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000000899</jobCd>
+<jobNm>영화배우 및 탤런트</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000000901</jobCd>
+<jobNm>연극 및 뮤지컬배우</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000000951</jobCd>
+<jobNm>모델</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000001099</jobCd>
+<jobNm>영상·녹화 및 편집기사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000001126</jobCd>
+<jobNm>개그맨 및 코미디언</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000001138</jobCd>
+<jobNm>방송연출가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000001160</jobCd>
+<jobNm>연극영화방송기술감독</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000001161</jobCd>
+<jobNm>아나운서</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000001207</jobCd>
+<jobNm>리포터</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000007458</jobCd>
+<jobNm>영화감독</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000007460</jobCd>
+<jobNm>광고영상감독</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000007473</jobCd>
+<jobNm>조명기사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000007476</jobCd>
+<jobNm>성우</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000007503</jobCd>
+<jobNm>연극연출가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>416</jobClcd>
+<jobClcdNM>연극·영화·방송 전문가</jobClcdNM>
+<jobCd>K000007543</jobCd>
+<jobNm>촬영기사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>417</jobClcd>
+<jobClcdNM>문화·예술 기획자 및 매니저</jobClcdNM>
+<jobCd>K000000881</jobCd>
+<jobNm>공연·영화 및 음반기획자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>417</jobClcd>
+<jobClcdNM>문화·예술 기획자 및 매니저</jobClcdNM>
+<jobCd>K000001025</jobCd>
+<jobNm>미디어콘텐츠창작자(크리에이터)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>417</jobClcd>
+<jobClcdNM>문화·예술 기획자 및 매니저</jobClcdNM>
+<jobCd>K000007574</jobCd>
+<jobNm>연예인매니저</jobNm>
+</jobList>
+<jobList>
+<jobClcd>420</jobClcd>
+<jobClcdNM>스포츠·레크리에이션 종사자</jobClcdNM>
+<jobCd>K000000845</jobCd>
+<jobNm>스포츠트레이너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>420</jobClcd>
+<jobClcdNM>스포츠·레크리에이션 종사자</jobClcdNM>
+<jobCd>K000000859</jobCd>
+<jobNm>경기심판 및 경기기록원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>420</jobClcd>
+<jobClcdNM>스포츠·레크리에이션 종사자</jobClcdNM>
+<jobCd>K000000867</jobCd>
+<jobNm>직업운동선수</jobNm>
+</jobList>
+<jobList>
+<jobClcd>420</jobClcd>
+<jobClcdNM>스포츠·레크리에이션 종사자</jobClcdNM>
+<jobCd>K000000957</jobCd>
+<jobNm>스포츠강사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>420</jobClcd>
+<jobClcdNM>스포츠·레크리에이션 종사자</jobClcdNM>
+<jobCd>K000000981</jobCd>
+<jobNm>레크리에이션전문가</jobNm>
+</jobList>
+<jobList>
+<jobClcd>420</jobClcd>
+<jobClcdNM>스포츠·레크리에이션 종사자</jobClcdNM>
+<jobCd>K000001027</jobCd>
+<jobNm>스포츠감독 및 코치</jobNm>
+</jobList>
+<jobList>
+<jobClcd>420</jobClcd>
+<jobClcdNM>스포츠·레크리에이션 종사자</jobClcdNM>
+<jobCd>K000007507</jobCd>
+<jobNm>프로게이머</jobNm>
+</jobList>
+<jobList>
+<jobClcd>511</jobClcd>
+<jobClcdNM>미용 서비스원</jobClcdNM>
+<jobCd>K000000972</jobCd>
+<jobNm>네일아티스트</jobNm>
+</jobList>
+<jobList>
+<jobClcd>511</jobClcd>
+<jobClcdNM>미용 서비스원</jobClcdNM>
+<jobCd>K000001091</jobCd>
+<jobNm>피부 및 체형관리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>511</jobClcd>
+<jobClcdNM>미용 서비스원</jobClcdNM>
+<jobCd>K000001178</jobCd>
+<jobNm>메이크업아티스트 및 뷰티매니저</jobNm>
+</jobList>
+<jobList>
+<jobClcd>511</jobClcd>
+<jobClcdNM>미용 서비스원</jobClcdNM>
+<jobCd>K000007477</jobCd>
+<jobNm>반려동물미용사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>511</jobClcd>
+<jobClcdNM>미용 서비스원</jobClcdNM>
+<jobCd>K000007481</jobCd>
+<jobNm>미용사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>511</jobClcd>
+<jobClcdNM>미용 서비스원</jobClcdNM>
+<jobCd>K000007497</jobCd>
+<jobNm>수의사보조원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>511</jobClcd>
+<jobClcdNM>미용 서비스원</jobClcdNM>
+<jobCd>K000007528</jobCd>
+<jobNm>분장사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>511</jobClcd>
+<jobClcdNM>미용 서비스원</jobClcdNM>
+<jobCd>K000007569</jobCd>
+<jobNm>이용사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>512</jobClcd>
+<jobClcdNM>결혼·장례 등 예식 서비스원</jobClcdNM>
+<jobCd>K000000846</jobCd>
+<jobNm>장례지도사 및 장례상담원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>512</jobClcd>
+<jobClcdNM>결혼·장례 등 예식 서비스원</jobClcdNM>
+<jobCd>K000001167</jobCd>
+<jobNm>혼례종사원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>512</jobClcd>
+<jobClcdNM>결혼·장례 등 예식 서비스원</jobClcdNM>
+<jobCd>K000007483</jobCd>
+<jobNm>웨딩플래너</jobNm>
+</jobList>
+<jobList>
+<jobClcd>521</jobClcd>
+<jobClcdNM>여행 서비스원</jobClcdNM>
+<jobCd>K000001058</jobCd>
+<jobNm>자연 및 문화해설사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>521</jobClcd>
+<jobClcdNM>여행 서비스원</jobClcdNM>
+<jobCd>K000001093</jobCd>
+<jobNm>여행상품개발자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>521</jobClcd>
+<jobClcdNM>여행 서비스원</jobClcdNM>
+<jobCd>K000001187</jobCd>
+<jobNm>여행사무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>521</jobClcd>
+<jobClcdNM>여행 서비스원</jobClcdNM>
+<jobCd>K000001203</jobCd>
+<jobNm>여행안내원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>522</jobClcd>
+<jobClcdNM>항공기·선박·열차 객실승무원</jobClcdNM>
+<jobCd>K000001130</jobCd>
+<jobNm>열차객실승무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>522</jobClcd>
+<jobClcdNM>항공기·선박·열차 객실승무원</jobClcdNM>
+<jobCd>K000007506</jobCd>
+<jobNm>항공기객실승무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>522</jobClcd>
+<jobClcdNM>항공기·선박·열차 객실승무원</jobClcdNM>
+<jobCd>K000007578</jobCd>
+<jobNm>선박객실승무원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>523</jobClcd>
+<jobClcdNM>숙박시설 서비스원</jobClcdNM>
+<jobCd>K000000904</jobCd>
+<jobNm>숙박시설서비스원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>524</jobClcd>
+<jobClcdNM>오락시설 서비스원</jobClcdNM>
+<jobCd>K000000979</jobCd>
+<jobNm>오락시설서비스원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>531</jobClcd>
+<jobClcdNM>주방장 및 조리사</jobClcdNM>
+<jobCd>K000000893</jobCd>
+<jobNm>음료조리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>531</jobClcd>
+<jobClcdNM>주방장 및 조리사</jobClcdNM>
+<jobCd>K000001044</jobCd>
+<jobNm>바텐터</jobNm>
+</jobList>
+<jobList>
+<jobClcd>531</jobClcd>
+<jobClcdNM>주방장 및 조리사</jobClcdNM>
+<jobCd>K000007450</jobCd>
+<jobNm>중식조리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>531</jobClcd>
+<jobClcdNM>주방장 및 조리사</jobClcdNM>
+<jobCd>K000007538</jobCd>
+<jobNm>한식조리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>531</jobClcd>
+<jobClcdNM>주방장 및 조리사</jobClcdNM>
+<jobCd>K000007555</jobCd>
+<jobNm>양식조리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>531</jobClcd>
+<jobClcdNM>주방장 및 조리사</jobClcdNM>
+<jobCd>K000007556</jobCd>
+<jobNm>주방장</jobNm>
+</jobList>
+<jobList>
+<jobClcd>531</jobClcd>
+<jobClcdNM>주방장 및 조리사</jobClcdNM>
+<jobCd>K000007579</jobCd>
+<jobNm>일식조리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>532</jobClcd>
+<jobClcdNM>식당 서비스원</jobClcdNM>
+<jobCd>K000000913</jobCd>
+<jobNm>홀서빙원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>532</jobClcd>
+<jobClcdNM>식당 서비스원</jobClcdNM>
+<jobCd>K000000982</jobCd>
+<jobNm>패스트푸드준비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>532</jobClcd>
+<jobClcdNM>식당 서비스원</jobClcdNM>
+<jobCd>K000001192</jobCd>
+<jobNm>주방보조원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>532</jobClcd>
+<jobClcdNM>식당 서비스원</jobClcdNM>
+<jobCd>K000007534</jobCd>
+<jobNm>음식배달원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>541</jobClcd>
+<jobClcdNM>경호·보안 종사자</jobClcdNM>
+<jobCd>K000001150</jobCd>
+<jobNm>시설·특수경비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>541</jobClcd>
+<jobClcdNM>경호·보안 종사자</jobClcdNM>
+<jobCd>K000001212</jobCd>
+<jobNm>청원경찰</jobNm>
+</jobList>
+<jobList>
+<jobClcd>541</jobClcd>
+<jobClcdNM>경호·보안 종사자</jobClcdNM>
+<jobCd>K000007549</jobCd>
+<jobNm>경호원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>542</jobClcd>
+<jobClcdNM>경비원</jobClcdNM>
+<jobCd>K000007575</jobCd>
+<jobNm>경비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>550</jobClcd>
+<jobClcdNM>돌봄 서비스 종사자</jobClcdNM>
+<jobCd>K000000850</jobCd>
+<jobNm>요양보호사 및 간병인</jobNm>
+</jobList>
+<jobList>
+<jobClcd>550</jobClcd>
+<jobClcdNM>돌봄 서비스 종사자</jobClcdNM>
+<jobCd>K000007520</jobCd>
+<jobNm>육아도우미</jobNm>
+</jobList>
+<jobList>
+<jobClcd>561</jobClcd>
+<jobClcdNM>청소·방역 및 가사 서비스원</jobClcdNM>
+<jobCd>K000000999</jobCd>
+<jobNm>세탁원(다림질원)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>561</jobClcd>
+<jobClcdNM>청소·방역 및 가사 서비스원</jobClcdNM>
+<jobCd>K000001066</jobCd>
+<jobNm>청소원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>561</jobClcd>
+<jobClcdNM>청소·방역 및 가사 서비스원</jobClcdNM>
+<jobCd>K000001156</jobCd>
+<jobNm>환경미화원 및 재활용품수거원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>561</jobClcd>
+<jobClcdNM>청소·방역 및 가사 서비스원</jobClcdNM>
+<jobCd>K000007563</jobCd>
+<jobNm>방역원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>561</jobClcd>
+<jobClcdNM>청소·방역 및 가사 서비스원</jobClcdNM>
+<jobCd>K000007566</jobCd>
+<jobNm>가사관리사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>562</jobClcd>
+<jobClcdNM>검침·주차관리 및 기타 서비스 단순 종사자</jobClcdNM>
+<jobCd>K000000854</jobCd>
+<jobNm>주차관리·안내원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>562</jobClcd>
+<jobClcdNM>검침·주차관리 및 기타 서비스 단순 종사자</jobClcdNM>
+<jobCd>K000001204</jobCd>
+<jobNm>계기검침원 및 가스점검원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>562</jobClcd>
+<jobClcdNM>검침·주차관리 및 기타 서비스 단순 종사자</jobClcdNM>
+<jobCd>K000007523</jobCd>
+<jobNm>검표원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>611</jobClcd>
+<jobClcdNM>부동산 컨설턴트 및 중개인</jobClcdNM>
+<jobCd>K000007536</jobCd>
+<jobNm>부동산중개인</jobNm>
+</jobList>
+<jobList>
+<jobClcd>612</jobClcd>
+<jobClcdNM>영업원 및 상품중개인</jobClcdNM>
+<jobCd>K000000930</jobCd>
+<jobNm>제품광고영업원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>612</jobClcd>
+<jobClcdNM>영업원 및 상품중개인</jobClcdNM>
+<jobCd>K000001004</jobCd>
+<jobNm>기술영업원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>612</jobClcd>
+<jobClcdNM>영업원 및 상품중개인</jobClcdNM>
+<jobCd>K000001195</jobCd>
+<jobNm>상품중개인 및 경매사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>612</jobClcd>
+<jobClcdNM>영업원 및 상품중개인</jobClcdNM>
+<jobCd>K000007464</jobCd>
+<jobNm>자동차영업원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>612</jobClcd>
+<jobClcdNM>영업원 및 상품중개인</jobClcdNM>
+<jobCd>K000007560</jobCd>
+<jobNm>해외영업원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>613</jobClcd>
+<jobClcdNM>텔레마케터</jobClcdNM>
+<jobCd>K000007451</jobCd>
+<jobNm>텔레마케터</jobNm>
+</jobList>
+<jobList>
+<jobClcd>614</jobClcd>
+<jobClcdNM>소규모 상점 경영 및 일선 관리 종사자</jobClcdNM>
+<jobCd>K000001143</jobCd>
+<jobNm>소규모판매점장</jobNm>
+</jobList>
+<jobList>
+<jobClcd>615</jobClcd>
+<jobClcdNM>판매 종사자</jobClcdNM>
+<jobCd>K000000827</jobCd>
+<jobNm>노점 및 이동판매원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>615</jobClcd>
+<jobClcdNM>판매 종사자</jobClcdNM>
+<jobCd>K000000874</jobCd>
+<jobNm>주유원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>615</jobClcd>
+<jobClcdNM>판매 종사자</jobClcdNM>
+<jobCd>K000001050</jobCd>
+<jobNm>상품대여원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>615</jobClcd>
+<jobClcdNM>판매 종사자</jobClcdNM>
+<jobCd>K000001109</jobCd>
+<jobNm>통신기기·서비스판매원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>615</jobClcd>
+<jobClcdNM>판매 종사자</jobClcdNM>
+<jobCd>K000001128</jobCd>
+<jobNm>상점판매원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>615</jobClcd>
+<jobClcdNM>판매 종사자</jobClcdNM>
+<jobCd>K000001154</jobCd>
+<jobNm>온라인판매원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>615</jobClcd>
+<jobClcdNM>판매 종사자</jobClcdNM>
+<jobCd>K000007513</jobCd>
+<jobNm>방문판매원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>616</jobClcd>
+<jobClcdNM>매장 계산원 및 매표원　</jobClcdNM>
+<jobCd>K000000952</jobCd>
+<jobNm>매장계산원 및 요금정산원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>616</jobClcd>
+<jobClcdNM>매장 계산원 및 매표원　</jobClcdNM>
+<jobCd>K000001092</jobCd>
+<jobNm>매표원 및 복권판매원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>617</jobClcd>
+<jobClcdNM>판촉 및 기타 판매 단순 종사자</jobClcdNM>
+<jobCd>K000001218</jobCd>
+<jobNm>홍보도우미 및 판촉원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>621</jobClcd>
+<jobClcdNM>항공기·선박·철도 조종사 및 관제사</jobClcdNM>
+<jobCd>K000000921</jobCd>
+<jobNm>선박교통관제사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>621</jobClcd>
+<jobClcdNM>항공기·선박·철도 조종사 및 관제사</jobClcdNM>
+<jobCd>K000000941</jobCd>
+<jobNm>철도·전동차기관사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>621</jobClcd>
+<jobClcdNM>항공기·선박·철도 조종사 및 관제사</jobClcdNM>
+<jobCd>K000000974</jobCd>
+<jobNm>선장 및 항해사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>621</jobClcd>
+<jobClcdNM>항공기·선박·철도 조종사 및 관제사</jobClcdNM>
+<jobCd>K000001086</jobCd>
+<jobNm>헬리콥터조종사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>621</jobClcd>
+<jobClcdNM>항공기·선박·철도 조종사 및 관제사</jobClcdNM>
+<jobCd>K000001137</jobCd>
+<jobNm>신호원 및 수송원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>621</jobClcd>
+<jobClcdNM>항공기·선박·철도 조종사 및 관제사</jobClcdNM>
+<jobCd>K000007489</jobCd>
+<jobNm>항공교통관제사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>621</jobClcd>
+<jobClcdNM>항공기·선박·철도 조종사 및 관제사</jobClcdNM>
+<jobCd>K000007515</jobCd>
+<jobNm>철도교통관제사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>621</jobClcd>
+<jobClcdNM>항공기·선박·철도 조종사 및 관제사</jobClcdNM>
+<jobCd>K000007552</jobCd>
+<jobNm>항공기조종사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>622</jobClcd>
+<jobClcdNM>자동차 운전원</jobClcdNM>
+<jobCd>K000001164</jobCd>
+<jobNm>화물차·특수차운전원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>622</jobClcd>
+<jobClcdNM>자동차 운전원</jobClcdNM>
+<jobCd>K000007465</jobCd>
+<jobNm>택시운전원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>622</jobClcd>
+<jobClcdNM>자동차 운전원</jobClcdNM>
+<jobCd>K000007468</jobCd>
+<jobNm>버스운전원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>623</jobClcd>
+<jobClcdNM>물품이동장비 조작원(크레인·호이스트·지게차)</jobClcdNM>
+<jobCd>K000001213</jobCd>
+<jobNm>크레인·호이스트운전원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>623</jobClcd>
+<jobClcdNM>물품이동장비 조작원(크레인·호이스트·지게차)</jobClcdNM>
+<jobCd>K000007462</jobCd>
+<jobNm>지게차운전원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>624</jobClcd>
+<jobClcdNM>택배원 및 기타 운송 종사자</jobClcdNM>
+<jobCd>K000000884</jobCd>
+<jobNm>선박갑판원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>624</jobClcd>
+<jobClcdNM>택배원 및 기타 운송 종사자</jobClcdNM>
+<jobCd>K000000954</jobCd>
+<jobNm>하역·적재종사원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>624</jobClcd>
+<jobClcdNM>택배원 및 기타 운송 종사자</jobClcdNM>
+<jobCd>K000007455</jobCd>
+<jobNm>집배원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>624</jobClcd>
+<jobClcdNM>택배원 및 기타 운송 종사자</jobClcdNM>
+<jobCd>K000007469</jobCd>
+<jobNm>선박기관사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>624</jobClcd>
+<jobClcdNM>택배원 및 기타 운송 종사자</jobClcdNM>
+<jobCd>K000007557</jobCd>
+<jobNm>택배원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>701</jobClcd>
+<jobClcdNM>건설구조 기능원</jobClcdNM>
+<jobCd>K000000897</jobCd>
+<jobNm>철골공(강구조물건립원)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>701</jobClcd>
+<jobClcdNM>건설구조 기능원</jobClcdNM>
+<jobCd>K000001046</jobCd>
+<jobNm>전통건축기능원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>701</jobClcd>
+<jobClcdNM>건설구조 기능원</jobClcdNM>
+<jobCd>K000001117</jobCd>
+<jobNm>건축목공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>701</jobClcd>
+<jobClcdNM>건설구조 기능원</jobClcdNM>
+<jobCd>K000001208</jobCd>
+<jobNm>조적원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>701</jobClcd>
+<jobClcdNM>건설구조 기능원</jobClcdNM>
+<jobCd>K000007467</jobCd>
+<jobNm>콘크리트공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>701</jobClcd>
+<jobClcdNM>건설구조 기능원</jobClcdNM>
+<jobCd>K000007475</jobCd>
+<jobNm>건축석공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>701</jobClcd>
+<jobClcdNM>건설구조 기능원</jobClcdNM>
+<jobCd>K000007488</jobCd>
+<jobNm>경량철골공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>701</jobClcd>
+<jobClcdNM>건설구조 기능원</jobClcdNM>
+<jobCd>K000007533</jobCd>
+<jobNm>철근공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>702</jobClcd>
+<jobClcdNM>건축마감 기능원</jobClcdNM>
+<jobCd>K000000923</jobCd>
+<jobNm>단열공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>702</jobClcd>
+<jobClcdNM>건축마감 기능원</jobClcdNM>
+<jobCd>K000000932</jobCd>
+<jobNm>유리부착원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>702</jobClcd>
+<jobClcdNM>건축마감 기능원</jobClcdNM>
+<jobCd>K000001034</jobCd>
+<jobNm>섀시조립·설치원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>702</jobClcd>
+<jobClcdNM>건축마감 기능원</jobClcdNM>
+<jobCd>K000001038</jobCd>
+<jobNm>방수공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>702</jobClcd>
+<jobClcdNM>건축마감 기능원</jobClcdNM>
+<jobCd>K000001053</jobCd>
+<jobNm>타일·대리석시공원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>702</jobClcd>
+<jobClcdNM>건축마감 기능원</jobClcdNM>
+<jobCd>K000001102</jobCd>
+<jobNm>미장공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>702</jobClcd>
+<jobClcdNM>건축마감 기능원</jobClcdNM>
+<jobCd>K000001188</jobCd>
+<jobNm>도배공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>702</jobClcd>
+<jobClcdNM>건축마감 기능원</jobClcdNM>
+<jobCd>K000007480</jobCd>
+<jobNm>건물도장공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>703</jobClcd>
+<jobClcdNM>배관공</jobClcdNM>
+<jobCd>K000000964</jobCd>
+<jobNm>건설배관공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>703</jobClcd>
+<jobClcdNM>배관공</jobClcdNM>
+<jobCd>K000007496</jobCd>
+<jobNm>공업배관공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>704</jobClcd>
+<jobClcdNM>건설·채굴 기계 운전원</jobClcdNM>
+<jobCd>K000000868</jobCd>
+<jobNm>건설 및 채굴기계운전원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>705</jobClcd>
+<jobClcdNM>기타 건설 기능원(채굴포함)</jobClcdNM>
+<jobCd>K000000896</jobCd>
+<jobNm>점화·발파·화약관리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>705</jobClcd>
+<jobClcdNM>기타 건설 기능원(채굴포함)</jobClcdNM>
+<jobCd>K000000983</jobCd>
+<jobNm>잠수기능원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>705</jobClcd>
+<jobClcdNM>기타 건설 기능원(채굴포함)</jobClcdNM>
+<jobCd>K000001062</jobCd>
+<jobNm>철로설치·보수원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>705</jobClcd>
+<jobClcdNM>기타 건설 기능원(채굴포함)</jobClcdNM>
+<jobCd>K000001111</jobCd>
+<jobNm>광원·채석원 및 석재절단원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>706</jobClcd>
+<jobClcdNM>건설·채굴 단순 종사자</jobClcdNM>
+<jobCd>K000001096</jobCd>
+<jobNm>건설·채굴단순종사원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>811</jobClcd>
+<jobClcdNM>기계장비 설치·정비원(운송장비 제외)</jobClcdNM>
+<jobCd>K000000885</jobCd>
+<jobNm>승강기설치·정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>811</jobClcd>
+<jobClcdNM>기계장비 설치·정비원(운송장비 제외)</jobClcdNM>
+<jobCd>K000000886</jobCd>
+<jobNm>냉동·냉장·공조기설치·정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>811</jobClcd>
+<jobClcdNM>기계장비 설치·정비원(운송장비 제외)</jobClcdNM>
+<jobCd>K000001023</jobCd>
+<jobNm>공업기계설치 및 정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>811</jobClcd>
+<jobClcdNM>기계장비 설치·정비원(운송장비 제외)</jobClcdNM>
+<jobCd>K000001031</jobCd>
+<jobNm>보일러설치·정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>811</jobClcd>
+<jobClcdNM>기계장비 설치·정비원(운송장비 제외)</jobClcdNM>
+<jobCd>K000001043</jobCd>
+<jobNm>농업용 및 기타기계장비설치 및 정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>811</jobClcd>
+<jobClcdNM>기계장비 설치·정비원(운송장비 제외)</jobClcdNM>
+<jobCd>K000001107</jobCd>
+<jobNm>크레인 및 지게차설치 및 정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>811</jobClcd>
+<jobClcdNM>기계장비 설치·정비원(운송장비 제외)</jobClcdNM>
+<jobCd>K000001211</jobCd>
+<jobNm>건설·광업기계설치·정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>812</jobClcd>
+<jobClcdNM>운송장비 정비원</jobClcdNM>
+<jobCd>K000000822</jobCd>
+<jobNm>항공기정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>812</jobClcd>
+<jobClcdNM>운송장비 정비원</jobClcdNM>
+<jobCd>K000000914</jobCd>
+<jobNm>헬리콥터정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>812</jobClcd>
+<jobClcdNM>운송장비 정비원</jobClcdNM>
+<jobCd>K000000976</jobCd>
+<jobNm>선박정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>812</jobClcd>
+<jobClcdNM>운송장비 정비원</jobClcdNM>
+<jobCd>K000001030</jobCd>
+<jobNm>철도기관차·전동차정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>812</jobClcd>
+<jobClcdNM>운송장비 정비원</jobClcdNM>
+<jobCd>K000001070</jobCd>
+<jobNm>자동차정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>812</jobClcd>
+<jobClcdNM>운송장비 정비원</jobClcdNM>
+<jobCd>K000001214</jobCd>
+<jobNm>자전거판매 및 정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>812</jobClcd>
+<jobClcdNM>운송장비 정비원</jobClcdNM>
+<jobCd>K000001217</jobCd>
+<jobNm>오토바이정비원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>813</jobClcd>
+<jobClcdNM>금형원 및 공작기계 조작원</jobClcdNM>
+<jobCd>K000001112</jobCd>
+<jobNm>금속공작기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>813</jobClcd>
+<jobClcdNM>금형원 및 공작기계 조작원</jobClcdNM>
+<jobCd>K000001223</jobCd>
+<jobNm>금형원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>814</jobClcd>
+<jobClcdNM>냉·난방 설비 조작원</jobClcdNM>
+<jobCd>K000001013</jobCd>
+<jobNm>냉·난방설비조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>815</jobClcd>
+<jobClcdNM>자동조립라인·산업용로봇 조작원</jobClcdNM>
+<jobCd>K000001076</jobCd>
+<jobNm>자동조립라인·산업용 로봇조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>816</jobClcd>
+<jobClcdNM>기계 조립원(운송장비 제외)</jobClcdNM>
+<jobCd>K000000871</jobCd>
+<jobNm>일반기계조립원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>817</jobClcd>
+<jobClcdNM>운송장비 조립원</jobClcdNM>
+<jobCd>K000000858</jobCd>
+<jobNm>자동차부품조립·검사원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>817</jobClcd>
+<jobClcdNM>운송장비 조립원</jobClcdNM>
+<jobCd>K000000909</jobCd>
+<jobNm>선박조립원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>817</jobClcd>
+<jobClcdNM>운송장비 조립원</jobClcdNM>
+<jobCd>K000007548</jobCd>
+<jobNm>자동차조립원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>821</jobClcd>
+<jobClcdNM>금속관련 기계·설비 조작원</jobClcdNM>
+<jobCd>K000000945</jobCd>
+<jobNm>금속가공기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>821</jobClcd>
+<jobClcdNM>금속관련 기계·설비 조작원</jobClcdNM>
+<jobCd>K000001165</jobCd>
+<jobNm>금속가공제어장치조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>822</jobClcd>
+<jobClcdNM>판금원 및 제관원</jobClcdNM>
+<jobCd>K000000821</jobCd>
+<jobNm>제관원(제관기조작원)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>822</jobClcd>
+<jobClcdNM>판금원 및 제관원</jobClcdNM>
+<jobCd>K000000823</jobCd>
+<jobNm>판금원(판금기조작원)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>823</jobClcd>
+<jobClcdNM>단조원 및 주조원</jobClcdNM>
+<jobCd>K000001006</jobCd>
+<jobNm>주조원(주조기조작원)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>823</jobClcd>
+<jobClcdNM>단조원 및 주조원</jobClcdNM>
+<jobCd>K000001148</jobCd>
+<jobNm>단조원(단조기조작원)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>824</jobClcd>
+<jobClcdNM>용접원</jobClcdNM>
+<jobCd>K000001055</jobCd>
+<jobNm>용접원(용접기조작원)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>825</jobClcd>
+<jobClcdNM>도장원 및 도금원　</jobClcdNM>
+<jobCd>K000000831</jobCd>
+<jobNm>도장원(도장기조작원)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>825</jobClcd>
+<jobClcdNM>도장원 및 도금원　</jobClcdNM>
+<jobCd>K000000962</jobCd>
+<jobNm>도금·금속분무기조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>826</jobClcd>
+<jobClcdNM>비금속제품 생산기계 조작원</jobClcdNM>
+<jobCd>K000000828</jobCd>
+<jobNm>시멘트·광물제품생산기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>826</jobClcd>
+<jobClcdNM>비금속제품 생산기계 조작원</jobClcdNM>
+<jobCd>K000001037</jobCd>
+<jobNm>유리·유리제품생산기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>826</jobClcd>
+<jobClcdNM>비금속제품 생산기계 조작원</jobClcdNM>
+<jobCd>K000001174</jobCd>
+<jobNm>점토제품생산기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>826</jobClcd>
+<jobClcdNM>비금속제품 생산기계 조작원</jobClcdNM>
+<jobCd>K000001197</jobCd>
+<jobNm>광석·석제품생산기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>831</jobClcd>
+<jobClcdNM>전기공</jobClcdNM>
+<jobCd>K000001083</jobCd>
+<jobNm>외선전기공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>831</jobClcd>
+<jobClcdNM>전기공</jobClcdNM>
+<jobCd>K000001095</jobCd>
+<jobNm>내선전기공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>831</jobClcd>
+<jobClcdNM>전기공</jobClcdNM>
+<jobCd>K000001158</jobCd>
+<jobNm>산업전기공</jobNm>
+</jobList>
+<jobList>
+<jobClcd>832</jobClcd>
+<jobClcdNM>전기·전자 기기 설치·수리원</jobClcdNM>
+<jobCd>K000000961</jobCd>
+<jobNm>사무용 전자기기설치·수리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>832</jobClcd>
+<jobClcdNM>전기·전자 기기 설치·수리원</jobClcdNM>
+<jobCd>K000001098</jobCd>
+<jobNm>가전제품설치·수리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>833</jobClcd>
+<jobClcdNM>발전·배전 장치 조작원</jobClcdNM>
+<jobCd>K000001087</jobCd>
+<jobNm>발전·배전장치조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>834</jobClcd>
+<jobClcdNM>전기·전자 설비 조작원</jobClcdNM>
+<jobCd>K000001118</jobCd>
+<jobNm>전기·전자설비조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>835</jobClcd>
+<jobClcdNM>전기·전자 부품·제품 생산기계 조작원　</jobClcdNM>
+<jobCd>K000000917</jobCd>
+<jobNm>전자부품·제품생산기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>835</jobClcd>
+<jobClcdNM>전기·전자 부품·제품 생산기계 조작원　</jobClcdNM>
+<jobCd>K000000927</jobCd>
+<jobNm>전기부품·제품생산기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>836</jobClcd>
+<jobClcdNM>전기·전자 부품·제품 조립원</jobClcdNM>
+<jobCd>K000001135</jobCd>
+<jobNm>전기·전자부품·제품조립원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>841</jobClcd>
+<jobClcdNM>정보통신기기 설치·수리원</jobClcdNM>
+<jobCd>K000000963</jobCd>
+<jobNm>컴퓨터설치·수리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>841</jobClcd>
+<jobClcdNM>정보통신기기 설치·수리원</jobClcdNM>
+<jobCd>K000001121</jobCd>
+<jobNm>이동전화기수리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>842</jobClcd>
+<jobClcdNM>방송·통신장비 설치·정비원</jobClcdNM>
+<jobCd>K000000958</jobCd>
+<jobNm>방송장비설치·수리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>842</jobClcd>
+<jobClcdNM>방송·통신장비 설치·정비원</jobClcdNM>
+<jobCd>K000001039</jobCd>
+<jobNm>통신장비설치·수리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>842</jobClcd>
+<jobClcdNM>방송·통신장비 설치·정비원</jobClcdNM>
+<jobCd>K000001075</jobCd>
+<jobNm>방송·통신·인터넷케이블 설치·수리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>851</jobClcd>
+<jobClcdNM>석유·화학물 가공장치 조작원</jobClcdNM>
+<jobCd>K000001009</jobCd>
+<jobNm>석유·천연가스제조제어장치조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>851</jobClcd>
+<jobClcdNM>석유·화학물 가공장치 조작원</jobClcdNM>
+<jobCd>K000001054</jobCd>
+<jobNm>화학물가공장치조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>852</jobClcd>
+<jobClcdNM>고무·플라스틱 및 화학제품 생산기계 조작원 및 조립원</jobClcdNM>
+<jobCd>K000000986</jobCd>
+<jobNm>화학제품생산기계조작원(고무·플라스틱 제외)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>852</jobClcd>
+<jobClcdNM>고무·플라스틱 및 화학제품 생산기계 조작원 및 조립원</jobClcdNM>
+<jobCd>K000001047</jobCd>
+<jobNm>고무·플라스틱 제품 조립원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>852</jobClcd>
+<jobClcdNM>고무·플라스틱 및 화학제품 생산기계 조작원 및 조립원</jobClcdNM>
+<jobCd>K000001124</jobCd>
+<jobNm>플라스틱제품생산기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>852</jobClcd>
+<jobClcdNM>고무·플라스틱 및 화학제품 생산기계 조작원 및 조립원</jobClcdNM>
+<jobCd>K000001152</jobCd>
+<jobNm>타이어·고무제품생산기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>853</jobClcd>
+<jobClcdNM>환경관련 장치 조작원</jobClcdNM>
+<jobCd>K000000916</jobCd>
+<jobNm>상·하수도처리장치조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>853</jobClcd>
+<jobClcdNM>환경관련 장치 조작원</jobClcdNM>
+<jobCd>K000001003</jobCd>
+<jobNm>재활용 처리장치·소각로조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>861</jobClcd>
+<jobClcdNM>섬유 제조·가공 기계 조작원</jobClcdNM>
+<jobCd>K000000839</jobCd>
+<jobNm>표백·염색기조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>861</jobClcd>
+<jobClcdNM>섬유 제조·가공 기계 조작원</jobClcdNM>
+<jobCd>K000001072</jobCd>
+<jobNm>섬유제조기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>861</jobClcd>
+<jobClcdNM>섬유 제조·가공 기계 조작원</jobClcdNM>
+<jobCd>K000001145</jobCd>
+<jobNm>직조기 및 편직기조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>862</jobClcd>
+<jobClcdNM>패턴사, 재단사 및 재봉사</jobClcdNM>
+<jobCd>K000000848</jobCd>
+<jobNm>재봉사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>862</jobClcd>
+<jobClcdNM>패턴사, 재단사 및 재봉사</jobClcdNM>
+<jobCd>K000001122</jobCd>
+<jobNm>재단사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>862</jobClcd>
+<jobClcdNM>패턴사, 재단사 및 재봉사</jobClcdNM>
+<jobCd>K000001182</jobCd>
+<jobNm>패턴사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>863</jobClcd>
+<jobClcdNM>의복 제조원 및 수선원</jobClcdNM>
+<jobCd>K000000965</jobCd>
+<jobNm>의복·가죽·모피수선원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>863</jobClcd>
+<jobClcdNM>의복 제조원 및 수선원</jobClcdNM>
+<jobCd>K000001115</jobCd>
+<jobNm>양장·양복제조원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>863</jobClcd>
+<jobClcdNM>의복 제조원 및 수선원</jobClcdNM>
+<jobCd>K000007457</jobCd>
+<jobNm>한복제조원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>864</jobClcd>
+<jobClcdNM>제화원, 기타 섬유·의복 기계 조작원 및 조립원</jobClcdNM>
+<jobCd>K000001015</jobCd>
+<jobNm>신발제조기계조작원 및 조립원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>864</jobClcd>
+<jobClcdNM>제화원, 기타 섬유·의복 기계 조작원 및 조립원</jobClcdNM>
+<jobCd>K000001033</jobCd>
+<jobNm>제화원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>864</jobClcd>
+<jobClcdNM>제화원, 기타 섬유·의복 기계 조작원 및 조립원</jobClcdNM>
+<jobCd>K000001057</jobCd>
+<jobNm>세탁기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>871</jobClcd>
+<jobClcdNM>제과·제빵원 및 떡제조원</jobClcdNM>
+<jobCd>K000000861</jobCd>
+<jobNm>제과·제빵원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>871</jobClcd>
+<jobClcdNM>제과·제빵원 및 떡제조원</jobClcdNM>
+<jobCd>K000007510</jobCd>
+<jobNm>떡제조원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>872</jobClcd>
+<jobClcdNM>식품 가공 기능원</jobClcdNM>
+<jobCd>K000000841</jobCd>
+<jobNm>김치·밑반찬 제조종사원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>872</jobClcd>
+<jobClcdNM>식품 가공 기능원</jobClcdNM>
+<jobCd>K000001105</jobCd>
+<jobNm>식품·담배등급원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>872</jobClcd>
+<jobClcdNM>식품 가공 기능원</jobClcdNM>
+<jobCd>K000001209</jobCd>
+<jobNm>정육원 및 도축원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>873</jobClcd>
+<jobClcdNM>식품 가공 기계 조작원</jobClcdNM>
+<jobCd>K000000905</jobCd>
+<jobNm>음료제조기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>873</jobClcd>
+<jobClcdNM>식품 가공 기계 조작원</jobClcdNM>
+<jobCd>K000001016</jobCd>
+<jobNm>곡물가공제품기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>873</jobClcd>
+<jobClcdNM>식품 가공 기계 조작원</jobClcdNM>
+<jobCd>K000001024</jobCd>
+<jobNm>제분·도정기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>873</jobClcd>
+<jobClcdNM>식품 가공 기계 조작원</jobClcdNM>
+<jobCd>K000001045</jobCd>
+<jobNm>과실·채소기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>873</jobClcd>
+<jobClcdNM>식품 가공 기계 조작원</jobClcdNM>
+<jobCd>K000001166</jobCd>
+<jobNm>육류·어패류·낙농품가공기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>881</jobClcd>
+<jobClcdNM>인쇄기계·사진현상기 조작원</jobClcdNM>
+<jobCd>K000000880</jobCd>
+<jobNm>사진인화·현상기조작원(사진수정 포함)</jobNm>
+</jobList>
+<jobList>
+<jobClcd>881</jobClcd>
+<jobClcdNM>인쇄기계·사진현상기 조작원</jobClcdNM>
+<jobCd>K000000988</jobCd>
+<jobNm>인쇄기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>882</jobClcd>
+<jobClcdNM>목재·펄프·종이 생산기계 조작원</jobClcdNM>
+<jobCd>K000000943</jobCd>
+<jobNm>종이제품생산기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>882</jobClcd>
+<jobClcdNM>목재·펄프·종이 생산기계 조작원</jobClcdNM>
+<jobCd>K000001078</jobCd>
+<jobNm>목재가공기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>882</jobClcd>
+<jobClcdNM>목재·펄프·종이 생산기계 조작원</jobClcdNM>
+<jobCd>K000001199</jobCd>
+<jobNm>펄프·종이제조장치조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>883</jobClcd>
+<jobClcdNM>가구·목제품 제조·수리원</jobClcdNM>
+<jobCd>K000000971</jobCd>
+<jobNm>가구조립원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>883</jobClcd>
+<jobClcdNM>가구·목제품 제조·수리원</jobClcdNM>
+<jobCd>K000000996</jobCd>
+<jobNm>가구제조·수리원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>884</jobClcd>
+<jobClcdNM>공예원 및 귀금속세공원</jobClcdNM>
+<jobCd>K000000882</jobCd>
+<jobNm>귀금속·보석세공원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>884</jobClcd>
+<jobClcdNM>공예원 및 귀금속세공원</jobClcdNM>
+<jobCd>K000001077</jobCd>
+<jobNm>공예원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>885</jobClcd>
+<jobClcdNM>악기·간판 및 기타 제조 종사자</jobClcdNM>
+<jobCd>K000000894</jobCd>
+<jobNm>악기제조원 및 조율사</jobNm>
+</jobList>
+<jobList>
+<jobClcd>885</jobClcd>
+<jobClcdNM>악기·간판 및 기타 제조 종사자</jobClcdNM>
+<jobCd>K000001005</jobCd>
+<jobNm>주입·포장·상표부착기계조작원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>885</jobClcd>
+<jobClcdNM>악기·간판 및 기타 제조 종사자</jobClcdNM>
+<jobCd>K000001020</jobCd>
+<jobNm>간판제작·설치원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>901</jobClcd>
+<jobClcdNM>작물재배 종사자</jobClcdNM>
+<jobCd>K000000842</jobCd>
+<jobNm>육묘 및 화훼작물재배자</jobNm>
+</jobList>
+<jobList>
+<jobClcd>901</jobClcd>
+<jobClcdNM>작물재배 종사자</jobClcdNM>
+<jobCd>K000000907</jobCd>
+<jobNm>채소·특용작물재배원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>901</jobClcd>
+<jobClcdNM>작물재배 종사자</jobClcdNM>
+<jobCd>K000001035</jobCd>
+<jobNm>조경원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>901</jobClcd>
+<jobClcdNM>작물재배 종사자</jobClcdNM>
+<jobCd>K000007484</jobCd>
+<jobNm>곡식작물재배원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>901</jobClcd>
+<jobClcdNM>작물재배 종사자</jobClcdNM>
+<jobCd>K000007486</jobCd>
+<jobNm>과수작물재배원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>902</jobClcd>
+<jobClcdNM>낙농·사육 종사자</jobClcdNM>
+<jobCd>K000000902</jobCd>
+<jobNm>낙농종사원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>902</jobClcd>
+<jobClcdNM>낙농·사육 종사자</jobClcdNM>
+<jobCd>K000000935</jobCd>
+<jobNm>가축사육종사원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>903</jobClcd>
+<jobClcdNM>임업 종사자　</jobClcdNM>
+<jobCd>K000000869</jobCd>
+<jobNm>조림·산림경영인 및 벌목원</jobNm>
+</jobList>
+<jobList>
+<jobClcd>904</jobClcd>
+<jobClcdNM>어업 종사자</jobClcdNM>
+<jobCd>K000000926</jobCd>
+<jobNm>어부 및 해녀</jobNm>
+</jobList>
+<jobList>
+<jobClcd>904</jobClcd>
+<jobClcdNM>어업 종사자</jobClcdNM>
+<jobCd>K000001056</jobCd>
+<jobNm>양식원</jobNm>
+</jobList>
+</jobsList>

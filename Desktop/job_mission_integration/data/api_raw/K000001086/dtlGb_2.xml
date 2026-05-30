@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001086</jobCd><jobLrclNm>영업·판매·운전·운송직</jobLrclNm><jobMdclNm>항공기·선박·철도 조종사 및 관제사</jobMdclNm><jobSmclNm>헬리콥터조종사</jobSmclNm><jobSum>승객이나 화물의 수송, 인명 구조, 응급환자 이송, 군의 정찰과 연락, 사고 실종자 수색,  항공측량 등을 위하여 헬리콥터를 조종한다.</jobSum><execJob>-운항 부장으로부터 운항지시를 받는다.
+-각종 계기판의 안전점검을 실시한다.
+-이륙을 위하여 배터리와 발전기를 켠다.
+-각종 파워시스템(하이드롤릭, 오일,연료)을 작동시킨다.
+-통신장비를 체크한다.
+-계기판을 점검한다.
+-스타트를 하고, 토크, 엔진의 분당회전속도(rpm)의 정상 여부를 체크한다.
+-분당회전속도(rpm) 조절 그립을 연다.
+-버닝 및 점화한다.
+-분당회전속도가 최대에 이르면 종합적으로 이륙점검을 한다.
+-조종간을 상방향으로 하고 우측 페달에 압력을서서히 가하여 이륙하고 조종간을 조정하여 비행한다.
+-착류지에 도착하면 착륙전 점검을 하고 목표물을 판단 접지한다.
+-검열심사(조종사 연간 표준화평가) 및 안전교육(안전관리자격증을 소지한 조종사가 교육함)을 하기도 한다.</execJob><relJobList><jobCd>K000000921</jobCd><jobNm>선박교통관제사</jobNm></relJobList><relJobList><jobCd>K000000941</jobCd><jobNm>철도·전동차기관사</jobNm></relJobList><relJobList><jobCd>K000000974</jobCd><jobNm>선장 및 항해사</jobNm></relJobList><relJobList><jobCd>K000001137</jobCd><jobNm>신호원 및 수송원</jobNm></relJobList><relJobList><jobCd>K000007489</jobCd><jobNm>항공교통관제사</jobNm></relJobList><relJobList><jobCd>K000007515</jobCd><jobNm>철도교통관제사</jobNm></relJobList><relJobList><jobCd>K000007552</jobCd><jobNm>항공기조종사</jobNm></relJobList></jobsDo>

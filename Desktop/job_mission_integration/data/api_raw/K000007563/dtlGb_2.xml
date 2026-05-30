@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007563</jobCd><jobLrclNm>미용·여행·숙박·음식·경비·청소직</jobLrclNm><jobMdclNm>청소·방역 및 가사 서비스원</jobMdclNm><jobSmclNm>방역원</jobSmclNm><jobSum>해충의 종류 및 서식지를 파악하여 방제한다.</jobSum><execJob>-해충제거 대상지를 실사 후 해충의 종류, 예상 개체 수, 이동경로 및 서식지 등을 파악하여 방역지역을 결정한다.
+-해충의 종류 및 방제 대상지에 따라 필요한 장비 및 약품을 준비한다.
+-제거대상 해충에 알맞은 방제방법을 이용하여 제거한다.
+-해충의 알이나 서식지 등에 대한 방제를 한다.
+-고객에게 해충종류, 서식지, 추가 방제 등에 대한 보고서를 작성하여 제출한다.</execJob><relJobList><jobCd>K000000999</jobCd><jobNm>세탁원(다림질원)</jobNm></relJobList><relJobList><jobCd>K000001066</jobCd><jobNm>청소원</jobNm></relJobList><relJobList><jobCd>K000001156</jobCd><jobNm>환경미화원 및 재활용품수거원</jobNm></relJobList><relJobList><jobCd>K000007566</jobCd><jobNm>가사관리사</jobNm></relJobList></jobsDo>

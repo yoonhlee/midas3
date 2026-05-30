@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000007533</jobCd><jobLrclNm>건설·채굴직</jobLrclNm><jobMdclNm>건설구조 기능원</jobMdclNm><jobSmclNm>철근공</jobSmclNm><jobSum>건물, 다리, 댐 등의 건설공사에서 콘크리트를 보강시키기 위하여 철근을 자르고 구부려 콘크리트 틀이나 콘크리트를 타설할 곳에 넣어 고정시킨다.</jobSum><execJob>-설계도면이나 철근반장의 지시에 따라 철근을 규격대로 절단한다.
+-수동공구와 철근만곡공구로 철근의 적절한 부위를 지시된 각도로 구부린다.
+-가공된 철근을 시공할 위치로 운반한다.
+-콘크리트 포설시 하중을 견디기 위하여 철근과 철근의 이음매를 결속선으로 묶거나 용접하여 연결한다.
+-거푸집과 철근과의 간격을 유지하기 위하여 철근재, 모르타르재, 패킹재 등의 간격재를 설치한다.
+-설치된 철근의 배근상태를 점검하고, 변경되거나 잘못된 부분을 해체·보수한다.
+</execJob><relJobList><jobCd>K000000897</jobCd><jobNm>철골공(강구조물건립원)</jobNm></relJobList><relJobList><jobCd>K000001046</jobCd><jobNm>전통건축기능원</jobNm></relJobList><relJobList><jobCd>K000001117</jobCd><jobNm>건축목공</jobNm></relJobList><relJobList><jobCd>K000001208</jobCd><jobNm>조적원</jobNm></relJobList><relJobList><jobCd>K000007467</jobCd><jobNm>콘크리트공</jobNm></relJobList><relJobList><jobCd>K000007475</jobCd><jobNm>건축석공</jobNm></relJobList><relJobList><jobCd>K000007488</jobCd><jobNm>경량철골공</jobNm></relJobList></jobsDo>

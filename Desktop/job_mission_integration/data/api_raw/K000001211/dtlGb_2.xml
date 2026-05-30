@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><jobsDo><jobCd>K000001211</jobCd><jobLrclNm>설치·정비·생산직</jobLrclNm><jobMdclNm>기계장비 설치·정비원(운송장비 제외)</jobMdclNm><jobSmclNm>건설·광업기계설치·정비원</jobSmclNm><jobSum>기계분야의 지식과 기술을 바탕으로 건설 및 광업 기계의 원활한 작동을 위해 엔진계통과 램프, 배선, 배터리등의 전기계통과 변속기·기어 등의 전달계통의 부속품 및 장치를 분해하고 수리·교체·정비한다.</jobSum><execJob>-각종 중장비의 시동 순서에 따라 시동을 걸고 시운전하여 엔진의 이상 유무를 점검한다.
+-수공구나 동력공구를 사용하여 연료분사노즐을 빼내고, 압력게이지를 부착한 후 스타트모터를 동작시켜 실린더 압축력을 측정하여 기준과 일치하는지 점검한다.
+-오일, 연료, 작동유, 냉각수 등의 누유상태 및 크랭크마모, 엔진노킹, 밸브간격 등을 확인·점검하고 이상 발견 시 정비한다.
+-전기측정테스터를 사용하여 엔진의 점검부위와 고장부위를 검사한다.
+-라디에이터를 점검·수리한다.
+-배터리 비중을 측정하고, 누전 및 절선상태를 점검하여 이상 부위를 수리한다.
+-스타트모터, 알터테이터(교류발전기), 레귤레이터(조절장치), 램프 등의 작동상태를 확인·점검하여 마모품·손상품을 수리하거나 교체한다.
+-변속기·기어 등을 수공구를 사용하여 분해하고, 마모되거나 절단된 부분을 교체 및 수리한다.
+-트랙의 이완이나 마모상태를 확인하여 정비하고, 휠(wheel)의 균형을 조정한다.
+-트랙류, 롤러류, 시그메트리류 등의 동력전달장치를 정비하여 마모, 절단, 노후화 된 부분을 수리·교체한다.</execJob><relJobList><jobCd>K000000885</jobCd><jobNm>승강기설치·정비원</jobNm></relJobList><relJobList><jobCd>K000000886</jobCd><jobNm>냉동·냉장·공조기설치·정비원</jobNm></relJobList><relJobList><jobCd>K000001023</jobCd><jobNm>공업기계설치 및 정비원</jobNm></relJobList><relJobList><jobCd>K000001031</jobCd><jobNm>보일러설치·정비원</jobNm></relJobList><relJobList><jobCd>K000001043</jobCd><jobNm>농업용 및 기타기계장비설치 및 정비원</jobNm></relJobList><relJobList><jobCd>K000001107</jobCd><jobNm>크레인 및 지게차설치 및 정비원</jobNm></relJobList></jobsDo>
