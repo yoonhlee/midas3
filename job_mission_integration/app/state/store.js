@@ -28,6 +28,7 @@ export function createInitialState() {
     missionStepIndex: 0,
     missionAnswer: "",
     selectedOption: null,
+    selectedMissionKey: null,
     missionScores: {},
     evaluationLogs: [],
     axisProfile: null,
