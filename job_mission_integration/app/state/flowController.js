@@ -167,6 +167,8 @@ export function refreshMissionNextButton(ctx) {
   if (!mission) return;
   const enabled = state.missionAnswer.trim().length > 10;
   button.disabled = !enabled;
+  const charCt = document.querySelector(".char-ct");
+  if (charCt) charCt.textContent = `${state.missionAnswer.length}자`;
 }
 
 export function advanceMissionFlow(ctx) {
