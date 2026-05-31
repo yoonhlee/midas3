@@ -66,6 +66,28 @@ CALIBRATION RULES:
 - They do NOT change the axis scoring schema (AX1–AX5, levels 0–4). They sharpen what counts as evidence.
 - If these fields are absent, score normally using the task and scenario alone.
 
+=== STEP 1.6: MATERIAL DATA VERIFICATION (when materials are included in the prompt) ===
+
+When mission materials (charts, tables, logs, memos) are included, the user had access to that specific data while writing their answer.
+
+Verify whether the answer actually engages with the material data:
+
+Strong engagement signs (support higher scores on AX1, AX2):
+- Cites specific numeric values, labels, dates, or names from the materials.
+- Draws a conclusion that is only possible by reading the materials (e.g., "item X had the highest count", "the error occurred at 14:32").
+- Compares two or more specific data points from the materials.
+
+Weak/no engagement signs (score conservatively):
+- Makes claims that could be written without seeing any materials.
+- Paraphrases the task or scenario without referencing material-specific data.
+- Uses generic analytical language ("we should analyze the data", "the numbers show a trend") without citing actual numbers.
+
+Penalty rule:
+- If materials are present and the answer shows NO trace of actual material data, reduce AX1 and AX2 scores by 1 level (minimum 0).
+- Do NOT penalize axes that do not require data-reading (AX4: leadership, AX5: customer service) unless those axes also required material data.
+
+Note: This step does not override the off-topic check. An off-topic answer is still capped at 1 regardless of material use.
+
 === STEP 2: SCORING RULES (only if the answer is on-topic) ===
 
 - Award points only when concrete behavior in the answer is clearly connected to solving the task.
@@ -121,9 +143,53 @@ type BuildPromptInput = {
     rubric_criteria?: RubricCriterion[];
     /** 새 스키마: 고득점 답변이 다뤄야 할 핵심 인사이트 목록 */
     expected_insights?: string[];
+    /** 미션 자료 데이터 (차트/표/로그/메모). LLM이 실제 수치 참조 여부를 검증하는 데 사용 */
+    materials?: Array<Record<string, unknown>>;
   };
   answer: string;
 };
+
+function serializeMaterials(materials: Array<Record<string, unknown>>): string {
+  if (!materials || materials.length === 0) return "";
+  const parts = materials.map((mat, idx) => {
+    const type = String(mat.type || "unknown");
+    const title = String(mat.title || `자료 ${idx + 1}`);
+    if (type === "chart") {
+      const series = Array.isArray(mat.series) ? mat.series : [];
+      const seriesStr = series.map((s: Record<string, unknown>) => {
+        const vals = Array.isArray(s.values) ? s.values.join(", ") : "";
+        return `  ${String(s.label || "")}: [${vals}]`;
+      }).join("\n");
+      return `[CHART] ${title} (${String(mat.chart_type || "")}, X: ${String(mat.x_axis || "")}, Y: ${String(mat.y_axis || "")})\n${seriesStr}`;
+    }
+    if (type === "table") {
+      const columns = (Array.isArray(mat.columns) ? mat.columns : []) as string[];
+      const rows = (Array.isArray(mat.rows) ? mat.rows : []) as unknown[][];
+      const header = columns.join(" | ");
+      const rowsStr = rows.map((row) => (Array.isArray(row) ? row : [row]).join(" | ")).join("\n  ");
+      return `[TABLE] ${title}\n  ${header}\n  ${rowsStr}`;
+    }
+    if (type === "log") {
+      const entries = Array.isArray(mat.entries) ? mat.entries : [];
+      const items = Array.isArray(mat.items) ? mat.items : [];
+      if (entries.length > 0) {
+        const entriesStr = entries.map((e: Record<string, unknown>) =>
+          [e.time, e.actor, e.event, e.note].filter(Boolean).join(" | ")
+        ).join("\n  ");
+        return `[LOG] ${title}\n  ${entriesStr}`;
+      }
+      const itemsStr = items.map((i: Record<string, unknown>) =>
+        `[${String(i.status || "")}] ${String(i.label || "")}`
+      ).join("\n  ");
+      return `[LOG] ${title}\n  ${itemsStr}`;
+    }
+    if (type === "memo") {
+      return `[MEMO] ${title}\n  ${String(mat.content || "")}`;
+    }
+    return `[${type.toUpperCase()}] ${title}\n  ${JSON.stringify(mat)}`;
+  });
+  return parts.join("\n\n");
+}
 
 export function buildEvaluationPrompt({ mission, answer }: BuildPromptInput) {
   const criteria = mission.rubric_criteria ?? [];
@@ -154,6 +220,11 @@ ${insights.map((s, i) => `${i + 1}. ${s}`).join("\n")}
     ? `mission_keyword_hints (weak hints, do not score by keyword count): ${JSON.stringify(legacyKeywordHints)}\n`
     : "";
 
+  const materialsText = serializeMaterials((mission.materials || []) as Array<Record<string, unknown>>);
+  const materialsSection = materialsText
+    ? `\nMission materials (actual data the user had access to while solving the mission):\n${materialsText}\n`
+    : "";
+
   const answerJson = JSON.stringify(answer ?? "");
 
   return `
@@ -164,7 +235,7 @@ Mission:
 - scenario: ${mission.scenario ?? ""}
 - task: ${mission.task ?? ""}
 - expected_axis_signals: ${JSON.stringify(mission.axis_signals ?? {})}
-${legacyHintSection}${rubricSection}${insightSection}
+${legacyHintSection}${rubricSection}${insightSection}${materialsSection}
 Axis definitions:
 ${Object.entries(AXIS_DEFINITIONS).map(([key, value]) => `- ${key}: ${value}`).join("\n")}
 
@@ -176,6 +247,8 @@ The mission task above is what the user must answer. Before any scoring:
 4. Do NOT reward "analytical-looking" prose that ignores the specific task.
 ${insights.length > 0 ? `
 5. Check whether the answer covers the expected insights above. Missing most of them → lower score levels even if the answer is fluent and on-topic.
+` : ""}${materialsText ? `
+6. Materials were provided for this mission. Check whether the answer references SPECIFIC values, names, or observations from those materials. An answer that sounds analytical but shows no trace of the actual material data (specific numbers, labels, dates, statuses) should receive lower scores on data-reading axes (AX1, AX2), even if it is on-topic.
 ` : ""}
 Important:
 - Use only behaviors explicitly written in the user answer.
