@@ -475,6 +475,61 @@ function renderAdminLog(data) {
   return "";
 }
 
+function renderAdminEmail(data) {
+  const thread = Array.isArray(data.thread) ? data.thread : [];
+  if (!thread.length) return renderMaterialItems(data) || "";
+  return `<div class="mat-stack">${thread.slice(0, 3).map((msg) => `<div class="mat-entry">
+    ${msg.from || msg.to ? `<div style="font-size:11px;color:var(--t3);margin-bottom:4px">${msg.from ? `발신: ${esc(msg.from)}` : ""}${msg.from && msg.to ? " / " : ""}${msg.to ? `수신: ${esc(msg.to)}` : ""}</div>` : ""}
+    ${msg.subject ? `<strong style="font-size:12px;display:block;margin-bottom:4px">${esc(msg.subject)}</strong>` : ""}
+    ${msg.body ? `<div style="font-size:12px;color:var(--t2);line-height:1.6">${esc(msg.body)}</div>` : ""}
+  </div>`).join("")}</div>`;
+}
+
+function renderAdminSchedule(data) {
+  if (Array.isArray(data.series) && Array.isArray(data.x_axis?.values) && data.x_axis.values.length) {
+    return renderChartPreview(data) || "";
+  }
+  const items = Array.isArray(data.items) ? data.items : [];
+  if (!items.length) return "";
+  const hasScheduleFields = items.some((item) => item && (item.period || item.task));
+  if (hasScheduleFields) {
+    return `<div style="overflow:auto"><table class="mat-table"><thead><tr><th>기간</th><th>작업</th><th>제약</th></tr></thead><tbody>${items.slice(0, 6).map((item) => `<tr>
+      <td>${esc(item.period || "")}</td>
+      <td>${esc(item.task || item.label || item.text || "")}</td>
+      <td>${esc(item.constraint || "")}</td>
+    </tr>`).join("")}</tbody></table></div>`;
+  }
+  return renderMaterialItems(data) || "";
+}
+
+function renderAdminChecklist(data) {
+  const items = Array.isArray(data.items) ? data.items : [];
+  if (!items.length) return "";
+  const iconMap = { checked: "✓", unchecked: "○", issue: "!", warn: "⚠" };
+  return `<ul class="mat-items">${items.slice(0, 8).map((item) => {
+    const label = typeof item === "string" ? item : (item.label || item.text || "");
+    const status = typeof item === "object" ? (item.status || "unchecked") : "unchecked";
+    const importance = typeof item === "object" ? (item.importance || "") : "";
+    return `<li style="display:flex;align-items:center;gap:6px;padding:3px 0">
+      <span style="min-width:14px;text-align:center;font-weight:700">${iconMap[status] || "·"}</span>
+      <span>${esc(label)}</span>
+      ${importance === "high" ? `<span style="font-size:10px;background:var(--danger,#e33);color:#fff;padding:1px 4px;border-radius:3px">중요</span>` : ""}
+    </li>`;
+  }).join("")}</ul>`;
+}
+
+function renderAdminCard(data) {
+  const cards = Array.isArray(data.cards) ? data.cards : [];
+  if (!cards.length) return renderMaterialItems(data) || renderMaterialStack(data.entries, "mat-entry") || "";
+  return `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px">${cards.slice(0, 4).map((card) => {
+    const attrs = card.attributes && typeof card.attributes === "object" ? Object.entries(card.attributes) : [];
+    return `<div class="mat-entry">
+      <strong style="font-size:12px;display:block;margin-bottom:5px">${esc(card.title || card.label || "")}</strong>
+      ${attrs.map(([k, v]) => `<div style="font-size:11px;color:var(--t3)">${esc(k)}: <span style="color:var(--t2)">${esc(String(v))}</span></div>`).join("")}
+    </div>`;
+  }).join("")}</div>`;
+}
+
 function renderChartPreview(data) {
   const series = Array.isArray(data.series) ? data.series.find((item) => Array.isArray(item.values) && item.values.length) : null;
   const labels = data.x_axis?.values || [];
@@ -502,6 +557,18 @@ function renderMaterialPreview(material) {
       || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
   } else if (type === "log") {
     body = renderAdminLog(data)
+      || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
+  } else if (type === "email") {
+    body = renderAdminEmail(data)
+      || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
+  } else if (type === "schedule") {
+    body = renderAdminSchedule(data)
+      || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
+  } else if (type === "checklist") {
+    body = renderAdminChecklist(data)
+      || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
+  } else if (type === "card") {
+    body = renderAdminCard(data)
       || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
   } else {
     body = renderMaterialItems(data)

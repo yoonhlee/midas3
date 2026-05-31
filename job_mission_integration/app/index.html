@@ -284,6 +284,41 @@ textarea:focus{border-color:var(--a);box-shadow:0 0 0 2px var(--ab)}
 .mat-log{background:var(--bg);border-radius:6px;padding:10px 12px;font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:11.5px;color:var(--t3);overflow-x:auto;line-height:1.5;white-space:pre-wrap}
 .mat-fallback pre{background:var(--bg);padding:10px;border-radius:6px;font-size:11px;overflow-x:auto;color:var(--t3)}
 .mat-author{font-size:12px;color:var(--t3);text-align:right}
+/* EMAIL */
+.email-thread{display:flex;flex-direction:column;gap:10px}
+.email-msg{border:1px solid var(--b0);border-radius:8px;padding:12px}
+.email-meta{display:flex;flex-wrap:wrap;gap:5px 14px;font-size:12px;color:var(--t3);margin-bottom:8px}
+.email-field{display:flex;gap:4px;align-items:center}
+.email-field-lbl{font-weight:600;color:var(--a)}
+.email-subject{width:100%;font-weight:600;font-size:13px;color:var(--t1)}
+.email-body{font-size:13px;line-height:1.7;white-space:pre-line;color:var(--t1)}
+/* SCHEDULE */
+.schedule-list{display:flex;flex-direction:column;gap:6px}
+.schedule-item{display:grid;grid-template-columns:56px 1fr;column-gap:10px;padding:8px 10px;background:var(--bg);border-radius:6px;align-items:baseline}
+.sched-period{font-size:11px;font-weight:700;color:var(--a)}
+.sched-task{font-size:13px;font-weight:500}
+.sched-constraint{grid-column:2;font-size:11px;color:var(--t3);margin-top:2px}
+/* CHECKLIST */
+.checklist{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.ck-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;font-size:13px;background:var(--bg)}
+.ck-checked{opacity:.65}
+.ck-issue{background:rgba(255,160,0,.08)}
+.ck-warn{background:rgba(220,50,50,.07)}
+.ck-icon{font-size:13px;min-width:16px;text-align:center;font-weight:700}
+.ck-checked .ck-icon{color:var(--success,#4caf50)}
+.ck-issue .ck-icon{color:var(--warn,#ff8c00)}
+.ck-warn .ck-icon{color:var(--danger,#e33)}
+.ck-label{flex:1}
+.ck-imp{font-size:10px;background:var(--danger,#e33);color:#fff;padding:1px 5px;border-radius:4px;flex-shrink:0}
+/* OPTION CARDS */
+.opt-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.opt-card{border:1px solid var(--b0);border-radius:8px;padding:12px}
+.opt-card-title{font-weight:700;font-size:14px;margin-bottom:8px;color:var(--t1)}
+.opt-card-body{font-size:12px;color:var(--t3);margin-bottom:8px}
+.opt-attrs{display:flex;flex-direction:column;gap:4px}
+.opt-attr{display:flex;gap:6px;font-size:12px}
+.opt-attr-key{color:var(--t3);flex-shrink:0}
+.opt-attr-val{font-weight:500;color:var(--t1)}
 
 /* TASKS */
 .task-lbl{font-size:12px;font-weight:600;color:var(--a);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
