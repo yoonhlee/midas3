@@ -196,19 +196,11 @@ class MissionSeedBuilder:
         return [
             {
                 "id": "task_01",
-                "instruction": f"{primary}에서 가장 먼저 확인해야 할 변화나 문제를 1~2개 고른다.",
-                "expected_action": "observe",
-                "material_roles": ["primary"],
-            },
-            {
-                "id": "task_02",
-                "instruction": f"{supporting}까지 함께 보고 {', '.join(factors[:2])} 기준으로 의미를 해석한다.",
-                "expected_action": "interpret",
-                "material_roles": ["primary", "supporting"],
-            },
-            {
-                "id": "task_03",
-                "instruction": f"{deliverable.get('name', '짧은 메모')} 형식으로 다음 행동 또는 제안을 정리한다.",
+                "instruction": (
+                    f"{primary}와 {supporting}을 함께 보고 "
+                    f"{', '.join(factors[:2]) or '주요 판단 기준'}을 근거로 "
+                    f"{deliverable.get('name', '짧은 메모')} 형식의 다음 행동 또는 제안을 정리한다."
+                ),
                 "expected_action": "recommend",
                 "material_roles": ["primary", "supporting"],
             },
