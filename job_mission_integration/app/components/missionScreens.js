@@ -280,7 +280,6 @@ export function renderMissionScreen({
     ? `<div class="submit-hint">
       ${submissionFormat.required_sections?.length ? `<div><strong>답변 구성:</strong> ${submissionFormat.required_sections.map(esc).join(" · ")}</div>` : ""}
       ${submissionFormat.length_hint ? `<div><strong>분량:</strong> ${esc(submissionFormat.length_hint)}</div>` : ""}
-      ${submissionFormat.estimated_time_minutes ? `<div><strong>예상 소요:</strong> 약 ${submissionFormat.estimated_time_minutes}분</div>` : ""}
     </div>`
     : "";
 

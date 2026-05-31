@@ -571,7 +571,7 @@ class SystemDecisionBuilder:
             return {
                 "level": "easy",
                 "label": "쉬움",
-                "estimated_time_minutes": 10,
+                "estimated_time_minutes": 15,
                 "material_bundle_style": "single_work_material",
                 "material_count_range": [1, 1],
                 "task_count_range": [1, 1],
@@ -596,7 +596,7 @@ class SystemDecisionBuilder:
         return {
             "level": "hard",
             "label": "어려움",
-            "estimated_time_minutes": 20,
+            "estimated_time_minutes": 15,
             "material_bundle_style": "work_document_packet",
             "material_count_range": [3, 3],
             "task_count_range": [1, 1],
