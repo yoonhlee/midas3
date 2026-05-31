@@ -13,6 +13,14 @@ function renderMaterial(material, esc) {
     body = renderMemo(data, esc);
   } else if (material.type === "log") {
     body = renderLog(data, esc);
+  } else if (material.type === "email") {
+    body = renderEmail(data, esc);
+  } else if (material.type === "schedule") {
+    body = renderSchedule(data, esc);
+  } else if (material.type === "checklist") {
+    body = renderChecklist(data, esc);
+  } else if (material.type === "card") {
+    body = renderCard(data, esc);
   } else {
     body = `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
   }
@@ -138,6 +146,69 @@ function renderLog(data, esc) {
   }
 
   return `<pre class="mat-log">${esc(JSON.stringify(data, null, 2))}</pre>`;
+}
+
+function renderEmail(data, esc) {
+  const thread = Array.isArray(data.thread) ? data.thread : [];
+  if (!thread.length) {
+    const items = data.items || [];
+    if (items.length) return `<ul class="mat-items">${items.map((item) => `<li>${esc(typeof item === "string" ? item : (item.text || item.label || JSON.stringify(item)))}</li>`).join("")}</ul>`;
+    return `<div class="mat-empty">이메일 내용이 없습니다.</div>`;
+  }
+  return `<div class="email-thread">${thread.map((msg) => `<div class="email-msg">
+    <div class="email-meta">
+      ${msg.from ? `<span class="email-field"><span class="email-field-lbl">발신</span>${esc(msg.from)}</span>` : ""}
+      ${msg.to ? `<span class="email-field"><span class="email-field-lbl">수신</span>${esc(msg.to)}</span>` : ""}
+      ${msg.subject ? `<div class="email-subject">${esc(msg.subject)}</div>` : ""}
+    </div>
+    ${msg.body ? `<div class="email-body">${esc(msg.body)}</div>` : ""}
+  </div>`).join("")}</div>`;
+}
+
+function renderSchedule(data, esc) {
+  if (Array.isArray(data.series) && Array.isArray(data.x_axis?.values) && data.x_axis.values.length) {
+    return renderChart(data, esc);
+  }
+  const items = Array.isArray(data.items) ? data.items : [];
+  if (!items.length) return `<div class="mat-empty">일정 데이터가 없습니다.</div>`;
+  const hasScheduleFields = items.some((item) => item && (item.period || item.task));
+  if (hasScheduleFields) {
+    return `<div class="schedule-list">${items.map((item) => `<div class="schedule-item">
+      ${item.period ? `<span class="sched-period">${esc(item.period)}</span>` : ""}
+      <span class="sched-task">${esc(item.task || item.label || item.text || "")}</span>
+      ${item.constraint ? `<div class="sched-constraint">${esc(item.constraint)}</div>` : ""}
+    </div>`).join("")}</div>`;
+  }
+  return `<ul class="mat-items">${items.map((item) => `<li>${esc(typeof item === "string" ? item : (item.text || item.label || JSON.stringify(item)))}</li>`).join("")}</ul>`;
+}
+
+function renderChecklist(data, esc) {
+  const items = Array.isArray(data.items) ? data.items : [];
+  if (!items.length) return `<div class="mat-empty">점검 항목이 없습니다.</div>`;
+  const iconMap = { checked: "✓", unchecked: "○", issue: "!", warn: "⚠" };
+  return `<ul class="checklist">${items.map((item) => {
+    const label = typeof item === "string" ? item : (item.label || item.text || "");
+    const status = typeof item === "object" ? (item.status || "unchecked") : "unchecked";
+    const importance = typeof item === "object" ? (item.importance || "") : "";
+    return `<li class="ck-item ck-${esc(status)}">
+      <span class="ck-icon">${iconMap[status] || "·"}</span>
+      <span class="ck-label">${esc(label)}</span>
+      ${importance === "high" ? `<span class="ck-imp">중요</span>` : ""}
+    </li>`;
+  }).join("")}</ul>`;
+}
+
+function renderCard(data, esc) {
+  const cards = Array.isArray(data.cards) ? data.cards : [];
+  if (!cards.length) return renderMemo(data, esc);
+  return `<div class="opt-cards">${cards.map((card) => {
+    const attrs = card.attributes && typeof card.attributes === "object" ? Object.entries(card.attributes) : [];
+    return `<div class="opt-card">
+      <div class="opt-card-title">${esc(card.title || card.label || "")}</div>
+      ${card.body ? `<div class="opt-card-body">${esc(card.body)}</div>` : ""}
+      ${attrs.length ? `<div class="opt-attrs">${attrs.map(([k, v]) => `<div class="opt-attr"><span class="opt-attr-key">${esc(k)}</span><span class="opt-attr-val">${esc(String(v))}</span></div>`).join("")}</div>` : ""}
+    </div>`;
+  }).join("")}</div>`;
 }
 
 export function renderMissionListScreen({ state, missions, jobDef, esc }) {
