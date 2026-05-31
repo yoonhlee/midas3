@@ -120,6 +120,8 @@ function render() {
   const fn = { select: rSelect, preq: rPreq, "mission-list": rMissionList, mission: rMission, result: rResult }[state.screen];
   if (fn) {
     APP.innerHTML = fn();
+    document.body.dataset.screen = state.screen;
+    if (state.screen === "result") window.scrollTo({ top: 0, behavior: "smooth" });
     bindEvents();
   }
 }

@@ -110,10 +110,33 @@ function renderMemo(data, esc) {
 }
 
 function renderLog(data, esc) {
-  const items = data.items || data.entries || [];
-  if (items.length) {
-    return `<pre class="mat-log">${items.map((item) => esc(typeof item === "string" ? item : JSON.stringify(item))).join("\n")}</pre>`;
+  const entries = Array.isArray(data.entries) && data.entries.length ? data.entries : null;
+  const items = Array.isArray(data.items) && data.items.length ? data.items : null;
+
+  if (entries) {
+    const rows = entries.map((e) => {
+      const time = e.time || e.at || "";
+      const actor = e.actor || e.who || "";
+      const event = e.event || e.action || e.title || "";
+      const note = e.note || e.result || e.message || "";
+      return `<div class="log-entry">
+        <div class="log-entry-head"><span class="log-time">${esc(time)}</span><span class="log-actor">${esc(actor)}</span><span class="log-event">${esc(event)}</span></div>
+        ${note ? `<div class="log-note-text">${esc(note)}</div>` : ""}
+      </div>`;
+    }).join("");
+    return `<div class="log-entries">${rows}</div>`;
   }
+
+  if (items) {
+    const statusIcon = (s) => ({ checked: "✓", issue: "!", warn: "⚠" }[s] || "·");
+    return `<ul class="log-items">${items.map((item) => {
+      const label = typeof item === "string" ? "" : (item.label || "");
+      const text = typeof item === "string" ? item : (item.text || "");
+      const status = typeof item === "string" ? "" : (item.status || "");
+      return `<li class="log-item log-item-${esc(status)}"><span class="log-status">${statusIcon(status)}</span>${label ? `<span class="log-label">${esc(label)}</span> ` : ""}${esc(text)}</li>`;
+    }).join("")}</ul>`;
+  }
+
   return `<pre class="mat-log">${esc(JSON.stringify(data, null, 2))}</pre>`;
 }
 
@@ -220,12 +243,23 @@ export function renderMissionScreen({
   const materials = missionSpec.materials || [];
   const submissionFormat = missionSpec.submission_format || {};
 
+  const glossaryItems = Array.isArray(scenario.glossary) ? scenario.glossary : [];
+  const glossaryUI = glossaryItems.length
+    ? `<div class="glossary">
+      <div class="glossary-hdr">📖 용어 설명</div>
+      <div class="glossary-list">
+        ${glossaryItems.map((g) => `<div class="glossary-item"><span class="glossary-term">${esc(g.term)}</span><span class="glossary-def">${esc(g.definition)}</span></div>`).join("")}
+      </div>
+    </div>`
+    : "";
+
   const scenarioUI = `<div class="scenario">
     ${scenario.role ? `<div class="sc-role"><span class="sc-tag">역할</span> ${esc(scenario.role)}</div>` : ""}
     ${scenario.context ? `<p class="sc-context">${esc(scenario.context)}</p>` : ""}
     ${facts.main_issue ? `<div class="sc-issue"><span class="sc-tag">핵심 이슈</span> ${esc(facts.main_issue)}</div>` : ""}
     ${scenario.goal ? `<div class="sc-goal"><span class="sc-tag">목표</span> ${esc(scenario.goal)}</div>` : ""}
     ${(scenario.constraints || []).length ? `<div class="sc-constraints"><span class="sc-tag">제약</span><ul>${scenario.constraints.map((constraint) => `<li>${esc(constraint)}</li>`).join("")}</ul></div>` : ""}
+    ${glossaryUI}
   </div>`;
 
   const materialsUI = materials.length

@@ -39,7 +39,7 @@ const ADDITIONAL_SEARCH_DIR = path.join(__dirname, "data/additional_search");
 const EVALUATION_LOG_PREFIX = "evaluation-logs-";
 const OPENAI_EVAL_MODEL = process.env.OPENAI_EVAL_MODEL ?? "gpt-5-nano";
 const OPENAI_GENERATION_MODEL = process.env.OPENAI_GENERATION_MODEL ?? "gpt-5.4-nano";
-const API_SHARED_TOKEN = (process.env.API_SHARED_TOKEN ?? "").trim();
+const ADMIN_PASSWORD = (process.env.ADMIN_PASSWORD ?? "").trim();
 const COMPATIBILITY_SCORE_GAMMA = Number(process.env.COMPATIBILITY_SCORE_GAMMA ?? 1.5);
 const ADMIN_LOG_LIMIT = 500;
 const ADMIN_DIFFICULTIES = ["easy", "normal", "hard"] as const;
@@ -583,9 +583,9 @@ function extractApiToken(req: express.Request) {
 }
 
 const requireApiToken: express.RequestHandler = (req, res, next) => {
-  if (!API_SHARED_TOKEN) return next();
+  if (!ADMIN_PASSWORD) return next();
   const provided = extractApiToken(req);
-  if (provided && provided === API_SHARED_TOKEN) return next();
+  if (provided && provided === ADMIN_PASSWORD) return next();
   return sendApiError(
     res,
     401,
@@ -671,7 +671,7 @@ app.get("/health", (_req, res) => {
       window_ms: EVALUATE_RATE_LIMIT_WINDOW_MS,
       max_requests: EVALUATE_RATE_LIMIT_MAX
     },
-    api_token_required: Boolean(API_SHARED_TOKEN)
+    api_token_required: Boolean(ADMIN_PASSWORD)
   });
 });
 
@@ -705,7 +705,7 @@ app.get("/api/admin/mission-generation/jobs", requireApiToken, (_req, res) => {
     jobs,
     total: jobs.length,
     enabled_count: jobs.filter((job) => job.enabled).length,
-    api_token_required: Boolean(API_SHARED_TOKEN),
+    api_token_required: Boolean(ADMIN_PASSWORD),
     openai: openAiAdminStatus()
   });
 });
@@ -940,7 +940,7 @@ app.post("/api/admin/mission-generation/runs/:runId/export", requireApiToken, as
   }
 });
 
-app.post("/api/evaluate", requireApiToken, evaluateRateLimit, async (req, res) => {
+app.post("/api/evaluate", evaluateRateLimit, async (req, res) => {
   try {
     const parsed = EvaluateRequestSchema.safeParse(req.body);
     if (!parsed.success) {
@@ -973,7 +973,7 @@ app.post("/api/evaluate", requireApiToken, evaluateRateLimit, async (req, res) =
   }
 });
 
-app.post("/api/recommendations", requireApiToken, async (req, res) => {
+app.post("/api/recommendations", async (req, res) => {
   try {
     const parsed = RecommendationsRequestSchema.safeParse(req.body);
     if (!parsed.success) {
@@ -1032,7 +1032,7 @@ app.post("/api/recommendations", requireApiToken, async (req, res) => {
   }
 });
 
-app.post("/api/logs", requireApiToken, async (req, res) => {
+app.post("/api/logs", async (req, res) => {
   try {
     const parsed = LogEntrySchema.safeParse(req.body);
     if (!parsed.success) {
