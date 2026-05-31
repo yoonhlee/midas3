@@ -41,7 +41,9 @@ SUBMISSION_TYPE_LABELS = {
 
 LENGTH_HINT_LABELS = {
     "1-2 short sentences": "짧은 문장 1~2개",
+    "2-3 short sentences": "짧은 문장 2~3개",
     "2-3 short sentences per task": "과제별 짧은 문장 2~3개",
+    "3-5 short sentences": "짧은 문장 3~5개",
 }
 
 PRIVATE_LEARNER_KEYS = {

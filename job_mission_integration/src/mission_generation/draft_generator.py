@@ -118,8 +118,8 @@ class PromptBuilder:
                 "- For normal difficulty with mission_seed, create exactly 2 learner-visible materials: one primary material and one supporting material.\n"
                 "- Derive those materials from mission_seed.material_blueprints while staying within system_decisions.allowed_material_types.\n"
                 "- If mission_seed.scenario_basis.request_sentence is empty, do not create a direct quoted request sentence.\n"
-                "- Reflect guide_plan through mission.tasks instructions and mission.submission_format.required_sections; do not create a mission.guide field.\n"
-                "- Tasks must require the learner to inspect and connect at least two provided materials.\n"
+                "- Reflect guide_plan through the single mission.tasks instruction and mission.submission_format.required_sections; do not create a mission.guide field.\n"
+                "- The task must require the learner to inspect and connect at least two provided materials.\n"
                 "- Evaluation must be based on mission_seed.evaluation_basis and the selected decision situation.\n"
                 "- Do not expose source_refs to the learner-facing mission text.\n"
                 "- If a table uses a priority column, use it only as a comparison clue, not as a final answer or recommendation.\n"
@@ -171,8 +171,8 @@ class PromptBuilder:
             "- Avoid legal, financial, technical, policy, compliance, or expert judgment unless the material explains it in beginner terms.\n"
             "- Prefer everyday workplace words over specialist terms.\n"
             "- For easy difficulty, use exactly 1 material and exactly 1 task. The answer should be 1-2 short sentences. Ask the learner to identify one obvious issue, choose one option, or explain one visible pattern. Do not ask for root-cause analysis, risk assessment, prioritization, or trade-off judgment.\n"
-            "- For normal difficulty, use exactly 2 materials and exactly 2 tasks. Each task should ask for only one simple comparison or one simple recommendation. Each answer should be 2-3 short sentences. Do not ask for full diagnosis.\n"
-            "- For hard difficulty, use exactly 3 materials and exactly 2 tasks. Hard means more materials, not expert-level reasoning. Ask for one decision and one caution. Each answer should be 3-5 short sentences. All clues must be visible in the materials.\n"
+            "- For normal difficulty, use exactly 2 materials and exactly 1 task. The task should ask for one simple comparison or one simple recommendation. The answer should be 2-3 short sentences. Do not ask for full diagnosis.\n"
+            "- For hard difficulty, use exactly 3 materials and exactly 1 task. Hard means more materials, not expert-level reasoning. Ask for one short decision response that includes one visible caution. The answer should be 3-5 short sentences. All clues must be visible in the materials.\n"
             "- Every task must require only one learner action or deliverable. Do not combine multiple actions such as find + compare + choose + write in one task.\n"
             "- Make every task answerable as a short descriptive written response, not as a code-only, letter-only, number-only, or single-word answer.\n"
             "- If a learner must choose an option, the single deliverable should be one sentence or short paragraph that includes the choice and reason.\n"
@@ -254,7 +254,7 @@ class MockMissionDraftBuilder:
             self._material(idx, material_type, facts, context, profile, difficulty)
             for idx, material_type in enumerate(material_types, start=1)
         ]
-        tasks = self._tasks(materials, context, difficulty, seed)
+        tasks = self._tasks(materials, context, difficulty, decisions["difficulty"].get("task_count_range"), seed)
 
         return {
             "schema_version": "mission_output.v1",
@@ -525,12 +525,16 @@ class MockMissionDraftBuilder:
         materials: list[dict[str, Any]],
         context: dict[str, str],
         difficulty: str,
+        task_count_range: list[int] | tuple[int, int] | None,
         seed: dict[str, Any] | None = None,
     ) -> list[dict[str, Any]]:
         """난이도별 task 개수와 mission_seed task plan을 반영해 mock task를 만든다."""
 
         material_ids = [material["material_id"] for material in materials]
-        task_min, task_max = {"easy": (1, 1), "normal": (2, 2), "hard": (2, 2)}.get(difficulty, (2, 2))
+        if task_count_range and len(task_count_range) >= 2:
+            task_max = int(task_count_range[1])
+        else:
+            task_max = {"easy": 1, "normal": 1, "hard": 1}.get(difficulty, 1)
         if seed and seed.get("task_plan"):
             tasks = []
             for index, plan in enumerate(seed["task_plan"][:task_max], start=1):
@@ -582,13 +586,13 @@ class MockMissionDraftBuilder:
                 "type": "guided_short_report",
                 "estimated_time_minutes": 15,
                 "required_sections": ["핵심 발견 1가지", "근거 자료 2개", "제안 1가지"],
-                "length_hint": "2-3 short sentences per task",
+                "length_hint": "2-3 short sentences",
             }
         return {
             "type": "decision_memo",
             "estimated_time_minutes": 20,
             "required_sections": ["문제와 근거", "선택한 방향과 이유"],
-            "length_hint": "3-5 short sentences per task",
+            "length_hint": "3-5 short sentences",
         }
 
     def _evaluation(self, profile: dict[str, Any], tasks: list[dict[str, Any]]) -> dict[str, Any]:
