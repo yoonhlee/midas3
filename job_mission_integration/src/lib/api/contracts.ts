@@ -24,7 +24,8 @@ export const EvaluateMissionSchema = z.object({
     description: z.string(),
     points: z.number()
   })).optional(),
-  expected_insights: z.array(z.string()).optional()
+  expected_insights: z.array(z.string()).optional(),
+  materials: z.array(z.object({}).passthrough()).optional()
 });
 
 export const EvaluateRequestSchema = z.object({

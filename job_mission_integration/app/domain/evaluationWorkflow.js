@@ -110,7 +110,8 @@ export function createEvaluationWorkflow({
         criterion: item.criterion,
         description: item.description || "",
         points: item.points || 0
-      }))
+      })),
+      materials: mission._raw?.mission?.materials || []
     };
 
     try {
