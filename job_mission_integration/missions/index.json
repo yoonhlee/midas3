@@ -1,6 +1,6 @@
 {
   "schema_version": "missions-index.v1",
-  "generated_at": "2026-05-28",
+  "generated_at": "2026-06-01",
   "jobs": [
     {
       "job_cd": "K000000997",
@@ -42,6 +42,14 @@
       "icon": "🛡️",
       "mission_keys": [
         "K000007519_01"
+      ]
+    },
+    {
+      "job_cd": "K000000872",
+      "job_name": "광고·홍보·마케팅전문가",
+      "icon": "💼",
+      "mission_keys": [
+        "pilot_v1_20260601_000612__mission_K000000872_hard_001"
       ]
     }
   ],
@@ -152,6 +160,24 @@
         "AX3": 0.175,
         "AX4": 0.0,
         "AX5": 0.0
+      }
+    },
+    {
+      "key": "pilot_v1_20260601_000612__mission_K000000872_hard_001",
+      "path": "scenarios/K000000872_01.json",
+      "mission_id": "mission_K000000872_hard_001",
+      "job_cd": "K000000872",
+      "job_name": "광고·홍보·마케팅전문가",
+      "difficulty": "hard",
+      "title": "최근 자료를 보고 먼저 늘릴 광고 매체 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.5933,
+        "AX2": 0.2517,
+        "AX3": 0.0517,
+        "AX4": 0.0517,
+        "AX5": 0.0517
       }
     }
   ]

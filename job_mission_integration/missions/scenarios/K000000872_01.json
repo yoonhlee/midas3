@@ -1,0 +1,746 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000872_hard_001",
+  "job_identity": {
+    "job_cd": "K000000872",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "광고·조사·상품기획·행사기획 전문가",
+    "job_smcl_nm": "광고·홍보·마케팅전문가",
+    "source_ref": {
+      "file": "K000000872/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_007",
+    "text": "광고대상 상품의 경쟁상황, 시장상황, 판매기간 등에 대한 자료를 조사·분석하고 광고매체에 대한 효과를 분석한다.",
+    "source_ref": {
+      "file": "K000000872/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 7
+    },
+    "selection_reason": "광고 대상의 시장·경쟁·매체 효과를 조사·분석하는 업무에 가장 직접적으로 부합해 연구·분석형 과제로 선택했다. 자료 정리와 결과 전달이 핵심이므로 표·차트·메모가 적합하다."
+  },
+  "mission_facts": {
+    "org_name": "모아담",
+    "domain": "생활용품 온라인 판매",
+    "period": [
+      "2026년 4월 1주",
+      "2026년 4월 2주",
+      "2026년 4월 3주",
+      "2026년 4월 4주"
+    ],
+    "trend_pattern": "최근 4주 동안 검색광고 문의가 꾸준히 늘고, 영상광고는 초반 관심 뒤에 증가가 멈췄다.",
+    "main_issue": "다음 달 광고비를 어느 매체에 먼저 더 둘지 정해야 한다.",
+    "feedback_themes": [
+      "제품을 바로 써보는 장면이 보이면 좋겠다",
+      "설명은 짧고 단순해야 한다",
+      "가격보다 사용 편의가 먼저 보여야 한다"
+    ],
+    "decision_goal": "가장 먼저 늘릴 매체 1개를 고르고, 시작 전에 조심할 점 1가지를 덧붙인다."
+  },
+  "mission": {
+    "title": "최근 자료를 보고 먼저 늘릴 광고 매체 고르기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "3-5 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "생활용품 브랜드의 마케팅 인턴",
+      "context": "당신은 생활용품 브랜드 모아담의 마케팅 인턴입니다. 팀장은 다음 달 광고비를 한 매체에 먼저 더 쓰기 전에, 최근 자료를 보고 어느 매체가 더 먼저 늘릴 만한지 짚어 달라고 했습니다.",
+      "goal": "아래 자료를 보고 다음 달에 먼저 늘릴 광고 매체 1개를 고르고, 조심할 점 1가지를 덧붙여 보내세요.",
+      "constraints": [
+        "제공된 자료만 보고 판단하세요.",
+        "답은 3~5문장으로 짧게 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "매체",
+          "definition": "광고를 보여 주는 곳이나 방식입니다."
+        },
+        {
+          "term": "전환",
+          "definition": "광고를 본 뒤 문의나 구매처럼 원하는 행동을 한 것입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_chart_1",
+        "type": "chart",
+        "subtype": "주차별 문의 추이",
+        "title": "최근 4주 매체별 문의 건수",
+        "description": "검색광고와 영상광고의 주차별 문의 건수를 비교한 차트입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "어느 매체의 문의 흐름이 더 강한지 보기",
+        "evidence_source": [
+          "정보 수집",
+          "사물, 행동, 사건 파악",
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "chart_type": "line",
+          "x_axis": {
+            "label": "주차",
+            "values": [
+              "1주차",
+              "2주차",
+              "3주차",
+              "4주차"
+            ]
+          },
+          "y_axis": {
+            "label": "문의 건수",
+            "unit": "건"
+          },
+          "series": [
+            {
+              "name": "검색광고",
+              "values": [
+                11,
+                14,
+                19,
+                26
+              ]
+            },
+            {
+              "name": "영상광고",
+              "values": [
+                9,
+                10,
+                10,
+                11
+              ]
+            }
+          ],
+          "columns": [
+            {
+              "key": "option",
+              "label": "선택지"
+            },
+            {
+              "key": "strength",
+              "label": "강점"
+            },
+            {
+              "key": "weakness",
+              "label": "약점"
+            },
+            {
+              "key": "priority",
+              "label": "우선순위"
+            }
+          ],
+          "rows": [],
+          "author": "",
+          "items": [],
+          "thread": [],
+          "entries": [],
+          "cards": []
+        },
+        "confidence": {
+          "score": 0.94,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_table_1",
+        "type": "table",
+        "subtype": "매체 비교표",
+        "title": "매체별 간단 비교",
+        "description": "세 매체의 강점, 약점, 우선순위를 아주 간단히 정리한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "선택 이유를 비교하고 정리하기",
+        "evidence_source": [
+          "읽고 이해하기",
+          "정보 수집",
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal",
+          "trend_pattern"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "",
+            "values": []
+          },
+          "y_axis": {
+            "label": "",
+            "unit": ""
+          },
+          "series": [],
+          "columns": [
+            {
+              "key": "option",
+              "label": "선택지"
+            },
+            {
+              "key": "strength",
+              "label": "강점"
+            },
+            {
+              "key": "weakness",
+              "label": "약점"
+            },
+            {
+              "key": "priority",
+              "label": "우선순위"
+            }
+          ],
+          "rows": [
+            {
+              "option": "검색광고",
+              "strength": "최근 문의가 가장 빠르게 늘고 있다.",
+              "weakness": "짧은 문구만으로 차별점을 더 또렷하게 보여줘야 한다.",
+              "priority": 1
+            },
+            {
+              "option": "영상광고",
+              "strength": "처음 시선을 끌기 쉽다.",
+              "weakness": "문의 증가가 거의 멈춘 상태다.",
+              "priority": 2
+            },
+            {
+              "option": "배너광고",
+              "strength": "노출을 넓게 가져갈 수 있다.",
+              "weakness": "이번 자료에서는 문의 효과가 가장 약하다.",
+              "priority": 3
+            }
+          ],
+          "author": "",
+          "items": [],
+          "thread": [],
+          "entries": [],
+          "cards": []
+        },
+        "confidence": {
+          "score": 0.92,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_memo_1",
+        "type": "memo",
+        "subtype": "팀장 메모",
+        "title": "팀장 메모",
+        "description": "고객 반응과 운영 쪽 메모를 짧게 모은 자료입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "고객이 어떤 표현을 더 원했는지 확인하기",
+        "evidence_source": [
+          "읽고 이해하기",
+          "국어",
+          "사무"
+        ],
+        "mission_fact_refs": [
+          "feedback_themes",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "",
+            "values": []
+          },
+          "y_axis": {
+            "label": "",
+            "unit": ""
+          },
+          "series": [],
+          "columns": [
+            {
+              "key": "option",
+              "label": "선택지"
+            },
+            {
+              "key": "strength",
+              "label": "강점"
+            },
+            {
+              "key": "weakness",
+              "label": "약점"
+            },
+            {
+              "key": "priority",
+              "label": "우선순위"
+            }
+          ],
+          "rows": [],
+          "author": "",
+          "items": [
+            {
+              "text": "고객 문의 중에는 \"어떻게 쓰는지 바로 보이는 광고\"를 보고 싶다는 말이 많았다.",
+              "period": "2026년 4월 4주",
+              "task": "소재 방향 확인",
+              "constraint": "한눈에 보이게",
+              "label": "고객반응",
+              "status": "checked",
+              "importance": "높음"
+            },
+            {
+              "text": "짧은 영상은 처음 시선은 끌었지만, 클릭 뒤 문의로 이어지는 말은 적었다.",
+              "period": "2026년 4월 4주",
+              "task": "매체 반응 정리",
+              "constraint": "문의 설명 보강 필요",
+              "label": "내부메모",
+              "status": "checked",
+              "importance": "높음"
+            },
+            {
+              "text": "다음 달 첫 주는 예산을 한 매체에 먼저 붙여 보고, 반응이 보이면 늘리자는 의견이다.",
+              "period": "다음 달 초",
+              "task": "집행 방식 확인",
+              "constraint": "처음부터 분산하지 않기",
+              "label": "운영메모",
+              "status": "checked",
+              "importance": "중간"
+            }
+          ],
+          "thread": [],
+          "entries": [],
+          "cards": []
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 자료를 보고 다음 달에 먼저 늘릴 광고 매체 1개를 고르세요. 선택한 이유 1가지와 조심할 점 1가지를 포함해 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_chart_1",
+          "mat_table_1",
+          "mat_memo_1"
+        ],
+        "expected_action": "검색광고, 영상광고, 배너광고 중 하나를 선택하고, 자료에 보이는 흐름을 근거로 이유와 조심할 점을 짧게 설명한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_paragraph",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "선택한 매체",
+        "이유",
+        "조심할 점"
+      ],
+      "length_hint": "3-5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "검색광고의 문의가 4주 동안 가장 분명하게 늘었다는 점을 짚는다.",
+      "표의 비교를 보고 영상광고보다 검색광고를 먼저 늘리는 이유를 간단히 말한다.",
+      "메모의 고객 반응을 반영해 바로 보이는 사용 장면이 필요하다는 점과, 처음에는 한 매체로 확인해야 한다는 조심할 점을 덧붙인다."
+    ],
+    "rubric": [
+      {
+        "criterion": "주차별 흐름 파악",
+        "description": "주차별 숫자를 읽고 어느 매체가 더 강하게 늘었는지 짚는다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보 수집",
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "criterion": "비교를 통한 선택",
+        "description": "표의 강점과 약점을 비교해 선택 이유를 분명히 쓴다.",
+        "points": 35,
+        "linked_evidence": [
+          "읽고 이해하기",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "criterion": "간단한 주의점 제시",
+        "description": "메모의 고객 반응과 운영 메모를 반영해 조심할 점 1가지를 덧붙인다.",
+        "points": 25,
+        "linked_evidence": [
+          "국어",
+          "사무",
+          "읽고 이해하기"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_007",
+      "text": "광고대상 상품의 경쟁상황, 시장상황, 판매기간 등에 대한 자료를 조사·분석하고 광고매체에 대한 효과를 분석한다.",
+      "source_ref": {
+        "file": "K000000872/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 7
+      },
+      "selection_reason": "광고 대상의 시장·경쟁·매체 효과를 조사·분석하는 업무에 가장 직접적으로 부합해 연구·분석형 과제로 선택했다. 자료 정리와 결과 전달이 핵심이므로 표·차트·메모가 적합하다."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 97,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 95,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 94,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 91,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 90,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 93,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 92,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상",
+          "score": 89,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영업과 마케팅",
+          "score": 91,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사소통과 미디어",
+          "score": 87,
+          "description": "말, 글, 그림 등을 이메일이나 방송매체를 통해 전달하는 것에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 86,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 96,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 91,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람들을 조율하거나 이끌기",
+          "score": 91,
+          "description": "업무 특성상 다른 사람들을 조율하거나 이끄는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_chart_1",
+        "supported_by": [
+          "정보 수집",
+          "사물, 행동, 사건 파악",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "material_id": "mat_table_1",
+        "supported_by": [
+          "읽고 이해하기",
+          "정보 수집",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "material_id": "mat_memo_1",
+        "supported_by": [
+          "읽고 이해하기",
+          "국어",
+          "사무"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_chart_1",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_table_1",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_memo_1",
+        "mission_fact_refs": [
+          "feedback_themes",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.5933,
+    "AX2": 0.2517,
+    "AX3": 0.0517,
+    "AX4": 0.0517,
+    "AX5": 0.0517
+  }
+}
