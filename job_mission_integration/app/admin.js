@@ -236,7 +236,7 @@ function renderAuth() {
     <form class="auth-card" id="auth-form">
       <div class="eyebrow">미션 생성 관리</div>
       <h1>관리자 암호 입력</h1>
-      <p class="help">서버의 <code>API_SHARED_TOKEN</code> 값을 입력하면 이 브라우저 세션에서 관리자 생성 API를 호출합니다. 암호는 코드에 저장되지 않습니다.</p>
+      <p class="help">서버의 <code>ADMIN_PASSWORD</code> 값을 입력하면 이 브라우저 세션에서 관리자 생성 API를 호출합니다. 암호는 코드에 저장되지 않습니다.</p>
       <div class="field">
         <label class="label" for="admin-token">Admin password</label>
         <input class="input" id="admin-token" type="password" autocomplete="current-password" autofocus>
@@ -447,6 +447,34 @@ function renderMaterialStack(items, className) {
   return `<div class="mat-stack">${items.slice(0, 6).map((item) => `<div class="${className}"><strong>${esc(item.title || item.label || item.speaker || "")}</strong>${item.text || item.body || item.message ? `<div>${esc(item.text || item.body || item.message)}</div>` : ""}</div>`).join("")}</div>`;
 }
 
+function renderAdminLog(data) {
+  const entries = Array.isArray(data.entries) && data.entries.length ? data.entries : null;
+  const items = Array.isArray(data.items) && data.items.length ? data.items : null;
+
+  if (entries) {
+    const rows = entries.slice(0, 10).map((e) => `<tr>
+      <td>${esc(e.time || e.at || "")}</td>
+      <td>${esc(e.actor || e.who || "")}</td>
+      <td>${esc(e.event || e.action || e.title || "")}</td>
+      <td>${esc(e.note || e.result || e.message || "")}</td>
+    </tr>`).join("");
+    return `<div style="overflow:auto"><table class="mat-table">
+      <thead><tr><th>시간</th><th>담당</th><th>내용</th><th>비고</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>`;
+  }
+
+  if (items) {
+    return `<ul class="mat-items">${items.slice(0, 8).map((item) => {
+      const label = item.label ? `[${item.label}] ` : "";
+      const text = typeof item === "string" ? item : (item.text || JSON.stringify(item));
+      return `<li>${esc(label + text)}</li>`;
+    }).join("")}</ul>`;
+  }
+
+  return "";
+}
+
 function renderChartPreview(data) {
   const series = Array.isArray(data.series) ? data.series.find((item) => Array.isArray(item.values) && item.values.length) : null;
   const labels = data.x_axis?.values || [];
@@ -462,13 +490,26 @@ function renderChartPreview(data) {
 
 function renderMaterialPreview(material) {
   const data = material.data || {};
-  const body = renderMaterialTable(data)
-    || renderMaterialItems(data)
-    || renderMaterialStack(data.entries, "mat-entry")
-    || renderMaterialStack(data.cards, "mat-card-item")
-    || renderMaterialStack(data.thread, "mat-msg")
-    || renderChartPreview(data)
-    || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
+  const type = material.type || "";
+  let body;
+  if (type === "chart") {
+    body = renderChartPreview(data)
+      || renderMaterialTable(data)
+      || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
+  } else if (type === "table") {
+    body = renderMaterialTable(data)
+      || renderMaterialItems(data)
+      || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
+  } else if (type === "log") {
+    body = renderAdminLog(data)
+      || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
+  } else {
+    body = renderMaterialItems(data)
+      || renderMaterialStack(data.entries, "mat-entry")
+      || renderMaterialStack(data.cards, "mat-card-item")
+      || renderMaterialStack(data.thread, "mat-msg")
+      || `<div class="mat-fallback"><pre>${esc(JSON.stringify(data, null, 2))}</pre></div>`;
+  }
 
   return `<article class="material">
     <div class="mat-head">
