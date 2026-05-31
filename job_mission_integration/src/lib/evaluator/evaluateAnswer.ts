@@ -479,6 +479,7 @@ export async function evaluateAnswer({ mission, answer }: EvaluateAnswerInput): 
   try {
     const response = await openai.responses.parse({
       model: process.env.OPENAI_EVAL_MODEL ?? DEFAULT_EVAL_MODEL,
+      temperature: 0,
       input: [
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: buildEvaluationPrompt({ mission, answer }) }
