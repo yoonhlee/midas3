@@ -291,7 +291,7 @@ export function renderPreQuestionScreen({ state, jobDefs, renderBrand }) {
     <textarea id="pq2" rows="3">${esc(answers.q2)}</textarea>
   </div>
   <div style="display:flex;gap:10px;margin-top:24px">
-    ${state.preqIndex > 0 ? "<button class=\"btn btn-g\" id=\"btn-pback\">← 이전</button>" : ""}
+    <button class="btn btn-g" id="btn-pback">${state.preqIndex > 0 ? "← 이전 직무" : "← 직무 선택"}</button>
     <button class="btn btn-p" id="btn-pnext" style="margin-left:auto">${state.preqIndex < state.selectedJobs.length - 1 ? "다음 직무 →" : "미션 시작 →"}</button>
   </div>`;
 }
@@ -364,8 +364,8 @@ export function renderMissionScreen({
       <div class="mis-q">${esc(mission.title)}</div>
       ${scenarioUI}
       <div class="mis-divider"></div>
-      ${materialsUI}
       ${tasksUI}
+      ${materialsUI}
     </div>
     <div class="mis-right">
       <div>
@@ -380,8 +380,9 @@ export function renderMissionScreen({
         <textarea id="m-ans" placeholder="여기에 답변을 작성하세요…">${esc(state.missionAnswer)}</textarea>
         <div class="char-ct">${state.missionAnswer.length}자</div>
       </div>
-      <div class="fr">
+      <div style="display:flex;flex-direction:column;gap:8px">
         <button class="btn btn-p" id="btn-mnext"${answerReady ? "" : " disabled"} style="width:100%">${isLastMission ? "결과 보기 →" : "다음 →"}</button>
+        <button class="btn btn-g" id="btn-mission-back" style="width:100%">← 미션 다시 선택</button>
       </div>
     </div>
   </div>`;

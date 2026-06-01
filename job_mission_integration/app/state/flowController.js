@@ -68,7 +68,11 @@ export function bindAppEvents(ctx) {
   });
 
   byId("btn-pback")?.addEventListener("click", () => {
-    state.preqIndex -= 1;
+    if (state.preqIndex > 0) {
+      state.preqIndex -= 1;
+    } else {
+      state.screen = "select";
+    }
     render();
   });
 
@@ -145,6 +149,13 @@ export function bindAppEvents(ctx) {
 
     state.pendingScores.push(pending);
     advanceMissionFlow();
+  });
+
+  byId("btn-mission-back")?.addEventListener("click", () => {
+    state.screen = "mission-list";
+    state.missionAnswer = "";
+    state.selectedOption = null;
+    render();
   });
 
   byId("btn-restart")?.addEventListener("click", () => {
