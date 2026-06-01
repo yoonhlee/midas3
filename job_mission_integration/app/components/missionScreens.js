@@ -166,19 +166,23 @@ function renderEmail(data, esc) {
 }
 
 function renderSchedule(data, esc) {
-  if (Array.isArray(data.series) && Array.isArray(data.x_axis?.values) && data.x_axis.values.length) {
-    return renderChart(data, esc);
-  }
   const items = Array.isArray(data.items) ? data.items : [];
-  if (!items.length) return `<div class="mat-empty">일정 데이터가 없습니다.</div>`;
-  const hasScheduleFields = items.some((item) => item && (item.period || item.task));
+  const hasScheduleFields = items.some((item) => item && (item.period || item.task || item.text || item.label));
   if (hasScheduleFields) {
     return `<div class="schedule-list">${items.map((item) => `<div class="schedule-item">
       ${item.period ? `<span class="sched-period">${esc(item.period)}</span>` : ""}
-      <span class="sched-task">${esc(item.task || item.label || item.text || "")}</span>
-      ${item.constraint ? `<div class="sched-constraint">${esc(item.constraint)}</div>` : ""}
+      <span class="sched-task">${esc([item.label, item.task].filter(Boolean).join(" · ") || item.text || "")}</span>
+      ${[item.text, item.constraint]
+        .filter((value, index, values) => value && values.indexOf(value) === index)
+        .map((value) => `<div class="sched-constraint">${esc(value)}</div>`)
+        .join("")}
     </div>`).join("")}</div>`;
   }
+  if (Array.isArray(data.rows) && data.rows.length) return renderTable(data, esc);
+  if (Array.isArray(data.series) && Array.isArray(data.x_axis?.values) && data.x_axis.values.length) {
+    return renderChart(data, esc);
+  }
+  if (!items.length) return `<div class="mat-empty">일정 데이터가 없습니다.</div>`;
   return `<ul class="mat-items">${items.map((item) => `<li>${esc(typeof item === "string" ? item : (item.text || item.label || JSON.stringify(item)))}</li>`).join("")}</ul>`;
 }
 

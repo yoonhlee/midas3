@@ -48,6 +48,8 @@ class SchemaConstraintsBuilder:
                 "mission_fact_refs_required": True,
                 "evidence_source_required": True,
                 "factual_status_value": "synthetic_mission_material",
+                "type_specific_data_required": True,
+                "data_fields_by_type": self._material_data_fields_by_type(),
             },
             "mission_fact_rules": {
                 "must_create_before_materials": True,
@@ -227,12 +229,28 @@ class SchemaConstraintsBuilder:
         )
 
     def _material_schema(self, evidence_names: list[str]) -> dict[str, Any]:
-        """자료 하나가 가져야 할 필드와 evidence_source enum schema를 만든다."""
+        """자료 타입별 data payload를 분리한 material union schema를 만든다."""
+
+        return {
+            "anyOf": [
+                self._typed_material_schema(evidence_names, "chart", self._chart_data_schema()),
+                self._typed_material_schema(evidence_names, "table", self._table_data_schema()),
+                self._typed_material_schema(evidence_names, "memo", self._memo_data_schema()),
+                self._typed_material_schema(evidence_names, "email", self._email_data_schema()),
+                self._typed_material_schema(evidence_names, "schedule", self._schedule_data_schema()),
+                self._typed_material_schema(evidence_names, "checklist", self._checklist_data_schema()),
+                self._typed_material_schema(evidence_names, "log", self._log_data_schema()),
+                self._typed_material_schema(evidence_names, "card", self._card_data_schema()),
+            ]
+        }
+
+    def _typed_material_schema(self, evidence_names: list[str], material_type: str, data_schema: dict[str, Any]) -> dict[str, Any]:
+        """자료 하나가 가져야 할 공통 필드와 타입별 data schema를 만든다."""
 
         return self._object(
             {
                 "material_id": {"type": "string"},
-                "type": {"enum": sorted(MATERIAL_TYPES)},
+                "type": {"enum": [material_type]},
                 "subtype": {"type": "string"},
                 "title": {"type": "string"},
                 "description": {"type": "string"},
@@ -240,31 +258,42 @@ class SchemaConstraintsBuilder:
                 "used_for": {"type": "string"},
                 "evidence_source": self._string_array(evidence_names),
                 "mission_fact_refs": self._string_array(),
-                "data": self._material_data_schema(),
+                "data": data_schema,
                 "confidence": self._confidence_schema(),
             }
         )
 
-    def _material_data_schema(self) -> dict[str, Any]:
-        """chart/table/memo 등 모든 자료 유형이 공유하는 data payload schema를 만든다."""
+    def _material_data_fields_by_type(self) -> dict[str, list[str]]:
+        """prompt에 노출할 자료 타입별 data 필드 목록을 반환한다."""
 
-        generic_item = self._object(
-            {
-                "text": {"type": "string"},
-                "period": {"type": "string"},
-                "task": {"type": "string"},
-                "constraint": {"type": "string"},
-                "label": {"type": "string"},
-                "status": {"enum": ["checked", "unchecked", "issue"]},
-                "importance": {"type": "string"},
-            }
-        )
+        return {
+            "chart": ["chart_type", "x_axis", "y_axis", "series"],
+            "table": ["columns", "rows"],
+            "memo": ["author", "items"],
+            "email": ["thread"],
+            "schedule": ["items"],
+            "checklist": ["items"],
+            "log": ["entries"],
+            "card": ["cards"],
+        }
+
+    def _chart_data_schema(self) -> dict[str, Any]:
+        """chart 자료 전용 data schema를 만든다."""
+
         return self._object(
             {
                 "chart_type": {"enum": ["line", "bar", "pie"]},
                 "x_axis": self._object({"label": {"type": "string"}, "values": self._string_array()}),
                 "y_axis": self._object({"label": {"type": "string"}, "unit": {"type": "string"}}),
                 "series": {"type": "array", "items": self._object({"name": {"type": "string"}, "values": self._number_array()})},
+            }
+        )
+
+    def _table_data_schema(self) -> dict[str, Any]:
+        """table 자료 전용 data schema를 만든다."""
+
+        return self._object(
+            {
                 "columns": {
                     "type": "array",
                     "minItems": 4,
@@ -287,8 +316,19 @@ class SchemaConstraintsBuilder:
                         }
                     ),
                 },
-                "author": {"type": "string"},
-                "items": {"type": "array", "items": generic_item},
+            }
+        )
+
+    def _memo_data_schema(self) -> dict[str, Any]:
+        """memo 자료 전용 data schema를 만든다."""
+
+        return self._object({"author": {"type": "string"}, "items": self._string_array()})
+
+    def _email_data_schema(self) -> dict[str, Any]:
+        """email 자료 전용 data schema를 만든다."""
+
+        return self._object(
+            {
                 "thread": {
                     "type": "array",
                     "items": self._object(
@@ -300,6 +340,50 @@ class SchemaConstraintsBuilder:
                         }
                     ),
                 },
+            }
+        )
+
+    def _schedule_data_schema(self) -> dict[str, Any]:
+        """schedule 자료 전용 data schema를 만든다."""
+
+        return self._object(
+            {
+                "items": {
+                    "type": "array",
+                    "items": self._object(
+                        {
+                            "period": {"type": "string"},
+                            "task": {"type": "string"},
+                            "constraint": {"type": "string"},
+                        }
+                    ),
+                }
+            }
+        )
+
+    def _checklist_data_schema(self) -> dict[str, Any]:
+        """checklist 자료 전용 data schema를 만든다."""
+
+        return self._object(
+            {
+                "items": {
+                    "type": "array",
+                    "items": self._object(
+                        {
+                            "label": {"type": "string"},
+                            "status": {"enum": ["checked", "unchecked", "issue"]},
+                            "importance": {"type": "string"},
+                        }
+                    ),
+                }
+            }
+        )
+
+    def _log_data_schema(self) -> dict[str, Any]:
+        """log 자료 전용 data schema를 만든다."""
+
+        return self._object(
+            {
                 "entries": {
                     "type": "array",
                     "items": self._object(
@@ -310,7 +394,15 @@ class SchemaConstraintsBuilder:
                             "note": {"type": "string"},
                         }
                     ),
-                },
+                }
+            }
+        )
+
+    def _card_data_schema(self) -> dict[str, Any]:
+        """card 자료 전용 data schema를 만든다."""
+
+        return self._object(
+            {
                 "cards": {
                     "type": "array",
                     "items": self._object(
@@ -325,7 +417,7 @@ class SchemaConstraintsBuilder:
                             ),
                         }
                     ),
-                },
+                }
             }
         )
 

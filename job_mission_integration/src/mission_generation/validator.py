@@ -312,6 +312,18 @@ class MissionValidator:
         if not isinstance(data, dict):
             self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data", "data must be an object.", "Add data object.")
             return
+        allowed_fields = self._allowed_data_fields(material_type)
+        if allowed_fields:
+            extra_fields = sorted(set(data) - allowed_fields)
+            if extra_fields:
+                self._add(
+                    errors,
+                    "MATERIAL_SCHEMA_INVALID",
+                    "fail",
+                    f"{path}.data",
+                    f"{material_type} data contains fields not allowed for this material type: {extra_fields}.",
+                    f"Use only {sorted(allowed_fields)} for {material_type} data.",
+                )
         # 자료별 필수 구조와 크기 제한은 prompt의 material size rules와 같은 기준이다.
         if material_type == "chart":
             self._validate_chart(data, path, errors)
@@ -333,20 +345,26 @@ class MissionValidator:
             items = data.get("items")
             if not isinstance(items, list) or not items:
                 self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data.items", "memo items are required.", "Add items.")
+            elif any(not isinstance(item, str) for item in items):
+                self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data.items", "memo items must be strings.", "Use text items only.")
             self._check_size(len(items or []), *self._size_bounds(difficulty, (1, 2), (2, 3), (2, 3)), f"{path}.data.items", errors, warnings)
         elif material_type == "email":
             thread = data.get("thread")
             if not isinstance(thread, list) or not thread:
                 self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data.thread", "email thread is required.", "Add thread.")
             else:
-                for item in thread:
+                for item_index, item in enumerate(thread):
                     if not all(item.get(field) for field in ("from", "to", "subject", "body")):
                         self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data.thread", "email requires from/to/subject/body.", "Add email fields.")
+                    self._validate_item_keys(item, {"from", "to", "subject", "body"}, f"{path}.data.thread[{item_index}]", errors)
             self._check_size(len(thread or []), 1, 1, f"{path}.data.thread", errors, warnings)
         elif material_type == "schedule":
             items = data.get("items")
             if not isinstance(items, list) or not items or any(not item.get("period") or not item.get("task") for item in items):
                 self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data.items", "schedule items require period and task.", "Add period and task.")
+            else:
+                for item_index, item in enumerate(items):
+                    self._validate_item_keys(item, {"period", "task", "constraint"}, f"{path}.data.items[{item_index}]", errors)
             self._check_size(len(items or []), *self._size_bounds(difficulty, (1, 2), (2, 3), (2, 3)), f"{path}.data.items", errors, warnings)
         elif material_type == "checklist":
             items = data.get("items")
@@ -354,24 +372,67 @@ class MissionValidator:
             if not isinstance(items, list) or not items:
                 self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data.items", "checklist items are required.", "Add items.")
             else:
-                for item in items:
+                for item_index, item in enumerate(items):
                     if item.get("status") not in allowed_status:
                         self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data.items.status", "invalid checklist status.", "Use checked, unchecked, or issue.")
+                    self._validate_item_keys(item, {"label", "status", "importance"}, f"{path}.data.items[{item_index}]", errors)
             self._check_size(len(items or []), *self._size_bounds(difficulty, (2, 2), (3, 3), (3, 3)), f"{path}.data.items", errors, warnings)
         elif material_type == "log":
             entries = data.get("entries")
             if not isinstance(entries, list) or not entries or any(not item.get("time") or not item.get("event") for item in entries):
                 self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data.entries", "log entries require time and event.", "Add time and event.")
+            else:
+                for item_index, item in enumerate(entries):
+                    self._validate_item_keys(item, {"time", "actor", "event", "note"}, f"{path}.data.entries[{item_index}]", errors)
             self._check_size(len(entries or []), *self._size_bounds(difficulty, (2, 3), (3, 4), (3, 4)), f"{path}.data.entries", errors, warnings)
         elif material_type == "card":
             cards = data.get("cards")
             if not isinstance(cards, list) or not cards:
                 self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data.cards", "cards are required.", "Add cards.")
             else:
+                for card_index, card in enumerate(cards):
+                    self._validate_item_keys(card, {"title", "attributes"}, f"{path}.data.cards[{card_index}]", errors)
                 key_sets = [set((card.get("attributes") or {}).keys()) for card in cards]
                 if any(not key_set for key_set in key_sets) or len({tuple(sorted(key_set)) for key_set in key_sets}) > 1:
                     self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", f"{path}.data.cards", "card attribute keys must be consistent.", "Use consistent attributes.")
             self._check_size(len(cards or []), *self._size_bounds(difficulty, (2, 2), (2, 3), (2, 3)), f"{path}.data.cards", errors, warnings)
+
+    def _allowed_data_fields(self, material_type: str | None) -> set[str]:
+        """자료 타입별로 허용되는 data 필드만 반환한다."""
+
+        return {
+            "chart": {"chart_type", "x_axis", "y_axis", "series"},
+            "table": {"columns", "rows"},
+            "memo": {"author", "items"},
+            "email": {"thread"},
+            "schedule": {"items"},
+            "checklist": {"items"},
+            "log": {"entries"},
+            "card": {"cards"},
+        }.get(str(material_type), set())
+
+    def _validate_item_keys(
+        self,
+        item: Any,
+        allowed_keys: set[str],
+        path: str,
+        errors: list[dict[str, Any]],
+    ) -> None:
+        """nested item object가 타입별 허용 필드만 쓰는지 확인한다."""
+
+        if not isinstance(item, dict):
+            self._add(errors, "MATERIAL_SCHEMA_INVALID", "fail", path, "item must be an object.", "Use an object item.")
+            return
+        extra_keys = sorted(set(item) - allowed_keys)
+        if extra_keys:
+            self._add(
+                errors,
+                "MATERIAL_SCHEMA_INVALID",
+                "fail",
+                path,
+                f"item contains fields not allowed here: {extra_keys}.",
+                f"Use only {sorted(allowed_keys)}.",
+            )
 
     def _validate_chart(self, data: dict[str, Any], path: str, errors: list[dict[str, Any]]) -> None:
         """chart data의 축, series 길이, 숫자값, pie 합계를 검사한다."""

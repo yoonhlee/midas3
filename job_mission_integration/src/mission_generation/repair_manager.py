@@ -48,6 +48,7 @@ class RepairPromptBuilder:
                 "evaluation.rubric.linked_evidence must use job profile evidence names, not material ids.",
                 "Respect validator material size limits for chart, log, checklist, memo, email, table, schedule, and card materials.",
                 "Chart series count must be 1 or 2.",
+                "Use only the data fields allowed for each material type; schedule data must use only items with period, task, and constraint.",
                 "Keep learner-facing text beginner-friendly and job-experience oriented; do not add professional knowledge requirements.",
                 "Make the mission easier than a real workplace task.",
                 "Prefer everyday workplace words over specialist terms.",
@@ -140,6 +141,7 @@ class RepairManager:
             "- Use exact job_profile evidence item names in evaluation.rubric.linked_evidence; do not use material ids such as mat_001, mat_002, or m1.\n"
             "- Respect material size limits for chart, log, checklist, memo, email, table, schedule, and card materials.\n"
             "- Keep chart series count at 1 or 2.\n"
+            "- Use only type-specific material data fields. Schedule data must use only items with period, task, and constraint; do not include chart_type, x_axis, y_axis, series, columns, or rows in schedule data.\n"
             "- Preserve beginner-friendly job-experience wording; do not add external research or professional knowledge requirements.\n"
             "- Make the mission easier than a real workplace task.\n"
             "- Prefer everyday workplace words over specialist terms.\n"
@@ -185,8 +187,61 @@ class LocalRuleRepairer:
             if not refs and fact_keys:
                 refs = list(fact_keys)[:1]
             material["mission_fact_refs"] = refs
+            self._clean_material_data(material)
         self._repair_rubric_points(draft)
         return draft
+
+    def _clean_material_data(self, material: dict[str, Any]) -> None:
+        """mock repair에서 자료 타입 밖 data 필드를 제거한다."""
+
+        data = material.get("data")
+        if not isinstance(data, dict):
+            return
+        allowed_fields = {
+            "chart": {"chart_type", "x_axis", "y_axis", "series"},
+            "table": {"columns", "rows"},
+            "memo": {"author", "items"},
+            "email": {"thread"},
+            "schedule": {"items"},
+            "checklist": {"items"},
+            "log": {"entries"},
+            "card": {"cards"},
+        }.get(str(material.get("type")), set())
+        if not allowed_fields:
+            return
+        material["data"] = {key: value for key, value in data.items() if key in allowed_fields}
+        if material.get("type") == "schedule":
+            items = material["data"].get("items")
+            if isinstance(items, list):
+                material["data"]["items"] = [
+                    {
+                        "period": str(item.get("period", "")),
+                        "task": str(item.get("task", "")),
+                        "constraint": str(item.get("constraint", "")),
+                    }
+                    for item in items
+                    if isinstance(item, dict)
+                ]
+        elif material.get("type") == "checklist":
+            items = material["data"].get("items")
+            if isinstance(items, list):
+                material["data"]["items"] = [
+                    {
+                        "label": str(item.get("label") or item.get("text", "")),
+                        "status": item.get("status") if item.get("status") in {"checked", "unchecked", "issue"} else "unchecked",
+                        "importance": str(item.get("importance", "")),
+                    }
+                    for item in items
+                    if isinstance(item, dict)
+                ]
+        elif material.get("type") == "memo":
+            items = material["data"].get("items")
+            if isinstance(items, list):
+                material["data"]["items"] = [
+                    item if isinstance(item, str) else str(item.get("text") or item.get("label") or "")
+                    for item in items
+                    if isinstance(item, (str, dict))
+                ]
 
     def _repair_rubric_points(self, draft: dict[str, Any]) -> None:
         """mock repair에서 rubric 점수 합계가 100이 되도록 균등 보정한다."""
