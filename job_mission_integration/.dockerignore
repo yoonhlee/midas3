@@ -1,0 +1,16 @@
+node_modules/
+test-results/
+playwright-report/
+reports/
+outputs/
+
+data/api_raw/
+data/additional_search/
+missions/
+
+.env
+.env.*
+!.env.server.example
+
+npm-debug.log*
+*.log
