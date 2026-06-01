@@ -133,7 +133,7 @@ def compute_axis_signals(
     return {ax: round(ax_score[ax] / total, 4) for ax in axes}
 
 
-def mission_key_from_path(mission_output_path: Path) -> str:
+def mission_key_from_path(mission_output_path: Path, mission_id_override: str | None = None) -> str:
     """
     outputs/.../runs/{run_id}/jobs/{job_cd}/{difficulty}/mission_output.json
     → "{run_id}__{mission_id}" 형태의 고유 키 생성.
@@ -145,9 +145,12 @@ def mission_key_from_path(mission_output_path: Path) -> str:
             run_id = parts[i + 1]
             break
 
-    with open(mission_output_path, encoding="utf-8") as f:
-        data = json.load(f)
-    mission_id = data.get("mission_id", "unknown")
+    if mission_id_override is None:
+        with open(mission_output_path, encoding="utf-8") as f:
+            data = json.load(f)
+        mission_id = data.get("mission_id", "unknown")
+    else:
+        mission_id = mission_id_override
     if run_id:
         return f"{run_id}__{mission_id}"
     return mission_id
@@ -176,6 +179,59 @@ def build_scenario_filename(job_cd: str, existing_files: set[str]) -> str:
         idx += 1
 
 
+def collect_existing_mission_ids(
+    scenarios_dir: Path,
+    index: dict[str, Any] | None = None,
+) -> set[str]:
+    ids: set[str] = set()
+    if index:
+        for entry in index.get("missions", []):
+            mission_id = entry.get("mission_id")
+            if isinstance(mission_id, str) and mission_id:
+                ids.add(mission_id)
+
+    if not scenarios_dir.exists():
+        return ids
+
+    for f in scenarios_dir.glob("*.json"):
+        try:
+            with open(f, encoding="utf-8") as fh:
+                data = json.load(fh)
+        except Exception:
+            continue
+        mission_id = data.get("mission_id")
+        if isinstance(mission_id, str) and mission_id:
+            ids.add(mission_id)
+    return ids
+
+
+def next_available_mission_id(base_mission_id: str, existing_ids: set[str]) -> str:
+    if base_mission_id not in existing_ids:
+        return base_mission_id
+
+    match = re.match(r"^(.*_)(\d+)$", base_mission_id)
+    if match:
+        prefix = match.group(1)
+        width = max(len(match.group(2)), 3)
+    else:
+        prefix = f"{base_mission_id}_"
+        width = 3
+
+    used_sequences = []
+    pattern = re.compile(rf"^{re.escape(prefix)}(\d+)$")
+    for mission_id in existing_ids:
+        seq_match = pattern.match(mission_id)
+        if seq_match:
+            used_sequences.append(int(seq_match.group(1)))
+
+    next_sequence = (max(used_sequences) if used_sequences else 1) + 1
+    while True:
+        candidate = f"{prefix}{next_sequence:0{width}d}"
+        if candidate not in existing_ids:
+            return candidate
+        next_sequence += 1
+
+
 def load_index(index_path: Path) -> dict[str, Any]:
     if index_path.exists():
         with open(index_path, encoding="utf-8") as f:
@@ -199,6 +255,8 @@ def export_mission(
     item_to_axis: dict[str, str],
     scenarios_dir: Path,
     dry_run: bool = False,
+    reserved_mission_ids: set[str] | None = None,
+    reserved_scenario_files: set[str] | None = None,
 ) -> dict[str, Any] | None:
     """
     mission_output.json 하나를 읽어 axis_signals_derived를 추가하고
@@ -218,8 +276,8 @@ def export_mission(
         print(f"  [skip] {mission_path}: unknown schema_version '{schema_ver}'")
         return None
 
-    mission_id = data.get("mission_id", "")
-    if not mission_id:
+    original_mission_id = data.get("mission_id", "")
+    if not original_mission_id:
         print(f"  [skip] {mission_path}: no mission_id")
         return None
 
@@ -234,24 +292,20 @@ def export_mission(
     if "axis_signals_derived" not in data:
         data["axis_signals_derived"] = compute_axis_signals(rubric, item_to_axis)
 
-    # 저장 파일명 결정
-    existing = {f.name for f in scenarios_dir.glob("*.json")} if scenarios_dir.exists() else set()
+    existing_ids = reserved_mission_ids
+    if existing_ids is None:
+        existing_ids = collect_existing_mission_ids(scenarios_dir)
+    mission_id = next_available_mission_id(original_mission_id, existing_ids)
+    data["mission_id"] = mission_id
+    existing_ids.add(mission_id)
 
-    # 이미 동일 mission_id가 존재하면 덮어쓰기
-    target_path: Path | None = None
-    for f in scenarios_dir.glob("*.json"):
-        try:
-            with open(f, encoding="utf-8") as fh:
-                existing_data = json.load(fh)
-            if existing_data.get("mission_id") == mission_id:
-                target_path = f
-                break
-        except Exception:
-            continue
+    existing_files = reserved_scenario_files
+    if existing_files is None:
+        existing_files = {f.name for f in scenarios_dir.glob("*.json")} if scenarios_dir.exists() else set()
 
-    if target_path is None:
-        filename = build_scenario_filename(job_cd, existing)
-        target_path = scenarios_dir / filename
+    filename = build_scenario_filename(job_cd, existing_files)
+    existing_files.add(filename)
+    target_path = scenarios_dir / filename
 
     rel_path = f"scenarios/{target_path.name}"
 
@@ -266,7 +320,7 @@ def export_mission(
     est_minutes = difficulty_block.get("estimated_time_minutes", 15)
     axis_signals = data["axis_signals_derived"]
 
-    key = mission_key_from_path(mission_path)
+    key = mission_key_from_path(mission_path, mission_id)
 
     return {
         "key": key,
@@ -293,7 +347,7 @@ def update_index(
 
     # 기존 같은 key 교체 또는 신규 추가
     for i, entry in enumerate(missions):
-        if entry.get("key") == new_entry["key"] or entry.get("mission_id") == new_entry["mission_id"]:
+        if entry.get("key") == new_entry["key"]:
             missions[i] = new_entry
             return
     missions.append(new_entry)
@@ -449,10 +503,19 @@ def main() -> None:
 
     index = load_index(index_path)
     exported_entries: list[dict[str, Any]] = []
+    reserved_mission_ids = collect_existing_mission_ids(scenarios_dir, index)
+    reserved_scenario_files = {f.name for f in scenarios_dir.glob("*.json")} if scenarios_dir.exists() else set()
 
     for mf in mission_files:
         print(f"  처리: {mf.relative_to(BASE_DIR) if mf.is_relative_to(BASE_DIR) else mf}")
-        entry = export_mission(mf, item_to_axis, scenarios_dir, dry_run=args.dry_run)
+        entry = export_mission(
+            mf,
+            item_to_axis,
+            scenarios_dir,
+            dry_run=args.dry_run,
+            reserved_mission_ids=reserved_mission_ids,
+            reserved_scenario_files=reserved_scenario_files,
+        )
         if entry:
             exported_entries.append(entry)
             update_index(index, entry, index.get("missions", []) + exported_entries)
