@@ -199,6 +199,7 @@ function renderChecklist(data, esc) {
 }
 
 function renderCard(data, esc) {
+  const attrLabels = { strength: "강점", weakness: "약점", fit: "적합도" };
   const cards = Array.isArray(data.cards) ? data.cards : [];
   if (!cards.length) return renderMemo(data, esc);
   return `<div class="opt-cards">${cards.map((card) => {
@@ -206,7 +207,7 @@ function renderCard(data, esc) {
     return `<div class="opt-card">
       <div class="opt-card-title">${esc(card.title || card.label || "")}</div>
       ${card.body ? `<div class="opt-card-body">${esc(card.body)}</div>` : ""}
-      ${attrs.length ? `<div class="opt-attrs">${attrs.map(([k, v]) => `<div class="opt-attr"><span class="opt-attr-key">${esc(k)}</span><span class="opt-attr-val">${esc(String(v))}</span></div>`).join("")}</div>` : ""}
+      ${attrs.length ? `<div class="opt-attrs">${attrs.map(([k, v]) => `<div class="opt-attr"><span class="opt-attr-key">${esc(attrLabels[k] || k)}</span><span class="opt-attr-val">${esc(String(v))}</span></div>`).join("")}</div>` : ""}
     </div>`;
   }).join("")}</div>`;
 }

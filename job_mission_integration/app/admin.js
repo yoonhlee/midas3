@@ -519,13 +519,14 @@ function renderAdminChecklist(data) {
 }
 
 function renderAdminCard(data) {
+  const attrLabels = { strength: "강점", weakness: "약점", fit: "적합도" };
   const cards = Array.isArray(data.cards) ? data.cards : [];
   if (!cards.length) return renderMaterialItems(data) || renderMaterialStack(data.entries, "mat-entry") || "";
   return `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px">${cards.slice(0, 4).map((card) => {
     const attrs = card.attributes && typeof card.attributes === "object" ? Object.entries(card.attributes) : [];
     return `<div class="mat-entry">
       <strong style="font-size:12px;display:block;margin-bottom:5px">${esc(card.title || card.label || "")}</strong>
-      ${attrs.map(([k, v]) => `<div style="font-size:11px;color:var(--t3)">${esc(k)}: <span style="color:var(--t2)">${esc(String(v))}</span></div>`).join("")}
+      ${attrs.map(([k, v]) => `<div style="font-size:11px;color:var(--t3)">${esc(attrLabels[k] || k)}: <span style="color:var(--t2)">${esc(String(v))}</span></div>`).join("")}
     </div>`;
   }).join("")}</div>`;
 }
