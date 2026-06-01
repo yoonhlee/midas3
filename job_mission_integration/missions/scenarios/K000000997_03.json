@@ -1,6 +1,6 @@
 {
   "schema_version": "mission_output.v1",
-  "mission_id": "mission_K000000997_easy_001",
+  "mission_id": "mission_K000000997_normal_001",
   "job_identity": {
     "job_cd": "K000000997",
     "job_lrcl_nm": "경영·사무·금융·보험직",
@@ -13,117 +13,177 @@
     }
   },
   "target_exec_job": {
-    "exec_job_id": "exec_001",
-    "text": "소비자의 구매 패턴과 소비 유형을 파악한다.",
+    "exec_job_id": "exec_004",
+    "text": "특정상품 및 서비스에 관한 현재의 판매수준, 소비자의 평가 등에 관한 정보를 체계적으로 수집·분석한다.",
     "source_ref": {
       "file": "K000000997/dtlGb_2.xml",
       "field": "jobsDo.execJob",
-      "index": 1
+      "index": 4
     },
-    "selection_reason": "소비자의 구매 패턴·소비 유형을 파악하는 목표가 데이터 진단 형태의 분석 과업에 직접 대응하며, 표 1가지만으로도 결과를 정리·해석하기에 쉬운 난이도 조건에 적합하다."
+    "selection_reason": "판매수준과 소비자 평가 정보를 수집·분석하는 업무가 시장 피드백을 우선순위화하는 미션과 가장 직접적으로 연결되며, 분석 결과를 의사결정에 활용하는 역량이 필요함."
   },
   "mission_facts": {
-    "org_name": "메이크업스튜디오(가상)",
-    "domain": "상품기획(고객 구매 패턴 해석)",
+    "org_name": "라이트마켓(가상 온라인 쇼핑몰)",
+    "domain": "쇼핑몰 상품 운영/상품기획",
     "period": [
       "최근 4주"
     ],
-    "trend_pattern": "장바구니 담기와 결제 흐름이 서로 다르게 움직이는 신호가 있음",
-    "main_issue": "데이터 해석을 놓고 팀 의견이 엇갈려, ‘어디 단계에서 문제가 있는지’가 문장으로 정리되지 않음",
+    "trend_pattern": "상품 A는 주간 주문이 완만하게 오르는데, 상품 B는 주간 주문이 점점 내려오거나 정체됨",
+    "main_issue": "두 후보 상품 중 이번 주에 먼저 개선할 대상을 정해야 함",
     "feedback_themes": [
-      "표에 있는 ‘관찰 포인트’를 먼저 짚기",
-      "선택한 해석이 표의 근거(strength)와 맞는지 연결하기"
+      "사이즈 기대와 실제 차이",
+      "끈 길이(휴대 편의)",
+      "색감·수납은 대체로 만족"
     ],
-    "decision_goal": "표에 제시된 구매 패턴 해석 후보 중, 우선순위 1(가장 타당한 해석)을 골라 이유를 한두 문장으로 정리하기"
+    "decision_goal": "판매 흐름과 고객 리뷰 불편을 함께 보고, 상세 설명 개선 우선순위 1개를 고른다"
   },
   "mission": {
-    "title": "초보 인턴의 구매 패턴 해석 한 줄 정리",
+    "title": "리뷰와 판매 흐름으로 ‘상세 설명’ 개선 우선순위 고르기",
     "task_type": "research_and_analysis",
-    "secondary_task_types": [],
+    "secondary_task_types": [
+      "decision_making"
+    ],
     "difficulty": {
-      "level": "easy",
-      "label": "쉬움",
+      "level": "normal",
+      "label": "보통",
       "estimated_time_minutes": 15,
-      "material_bundle_style": "single_work_material",
+      "material_bundle_style": "light_work_material_bundle",
       "material_count_range": [
-        1,
-        1
+        2,
+        2
       ],
       "task_count_range": [
         1,
         1
       ],
-      "answer_length_hint": "1-2 short sentences",
-      "requires_cross_material_reasoning": false,
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
       "requires_tradeoff_judgment": false,
       "requires_domain_expertise": false
     },
     "scenario": {
-      "role": "당신은 상품기획팀 인턴(초급)입니다.",
-      "context": "메이크업스튜디오에서 ‘NEW 데일리 썬크림’ 판매 데이터를 최근 4주치로 봤어요. 그런데 팀원들 사이에서 “무엇이 문제인지”를 보는 관점이 달라 말이 길어지고 있습니다. 실무 리더가 오늘 안에 빠르게 결론 문장을 하나만 정리해달라고 했어요.",
-      "goal": "표에 있는 구매 패턴 해석 후보 중, 우선순위 1의 해석을 선택하고 1-2문장으로 이유를 적어주세요.",
+      "role": "당신은 라이트마켓 상품기획팀 인턴입니다.",
+      "context": "실무 리더가 이번 주 일정으로 ‘상세 설명(사이즈 안내) 수정’을 요청했어요. 우리는 토트백 2개 후보(A/B)가 있는데, 고객 반응과 판매 흐름이 조금씩 달라서 어떤 상품을 먼저 손봐야 할지 정해야 합니다.",
+      "goal": "두 자료(판매 추이 + 리뷰 요약)를 보고, 이번 주 상세 설명 개선을 먼저 할 상품을 A/B 중 하나로 고르세요.",
       "constraints": [
-        "답변은 반드시 아래 표의 내용만 근거로 작성하기",
-        "선택(옵션)과 이유를 한 문장(또는 짧은 문단) 안에 담기",
-        "숫자 계산이나 추가 조사 없이, 표에 적힌 ‘근거/주의’ 문장을 참고하기"
+        "답변은 A 또는 B 선택이 포함된 2-3문장으로 작성하세요.",
+        "이유에는 판매 흐름(최근 4주 주문 추이)과 리뷰 불편(반복 키워드) 중 둘 다를 한 번씩은 언급하세요.",
+        "오직 제공된 자료 내용만 근거로 사용하세요."
       ],
       "glossary": []
     },
     "materials": [
       {
-        "material_id": "tbl_purchase_pattern_options_001",
-        "type": "table",
-        "subtype": "purchase_pattern_interpretation_options",
-        "title": "최근 구매 패턴 해석 후보(우선순위 포함)",
-        "description": "최근 4주 구매 흐름에서 관찰된 특징을 바탕으로 만든 ‘해석 후보’입니다. 각 후보는 표에 적힌 strength(맞는 지점)와 weakness(주의할 지점)로 구분됩니다.",
+        "material_id": "mat_chart_weekly_sales",
+        "type": "chart",
+        "subtype": "line",
+        "title": "두 후보 상품의 최근 4주 판매(주문) 추이",
+        "description": "각 주차의 주문 수(건)를 비교한 그래프입니다. 주문 수가 오르내리는 흐름을 함께 보세요.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "구매 패턴 해석 후보 중 우선순위 1을 선택하고, 표의 근거(strength)를 이유로 연결하기",
+        "used_for": "판매 흐름을 확인해 개선 우선순위를 고르기 위한 참고",
         "evidence_source": [
           "사물, 행동, 사건 파악",
-          "영업과 마케팅"
+          "정보 수집"
         ],
         "mission_fact_refs": [
+          "org_name",
           "domain",
           "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "data": {
+          "chart_type": "line",
+          "x_axis": {
+            "label": "주차",
+            "values": [
+              "1주",
+              "2주",
+              "3주",
+              "4주"
+            ]
+          },
+          "y_axis": {
+            "label": "주문 수",
+            "unit": "건"
+          },
+          "series": [
+            {
+              "name": "캔버스 토트백 A",
+              "values": [
+                120,
+                135,
+                140,
+                150
+              ]
+            },
+            {
+              "name": "캔버스 토트백 B",
+              "values": [
+                160,
+                155,
+                150,
+                148
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.74,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_table_review_summary",
+        "type": "table",
+        "subtype": "review_summary",
+        "title": "고객 리뷰에서 반복된 좋은 점/불편 점(요약)",
+        "description": "최근 리뷰에서 자주 보이는 강점과 불편 키워드가 정리되어 있습니다. ‘불편이 반복되는 쪽’이 상세 설명 개선 우선순위 후보입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "고객 평가(리뷰 불편 키워드)를 근거로 개선 우선순위 후보를 고르기 위한 참고",
+        "evidence_source": [
+          "사물, 서비스, 사람의 질 판단",
+          "정보 수집"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "feedback_themes",
           "decision_goal"
         ],
         "data": {
           "columns": [
             {
               "key": "option",
-              "label": "옵션(데이터 해석)"
+              "label": "상품"
             },
             {
               "key": "strength",
-              "label": "관찰과의 일치 포인트"
+              "label": "강점"
             },
             {
               "key": "weakness",
-              "label": "주의할 점(이 해석이 약한 경우)"
+              "label": "불편(반복 키워드)"
             },
             {
               "key": "priority",
-              "label": "추천도(1이 가장 우선)"
+              "label": "개선 우선순위(점수)"
             }
           ],
           "rows": [
             {
-              "option": "A: ‘장바구니 담기’는 늘었는데 ‘결제 전환’이 떨어져, 구매 단계에서 이탈이 보임",
-              "strength": "담기 수 대비 결제 수 비율이 낮아졌고, 결제 직전에서 흐름이 끊기는 신호가 표에 정리돼 있음",
-              "weakness": "쿠폰 사용 등 다른 요인이 같이 움직이면 전환율만으로 단정이 어려울 수 있음",
-              "priority": 1
-            },
-            {
-              "option": "B: 첫 구매 고객은 늘었지만 ‘재구매’가 줄어, 유지(재방문) 단계가 약함",
-              "strength": "첫 구매 비중 증가와 재구매율 하락이 함께 관찰된다는 가정이 표에 들어가 있음",
-              "weakness": "주기가 긴 상품이면 아직 재구매 데이터가 덜 쌓여 보일 수 있음",
+              "option": "캔버스 토트백 A",
+              "strength": "평점 평균 4.4/5, ‘색감/수납’ 만족 언급이 비교적 많음",
+              "weakness": "끈 길이 불만이 일부 보임(리뷰 3건)",
               "priority": 2
             },
             {
-              "option": "C: ‘평균 구매금액(객단가)’이 낮아져 수익에 직접 영향이 생김",
-              "strength": "객단가 하락이 관찰된다는 시나리오가 표에 정리돼 있음",
-              "weakness": "프로모션 비용이나 혜택 구성 변화가 함께 있으면 수익 감소의 원인이 더 복합적일 수 있음",
-              "priority": 3
+              "option": "캔버스 토트백 B",
+              "strength": "평점 평균 4.0/5, 디자인 기대감 언급이 보임",
+              "weakness": "사이즈 작음 + 끈이 짧다 불편이 반복(리뷰 9건)",
+              "priority": 1
             }
           ]
         },
@@ -139,51 +199,56 @@
     "tasks": [
       {
         "task_id": "task_001",
-        "instruction": "아래 표에서 추천도(priority) 1인 ‘구매 패턴 해석(A/B/C)’을 1개 고르고, 그 선택이 표의 strength와 어떻게 맞는지 1-2문장으로 적어주세요.",
+        "instruction": "아래 두 자료를 보고, 이번 주 ‘상세 설명(사이즈 안내) 개선’을 먼저 할 상품을 A 또는 B 중 하나로 고르세요. 선택한 이유를 2-3문장으로 적되, 판매 흐름(최근 4주 주문 추이)과 리뷰 불편(반복 키워드)을 각각 한 번씩 포함해 주세요.",
         "required_materials": [
-          "tbl_purchase_pattern_options_001"
+          "mat_chart_weekly_sales",
+          "mat_table_review_summary"
         ],
-        "expected_action": "우선순위 1 해석을 선택하고, 표에 적힌 근거(strength)를 이유로 연결해 짧게 설명"
+        "expected_action": "선택( A/B ) + 간단한 근거 2가지를 문장으로 답하기"
       }
     ],
     "submission_format": {
-      "type": "written_response",
+      "type": "text",
       "estimated_time_minutes": 15,
       "required_sections": [
-        "선택한 옵션(A/B/C)",
-        "선택 이유(표의 strength 연결)"
+        "선택(A/B)",
+        "이유(판매 흐름 1개 + 리뷰 불편 1개)"
       ],
-      "length_hint": "1-2문장"
+      "length_hint": "2-3 short sentences"
     }
   },
   "evaluation": {
     "expected_insights": [
-      "구매 패턴을 ‘어느 단계(담기→결제, 첫 구매→재구매, 객단가)’ 관점에서 보는지 문장으로 정리함",
-      "선택한 해석이 표의 근거(strength)와 연결되어 있는지 확인함"
+      "두 자료 중에서 ‘판매가 덜 좋아지는 흐름’과 ‘반복되는 고객 불편’이 함께 드러나는 상품을 짚을 수 있음",
+      "개선 우선순위 선택이 단순 취향이 아니라, 자료에서 확인되는 근거에 연결되어 있음",
+      "답변이 A/B 선택과 이유 2가지(판매 흐름, 리뷰 불편)를 모두 포함함"
     ],
     "rubric": [
       {
-        "criterion": "우선순위 1 해석을 올바르게 선택했는가",
-        "description": "표의 priority=1에 해당하는 옵션을 고름.",
-        "points": 50,
-        "linked_evidence": [
-          "사물, 행동, 사건 파악"
-        ]
-      },
-      {
-        "criterion": "선택 이유가 표의 strength를 근거로 연결되었는가",
-        "description": "1-2문장 안에서 strength에 적힌 ‘맞는 지점’을 이유로 사용함.",
+        "criterion": "A/B 선택이 명확하고, ‘왜 그 상품이 먼저인지’가 한 문장 안에 드러남",
+        "description": "선택(A 또는 B)을 분명히 밝히고, 개선 우선순위 이유의 중심이 무엇인지 정리되어 있음.",
         "points": 30,
         "linked_evidence": [
-          "영업과 마케팅"
+          "의사 결정, 문제점 해결",
+          "말하기"
         ]
       },
       {
-        "criterion": "주의할 점(weakness)을 최소 1개 덧붙이면 더 좋음",
-        "description": "필수는 아니지만, weakness 중 하나를 짧게 언급하면 관찰-해석을 더 조심스럽게 다루는 태도로 평가함.",
-        "points": 20,
+        "criterion": "판매 흐름 근거를 정확히 언급함",
+        "description": "최근 4주 주문 추이에서 어떤 쪽이 오르거나 내려오는지(또는 정체인지)를 답변에 반영함.",
+        "points": 30,
         "linked_evidence": [
-          "사물, 행동, 사건 파악"
+          "사물, 행동, 사건 파악",
+          "정보 수집"
+        ]
+      },
+      {
+        "criterion": "리뷰 불편 근거를 정확히 언급함",
+        "description": "반복되는 불편 키워드(사이즈 작음/끈 짧음 등)가 답변에 포함되어, 왜 상세 설명 개선이 필요한지 연결됨.",
+        "points": 40,
+        "linked_evidence": [
+          "사물, 서비스, 사람의 질 판단",
+          "정보 수집"
         ]
       }
     ]
@@ -227,14 +292,14 @@
   "evidence_chain": {
     "created_by": "validator.v1",
     "source_exec_job": {
-      "exec_job_id": "exec_001",
-      "text": "소비자의 구매 패턴과 소비 유형을 파악한다.",
+      "exec_job_id": "exec_004",
+      "text": "특정상품 및 서비스에 관한 현재의 판매수준, 소비자의 평가 등에 관한 정보를 체계적으로 수집·분석한다.",
       "source_ref": {
         "file": "K000000997/dtlGb_2.xml",
         "field": "jobsDo.execJob",
-        "index": 1
+        "index": 4
       },
-      "selection_reason": "소비자의 구매 패턴·소비 유형을 파악하는 목표가 데이터 진단 형태의 분석 과업에 직접 대응하며, 표 1가지만으로도 결과를 정리·해석하기에 쉬운 난이도 조건에 적합하다."
+      "selection_reason": "판매수준과 소비자 평가 정보를 수집·분석하는 업무가 시장 피드백을 우선순위화하는 미션과 가장 직접적으로 연결되며, 분석 결과를 의사결정에 활용하는 역량이 필요함."
     },
     "linked_evidence": {
       "activities": [
@@ -402,20 +467,29 @@
     },
     "material_evidence_map": [
       {
-        "material_id": "tbl_purchase_pattern_options_001",
+        "material_id": "mat_chart_weekly_sales",
         "supported_by": [
           "사물, 행동, 사건 파악",
-          "영업과 마케팅"
+          "정보 수집"
+        ]
+      },
+      {
+        "material_id": "mat_table_review_summary",
+        "supported_by": [
+          "사물, 서비스, 사람의 질 판단",
+          "정보 수집"
         ]
       }
     ],
     "items": [
       {
         "target_type": "material",
-        "target_id": "tbl_purchase_pattern_options_001",
+        "target_id": "mat_chart_weekly_sales",
         "mission_fact_refs": [
+          "org_name",
           "domain",
           "period",
+          "trend_pattern",
           "decision_goal"
         ],
         "source_refs": [
@@ -426,9 +500,34 @@
             "source_root": "data/api_raw"
           },
           {
-            "file": "K000000997/dtlGb_5.xml",
-            "field": "ablKnwEnv.Knwldg",
-            "index": 1,
+            "file": "K000000997/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_table_review_summary",
+        "mission_fact_refs": [
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000997/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000997/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
             "source_root": "data/api_raw"
           }
         ],
@@ -438,10 +537,10 @@
     ]
   },
   "axis_signals_derived": {
-    "AX1": 0.06,
-    "AX2": 0.76,
-    "AX3": 0.06,
-    "AX4": 0.06,
-    "AX5": 0.06
+    "AX1": 0.38,
+    "AX2": 0.38,
+    "AX3": 0.18,
+    "AX4": 0.03,
+    "AX5": 0.03
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": "mission_output.v1",
-  "mission_id": "mission_K000000997_normal_001_b144211",
+  "mission_id": "mission_K000000997_hard_001",
   "job_identity": {
     "job_cd": "K000000997",
     "job_lrcl_nm": "경영·사무·금융·보험직",
@@ -13,279 +13,78 @@
     }
   },
   "target_exec_job": {
-    "exec_job_id": "exec_004",
-    "text": "특정상품 및 서비스에 관한 현재의 판매수준, 소비자의 평가 등에 관한 정보를 체계적으로 수집·분석한다.",
+    "exec_job_id": "exec_002",
+    "text": "소비자의 현재 또는 장래 취향을 조사·분석하여 판매 가능한 상품을 기획·개발한다.",
     "source_ref": {
       "file": "K000000997/dtlGb_2.xml",
       "field": "jobsDo.execJob",
-      "index": 4
+      "index": 2
     },
-    "selection_reason": "Pilot config selected exec_004."
+    "selection_reason": "소비자의 현재/장래 취향을 조사·분석해 판매 가능한 상품을 기획·개발하는 업무와 가장 직접적으로 부합하며, 그 결과를 상품 기획안으로 제안하는 흐름에 적합함."
   },
   "mission_facts": {
-    "org_name": "세모리빙 상품기획팀",
-    "domain": "생활용품 온라인 판매",
+    "org_name": "누리숍(가상) 상품기획팀",
+    "domain": "생활용품 구독형 세트(미니케어 세트) 기획",
     "period": [
-      "1주차",
-      "2주차",
-      "3주차",
-      "4주차",
-      "5주차"
+      "2026년 3월~4월"
     ],
-    "trend_pattern": "정리박스 판매량이 4주차까지 하락하다가 5주차에 소폭 반등했다.",
-    "main_issue": "판매 흐름이 약해진 가운데 고객 불만이 반복되어, 다음 개선안을 무엇부터 처리할지 정해야 한다.",
+    "trend_pattern": "소량 체험 선호는 유지되지만, 구성 만족도에 대한 불만이 늘어남",
+    "main_issue": "후보 3가지(세트 구성/표기 방식)에 대해 고객 후기 불만과 구매 흐름이 엇갈려, 무엇을 먼저 손봐야 할지 정해야 함",
     "feedback_themes": [
-      "뚜껑이 헐거워 내구성에 대한 불안이 있다",
-      "설명과 사용 방법 안내가 부족하다",
-      "색상 선택 폭이 좁다",
-      "가격 대비 수납공간은 괜찮다는 반응이 있다"
+      "용량/구성 만족도 불만",
+      "구성 선택이 어렵다는 불만",
+      "품절(재고)로 인한 실망"
     ],
-    "decision_goal": "판매 회복에 가장 영향을 줄 개선안을 1순위로 정하고, 다음 실행 순서를 함께 제안한다."
+    "decision_goal": "후보 A/B/C 중 고객 반응과 구매 흐름을 함께 보고 ‘개선 우선순위 1순위’를 정하고, 함께 조심할 점 1가지를 적어 제출"
   },
   "mission": {
-    "title": "판매 흐름과 고객 반응을 바탕으로 개선 우선순위 정하기",
-    "task_type": "research_and_analysis",
+    "title": "미니케어 세트, 고객 반응 기반 개선 1순위 고르기",
+    "task_type": "planning_and_proposal",
     "secondary_task_types": [
-      "decision_making"
+      "research_and_analysis"
     ],
     "difficulty": {
-      "level": "normal",
-      "label": "보통",
+      "level": "hard",
+      "label": "어려움",
       "estimated_time_minutes": 15,
-      "material_bundle_style": "light_work_material_bundle",
+      "material_bundle_style": "work_document_packet",
       "material_count_range": [
-        2,
+        3,
         3
       ],
       "task_count_range": [
-        2,
-        3
+        1,
+        1
       ],
-      "answer_length_hint": "400~700자",
+      "answer_length_hint": "3-5 short sentences",
       "requires_cross_material_reasoning": true,
       "requires_tradeoff_judgment": false,
       "requires_domain_expertise": false
     },
     "scenario": {
-      "role": "세모리빙 상품기획팀의 상품기획자",
-      "context": "당신은 생활용품 신제품인 접이식 정리박스의 최근 판매 흐름과 고객 후기를 함께 검토하고 있다. 팀에서는 다음 분기 개선안을 3개까지 검토했지만, 무엇을 먼저 실행해야 할지 의견이 갈린다.",
-      "goal": "제공된 자료만 근거로 판매 흐름의 변화와 고객 반응을 정리한 뒤, 가장 먼저 실행할 개선안을 1순위로 제안한다.",
+      "role": "당신은 상품기획팀 인턴입니다.",
+      "context": "누리숍은 ‘미니케어 세트’ 신규 구성안을 준비하고 있어요. 최근 고객 후기(불만/칭찬)와, 고객이 상품을 본 뒤 실제로 구매로 이어지는 흐름을 후보 A/B/C로 정리해 두었습니다. 팀장님이 “세 가지 중에서 뭘 먼저 고치면 좋을지 1순위를 정해서 짧게 보고해줘”라고 요청했어요.",
+      "goal": "자료를 보고 후보 A/B/C 중 개선 우선순위 1순위를 정하고, 조심할 점을 한 가지 포함해 짧게 제안하세요.",
       "constraints": [
-        "실제 회사명, 실제 인명, 외부 검색은 사용하지 않는다.",
-        "반드시 제공된 차트, 메모, 표만 근거로 판단한다.",
-        "답변에는 판매 흐름 진단, 고객 반응 요약, 우선순위 제안을 모두 포함한다."
-      ]
+        "답변은 후보 A/B/C 중 ‘1개’를 고르는 것으로 끝내세요(추가 후보 비교는 최소화).",
+        "이유는 표(고객 후기 요약)와 차트(구매 흐름)에서 각각 1가지만 근거로 들어 주세요.",
+        "조심할 점은 체크리스트에 있는 문장을 바탕으로 1가지 적어 주세요.",
+        "모든 내용은 제공된 자료 안에서만 근거를 쓰세요."
+      ],
+      "glossary": []
     },
     "materials": [
       {
-        "material_id": "mat_sales_chart",
-        "type": "chart",
-        "subtype": "주간 판매추이",
-        "title": "정리박스 5주 판매 흐름",
-        "description": "접이식 정리박스의 최근 5주 판매량 변화를 보여 주는 차트",
-        "factual_status": "synthetic_mission_material",
-        "used_for": "판매 흐름의 하락 시점과 반등 여부를 확인한다.",
-        "evidence_source": [
-          "정보 수집",
-          "사물, 행동, 사건 파악",
-          "업무 계획, 우선순위 결정"
-        ],
-        "mission_fact_refs": [
-          "org_name",
-          "domain",
-          "period",
-          "trend_pattern",
-          "main_issue",
-          "decision_goal"
-        ],
-        "data": {
-          "chart_type": "line",
-          "x_axis": {
-            "label": "주차",
-            "values": [
-              "1주차",
-              "2주차",
-              "3주차",
-              "4주차",
-              "5주차"
-            ]
-          },
-          "y_axis": {
-            "label": "판매량",
-            "unit": "개"
-          },
-          "series": [
-            {
-              "name": "정리박스 판매량",
-              "values": [
-                120,
-                110,
-                98,
-                92,
-                99
-              ]
-            }
-          ],
-          "columns": [
-            {
-              "key": "option",
-              "label": "항목"
-            },
-            {
-              "key": "strength",
-              "label": "수치"
-            },
-            {
-              "key": "weakness",
-              "label": "해석"
-            },
-            {
-              "key": "priority",
-              "label": "판단"
-            }
-          ],
-          "rows": [],
-          "author": "세모리빙 상품기획팀",
-          "items": [],
-          "thread": [],
-          "entries": [],
-          "cards": []
-        },
-        "confidence": {
-          "score": 0.93,
-          "checks": {
-            "synthetic_material": true
-          },
-          "warnings": []
-        }
-      },
-      {
-        "material_id": "mat_feedback_memo",
-        "type": "memo",
-        "subtype": "고객후기 요약",
-        "title": "최근 고객 후기 4가지 핵심 내용",
-        "description": "정리박스 후기에서 반복 언급된 장단점을 요약한 메모",
-        "factual_status": "synthetic_mission_material",
-        "used_for": "반복 불만과 강점을 구분한다.",
-        "evidence_source": [
-          "사물, 서비스, 사람의 질 판단",
-          "정보 수집",
-          "영업과 마케팅"
-        ],
-        "mission_fact_refs": [
-          "org_name",
-          "domain",
-          "feedback_themes",
-          "main_issue"
-        ],
-        "data": {
-          "chart_type": "bar",
-          "x_axis": {
-            "label": "후기 항목",
-            "values": [
-              "내구성",
-              "사용 편의",
-              "가격 만족",
-              "색상 선택"
-            ]
-          },
-          "y_axis": {
-            "label": "언급 수",
-            "unit": "건"
-          },
-          "series": [
-            {
-              "name": "후기 언급",
-              "values": [
-                17,
-                11,
-                9,
-                6
-              ]
-            }
-          ],
-          "columns": [
-            {
-              "key": "option",
-              "label": "항목"
-            },
-            {
-              "key": "strength",
-              "label": "내용"
-            },
-            {
-              "key": "weakness",
-              "label": "문제"
-            },
-            {
-              "key": "priority",
-              "label": "중요도"
-            }
-          ],
-          "rows": [],
-          "author": "세모리빙 고객경험팀",
-          "items": [
-            {
-              "text": "뚜껑이 헐거워서 가방 안에서 열릴까 걱정된다는 반응이 반복되었다.",
-              "period": "최근 2주",
-              "task": "불만 분류",
-              "constraint": "반복 언급 중심",
-              "label": "내구성",
-              "status": "issue",
-              "importance": "높음"
-            },
-            {
-              "text": "조립은 어렵지 않지만 설명이 더 자세하면 좋겠다는 의견이 있었다.",
-              "period": "최근 2주",
-              "task": "불편 분류",
-              "constraint": "안내 보강 필요",
-              "label": "사용성",
-              "status": "issue",
-              "importance": "중간"
-            },
-            {
-              "text": "가격 대비 수납공간은 만족스럽다는 의견이 있었다.",
-              "period": "최근 2주",
-              "task": "강점 확인",
-              "constraint": "긍정 반응",
-              "label": "가성비",
-              "status": "checked",
-              "importance": "중간"
-            },
-            {
-              "text": "색상 종류가 적어서 선택이 아쉽다는 의견이 있었다.",
-              "period": "최근 2주",
-              "task": "개선 요구 파악",
-              "constraint": "선택폭 확대",
-              "label": "디자인",
-              "status": "issue",
-              "importance": "낮음"
-            }
-          ],
-          "thread": [],
-          "entries": [],
-          "cards": []
-        },
-        "confidence": {
-          "score": 0.91,
-          "checks": {
-            "synthetic_material": true
-          },
-          "warnings": []
-        }
-      },
-      {
-        "material_id": "mat_option_table",
+        "material_id": "tbl_candidate_feedback",
         "type": "table",
-        "subtype": "개선안 비교",
-        "title": "개선안 후보 비교표",
-        "description": "판매 회복을 위해 검토 중인 개선안 3개를 장단점과 현재 우선도 기준으로 정리한 표",
+        "subtype": "candidate_A_B_C_review_summary",
+        "title": "후보 A/B/C 고객 후기 요약(강점·약점)",
+        "description": "세트 구성과 표기 방식이 다른 후보 3가지에 대해, 고객 후기에서 반복된 강점/약점과 ‘불만 강도(대략)’가 정리되어 있습니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "후보안의 우선순위를 다시 정한다.",
+        "used_for": "후보별 고객 불만(약점)이 어디에 있는지 파악하기",
         "evidence_source": [
-          "의사 결정, 문제점 해결",
-          "업무 계획, 우선순위 결정",
-          "경제와 회계"
+          "정보 수집",
+          "사물, 행동, 사건 파악"
         ],
         "mission_fact_refs": [
           "org_name",
@@ -295,75 +94,142 @@
           "decision_goal"
         ],
         "data": {
-          "chart_type": "pie",
-          "x_axis": {
-            "label": "개선안",
-            "values": [
-              "A안",
-              "B안",
-              "C안"
-            ]
-          },
-          "y_axis": {
-            "label": "현재 우선도",
-            "unit": "순위"
-          },
-          "series": [
-            {
-              "name": "내부 검토",
-              "values": [
-                2,
-                1,
-                3
-              ]
-            }
-          ],
           "columns": [
             {
               "key": "option",
-              "label": "개선안"
+              "label": "후보 옵션"
             },
             {
               "key": "strength",
-              "label": "강점"
+              "label": "반복된 강점"
             },
             {
               "key": "weakness",
-              "label": "약점"
+              "label": "반복된 약점(불만)"
             },
             {
               "key": "priority",
-              "label": "초안 순위"
+              "label": "불만 강도(대략: 1~3)"
             }
           ],
           "rows": [
             {
-              "option": "A. 뚜껑 구조 보강",
-              "strength": "반복 불만의 핵심 원인을 직접 해결한다.",
-              "weakness": "부품 변경으로 원가와 검수 부담이 늘 수 있다.",
+              "option": "A. 미니 ‘체험형’ 구성(소량 패키지)",
+              "strength": "처음 써보기 좋아요(부담이 적음)",
+              "weakness": "‘생각보다 더 필요해요’ 같은 용량/구성 아쉬움이 반복됨",
+              "priority": 3
+            },
+            {
+              "option": "B. 선물 ‘선택형’ 구성(옵션 2가지 표기)",
+              "strength": "포장/첫인상 만족이 높음",
+              "weakness": "세트 선택이 헷갈린다는 말이 반복됨(무엇을 고를지 어려움)",
               "priority": 2
             },
             {
-              "option": "B. 상세페이지 사용법 보강",
-              "strength": "즉시 적용 가능하고 비용이 적다.",
-              "weakness": "제품 자체의 불만은 남을 수 있다.",
+              "option": "C. 설명 ‘가이드형’ 구성(상세 설명 강조)",
+              "strength": "구성/사용법을 이해하기 쉬움",
+              "weakness": "재고가 없어서 못 샀다는 불만이 반복됨(품절 실망)",
               "priority": 1
-            },
-            {
-              "option": "C. 색상 2종 추가",
-              "strength": "선택 폭을 넓혀 일부 고객층을 끌 수 있다.",
-              "weakness": "핵심 불만 해결 효과가 작다.",
-              "priority": 3
             }
-          ],
-          "author": "세모리빙 상품기획팀",
-          "items": [],
-          "thread": [],
-          "entries": [],
-          "cards": []
+          ]
         },
         "confidence": {
-          "score": 0.88,
+          "score": 0.84,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "chart_purchase_flow",
+        "type": "chart",
+        "subtype": "purchase_flow_from_product_page",
+        "title": "상품 페이지 노출 후 구매로 이어지는 흐름(100명 기준)",
+        "description": "고객이 후보 페이지를 보고(노출) 실제로 구매까지 이어진 인원(대략)이 후보별로 정리되어 있습니다. 값이 낮을수록 ‘다음 단계로 넘어가는’ 흐름이 약하다는 뜻입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "구매 흐름이 상대적으로 약한 후보를 먼저 개선 후보로 보기",
+        "evidence_source": [
+          "정보 수집",
+          "사물, 행동, 사건 파악"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "후보 옵션",
+            "values": [
+              "A",
+              "B",
+              "C",
+              "기타(D)"
+            ]
+          },
+          "y_axis": {
+            "label": "구매로 이어진 인원(100명 중)",
+            "unit": "명"
+          },
+          "series": [
+            {
+              "name": "구매 인원(대략)",
+              "values": [
+                5,
+                9,
+                6,
+                3
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "checklist_operational_cautions",
+        "type": "checklist",
+        "subtype": "what_to_watch_when_fixing",
+        "title": "바로 손댈 때 주의할 점(운영 체크리스트)",
+        "description": "각 후보를 수정할 때, 운영/구현 관점에서 자주 생기는 주의 사항이 적혀 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "추천한 후보의 ‘조심할 점’을 체크리스트에서 1가지 고르기",
+        "evidence_source": [
+          "업무, 활동에 대한 일정관리",
+          "사물, 행동, 사건 파악"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "items": [
+            {
+              "label": "A: 용량/구성을 바꾸면 ‘패키지 사진’도 함께 업데이트해야 함(이번 주 촬영 일정 필요).",
+              "status": "issue",
+              "importance": "중간"
+            },
+            {
+              "label": "B: 선택 안내 문구만 수정해도 결제 화면/쿠폰 적용 표기가 같이 영향을 받을 수 있어, 이번 주에는 상세문구 단독 수정이 위험.",
+              "status": "issue",
+              "importance": "높음"
+            },
+            {
+              "label": "C: 품절이 핵심이면 페이지 설명을 조금 바꿔도 구매까지 이어지기 어려움(재고/수급 이슈가 먼저).",
+              "status": "issue",
+              "importance": "중간"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.78,
           "checks": {
             "synthetic_material": true
           },
@@ -373,56 +239,45 @@
     ],
     "tasks": [
       {
-        "task_id": "task_1",
-        "instruction": "판매 흐름 차트와 고객 후기 메모를 함께 보고, 최근 판매 흐름의 변화와 반복되는 고객 반응을 각각 1문장씩 정리하라.",
+        "task_id": "task_001",
+        "instruction": "아래 자료만 보고 ‘미니케어 세트’ 후보 A/B/C 중 개선 우선순위 1순위를 고르세요. 답변에는 (1) 왜 그 후보를 먼저 고칠지: 표(고객 후기 요약)에서 1개 이유 + 차트(구매 흐름)에서 1개 근거, (2) 그리고 체크리스트의 조심할 점 1가지를 함께 3~5문장으로 적어 주세요.",
         "required_materials": [
-          "mat_sales_chart",
-          "mat_feedback_memo"
+          "tbl_candidate_feedback",
+          "chart_purchase_flow",
+          "checklist_operational_cautions"
         ],
-        "expected_action": "핵심 변화와 반복 불만을 요약한다."
-      },
-      {
-        "task_id": "task_2",
-        "instruction": "개선안 비교표를 참고해, A안·B안·C안 중 무엇을 1순위로 올릴지 선택하고 그 이유를 비교해서 설명하라.",
-        "required_materials": [
-          "mat_feedback_memo",
-          "mat_option_table"
-        ],
-        "expected_action": "개선안 우선순위를 판단한다."
-      },
-      {
-        "task_id": "task_3",
-        "instruction": "다음 주 실행안으로 가장 먼저 할 1개와 보류할 1개를 함께 제안하고, 실행 순서가 그렇게 되어야 하는 이유를 적어라.",
-        "required_materials": [
-          "mat_sales_chart",
-          "mat_feedback_memo",
-          "mat_option_table"
-        ],
-        "expected_action": "실행 순서를 제안한다."
+        "expected_action": "후보 1순위 선택과 근거 2개(표+차트) 및 조심할 점 1개(체크리스트)를 포함해 짧은 제안 문장을 작성"
       }
     ],
     "submission_format": {
-      "type": "서술형 요약",
+      "type": "text",
       "estimated_time_minutes": 15,
       "required_sections": [
-        "판매 흐름 진단",
-        "고객 반응 요약",
-        "개선 우선순위 제안"
+        "후보 1순위(A/B/C) + 선택 이유(표 근거 1개, 차트 근거 1개)",
+        "조심할 점(체크리스트 근거 1개)"
       ],
-      "length_hint": "400~700자"
+      "length_hint": "3~5문장"
     }
   },
   "evaluation": {
     "expected_insights": [
-      "판매량은 4주차까지 하락했고 5주차에만 소폭 반등했다.",
-      "고객 반응의 핵심 문제는 뚜껑 헐거움과 사용 안내 부족이다.",
-      "가장 먼저 처리할 개선안은 핵심 불만을 직접 줄이는 방향이어야 한다.",
-      "색상 추가는 보조안으로 두고, 우선순위가 낮다."
+      "표에서 반복되는 약점(불만)이 무엇인지 정확히 짚는다.",
+      "차트에서 구매 흐름이 상대적으로 약한 후보를 근거로 언급한다.",
+      "체크리스트의 ‘주의할 점’ 중에서 선택한 후보에 맞는 한 가지를 함께 적는다.",
+      "답변이 3~5문장으로 짧고, 자료 근거가 문장 안에 포함된다."
     ],
     "rubric": [
       {
-        "criterion": "판매 흐름 진단",
-        "description": "차트에서 보이는 하락과 반등의 흐름을 정확히 읽고 요약했는지 평가한다.",
+        "criterion": "개선 우선순위 후보 선택의 적절성(1순위로 고른 이유가 말이 되는지)",
+        "description": "A/B/C 중 1순위 선택이 자료의 흐름(불만 강도와 구매 흐름)을 반영하고, ‘먼저 고쳐야 할 것’으로 설득력이 있는지 평가합니다.",
+        "points": 35,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결"
+        ]
+      },
+      {
+        "criterion": "근거 사용의 적합성(표 1개 + 차트 1개)",
+        "description": "답변에 고객 후기 요약(표)에서 1개, 구매 흐름(차트)에서 1개 근거가 각각 들어가 있는지 봅니다.",
         "points": 30,
         "linked_evidence": [
           "정보 수집",
@@ -430,30 +285,20 @@
         ]
       },
       {
-        "criterion": "고객 반응 해석",
-        "description": "메모에 있는 반복 불만과 강점을 구분해 핵심 이슈를 잡아냈는지 평가한다.",
-        "points": 25,
-        "linked_evidence": [
-          "사물, 서비스, 사람의 질 판단",
-          "정보 수집"
-        ]
-      },
-      {
-        "criterion": "개선안 우선순위 판단",
-        "description": "표의 후보안을 비교해 왜 그 순서로 실행해야 하는지 설명했는지 평가한다.",
-        "points": 25,
-        "linked_evidence": [
-          "의사 결정, 문제점 해결",
-          "업무 계획, 우선순위 결정"
-        ]
-      },
-      {
-        "criterion": "실행 제안의 구체성",
-        "description": "최종 추천안과 보류안을 함께 제시하며 실행 순서가 현실적인지 평가한다.",
+        "criterion": "조심할 점 포함(체크리스트에서 1가지)",
+        "description": "선택한 후보와 맞는 체크리스트의 주의 사항을 1가지 정확히 포함했는지 평가합니다.",
         "points": 20,
         "linked_evidence": [
-          "목표, 전략 수립",
-          "경영 및 행정"
+          "사물, 행동, 사건 파악",
+          "업무, 활동에 대한 일정관리"
+        ]
+      },
+      {
+        "criterion": "문장 명확성/초보자 친화도(짧고 읽기 쉬움)",
+        "description": "3~5문장 내에서 한 번에 읽히고, 선택-이유-주의가 분리되어 이해하기 쉬운지 평가합니다.",
+        "points": 15,
+        "linked_evidence": [
+          "말하기"
         ]
       }
     ]
@@ -466,7 +311,7 @@
     "human_review_required": true,
     "warning_count": 0,
     "fail_count": 0,
-    "repair_count": 0,
+    "repair_count": 1,
     "score_breakdown": {
       "schema": {
         "max": 20,
@@ -497,14 +342,14 @@
   "evidence_chain": {
     "created_by": "validator.v1",
     "source_exec_job": {
-      "exec_job_id": "exec_004",
-      "text": "특정상품 및 서비스에 관한 현재의 판매수준, 소비자의 평가 등에 관한 정보를 체계적으로 수집·분석한다.",
+      "exec_job_id": "exec_002",
+      "text": "소비자의 현재 또는 장래 취향을 조사·분석하여 판매 가능한 상품을 기획·개발한다.",
       "source_ref": {
         "file": "K000000997/dtlGb_2.xml",
         "field": "jobsDo.execJob",
-        "index": 4
+        "index": 2
       },
-      "selection_reason": "Pilot config selected exec_004."
+      "selection_reason": "소비자의 현재/장래 취향을 조사·분석해 판매 가능한 상품을 기획·개발하는 업무와 가장 직접적으로 부합하며, 그 결과를 상품 기획안으로 제안하는 흐름에 적합함."
     },
     "linked_evidence": {
       "activities": [
@@ -672,39 +517,60 @@
     },
     "material_evidence_map": [
       {
-        "material_id": "mat_sales_chart",
+        "material_id": "tbl_candidate_feedback",
         "supported_by": [
           "정보 수집",
-          "사물, 행동, 사건 파악",
-          "업무 계획, 우선순위 결정"
+          "사물, 행동, 사건 파악"
         ]
       },
       {
-        "material_id": "mat_feedback_memo",
+        "material_id": "chart_purchase_flow",
         "supported_by": [
-          "사물, 서비스, 사람의 질 판단",
           "정보 수집",
-          "영업과 마케팅"
+          "사물, 행동, 사건 파악"
         ]
       },
       {
-        "material_id": "mat_option_table",
+        "material_id": "checklist_operational_cautions",
         "supported_by": [
-          "의사 결정, 문제점 해결",
-          "업무 계획, 우선순위 결정",
-          "경제와 회계"
+          "업무, 활동에 대한 일정관리",
+          "사물, 행동, 사건 파악"
         ]
       }
     ],
     "items": [
       {
         "target_type": "material",
-        "target_id": "mat_sales_chart",
+        "target_id": "tbl_candidate_feedback",
         "mission_fact_refs": [
           "org_name",
           "domain",
-          "period",
-          "trend_pattern",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000997/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000997/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "chart_purchase_flow",
+        "mission_fact_refs": [
+          "domain",
           "main_issue",
           "decision_goal"
         ],
@@ -720,12 +586,6 @@
             "field": "jobActv.jobActvImprtnc",
             "index": 2,
             "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000000997/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 10,
-            "source_root": "data/api_raw"
           }
         ],
         "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
@@ -733,63 +593,22 @@
       },
       {
         "target_type": "material",
-        "target_id": "mat_feedback_memo",
+        "target_id": "checklist_operational_cautions",
         "mission_fact_refs": [
-          "org_name",
-          "domain",
-          "feedback_themes",
-          "main_issue"
-        ],
-        "source_refs": [
-          {
-            "file": "K000000997/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 9,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000000997/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 6,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000000997/dtlGb_5.xml",
-            "field": "ablKnwEnv.Knwldg",
-            "index": 1,
-            "source_root": "data/api_raw"
-          }
-        ],
-        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
-        "traceability": "indirect"
-      },
-      {
-        "target_type": "material",
-        "target_id": "mat_option_table",
-        "mission_fact_refs": [
-          "org_name",
-          "domain",
           "main_issue",
-          "feedback_themes",
           "decision_goal"
         ],
         "source_refs": [
           {
             "file": "K000000997/dtlGb_7.xml",
             "field": "jobActv.jobActvImprtnc",
-            "index": 4,
+            "index": 1,
             "source_root": "data/api_raw"
           },
           {
             "file": "K000000997/dtlGb_7.xml",
             "field": "jobActv.jobActvImprtnc",
-            "index": 10,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000000997/dtlGb_5.xml",
-            "field": "ablKnwEnv.Knwldg",
-            "index": 4,
+            "index": 2,
             "source_root": "data/api_raw"
           }
         ],
@@ -799,10 +618,10 @@
     ]
   },
   "axis_signals_derived": {
-    "AX1": 0.275,
-    "AX2": 0.275,
-    "AX3": 0.35,
-    "AX4": 0.1,
-    "AX5": 0.0
+    "AX1": 0.18,
+    "AX2": 0.28,
+    "AX3": 0.48,
+    "AX4": 0.03,
+    "AX5": 0.03
   }
 }

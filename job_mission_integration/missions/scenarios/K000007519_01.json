@@ -1,6 +1,6 @@
 {
   "schema_version": "mission_output.v1",
-  "mission_id": "mission_K000007519_normal_001_b144211",
+  "mission_id": "mission_K000007519_easy_001",
   "job_identity": {
     "job_cd": "K000007519",
     "job_lrcl_nm": "경영·사무·금융·보험직",
@@ -13,347 +13,96 @@
     }
   },
   "target_exec_job": {
-    "exec_job_id": "exec_002",
-    "text": "분석결과를 토대로 국내 사회환경과 경제실정에 맞는 보험상품을 개발한다.",
+    "exec_job_id": "exec_001",
+    "text": "국내외 보험상품 관련 제도를 조사하고, 소비자심리 및 보험료에 영향을 미치는 요인을 분석한다.",
     "source_ref": {
       "file": "K000007519/dtlGb_2.xml",
       "field": "jobsDo.execJob",
-      "index": 2
+      "index": 1
     },
-    "selection_reason": "Pilot config selected exec_002."
+    "selection_reason": "국내외 보험상품 관련 제도 조사와 소비자심리·보험료 영향요인 분석이 핵심이어서 연구·분석 과업에 적합하며, 난이도(쉬움)에서 체크리스트로 자료 정리/검증 절차를 간단히 수행할 수 있다."
   },
   "mission_facts": {
-    "org_name": "누리안생활보험 상품기획팀",
-    "domain": "소액 건강보장보험 상품 기획",
+    "org_name": "별빛보험(가상)",
+    "domain": "보험상품 관련 제도 조사와 소비자심리·보험료 영향요인 정리",
     "period": [
-      "2026년 1분기",
-      "2026년 2분기"
+      "2026년 5월~6월"
     ],
-    "trend_pattern": "20~30대는 단순한 보장 구조와 낮은 월 보험료에 가장 민감하고, 보장 범위가 넓어질수록 관심이 빠르게 떨어지는 흐름이다.",
-    "main_issue": "월 보험료 1만원대 초반을 유지하면서도 핵심 보장이 분명한 상품안을 먼저 출시할지 결정해야 한다.",
+    "trend_pattern": "고객 설문에서 ‘월 보험료가 부담스럽다’는 느낌이 커지고, 그 이유를 ‘보장 범위/자기부담금’으로 설명하려는 경향이 보임",
+    "main_issue": "조사 요약 문서에 ‘소비자가 보험료를 어떻게 느끼는지’와 연결되는 핵심 항목이 빠져 있음",
     "feedback_themes": [
-      "청구 절차가 간단해야 한다",
-      "보장 항목은 적더라도 이해하기 쉬워야 한다",
-      "가격이 조금만 올라가도 가입 의향이 낮아진다"
+      "문서에 체크해야 할 항목이 누락되면 다음 단계 분석이 흔들림",
+      "무엇을 근거로 말하는지(설문/리포트 등) 표시가 중요함"
     ],
-    "decision_goal": "후보 상품안 중 출시 우선순위가 가장 높은 안을 고르고, 초기 보장 구성과 가격 기준을 정해 실무 제안으로 정리한다."
+    "decision_goal": "다음 자료 점검에서 무엇을 먼저 보완해야 하는지 한 가지를 콕 집어 설명하기"
   },
   "mission": {
-    "title": "소액 건강보장보험 출시안 선택과 제안",
-    "task_type": "planning_and_proposal",
-    "secondary_task_types": [
-      "research_and_analysis"
-    ],
+    "title": "조사 요약 문서 체크리스트 한 가지 점검",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
     "difficulty": {
-      "level": "normal",
-      "label": "보통",
+      "level": "easy",
+      "label": "쉬움",
       "estimated_time_minutes": 15,
-      "material_bundle_style": "light_work_material_bundle",
+      "material_bundle_style": "single_work_material",
       "material_count_range": [
-        2,
-        3
+        1,
+        1
       ],
       "task_count_range": [
-        2,
-        3
+        1,
+        1
       ],
-      "answer_length_hint": "400~700자",
-      "requires_cross_material_reasoning": true,
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
       "requires_tradeoff_judgment": false,
       "requires_domain_expertise": false
     },
     "scenario": {
-      "role": "당신은 가상 보험회사 누리안생활보험의 상품기획 담당자입니다.",
-      "context": "최근 20~50대 고객 반응 조사와 내부 상품안 검토가 끝났습니다. 경영진은 복잡한 보장보다 이해하기 쉬운 소액 건강보장보험을 먼저 내놓길 원하지만, 월 보험료가 너무 오르면 시장 반응이 떨어질 수 있다고 보고 있습니다.",
-      "goal": "제공된 자료를 바탕으로 가장 먼저 출시할 상품안을 고르고, 그 상품의 핵심 보장과 가격 기준을 짧게 제안하세요.",
+      "role": "당신은 별빛보험 상품개발팀의 신입 인턴입니다.",
+      "context": "팀에서 국내외 보험상품 관련 제도들을 모아 ‘조사 요약 문서’를 만들고 있습니다. 방금 선배가 초안을 만들었는데, 다음 분석(소비자심리와 보험료 영향요인 찾기)로 넘기기 전, 체크리스트로 한 번만 빠르게 걸러보라고 했습니다.",
+      "goal": "아래 체크리스트를 보고, 표시된 문제 항목이 무엇인지와 그 이유를 한 문장으로 적어주세요.",
       "constraints": [
-        "실제 회사명, 실제 인명, 실제 브랜드명은 사용하지 않는다.",
-        "제공된 자료만 근거로 판단하고 외부 조사는 하지 않는다.",
-        "월 보험료가 너무 높아지지 않도록 가격 기준을 함께 제시한다.",
-        "보장 구조는 고객이 바로 이해할 수 있을 정도로 단순하게 작성한다."
-      ]
+        "정답은 하나만 고르듯이 작성하세요.",
+        "답변은 1~2개의 짧은 문장으로 제한하세요.",
+        "자료는 아래 체크리스트의 상태 표시만 보고 판단하세요."
+      ],
+      "glossary": []
     },
     "materials": [
       {
-        "material_id": "mat_chart_01",
-        "type": "chart",
-        "subtype": "수요-가격 민감도 비교",
-        "title": "연령대별 보장 관심도와 가격 민감도",
-        "description": "가상 설문에서 확인한 연령대별 보험 보장 관심도와 가격 민감도를 비교한 차트",
+        "material_id": "mat_001",
+        "type": "checklist",
+        "subtype": "document_quality_check",
+        "title": "조사 요약 문서 점검 체크리스트(초안)",
+        "description": "국내외 제도 조사 결과를 소비자심리와 보험료 영향요인 분석으로 이어가기 위한 초안 점검용 체크리스트입니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "핵심 고객층과 가격 기준을 판단하는 데 사용",
-        "evidence_source": [
-          "정보, 자료 분석",
-          "정보의 의미 해석",
-          "논리적 분석",
-          "읽고 이해하기"
-        ],
-        "mission_fact_refs": [
-          "org_name",
-          "domain",
-          "period",
-          "trend_pattern",
-          "main_issue",
-          "feedback_themes",
-          "decision_goal"
-        ],
-        "data": {
-          "chart_type": "bar",
-          "x_axis": {
-            "label": "고객 세그먼트",
-            "values": [
-              "20대 1인가구",
-              "30대 맞벌이",
-              "40대 자녀가정",
-              "50대 자영업",
-              "은퇴전환층"
-            ]
-          },
-          "y_axis": {
-            "label": "응답 비율",
-            "unit": "%"
-          },
-          "series": [
-            {
-              "name": "보장 관심도",
-              "values": [
-                84,
-                81,
-                68,
-                59,
-                73
-              ]
-            },
-            {
-              "name": "가격 민감도",
-              "values": [
-                89,
-                82,
-                65,
-                57,
-                70
-              ]
-            }
-          ],
-          "columns": [
-            {
-              "key": "option",
-              "label": "항목"
-            },
-            {
-              "key": "strength",
-              "label": "강점"
-            },
-            {
-              "key": "weakness",
-              "label": "약점"
-            },
-            {
-              "key": "priority",
-              "label": "우선순위"
-            }
-          ],
-          "rows": [],
-          "author": "상품기획팀",
-          "items": [],
-          "thread": [],
-          "entries": [],
-          "cards": []
-        },
-        "confidence": {
-          "score": 0.96,
-          "checks": {
-            "synthetic_material": true
-          },
-          "warnings": []
-        }
-      },
-      {
-        "material_id": "mat_memo_01",
-        "type": "memo",
-        "subtype": "출시 제약 메모",
-        "title": "출시 제약과 내부 판단 메모",
-        "description": "상품기획과 재무검토에서 정리한 출시 조건과 고객 반응 포인트를 요약한 메모",
-        "factual_status": "synthetic_mission_material",
-        "used_for": "상품 구조를 정할 때 지켜야 할 제약을 확인하는 데 사용",
+        "used_for": "조사 요약 문서가 다음 분석에 넘겨져도 되는지 빠르게 점검",
         "evidence_source": [
           "읽고 이해하기",
-          "재정 관리",
-          "경제와 회계",
-          "목표, 전략 수립",
-          "정보 처리"
+          "기준에 따른 정보 평가"
         ],
         "mission_fact_refs": [
-          "org_name",
           "domain",
-          "period",
-          "trend_pattern",
           "main_issue",
-          "feedback_themes",
           "decision_goal"
         ],
         "data": {
-          "chart_type": "bar",
-          "x_axis": {
-            "label": "",
-            "values": []
-          },
-          "y_axis": {
-            "label": "",
-            "unit": ""
-          },
-          "series": [],
-          "columns": [
-            {
-              "key": "option",
-              "label": "항목"
-            },
-            {
-              "key": "strength",
-              "label": "내용"
-            },
-            {
-              "key": "weakness",
-              "label": "제약"
-            },
-            {
-              "key": "priority",
-              "label": "메모"
-            }
-          ],
-          "rows": [],
-          "author": "기획검토 메모",
           "items": [
             {
-              "text": "월 보험료는 1만원대 초반을 넘기면 문의가 급감한다.",
-              "period": "현재",
-              "task": "가격 기준 확인",
-              "constraint": "월 보험료 상한을 지켜야 함",
-              "label": "가격",
+              "label": "문서에 ‘고객이 보험료를 어떻게 느끼는지(예: 부담/납득/비교 기준)’가 제도 내용과 연결돼 정리돼 있는가",
               "status": "issue",
               "importance": "높음"
             },
             {
-              "text": "보장은 입원·수술처럼 이해하기 쉬운 항목일수록 선호가 높다.",
-              "period": "현재",
-              "task": "보장 구조 점검",
-              "constraint": "설명이 복잡하면 안 됨",
-              "label": "보장",
-              "status": "checked",
-              "importance": "높음"
-            },
-            {
-              "text": "청구 절차가 길면 젊은 고객층의 이탈 가능성이 커진다.",
-              "period": "현재",
-              "task": "청구 방식 검토",
-              "constraint": "간편 청구가 필요함",
-              "label": "청구",
-              "status": "checked",
-              "importance": "높음"
-            },
-            {
-              "text": "초기 출시는 보장 확대보다 단순 구조가 우선이다.",
-              "period": "현재",
-              "task": "출시 방향 설정",
-              "constraint": "상품 설명이 쉬워야 함",
-              "label": "전략",
+              "label": "문서에 각 주장(예: 고객 반응, 중요하다고 한 요소)의 근거가 설문/시장리포트 같은 ‘자료 종류’로 표시돼 있는가",
               "status": "checked",
               "importance": "중간"
             }
-          ],
-          "thread": [],
-          "entries": [],
-          "cards": []
+          ]
         },
         "confidence": {
-          "score": 0.94,
-          "checks": {
-            "synthetic_material": true
-          },
-          "warnings": []
-        }
-      },
-      {
-        "material_id": "mat_table_01",
-        "type": "table",
-        "subtype": "상품안 비교",
-        "title": "출시 후보 3안 비교표",
-        "description": "출시 우선순위를 정하기 위한 후보 상품안의 장단점 비교표",
-        "factual_status": "synthetic_mission_material",
-        "used_for": "대안 비교와 우선순위를 결정하는 데 사용",
-        "evidence_source": [
-          "의사 결정, 문제점 해결",
-          "기준에 따른 정보 평가",
-          "논리적 분석",
-          "목표, 전략 수립",
-          "재정 관리"
-        ],
-        "mission_fact_refs": [
-          "org_name",
-          "domain",
-          "period",
-          "trend_pattern",
-          "main_issue",
-          "feedback_themes",
-          "decision_goal"
-        ],
-        "data": {
-          "chart_type": "bar",
-          "x_axis": {
-            "label": "",
-            "values": []
-          },
-          "y_axis": {
-            "label": "",
-            "unit": ""
-          },
-          "series": [],
-          "columns": [
-            {
-              "key": "option",
-              "label": "상품안"
-            },
-            {
-              "key": "strength",
-              "label": "강점"
-            },
-            {
-              "key": "weakness",
-              "label": "약점"
-            },
-            {
-              "key": "priority",
-              "label": "우선순위"
-            }
-          ],
-          "rows": [
-            {
-              "option": "A안: 입원·수술 중심 소액 건강보험",
-              "strength": "설명이 쉽고 월 보험료를 낮게 맞추기 쉽다",
-              "weakness": "통원 보장은 약하다",
-              "priority": 1
-            },
-            {
-              "option": "B안: 통원까지 포함한 표준형",
-              "strength": "보장 체감이 크다",
-              "weakness": "보험료가 목표를 넘기기 쉽다",
-              "priority": 3
-            },
-            {
-              "option": "C안: 생활습관 관리 연계형",
-              "strength": "차별화가 가능하다",
-              "weakness": "설명과 운영이 복잡하다",
-              "priority": 2
-            }
-          ],
-          "author": "상품기획팀",
-          "items": [],
-          "thread": [],
-          "entries": [],
-          "cards": []
-        },
-        "confidence": {
-          "score": 0.95,
+          "score": 0.86,
           "checks": {
             "synthetic_material": true
           },
@@ -363,91 +112,44 @@
     ],
     "tasks": [
       {
-        "task_id": "task_01",
-        "instruction": "차트와 메모를 바탕으로 가장 반응이 높은 고객층과 핵심 수요를 한 문장으로 정리하세요.",
+        "task_id": "task_001",
+        "instruction": "체크리스트에서 상태가 ‘issue’인 항목을 한 가지 골라, 그것이 왜 문제인지 1~2개의 짧은 문장으로 적어보세요.",
         "required_materials": [
-          "mat_chart_01",
-          "mat_memo_01"
+          "mat_001"
         ],
-        "expected_action": "핵심 타깃과 수요 요약"
-      },
-      {
-        "task_id": "task_02",
-        "instruction": "표의 3개 상품안 중 출시 우선순위가 가장 높은 안을 고르고, 다른 안보다 유리한 이유를 2가지로 비교해 설명하세요.",
-        "required_materials": [
-          "mat_table_01",
-          "mat_chart_01",
-          "mat_memo_01"
-        ],
-        "expected_action": "대안 비교와 우선순위 선택"
-      },
-      {
-        "task_id": "task_03",
-        "instruction": "선정한 안을 바탕으로 월 보험료 기준, 핵심 보장 2가지, 제외할 범위를 포함한 출시 제안 1건을 작성하세요.",
-        "required_materials": [
-          "mat_memo_01",
-          "mat_table_01"
-        ],
-        "expected_action": "실행 가능한 상품 제안"
+        "expected_action": "issue 항목을 식별하고 이유를 한 문장으로 설명"
       }
     ],
     "submission_format": {
-      "type": "한국어 서술형",
-      "estimated_time_minutes": 15,
+      "type": "text",
+      "estimated_time_minutes": 5,
       "required_sections": [
-        "핵심 타깃 요약",
-        "상품안 선택",
-        "출시 제안"
+        "핵심 선택(1문장)",
+        "이유(1문장 이내)"
       ],
-      "length_hint": "400~700자"
+      "length_hint": "1-2 short sentences"
     }
   },
   "evaluation": {
     "expected_insights": [
-      "20~30대 고객층은 보장 관심도와 가격 민감도가 모두 높아 소액·단순형 상품이 적합하다.",
-      "A안은 낮은 보험료와 쉬운 설명 측면에서 출시 우선순위가 가장 높다.",
-      "보장 범위는 입원·수술 중심으로 단순화하고, 청구 절차도 간단하게 설계해야 한다.",
-      "보험료가 높아지면 반응이 떨어지므로 가격 기준을 명확히 제시해야 한다."
+      "‘issue’로 표시된 누락/불충분 항목이 다음 분석 단계에 어떤 영향을 주는지 간단히 연결해 설명하기"
     ],
     "rubric": [
       {
-        "criterion": "타깃 수요 해석",
-        "description": "차트와 메모를 연결해 핵심 고객층과 수요 특성을 정확히 짚었는지 평가",
-        "points": 25,
+        "criterion": "issue 항목을 정확히 지목함",
+        "description": "체크리스트에서 ‘issue’로 표시된 항목을 맞게 골랐는지 평가",
+        "points": 50,
         "linked_evidence": [
-          "정보, 자료 분석",
-          "정보의 의미 해석",
-          "읽고 이해하기"
-        ]
-      },
-      {
-        "criterion": "상품안 비교와 우선순위 판단",
-        "description": "후보 상품안의 강점과 약점을 비교해 가장 적절한 출시안을 골랐는지 평가",
-        "points": 30,
-        "linked_evidence": [
-          "의사 결정, 문제점 해결",
-          "논리적 분석",
           "기준에 따른 정보 평가"
         ]
       },
       {
-        "criterion": "제약 반영한 상품 설계",
-        "description": "가격 상한, 단순 보장, 청구 편의 같은 제약을 반영해 실무형 제안을 했는지 평가",
-        "points": 30,
+        "criterion": "왜 문제가 되는지 연결 설명이 적절함",
+        "description": "해당 항목이 소비자심리·보험료 영향요인 분석으로 이어질 때 어떤 점이 막히는지 1~2문장 안에 이해 가능한 이유로 적었는지 평가",
+        "points": 50,
         "linked_evidence": [
-          "목표, 전략 수립",
-          "재정 관리",
-          "경제와 회계",
-          "수리력"
-        ]
-      },
-      {
-        "criterion": "제안의 명확성",
-        "description": "출시 제안이 짧고 실행 가능하게 정리되었는지 평가",
-        "points": 15,
-        "linked_evidence": [
-          "정보 처리",
-          "읽고 이해하기"
+          "읽고 이해하기",
+          "정보, 자료 분석"
         ]
       }
     ]
@@ -491,14 +193,14 @@
   "evidence_chain": {
     "created_by": "validator.v1",
     "source_exec_job": {
-      "exec_job_id": "exec_002",
-      "text": "분석결과를 토대로 국내 사회환경과 경제실정에 맞는 보험상품을 개발한다.",
+      "exec_job_id": "exec_001",
+      "text": "국내외 보험상품 관련 제도를 조사하고, 소비자심리 및 보험료에 영향을 미치는 요인을 분석한다.",
       "source_ref": {
         "file": "K000007519/dtlGb_2.xml",
         "field": "jobsDo.execJob",
-        "index": 2
+        "index": 1
       },
-      "selection_reason": "Pilot config selected exec_002."
+      "selection_reason": "국내외 보험상품 관련 제도 조사와 소비자심리·보험료 영향요인 분석이 핵심이어서 연구·분석 과업에 적합하며, 난이도(쉬움)에서 체크리스트로 자료 정리/검증 절차를 간단히 수행할 수 있다."
     },
     "linked_evidence": {
       "activities": [
@@ -666,87 +368,20 @@
     },
     "material_evidence_map": [
       {
-        "material_id": "mat_chart_01",
-        "supported_by": [
-          "정보, 자료 분석",
-          "정보의 의미 해석",
-          "논리적 분석",
-          "읽고 이해하기"
-        ]
-      },
-      {
-        "material_id": "mat_memo_01",
+        "material_id": "mat_001",
         "supported_by": [
           "읽고 이해하기",
-          "재정 관리",
-          "경제와 회계",
-          "목표, 전략 수립",
-          "정보 처리"
-        ]
-      },
-      {
-        "material_id": "mat_table_01",
-        "supported_by": [
-          "의사 결정, 문제점 해결",
-          "기준에 따른 정보 평가",
-          "논리적 분석",
-          "목표, 전략 수립",
-          "재정 관리"
+          "기준에 따른 정보 평가"
         ]
       }
     ],
     "items": [
       {
         "target_type": "material",
-        "target_id": "mat_chart_01",
+        "target_id": "mat_001",
         "mission_fact_refs": [
-          "org_name",
           "domain",
-          "period",
-          "trend_pattern",
           "main_issue",
-          "feedback_themes",
-          "decision_goal"
-        ],
-        "source_refs": [
-          {
-            "file": "K000007519/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 4,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000007519/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 6,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000007519/dtlGb_5.xml",
-            "field": "ablKnwEnv.jobAbil",
-            "index": 5,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000007519/dtlGb_5.xml",
-            "field": "ablKnwEnv.jobAbil",
-            "index": 4,
-            "source_root": "data/api_raw"
-          }
-        ],
-        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
-        "traceability": "indirect"
-      },
-      {
-        "target_type": "material",
-        "target_id": "mat_memo_01",
-        "mission_fact_refs": [
-          "org_name",
-          "domain",
-          "period",
-          "trend_pattern",
-          "main_issue",
-          "feedback_themes",
           "decision_goal"
         ],
         "source_refs": [
@@ -754,77 +389,12 @@
             "file": "K000007519/dtlGb_5.xml",
             "field": "ablKnwEnv.jobAbil",
             "index": 4,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000007519/dtlGb_5.xml",
-            "field": "ablKnwEnv.jobAbil",
-            "index": 2,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000007519/dtlGb_5.xml",
-            "field": "ablKnwEnv.Knwldg",
-            "index": 2,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000007519/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 5,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000007519/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 7,
-            "source_root": "data/api_raw"
-          }
-        ],
-        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
-        "traceability": "indirect"
-      },
-      {
-        "target_type": "material",
-        "target_id": "mat_table_01",
-        "mission_fact_refs": [
-          "org_name",
-          "domain",
-          "period",
-          "trend_pattern",
-          "main_issue",
-          "feedback_themes",
-          "decision_goal"
-        ],
-        "source_refs": [
-          {
-            "file": "K000007519/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 2,
             "source_root": "data/api_raw"
           },
           {
             "file": "K000007519/dtlGb_7.xml",
             "field": "jobActv.jobActvImprtnc",
             "index": 1,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000007519/dtlGb_5.xml",
-            "field": "ablKnwEnv.jobAbil",
-            "index": 5,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000007519/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 5,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000007519/dtlGb_5.xml",
-            "field": "ablKnwEnv.jobAbil",
-            "index": 2,
             "source_root": "data/api_raw"
           }
         ],
@@ -834,9 +404,9 @@
     ]
   },
   "axis_signals_derived": {
-    "AX1": 0.825,
+    "AX1": 1.0,
     "AX2": 0.0,
-    "AX3": 0.175,
+    "AX3": 0.0,
     "AX4": 0.0,
     "AX5": 0.0
   }

@@ -1,0 +1,512 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000872_normal_001",
+  "job_identity": {
+    "job_cd": "K000000872",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "광고·조사·상품기획·행사기획 전문가",
+    "job_smcl_nm": "광고·홍보·마케팅전문가",
+    "source_ref": {
+      "file": "K000000872/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "광고주에게 대행사를 효과적으로 알려 광고대행계약을 하고, 광고할 상품이나 용역에 관한 자료를 조사하여 분석하고, 광고주와 협의하여 광고기획서를 작성한다.",
+    "source_ref": {
+      "file": "K000000872/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "광고대행계약 및 광고기획서 작성까지 포함해 자료 조사·분석 후 문서로 제안하는 과업이 핵심이며, 정상 난이도에서 2개 자료(memo, table)로 기획 내용을 구성하기 적합함."
+  },
+  "mission_facts": {
+    "org_name": "플럭스유니온 마케팅팀(가상)",
+    "domain": "광고·홍보·마케팅",
+    "period": [
+      "이번 분기(4~6월)"
+    ],
+    "trend_pattern": "고객은 ‘할인’보다 ‘바로 쓰기 쉬운 이유(사용 팁, 상황별 안내)’를 함께 확인할 때 재주문을 더 편하게 결정하는 흐름",
+    "main_issue": "신제품 ‘제로라임’의 재구매가 이전 달보다 떨어져, 다음 주 광고 방향을 빨리 정해야 함",
+    "feedback_themes": [
+      "댓글/문의에서 ‘가격’보다 ‘언제/어떻게 쓰는지’ 질문이 더 많음",
+      "쿠폰 소식은 보이지만, 사용 팁이 없어서 망설였다는 반응이 일부 있음",
+      "배송·도착 타이밍을 기대하는 반응이 눈에 띄게 증가"
+    ],
+    "decision_goal": "재구매를 늘리기 위한 광고 문구 방향(옵션) 1개를 선택하고, 한 가지 근거로 이유를 설명"
+  },
+  "mission": {
+    "title": "재구매를 끌어올릴 광고 문구 방향 고르기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [
+      "research_and_analysis",
+      "communication_and_reporting"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 플럭스유니온 마케팅팀의 신입 인턴입니다.",
+      "context": "팀장님이 다음 주 집행할 재구매 캠페인 광고 방향을 정해달라고 급하게 요청했습니다. 이번 주에는 고객 댓글과 내부 검토 메모가 이미 정리돼 있고, 광고 문구 후보도 A/B로 좁혀진 상태예요. 당신은 아래 자료를 보고 ‘둘 중 무엇을 선택할지’만 골라서, 이유를 짧게 적어 회의 전에 전달하면 됩니다.",
+      "goal": "두 광고 문구 후보(A/B) 중 하나를 선택하고, 자료에 나온 근거를 한 가지 들어 이유를 2-3문장으로 설명하세요.",
+      "constraints": [
+        "반드시 제공된 자료 내용만 사용하세요.",
+        "선택한 옵션 이름과 이유(한 가지 근거)를 함께 적어주세요.",
+        "근본 원인 분석, 복잡한 비교표 작성은 필요 없습니다."
+      ],
+      "glossary": [
+        {
+          "term": "광고 문구(카피)",
+          "definition": "광고에서 고객에게 보이는 ‘문장/표현’이에요."
+        },
+        {
+          "term": "재구매",
+          "definition": "처음 산 뒤에 다시 같은 제품을 사는 것을 말해요."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "memo_client_feedback_001",
+        "type": "memo",
+        "subtype": "review_note",
+        "title": "제로라임 재구매 관련 고객 피드백 요약 메모",
+        "description": "고객 댓글/문의와 간단한 내부 관찰을 정리해, 광고 문구에서 강조해야 할 포인트를 한눈에 보이게 만든 메모.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "옵션 A/B 중 어떤 방향이 고객 반응과 더 맞는지 근거로 사용",
+        "evidence_source": [
+          "정보 수집",
+          "글쓰기"
+        ],
+        "mission_fact_refs": [
+          "feedback_themes",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "마케팅 인턴(작성 예시, 가상)",
+          "items": [
+            "최근 2주 고객 댓글 30개를 훑어보니, ‘가격이 좋아서’보다는 ‘언제/어떻게 마시면 좋은지(상황별 팁)’를 묻는 문장이 더 자주 나왔습니다.",
+            "쿠폰 안내만 있는 경우에는 ‘좋아 보이는데, 내가 어떻게 먹어야 하는지 모르겠어’처럼 사용 맥락이 부족하다는 반응이 섞여 있었습니다.",
+            "반대로 ‘배송이 언제 오는지’에 대해 기대를 말한 댓글이 늘었고, 도착 시점에 맞춰 자연스럽게 떠올릴 표현이 먹힐 가능성이 있습니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.78,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "table_ad_angle_options_001",
+        "type": "table",
+        "subtype": "options_matrix",
+        "title": "재구매 광고 문구 후보 A/B 검토(요약표)",
+        "description": "두 후보의 강점/약점을 짧게 적어, 다음 주 광고 문구 방향을 빠르게 고르기 위한 비교표.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "옵션 A/B의 강점/약점을 확인하고, 메모 근거와 함께 최종 선택",
+        "evidence_source": [
+          "읽고 이해하기"
+        ],
+        "mission_fact_refs": [
+          "decision_goal",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "옵션"
+            },
+            {
+              "key": "strength",
+              "label": "강점"
+            },
+            {
+              "key": "weakness",
+              "label": "약점"
+            },
+            {
+              "key": "priority",
+              "label": "추천 우선순위"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A. ‘재구매 쿠폰 드려요’ 중심 카피",
+              "strength": "고객이 ‘할인’ 메시지를 가장 먼저 알아채기 쉬움(시선 유도 빠름).",
+              "weakness": "쿠폰은 보이지만 사용 맥락(언제/어떻게)이 부족하다는 피드백과 겹칠 수 있음.",
+              "priority": 2
+            },
+            {
+              "option": "B. ‘배송 타이밍 + 상황별 사용 팁’ 카피",
+              "strength": "고객이 묻는 ‘언제/어떻게’ 질문을 카피에서 바로 채워줄 수 있음.",
+              "weakness": "할인만큼 즉각적인 ‘가격 매력’ 자극은 약할 수 있음.",
+              "priority": 1
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.81,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001_select_ad_angle",
+        "instruction": "아래 자료를 보고 광고 문구 후보 A/B 중 하나를 선택해 주세요. 선택한 옵션 이름을 먼저 쓰고, 왜 그 옵션이 재구매에 더 맞는지 ‘자료에 나온 근거’ 한 가지를 들어 2-3문장으로 적어주세요.",
+        "required_materials": [
+          "memo_client_feedback_001",
+          "table_ad_angle_options_001"
+        ],
+        "expected_action": "옵션 1개 선택 + 근거 1개 포함해 짧게 이유 설명"
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 5,
+      "required_sections": [
+        "선택한 옵션( A 또는 B )",
+        "근거 1개를 포함한 이유(2-3문장)"
+      ],
+      "length_hint": "2-3 short sentences"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "고객 피드백(사용 맥락/배송 기대)이 광고 문구의 강조점과 연결된다는 점을 읽어냄",
+      "A/B의 강점/약점을 메모의 실제 반응과 맞춰 최종 선택을 제시함",
+      "할인만 강조할 때 생길 수 있는 ‘사용 맥락 부족’ 약점을 짧게 의식함"
+    ],
+    "rubric": [
+      {
+        "criterion": "선택한 옵션이 자료 근거(메모의 반응 + 표의 강점/약점)와 일관됨",
+        "description": "선택이 단순 취향이 아니라 제공된 피드백/비교표 내용과 맞게 연결돼 있는지 확인합니다.",
+        "points": 40,
+        "linked_evidence": [
+          "읽고 이해하기",
+          "정보 수집"
+        ]
+      },
+      {
+        "criterion": "이유 설명이 짧고 명확하며, ‘한 가지 근거’가 드러남",
+        "description": "2-3문장 안에 선택 이유가 한 가지 근거 중심으로 정리돼 있는지 봅니다.",
+        "points": 35,
+        "linked_evidence": [
+          "글쓰기"
+        ]
+      },
+      {
+        "criterion": "간단한 주의점(약점/겹침)을 최소 1번 언급함",
+        "description": "선택한 옵션의 약점이 왜 문제될 수 있는지, 혹은 어떤 피드백과 겹치는지 한 줄로 의식했는지 확인합니다.",
+        "points": 25,
+        "linked_evidence": [
+          "사람들에게 영향력 행사"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "광고주에게 대행사를 효과적으로 알려 광고대행계약을 하고, 광고할 상품이나 용역에 관한 자료를 조사하여 분석하고, 광고주와 협의하여 광고기획서를 작성한다.",
+      "source_ref": {
+        "file": "K000000872/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "광고대행계약 및 광고기획서 작성까지 포함해 자료 조사·분석 후 문서로 제안하는 과업이 핵심이며, 정상 난이도에서 2개 자료(memo, table)로 기획 내용을 구성하기 적합함."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 97,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 95,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 94,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 91,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 90,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 93,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 92,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상",
+          "score": 89,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영업과 마케팅",
+          "score": 91,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사소통과 미디어",
+          "score": 87,
+          "description": "말, 글, 그림 등을 이메일이나 방송매체를 통해 전달하는 것에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 86,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 96,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 91,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람들을 조율하거나 이끌기",
+          "score": 91,
+          "description": "업무 특성상 다른 사람들을 조율하거나 이끄는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "memo_client_feedback_001",
+        "supported_by": [
+          "정보 수집",
+          "글쓰기"
+        ]
+      },
+      {
+        "material_id": "table_ad_angle_options_001",
+        "supported_by": [
+          "읽고 이해하기"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "memo_client_feedback_001",
+        "mission_fact_refs": [
+          "feedback_themes",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "table_ad_angle_options_001",
+        "mission_fact_refs": [
+          "decision_goal",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.47,
+    "AX2": 0.07,
+    "AX3": 0.07,
+    "AX4": 0.07,
+    "AX5": 0.32
+  }
+}

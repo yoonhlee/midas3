@@ -1,0 +1,525 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007519_normal_001",
+  "job_identity": {
+    "job_cd": "K000007519",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "금융·보험 전문가",
+    "job_smcl_nm": "보험상품개발자",
+    "source_ref": {
+      "file": "K000007519/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "분석결과를 토대로 국내 사회환경과 경제실정에 맞는 보험상품을 개발한다.",
+    "source_ref": {
+      "file": "K000007519/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "보험상품 개발(국내 사회환경·경제 실정 반영)에는 정보 기반의 대안 설계와 제안이 핵심이므로 exec_002가 적합하고, 2종 자료로 체크리스트-표 기반 산출을 구성하기 좋다."
+  },
+  "mission_facts": {
+    "org_name": "세움보험상품연구소",
+    "domain": "보험상품 개발(특약/담보 설계)",
+    "period": [
+      "최근 6개월"
+    ],
+    "trend_pattern": "중저소득 가계의 보험료 부담이 커지고, 야간·교대 근무 관련 건강 불안이 늘어나는 흐름",
+    "main_issue": "신규 건강 특약을 준비 중인데, 고객이 체감하는 ‘월 보험료’와 회사가 지킬 ‘보장 조건(기간/제외)’을 동시에 맞춰야 함",
+    "feedback_themes": [
+      "자료의 조건을 먼저 체크하고, 옵션을 그 기준으로만 비교하기",
+      "선택한 이유를 ‘조건 충족 근거’로 짧게 설명하기"
+    ],
+    "decision_goal": "3가지 특약 설계안 중에서 체크리스트 조건을 가장 잘 만족하는 1개를 골라 매니저에게 추천하기"
+  },
+  "mission": {
+    "title": "초보 인턴 미션: 체크리스트에 맞는 건강 특약 1개 고르기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [
+      "research_and_analysis"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 세움보험상품연구소 상품기획팀의 신입 인턴입니다.",
+      "context": "매니저가 말했습니다. “최근 고객 설문과 내부 손익 가정(간단 버전) 결과를 바탕으로, 새 건강 특약(담보) 설계안 3개 중에서 조건에 맞는 1개를 골라서 오늘 회의에 가져가자.”\n당신은 아래 체크리스트(필수 조건)를 먼저 확인한 뒤, 특약 옵션 비교표를 체크리스트 기준으로만 빠르게 매칭해 보면 됩니다.",
+      "goal": "특약 옵션 3개 중에서 체크리스트 조건을 가장 잘 만족하는 1개를 추천하세요.",
+      "constraints": [
+        "답은 1개 옵션만 고르기",
+        "선택 이유는 체크리스트의 ‘필수 조건’이 그 옵션에서 어떻게 충족되는지 1~2개만 짚기",
+        "아직 세부 계산은 하지 않아도 됨(표의 문장만 활용)"
+      ],
+      "glossary": [
+        {
+          "term": "담보",
+          "definition": "보험에서 실제로 보장해 주는 항목(예: 특정 치료/진료를 보장하는 부분)"
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_check_001",
+        "type": "checklist",
+        "subtype": "product_constraints_checklist",
+        "title": "신규 건강 특약 설계 체크리스트(필수 조건)",
+        "description": "매니저가 정한 ‘오늘 회의용 필수 조건’입니다. 아래 3가지를 모두 만족하는 옵션이 1순위입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "옵션 비교표에서 각 설계안이 필수 조건을 충족하는지 빠르게 확인하기",
+        "evidence_source": [
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal",
+          "feedback_themes"
+        ],
+        "data": {
+          "items": [
+            {
+              "label": "월 보험료: 3만원 이하(고객 부담 고려)",
+              "status": "unchecked",
+              "importance": "high"
+            },
+            {
+              "label": "보장 기간: 최소 1년(고객이 체감할 기간)",
+              "status": "unchecked",
+              "importance": "high"
+            },
+            {
+              "label": "보장 제외: 건강검진/미용 목적 진료는 제외(민원 줄이기)",
+              "status": "unchecked",
+              "importance": "high"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.77,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_table_001",
+        "type": "table",
+        "subtype": "rider_options_comparison_table",
+        "title": "신규 건강 특약 옵션 3가지 비교표",
+        "description": "각 옵션은 ‘체크리스트의 문장’에 바로 대응되도록 핵심만 정리했습니다. (단, 다른 이유는 필요 없고, 필수 조건 충족 여부로만 고르면 됩니다.)",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "체크리스트(필수 조건) 기준으로 3개 옵션을 비교해 추천 옵션 1개 고르기",
+        "evidence_source": [
+          "의사 결정, 문제점 해결",
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "trend_pattern",
+          "decision_goal",
+          "domain"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "옵션"
+            },
+            {
+              "key": "strength",
+              "label": "강점(체크리스트 대응 포인트)"
+            },
+            {
+              "key": "weakness",
+              "label": "약점(체크리스트 관점에서 어긋날 수 있는 부분)"
+            },
+            {
+              "key": "priority",
+              "label": "회사용 우선순위(참고)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "옵션 A: 기본형 건강보장",
+              "strength": "월 보험료 2.9만원, 보장 기간 1년, 건강검진/미용 목적 진료 보장 제외",
+              "weakness": "입원 보장 범위는 ‘기본 진료 항목 위주’로 단순함",
+              "priority": 1
+            },
+            {
+              "option": "옵션 B: 입원 확대형 건강보장",
+              "strength": "보장 범위가 넓어 고객 만족 가능(표준 진료 기준)",
+              "weakness": "월 보험료 3.4만원(체크리스트 상한 3만원 초과), 보장 제외는 동일",
+              "priority": 3
+            },
+            {
+              "option": "옵션 C: 저가 단기형 건강보장",
+              "strength": "월 보험료 2.3만원(가장 저렴)",
+              "weakness": "보장 기간 6개월(체크리스트 최소 1년 미달), 건강검진/미용 제외는 동일",
+              "priority": 2
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.81,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 체크리스트의 3가지 필수 조건을 기준으로, 특약 옵션 A/B/C 중 하나를 추천하세요. 한 문장으로 ‘선택한 옵션’과 ‘체크리스트에 어떻게 맞는지(1~2개 조건만)’를 함께 적어주세요.",
+        "required_materials": [
+          "mat_check_001",
+          "mat_table_001"
+        ],
+        "expected_action": "선택한 옵션과 체크리스트 충족 근거를 포함한 1문장 추천하기"
+      }
+    ],
+    "submission_format": {
+      "type": "text",
+      "estimated_time_minutes": 5,
+      "required_sections": [
+        "선택한 옵션",
+        "선택 이유(체크리스트 조건 1~2개 근거)"
+      ],
+      "length_hint": "2-3 short sentences(총 2~3문장 내)"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "답이 1개 옵션(A/B/C)으로 명확히 제시됨",
+      "선택 이유가 체크리스트의 ‘월 보험료/보장 기간/보장 제외’ 중 1~2개 조건에 직접 연결되어 있음",
+      "근거 문장이 표의 문장(월 보험료 수치, 보장 기간, 제외 항목)을 기반으로 작성됨"
+    ],
+    "rubric": [
+      {
+        "criterion": "옵션 1개를 올바르게 선택함",
+        "description": "체크리스트 3가지 중 충족도가 가장 높은 옵션을 선택했는지 평가",
+        "points": 45,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결"
+        ]
+      },
+      {
+        "criterion": "선택 이유가 체크리스트 조건에 직접 연결됨",
+        "description": "선택한 옵션이 ‘월 보험료/보장 기간/보장 제외’ 중 1~2개를 어떻게 만족하는지 표의 정보를 사용해 설명했는지 평가",
+        "points": 35,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "읽고 이해하기"
+        ]
+      },
+      {
+        "criterion": "문장이 짧고 회의 공유용으로 명확함",
+        "description": "2~3문장 내에서 초보 인턴 답변처럼 부담 없이 이해 가능한 문장 구조인지 평가",
+        "points": 20,
+        "linked_evidence": [
+          "정보의 의미 해석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "분석결과를 토대로 국내 사회환경과 경제실정에 맞는 보험상품을 개발한다.",
+      "source_ref": {
+        "file": "K000007519/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "보험상품 개발(국내 사회환경·경제 실정 반영)에는 정보 기반의 대안 설계와 제안이 핵심이므로 exec_002가 적합하고, 2종 자료로 체크리스트-표 기반 산출을 구성하기 좋다."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 96,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사 결정, 문제점 해결",
+          "score": 94,
+          "description": "가장 좋은 해결책을 선택하기 위해 정보를 분석하고 문제점을 해결하기 위해 결과를 평가하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 94,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보, 자료 분석",
+          "score": 93,
+          "description": "정보 또는 자료를 분석하여 근본 원리, 이유, 사실을 알아내기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 92,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "수리력",
+          "score": 97,
+          "description": "어떤 문제를 해결하기 위해 수학을 사용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 93,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "인적자원 관리",
+          "score": 89,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "산수와 수학",
+          "score": 99,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "경제와 회계",
+          "score": 93,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 88,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "정확성, 정밀성 유지",
+          "score": 97,
+          "description": "업무 수행을 위해 정밀하거나 정확한 것의 중요성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 90,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_check_001",
+        "supported_by": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "material_id": "mat_table_001",
+        "supported_by": [
+          "의사 결정, 문제점 해결",
+          "정보, 자료 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_check_001",
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_table_001",
+        "mission_fact_refs": [
+          "trend_pattern",
+          "decision_goal",
+          "domain"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.55,
+    "AX2": 0.0,
+    "AX3": 0.45,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

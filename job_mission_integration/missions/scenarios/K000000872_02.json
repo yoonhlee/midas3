@@ -1,0 +1,641 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000872_hard_001",
+  "job_identity": {
+    "job_cd": "K000000872",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "광고·조사·상품기획·행사기획 전문가",
+    "job_smcl_nm": "광고·홍보·마케팅전문가",
+    "source_ref": {
+      "file": "K000000872/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "광고주에게 대행사를 효과적으로 알려 광고대행계약을 하고, 광고할 상품이나 용역에 관한 자료를 조사하여 분석하고, 광고주와 협의하여 광고기획서를 작성한다.",
+    "source_ref": {
+      "file": "K000000872/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "광고대행계약을 위한 협의, 상품·용역 자료 조사/분석, 광고기획서 작성이 모두 포함되어 설계·제안 산출물 중심의 기획형 미션에 적합합니다."
+  },
+  "mission_facts": {
+    "org_name": "별빛프로모션 협동팀(가상)",
+    "domain": "신제품 음료의 1주 온라인 모객 광고기획 제안",
+    "period": [
+      "2026년 6월(1주 집행)",
+      "캠페인 첫 2주"
+    ],
+    "trend_pattern": "출시 초기 1~2주에 관심이 빨리 모였다가, 쿠폰/이벤트가 끝나는 시점부터 관심이 급격히 줄어드는 흐름",
+    "main_issue": "캠페인 문구가 ‘첫 주 쿠폰’ 조건과 어긋나면 항의가 들어오고, 관심이 유지되지 못하는 문제가 반복됨",
+    "feedback_themes": [
+      "제약조건(금지 표현/쿠폰 기간)이 문구에 제대로 연결되지 않음",
+      "고객이 한눈에 이해할 수 있는 문장(기간·수량 등)이 부족함",
+      "제출 전 체크리스트 확인이 늦음"
+    ],
+    "decision_goal": "광고기획서에 먼저 넣을 ‘콘셉트 옵션 1개’를 고르고, 계약 진행 전 꼭 조심해야 할 1가지를 함께 적어 제출 초안을 완성하기"
+  },
+  "mission": {
+    "title": "제약조건에 맞는 광고 콘셉트 1개 고르기(제출 전 체크 포함)",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [
+      "research_and_analysis",
+      "communication_and_reporting"
+    ],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "3-5 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 신제품 광고를 돕는 마케팅 인턴입니다.",
+      "context": "별빛프로모션 협동팀(가상)에서 ‘청량탄산 C-POP 캔음료’ 첫 온라인 캠페인을 준비합니다. 팀장님이 내일 아침에 검토할 광고기획서 초안을 빨리 받아야 해서, 오늘은 제공된 자료를 보고 “어떤 콘셉트 옵션을 먼저 기획서에 넣을지” 한 번에 정리해 달라고 요청했습니다. 특히 이번 건은 제약조건이 있어서, 문구가 조건과 어긋나면 고객 항의가 바로 들어올 수 있다고 팀에서 강조하고 있어요.",
+      "goal": "광고기획서 초안에 넣을 콘셉트 옵션 1개를 선택하고, 계약 진행 전(제출 전) 반드시 조심해야 할 ‘주의사항 1가지’를 함께 적어 제출용 문장을 만들어 주세요.",
+      "constraints": [
+        "최종 답은 3~5문장으로 작성하세요.",
+        "콘셉트 옵션은 1개만 선택해서 문장에 포함하세요.",
+        "주의사항 1가지는 체크리스트에 적힌 항목 중에서 1개를 골라 이유와 함께 언급하세요.",
+        "자료에 없는 내용(추측, 외부 지식)은 쓰지 마세요."
+      ],
+      "glossary": [
+        {
+          "term": "광고기획서",
+          "definition": "광고의 목표, 어떤 메시지를 어떤 방식으로 낼지, 그리고 제약조건을 어떻게 반영할지 정리한 문서 초안이에요."
+        },
+        {
+          "term": "제약조건",
+          "definition": "이번 캠페인에서 반드시 지켜야 하는 제한(금지 표현, 기간/수량 조건 같은 것)입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_memo_brief_1",
+        "type": "memo",
+        "subtype": "client_brief_summary",
+        "title": "클라이언트(가상) 캠페인 브리프 메모",
+        "description": "이번 캠페인에서 지켜야 할 조건과 목표를 한 장으로 정리한 브리프입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "콘셉트 옵션을 선택할 때 기준(목표/기간/금지 표현/쿠폰 조건)을 잡기",
+        "evidence_source": [
+          "영업과 마케팅",
+          "읽고 이해하기"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "별빛프로모션 협동팀 AE(가상)",
+          "items": [
+            "상품: ‘청량탄산 C-POP 캔음료’(신제품) / 목적: 첫 2주 온라인 유입 늘리기 / 집행: 총 7일(첫 주 1~7일)",
+            "제약조건(금지): 미성년자처럼 보이는 뉘앙스(예: ‘귀여운’, ‘어린이도 OK’) 금지 / 브리프에 없는 표현(예: ‘저당 탄산’류 표현) 금지",
+            "쿠폰 조건: 쿠폰 혜택은 ‘첫 주에만’ 배포(둘째 주부터는 쿠폰 안내 문구 금지) / 문구에 ‘조건(기간/수량)’이 빠지면 항의가 들어오는 편"
+          ]
+        },
+        "confidence": {
+          "score": 0.78,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_table_options_1",
+        "type": "table",
+        "subtype": "concept_options_comparison",
+        "title": "광고 콘셉트 옵션 3개 비교표",
+        "description": "각 옵션이 제약조건을 얼마나 잘 맞는지와, 문구에서 생길 수 있는 문제를 간단히 정리했습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "3개 옵션 중에서 캠페인 제약조건에 가장 맞는 옵션을 1개 고르기",
+        "evidence_source": [
+          "영업과 마케팅",
+          "창의력",
+          "읽고 이해하기"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "옵션"
+            },
+            {
+              "key": "strength",
+              "label": "강점(맞는 점)"
+            },
+            {
+              "key": "weakness",
+              "label": "약점(주의할 점)"
+            },
+            {
+              "key": "priority",
+              "label": "우선 고려(숫자 클수록 권장)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "옵션 A: ‘선착순 쿠폰으로 오늘만’(1+1)",
+              "strength": "첫 주에만 가능한 쿠폰 조건을 그대로 앞세우면 ‘기간이 끝나기 전에’ 관심을 만들기 좋음",
+              "weakness": "문구에 ‘첫 주/수량’ 표기가 빠지면 ‘계속 되는 할인’처럼 오해될 수 있어 항의 가능",
+              "priority": 3
+            },
+            {
+              "option": "옵션 B: ‘캔 열면 상큼함’(맛/후기 중심)",
+              "strength": "시각적으로 이해가 쉬워 클릭 유도용 문장으로 활용 가능",
+              "weakness": "쿠폰 혜택이 둘째 주부터 사라지는데, 문구가 쿠폰과 연결되지 않으면 주 후반에 메시지 힘이 약해질 수 있음",
+              "priority": 1
+            },
+            {
+              "option": "옵션 C: ‘제로 당류’(건강 강조)",
+              "strength": "건강 이미지를 노려 클릭을 노릴 수 있음",
+              "weakness": "브리프에 금지된 표현(‘저당’ 계열)과 겹칠 소지가 있어, 문구 검토를 빼면 바로 문제될 가능성이 큼",
+              "priority": 0
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.74,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": [
+            "표의 우선 고려 숫자는 ‘문구 적합성’ 관점에서만 단순 참고하세요."
+          ]
+        }
+      },
+      {
+        "material_id": "mat_checklist_pre_submit_1",
+        "type": "checklist",
+        "subtype": "submission_precheck",
+        "title": "광고기획서 제출 전 체크리스트(초안 검토용)",
+        "description": "제출 전에 반드시 확인해야 할 항목을 체크리스트로 묶었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "선택한 옵션을 기획서 문장으로 만들 때, 체크리스트의 ‘주의사항 1개’를 함께 언급하기",
+        "evidence_source": [
+          "읽고 이해하기",
+          "글쓰기",
+          "협상"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "items": [
+            {
+              "label": "쿠폰 문구가 ‘첫 주에만 배포’ 조건과 완전히 일치하는지(기간/수량 표기 포함)",
+              "status": "issue",
+              "importance": "높음"
+            },
+            {
+              "label": "금지 표현(미성년자 뉘앙스, 저당/저칼로리 계열 등)이 섞여 있지 않은지",
+              "status": "unchecked",
+              "importance": "높음"
+            },
+            {
+              "label": "목표(첫 2주 유입)와 예산/집행 기간(7일)이 문장 안에서 연결되게 써졌는지",
+              "status": "unchecked",
+              "importance": "중간"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 자료를 보고, 광고기획서 초안에 먼저 넣을 ‘콘셉트 옵션’을 1개 선택하세요. 그리고 제출 전 체크리스트에서 표시된 주의사항 중 1가지를 골라, 왜 조심해야 하는지까지 한 번에 문장으로 적어 주세요. (답: 3~5문장)",
+        "required_materials": [
+          "mat_memo_brief_1",
+          "mat_table_options_1",
+          "mat_checklist_pre_submit_1"
+        ],
+        "expected_action": "선택한 콘셉트 옵션 1개와 체크리스트 기반 주의사항 1개를 포함한 제출용 짧은 문장 작성"
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "선택한 옵션 1개(옵션 A/B/C 중 하나)",
+        "선택 이유 1줄(제약조건 관점)",
+        "주의사항 1가지와 조심해야 하는 이유"
+      ],
+      "length_hint": "3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "선택한 옵션이 ‘첫 주 쿠폰’ 제약조건과 맞게 연결되어 있는지 확인함",
+      "체크리스트의 ‘issue’ 항목(쿠폰 기간/수량 표기)을 주의사항으로 언급함",
+      "짧은 글로 팀장이 바로 이해할 정도로 이유를 붙임"
+    ],
+    "rubric": [
+      {
+        "criterion": "자료에서 핵심 제약조건을 읽고(목표/기간/금지 표현) 선택 기준을 잡음",
+        "description": "브리프와 옵션 비교표에서 ‘첫 주 쿠폰’ 등 핵심 조건을 읽어, 어떤 옵션을 고를지 근거가 드러나야 합니다.",
+        "points": 35,
+        "linked_evidence": [
+          "읽고 이해하기",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "criterion": "콘셉트 옵션 1개 선택이 명확하고 이유가 간단히 연결됨",
+        "description": "옵션 A/B/C 중 1개를 선택하고, 선택 이유를 1줄 정도로만 명확히 적어야 합니다(추측 없이 자료 기반).",
+        "points": 30,
+        "linked_evidence": [
+          "글쓰기",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "criterion": "제출 전 주의사항(체크리스트의 issue 1개)을 함께 언급함",
+        "description": "체크리스트에서 표시된 주의사항(‘쿠폰 문구가 첫 주 조건과 일치…’)을 선택해, 왜 조심해야 하는지 문장에 포함해야 합니다.",
+        "points": 20,
+        "linked_evidence": [
+          "협상",
+          "글쓰기"
+        ]
+      },
+      {
+        "criterion": "문장 전달력(짧고 직접적이며 팀 검토용 톤)",
+        "description": "3~5문장 안에서 선택-이유-주의를 읽기 쉽게 정리해야 합니다.",
+        "points": 15,
+        "linked_evidence": [
+          "글쓰기",
+          "국어"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 1,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "광고주에게 대행사를 효과적으로 알려 광고대행계약을 하고, 광고할 상품이나 용역에 관한 자료를 조사하여 분석하고, 광고주와 협의하여 광고기획서를 작성한다.",
+      "source_ref": {
+        "file": "K000000872/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "광고대행계약을 위한 협의, 상품·용역 자료 조사/분석, 광고기획서 작성이 모두 포함되어 설계·제안 산출물 중심의 기획형 미션에 적합합니다."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 97,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 95,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 94,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 91,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 90,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 93,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 92,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상",
+          "score": 89,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영업과 마케팅",
+          "score": 91,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사소통과 미디어",
+          "score": 87,
+          "description": "말, 글, 그림 등을 이메일이나 방송매체를 통해 전달하는 것에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 86,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 96,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 91,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람들을 조율하거나 이끌기",
+          "score": 91,
+          "description": "업무 특성상 다른 사람들을 조율하거나 이끄는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_memo_brief_1",
+        "supported_by": [
+          "영업과 마케팅",
+          "읽고 이해하기"
+        ]
+      },
+      {
+        "material_id": "mat_table_options_1",
+        "supported_by": [
+          "영업과 마케팅",
+          "창의력",
+          "읽고 이해하기"
+        ]
+      },
+      {
+        "material_id": "mat_checklist_pre_submit_1",
+        "supported_by": [
+          "읽고 이해하기",
+          "글쓰기",
+          "협상"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_memo_brief_1",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_table_options_1",
+        "mission_fact_refs": [
+          "domain",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_checklist_pre_submit_1",
+        "mission_fact_refs": [
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.34,
+    "AX2": 0.165,
+    "AX3": 0.165,
+    "AX4": 0.165,
+    "AX5": 0.165
+  }
+}

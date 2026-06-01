@@ -1,0 +1,562 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001080_normal_001",
+  "job_identity": {
+    "job_cd": "K000001080",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "데이터·네트워크 및 시스템 운영 전문가",
+    "job_smcl_nm": "데이터분석가(빅데이터분석가)",
+    "source_ref": {
+      "file": "K000001080/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "분석 목표에 따라 데이터의 분석 방법을 기획한다.",
+    "source_ref": {
+      "file": "K000001080/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "분석 목표에 맞춰 방법을 기획하는 작업이 핵심이며, 이를 위해 논리적 분석과 수리적 사고, 정보 수집/처리 역량을 활용하도록 설계하기 적합함."
+  },
+  "mission_facts": {
+    "org_name": "루미나 마켓(가상)",
+    "domain": "모바일 커머스 앱 주문 전환 분석",
+    "period": [
+      "최근 2주",
+      "지난주",
+      "이번 주(주말 포함)"
+    ],
+    "trend_pattern": "주문완료율이 지난주 주말부터 하락한 뒤, 이번 주 초에 일부만 회복함",
+    "main_issue": "주문완료율이 떨어져 매출 흐름이 둔화됨",
+    "feedback_themes": [
+      "대시보드에서 원인을 빨리 좁혀서 보여달라",
+      "지표 정의가 너무 넓으면 해석이 어렵다"
+    ],
+    "decision_goal": "주문완료율 하락을 진단하기 위해 대시보드에서 우선 볼 KPI(핵심 지표) 1개를 고른다"
+  },
+  "mission": {
+    "title": "주문완료율 하락, 대시보드 KPI 1개만 고르기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [
+      "research_and_analysis"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 루미나 마켓 데이터팀 인턴입니다.",
+      "context": "프로덕트 매니저가 오늘 아침 슬랙에 이렇게 남겼습니다. “최근 주문완료율이 떨어졌는데, 대시보드에서 원인을 빨리 좁혀 볼 수 있게 KPI 하나만 딱 정해줘. 지표가 헷갈리면 다시 요청할 수 있어.”\n\n당신은 주문 흐름(장바구니→결제→완료)을 보여줄 대시보드 KPI 후보 3개와, 현재 데이터가 비교에 쓸 만한지 확인한 체크 결과를 받았습니다.",
+      "goal": "아래 자료를 보고, 주문완료율 하락을 진단하는 데 가장 적합한 KPI 후보 1개를 고르고 이유를 짧게 적어 주세요.",
+      "constraints": [
+        "반드시 제공된 KPI 후보 표와 데이터 체크 결과만 근거로 사용하세요.",
+        "KPI는 1개만 선택하세요.",
+        "답변은 2~3문장으로, 선택한 KPI가 ‘진단에 도움이 되는 이유’를 한 번에 보이게 작성하세요."
+      ],
+      "glossary": []
+    },
+    "materials": [
+      {
+        "material_id": "mat_table_kpi_candidates_001",
+        "type": "table",
+        "subtype": "kpi_candidate_comparison",
+        "title": "대시보드 KPI 후보 3가지 비교",
+        "description": "주문완료율 하락 진단을 위해 대시보드에 올릴 수 있는 KPI 후보들의 장점/주의점을 정리한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "KPI 후보 중 어떤 것이 진단 목적에 더 맞는지 선택하기",
+        "evidence_source": [
+          "논리적 분석",
+          "정보 수집",
+          "정보 처리",
+          "사물, 행동, 사건 파악"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "KPI 후보"
+            },
+            {
+              "key": "strength",
+              "label": "강점(진단 관점)"
+            },
+            {
+              "key": "weakness",
+              "label": "주의점(해석 관점)"
+            },
+            {
+              "key": "priority",
+              "label": "추천 우선순위(1이 가장 높음)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "결제단계 이탈률(장바구니→결제→완료 중 결제 단계에서 멈춘 비율)",
+              "strength": "어디에서 떨어지는지(단계) 힌트가 바로 보여 원인을 더 좁히기 좋음",
+              "weakness": "필요한 이벤트(장바구니/결제/완료)가 누락되면 이탈률이 왜곡될 수 있음",
+              "priority": 1
+            },
+            {
+              "option": "주문완료율(결제 시도 중 완료 비율)",
+              "strength": "전체 흐름이 한눈에 보여 ‘하락/회복’ 비교가 쉬움",
+              "weakness": "완료가 낮은 이유가 ‘이탈’인지 ‘결제 실패’인지 단계로 분리하기가 어려움",
+              "priority": 2
+            },
+            {
+              "option": "장바구니 담기율(유입 대비 장바구니로 넘어간 비율)",
+              "strength": "유입/관심 변화가 있으면 같이 움직일 수 있음",
+              "weakness": "현재 이슈가 ‘완료율’이어서, 단계(결제→완료) 문제를 직접 진단하기에는 거리가 있음",
+              "priority": 3
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.82,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_check_data_quality_001",
+        "type": "checklist",
+        "subtype": "event_capture_check",
+        "title": "이번 데이터 비교용 체크(이벤트 수집 누락 여부)",
+        "description": "대시보드 KPI를 해석할 때, 필요한 이벤트가 이번 기간에 잘 들어왔는지 빠르게 확인한 체크 결과입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "체크 결과를 보고, ‘이 KPI를 써도 될지’의 첫 근거를 선택에 반영하기",
+        "evidence_source": [
+          "정보 수집",
+          "정보 처리",
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "items": [
+            {
+              "label": "결제 시작 이벤트(CheckoutStarted)가 최근 2주에 누락 없이 들어옴",
+              "status": "checked",
+              "importance": "high"
+            },
+            {
+              "label": "결제 완료 이벤트(PaymentCompleted)도 누락 없이 들어옴",
+              "status": "checked",
+              "importance": "high"
+            },
+            {
+              "label": "주말 포함 시간 필터가 올바르게 적용되어 비교 구간이 같음",
+              "status": "checked",
+              "importance": "medium"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.78,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001_choose_kpi_with_reason",
+        "instruction": "아래 자료를 보고, 주문완료율 하락을 진단하는 데 가장 적합한 KPI 후보 1개를 고르고 이유를 2~3문장으로 적어 주세요. (선택한 KPI가 ‘왜 진단에 도움이 되는지’와, 자료의 체크 결과를 한 줄로 연결해 설명하세요.)",
+        "required_materials": [
+          "mat_table_kpi_candidates_001",
+          "mat_check_data_quality_001"
+        ],
+        "expected_action": "선택 + 짧은 이유 설명(1개 KPI만)"
+      }
+    ],
+    "submission_format": {
+      "type": "text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "선택한 KPI 이름",
+        "선택 이유(2~3문장)"
+      ],
+      "length_hint": "2-3 short sentences"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "선택한 KPI가 ‘주문 흐름 단계’ 관점에서 하락을 더 좁혀 보여준다는 점을 설명함",
+      "KPI 해석에 필요한 이벤트 수집이 체크 결과에서 문제없다는 점을 연결해 말함",
+      "답변이 짧지만 선택 근거가 한 번에 이해됨"
+    ],
+    "rubric": [
+      {
+        "criterion": "KPI 선택의 적합성(1개만 선택)",
+        "description": "후보 표와 데이터 체크 결과를 바탕으로, 진단 목적에 가장 맞는 KPI를 1개 고름.",
+        "points": 45,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결",
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "criterion": "진단 관점의 이유 설명",
+        "description": "선택한 KPI가 ‘어디에서 막히는지/무엇이 원인 범위를 좁히는지’가 설명에 드러남.",
+        "points": 30,
+        "linked_evidence": [
+          "사물, 행동, 사건 파악",
+          "논리적 분석"
+        ]
+      },
+      {
+        "criterion": "데이터 체크 결과를 근거로 연결",
+        "description": "이벤트 누락/비교 가능성 체크 결과를 한 줄 이상 연결해, 왜 그 KPI를 쓸 수 있는지 납득되게 적음.",
+        "points": 20,
+        "linked_evidence": [
+          "정보 수집",
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "간결성과 전달력(2~3문장 내)",
+        "description": "답변이 짧고, 선택한 KPI와 이유가 한 번에 읽히도록 정리됨.",
+        "points": 5,
+        "linked_evidence": [
+          "정보의 의미 해석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "분석 목표에 따라 데이터의 분석 방법을 기획한다.",
+      "source_ref": {
+        "file": "K000001080/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "분석 목표에 맞춰 방법을 기획하는 작업이 핵심이며, 이를 위해 논리적 분석과 수리적 사고, 정보 수집/처리 역량을 활용하도록 설계하기 적합함."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 수집",
+          "score": 97,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 95,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 95,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 95,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "의사 결정, 문제점 해결",
+          "score": 93,
+          "description": "가장 좋은 해결책을 선택하기 위해 정보를 분석하고 문제점을 해결하기 위해 결과를 평가하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "수리력",
+          "score": 96,
+          "description": "어떤 문제를 해결하기 위해 수학을 사용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "전산",
+          "score": 95,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "논리적 분석",
+          "score": 92,
+          "description": "문제를 해결하기 위해(혹은 의사결정을 하기 위해) 체계적으로 이치에 맞는 생각을 해낸다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "산수와 수학",
+          "score": 93,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 87,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 75,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 91,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "연설, 발표, 회의하기",
+          "score": 84,
+          "description": "사람들 앞에서 공식적으로 연설(발표,회의 등의 상황)",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_table_kpi_candidates_001",
+        "supported_by": [
+          "논리적 분석",
+          "정보 수집",
+          "정보 처리",
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "material_id": "mat_check_data_quality_001",
+        "supported_by": [
+          "정보 수집",
+          "정보 처리",
+          "정보, 자료 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_table_kpi_candidates_001",
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_check_data_quality_001",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.625,
+    "AX2": 0.15,
+    "AX3": 0.225,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}
