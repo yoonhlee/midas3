@@ -486,19 +486,21 @@ function renderAdminEmail(data) {
 }
 
 function renderAdminSchedule(data) {
-  if (Array.isArray(data.series) && Array.isArray(data.x_axis?.values) && data.x_axis.values.length) {
-    return renderChartPreview(data) || "";
-  }
   const items = Array.isArray(data.items) ? data.items : [];
-  if (!items.length) return "";
-  const hasScheduleFields = items.some((item) => item && (item.period || item.task));
+  const hasScheduleFields = items.some((item) => item && (item.period || item.task || item.text || item.label));
   if (hasScheduleFields) {
-    return `<div style="overflow:auto"><table class="mat-table"><thead><tr><th>기간</th><th>작업</th><th>제약</th></tr></thead><tbody>${items.slice(0, 6).map((item) => `<tr>
+    return `<div style="overflow:auto"><table class="mat-table"><thead><tr><th>기간</th><th>작업</th><th>내용</th><th>제약</th></tr></thead><tbody>${items.slice(0, 6).map((item) => `<tr>
       <td>${esc(item.period || "")}</td>
-      <td>${esc(item.task || item.label || item.text || "")}</td>
+      <td>${esc([item.label, item.task].filter(Boolean).join(" · ") || item.text || "")}</td>
+      <td>${esc(item.text || "")}</td>
       <td>${esc(item.constraint || "")}</td>
     </tr>`).join("")}</tbody></table></div>`;
   }
+  if (Array.isArray(data.rows) && data.rows.length) return renderMaterialTable(data) || "";
+  if (Array.isArray(data.series) && Array.isArray(data.x_axis?.values) && data.x_axis.values.length) {
+    return renderChartPreview(data) || "";
+  }
+  if (!items.length) return "";
   return renderMaterialItems(data) || "";
 }
 

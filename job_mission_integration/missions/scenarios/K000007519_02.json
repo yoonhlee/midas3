@@ -1,0 +1,648 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007519_hard_001",
+  "job_identity": {
+    "job_cd": "K000007519",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "금융·보험 전문가",
+    "job_smcl_nm": "보험상품개발자",
+    "source_ref": {
+      "file": "K000007519/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "수학, 통계학, 재무이론, 확률 등의 지식을 적용해 적절한 보험료와 책임준비금을 산출한다.",
+    "source_ref": {
+      "file": "K000007519/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "보험료와 책임준비금을 수리적으로 산출해 상품 설계안을 제약조건 하에서 제안하는 업무 성격에 exec_003이 가장 직접적으로 부합함"
+  },
+  "mission_facts": {
+    "org_name": "가람보험(가상)",
+    "domain": "보험상품(입원비 특약) 가격 설계",
+    "period": [
+      "2025년 1분기 파일럿 출시 준비"
+    ],
+    "trend_pattern": "최근 병원 이용이 늘었지만, 최근 구간 표본이 작아 수치가 출렁일 수 있음",
+    "main_issue": "입원비 특약의 보험료를 두 가지 가격안(옵션 A/B) 중 하나로 확정해야 함",
+    "feedback_themes": [
+      "자료에 있는 숫자(보험료/준비금)를 그대로 근거로 쓰기",
+      "출시 전 체크 항목에서 ‘주의’ 신호를 확인하기",
+      "한 문단에 선택(옵션) + 이유(근거 숫자) + 주의점(1개)까지 포함하기"
+    ],
+    "decision_goal": "옵션 A와 옵션 B 중 최종 추천안을 고르고, 선택 시 가장 먼저 챙길 주의사항 1개를 함께 적기"
+  },
+  "mission": {
+    "title": "입원비 특약 가격안, A/B 중 하나 고르기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "3-5 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "보험상품개발팀 인턴",
+      "context": "당신은 가람보험 보험상품개발팀 인턴입니다. 팀장님이 다음 주 파일럿 출시를 앞두고 ‘마음든든 입원비 특약(가상)’의 가격안(보험료)을 2가지 중 하나로 확정해달라고 요청했어요.\n\n마케팅팀은 고객이 부담을 덜 느끼는 쪽을 원하지만, 계리팀은 출시 전 필수 조건(특히 책임준비금 하한)을 놓치면 안 된다고 강조합니다. 당신은 아래 자료(계산 요약/비교표/출시 전 체크)만 보고, 매니저에게 바로 제출할 추천 문장을 작성하면 됩니다.",
+      "goal": "옵션 A와 옵션 B 중 하나를 고르고, 선택 이유(자료의 근거 1개)와 주의사항 1개를 짧게 포함해 제출하세요.",
+      "constraints": [
+        "숫자는 반드시 제공된 자료에 있는 값만 사용하세요.",
+        "주의사항은 체크리스트에서 ‘issue’로 표시된 항목 또는 비교표의 약점 중에서 1개만 고르세요.",
+        "전문가처럼 길게 설명하지 말고, 한 문단(3~5문장)으로 정리하세요."
+      ],
+      "glossary": [
+        {
+          "term": "특약",
+          "definition": "기본 보험에 더해서 넣는 ‘추가 보장’입니다. 여기서는 ‘입원비를 받을 수 있는 추가 보장’이라고 보면 됩니다."
+        },
+        {
+          "term": "보험료",
+          "definition": "고객이 매달/매 기간 내는 돈이고, 여기 자료에서는 ‘월 보험료’ 숫자로 비교합니다."
+        },
+        {
+          "term": "책임준비금",
+          "definition": "회사가 앞으로 고객에게 지급할 가능성에 대비해 미리 쌓아두는 돈이라고 이해하면 됩니다. 자료에는 ‘1년 누적’ 값으로 나옵니다."
+        },
+        {
+          "term": "위험률",
+          "definition": "이런 일이 ‘얼마나 자주’ 생길지의 확률(가정치)입니다. 위험률이 커지면 보통 보험료 산출도 같이 커집니다(자료에 반영됨)."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_table_options",
+        "type": "table",
+        "subtype": "옵션 비교(보험료/책임준비금)",
+        "title": "마음든든 입원비 특약 가격안 A/B 비교표(가상)",
+        "description": "두 옵션의 보험료와 1년 누적 책임준비금, 그리고 약점이 한눈에 보이도록 정리했습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "옵션 A/B의 숫자 근거를 선택과 함께 제시하기",
+        "evidence_source": [
+          "읽고 이해하기",
+          "정보, 자료 분석",
+          "논리적 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "안(옵션)"
+            },
+            {
+              "key": "strength",
+              "label": "좋은 점(자료에 있는 근거)"
+            },
+            {
+              "key": "weakness",
+              "label": "주의할 점(자료에 있는 약점)"
+            },
+            {
+              "key": "priority",
+              "label": "참고 우선순위(숫자 작을수록 우선)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "옵션 A",
+              "strength": "월 보험료: 29,000원. 1년 누적 책임준비금: 9,800만원(하한 9,500만원 이상).",
+              "weakness": "최근 ‘짧은 구간’ 변동성이 커질 경우 초반 지급이 예상보다 늘 수 있어 마진이 조금 줄 수 있음.",
+              "priority": 2
+            },
+            {
+              "option": "옵션 B",
+              "strength": "월 보험료: 31,000원. 고객이 보기에 보험료가 약간 높지만 보장 구조는 동일함.",
+              "weakness": "1년 누적 책임준비금: 9,400만원으로 하한 9,500만원에 못 미침(자료 값).",
+              "priority": 1
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.82,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_memo_calc_notes",
+        "type": "memo",
+        "subtype": "계산 메모(가정/요약)",
+        "title": "보험료·책임준비금 산출 메모(옵션 A/B 요약)",
+        "description": "실무자가 검토용으로 남긴 ‘짧은’ 계산 메모입니다. 긴 수식은 없고, 선택에 필요한 핵심 가정과 결과만 모았습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "옵션 선택의 이유로 쓸 수 있는 ‘가정/결과’ 한 가지를 말하기",
+        "evidence_source": [
+          "산수와 수학",
+          "재정 관리",
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "가람보험 계리실(가상)",
+          "items": [
+            "기본 가정(공통): 고객 10,000명 기준, 1년 내 입원 발생 건수를 ‘위험률’로 가정해 월 보험료와 1년 누적 책임준비금을 계산했음.",
+            "옵션 A 결과: 위험률을 최근 6개월 평균으로 잡아 위험률 0.42% → 월 보험료 29,000원, 1년 누적 책임준비금 9,800만원.",
+            "옵션 B 결과: 위험률을 최근 2주 데이터 반영으로 높여 위험률 0.48% → 월 보험료 31,000원, 1년 누적 책임준비금 9,400만원. 단, 최근 2주 반영 구간은 변동성이 있을 수 있음."
+          ]
+        },
+        "confidence": {
+          "score": 0.78,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_checklist_launch",
+        "type": "checklist",
+        "subtype": "출시 전 체크(간단)",
+        "title": "파일럿 출시 전, 딱 3가지만 확인하기(가상)",
+        "description": "출시 전에 팀에서 꼭 확인하라고 준 체크 항목입니다. ‘issue’ 표시가 있는 항목은 바로 고쳐야 합니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "추천 문장에 ‘주의사항 1개’를 체크리스트 근거로 포함하기",
+        "evidence_source": [
+          "정확성, 정밀성 유지",
+          "의사 결정, 문제점 해결",
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "decision_goal",
+          "feedback_themes"
+        ],
+        "data": {
+          "items": [
+            {
+              "label": "책임준비금 하한: 옵션 B 기준 9,400만원 → 하한(9,500만원) 미달이면 issue",
+              "status": "issue",
+              "importance": "높음"
+            },
+            {
+              "label": "월 보험료 상한(31,000원) 준수: 옵션 A(29,000원), 옵션 B(31,000원) 모두 상한 이내",
+              "status": "checked",
+              "importance": "중간"
+            },
+            {
+              "label": "계산 결과 요약(보험료/책임준비금/가정) 문장 3줄 내 포함 여부",
+              "status": "checked",
+              "importance": "중간"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.84,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 자료를 보고, 팀장님께 제출할 ‘가격안 추천 문장’을 3~5문장으로 작성해 주세요.\n\n1) 옵션 A와 옵션 B 중 하나를 고르세요.\n2) 선택한 이유를 비교표/계산 메모의 숫자 근거 1개로 짧게 말하세요.\n3) 선택에서 가장 먼저 챙길 주의사항 1개를 체크리스트의 issue(또는 비교표의 약점)로 연결해 말하세요.\n\n주의: 한 문단만 쓰면 됩니다. (코드, 표 없이 문장으로만)",
+        "required_materials": [
+          "mat_table_options",
+          "mat_memo_calc_notes",
+          "mat_checklist_launch"
+        ],
+        "expected_action": "옵션 A/B 중 최종 추천을 고르고, 근거 숫자 1개와 주의사항 1개를 포함한 짧은 제안문 작성"
+      }
+    ],
+    "submission_format": {
+      "type": "written_response",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "추천 옵션( A 또는 B )",
+        "선택 이유(근거 숫자 1개)",
+        "주의사항(1개)"
+      ],
+      "length_hint": "3-5 short sentences"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "옵션 A/B의 보험료와 책임준비금 수치를 비교표에서 찾아 연결하기",
+      "계산 메모의 ‘가정(위험률 반영 구간)’과 결과를 한 줄로 묶어 설명하기",
+      "체크리스트에서 issue가 무엇인지 알아차리고 추천 문장에 주의사항으로 포함하기"
+    ],
+    "rubric": [
+      {
+        "criterion": "옵션을 정확히 1개 선택해 제안했는가",
+        "description": "A/B 중 하나를 명확히 고르고, 문장 형태로 추천이 드러난다.",
+        "points": 40,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결"
+        ]
+      },
+      {
+        "criterion": "근거 숫자를 자료에서 1개 이상 사용했는가",
+        "description": "비교표 또는 계산 메모의 ‘보험료 또는 책임준비금’ 숫자 근거를 선택 이유로 사용한다.",
+        "points": 25,
+        "linked_evidence": [
+          "정보, 자료 분석",
+          "재정 관리",
+          "산수와 수학"
+        ]
+      },
+      {
+        "criterion": "주의사항을 체크리스트 issue 또는 약점으로 1개 포함했는가",
+        "description": "체크리스트에서 issue 표시된 이유(예: 책임준비금 하한 미달)를 주의사항으로 문장 안에 연결한다.",
+        "points": 25,
+        "linked_evidence": [
+          "정확성, 정밀성 유지",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "간결성과 이해 가능성이 있는가",
+        "description": "3~5문장으로 끝나고, 초보자도 읽고 ‘무엇을 선택했고 왜 그런지’가 바로 보인다.",
+        "points": 10,
+        "linked_evidence": [
+          "읽고 이해하기",
+          "정보의 의미 해석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "수학, 통계학, 재무이론, 확률 등의 지식을 적용해 적절한 보험료와 책임준비금을 산출한다.",
+      "source_ref": {
+        "file": "K000007519/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "보험료와 책임준비금을 수리적으로 산출해 상품 설계안을 제약조건 하에서 제안하는 업무 성격에 exec_003이 가장 직접적으로 부합함"
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 96,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사 결정, 문제점 해결",
+          "score": 94,
+          "description": "가장 좋은 해결책을 선택하기 위해 정보를 분석하고 문제점을 해결하기 위해 결과를 평가하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 94,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보, 자료 분석",
+          "score": 93,
+          "description": "정보 또는 자료를 분석하여 근본 원리, 이유, 사실을 알아내기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 92,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "수리력",
+          "score": 97,
+          "description": "어떤 문제를 해결하기 위해 수학을 사용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 93,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "인적자원 관리",
+          "score": 89,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "산수와 수학",
+          "score": 99,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "경제와 회계",
+          "score": 93,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 88,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "정확성, 정밀성 유지",
+          "score": 97,
+          "description": "업무 수행을 위해 정밀하거나 정확한 것의 중요성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 90,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_table_options",
+        "supported_by": [
+          "읽고 이해하기",
+          "정보, 자료 분석",
+          "논리적 분석"
+        ]
+      },
+      {
+        "material_id": "mat_memo_calc_notes",
+        "supported_by": [
+          "산수와 수학",
+          "재정 관리",
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "material_id": "mat_checklist_launch",
+        "supported_by": [
+          "정확성, 정밀성 유지",
+          "의사 결정, 문제점 해결",
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_table_options",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_memo_calc_notes",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_checklist_launch",
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "decision_goal",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.4167,
+    "AX2": 0.025,
+    "AX3": 0.425,
+    "AX4": 0.1083,
+    "AX5": 0.025
+  }
+}
