@@ -1,6 +1,6 @@
 {
   "schema_version": "mission_output.v1",
-  "mission_id": "mission_K000001179_normal_001_b144211",
+  "mission_id": "mission_K000001179_easy_001",
   "job_identity": {
     "job_cd": "K000001179",
     "job_lrcl_nm": "경영·사무·금융·보험직",
@@ -20,454 +20,182 @@
       "field": "jobsDo.execJob",
       "index": 1
     },
-    "selection_reason": "Pilot config selected exec_001."
+    "selection_reason": "난이도 easy에서 경제·산업·기업 정보를 수집·분석하는 exec_001이 가장 직접적이며, 결과를 표 형태로 정리하도록 하면 1개 자료로도 과업 수행이 가능함."
   },
   "mission_facts": {
-    "org_name": "가온리서치센터",
-    "domain": "도심 물류용 배터리 팩 부품",
+    "org_name": "하모니 리서치(가상)",
+    "domain": "기업 실적/시장 흐름 기본 점검",
     "period": [
-      "2026년 1월",
-      "2026년 2월",
-      "2026년 3월",
-      "2026년 4월",
-      "2026년 5월"
+      "최근 3분기",
+      "향후 1년(가정)"
     ],
-    "trend_pattern": "수주는 완만히 늘지만 재고도 함께 상승해 업황은 개선 초입이면서 부담이 남아 있는 흐름",
-    "main_issue": "업황 개선 신호와 재고 부담이 동시에 나타나는 상황에서 우선 검토 대상을 정하는 것",
+    "trend_pattern": "매출은 전반적으로 증가 추세지만, 비용 부담이 큰 기업은 이익률이 흔들림",
+    "main_issue": "두 후보 기업 중에서 향후 1년 매출 흐름이 비교적 더 안정적으로 보이는 쪽 찾기",
     "feedback_themes": [
-      "수주 회복",
-      "재고 부담",
-      "가격 경쟁",
-      "원가 안정"
+      "표에 적힌 강점(또는 약점)을 근거로 말하기",
+      "한 문장으로 선택 이유가 드러나게 쓰기"
     ],
-    "decision_goal": "가상 후보 3곳 중 리서치 우선순위 1개와 다음 분기 투자 의견을 정한다."
+    "decision_goal": "표를 근거로 후보 A/B 중 한 곳을 선택하고, 이유를 1-2문장으로 설명하기"
   },
   "mission": {
-    "title": "수주·재고 흐름을 보고 우선 검토 대상을 정하기",
+    "title": "표 한 장으로 기업 A/B 간단 비교하기(초급)",
     "task_type": "research_and_analysis",
     "secondary_task_types": [],
     "difficulty": {
-      "level": "normal",
-      "label": "보통",
+      "level": "easy",
+      "label": "쉬움",
       "estimated_time_minutes": 15,
-      "material_bundle_style": "light_work_material_bundle",
+      "material_bundle_style": "single_work_material",
       "material_count_range": [
-        2,
-        3
+        1,
+        1
       ],
       "task_count_range": [
-        2,
-        3
+        1,
+        1
       ],
-      "answer_length_hint": "400~700자",
-      "requires_cross_material_reasoning": true,
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
       "requires_tradeoff_judgment": false,
       "requires_domain_expertise": false
     },
     "scenario": {
-      "role": "가온리서치센터의 투자분석가",
-      "context": "월간 투자검토회의를 앞두고 가상의 산업인 도심 물류용 배터리 팩 부품 업황과 후보 3곳을 빠르게 정리해야 합니다.",
-      "goal": "차트, 비교표, 내부 메모를 종합해 우선 검토할 후보 1개와 보수적 또는 중립적 투자 의견을 제시합니다.",
+      "role": "당신은 하모니 리서치 인턴입니다.",
+      "context": "리서치팀 김대리(가상)는 오늘 오전 회의 전에 “다음 분기에도 매출 흐름이 비교적 안정적인 후보가 어디인지”를 빠르게 확인해달라고 부탁했습니다. 당신은 팀에서 정리해 둔 표 1개를 보고, 후보 A와 B 중 한 곳을 고르는 방식으로 답을 드리면 됩니다.",
+      "goal": "후보 A/B 중 한 곳을 선택하고, 표에 적힌 근거를 한 문장으로 설명하세요.",
       "constraints": [
-        "제공된 자료만 사용한다",
-        "실제 기업명, 브랜드명, 인명을 쓰지 않는다",
-        "업황 판단과 후보 우선순위를 함께 설명한다",
-        "근거는 자료의 수치와 메모 내용에 한정한다"
+        "제시된 표의 문구(강점/약점)를 근거로만 답하세요.",
+        "A 또는 B 중 하나만 고르세요.",
+        "정답은 하나만 고르면 됩니다(원인 분석이나 복잡한 계산은 불필요)."
+      ],
+      "glossary": [
+        {
+          "term": "매출 성장률",
+          "definition": "이전 기간 대비 매출이 얼마나 늘었는지를 나타내는 비율(예: +8%면 매출이 약간 증가했다는 뜻)."
+        },
+        {
+          "term": "영업이익률",
+          "definition": "매출에서 영업 과정으로 남는 이익이 매출 대비 어느 정도 비율인지(이 비율이 높을수록 이익을 잘 남기고 있다는 의미)."
+        }
       ]
     },
     "materials": [
       {
-        "material_id": "mat_01",
-        "type": "chart",
-        "subtype": "industry_trend_chart",
-        "title": "월별 수주·재고지수 추이",
-        "description": "가상의 도심 물류용 배터리 팩 부품 업황을 월별 수주지수와 재고지수로 정리한 내부 차트.",
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "candidate_company_compare",
+        "title": "후보 기업 A/B 1페이지 요약표",
+        "description": "두 후보 기업의 최근 흐름을 ‘강점/약점’ 형태로 정리한 비교표입니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "업황이 개선 중인지, 아니면 재고 부담이 더 큰지 판단하는 근거로 사용한다.",
+        "used_for": "후보 A/B 중 매출 흐름이 더 안정적으로 보이는 곳을 고르기",
         "evidence_source": [
           "정보 수집",
-          "정보, 자료 분석",
-          "산수와 수학"
+          "경제와 회계",
+          "논리적 분석"
         ],
         "mission_fact_refs": [
           "org_name",
           "domain",
           "period",
-          "trend_pattern",
-          "main_issue"
-        ],
-        "data": {
-          "chart_type": "line",
-          "x_axis": {
-            "label": "월",
-            "values": [
-              "1월",
-              "2월",
-              "3월",
-              "4월",
-              "5월"
-            ]
-          },
-          "y_axis": {
-            "label": "지수",
-            "unit": "기준=100"
-          },
-          "series": [
-            {
-              "name": "수주지수",
-              "values": [
-                90,
-                93,
-                97,
-                100,
-                103
-              ]
-            },
-            {
-              "name": "재고지수",
-              "values": [
-                98,
-                99,
-                101,
-                104,
-                108
-              ]
-            }
-          ],
-          "columns": [
-            {
-              "key": "option",
-              "label": "구분"
-            },
-            {
-              "key": "strength",
-              "label": "강점"
-            },
-            {
-              "key": "weakness",
-              "label": "약점"
-            },
-            {
-              "key": "priority",
-              "label": "우선순위"
-            }
-          ],
-          "rows": [],
-          "author": "가온리서치센터 내부",
-          "items": [
-            {
-              "text": "수주지수는 1월 90에서 5월 103으로 상승했다.",
-              "period": "2026년 1월~5월",
-              "task": "업황 진단",
-              "constraint": "수치 비교 중심",
-              "label": "수주 흐름",
-              "status": "checked",
-              "importance": "높음"
-            },
-            {
-              "text": "재고지수는 같은 기간 98에서 108로 상승했다.",
-              "period": "2026년 1월~5월",
-              "task": "리스크 점검",
-              "constraint": "수치 비교 중심",
-              "label": "재고 흐름",
-              "status": "checked",
-              "importance": "높음"
-            },
-            {
-              "text": "4월 이후에는 재고 증가 속도가 수주보다 더 빠르게 보인다.",
-              "period": "2026년 4월~5월",
-              "task": "업황 해석",
-              "constraint": "추세 비교",
-              "label": "추세 차이",
-              "status": "checked",
-              "importance": "중간"
-            }
-          ],
-          "thread": [],
-          "entries": [],
-          "cards": []
-        },
-        "confidence": {
-          "score": 0.95,
-          "checks": {
-            "synthetic_material": true
-          },
-          "warnings": []
-        }
-      },
-      {
-        "material_id": "mat_02",
-        "type": "table",
-        "subtype": "company_comparison_table",
-        "title": "가상 후보 3곳 비교표",
-        "description": "가상의 후보 3곳을 수익성, 성장성, 리스크, 우선순위로 비교한 내부 검토표.",
-        "factual_status": "synthetic_mission_material",
-        "used_for": "세 후보 중 우선 검토 대상을 하나 고르는 데 사용한다.",
-        "evidence_source": [
-          "경제와 회계",
-          "논리적 분석",
-          "판단과 의사결정"
-        ],
-        "mission_fact_refs": [
-          "org_name",
-          "domain",
-          "decision_goal",
-          "main_issue"
-        ],
-        "data": {
-          "chart_type": "bar",
-          "x_axis": {
-            "label": "후보",
-            "values": [
-              "에이모듈",
-              "비모듈",
-              "씨모듈"
-            ]
-          },
-          "y_axis": {
-            "label": "평가",
-            "unit": "점"
-          },
-          "series": [],
-          "columns": [
-            {
-              "key": "option",
-              "label": "구분"
-            },
-            {
-              "key": "strength",
-              "label": "강점"
-            },
-            {
-              "key": "weakness",
-              "label": "약점"
-            },
-            {
-              "key": "priority",
-              "label": "우선순위"
-            }
-          ],
-          "rows": [
-            {
-              "option": "에이모듈",
-              "strength": "영업이익률이 12%로 가장 높고 현금흐름이 안정적이다.",
-              "weakness": "매출 성장률이 낮아 단기 모멘텀이 약하다.",
-              "priority": 1
-            },
-            {
-              "option": "비모듈",
-              "strength": "최근 3개월 수주 증가율이 가장 높다.",
-              "weakness": "재고와 차입금이 함께 늘어 변동성이 크다.",
-              "priority": 2
-            },
-            {
-              "option": "씨모듈",
-              "strength": "원가 부담이 낮고 배당 여력이 있다.",
-              "weakness": "가동률이 낮고 실적 반등이 더디다.",
-              "priority": 3
-            }
-          ],
-          "author": "가온리서치센터 내부",
-          "items": [],
-          "thread": [],
-          "entries": [],
-          "cards": []
-        },
-        "confidence": {
-          "score": 0.94,
-          "checks": {
-            "synthetic_material": true
-          },
-          "warnings": []
-        }
-      },
-      {
-        "material_id": "mat_03",
-        "type": "memo",
-        "subtype": "internal_note",
-        "title": "채널 코멘트 메모",
-        "description": "영업과 구매 채널에서 정리한 가상 메모로, 발주와 가격, 재고, 비용에 대한 짧은 코멘트를 담았다.",
-        "factual_status": "synthetic_mission_material",
-        "used_for": "차트와 비교표의 해석을 보강하고 최종 추천의 근거를 보완한다.",
-        "evidence_source": [
-          "정보 수집",
-          "정보의 의미 해석",
-          "사람들에게 조언, 상담",
-          "의사 결정, 문제점 해결"
-        ],
-        "mission_fact_refs": [
-          "org_name",
-          "feedback_themes",
           "main_issue",
           "decision_goal"
         ],
         "data": {
-          "chart_type": "bar",
-          "x_axis": {
-            "label": "항목",
-            "values": []
-          },
-          "y_axis": {
-            "label": "상태",
-            "unit": "건"
-          },
-          "series": [],
           "columns": [
             {
               "key": "option",
-              "label": "구분"
+              "label": "후보"
             },
             {
               "key": "strength",
-              "label": "강점"
+              "label": "강점(표에 나온 긍정 포인트)"
             },
             {
               "key": "weakness",
-              "label": "약점"
+              "label": "약점(표에 나온 주의 포인트)"
             },
             {
               "key": "priority",
-              "label": "우선순위"
+              "label": "팀 내부 우선순위(숫자일 뿐, 참고용)"
             }
           ],
-          "rows": [],
-          "author": "가온리서치센터 리서치 메모",
-          "items": [
+          "rows": [
             {
-              "text": "대형 고객 2곳이 2분기 발주를 소폭 늘릴 가능성이 있다는 코멘트가 있었다.",
-              "period": "2026년 5월",
-              "task": "수요 점검",
-              "constraint": "채널 코멘트 반영",
-              "label": "발주 회복",
-              "status": "checked",
-              "importance": "높음"
+              "option": "후보 A",
+              "strength": "최근 3분기 매출 성장률이 +8%로 이어짐(전 분기 대비 유지), 영업이익률 12%로 비교적 일정",
+              "weakness": "원가(비용) 압박이 커지고 있어, 다음 분기에 이익률이 소폭 흔들릴 수 있음",
+              "priority": 1
             },
             {
-              "text": "판가 인하 요구는 다소 완화됐지만 할인 문의는 아직 남아 있다.",
-              "period": "2026년 5월",
-              "task": "가격 점검",
-              "constraint": "정성 의견 정리",
-              "label": "가격 압박",
-              "status": "unchecked",
-              "importance": "중간"
-            },
-            {
-              "text": "재고 조정이 끝나지 않아 추가 물량은 보수적으로 봐야 한다.",
-              "period": "2026년 5월",
-              "task": "리스크 점검",
-              "constraint": "보수적 해석",
-              "label": "재고 부담",
-              "status": "issue",
-              "importance": "높음"
-            },
-            {
-              "text": "원자재 단가는 안정되어 수익성 방어 여지는 있다.",
-              "period": "2026년 5월",
-              "task": "비용 점검",
-              "constraint": "상승/하락 방향 확인",
-              "label": "원가 안정",
-              "status": "checked",
-              "importance": "중간"
+              "option": "후보 B",
+              "strength": "최근 3분기 매출은 +6%로 증가 흐름이지만, 영업이익률은 9%로 A보다 낮음",
+              "weakness": "비용 부담이 커서 영업이익률 변동폭이 큼(표 기준으로 ‘흔들림’이 더 큼)",
+              "priority": 2
             }
-          ],
-          "thread": [],
-          "entries": [],
-          "cards": []
+          ]
         },
         "confidence": {
-          "score": 0.93,
+          "score": 0.74,
           "checks": {
             "synthetic_material": true
           },
-          "warnings": []
+          "warnings": [
+            "표의 문구를 그대로 근거로 사용하도록 구성되어 있으며, 추가 데이터나 계산은 제공되지 않습니다."
+          ]
         }
       }
     ],
     "tasks": [
       {
-        "task_id": "task_1",
-        "instruction": "차트(mat_01)와 메모(mat_03)를 근거로 현재 업황을 한 문장으로 진단하고, 수주와 재고 흐름이 말해주는 핵심 리스크를 적으세요.",
+        "task_id": "task_001",
+        "instruction": "아래 표를 보고 후보 A/B 중 ‘향후 1년 매출 흐름이 비교적 더 안정적으로 보이는’ 곳을 하나 고르세요. 선택과 이유를 1-2문장으로 적어주세요.",
         "required_materials": [
-          "mat_01",
-          "mat_03"
+          "mat_001"
         ],
-        "expected_action": "진단"
-      },
-      {
-        "task_id": "task_2",
-        "instruction": "비교표(mat_02)를 보고 3개 후보 중 우선 검토할 대상을 1개 고르고, 그 이유를 강점 1개와 약점 1개를 묶어 설명하세요.",
-        "required_materials": [
-          "mat_02"
-        ],
-        "expected_action": "우선순위 판단"
-      },
-      {
-        "task_id": "task_3",
-        "instruction": "앞선 진단과 우선순위를 종합해 다음 분기 투자 의견을 1개만 제시하고, 바로 실행할 수 있는 후속 조치를 1가지 쓰세요.",
-        "required_materials": [
-          "mat_01",
-          "mat_02",
-          "mat_03"
-        ],
-        "expected_action": "추천"
+        "expected_action": "후보 A 또는 B를 선택하고, 표의 강점/약점 문구를 근거로 한 문장 이유를 작성하기"
       }
     ],
     "submission_format": {
-      "type": "서술형 답안",
-      "estimated_time_minutes": 15,
+      "type": "short_text",
+      "estimated_time_minutes": 5,
       "required_sections": [
-        "업황 진단",
-        "우선순위 판단",
-        "최종 추천"
+        "선택(후보 A 또는 B)",
+        "선택 이유(표 근거 1개 이상)"
       ],
-      "length_hint": "400~700자"
+      "length_hint": "1-2문장"
     }
   },
   "evaluation": {
     "expected_insights": [
-      "수주는 늘지만 재고도 함께 올라 업황은 개선 초입이지만 부담이 남아 있다는 점을 파악해야 한다.",
-      "3개 후보 중 수익성과 안정성이 가장 좋은 대상을 우선 검토 대상으로 고르는 판단이 필요하다.",
-      "최종 의견은 보수적 또는 중립적으로 정리하고, 재고 조정이 더 확인되면 의견을 조정하는 방식이 적절하다."
+      "표의 ‘강점/약점’ 문구를 근거로 후보를 한 곳 선택한다.",
+      "선택 이유가 짧지만, 표에서 보이는 안정성 단서(흔들림/이익률)를 반영한다."
     ],
     "rubric": [
       {
-        "criterion": "업황 흐름 해석",
-        "description": "차트와 메모를 함께 읽어 수주 상승과 재고 부담을 정확히 진단하는지 평가한다.",
-        "points": 35,
+        "criterion": "선택이 표의 핵심 근거(강점/약점 문구)를 따라 이루어졌는가",
+        "description": "후보 A/B 중 하나를 고르고, 표에서 언급된 매출 흐름 또는 흔들림 관련 문장을 선택 근거로 사용했다.",
+        "points": 45,
         "linked_evidence": [
           "정보 수집",
-          "정보, 자료 분석",
-          "산수와 수학"
+          "정보, 자료 분석"
         ]
       },
       {
-        "criterion": "후보 비교의 타당성",
-        "description": "비교표의 강점과 약점을 바탕으로 우선 검토 대상을 합리적으로 고르는지 평가한다.",
-        "points": 25,
+        "criterion": "이유 설명이 간단하고 의미 해석이 맞는가",
+        "description": "‘매출 성장 유지’ 또는 ‘영업이익률의 흔들림/일정’ 같은 표 문구를 쉬운 말로 해석해 이유에 연결했다.",
+        "points": 35,
+        "linked_evidence": [
+          "정보의 의미 해석",
+          "경제와 회계"
+        ]
+      },
+      {
+        "criterion": "문장이 업무용으로 짧고 명확한가",
+        "description": "답이 1-2문장 내에서 선택+이유가 한 번에 드러나며 불필요한 장황함이 없다.",
+        "points": 20,
         "linked_evidence": [
           "논리적 분석",
-          "경제와 회계",
           "판단과 의사결정"
-        ]
-      },
-      {
-        "criterion": "리스크 반영",
-        "description": "재고 부담, 가격 압박, 원가 안정 같은 정성 정보를 최종 판단에 반영하는지 평가한다.",
-        "points": 20,
-        "linked_evidence": [
-          "의사 결정, 문제점 해결",
-          "정보의 의미 해석",
-          "사람들에게 조언, 상담"
-        ]
-      },
-      {
-        "criterion": "실행 가능한 추천 제시",
-        "description": "다음 분기 투자 의견과 후속 조치를 짧고 명확하게 제시하는지 평가한다.",
-        "points": 20,
-        "linked_evidence": [
-          "목표, 전략 수립",
-          "경영 및 행정",
-          "사무"
         ]
       }
     ]
@@ -480,7 +208,7 @@
     "human_review_required": true,
     "warning_count": 0,
     "fail_count": 0,
-    "repair_count": 0,
+    "repair_count": 1,
     "score_breakdown": {
       "schema": {
         "max": 20,
@@ -518,7 +246,7 @@
         "field": "jobsDo.execJob",
         "index": 1
       },
-      "selection_reason": "Pilot config selected exec_001."
+      "selection_reason": "난이도 easy에서 경제·산업·기업 정보를 수집·분석하는 exec_001이 가장 직접적이며, 결과를 표 형태로 정리하도록 하면 1개 자료로도 과업 수행이 가능함."
     },
     "linked_evidence": {
       "activities": [
@@ -686,103 +414,22 @@
     },
     "material_evidence_map": [
       {
-        "material_id": "mat_01",
+        "material_id": "mat_001",
         "supported_by": [
           "정보 수집",
-          "정보, 자료 분석",
-          "산수와 수학"
-        ]
-      },
-      {
-        "material_id": "mat_02",
-        "supported_by": [
           "경제와 회계",
-          "논리적 분석",
-          "판단과 의사결정"
-        ]
-      },
-      {
-        "material_id": "mat_03",
-        "supported_by": [
-          "정보 수집",
-          "정보의 의미 해석",
-          "사람들에게 조언, 상담",
-          "의사 결정, 문제점 해결"
+          "논리적 분석"
         ]
       }
     ],
     "items": [
       {
         "target_type": "material",
-        "target_id": "mat_01",
+        "target_id": "mat_001",
         "mission_fact_refs": [
           "org_name",
           "domain",
           "period",
-          "trend_pattern",
-          "main_issue"
-        ],
-        "source_refs": [
-          {
-            "file": "K000001179/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 1,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000001179/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 7,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000001179/dtlGb_5.xml",
-            "field": "ablKnwEnv.Knwldg",
-            "index": 5,
-            "source_root": "data/api_raw"
-          }
-        ],
-        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
-        "traceability": "indirect"
-      },
-      {
-        "target_type": "material",
-        "target_id": "mat_02",
-        "mission_fact_refs": [
-          "org_name",
-          "domain",
-          "decision_goal",
-          "main_issue"
-        ],
-        "source_refs": [
-          {
-            "file": "K000001179/dtlGb_5.xml",
-            "field": "ablKnwEnv.Knwldg",
-            "index": 1,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000001179/dtlGb_5.xml",
-            "field": "ablKnwEnv.jobAbil",
-            "index": 4,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000001179/dtlGb_5.xml",
-            "field": "ablKnwEnv.jobAbil",
-            "index": 2,
-            "source_root": "data/api_raw"
-          }
-        ],
-        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
-        "traceability": "indirect"
-      },
-      {
-        "target_type": "material",
-        "target_id": "mat_03",
-        "mission_fact_refs": [
-          "org_name",
-          "feedback_themes",
           "main_issue",
           "decision_goal"
         ],
@@ -794,21 +441,15 @@
             "source_root": "data/api_raw"
           },
           {
-            "file": "K000001179/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
             "index": 4,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000001179/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 5,
-            "source_root": "data/api_raw"
-          },
-          {
-            "file": "K000001179/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 6,
             "source_root": "data/api_raw"
           }
         ],
@@ -818,10 +459,10 @@
     ]
   },
   "axis_signals_derived": {
-    "AX1": 0.5833,
+    "AX1": 0.9,
     "AX2": 0.0,
-    "AX3": 0.2167,
-    "AX4": 0.1333,
-    "AX5": 0.0667
+    "AX3": 0.1,
+    "AX4": 0.0,
+    "AX5": 0.0
   }
 }

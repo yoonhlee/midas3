@@ -1,0 +1,660 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001179_hard_001",
+  "job_identity": {
+    "job_cd": "K000001179",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "금융·보험 전문가",
+    "job_smcl_nm": "투자분석가",
+    "source_ref": {
+      "file": "K000001179/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_006",
+    "text": "저평가된 기업들의 적정주가를 다양한 평가방법으로 재산정한다.",
+    "source_ref": {
+      "file": "K000001179/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 6
+    },
+    "selection_reason": "저평가 기업의 적정주가를 다양한 평가방법으로 재산정하는 의사결정 과업이므로, 회계·경제 지식과 정보 해석, 논리적 분석 및 판단 역량을 요구하며 산출물을 표/차트/메모로 구성하기 적합함"
+  },
+  "mission_facts": {
+    "org_name": "가온 리서치팀(가상)",
+    "domain": "기업가치(적정주가) 간단 재산정",
+    "period": [
+      "2024년 4~9월"
+    ],
+    "trend_pattern": "월별 영업이익이 크게 오르내리는 ‘변동성’이 뚜렷함",
+    "main_issue": "저평가로 보이는 ‘새봄산업’에 대해, 세 가지 간단 평가방법 중 고객에게 더 무난하게 설명할 1가지를 고르기",
+    "feedback_themes": [
+      "문장에 ‘자료(표/차트)’ 근거가 보이기",
+      "주의 포인트를 한 가지로 또렷하게 넣기"
+    ],
+    "decision_goal": "세 가지 평가방법 중 1개를 골라 ‘적정주가 추천’과 함께, 차트에서 보이는 주의 포인트를 포함해 짧게 답하기"
+  },
+  "mission": {
+    "title": "저평가 기업, 어떤 평가방법을 먼저 써야 할까요?",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "3-5 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 가온 리서치팀 투자분석가 인턴입니다.",
+      "context": "내일 오전 PB(고객 상담 담당)가 고객에게 보낼 ‘새봄산업’ 적정주가 메모 초안을 요청했습니다. 팀에서는 세 가지 간단한 평가방법(표에 정리됨)으로 적정주가 후보를 뽑아뒀지만, 어떤 방법을 먼저 추천할지와 “지금 자료에서 특히 조심할 점”을 한 문단으로 정리해야 합니다.",
+      "goal": "아래 자료를 보고, 고객 메모에 추천할 ‘적정주가 산정 방식’ 1가지를 고른 뒤, 그 이유와 차트에서 보이는 주의 포인트를 함께 3~5문장으로 답하세요.",
+      "constraints": [
+        "답은 추천 방식 1개 선택 + 이유 + 주의 포인트(차트에서 보이는 현상 1가지)까지 포함해 3~5문장으로 작성하세요.",
+        "표의 ‘약점/주의’ 문장에서 힌트를 얻어, 차트와 연결되는 조심 포인트를 반드시 1개 포함하세요.",
+        "새로 계산하거나 숫자를 만들어내지 말고, 제공된 표/차트 내용만 사용하세요."
+      ],
+      "glossary": [
+        {
+          "term": "적정주가",
+          "definition": "기업을 ‘지금 수준에서’ 평가했을 때, 투자자들이 참고할 만한 가격(대략적인 기준)입니다."
+        },
+        {
+          "term": "영업이익",
+          "definition": "기업이 본업으로 벌어들인 이익(장사가 잘 됐는지 확인할 때 자주 보는 값)입니다."
+        },
+        {
+          "term": "현금흐름(FCF)",
+          "definition": "기업이 실제로 벌어 현금처럼 남는 흐름을 보는 방식입니다. 이익이 안정적일수록 맞추기 쉬워지는 경향이 있습니다."
+        },
+        {
+          "term": "변동성",
+          "definition": "같은 기간 안에서도 값이 들쭉날쭉하게 흔들리는 정도를 말합니다."
+        },
+        {
+          "term": "자산가치(장부 방식)",
+          "definition": "기업이 가진 자산 규모를 기준으로 ‘바닥’을 잡아 보는 방식입니다. 단기 이익이 흔들려도 덜 흔들리는 편입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_table_valuation",
+        "type": "table",
+        "subtype": "valuation_methods_table",
+        "title": "새봄산업: 적정주가 후보 3가지(간단 버전)",
+        "description": "세 가지 평가방법별로 ‘무엇이 강점인지’, ‘어떤 상황에서 조심해야 하는지’를 한눈에 정리한 내부 메모 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "추천할 평가방법(1개)을 고르고, 이유를 표의 강점/약점 문장에 근거해 설명하기",
+        "evidence_source": [
+          "판단과 의사결정",
+          "경제와 회계",
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "평가방법"
+            },
+            {
+              "key": "strength",
+              "label": "강점(잘 맞는 경우)"
+            },
+            {
+              "key": "weakness",
+              "label": "약점/주의(조심해야 하는 경우)"
+            },
+            {
+              "key": "priority",
+              "label": "메모 내 우선순위(숫자 힌트)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "현금흐름(FCF) 방식",
+              "strength": "이익이 ‘현금으로 이어지는 흐름’이 중요할 때 더 설득력 있게 설명 가능",
+              "weakness": "최근처럼 영업이익이 들쭉날쭉하면, 현금 흐름이 안정적일 거라는 가정이 흔들릴 수 있음(주의: 변동성)",
+              "priority": 2
+            },
+            {
+              "option": "매출성장(성장) 방식",
+              "strength": "매출이 꾸준히 유지되는 기업이면 미래 개선 기대를 반영하기 쉬움",
+              "weakness": "매출이 유지돼도 이익이 꺾이는 흐름이면 적정주가가 과대평가될 수 있음(주의: 이익이 매출을 못 따라감)",
+              "priority": 3
+            },
+            {
+              "option": "자산가치(장부) 방식",
+              "strength": "자산 규모를 기준으로 하므로, 단기 이익이 흔들리는 구간에서도 ‘바닥’ 설명에 유리",
+              "weakness": "사업 특성상 자산의 의미가 약하면 설명력이 떨어질 수 있음(주의: 자산이익이 낮을 때)",
+              "priority": 1
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.82,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_chart_profit_trend",
+        "type": "chart",
+        "subtype": "operating_profit_volatility_line",
+        "title": "새봄산업: 최근 5개월 영업이익 추이(월별)",
+        "description": "표의 ‘변동성’ 주의가 실제로 보이는지 확인할 수 있는 간단한 추이 차트입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "차트에서 보이는 주의 포인트(변동성/오르내림)를 한 가지로 말하기",
+        "evidence_source": [
+          "사물, 행동, 사건 파악",
+          "정보 수집",
+          "절차, 자료, 주변환경 관찰"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "chart_type": "line",
+          "x_axis": {
+            "label": "월",
+            "values": [
+              "5월",
+              "6월",
+              "7월",
+              "8월",
+              "9월"
+            ]
+          },
+          "y_axis": {
+            "label": "영업이익",
+            "unit": "억원"
+          },
+          "series": [
+            {
+              "name": "영업이익",
+              "values": [
+                -4,
+                9,
+                -2,
+                11,
+                3
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.78,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_memo_caution",
+        "type": "memo",
+        "subtype": "how_to_recommend_memo",
+        "title": "팀 메모: 초보자용 ‘적정주가 추천’ 문장 만들기",
+        "description": "고객에게 보낼 때 빠지기 쉬운 부분(주의 포인트)을 어떻게 문장으로 넣는지 안내합니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "답변 문장에 ‘표 약점 + 차트 주의 포인트’를 연결해 쓰기",
+        "evidence_source": [
+          "정보의 의미 해석",
+          "정보 처리",
+          "사람들에게 조언, 상담"
+        ],
+        "mission_fact_refs": [
+          "feedback_themes",
+          "decision_goal",
+          "main_issue"
+        ],
+        "data": {
+          "author": "가온 리서치팀(가상) 선임 애널리스트",
+          "items": [
+            "추천 방식은 ‘왜 이 방법이 지금 자료에 더 잘 맞는지’를 표의 강점/약점 문장에 기대서 1줄로 시작하세요.",
+            "주의는 한 가지로만: 지금 차트처럼 영업이익이 오르내리면, 현금흐름 방식은 ‘변동성’ 때문에 특히 조심한다고 연결해 주세요.",
+            "결론 문장에서는 ‘고객 메모용으로는 ○○ 방식을 먼저 제안합니다’처럼 선택이 보이게 끝내세요."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 자료를 보고, 고객 메모에 추천할 ‘적정주가 산정 방식’ 1가지를 고른 뒤(표의 방법 중 1개), 그 이유와 함께 차트에서 보이는 주의 포인트를 1가지 포함해 3~5문장으로 답하세요. 문장 끝에는 선택이 분명히 드러나게 적어주세요.",
+        "required_materials": [
+          "mat_table_valuation",
+          "mat_chart_profit_trend",
+          "mat_memo_caution"
+        ],
+        "expected_action": "추천 방식 1개 선택 + 표 근거 이유 + 차트 기반 주의 포인트를 포함한 짧은 결정 응답(3~5문장) 작성"
+      }
+    ],
+    "submission_format": {
+      "type": "text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "선택한 평가방법(1개)",
+        "선택 이유(표 문장 근거)",
+        "차트의 주의 포인트(1가지)"
+      ],
+      "length_hint": "3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "표에 적힌 ‘약점/주의’ 문장이 차트의 관찰 결과(영업이익 변동)와 연결되는지 확인한다",
+      "추천 방식이 하나로 명확히 제시되고, 이유가 표의 강점/약점 근거를 따라간다",
+      "주의 포인트는 여러 개로 늘리지 않고, 차트에서 보이는 현상 1가지만 간단히 적는다",
+      "초보자도 이해할 수 있게 쉬운 문장으로 결론을 맺는다"
+    ],
+    "rubric": [
+      {
+        "criterion": "선택한 평가방법이 표의 강점/약점과 논리적으로 맞물림",
+        "description": "추천한 방식이 표에 적힌 ‘강점’ 또는 ‘약점/주의’ 조건과 연결되어 타당하게 설명됨.",
+        "points": 35,
+        "linked_evidence": [
+          "판단과 의사결정",
+          "정보의 의미 해석"
+        ]
+      },
+      {
+        "criterion": "차트의 주의 포인트를 1가지로 정확히 짚음",
+        "description": "차트에서 보이는 영업이익 오르내림(변동성)을 근거로, 왜 조심해야 하는지 주의 포인트가 드러남.",
+        "points": 30,
+        "linked_evidence": [
+          "사물, 행동, 사건 파악",
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "criterion": "문장 구성이 간단하고 선택이 마지막에 명확함",
+        "description": "‘○○ 방식을 먼저 제안’처럼 선택이 확실하고, 전체가 3~5문장으로 읽히는 흐름임.",
+        "points": 20,
+        "linked_evidence": [
+          "정보 처리",
+          "정보의 의미 해석"
+        ]
+      },
+      {
+        "criterion": "메모(팀 안내)대로 초보자 톤의 주의 문장 포함",
+        "description": "팀 메모의 지침(주의는 한 가지, 추천 근거를 표에 기대기)을 따르며 고객용 문장으로 정리됨.",
+        "points": 15,
+        "linked_evidence": [
+          "사람들에게 조언, 상담",
+          "정보의 의미 해석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 1,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_006",
+      "text": "저평가된 기업들의 적정주가를 다양한 평가방법으로 재산정한다.",
+      "source_ref": {
+        "file": "K000001179/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 6
+      },
+      "selection_reason": "저평가 기업의 적정주가를 다양한 평가방법으로 재산정하는 의사결정 과업이므로, 회계·경제 지식과 정보 해석, 논리적 분석 및 판단 역량을 요구하며 산출물을 표/차트/메모로 구성하기 적합함"
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 수집",
+          "score": 98,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 97,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 95,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보의 의미 해석",
+          "score": 95,
+          "description": "정보가 뜻하는 바와 그것이 어떻게 사용되는지 번역하거나 설명하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 94,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "수리력",
+          "score": 99,
+          "description": "어떤 문제를 해결하기 위해 수학을 사용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "판단과 의사결정",
+          "score": 95,
+          "description": "이득과 손실을 평가해서 결정을 내린다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "선택적 집중력",
+          "score": 94,
+          "description": "주의를 산만하게 하는 자극에도 불구하고 원하는 일에 집중한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "경제와 회계",
+          "score": 97,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영어",
+          "score": 84,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 80,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "치열한 경쟁",
+          "score": 93,
+          "description": "동료 혹은 다른 사람들과의 경쟁 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 89,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 87,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_table_valuation",
+        "supported_by": [
+          "판단과 의사결정",
+          "경제와 회계",
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "material_id": "mat_chart_profit_trend",
+        "supported_by": [
+          "사물, 행동, 사건 파악",
+          "정보 수집",
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "material_id": "mat_memo_caution",
+        "supported_by": [
+          "정보의 의미 해석",
+          "정보 처리",
+          "사람들에게 조언, 상담"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_table_valuation",
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001179/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_chart_profit_trend",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 8,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_memo_caution",
+        "mission_fact_refs": [
+          "feedback_themes",
+          "decision_goal",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001179/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.45,
+    "AX2": 0.3,
+    "AX3": 0.175,
+    "AX4": 0.0,
+    "AX5": 0.075
+  }
+}
