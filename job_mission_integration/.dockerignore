@@ -1,0 +1,7 @@
+data/api_raw/
+data/additional_search/
+reports/
+outputs/
+.env
+.env.server
+node_modules/
