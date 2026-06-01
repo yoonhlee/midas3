@@ -1,5 +1,16 @@
+const DIFFICULTY_ORDER = { easy: 0, normal: 1, hard: 2 };
+
+function difficultyRank(mission) {
+  const level = mission?._raw?.mission?.difficulty?.level || mission?.difficulty?.level || mission?.difficulty;
+  return DIFFICULTY_ORDER[level] ?? DIFFICULTY_ORDER.normal;
+}
+
 export function getMissionsByJobCode(allMissions, jobCode) {
-  return allMissions.filter((mission) => mission.job_code === jobCode);
+  return allMissions
+    .map((mission, index) => ({ mission, index }))
+    .filter(({ mission }) => mission.job_code === jobCode)
+    .sort((a, b) => difficultyRank(a.mission) - difficultyRank(b.mission) || a.index - b.index)
+    .map(({ mission }) => mission);
 }
 
 export function getCurrentMission({ allMissions, state }) {

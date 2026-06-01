@@ -486,19 +486,21 @@ function renderAdminEmail(data) {
 }
 
 function renderAdminSchedule(data) {
-  if (Array.isArray(data.series) && Array.isArray(data.x_axis?.values) && data.x_axis.values.length) {
-    return renderChartPreview(data) || "";
-  }
   const items = Array.isArray(data.items) ? data.items : [];
-  if (!items.length) return "";
-  const hasScheduleFields = items.some((item) => item && (item.period || item.task));
+  const hasScheduleFields = items.some((item) => item && (item.period || item.task || item.text || item.label));
   if (hasScheduleFields) {
-    return `<div style="overflow:auto"><table class="mat-table"><thead><tr><th>기간</th><th>작업</th><th>제약</th></tr></thead><tbody>${items.slice(0, 6).map((item) => `<tr>
+    return `<div style="overflow:auto"><table class="mat-table"><thead><tr><th>기간</th><th>작업</th><th>내용</th><th>제약</th></tr></thead><tbody>${items.slice(0, 6).map((item) => `<tr>
       <td>${esc(item.period || "")}</td>
-      <td>${esc(item.task || item.label || item.text || "")}</td>
+      <td>${esc([item.label, item.task].filter(Boolean).join(" · ") || item.text || "")}</td>
+      <td>${esc(item.text || "")}</td>
       <td>${esc(item.constraint || "")}</td>
     </tr>`).join("")}</tbody></table></div>`;
   }
+  if (Array.isArray(data.rows) && data.rows.length) return renderMaterialTable(data) || "";
+  if (Array.isArray(data.series) && Array.isArray(data.x_axis?.values) && data.x_axis.values.length) {
+    return renderChartPreview(data) || "";
+  }
+  if (!items.length) return "";
   return renderMaterialItems(data) || "";
 }
 
@@ -519,13 +521,14 @@ function renderAdminChecklist(data) {
 }
 
 function renderAdminCard(data) {
+  const attrLabels = { strength: "강점", weakness: "약점", fit: "적합도" };
   const cards = Array.isArray(data.cards) ? data.cards : [];
   if (!cards.length) return renderMaterialItems(data) || renderMaterialStack(data.entries, "mat-entry") || "";
   return `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px">${cards.slice(0, 4).map((card) => {
     const attrs = card.attributes && typeof card.attributes === "object" ? Object.entries(card.attributes) : [];
     return `<div class="mat-entry">
       <strong style="font-size:12px;display:block;margin-bottom:5px">${esc(card.title || card.label || "")}</strong>
-      ${attrs.map(([k, v]) => `<div style="font-size:11px;color:var(--t3)">${esc(k)}: <span style="color:var(--t2)">${esc(String(v))}</span></div>`).join("")}
+      ${attrs.map(([k, v]) => `<div style="font-size:11px;color:var(--t3)">${esc(attrLabels[k] || k)}: <span style="color:var(--t2)">${esc(String(v))}</span></div>`).join("")}
     </div>`;
   }).join("")}</div>`;
 }

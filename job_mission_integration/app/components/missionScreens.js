@@ -166,19 +166,23 @@ function renderEmail(data, esc) {
 }
 
 function renderSchedule(data, esc) {
-  if (Array.isArray(data.series) && Array.isArray(data.x_axis?.values) && data.x_axis.values.length) {
-    return renderChart(data, esc);
-  }
   const items = Array.isArray(data.items) ? data.items : [];
-  if (!items.length) return `<div class="mat-empty">일정 데이터가 없습니다.</div>`;
-  const hasScheduleFields = items.some((item) => item && (item.period || item.task));
+  const hasScheduleFields = items.some((item) => item && (item.period || item.task || item.text || item.label));
   if (hasScheduleFields) {
     return `<div class="schedule-list">${items.map((item) => `<div class="schedule-item">
       ${item.period ? `<span class="sched-period">${esc(item.period)}</span>` : ""}
-      <span class="sched-task">${esc(item.task || item.label || item.text || "")}</span>
-      ${item.constraint ? `<div class="sched-constraint">${esc(item.constraint)}</div>` : ""}
+      <span class="sched-task">${esc([item.label, item.task].filter(Boolean).join(" · ") || item.text || "")}</span>
+      ${[item.text, item.constraint]
+        .filter((value, index, values) => value && values.indexOf(value) === index)
+        .map((value) => `<div class="sched-constraint">${esc(value)}</div>`)
+        .join("")}
     </div>`).join("")}</div>`;
   }
+  if (Array.isArray(data.rows) && data.rows.length) return renderTable(data, esc);
+  if (Array.isArray(data.series) && Array.isArray(data.x_axis?.values) && data.x_axis.values.length) {
+    return renderChart(data, esc);
+  }
+  if (!items.length) return `<div class="mat-empty">일정 데이터가 없습니다.</div>`;
   return `<ul class="mat-items">${items.map((item) => `<li>${esc(typeof item === "string" ? item : (item.text || item.label || JSON.stringify(item)))}</li>`).join("")}</ul>`;
 }
 
@@ -199,6 +203,7 @@ function renderChecklist(data, esc) {
 }
 
 function renderCard(data, esc) {
+  const attrLabels = { strength: "강점", weakness: "약점", fit: "적합도" };
   const cards = Array.isArray(data.cards) ? data.cards : [];
   if (!cards.length) return renderMemo(data, esc);
   return `<div class="opt-cards">${cards.map((card) => {
@@ -206,7 +211,7 @@ function renderCard(data, esc) {
     return `<div class="opt-card">
       <div class="opt-card-title">${esc(card.title || card.label || "")}</div>
       ${card.body ? `<div class="opt-card-body">${esc(card.body)}</div>` : ""}
-      ${attrs.length ? `<div class="opt-attrs">${attrs.map(([k, v]) => `<div class="opt-attr"><span class="opt-attr-key">${esc(k)}</span><span class="opt-attr-val">${esc(String(v))}</span></div>`).join("")}</div>` : ""}
+      ${attrs.length ? `<div class="opt-attrs">${attrs.map(([k, v]) => `<div class="opt-attr"><span class="opt-attr-key">${esc(attrLabels[k] || k)}</span><span class="opt-attr-val">${esc(String(v))}</span></div>`).join("")}</div>` : ""}
     </div>`;
   }).join("")}</div>`;
 }
@@ -291,7 +296,7 @@ export function renderPreQuestionScreen({ state, jobDefs, renderBrand }) {
     <textarea id="pq2" rows="3">${esc(answers.q2)}</textarea>
   </div>
   <div style="display:flex;gap:10px;margin-top:24px">
-    ${state.preqIndex > 0 ? "<button class=\"btn btn-g\" id=\"btn-pback\">← 이전</button>" : ""}
+    <button class="btn btn-g" id="btn-pback">${state.preqIndex > 0 ? "← 이전 직무" : "← 직무 선택"}</button>
     <button class="btn btn-p" id="btn-pnext" style="margin-left:auto">${state.preqIndex < state.selectedJobs.length - 1 ? "다음 직무 →" : "미션 시작 →"}</button>
   </div>`;
 }
@@ -363,8 +368,8 @@ export function renderMissionScreen({
       <div class="mis-q">${esc(mission.title)}</div>
       ${scenarioUI}
       <div class="mis-divider"></div>
-      ${materialsUI}
       ${tasksUI}
+      ${materialsUI}
     </div>
     <div class="mis-right">
       <div>
@@ -379,8 +384,9 @@ export function renderMissionScreen({
         <textarea id="m-ans" placeholder="여기에 답변을 작성하세요…">${esc(state.missionAnswer)}</textarea>
         <div class="char-ct">${state.missionAnswer.length}자</div>
       </div>
-      <div class="fr">
+      <div style="display:flex;flex-direction:column;gap:8px">
         <button class="btn btn-p" id="btn-mnext"${answerReady ? "" : " disabled"} style="width:100%">${isLastMission ? "결과 보기 →" : "다음 →"}</button>
+        <button class="btn btn-g" id="btn-mission-back" style="width:100%">← 미션 다시 선택</button>
       </div>
     </div>
   </div>`;
