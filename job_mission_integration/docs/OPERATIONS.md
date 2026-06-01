@@ -15,7 +15,7 @@ cp .env.server.example .env.server
 - `EVALUATE_RATE_LIMIT_MAX` (기본 `10`)
 - `EVALUATE_RATE_LIMIT_WINDOW_MS` (기본 `60000`)
 - `EVALUATION_LOG_RETENTION_DAYS` (기본 `14`)
-- `API_SHARED_TOKEN` (설정 시 `x-api-token` 또는 Bearer 토큰 필수)
+- `ADMIN_PASSWORD` (설정 시 관리자 API 호출에 `x-api-token` 헤더 필수)
 
 ## 2) 서버 실행 (PM2)
 

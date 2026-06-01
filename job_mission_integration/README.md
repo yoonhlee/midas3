@@ -63,7 +63,7 @@ cp .env.example .env
 OPENAI_API_KEY=sk-...
 OPENAI_GENERATION_MODEL=gpt-5.4-nano
 OPENAI_EVAL_MODEL=gpt-5-nano
-API_SHARED_TOKEN=admin-password
+ADMIN_PASSWORD=admin-password
 COMPATIBILITY_SCORE_GAMMA=1.5
 PORT=8080
 ```
@@ -82,7 +82,7 @@ EVALUATE_RATE_LIMIT_MAX=30
 | `OPENAI_API_KEY` | 미션 생성과 답변 평가에 사용하는 OpenAI API key입니다. |
 | `OPENAI_GENERATION_MODEL` | 관리자 미션 생성과 생성 전 OpenAI preflight에 사용하는 모델입니다. 기본값은 `gpt-5.4-nano`입니다. |
 | `OPENAI_EVAL_MODEL` | 사용자 답변 평가 모델입니다. 기본값은 `gpt-5-nano`입니다. |
-| `API_SHARED_TOKEN` | 관리자 페이지 접속 암호이자 보호된 API 호출 토큰입니다. |
+| `ADMIN_PASSWORD` | 관리자 페이지 접속 암호이자 보호된 API 호출 토큰입니다. |
 | `COMPATIBILITY_SCORE_GAMMA` | 직무 추천/적합도 점수 보정값입니다. 기본값은 `1.5`입니다. |
 | `PORT` | 로컬 서버 포트입니다. 기본값은 `8080`입니다. |
 | `PYTHON_BIN` | 사용할 Python 실행 파일입니다. 생략하면 Windows는 `python`, 그 외 환경은 `python3`를 사용합니다. |
@@ -108,7 +108,7 @@ npm run dev
 관리자 화면: http://localhost:8080/admin.html
 ```
 
-관리자 화면에 들어갈 때는 `.env`의 `API_SHARED_TOKEN` 값을 입력합니다.
+관리자 화면에 들어갈 때는 `.env`의 `ADMIN_PASSWORD` 값을 입력합니다.
 
 ## 관리자 미션 생성 방법
 
@@ -235,7 +235,7 @@ http://localhost:8080/api/bootstrap
 
 ### 관리자 페이지에서 401이 나올 때
 
-입력한 암호가 `.env`의 `API_SHARED_TOKEN`과 같은지 확인합니다. `.env`를 수정했다면 서버를 재시작합니다.
+입력한 암호가 `.env`의 `ADMIN_PASSWORD`과 같은지 확인합니다. `.env`를 수정했다면 서버를 재시작합니다.
 
 ### 직무가 `추가자료 필요`로 표시될 때
 
