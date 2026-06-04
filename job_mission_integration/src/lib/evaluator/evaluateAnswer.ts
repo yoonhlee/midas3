@@ -214,19 +214,52 @@ function capScoresForNonLlm(evaluation: Evaluation): Evaluation {
   return evaluation;
 }
 
-function validateAndRecalculate(answer: string, evaluation: Evaluation): Evaluation {
-  const usedQuotes = new Set<string>();
+const SECONDARY_ONLY_SCORE_CAP = 2;
+
+function axisSignalValue(mission: Mission | undefined, axis: (typeof AXES)[number]) {
+  return Number(mission?.axis_signals?.[axis] ?? mission?.axis_signals_derived?.[axis] ?? 0);
+}
+
+function canUseSecondaryEvidenceForAxis(
+  mission: Mission | undefined,
+  axis: (typeof AXES)[number],
+  hasResolvedAxisSignals: boolean
+) {
+  if (!hasResolvedAxisSignals) return true;
+  return axisSignalValue(mission, axis) > 0;
+}
+
+function validateAndRecalculate(answer: string, evaluation: Evaluation, mission?: Mission): Evaluation {
+  const primaryQuoteOwners = new Map<string, (typeof AXES)[number]>();
+  const hasResolvedAxisSignals = Boolean(mission) && AXES.some((axis) => axisSignalValue(mission, axis) > 0);
+  // Read across axes so secondary_axes can stabilize borderline evidence assignment.
+  const evidencePool = AXES.flatMap((axis) => evaluation.axes[axis].evidence);
 
   for (const axis of AXES) {
     const axisResult = evaluation.axes[axis];
-    axisResult.evidence = axisResult.evidence.filter((item) => {
+    const axisQuoteKeys = new Set<string>();
+    axisResult.evidence = evidencePool.filter((item) => {
       const quoteKey = normalizeText(item.quote);
-      const supportsAxis = item.primary_axis === axis;
+      const supportsPrimaryAxis = item.primary_axis === axis;
+      const supportsSecondaryAxis =
+        item.secondary_axes.includes(axis) &&
+        canUseSecondaryEvidenceForAxis(mission, axis, hasResolvedAxisSignals);
       const isStrictAnswerQuote = quoteAppearsInAnswerStrict(answer, item.quote);
-      const isDuplicate = usedQuotes.has(quoteKey);
 
-      if (supportsAxis && isStrictAnswerQuote && !isDuplicate) {
-        usedQuotes.add(quoteKey);
+      if (!quoteKey || !isStrictAnswerQuote || axisQuoteKeys.has(quoteKey)) {
+        return false;
+      }
+
+      if (supportsPrimaryAxis) {
+        const primaryOwner = primaryQuoteOwners.get(quoteKey);
+        if (primaryOwner && primaryOwner !== axis) return false;
+        primaryQuoteOwners.set(quoteKey, axis);
+        axisQuoteKeys.add(quoteKey);
+        return true;
+      }
+
+      if (supportsSecondaryAxis) {
+        axisQuoteKeys.add(quoteKey);
         return true;
       }
 
@@ -243,12 +276,15 @@ function validateAndRecalculate(answer: string, evaluation: Evaluation): Evaluat
     }
 
     const primaryEvidence = axisResult.evidence.filter((item) => item.primary_axis === axis);
-    const scoreEvidence = primaryEvidence.length > 0 ? primaryEvidence : axisResult.evidence;
+    const secondaryEvidence = axisResult.evidence.filter((item) =>
+      item.primary_axis !== axis && item.secondary_axes.includes(axis)
+    );
+    const scoreEvidence = primaryEvidence.length > 0 ? primaryEvidence : secondaryEvidence;
     axisResult.score = Math.max(...scoreEvidence.map((item) => item.level));
 
     if (primaryEvidence.length === 0) {
-      axisResult.score = Math.min(axisResult.score, 2);
-      axisResult.reason = `${axisResult.reason} Secondary-only evidence; score capped.`;
+      axisResult.score = Math.min(axisResult.score, SECONDARY_ONLY_SCORE_CAP);
+      axisResult.reason = `${axisResult.reason} Secondary-only evidence; score capped at ${SECONDARY_ONLY_SCORE_CAP}.`;
     }
 
     if (axisResult.evidence.length < 2 && axisResult.score >= 4) {
@@ -539,7 +575,7 @@ export async function evaluateAnswer({ mission, answer }: EvaluateAnswerInput): 
     evaluation = validateAndRecalculate(answer, {
       ...parsed,
       source: "llm"
-    });
+    }, normalizedMission);
   } catch (error) {
     const cause = error instanceof Error ? error.message : "unknown_llm_error";
     evaluation = heuristicFallbackEvaluation(normalizedMission, answer, cause);
