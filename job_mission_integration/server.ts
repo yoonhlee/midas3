@@ -132,9 +132,10 @@ const EVALUATE_RATE_LIMIT_WINDOW_MS = Math.max(
   1_000,
   positiveIntFromEnv(process.env.EVALUATE_RATE_LIMIT_WINDOW_MS, 60_000)
 );
+// 연속 채점 요청이 정상 사용 흐름을 막지 않도록 기본 허용량을 조금 넉넉하게 둔다.
 const EVALUATE_RATE_LIMIT_MAX = positiveIntFromEnv(
   process.env.EVALUATE_RATE_LIMIT_MAX,
-  10
+  30
 );
 const OPENAI_PREFLIGHT_TIMEOUT_MS = Math.max(
   1_000,

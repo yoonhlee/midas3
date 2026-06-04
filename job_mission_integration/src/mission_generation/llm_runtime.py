@@ -62,6 +62,12 @@ class OpenAIResponsesRuntime:
         if not self.api_key_available():
             return self._missing_key_result(call_type, temperature)
 
+        # 설정상 허용된 경우 Responses API body에 temperature를 실제로 넣는다.
+        # 단, gpt 계열 중 일부는 temperature를 거부하므로 실패 시 아래에서 한 번 제거하고 재시도한다.
+        temperature_policy = self.config.temperature_application()
+        temperature_applied = bool(temperature_policy.get("temperature_applied"))
+        temperature_omitted_reason = temperature_policy.get("temperature_omitted_reason")
+        temperature_fallback_used = False
         request_body = {
             "model": self.config.model,
             "reasoning": {"effort": self.config.reasoning_effort},
@@ -81,12 +87,16 @@ class OpenAIResponsesRuntime:
                 }
             },
         }
+        if temperature_applied:
+            request_body["temperature"] = temperature
 
         last_error: dict[str, str] | None = None
         retry_errors: list[dict[str, str]] = []
         attempt_count = 0
-        for attempt in range(self.config.max_api_retries + 1):
-            attempt_count = attempt + 1
+        max_attempts = self.config.max_api_retries + 1
+        while attempt_count < max_attempts:
+            attempt = attempt_count
+            attempt_count += 1
             try:
                 response = self._post(request_body)
                 output_text = self._extract_output_text(response)
@@ -99,7 +109,12 @@ class OpenAIResponsesRuntime:
                     "model": self.config.model,
                     "call_type": call_type,
                     "reasoning_effort": self.config.reasoning_effort,
-                    **self._temperature_metadata(temperature),
+                    **self._temperature_metadata(
+                        temperature,
+                        applied=temperature_applied,
+                        omitted_reason=temperature_omitted_reason,
+                        fallback_used=temperature_fallback_used,
+                    ),
                     **self._retry_metadata(attempt_count, retry_errors),
                     "status": response.get("status", "completed"),
                     "output_json": output_json,
@@ -108,6 +123,17 @@ class OpenAIResponsesRuntime:
                 }
             except urllib.error.HTTPError as exc:
                 last_error = self._map_http_error(exc)
+                if "temperature" in request_body and self._is_temperature_unsupported_error(last_error):
+                    # 모델 미지원은 생성 실패로 보지 않고 temperature 없이 재시도해 생성 흐름의 안정성을 유지한다.
+                    retry_errors.append(last_error)
+                    request_body.pop("temperature", None)
+                    temperature_applied = False
+                    temperature_omitted_reason = "unsupported_by_model_retry_without_temperature"
+                    temperature_fallback_used = True
+                    if attempt_count >= max_attempts:
+                        max_attempts += 1
+                    time.sleep(1)
+                    continue
                 if not self._should_retry(last_error["code"], attempt):
                     break
                 retry_errors.append(last_error)
@@ -138,7 +164,12 @@ class OpenAIResponsesRuntime:
             "model": self.config.model,
             "call_type": call_type,
             "reasoning_effort": self.config.reasoning_effort,
-            **self._temperature_metadata(temperature),
+            **self._temperature_metadata(
+                temperature,
+                applied=temperature_applied,
+                omitted_reason=temperature_omitted_reason,
+                fallback_used=temperature_fallback_used,
+            ),
             **self._retry_metadata(attempt_count, retry_errors),
             "status": "failed",
             "output_json": None,
@@ -173,7 +204,11 @@ class OpenAIResponsesRuntime:
             "model": self.config.model,
             "call_type": call_type,
             "reasoning_effort": self.config.reasoning_effort,
-            **self._temperature_metadata(temperature),
+            **self._temperature_metadata(
+                temperature,
+                applied=False,
+                omitted_reason="api_key_missing",
+            ),
             **self._retry_metadata(1, []),
             "status": "skipped",
             "output_json": None,
@@ -181,11 +216,32 @@ class OpenAIResponsesRuntime:
             "errors": [{"code": "OPENAI_API_KEY_MISSING", "message": "OPENAI_API_KEY is not set."}],
         }
 
-    def _temperature_metadata(self, configured_temperature: float) -> dict[str, Any]:
+    def _temperature_metadata(
+        self,
+        configured_temperature: float,
+        *,
+        applied: bool | None = None,
+        omitted_reason: str | None = None,
+        fallback_used: bool = False,
+    ) -> dict[str, Any]:
+        """요청 의도와 실제 적용 여부를 분리해 기록한다.
+
+        예를 들어 요청에는 temperature를 넣었지만 모델이 거부해 재시도한 경우,
+        request_parameter는 temperature이고 temperature_applied는 False가 된다.
+        """
+
+        temperature_policy = self.config.temperature_application()
+        intended_request_parameter = str(temperature_policy.get("request_parameter") or "omitted")
+        actual_applied = bool(temperature_policy.get("temperature_applied")) if applied is None else applied
+        actual_omitted_reason = None if actual_applied else (
+            omitted_reason or temperature_policy.get("temperature_omitted_reason")
+        )
         return {
             "configured_temperature": configured_temperature,
-            "temperature_applied": False,
-            "temperature_omitted_reason": self.config.temperature_application()["temperature_omitted_reason"],
+            "temperature_request_parameter": intended_request_parameter,
+            "temperature_applied": actual_applied,
+            "temperature_omitted_reason": actual_omitted_reason,
+            "temperature_retry_without_parameter": fallback_used,
         }
 
     def _retry_metadata(self, attempt_count: int, retry_errors: list[dict[str, str]]) -> dict[str, Any]:
@@ -273,6 +329,23 @@ class OpenAIResponsesRuntime:
                 details.append(f"{key}={value}")
         suffix = f" ({', '.join(details)})" if details else ""
         return f"{message}{suffix}"
+
+    def _is_temperature_unsupported_error(self, error: dict[str, str]) -> bool:
+        """OpenAI 에러 문구가 temperature 미지원 케이스인지 보수적으로 판별한다."""
+
+        message = f"{error.get('code', '')} {error.get('message', '')}".lower()
+        if "temperature" not in message:
+            return False
+        unsupported_markers = (
+            "unsupported",
+            "not supported",
+            "does not support",
+            "unknown parameter",
+            "unrecognized",
+            "invalid parameter",
+            "param=temperature",
+        )
+        return any(marker in message for marker in unsupported_markers)
 
     def _should_retry(self, code: str, attempt: int) -> bool:
         """일시적 오류와 출력 파싱 실패에 대해서만 설정된 횟수 안에서 재시도한다."""

@@ -118,12 +118,9 @@ export function createEvaluationWorkflow({
       const data = await evaluateAnswerRequest({ answer, mission: payload });
       return { missionScore: data.missionScore, evaluation: data.evaluation };
     } catch (error) {
-      const reason = (error && error.message) ? error.message : String(error);
-      console.warn("Server evaluation failed. Saving unavailable placeholder evaluation.", error);
-      return {
-        missionScore: emptyMissionScore(),
-        evaluation: buildUnavailableEvaluation({ axes, answer, mission, reason })
-      };
+      // API 실패를 0점 placeholder로 저장하지 않고, 화면 흐름에서 재시도 UX를 띄우도록 전파한다.
+      console.warn("Server evaluation failed. Showing retry screen instead of saving a zero score.", error);
+      throw error;
     }
   }
 

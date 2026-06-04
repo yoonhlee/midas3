@@ -240,13 +240,17 @@ export function renderRecommendationsSection({
       const bars = axes.map((axis) => {
         const jobValue = Math.min((recommendation.weights?.[axis] || 0) * radarScale * 100, 100);
         const myValue = Math.min((profile[axis] || 0) * radarScale * 100, 100);
+        // 겹친 구간과 내 성향이 더 긴 구간을 같은 보라 계열의 진하기 차이로 구분한다.
+        const overlapValue = Math.min(jobValue, myValue);
+        const extraValue = Math.max(myValue - jobValue, 0);
         const diff = Math.abs(jobValue - myValue);
         const matchColor = diff < 15 ? "var(--success)" : diff < 30 ? "var(--warn)" : "var(--danger)";
         return `<div class="ax-row">
           <span class="ax-lbl">${axisLabels[axis].split("·")[0]}</span>
-          <div class="ax-bw">
+          <div class="ax-bw" title="내 성향 ${myValue.toFixed(0)}%, 직업 기준 ${jobValue.toFixed(0)}%">
             <div class="ax-bf-job" style="width:${jobValue.toFixed(0)}%"></div>
-            <div class="ax-bf-me" style="width:${myValue.toFixed(0)}%;opacity:0.85"></div>
+            <div class="ax-bf-me-overlap${extraValue > 0 ? " ax-bf-me-joined" : ""}" style="width:${overlapValue.toFixed(0)}%"></div>
+            ${extraValue > 0 ? `<div class="ax-bf-me-extra" style="left:${overlapValue.toFixed(0)}%;width:${extraValue.toFixed(0)}%"></div>` : ""}
           </div>
           <span class="ax-vals" style="color:${matchColor}">${diff < 15 ? "✓" : diff < 30 ? "△" : "▽"}</span>
         </div>`;

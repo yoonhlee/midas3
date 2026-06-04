@@ -137,6 +137,7 @@ type BuildPromptInput = {
     scenario?: string;
     task?: string;
     axis_signals?: Partial<Record<string, number>>;
+    axis_signals_derived?: Partial<Record<string, number>>;
     /** @deprecated 구 스키마 키워드 힌트. 새 스키마에서는 rubric_criteria 사용. */
     rubric?: Record<string, string[]>;
     /** 새 스키마: 도메인별 채점 기준 (mission_output.v1 evaluation.rubric 의 평탄화) */
@@ -191,6 +192,54 @@ function serializeMaterials(materials: Array<Record<string, unknown>>): string {
   return parts.join("\n\n");
 }
 
+function serializeMaterialData(materials: Array<Record<string, unknown>>): string {
+  // mission_output.v1은 실제 차트/표 값이 material.data 안에 있어, 바깥 필드만 읽으면 채점 근거가 빠진다.
+  if (!materials || materials.length === 0) return "";
+  return materials.map((mat, idx) => {
+    const type = String(mat.type || "unknown");
+    const title = String(mat.title || `material ${idx + 1}`);
+    const data = (mat.data && typeof mat.data === "object" ? mat.data : mat) as Record<string, unknown>;
+
+    if (type === "chart") {
+      const xAxis = data.x_axis && typeof data.x_axis === "object" ? data.x_axis as Record<string, unknown> : {};
+      const yAxis = data.y_axis && typeof data.y_axis === "object" ? data.y_axis as Record<string, unknown> : {};
+      const xValues = Array.isArray(xAxis.values) ? xAxis.values.join(", ") : "";
+      const series = Array.isArray(data.series) ? data.series as Array<Record<string, unknown>> : [];
+      const seriesText = series.map((item) => {
+        const values = Array.isArray(item.values) ? item.values.join(", ") : "";
+        return `  ${String(item.name || item.label || "")}: [${values}]`;
+      }).join("\n");
+      return `[CHART] ${title} (${String(data.chart_type || "")}, X: ${String(xAxis.label || "")} [${xValues}], Y: ${String(yAxis.label || "")} ${String(yAxis.unit || "")})\n${seriesText}`;
+    }
+
+    if (type === "table") {
+      const columns = Array.isArray(data.columns) ? data.columns as Array<Record<string, unknown>> : [];
+      const rows = Array.isArray(data.rows) ? data.rows as Array<Record<string, unknown>> : [];
+      const header = columns.map((column) => String(column.label || column.key || "")).join(" | ");
+      const rowText = rows.map((row) =>
+        columns.map((column) => String(row[String(column.key)] ?? "")).join(" | ")
+      ).join("\n  ");
+      return `[TABLE] ${title}\n  ${header}\n  ${rowText}`;
+    }
+
+    if (type === "checklist") {
+      const items = Array.isArray(data.items) ? data.items as Array<Record<string, unknown>> : [];
+      const itemText = items.map((item) =>
+        `[${String(item.status || "")}] ${String(item.label || item.text || "")}${item.importance ? ` (importance: ${String(item.importance)})` : ""}`
+      ).join("\n  ");
+      return `[CHECKLIST] ${title}\n  ${itemText}`;
+    }
+
+    if (type === "memo") {
+      const items = Array.isArray(data.items) ? data.items : [];
+      if (items.length > 0) return `[MEMO] ${title}\n  ${items.map((item) => String(item)).join("\n  ")}`;
+      return `[MEMO] ${title}\n  ${String(data.content || data.body || "")}`;
+    }
+
+    return `[${type.toUpperCase()}] ${title}\n  ${JSON.stringify(data)}`;
+  }).join("\n\n");
+}
+
 export function buildEvaluationPrompt({ mission, answer }: BuildPromptInput) {
   const criteria = mission.rubric_criteria ?? [];
   const insights = mission.expected_insights ?? [];
@@ -220,10 +269,12 @@ ${insights.map((s, i) => `${i + 1}. ${s}`).join("\n")}
     ? `mission_keyword_hints (weak hints, do not score by keyword count): ${JSON.stringify(legacyKeywordHints)}\n`
     : "";
 
-  const materialsText = serializeMaterials((mission.materials || []) as Array<Record<string, unknown>>);
+  const materialsText = serializeMaterialData((mission.materials || []) as Array<Record<string, unknown>>);
   const materialsSection = materialsText
     ? `\nMission materials (actual data the user had access to while solving the mission):\n${materialsText}\n`
     : "";
+  // 평가 함수 밖에서 프롬프트를 직접 만들 때도 raw JSON의 axis_signals_derived를 이해하게 한다.
+  const expectedAxisSignals = mission.axis_signals ?? mission.axis_signals_derived ?? {};
 
   const answerJson = JSON.stringify(answer ?? "");
 
@@ -234,7 +285,7 @@ Mission:
 - title: ${mission.title ?? ""}
 - scenario: ${mission.scenario ?? ""}
 - task: ${mission.task ?? ""}
-- expected_axis_signals: ${JSON.stringify(mission.axis_signals ?? {})}
+- expected_axis_signals: ${JSON.stringify(expectedAxisSignals)}
 ${legacyHintSection}${rubricSection}${insightSection}${materialsSection}
 Axis definitions:
 ${Object.entries(AXIS_DEFINITIONS).map(([key, value]) => `- ${key}: ${value}`).join("\n")}
