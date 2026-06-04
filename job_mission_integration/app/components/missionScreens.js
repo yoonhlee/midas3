@@ -31,7 +31,8 @@ function renderMaterial(material, esc) {
   </div>`;
 }
 
-function renderChart(data, esc) {
+function renderChartLegacy(data, esc) {
+  // 기존 산출물 형식이 들어와도 미션 자료 화면이 비지 않도록 남겨 둔 fallback 렌더러다.
   const series = (data.series || []).filter((item) => Array.isArray(item.values) && item.values.length);
   const xValues = data.x_axis?.values || [];
   if (!series.length || !xValues.length) {
@@ -82,6 +83,103 @@ function renderChart(data, esc) {
     : "";
 
   return `<svg class="chart-svg" viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(data.chart_type || "chart")}">${axisLine}${body}${xLabels}${yLabels}</svg>${legend}`;
+}
+
+function renderChart(data, esc) {
+  // bar/line 차트의 여백과 축 범위를 분리해 값 라벨이 축선이나 카드 밖으로 밀리지 않게 한다.
+  const series = (data.series || []).filter((item) => Array.isArray(item.values) && item.values.length);
+  const xValues = data.x_axis?.values || [];
+  if (!series.length || !xValues.length) {
+    return renderChartLegacy(data, esc);
+  }
+
+  const colors = ["var(--accent)", "var(--success)", "var(--warn)", "var(--danger)"];
+  const chartType = data.chart_type || "line";
+  const isBarChart = chartType === "bar";
+  const width = 520;
+  const height = isBarChart ? 240 : 220;
+  const margin = isBarChart
+    ? { top: 28, right: 18, bottom: 42, left: 52 }
+    : { top: 26, right: 18, bottom: 40, left: 48 };
+  const plotLeft = margin.left;
+  const plotRight = width - margin.right;
+  const plotTop = margin.top;
+  const plotBottom = height - margin.bottom;
+  const plotWidth = plotRight - plotLeft;
+  const plotHeight = plotBottom - plotTop;
+  const allValues = series.flatMap((item) => item.values.map(Number)).filter(Number.isFinite);
+  if (!allValues.length) return renderChartLegacy(data, esc);
+
+  const rawMaxValue = Math.max(...allValues);
+  const rawMinValue = Math.min(...allValues);
+  const minValue = Math.min(0, rawMinValue);
+  const niceCeil = (value) => {
+    if (!Number.isFinite(value) || value <= 0) return 1;
+    const magnitude = 10 ** Math.floor(Math.log10(value));
+    const normalized = value / magnitude;
+    const step = normalized <= 2 ? 2 : normalized <= 5 ? 5 : 10;
+    return step * magnitude;
+  };
+  const maxValue = isBarChart ? niceCeil(rawMaxValue) : rawMaxValue;
+  const yRange = Math.max(maxValue - minValue, 1);
+  const yScale = (value) => plotBottom - ((value - minValue) / yRange) * plotHeight;
+  const xStep = plotWidth / Math.max(xValues.length - 1, 1);
+  const formatValue = (value) => Number.isInteger(value) ? String(value) : value.toFixed(1);
+  const tickValues = isBarChart
+    ? Array.from(new Set([minValue, maxValue / 2, maxValue].map((value) => Number(value.toFixed(2)))))
+    : [minValue, maxValue];
+
+  let body = "";
+  series.forEach((item, seriesIndex) => {
+    const color = colors[seriesIndex % colors.length];
+    if (isBarChart) {
+      const groupWidth = plotWidth / xValues.length;
+      const barGap = Math.min(8, groupWidth * 0.08);
+      const barWidth = Math.max(12, (groupWidth * 0.66 - barGap * (series.length - 1)) / series.length);
+      item.values.forEach((rawValue, itemIndex) => {
+        const value = Number(rawValue);
+        if (!Number.isFinite(value)) return;
+        const groupLeft = plotLeft + itemIndex * groupWidth;
+        const groupCenter = groupLeft + groupWidth / 2;
+        const barsWidth = barWidth * series.length + barGap * (series.length - 1);
+        const x = groupCenter - barsWidth / 2 + (barWidth + barGap) * seriesIndex;
+        const y = yScale(value);
+        const barHeight = Math.max(0, plotBottom - y);
+        body += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barWidth.toFixed(1)}" height="${barHeight.toFixed(1)}" rx="2" fill="${color}" opacity="0.9"/>`;
+        body += `<text x="${(x + barWidth / 2).toFixed(1)}" y="${Math.max(plotTop + 10, y - 7).toFixed(1)}" fill="var(--sub)" font-size="10" text-anchor="middle">${formatValue(value)}</text>`;
+      });
+      return;
+    }
+
+    const path = item.values.map((rawValue, itemIndex) => {
+      const value = Number(rawValue);
+      const x = plotLeft + itemIndex * xStep;
+      return `${itemIndex === 0 ? "M" : "L"}${x.toFixed(1)},${yScale(value).toFixed(1)}`;
+    }).join(" ");
+    body += `<path d="${path}" fill="none" stroke="${color}" stroke-width="2"/>`;
+    item.values.forEach((rawValue, itemIndex) => {
+      const value = Number(rawValue);
+      body += `<circle cx="${(plotLeft + itemIndex * xStep).toFixed(1)}" cy="${yScale(value).toFixed(1)}" r="3" fill="${color}"/>`;
+    });
+  });
+
+  const xLabels = xValues.map((item, index) => {
+    const x = isBarChart
+      ? plotLeft + (index + 0.5) * (plotWidth / xValues.length)
+      : plotLeft + index * xStep;
+    return `<text x="${x.toFixed(1)}" y="${height - 16}" fill="var(--sub)" font-size="10" text-anchor="middle">${esc(item)}</text>`;
+  }).join("");
+  const grid = tickValues.map((value) => {
+    const y = yScale(value);
+    return `<line x1="${plotLeft}" y1="${y.toFixed(1)}" x2="${plotRight}" y2="${y.toFixed(1)}" stroke="var(--border)" opacity="${value === minValue ? "0.9" : "0.45"}"/>`;
+  }).join("");
+  const yAxis = `<line x1="${plotLeft}" y1="${plotTop}" x2="${plotLeft}" y2="${plotBottom}" stroke="var(--border)" opacity="0.65"/>`;
+  const yLabels = tickValues.map((value) => `<text x="${plotLeft - 10}" y="${(yScale(value) + 3).toFixed(1)}" fill="var(--sub)" font-size="10" text-anchor="end">${formatValue(value)}</text>`).join("");
+  const legend = series.length > 1
+    ? `<div class="chart-legend">${series.map((item, index) => `<span class="leg-item"><span class="leg-dot" style="background:${colors[index % colors.length]}"></span>${esc(item.name || (`계열 ${index + 1}`))}</span>`).join("")}</div>`
+    : "";
+
+  return `<svg class="chart-svg" viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(data.chart_type || "chart")}">${grid}${yAxis}${body}${xLabels}${yLabels}</svg>${legend}`;
 }
 
 function renderTable(data, esc) {
@@ -186,7 +284,7 @@ function renderSchedule(data, esc) {
   return `<ul class="mat-items">${items.map((item) => `<li>${esc(typeof item === "string" ? item : (item.text || item.label || JSON.stringify(item)))}</li>`).join("")}</ul>`;
 }
 
-function renderChecklist(data, esc) {
+function renderChecklistLegacy(data, esc) {
   const items = Array.isArray(data.items) ? data.items : [];
   if (!items.length) return `<div class="mat-empty">점검 항목이 없습니다.</div>`;
   const iconMap = { checked: "✓", unchecked: "○", issue: "!", warn: "⚠" };
@@ -196,6 +294,43 @@ function renderChecklist(data, esc) {
     const importance = typeof item === "object" ? (item.importance || "") : "";
     return `<li class="ck-item ck-${esc(status)}">
       <span class="ck-icon">${iconMap[status] || "·"}</span>
+      <span class="ck-label">${esc(label)}</span>
+      ${importance === "high" ? `<span class="ck-imp">중요</span>` : ""}
+    </li>`;
+  }).join("")}</ul>`;
+}
+
+const CHECKLIST_STATUS_META = {
+  // 항목 아이콘과 범례가 같은 설명을 쓰도록 상태별 의미를 한곳에 모았다.
+  checked: { icon: "✓", label: "확인 완료", hint: "이미 확인된 항목" },
+  unchecked: { icon: "○", label: "확인 필요", hint: "아직 확인해야 할 항목" },
+  issue: { icon: "!", label: "주의 필요", hint: "먼저 점검해야 할 항목" },
+  warn: { icon: "!", label: "높은 주의", hint: "위험도가 큰 항목" }
+};
+
+function normalizeChecklistStatus(status) {
+  return CHECKLIST_STATUS_META[status] ? status : "unchecked";
+}
+
+function renderChecklist(data, esc) {
+  const items = Array.isArray(data.items) ? data.items : [];
+  if (!items.length) return renderChecklistLegacy(data, esc);
+
+  const statuses = Array.from(new Set(items.map((item) => normalizeChecklistStatus(
+    typeof item === "object" ? (item.status || "unchecked") : "unchecked"
+  ))));
+  const legend = `<div class="checklist-legend" aria-label="체크리스트 마크 설명">${statuses.map((status) => {
+    const meta = CHECKLIST_STATUS_META[status];
+    return `<span class="ck-legend-item ck-legend-${esc(status)}" title="${esc(meta.hint)}"><span class="ck-legend-icon">${esc(meta.icon)}</span>${esc(meta.label)}</span>`;
+  }).join("")}</div>`;
+
+  return `${legend}<ul class="checklist">${items.map((item) => {
+    const label = typeof item === "string" ? item : (item.label || item.text || "");
+    const status = normalizeChecklistStatus(typeof item === "object" ? (item.status || "unchecked") : "unchecked");
+    const importance = typeof item === "object" ? (item.importance || "") : "";
+    const meta = CHECKLIST_STATUS_META[status];
+    return `<li class="ck-item ck-${esc(status)}">
+      <span class="ck-icon" title="${esc(meta.hint)}">${esc(meta.icon)}</span>
       <span class="ck-label">${esc(label)}</span>
       ${importance === "high" ? `<span class="ck-imp">중요</span>` : ""}
     </li>`;

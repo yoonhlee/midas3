@@ -83,6 +83,15 @@ MATERIAL_TYPES = {"chart", "table", "memo", "email", "schedule", "checklist", "l
 EXCLUDED_MATERIAL_TYPES = {"image", "screenshot"}
 
 
+def _env_flag(name: str, default: bool) -> bool:
+    """환경변수의 0/false/no/off 값만 명시적 비활성화로 해석한다."""
+
+    value = os.environ.get(name)
+    if value is None or not value.strip():
+        return default
+    return value.strip().lower() not in {"0", "false", "no", "off"}
+
+
 @dataclass(frozen=True)
 class RuntimeConfig:
     """OpenAI Responses API 호출과 pilot 실행에 공통으로 쓰는 runtime 설정."""
@@ -98,14 +107,26 @@ class RuntimeConfig:
     timeout_seconds: int = 120
     max_api_retries: int = 1
     api_key_env: str = "OPENAI_API_KEY"
+    # 기본은 temperature를 API body에 직접 넣되, 모델이 거부하면 runtime에서 안전하게 재시도한다.
+    apply_temperature: bool = field(
+        default_factory=lambda: _env_flag("OPENAI_GENERATION_APPLY_TEMPERATURE", True)
+    )
 
     def temperature_application(self) -> dict[str, Any]:
         """현재 모델에서 temperature를 실제 API body에 적용할지 기록한다."""
 
+        if not self.apply_temperature:
+            return {
+                "request_parameter": "omitted",
+                "temperature_applied": False,
+                "temperature_omitted_reason": "disabled_by_env",
+                "fallback_on_unsupported": False,
+            }
         return {
-            "request_parameter": "omitted",
-            "temperature_applied": False,
-            "temperature_omitted_reason": "unsupported_by_model",
+            "request_parameter": "temperature",
+            "temperature_applied": True,
+            "temperature_omitted_reason": None,
+            "fallback_on_unsupported": True,
         }
 
     def as_manifest(self) -> dict[str, Any]:
@@ -133,6 +154,7 @@ class RuntimeConfig:
             "temperature": {
                 "draft_generation": self.draft_temperature,
                 "repair_generation": self.repair_temperature,
+                "apply_to_api_request": self.apply_temperature,
             },
             "temperature_application": self.temperature_application(),
             "output_mode": "structured_outputs",

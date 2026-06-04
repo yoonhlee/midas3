@@ -3,13 +3,16 @@ import { zodTextFormat } from "openai/helpers/zod";
 import { AXES, Evaluation, LlmEvaluationSchema, MissionScore } from "./schema.js";
 import { buildEvaluationPrompt, PROMPT_VERSION, RubricCriterion, SYSTEM_PROMPT } from "./prompts.js";
 
+type AxisSignals = Partial<Record<(typeof AXES)[number], number>>;
+
 type Mission = {
   mission_id: string;
   job_name?: string;
   title?: string;
   scenario?: string;
   task?: string;
-  axis_signals?: Partial<Record<(typeof AXES)[number], number>>;
+  axis_signals?: AxisSignals;
+  axis_signals_derived?: AxisSignals;
   /** @deprecated 구 스키마 키워드 힌트. 새 스키마는 rubric_criteria 사용. */
   rubric?: Record<string, string[]>;
   /** 새 스키마 (mission_output.v1): 도메인별 채점 기준 */
@@ -39,6 +42,33 @@ function getOpenAIClient() {
     });
   }
   return openaiClient;
+}
+
+function hasAnyAxisSignal(signals?: AxisSignals) {
+  return AXES.some((axis) => Number(signals?.[axis] ?? 0) > 0);
+}
+
+function normalizeAxisSignals(signals?: AxisSignals): AxisSignals {
+  return Object.fromEntries(AXES.map((axis) => {
+    const value = Number(signals?.[axis] ?? 0);
+    return [axis, Number.isFinite(value) ? value : 0];
+  })) as AxisSignals;
+}
+
+function resolveAxisSignals(mission: Mission): AxisSignals {
+  // UI 경로는 axis_signals로 정규화하지만, 원본 미션 JSON은 axis_signals_derived만 가질 수 있다.
+  // API 직접 호출이나 raw JSON 재사용 시 축 가중치가 전부 0이 되지 않도록 여기서 한 번 더 보정한다.
+  const source = hasAnyAxisSignal(mission.axis_signals)
+    ? mission.axis_signals
+    : mission.axis_signals_derived;
+  return normalizeAxisSignals(source);
+}
+
+function withResolvedAxisSignals(mission: Mission): Mission {
+  return {
+    ...mission,
+    axis_signals: resolveAxisSignals(mission)
+  };
 }
 
 function emptyAxis(reason?: string) {
@@ -155,7 +185,13 @@ function quoteAppearsInAnswerStrict(answer: string, quote: string) {
   const normalizedAnswer = normalizeText(answer);
   const normalizedQuote = normalizeText(quote);
   if (!normalizedQuote) return false;
-  return normalizedAnswer.includes(normalizedQuote);
+  if (normalizedAnswer.includes(normalizedQuote)) return true;
+
+  // LLM이 인용구를 약간 축약해 반환하는 경우가 있어, 단어 대부분이 답변에 있으면 같은 근거로 인정한다.
+  const quoteTokens = normalizedQuote.split(/\s+/).filter((token) => token.length >= 2);
+  if (quoteTokens.length < 3) return false;
+  const matched = quoteTokens.filter((token) => normalizedAnswer.includes(token)).length;
+  return matched / quoteTokens.length >= 0.75;
 }
 
 function addFlag(evaluation: Evaluation, flag: Evaluation["flags"][number]) {
@@ -178,19 +214,52 @@ function capScoresForNonLlm(evaluation: Evaluation): Evaluation {
   return evaluation;
 }
 
-function validateAndRecalculate(answer: string, evaluation: Evaluation): Evaluation {
-  const usedQuotes = new Set<string>();
+const SECONDARY_ONLY_SCORE_CAP = 2;
+
+function axisSignalValue(mission: Mission | undefined, axis: (typeof AXES)[number]) {
+  return Number(mission?.axis_signals?.[axis] ?? mission?.axis_signals_derived?.[axis] ?? 0);
+}
+
+function canUseSecondaryEvidenceForAxis(
+  mission: Mission | undefined,
+  axis: (typeof AXES)[number],
+  hasResolvedAxisSignals: boolean
+) {
+  if (!hasResolvedAxisSignals) return true;
+  return axisSignalValue(mission, axis) > 0;
+}
+
+function validateAndRecalculate(answer: string, evaluation: Evaluation, mission?: Mission): Evaluation {
+  const primaryQuoteOwners = new Map<string, (typeof AXES)[number]>();
+  const hasResolvedAxisSignals = Boolean(mission) && AXES.some((axis) => axisSignalValue(mission, axis) > 0);
+  // Read across axes so secondary_axes can stabilize borderline evidence assignment.
+  const evidencePool = AXES.flatMap((axis) => evaluation.axes[axis].evidence);
 
   for (const axis of AXES) {
     const axisResult = evaluation.axes[axis];
-    axisResult.evidence = axisResult.evidence.filter((item) => {
+    const axisQuoteKeys = new Set<string>();
+    axisResult.evidence = evidencePool.filter((item) => {
       const quoteKey = normalizeText(item.quote);
-      const supportsAxis = item.primary_axis === axis;
+      const supportsPrimaryAxis = item.primary_axis === axis;
+      const supportsSecondaryAxis =
+        item.secondary_axes.includes(axis) &&
+        canUseSecondaryEvidenceForAxis(mission, axis, hasResolvedAxisSignals);
       const isStrictAnswerQuote = quoteAppearsInAnswerStrict(answer, item.quote);
-      const isDuplicate = usedQuotes.has(quoteKey);
 
-      if (supportsAxis && isStrictAnswerQuote && !isDuplicate) {
-        usedQuotes.add(quoteKey);
+      if (!quoteKey || !isStrictAnswerQuote || axisQuoteKeys.has(quoteKey)) {
+        return false;
+      }
+
+      if (supportsPrimaryAxis) {
+        const primaryOwner = primaryQuoteOwners.get(quoteKey);
+        if (primaryOwner && primaryOwner !== axis) return false;
+        primaryQuoteOwners.set(quoteKey, axis);
+        axisQuoteKeys.add(quoteKey);
+        return true;
+      }
+
+      if (supportsSecondaryAxis) {
+        axisQuoteKeys.add(quoteKey);
         return true;
       }
 
@@ -207,12 +276,15 @@ function validateAndRecalculate(answer: string, evaluation: Evaluation): Evaluat
     }
 
     const primaryEvidence = axisResult.evidence.filter((item) => item.primary_axis === axis);
-    const scoreEvidence = primaryEvidence.length > 0 ? primaryEvidence : axisResult.evidence;
+    const secondaryEvidence = axisResult.evidence.filter((item) =>
+      item.primary_axis !== axis && item.secondary_axes.includes(axis)
+    );
+    const scoreEvidence = primaryEvidence.length > 0 ? primaryEvidence : secondaryEvidence;
     axisResult.score = Math.max(...scoreEvidence.map((item) => item.level));
 
     if (primaryEvidence.length === 0) {
-      axisResult.score = Math.min(axisResult.score, 2);
-      axisResult.reason = `${axisResult.reason} Secondary-only evidence; score capped.`;
+      axisResult.score = Math.min(axisResult.score, SECONDARY_ONLY_SCORE_CAP);
+      axisResult.reason = `${axisResult.reason} Secondary-only evidence; score capped at ${SECONDARY_ONLY_SCORE_CAP}.`;
     }
 
     if (axisResult.evidence.length < 2 && axisResult.score >= 4) {
@@ -280,8 +352,9 @@ function validateAndRecalculate(answer: string, evaluation: Evaluation): Evaluat
 }
 
 function toMissionScore(evaluation: Evaluation, mission: Mission): MissionScore {
+  const axisSignals = resolveAxisSignals(mission);
   return Object.fromEntries(AXES.map((axis) => {
-    const signal = mission.axis_signals?.[axis] ?? 0;
+    const signal = axisSignals[axis] ?? 0;
     return [axis, (evaluation.axes[axis].score / 4) * signal];
   })) as MissionScore;
 }
@@ -309,6 +382,7 @@ function lowContentEvaluation(
 }
 
 function heuristicFallbackEvaluation(mission: Mission, answer: string, cause: string): Evaluation {
+  const axisSignals = resolveAxisSignals(mission);
   const length = normalizeText(answer).length;
   const numberCount = countNumbers(answer);
   const uniqueness = uniqueTokenRatio(answer);
@@ -352,14 +426,14 @@ function heuristicFallbackEvaluation(mission: Mission, answer: string, cause: st
   if (mission.rubric_criteria?.length) {
     // criteria description을 axis_signals 비례로 axes에 분배
     // (정확한 linked_evidence 매핑은 없으므로 axis_signals 비율로 근사)
-    const signalTotal = AXES.reduce((s, ax) => s + (mission.axis_signals?.[ax] ?? 0), 0);
+    const signalTotal = AXES.reduce((s, ax) => s + (axisSignals[ax] ?? 0), 0);
     for (const criterion of mission.rubric_criteria) {
       // description에서 4자 이상 단어만 추출 (의미있는 한국어 명사 추정)
       const words = criterion.description.match(/[가-힣]{4,}/g) ?? [];
       if (!words.length) continue;
       // 가장 높은 axis_signals를 가진 축에 할당
       const topAxis = AXES.reduce((best, ax) =>
-        (mission.axis_signals?.[ax] ?? 0) > (mission.axis_signals?.[best] ?? 0) ? ax : best
+        (axisSignals[ax] ?? 0) > (axisSignals[best] ?? 0) ? ax : best
       , AXES[0]);
       criteriaKeywordsByAxis[topAxis] ??= [];
       criteriaKeywordsByAxis[topAxis]!.push(...words.slice(0, 3));
@@ -373,7 +447,7 @@ function heuristicFallbackEvaluation(mission: Mission, answer: string, cause: st
 
     const hits = keywordHits(answer, allKws);
     const markerHits = countMarkers(answer, markersByAxis[axis]);
-    const signal = mission.axis_signals?.[axis] ?? 0;
+    const signal = axisSignals[axis] ?? 0;
     const keywordLevel = Math.min(hits.length, 5);
     const markerLevel = Math.min(markerHits, 4);
     const numericLevel = axis === "AX1" ? Math.min(numberCount, 4) : 0;
@@ -437,42 +511,45 @@ function heuristicFallbackEvaluation(mission: Mission, answer: string, cause: st
 }
 
 export async function evaluateAnswer({ mission, answer }: EvaluateAnswerInput): Promise<EvaluateAnswerResult> {
+  // 이후 precheck, LLM 프롬프트, fallback, 최종 점수 계산이 모두 같은 축 신호를 보도록 입구에서 정규화한다.
+  const normalizedMission = withResolvedAxisSignals(mission);
+
   if (!hasSufficientAnswerContent(answer)) {
     const evaluation = lowContentEvaluation(
-      mission,
+      normalizedMission,
       "답변 길이나 문장 정보가 부족해 채점을 진행하지 않았습니다. 핵심 근거 2개 이상을 포함해 다시 작성해 주세요."
     );
     const calibrated = capScoresForNonLlm(evaluation);
-    return { evaluation: calibrated, missionScore: toMissionScore(calibrated, mission) };
+    return { evaluation: calibrated, missionScore: toMissionScore(calibrated, normalizedMission) };
   }
 
   if (isLowInformationAnswer(answer)) {
     const evaluation = lowContentEvaluation(
-      mission,
+      normalizedMission,
       "답변의 반복 표현이 많거나 정보 밀도가 낮아 신뢰 가능한 채점을 진행하지 않았습니다. 핵심 근거와 구체 행동을 포함해 다시 작성해 주세요.",
       ["off_topic", "ambiguous", "low_confidence"],
       "precheck"
     );
     const calibrated = capScoresForNonLlm(evaluation);
-    return { evaluation: calibrated, missionScore: toMissionScore(calibrated, mission) };
+    return { evaluation: calibrated, missionScore: toMissionScore(calibrated, normalizedMission) };
   }
 
   if (hasPromptInjectionSignal(answer)) {
     const evaluation = lowContentEvaluation(
-      mission,
+      normalizedMission,
       "답변에서 채점 규칙을 바꾸려는 지시문 형태가 감지되어 채점을 중단했습니다. 미션 해결 근거만 포함해 다시 작성해 주세요.",
       ["possible_prompt_injection", "off_topic", "ambiguous", "low_confidence"],
       "precheck"
     );
     const calibrated = capScoresForNonLlm(evaluation);
-    return { evaluation: calibrated, missionScore: toMissionScore(calibrated, mission) };
+    return { evaluation: calibrated, missionScore: toMissionScore(calibrated, normalizedMission) };
   }
 
   const openai = getOpenAIClient();
   if (!openai) {
-    const evaluation = heuristicFallbackEvaluation(mission, answer, "missing_api_key");
+    const evaluation = heuristicFallbackEvaluation(normalizedMission, answer, "missing_api_key");
     const calibrated = capScoresForNonLlm(evaluation);
-    return { evaluation: calibrated, missionScore: toMissionScore(calibrated, mission) };
+    return { evaluation: calibrated, missionScore: toMissionScore(calibrated, normalizedMission) };
   }
 
   let evaluation: Evaluation;
@@ -482,7 +559,7 @@ export async function evaluateAnswer({ mission, answer }: EvaluateAnswerInput): 
       temperature: 0,
       input: [
         { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: buildEvaluationPrompt({ mission, answer }) }
+        { role: "user", content: buildEvaluationPrompt({ mission: normalizedMission, answer }) }
       ],
       text: {
         format: zodTextFormat(LlmEvaluationSchema, "jobsim_evaluation")
@@ -498,14 +575,14 @@ export async function evaluateAnswer({ mission, answer }: EvaluateAnswerInput): 
     evaluation = validateAndRecalculate(answer, {
       ...parsed,
       source: "llm"
-    });
+    }, normalizedMission);
   } catch (error) {
     const cause = error instanceof Error ? error.message : "unknown_llm_error";
-    evaluation = heuristicFallbackEvaluation(mission, answer, cause);
+    evaluation = heuristicFallbackEvaluation(normalizedMission, answer, cause);
   }
 
   const calibrated = capScoresForNonLlm(evaluation);
-  const missionScore = toMissionScore(calibrated, mission);
+  const missionScore = toMissionScore(calibrated, normalizedMission);
 
   return { evaluation: calibrated, missionScore };
 }
