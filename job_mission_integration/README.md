@@ -64,6 +64,7 @@ OPENAI_API_KEY=sk-...
 OPENAI_GENERATION_MODEL=gpt-5.4-nano
 OPENAI_EVAL_MODEL=gpt-5-nano
 ADMIN_PASSWORD=admin-password
+ADMIN_DEMO_UNLOCK=false
 COMPATIBILITY_SCORE_GAMMA=1.5
 PORT=8080
 ```
@@ -83,6 +84,7 @@ EVALUATE_RATE_LIMIT_MAX=30
 | `OPENAI_GENERATION_MODEL` | 관리자 미션 생성과 생성 전 OpenAI preflight에 사용하는 모델입니다. 기본값은 `gpt-5.4-nano`입니다. |
 | `OPENAI_EVAL_MODEL` | 사용자 답변 평가 모델입니다. 기본값은 `gpt-5-nano`입니다. |
 | `ADMIN_PASSWORD` | 관리자 페이지 접속 암호이자 보호된 API 호출 토큰입니다. |
+| `ADMIN_DEMO_UNLOCK` | `true`이면 교수님 확인/시연을 위해 관리자 잠금을 일시 해제하고 안내 팝업을 표시합니다. |
 | `COMPATIBILITY_SCORE_GAMMA` | 직무 추천/적합도 점수 보정값입니다. 기본값은 `1.5`입니다. |
 | `PORT` | 로컬 서버 포트입니다. 기본값은 `8080`입니다. |
 | `PYTHON_BIN` | 사용할 Python 실행 파일입니다. 생략하면 Windows는 `python`, 그 외 환경은 `python3`를 사용합니다. |

@@ -671,6 +671,20 @@ button:focus-visible, input:focus-visible, a:focus-visible {
   text-align: center;
   background: rgba(255,255,255,.02);
 }
+.demo-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0,0,0,.62);
+}
+.demo-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 22px;
+}
 @media (max-width: 1180px) {
   .grid, .preview { grid-template-columns: 1fr; }
 }
