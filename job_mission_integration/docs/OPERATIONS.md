@@ -16,6 +16,7 @@ cp .env.server.example .env.server
 - `EVALUATE_RATE_LIMIT_WINDOW_MS` (기본 `60000`)
 - `EVALUATION_LOG_RETENTION_DAYS` (기본 `14`)
 - `ADMIN_PASSWORD` (설정 시 관리자 API 호출에 `x-api-token` 헤더 필수)
+- `ADMIN_DEMO_UNLOCK` (`true`이면 시연용으로 관리자 잠금을 일시 해제하고 관리자 화면에 안내 팝업 표시)
 
 ## 2) 서버 실행 (PM2)
 

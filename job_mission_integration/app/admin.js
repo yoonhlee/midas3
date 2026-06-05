@@ -1,4 +1,5 @@
 const TOKEN_KEY = "jobsim:admin_api_token";
+const DEMO_NOTICE_KEY = "jobsim:admin_demo_unlock_notice_dismissed";
 const app = document.getElementById("admin-app");
 
 const state = {
@@ -16,6 +17,8 @@ const state = {
   deletingRun: false,
   rawLogOpen: false,
   apiStatus: null,
+  demoUnlockEnabled: false,
+  demoNoticeDismissed: sessionStorage.getItem(DEMO_NOTICE_KEY) === "true",
   jobsScrollTop: 0,
   rawLogScrollTop: 0
 };
@@ -259,6 +262,7 @@ function renderAuth() {
 function renderTopbar() {
   const runStatus = state.run ? statusText(state.run.status) : "대기";
   const apiClass = apiConfigured() ? "good" : "warn";
+  const logoutLabel = state.demoUnlockEnabled ? "일시적 잠금 해제" : "로그아웃";
   return `<div class="topbar">
     <div class="brand">JOB<span>SIM</span> Admin</div>
     <span class="status-pill good">토큰 활성</span>
@@ -266,7 +270,7 @@ function renderTopbar() {
     <span class="status-pill hide-sm">상태: ${esc(runStatus)}</span>
     <div class="spacer"></div>
     <a class="btn" href="./">사용자 화면</a>
-    <button class="btn danger" id="logout">로그아웃</button>
+    <button class="btn danger" id="logout">${logoutLabel}</button>
   </div>`;
 }
 
@@ -653,6 +657,19 @@ function renderPreview() {
   </section>`;
 }
 
+function renderDemoUnlockNotice() {
+  if (!state.demoUnlockEnabled || state.demoNoticeDismissed) return "";
+  return `<div class="demo-modal-backdrop" role="alertdialog" aria-modal="true" aria-labelledby="demo-unlock-title">
+    <section class="auth-card demo-modal">
+      <h1 id="demo-unlock-title">일시적으로 잠금이 해제되어 있습니다</h1>
+      <p class="help">교수님 확인을 위해 관리자 페이지 접근이 일시적으로 허용되어 있습니다.</p>
+      <div class="demo-modal-actions">
+        <button class="btn primary" id="demo-unlock-close" type="button">확인</button>
+      </div>
+    </section>
+  </div>`;
+}
+
 function renderApp() {
   app.innerHTML = `${renderTopbar()}
   <main class="shell">
@@ -662,7 +679,8 @@ function renderApp() {
       ${renderRunPanel()}
     </div>
     ${renderPreview()}
-  </main>`;
+  </main>
+  ${renderDemoUnlockNotice()}`;
   bindAppEvents();
 }
 
@@ -677,7 +695,17 @@ function bindAppEvents() {
     state.rawLogScrollTop = 0;
     state.deletingRun = false;
     stopPolling();
-    renderAuth();
+    if (state.demoUnlockEnabled) {
+      loadJobs({ silentAuthFailure: true });
+    } else {
+      renderAuth();
+    }
+  });
+
+  document.getElementById("demo-unlock-close")?.addEventListener("click", () => {
+    state.demoNoticeDismissed = true;
+    sessionStorage.setItem(DEMO_NOTICE_KEY, "true");
+    renderApp();
   });
 
   document.getElementById("job-search")?.addEventListener("input", (event) => {
@@ -727,13 +755,14 @@ function bindAppEvents() {
   }
 }
 
-async function loadJobs() {
+async function loadJobs({ silentAuthFailure = false } = {}) {
   state.loadingJobs = true;
   state.authError = "";
   try {
     const data = await requestJson("/api/admin/mission-generation/jobs");
     state.jobs = data.jobs || [];
     state.apiStatus = data.openai || null;
+    state.demoUnlockEnabled = Boolean(data.admin_demo_unlock_enabled);
     state.authenticated = true;
     const firstEnabled = state.jobs.find((job) => job.enabled);
     if (!state.selectedJobCode && firstEnabled) state.selectedJobCode = firstEnabled.jobCode;
@@ -742,7 +771,7 @@ async function loadJobs() {
     sessionStorage.removeItem(TOKEN_KEY);
     state.authenticated = false;
     state.authError = error.status === 401
-      ? "암호가 올바르지 않습니다."
+      ? (silentAuthFailure ? "" : "암호가 올바르지 않습니다.")
       : error.message;
     renderAuth();
   } finally {
@@ -854,8 +883,4 @@ async function exportRun() {
   }
 }
 
-if (state.token) {
-  loadJobs();
-} else {
-  renderAuth();
-}
+loadJobs({ silentAuthFailure: !state.token });

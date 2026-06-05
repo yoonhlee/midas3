@@ -40,6 +40,9 @@ const EVALUATION_LOG_PREFIX = "evaluation-logs-";
 const OPENAI_EVAL_MODEL = process.env.OPENAI_EVAL_MODEL ?? "gpt-5-nano";
 const OPENAI_GENERATION_MODEL = process.env.OPENAI_GENERATION_MODEL ?? "gpt-5.4-nano";
 const ADMIN_PASSWORD = (process.env.ADMIN_PASSWORD ?? "").trim();
+const ADMIN_DEMO_UNLOCK = ["1", "true", "yes", "on"].includes(
+  (process.env.ADMIN_DEMO_UNLOCK ?? "").trim().toLowerCase()
+);
 const COMPATIBILITY_SCORE_GAMMA = Number(process.env.COMPATIBILITY_SCORE_GAMMA ?? 1.5);
 const ADMIN_LOG_LIMIT = 500;
 const ADMIN_DIFFICULTIES = ["easy", "normal", "hard"] as const;
@@ -584,7 +587,7 @@ function extractApiToken(req: express.Request) {
 }
 
 const requireApiToken: express.RequestHandler = (req, res, next) => {
-  if (!ADMIN_PASSWORD) return next();
+  if (ADMIN_DEMO_UNLOCK || !ADMIN_PASSWORD) return next();
   const provided = extractApiToken(req);
   if (provided && provided === ADMIN_PASSWORD) return next();
   return sendApiError(
@@ -672,7 +675,8 @@ app.get("/health", (_req, res) => {
       window_ms: EVALUATE_RATE_LIMIT_WINDOW_MS,
       max_requests: EVALUATE_RATE_LIMIT_MAX
     },
-    api_token_required: Boolean(ADMIN_PASSWORD)
+    admin_lock_enabled: !ADMIN_DEMO_UNLOCK && Boolean(ADMIN_PASSWORD),
+    admin_demo_unlock_enabled: ADMIN_DEMO_UNLOCK
   });
 });
 
@@ -706,7 +710,8 @@ app.get("/api/admin/mission-generation/jobs", requireApiToken, (_req, res) => {
     jobs,
     total: jobs.length,
     enabled_count: jobs.filter((job) => job.enabled).length,
-    api_token_required: Boolean(ADMIN_PASSWORD),
+    admin_lock_enabled: !ADMIN_DEMO_UNLOCK && Boolean(ADMIN_PASSWORD),
+    admin_demo_unlock_enabled: ADMIN_DEMO_UNLOCK,
     openai: openAiAdminStatus()
   });
 });
