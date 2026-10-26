@@ -381,6 +381,11 @@ function lowContentEvaluation(
   };
 }
 
+export function supportsTemperature(model: string) {
+  const name = model.trim().toLowerCase();
+  return !(name.startsWith("gpt-5") || name.startsWith("o"));
+}
+
 function heuristicFallbackEvaluation(mission: Mission, answer: string, cause: string): Evaluation {
   const axisSignals = resolveAxisSignals(mission);
   const length = normalizeText(answer).length;
@@ -553,10 +558,12 @@ export async function evaluateAnswer({ mission, answer }: EvaluateAnswerInput): 
   }
 
   let evaluation: Evaluation;
+  const model = process.env.OPENAI_EVAL_MODEL ?? DEFAULT_EVAL_MODEL;
   try {
     const response = await openai.responses.parse({
-      model: process.env.OPENAI_EVAL_MODEL ?? DEFAULT_EVAL_MODEL,
-      temperature: 0,
+      model,
+      // gpt-5·o 계열(추론 모델)은 temperature를 받지 않는다.
+      ...(supportsTemperature(model) ? { temperature: 0 } : {}),
       input: [
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: buildEvaluationPrompt({ mission: normalizedMission, answer }) }
@@ -578,6 +585,7 @@ export async function evaluateAnswer({ mission, answer }: EvaluateAnswerInput): 
     }, normalizedMission);
   } catch (error) {
     const cause = error instanceof Error ? error.message : "unknown_llm_error";
+    console.warn(`[evaluate] LLM 채점 실패로 휴리스틱 폴백(model=${model}): ${cause}`);
     evaluation = heuristicFallbackEvaluation(normalizedMission, answer, cause);
   }
 

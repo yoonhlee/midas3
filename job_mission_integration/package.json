@@ -15,7 +15,7 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:postings": "playwright test --config playwright.postings.config.ts",
     "typecheck": "tsc --noEmit",
-    "test:unit": "tsx --test tests/unit/postings.test.ts tests/unit/regions.test.ts",
+    "test:unit": "tsx --test tests/unit/postings.test.ts tests/unit/regions.test.ts tests/unit/evaluator.test.ts",
     "pipeline:check": "python3 -m py_compile pipeline/*.py",
     "postings:discover": "tsx scripts/postings-discover.ts",
     "postings:refresh": "tsx scripts/postings-refresh.ts",

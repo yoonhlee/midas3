@@ -88,6 +88,14 @@ EVALUATE_RATE_LIMIT_MAX=30
 | `COMPATIBILITY_SCORE_GAMMA` | 직무 추천/적합도 점수 보정값입니다. 기본값은 `1.5`입니다. |
 | `PORT` | 로컬 서버 포트입니다. 기본값은 `8080`입니다. |
 | `PYTHON_BIN` | 사용할 Python 실행 파일입니다. 생략하면 Windows는 `python`, 그 외 환경은 `python3`를 사용합니다. |
+| `WORK24_RECRUIT_AUTH_KEY` | 고용24 Open-API "채용정보" 서비스 인증키입니다. 채용공고 지도에 씁니다. |
+| `KAKAO_REST_API_KEY` | 카카오 REST API 키입니다(주소 → 좌표). 카카오맵 사용 설정을 켜야 합니다. |
+| `POSTINGS_ENABLED` | 채용공고 기능 전체 켜기/끄기. 기본값 `true` |
+| `POSTINGS_FIXTURE` | `1`이면 고정 데이터 모드(가짜 공고). 기본값 `0` |
+| `POSTINGS_DATA_DIR` | 스냅샷·캐시 위치. 기본값 `reports/postings`(고정 데이터 모드는 `reports/postings-fixture`) |
+| `POSTINGS_REG_DATE` | 고용24 등록 기간 조건. 기본값 `M-1`(한 달) |
+| `POSTINGS_MAX_PAGES` | 직업당 최대 페이지(페이지당 100건). 기본값 `10` |
+| `POSTINGS_REFRESH_HOURS` | 자동 갱신 주기(시간). 기본값 `24` |
 
 ## 설치와 실행
 
@@ -206,6 +214,35 @@ index만 다시 만들고 싶을 때는 다음 명령을 사용합니다.
 python scripts/export_missions.py --rebuild-index
 ```
 
+## 채용공고 지도 (지금 이 일을 뽑는 곳)
+
+결과 화면 맨 아래에 체험한 직업의 고용24 채용공고를 근무지 기준 전국 지도와 목록으로 보여줍니다.
+데이터 처리 방법과 품질 지표는 [`docs/JOB_POSTINGS_METHOD.md`](docs/JOB_POSTINGS_METHOD.md)에 있습니다.
+
+1. `.env`에 `WORK24_RECRUIT_AUTH_KEY`, `KAKAO_REST_API_KEY`를 넣습니다. 키가 없으면 섹션에 "채용공고 연동이 아직 설정되지 않았어"가 표시됩니다.
+2. 스냅샷을 만듭니다. 서버가 켜져 있으면 시작 30초 뒤와 이후 1시간마다 오래된 스냅샷을 자동으로 갱신합니다.
+
+```bash
+npm run postings:refresh -- --verbose            # 5개 직업 전체(직종 미정 직업은 건너뜀)
+npm run postings:refresh -- --job K000001080     # 한 직업만
+npm run postings:discover                        # 직종코드 미정(tbd) 직업의 후보 코드 탐색 → docs/postings_occupation_discovery.md
+npm run postings:discover -- --apply             # 탐색 제안을 data/postings/occupation_map.json에 기록(검토 후 커밋)
+npm run postings:sample                          # 사람 검토용 표본 → docs/postings_sample_review.md
+npm run postings:sample -- --tally               # 검토 결과(O/X) 집계
+```
+
+키 없이 화면을 확인하려면 고정 데이터 모드를 씁니다(가짜 공고, 실제 스냅샷 폴더와 분리됨).
+
+```bash
+npm run postings:fixture-snapshots
+# PowerShell: $env:POSTINGS_FIXTURE="1"; npm run dev
+# bash:       POSTINGS_FIXTURE=1 npm run dev
+```
+
+관리자 화면 아래쪽 "채용공고 데이터"에서 상태 확인과 갱신을 할 수 있습니다. 이 API는 `ADMIN_DEMO_UNLOCK`과 상관없이 항상 `ADMIN_PASSWORD`가 필요합니다.
+
+지도 타일은 OpenStreetMap 공용 타일 서버를 씁니다. 졸업작품·데모 규모는 괜찮지만, **정식 서비스로 확장하면 타일 제공자를 바꿔야 해**(OSM 타일 정책상 대량 사용 금지). Leaflet은 CDN 없이 서버의 `/vendor/`에서 제공합니다.
+
 ## 검증 명령
 
 프론트엔드와 TypeScript 서버 타입을 확인합니다.
@@ -224,6 +261,8 @@ E2E 테스트가 필요한 경우 Playwright 테스트를 실행합니다.
 
 ```bash
 npm run test:e2e
+npm run test:unit            # 채용공고 수집·지역 판정 단위 테스트
+npm run test:e2e:postings    # 채용공고 섹션 E2E(고정 데이터, 8091 포트, 데스크톱·모바일)
 ```
 
 서버 상태는 다음 주소로 확인할 수 있습니다.

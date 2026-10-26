@@ -545,7 +545,48 @@
 
 ---
 
+### 2026-10-26 — 채용공고 지도 "지금 이 일을 뽑는 곳" 추가
+왜:
+- 결과 화면에서 체험한 직업의 실제 고용24 채용공고를 근무지 기준 지도·목록으로 보여주기(명세 `docs/JOB_POSTINGS_MAP_SPEC.md`, 계획·결정 `docs/JOB_POSTINGS_MAP_PLAN.md`)
+- 함께: 평가기 temperature 호환(8장), 미션 인덱스 키 중복 제거
+
+주요 반영:
+- 서버 모듈 `src/lib/postings/`(config, work24Client, parse, regions, geocoder, occupationMap, collector, store, service, scheduler)
+- API: `GET /api/jobs/:jobCode/postings`(스냅샷만 읽음), `GET /api/admin/postings/status`, `POST /api/admin/postings/refresh`(둘 다 항상 ADMIN_PASSWORD), `/health.postings`
+- 정적: `/vendor/leaflet/`, `/vendor/leaflet.markercluster/`(node_modules에서 제공, CDN 없음)
+- 화면: `app/components/postingsSection.js`, `postingsMap.js`, `app/styles/postings.css`, `app/main.js`(render 훅·결과 섹션 뼈대), `jobsimApi.getJobPostings`
+- 관리자: `app/admin.html`, `app/admin.js` 아래쪽 "채용공고 데이터" 영역(기존 미션 생성 UI와 분리)
+- 스크립트: `postings:refresh`, `postings:fixture-snapshots`, `postings:discover`, `postings:sample`, `test:unit`, `test:e2e:postings`
+- 데이터: `data/postings/occupation_map.json`(3개 확정 + 투자분석가·보험상품개발자 tbd), 고정 데이터 `tests/fixtures/postings/`
+- 8장: `evaluateAnswer.ts` — gpt-5·o 계열은 temperature 생략, 휴리스틱 폴백 원인 console.warn / `missions/index.json` 중복 mission_keys 10개 제거
+
+관련 파일:
+- `server.ts`, `src/lib/api/contracts.ts`, `src/lib/postings/*.ts`, `src/lib/evaluator/evaluateAnswer.ts`
+- `app/main.js`, `app/index.html`, `app/admin.html`, `app/admin.js`, `app/api-client/jobsimApi.js`, `app/components/postings*.js`, `app/styles/postings.css`
+- `scripts/postings-refresh.ts`, `scripts/postings-discover.ts`, `scripts/postings-sample.ts`
+- `tests/unit/*.test.ts`, `tests/e2e-postings/postings.spec.ts`, `tests/fixtures/postings/**`, `playwright.postings.config.ts`
+- `package.json`(fast-xml-parser, leaflet 1.9.4, leaflet.markercluster 1.5.3), `tsconfig.json`(tests/unit 포함), `.env.example`(신규), `.env.server.example`, `README.md`
+- `docs/JOB_POSTINGS_METHOD.md`, `docs/JOB_POSTINGS_MAP_SPEC.md`, `docs/JOB_POSTINGS_MAP_PLAN.md`, `missions/index.json`
+
+검증:
+- `npm run typecheck` 통과
+- `npm run test:unit` 38 passed
+- `npm run test:e2e:postings` 6 passed(데스크톱·모바일 360px). 이 컨테이너는 브라우저 버전이 달라 `PW_CHROMIUM_PATH=/opt/pw-browsers/chromium`로 실행
+- `npm run test:e2e`(기존 smoke) 4 passed
+- `node --check` app/main.js, app/admin.js, postingsSection.js, postingsMap.js, jobsimApi.js 통과
+- 저장소 전체 `authKey=`/`KakaoAK ` 검색: 테스트용 가짜 값만 있음
+- 인증키가 없어 실제 수집(`postings:refresh`)·직종 탐색(`postings:discover`)은 실행하지 못함
+
+---
+
 ## Open Items (Next)
+
+0. 채용공고 지도 후속
+- 고용24·카카오 키를 넣고 `npm run postings:refresh -- --verbose` → `docs/JOB_POSTINGS_METHOD.md` 5장 실제 표 채우기
+- `npm run postings:discover`로 투자분석가·보험상품개발자 직종코드 결정(현재 tbd)
+- `npm run postings:sample` 후 사람 검토로 직종 연결 정확도 측정
+- 기존 레이더 차트(`resultDashboard.js`, 고정 폭 370px SVG)가 360px 화면에서 문서 가로 스크롤 6px을 만듦(새 섹션과 무관, 기존 섹션이라 수정하지 않음)
+- 전남광주 통합 후 도로명코드 시도 코드(`12`) 공식 확인
 
 1. `isLowInformationAnswer` 임계치 미세조정
 - 현재 값은 보수적 기본값
