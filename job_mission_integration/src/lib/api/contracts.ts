@@ -187,3 +187,65 @@ export const ApiErrorSchema = z.object({
     details: z.unknown().optional()
   })
 });
+
+// ── 채용공고 지도(지금 이 일을 뽑는 곳) ─────────────────────
+export const JobPostingsParamsSchema = z.object({
+  jobCode: z.string().regex(/^K\d{9}$/)
+});
+
+export const PostingItemSchema = z.object({
+  id: z.string(),
+  company: z.string(),
+  title: z.string(),
+  jobs_cd: z.string(),
+  sido: z.string().nullable(),
+  sigungu: z.string().nullable(),
+  is_metro: z.boolean().nullable(),
+  address: z.string(),
+  lat: z.number().finite().nullable(),
+  lng: z.number().finite().nullable(),
+  geo_precision: z.enum(["address", "region", "none"]),
+  reg_date: z.string().nullable(),
+  close_date: z.string().nullable(),
+  close_type: z.enum(["date", "until_filled", "unknown"]),
+  salary_text: z.string(),
+  company_type: z.enum(["large", "public", "foreign"]).nullable(),
+  info_svc: z.string(),
+  url: z.string(),
+  mobile_url: z.string()
+});
+
+export const JobPostingsResponseSchema = z.object({
+  status: z.enum(["ok", "empty", "stale", "unmapped", "unconfigured", "error"]),
+  job_code: z.string(),
+  job_name: z.string().nullable(),
+  fetched_at: z.string().nullable(),
+  source: z.string(),
+  query: z.object({
+    mode: z.enum(["code", "keyword", "tbd"]).nullable(),
+    occupation: z.array(z.object({ code: z.string(), name: z.string() })),
+    keyword: z.string().nullable(),
+    regDate: z.string().nullable()
+  }),
+  counts: z.object({
+    kept: z.number().int(),
+    metro: z.number().int(),
+    nonmetro: z.number().int(),
+    region_unknown: z.number().int(),
+    geo_address: z.number().int(),
+    geo_region: z.number().int(),
+    geo_none: z.number().int(),
+    by_sido: z.record(z.number().int()),
+    company_type: z.object({ large: z.number().int(), public: z.number().int(), foreign: z.number().int() })
+  }).nullable(),
+  checks: z.object({
+    occupation_filter_applied: z.boolean().nullable(),
+    regdate_filter_applied: z.boolean(),
+    company_type_filter_applied: z.record(z.boolean().nullable())
+  }).nullable(),
+  items: z.array(PostingItemSchema).max(1000)
+});
+
+export const AdminPostingsRefreshRequestSchema = z.object({
+  jobCode: z.string().regex(/^K\d{9}$/).optional()
+});

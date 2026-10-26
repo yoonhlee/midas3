@@ -16,7 +16,10 @@
     "typecheck": "tsc --noEmit",
     "test:unit": "tsx --test tests/unit/postings.test.ts tests/unit/regions.test.ts",
     "pipeline:check": "python3 -m py_compile pipeline/*.py",
-    "postings:discover": "tsx scripts/postings-discover.ts"
+    "postings:discover": "tsx scripts/postings-discover.ts",
+    "postings:refresh": "tsx scripts/postings-refresh.ts",
+    "postings:fixture-snapshots": "tsx scripts/postings-refresh.ts --fixture",
+    "postings:sample": "tsx scripts/postings-sample.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.7",

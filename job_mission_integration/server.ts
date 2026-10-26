@@ -11,15 +11,22 @@ import { TextDecoder } from "node:util";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import {
+  AdminPostingsRefreshRequestSchema,
   BootstrapResponseSchema,
   EvaluateRequestSchema,
   EvaluateResponseSchema,
+  JobPostingsParamsSchema,
+  JobPostingsResponseSchema,
   LogEntrySchema,
   RecommendationsRequestSchema,
   RecommendationsResponseSchema
 } from "./src/lib/api/contracts.js";
 import { buildMissionBootstrapPayload } from "./src/lib/bootstrap/missionBootstrap.js";
 import { evaluateAnswer } from "./src/lib/evaluator/evaluateAnswer.js";
+import { loadPostingsConfig } from "./src/lib/postings/config.js";
+import { startPostingsScheduler } from "./src/lib/postings/scheduler.js";
+import { PostingsService } from "./src/lib/postings/service.js";
+import { maskSecrets } from "./src/lib/postings/work24Client.js";
 import {
   buildJobWeightCatalog,
   buildResultSummary,
@@ -45,6 +52,8 @@ const ADMIN_DEMO_UNLOCK = ["1", "true", "yes", "on"].includes(
 );
 const COMPATIBILITY_SCORE_GAMMA = Number(process.env.COMPATIBILITY_SCORE_GAMMA ?? 1.5);
 const ADMIN_LOG_LIMIT = 500;
+const postingsConfig = loadPostingsConfig();
+const postingsService = new PostingsService(postingsConfig);
 const ADMIN_DIFFICULTIES = ["easy", "normal", "hard"] as const;
 
 type RateLimitBucket = {
@@ -598,6 +607,16 @@ const requireApiToken: express.RequestHandler = (req, res, next) => {
   );
 };
 
+// 채용공고 관리자 API용: ADMIN_DEMO_UNLOCK과 상관없이 항상 ADMIN_PASSWORD를 요구한다.
+const requireAdminPassword: express.RequestHandler = (req, res, next) => {
+  if (!ADMIN_PASSWORD) {
+    return sendApiError(res, 503, "ADMIN_PASSWORD_NOT_SET", "ADMIN_PASSWORD is not configured on this server.");
+  }
+  const provided = extractApiToken(req);
+  if (provided && provided === ADMIN_PASSWORD) return next();
+  return sendApiError(res, 401, "AUTH_REQUIRED", "Missing or invalid API token.");
+};
+
 function pruneExpiredRateBuckets(now: number) {
   for (const [key, bucket] of evaluateRateBuckets) {
     if (bucket.resetAt <= now) evaluateRateBuckets.delete(key);
@@ -661,6 +680,9 @@ app.use(express.json({ limit: "1mb" }));
 app.use(express.static(path.join(__dirname, "app")));
 // 미션 JSON 정적 제공 — app/index.html 이 ../missions/* 경로로 fetch 함
 app.use("/missions", express.static(path.join(__dirname, "missions")));
+// 지도 라이브러리는 CDN 없이 node_modules에서 직접 제공한다(발표장 네트워크 대비).
+app.use("/vendor/leaflet", express.static(path.join(__dirname, "node_modules/leaflet/dist")));
+app.use("/vendor/leaflet.markercluster", express.static(path.join(__dirname, "node_modules/leaflet.markercluster/dist")));
 
 app.get("/health", (_req, res) => {
   return res.json({
@@ -676,8 +698,48 @@ app.get("/health", (_req, res) => {
       max_requests: EVALUATE_RATE_LIMIT_MAX
     },
     admin_lock_enabled: !ADMIN_DEMO_UNLOCK && Boolean(ADMIN_PASSWORD),
-    admin_demo_unlock_enabled: ADMIN_DEMO_UNLOCK
+    admin_demo_unlock_enabled: ADMIN_DEMO_UNLOCK,
+    postings: postingsService.getHealth()
   });
+});
+
+app.get("/api/jobs/:jobCode/postings", (req, res) => {
+  const params = JobPostingsParamsSchema.safeParse(req.params);
+  if (!params.success) {
+    return sendApiError(res, 400, "POSTINGS_BAD_REQUEST", "jobCode must match ^K\\d{9}$.", params.error.issues);
+  }
+  try {
+    const validated = JobPostingsResponseSchema.safeParse(postingsService.getJobPostings(params.data.jobCode));
+    if (!validated.success) {
+      return sendApiError(res, 500, "POSTINGS_RESPONSE_SCHEMA_MISMATCH", "Server produced an invalid postings payload.", validated.error.issues);
+    }
+    res.setHeader("Cache-Control", "no-store");
+    return res.json(validated.data);
+  } catch (error) {
+    console.error("[postings]", maskSecrets((error as Error)?.message ?? String(error), [postingsConfig.work24Key, postingsConfig.kakaoKey]));
+    return sendApiError(res, 500, "POSTINGS_INTERNAL_ERROR", "Failed to read postings snapshot.");
+  }
+});
+
+app.get("/api/admin/postings/status", requireAdminPassword, (_req, res) => {
+  try {
+    return res.json(postingsService.getAdminStatus());
+  } catch (error) {
+    return sendApiError(res, 500, "POSTINGS_STATUS_ERROR", maskSecrets((error as Error).message, [postingsConfig.work24Key, postingsConfig.kakaoKey]));
+  }
+});
+
+app.post("/api/admin/postings/refresh", requireAdminPassword, (req, res) => {
+  const parsed = AdminPostingsRefreshRequestSchema.safeParse(req.body ?? {});
+  if (!parsed.success) {
+    return sendApiError(res, 400, "POSTINGS_REFRESH_BAD_REQUEST", "jobCode must match ^K\\d{9}$.", parsed.error.issues);
+  }
+  const alreadyRunning = postingsService.isRefreshing();
+  const jobCodes = parsed.data.jobCode ? [parsed.data.jobCode] : undefined;
+  void postingsService
+    .refresh(jobCodes, (m) => console.log(`[postings] ${m}`))
+    .catch((error) => console.error("[postings] refresh failed:", maskSecrets((error as Error).message, [postingsConfig.work24Key, postingsConfig.kakaoKey])));
+  return res.status(202).json({ accepted: true, already_running: alreadyRunning, job_code: parsed.data.jobCode ?? null });
 });
 
 app.get("/api/bootstrap", (_req, res) => {
@@ -1066,4 +1128,5 @@ app.post("/api/logs", async (req, res) => {
 
 app.listen(port, () => {
   console.log(`JOBSIM server running at http://localhost:${port}`);
+  startPostingsScheduler(postingsService);
 });

@@ -22,6 +22,25 @@ import {
   parseYyMmDd,
   wantedToBaseItem
 } from "../../src/lib/postings/parse.js";
+import os from "node:os";
+import {
+  GeocodeCache,
+  GeocoderConfigError,
+  createGeocoder,
+  kakaoLookup,
+  parseKakaoResponse
+} from "../../src/lib/postings/geocoder.js";
+import {
+  checkOccupationFilter,
+  checkRegDateFilter,
+  collectJob,
+  isCompanyTypeIgnored
+} from "../../src/lib/postings/collector.js";
+import { FIXTURE_NOW } from "../../src/lib/postings/config.js";
+import { fixtureLookup } from "../../src/lib/postings/geocoder.js";
+import { loadOccupationMap } from "../../src/lib/postings/occupationMap.js";
+import type { ListPage, Work24Client } from "../../src/lib/postings/work24Client.js";
+import { decidePostingsStatus } from "../../src/lib/postings/store.js";
 
 const fixture = (name: string) => fs.readFileSync(path.join(FIXTURE_DIR, "work24", name), "utf8");
 
@@ -209,4 +228,227 @@ test("제목 키워드 일치율", () => {
   assert.equal(keywordHitRate([{ title: "BI 분석" }, { title: "영업" }], ["bi"]), 0.5);
   assert.equal(keywordHitRate([], ["a"]), null);
   assert.equal(keywordHitRate([{ title: "a" }], []), null);
+});
+
+// ── 지오코딩 ──────────────────────────────────────────────
+
+const kakaoDoc = (type: string, x: number, y: number, r1 = "서울", r2 = "강남구") => ({
+  documents: [{ address_type: type, x: String(x), y: String(y), address: { region_1depth_name: r1, region_2depth_name: r2 }, road_address: null }]
+});
+
+test("카카오 응답: address_type으로 정밀도, 시도 정규화, 한국 범위 밖은 버림", () => {
+  assert.equal(parseKakaoResponse(kakaoDoc("ROAD_ADDR", 127, 37.5))?.precision, "address");
+  assert.equal(parseKakaoResponse(kakaoDoc("REGION_ADDR", 127, 37.5))?.precision, "address");
+  assert.equal(parseKakaoResponse(kakaoDoc("ROAD", 127, 37.5))?.precision, "region");
+  assert.equal(parseKakaoResponse(kakaoDoc("REGION", 127, 37.5))?.precision, "region");
+  assert.equal(parseKakaoResponse(kakaoDoc("REGION", 126.9, 35.1, "전남광주통합특별시", "북구"))?.sido, "전남광주");
+  assert.equal(parseKakaoResponse(kakaoDoc("ROAD_ADDR", 139.7, 35.6)), null);
+  assert.equal(parseKakaoResponse({ documents: [] }), null);
+});
+
+function tempDir() {
+  return fs.mkdtempSync(path.join(os.tmpdir(), "postings-test-"));
+}
+
+test("지오코딩 캐시: 성공은 재사용, 실패는 7일 동안 다시 묻지 않음", async () => {
+  const dir = tempDir();
+  const file = path.join(dir, "geocode-cache.json");
+  let clock = new Date("2026-10-01T00:00:00Z");
+  const asked: string[] = [];
+  const lookup = async (q: string) => {
+    asked.push(q);
+    return q.includes("없는") ? { documents: [] } : kakaoDoc("ROAD_ADDR", 127.05, 37.51);
+  };
+  const cache = new GeocodeCache(file);
+  const geocoder = createGeocoder({ lookup, cache, now: () => clock });
+  assert.equal((await geocoder.geocode("서울특별시  강남구 가상로 1"))?.lat, 37.51);
+  assert.equal((await geocoder.geocode("서울특별시 강남구 가상로 1"))?.lat, 37.51); // 공백 정규화 후 같은 키
+  assert.equal(await geocoder.geocode("없는 주소"), null);
+  assert.equal(await geocoder.geocode("없는 주소"), null);
+  assert.deepEqual(asked, ["서울특별시 강남구 가상로 1", "없는 주소"]);
+  cache.save();
+
+  // 파일에서 다시 읽어도 재사용
+  clock = new Date("2026-10-05T00:00:00Z");
+  const reloaded = createGeocoder({ lookup, cache: new GeocodeCache(file), now: () => clock });
+  await reloaded.geocode("서울특별시 강남구 가상로 1");
+  await reloaded.geocode("없는 주소");
+  assert.equal(asked.length, 2);
+
+  // 7일이 지나면 실패 항목만 다시 묻는다
+  clock = new Date("2026-10-09T00:00:01Z");
+  const later = createGeocoder({ lookup, cache: new GeocodeCache(file), now: () => clock });
+  await later.geocode("서울특별시 강남구 가상로 1");
+  await later.geocode("없는 주소");
+  assert.deepEqual(asked, ["서울특별시 강남구 가상로 1", "없는 주소", "없는 주소"]);
+});
+
+test("카카오: 카카오맵 사용 설정 꺼짐은 안내 오류, 키는 노출하지 않음", async () => {
+  const lookup = kakaoLookup("KAKAOSECRET1", (async (_url: string | URL | Request, init?: RequestInit) => {
+    assert.equal((init?.headers as Record<string, string>).Authorization, "KakaoAK KAKAOSECRET1");
+    return new Response('{"errorType":"NotAuthorizedError","message":"App(123) disabled OPEN_MAP_AND_LOCAL service."}', { status: 403 });
+  }) as typeof fetch, 0);
+  await assert.rejects(lookup("서울"), (error: Error) => {
+    assert.ok(error instanceof GeocoderConfigError);
+    assert.match(error.message, /카카오맵 사용 설정을 켜야 해/);
+    assert.ok(!error.message.includes("KAKAOSECRET1"));
+    return true;
+  });
+});
+
+// ── 조건 적용 검증과 수집 ──────────────────────────────────
+
+test("기업형태: total이 기본 조회와 같고 20건 이상이면 무시된 조건", () => {
+  assert.equal(isCompanyTypeIgnored(132, 132), true);
+  assert.equal(isCompanyTypeIgnored(20, 20), true);
+  assert.equal(isCompanyTypeIgnored(19, 19), false);
+  assert.equal(isCompanyTypeIgnored(5, 132), false);
+});
+
+test("직종 검증: 95% 미만이면 미적용으로 보고 요청 코드만 남김", () => {
+  const items = Array.from({ length: 20 }, (_, i) => ({ jobs_cd: i === 0 ? "999999" : "135200" }));
+  assert.equal(checkOccupationFilter(items, ["135200"]).applied, true); // 19/20 = 95%
+  const worse = [...items, { jobs_cd: "111111" }];
+  const result = checkOccupationFilter(worse, ["135200"]);
+  assert.equal(result.applied, false);
+  assert.equal(result.removed, 2);
+  assert.equal(checkOccupationFilter([], ["135200"]).applied, true);
+});
+
+test("등록기간 검증: 32일 넘는 공고가 5% 넘으면 미적용으로 보고 제외", () => {
+  const recent = Array.from({ length: 19 }, () => ({ reg_date: "2026-10-20" }));
+  assert.equal(checkRegDateFilter([...recent, { reg_date: "2026-08-01" }], "2026-10-26").applied, true);
+  const result = checkRegDateFilter([...recent, { reg_date: "2026-08-01" }, { reg_date: "2026-07-01" }], "2026-10-26");
+  assert.equal(result.applied, false);
+  assert.equal(result.removed, 2);
+  assert.equal(checkRegDateFilter([{ reg_date: "2026-09-24" }], "2026-10-26").applied, true); // 정확히 32일
+});
+
+function pageOf(n: number, total: number, extra: Partial<Record<string, string>> = {}): ListPage {
+  return {
+    total,
+    startPage: 1,
+    display: 100,
+    wanted: Array.from({ length: n }, (_, i) => ({
+      wantedAuthNo: `${extra.prefix ?? "W"}${i}`,
+      title: "데이터 분석",
+      jobsCd: "135200",
+      regDt: "26-10-20",
+      closeDt: "채용시까지",
+      region: "서울 강남구",
+      company: "가상"
+    }))
+  };
+}
+
+test("수집: 페이지 반복은 total에 닿을 때까지, coTp가 무시되면 그 기업형태 표시를 끔", async () => {
+  const entry = loadOccupationMap().jobs.K000001080;
+  const calls: string[] = [];
+  const client: Work24Client = {
+    async list(q) {
+      calls.push(`${q.coTp ?? "base"}:${q.startPage}`);
+      if (!q.coTp) return q.startPage <= 2 ? pageOf(100, 230) : { ...pageOf(30, 230), wanted: pageOf(30, 230).wanted.map((w, i) => ({ ...w, wantedAuthNo: `P3-${i}` })) };
+      if (q.coTp === "01") return pageOf(100, 230); // 기본과 total이 같음 → 무시된 조건
+      return pageOf(1, 1, { prefix: "W" });
+    },
+    async detail() { return null; }
+  };
+  const snapshot = await collectJob({
+    jobCode: "K000001080", entry, client, geocoder: null, regDate: "M-1", maxPages: 10,
+    now: FIXTURE_NOW, fetchedAt: FIXTURE_NOW, fixture: true
+  });
+  assert.deepEqual(calls.filter((c) => c.startsWith("base")), ["base:1", "base:2", "base:3"]);
+  assert.equal(snapshot.query.pages_fetched, 3);
+  assert.equal(snapshot.counts.received, 230);
+  assert.equal(snapshot.counts.duplicates_removed, 100); // 1·2페이지 id가 같음
+  assert.equal(snapshot.checks.company_type_filter_applied["01"], false);
+  assert.equal(snapshot.checks.company_type_filter_applied["04"], true);
+  assert.equal(snapshot.counts.company_type.large, 0);
+  assert.equal(snapshot.counts.company_type.public, 1);
+  assert.equal(snapshot.counts.geo_none, snapshot.counts.kept);
+});
+
+test("수집: 고정 데이터 데이터분석가 스냅샷", async () => {
+  const entry = loadOccupationMap().jobs.K000001080;
+  const dir = tempDir();
+  const snapshot = await collectJob({
+    jobCode: "K000001080", entry,
+    client: createFixtureWork24Client(FIXTURE_DIR),
+    geocoder: createGeocoder({ lookup: fixtureLookup(FIXTURE_DIR), cache: new GeocodeCache(path.join(dir, "c.json")) }),
+    regDate: "M-1", maxPages: 10, now: FIXTURE_NOW, fetchedAt: FIXTURE_NOW, fixture: true
+  });
+  const c = snapshot.counts;
+  assert.equal(c.received, 13);
+  assert.equal(c.duplicates_removed, 1);
+  assert.equal(c.expired_removed, 1);
+  assert.equal(c.kept, 11);
+  assert.deepEqual([c.metro, c.nonmetro, c.region_unknown], [6, 4, 1]);
+  assert.deepEqual([c.geo_address, c.geo_region, c.geo_none], [8, 1, 2]);
+  assert.deepEqual(c.sido_cross_check, { compared: 8, agreed: 8 });
+  assert.equal(c.by_sido["전남광주"], 2);
+  assert.equal(snapshot.checks.company_type_filter_applied["05"], null);
+  assert.equal(snapshot.fetched_at, "2026-10-26T12:00:00+09:00");
+  assert.ok(snapshot.errors.some((e) => e.stage === "coTp=05"));
+  assert.ok(!JSON.stringify(snapshot).includes("detailAddr"));
+  assert.ok(!JSON.stringify(snapshot).includes("301호"));
+});
+
+test("수집: 상품기획자 고정 데이터는 요청하지 않은 직종(024302)이 섞여 직종 검증이 실패", async () => {
+  const entry = loadOccupationMap().jobs.K000000997;
+  const snapshot = await collectJob({
+    jobCode: "K000000997", entry, client: createFixtureWork24Client(FIXTURE_DIR), geocoder: null,
+    regDate: "M-1", maxPages: 10, now: FIXTURE_NOW, fetchedAt: FIXTURE_NOW, fixture: true
+  });
+  assert.equal(snapshot.checks.occupation_filter_applied, false);
+  assert.equal(snapshot.counts.occupation_mismatch_removed, 1);
+  assert.ok(snapshot.items.every((i) => i.jobs_cd === "024301"));
+});
+
+// ── API 상태 결정 ─────────────────────────────────────────
+
+test("API 상태 결정: ok / empty / stale / unmapped / unconfigured / error", () => {
+  const snap = (n: number) => ({ fetched_at: "2026-10-26T05:00:00+09:00", itemCount: n });
+  const base = { enabled: true, collectable: true, mode: "code" as const, snapshot: snap(3), run: null };
+  assert.equal(decidePostingsStatus(base), "ok");
+  assert.equal(decidePostingsStatus({ ...base, snapshot: snap(0) }), "empty");
+  assert.equal(decidePostingsStatus({ ...base, run: { last_failure_at: "2026-10-26T01:00:00Z" } }), "stale");
+  assert.equal(decidePostingsStatus({ ...base, run: { last_failure_at: "2026-10-25T01:00:00Z" } }), "ok");
+  assert.equal(decidePostingsStatus({ ...base, mode: "tbd" }), "unmapped");
+  assert.equal(decidePostingsStatus({ ...base, mode: null }), "unmapped");
+  assert.equal(decidePostingsStatus({ ...base, enabled: false }), "unconfigured");
+  assert.equal(decidePostingsStatus({ ...base, snapshot: null, collectable: false }), "unconfigured");
+  assert.equal(decidePostingsStatus({ ...base, snapshot: null }), "error");
+  assert.equal(decidePostingsStatus({ ...base, snapshotReadError: true }), "error");
+  // 키가 없어도 이전 스냅샷이 있으면 보여준다
+  assert.equal(decidePostingsStatus({ ...base, collectable: false }), "ok");
+});
+
+test("서비스: 실패하면 이전 스냅샷은 두고 stale, 실제 모드는 고정 데이터 스냅샷을 무시", async () => {
+  const { PostingsService } = await import("../../src/lib/postings/service.js");
+  const dir = tempDir();
+  const fixtureService = new PostingsService(
+    { enabled: true, fixture: true, work24Key: "", kakaoKey: "", dataDir: dir, regDate: "M-1", maxPages: 10, refreshHours: 24, requestDelayMs: 0 }
+  );
+  const ok = await fixtureService.refresh(["K000001080"]);
+  assert.equal(ok[0].ok, true);
+  assert.equal(fixtureService.getJobPostings("K000001080").status, "ok");
+  assert.ok(fs.existsSync(path.join(dir, "quality.json")));
+
+  const failing = new PostingsService(
+    { enabled: true, fixture: true, work24Key: "", kakaoKey: "", dataDir: dir, regDate: "M-1", maxPages: 10, refreshHours: 24, requestDelayMs: 0 },
+    { client: { async list() { throw new Error("boom authKey=SECRETX"); }, async detail() { return null; } } }
+  );
+  const failed = await failing.refresh(["K000001080"]);
+  assert.equal(failed[0].ok, false);
+  assert.ok(!failed[0].error?.includes("SECRETX"));
+  const res = failing.getJobPostings("K000001080");
+  assert.equal(res.status, "stale");
+  assert.equal(res.items.length, 11);
+
+  const live = new PostingsService(
+    { enabled: true, fixture: false, work24Key: "k", kakaoKey: "", dataDir: dir, regDate: "M-1", maxPages: 10, refreshHours: 24, requestDelayMs: 0 }
+  );
+  assert.equal(live.getJobPostings("K000001080").status, "error");
+  assert.equal(live.getJobPostings("K000001080").items.length, 0);
+  assert.equal(live.getJobPostings("K000001179").status, "unmapped");
 });
