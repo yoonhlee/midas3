@@ -1,0 +1,20 @@
+{
+  "_comment": "고정 데이터 클라이언트가 조회 조건(occupation/keyword/coTp)으로 응답 XML을 고르는 규칙이야. 맞는 규칙이 없으면 fallback(total=0)을 돌려줘.",
+  "fallback": "empty.xml",
+  "list": [
+    { "occupation": "135200", "file": "list_K000001080.xml" },
+    { "occupation": "135200", "coTp": "01", "file": "cotp_K000001080_01.xml" },
+    { "occupation": "135200", "coTp": "04", "file": "cotp_K000001080_04.xml" },
+    { "occupation": "135200", "coTp": "05", "file": "error_service.xml" },
+    { "occupation": "024101|024102", "file": "list_K000000872.xml" },
+    { "occupation": "024301", "file": "list_K000000997.xml" },
+    { "occupation": "024301", "coTp": "05", "file": "cotp_K000000997_05.xml" },
+    { "keyword": "투자분석", "file": "list_K000001179.xml" },
+    { "keyword": "애널리스트", "file": "list_K000001179.xml" },
+    { "keyword": "신용분석", "file": "list_K000001179.xml" },
+    { "keyword": "보험상품", "file": "list_K000007519.xml" }
+  ],
+  "detail": {
+    "F1179000000001": "detail_F1179000000001.xml"
+  }
+}
