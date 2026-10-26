@@ -15,7 +15,8 @@
     "test:e2e:ui": "playwright test --ui",
     "typecheck": "tsc --noEmit",
     "test:unit": "tsx --test tests/unit/postings.test.ts tests/unit/regions.test.ts",
-    "pipeline:check": "python3 -m py_compile pipeline/*.py"
+    "pipeline:check": "python3 -m py_compile pipeline/*.py",
+    "postings:discover": "tsx scripts/postings-discover.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
