@@ -33,6 +33,11 @@ import {
   renderRecommendationsSection
 } from "./components/resultDashboard.js";
 import {
+  mountPostingsSection,
+  renderPostingsSectionShell,
+  unmountPostingsSection
+} from "./components/postingsSection.js";
+import {
   renderMissionListScreen,
   renderMissionScreen,
   renderPreQuestionScreen,
@@ -119,10 +124,21 @@ const APP = document.getElementById("app");
 function render() {
   const fn = { select: rSelect, preq: rPreq, "mission-list": rMissionList, mission: rMission, result: rResult }[state.screen];
   if (fn) {
+    // 이전 결과 화면의 지도(Leaflet 인스턴스)를 먼저 정리해야 다시 그릴 때 충돌하지 않는다.
+    unmountPostingsSection();
     APP.innerHTML = fn();
     document.body.dataset.screen = state.screen;
     if (state.screen === "result") window.scrollTo({ top: 0, behavior: "smooth" });
     bindEvents();
+    if (state.screen === "result") mountPostings();
+  }
+}
+
+function mountPostings() {
+  try {
+    mountPostingsSection(APP.querySelector("#postings-section"), { jobCode: state.selectedJobs[0] });
+  } catch (error) {
+    console.warn("채용공고 섹션을 열지 못했어", error);
   }
 }
 function brand() { return ""; }
@@ -184,6 +200,7 @@ function rResult() {
   <div class="res-sub">KNOW 재직자 데이터와 당신의 반응을 교차 분석했습니다</div>
   ${warn}${sourceWarn}
   ${rRadar()}${rEvidence()}${rJobIntro()}${rCompat()}${rQuad()}${rRec()}${rGap()}${rEvaluationLogSummary()}
+  ${renderPostingsSectionShell()}
   <hr/><button class="btn btn-g btn-lg" id="btn-restart">↺ 처음부터 다시하기</button>`;
 }
 
@@ -282,6 +299,7 @@ function flowContext() {
 function bindEvents() { bindAppEvents(flowContext()); }
 
 async function bootstrap() {
+  unmountPostingsSection();
   APP.innerHTML = `<div class="boot-state">
     <div class="loading-dots"><span></span><span></span><span></span></div>
     <div class="boot-msg">미션을 불러오는 중…</div>

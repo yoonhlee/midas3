@@ -79,3 +79,15 @@ export async function recommendationsRequest({
 
   return data;
 }
+
+export async function getJobPostings(jobCode) {
+  const response = await fetch(`/api/jobs/${encodeURIComponent(jobCode)}/postings`, { method: "GET" });
+  if (!response.ok) {
+    throw new Error(`채용공고 응답 오류(HTTP ${response.status})`);
+  }
+  const data = await response.json();
+  if (!data?.status || !Array.isArray(data?.items)) {
+    throw new Error("채용공고 응답 형식이 올바르지 않습니다.");
+  }
+  return data;
+}
