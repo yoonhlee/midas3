@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>내 기록 — JOBSIM</title>
+<link rel="stylesheet" href="/common/site.css">
+<style>
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat .n{font-size:26px;font-weight:600}
+.stat .l{font-size:13px;color:var(--t3)}
+.record{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center}
+.record .meta{font-size:13px;color:var(--t3)}
+.record .title{font-weight:600}
+.interest .memo-row{display:flex;gap:8px;margin-top:8px}
+.interest .memo-row .input{flex:1}
+.danger-zone{border-color:rgba(235,87,87,.3)}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<main class="page" id="main"><div class="skeleton" style="height:200px"></div></main>
+<div id="site-footer"></div>
+<script type="module" src="/me.js"></script>
+</body>
+</html>

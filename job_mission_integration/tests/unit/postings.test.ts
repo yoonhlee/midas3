@@ -82,6 +82,7 @@ test("XML: 깨진 문서는 parse 오류", () => {
 
 test("XML: 상세 응답에서 직종명", () => {
   assert.deepEqual(parseDetailXml(fixture("detail_F1179000000001.xml")), {
+    jobCont: "",
     jobsNm: "(가상) 투자 분석가",
     wantedTitle: "리서치센터 애널리스트"
   });
@@ -427,15 +428,23 @@ test("서비스: 실패하면 이전 스냅샷은 두고 stale, 실제 모드는
   const { PostingsService } = await import("../../src/lib/postings/service.js");
   const dir = tempDir();
   const fixtureService = new PostingsService(
-    { enabled: true, fixture: true, work24Key: "", kakaoKey: "", dataDir: dir, regDate: "M-1", maxPages: 10, refreshHours: 24, requestDelayMs: 0 }
+    { enabled: true, fixture: true, work24Key: "", kakaoKey: "", dataDir: dir, regDate: "M-1", maxPages: 10, refreshHours: 24, requestDelayMs: 0, detailLimit: 10 }
   );
   const ok = await fixtureService.refresh(["K000001080"]);
   assert.equal(ok[0].ok, true);
   assert.equal(fixtureService.getJobPostings("K000001080").status, "ok");
   assert.ok(fs.existsSync(path.join(dir, "quality.json")));
+  // 요구역량(U25): 제목 11건 + 상세 직무내용 3건(고정 데이터)
+  const req = fixtureService.getRequirements("K000001080");
+  assert.equal(req.status, "ok");
+  assert.equal(req.summary?.generated_from, "title+detail");
+  assert.equal(req.summary?.analyzed_postings, 11);
+  assert.equal(req.summary?.detail_postings, 3);
+  assert.ok((req.summary?.axes.AX1.share ?? 0) > 0.3);
+  assert.ok(!JSON.stringify(req).includes("대용량 로그"), "직무내용 원문은 저장하지 않는다");
 
   const failing = new PostingsService(
-    { enabled: true, fixture: true, work24Key: "", kakaoKey: "", dataDir: dir, regDate: "M-1", maxPages: 10, refreshHours: 24, requestDelayMs: 0 },
+    { enabled: true, fixture: true, work24Key: "", kakaoKey: "", dataDir: dir, regDate: "M-1", maxPages: 10, refreshHours: 24, requestDelayMs: 0, detailLimit: 10 },
     { client: { async list() { throw new Error("boom authKey=SECRETX"); }, async detail() { return null; } } }
   );
   const failed = await failing.refresh(["K000001080"]);
@@ -446,7 +455,7 @@ test("서비스: 실패하면 이전 스냅샷은 두고 stale, 실제 모드는
   assert.equal(res.items.length, 11);
 
   const live = new PostingsService(
-    { enabled: true, fixture: false, work24Key: "k", kakaoKey: "", dataDir: dir, regDate: "M-1", maxPages: 10, refreshHours: 24, requestDelayMs: 0 }
+    { enabled: true, fixture: false, work24Key: "k", kakaoKey: "", dataDir: dir, regDate: "M-1", maxPages: 10, refreshHours: 24, requestDelayMs: 0, detailLimit: 10 }
   );
   assert.equal(live.getJobPostings("K000001080").status, "error");
   assert.equal(live.getJobPostings("K000001080").items.length, 0);

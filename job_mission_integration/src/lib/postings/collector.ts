@@ -1,3 +1,4 @@
+import { analyzeRequirementTexts, type RequirementSummary } from "./requirements.js";
 import type { OccupationEntry } from "./occupationMap.js";
 import type { ListQuery, RawWanted, Work24Client } from "./work24Client.js";
 import { GeocoderConfigError, type Geocoder, type GeoResult } from "./geocoder.js";
@@ -86,6 +87,8 @@ export interface JobSnapshot {
   counts: SnapshotCounts;
   items: PostingItem[];
   errors: SnapshotError[];
+  // 공고 요구역량 집계(U25). 예전 스냅샷에는 없다.
+  requirements?: RequirementSummary;
 }
 
 // 2026-10-26T05:00:00+09:00 형식
@@ -145,6 +148,8 @@ export interface CollectOptions {
   now: Date; // 마감·등록기간 판정 기준
   fetchedAt: Date;
   fixture: boolean;
+  // 직무내용을 읽으려고 상세 조회할 최대 공고 수(0이면 제목만 분석)
+  detailLimit?: number;
   log?: (message: string) => void;
 }
 
@@ -279,6 +284,22 @@ export async function collectJob(options: CollectOptions): Promise<JobSnapshot> 
     sido_cross_check: crossCheck
   };
 
+  // 6. 요구역량(U25): 제목 전체 + 앞쪽 공고 몇 건의 직무내용. 원문은 저장하지 않는다.
+  const detailLimit = Math.max(0, Math.min(options.detailLimit ?? 0, items.length));
+  const details = new Map<string, string>();
+  let detailFailures = 0;
+  for (const item of items.slice(0, detailLimit)) {
+    try {
+      const detail = await client.detail(item.id);
+      if (detail?.jobCont) details.set(item.id, detail.jobCont);
+    } catch {
+      detailFailures += 1;
+    }
+  }
+  if (detailFailures) errors.push({ stage: "detail", message: `상세 조회 ${detailFailures}건이 실패해 제목만 분석했어.` });
+  const requirements = analyzeRequirementTexts(items.map((item) => ({ title: item.title, detail: details.get(item.id) ?? null })));
+  if (detailLimit) log(`  요구역량: 상세 ${requirements.detail_postings}/${detailLimit}건, 문장 ${requirements.analyzed_sentences}개`);
+
   return {
     schema_version: SNAPSHOT_SCHEMA_VERSION,
     job_code: options.jobCode,
@@ -302,6 +323,7 @@ export async function collectJob(options: CollectOptions): Promise<JobSnapshot> 
     },
     counts,
     items: items.map(toPublicItem),
-    errors
+    errors,
+    requirements
   };
 }

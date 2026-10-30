@@ -313,7 +313,7 @@ test("직무 API: 537개 목록, 상세의 비슷한 직무와 체험 가능 여
     const list = await c.get("/api/jobs");
     assert.equal(list.json.total, 537);
     assert.equal(list.json.fields.length, 10);
-    assert.equal(list.json.experienceable.length, 5);
+    assert.equal(list.json.experienceable.length, 6); // 파일럿 5개 + 인사·교육·훈련사무원(U11)
     const detail = await c.get("/api/jobs/K000001080");
     assert.equal(detail.json.job.experienceable, true);
     assert.ok(detail.json.job.missions.length >= 1);

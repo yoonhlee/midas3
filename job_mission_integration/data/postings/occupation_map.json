@@ -65,6 +65,18 @@
       "relevance_keywords": ["보험", "상품개발", "상품 개발", "계리", "금융상품"],
       "evidence": "미정. 고용24 채용정보 인증키가 없어 직종코드 탐색(npm run postings:discover)을 아직 돌리지 못함.",
       "discovery_keywords": ["보험상품", "상품개발"]
+    },
+    "K000001196": {
+      "job_name": "인사·교육·훈련사무원",
+      "know_keco": "0262 인사·교육·훈련 사무원",
+      "mode": "tbd",
+      "work24_codes": [],
+      "keyword": null,
+      "title_include": [],
+      "title_exclude": [],
+      "relevance_keywords": ["인사", "HR", "채용", "교육", "노무"],
+      "evidence": "미정. 체험 직무로 새로 추가(U11). 고용24 채용정보 인증키가 없어 직종코드 탐색(npm run postings:discover)을 아직 돌리지 못함.",
+      "discovery_keywords": ["인사담당", "HR", "교육담당"]
     }
   }
 }

@@ -29,7 +29,7 @@ import type { ServerConfig } from "../config.js";
 import { asyncRoute, sendApiError } from "../http.js";
 import { ensureAnonId, getAuth, ownerOf, requireCsrf } from "../authContext.js";
 import { rateLimit } from "../middleware.js";
-import { missionHash, missionToEvaluateInput, type MissionStore } from "../missionStore.js";
+import { missionExplanation, missionHash, missionToEvaluateInput, type MissionStore } from "../missionStore.js";
 
 const EVALUATION_LOG_PREFIX = "evaluation-logs-";
 
@@ -80,7 +80,7 @@ export function missionsRouter({ config, db, missionStore, jobWeightCatalog }: M
   }
 
   router.get("/api/bootstrap", (_req, res) => {
-    const payload = missionStore.get();
+    const payload = missionStore.getPublic();
     if (!payload) {
       return sendApiError(res, 500, "BOOTSTRAP_UNAVAILABLE", "Mission bootstrap payload is not available on this server instance.");
     }
@@ -236,6 +236,19 @@ export function missionsRouter({ config, db, missionStore, jobWeightCatalog }: M
     });
     res.setHeader("Cache-Control", "no-store");
     return res.json({ attempt, missions });
+  });
+
+  // 해설(U21): 이 체험 기록에서 해당 미션을 제출한 사람에게만 기대 답안과 채점 기준을 보여준다.
+  router.get("/api/missions/:key/explanation", (req, res) => {
+    const mission = missionStore.findByKey(req.params.key);
+    if (!mission) return sendApiError(res, 404, "MISSION_NOT_FOUND", "서버에 없는 미션이야.");
+    const attemptId = typeof req.query.attempt_id === "string" ? req.query.attempt_id : "";
+    const attempt = attemptId ? ownedAttempt(res, attemptId) : null;
+    if (!attempt) return sendApiError(res, 404, "ATTEMPT_NOT_FOUND", "체험 기록을 찾을 수 없어.");
+    const submitted = listAttemptMissions(db, attempt.id).some((row) => row.mission_key === mission.key);
+    if (!submitted) return sendApiError(res, 403, "EXPLANATION_LOCKED", "해설은 이 미션을 제출한 뒤에 볼 수 있어.");
+    res.setHeader("Cache-Control", "no-store");
+    return res.json(missionExplanation(mission));
   });
 
   router.delete("/api/attempts/:id", requireCsrf, (req, res) => {

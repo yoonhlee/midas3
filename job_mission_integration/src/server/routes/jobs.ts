@@ -64,6 +64,33 @@ export function jobsRouter({ jobsCatalog, missionStore, postingsService }: JobsD
     return res.json({ meta: jobsCatalog.meta, descriptions: jobsCatalog.descriptions, jobs });
   });
 
+  // 공고 요구역량(U25): 최근 공고 문장을 5개 역량으로 나눠 센 비중
+  router.get("/api/jobs/:code/postings/requirements", (req, res) => {
+    const parsed = CodeSchema.safeParse(req.params.code);
+    if (!parsed.success) return sendApiError(res, 400, "JOB_CODE_INVALID", "직업코드는 K와 숫자 9자리야.");
+    let result;
+    try {
+      result = postingsService.getRequirements(parsed.data);
+    } catch {
+      return res.json({ status: "error", job_code: parsed.data, analyzed_postings: 0 });
+    }
+    const summary = result.summary;
+    return res.json({
+      status: result.status,
+      job_code: result.job_code,
+      job_name: result.job_name,
+      fetched_at: result.fetched_at,
+      source: result.source,
+      method: result.method,
+      generated_from: summary?.generated_from ?? null,
+      analyzed_postings: summary?.analyzed_postings ?? 0,
+      detail_postings: summary?.detail_postings ?? 0,
+      analyzed_sentences: summary?.analyzed_sentences ?? 0,
+      matched_sentences: summary?.matched_sentences ?? 0,
+      axes: summary?.axes ?? null
+    });
+  });
+
   router.get("/api/jobs/:code", (req, res) => {
     const parsed = CodeSchema.safeParse(req.params.code);
     if (!parsed.success) return sendApiError(res, 400, "JOB_CODE_INVALID", "직업코드는 K와 숫자 9자리야.");

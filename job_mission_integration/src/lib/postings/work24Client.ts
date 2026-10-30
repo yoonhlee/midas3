@@ -28,6 +28,8 @@ export interface ListPage {
 export interface WantedDetail {
   jobsNm: string;
   wantedTitle: string;
+  // 직무내용(요구역량 분석용, U25). 응답에 없으면 빈 문자열
+  jobCont: string;
 }
 
 export interface Work24Client {
@@ -142,8 +144,9 @@ export function parseDetailXml(xml: string): WantedDetail | null {
   const info = (root.wantedInfo ?? {}) as Record<string, unknown>;
   const jobsNm = asText(info.jobsNm).trim();
   const wantedTitle = asText(info.wantedTitle).trim();
+  const jobCont = asText(info.jobCont).trim();
   if (!jobsNm && !wantedTitle) return null;
-  return { jobsNm, wantedTitle };
+  return { jobsNm, wantedTitle, jobCont };
 }
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));

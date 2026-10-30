@@ -662,8 +662,8 @@ function renderDemoUnlockNotice() {
   if (!state.demoUnlockEnabled || state.demoNoticeDismissed) return "";
   return `<div class="demo-modal-backdrop" role="alertdialog" aria-modal="true" aria-labelledby="demo-unlock-title">
     <section class="auth-card demo-modal">
-      <h1 id="demo-unlock-title">일시적으로 잠금이 해제되어 있습니다</h1>
-      <p class="help">교수님 확인을 위해 관리자 페이지 접근이 일시적으로 허용되어 있습니다.</p>
+      <h1 id="demo-unlock-title">조회만 일시적으로 열려 있습니다</h1>
+      <p class="help">교수님 확인을 위해 관리자 페이지 조회가 일시적으로 허용되어 있습니다. 미션 생성·내보내기·삭제는 서버의 <code>ADMIN_PASSWORD</code>를 입력해야 합니다.</p>
       <div class="demo-modal-actions">
         <button class="btn primary" id="demo-unlock-close" type="button">확인</button>
       </div>

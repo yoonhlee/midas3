@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>직무 비교 — JOBSIM</title>
+<link rel="stylesheet" href="/common/site.css">
+<style>
+.table-wrap{overflow-x:auto;border:1px solid var(--b0);border-radius:10px}
+table.compare{width:100%;border-collapse:collapse;min-width:640px;font-size:14px}
+table.compare th,table.compare td{padding:12px;border-bottom:1px solid var(--b0);vertical-align:top;text-align:left}
+table.compare thead th{background:var(--bg2);position:sticky;top:0}
+table.compare tbody th{width:150px;color:var(--t3);font-weight:500;background:var(--bg2)}
+table.compare td ul{padding-left:16px;color:var(--t2)}
+.col-head{display:flex;flex-direction:column;gap:8px}
+.col-head a.name{font-weight:600;color:var(--t1);text-decoration:none;font-size:16px}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<main class="page">
+  <div class="eyebrow">직무 비교</div>
+  <h1 class="page-h">후보 직무를 나란히 봐</h1>
+  <p class="page-sub">최대 3개까지 같은 항목으로 비교할 수 있어. 여기서는 ‘나와 맞는 정도’ 점수를 보여주지 않아. 직접 체험하고 결과를 확인해봐.</p>
+  <div id="compare"><div class="skeleton" style="height:200px"></div></div>
+</main>
+<div id="site-footer"></div>
+<script type="module" src="/compare.js"></script>
+</body>
+</html>

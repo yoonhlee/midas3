@@ -2,6 +2,9 @@ import { FIXTURE_DIR, FIXTURE_NOW, isCollectable, type PostingsConfig } from "./
 import { collectJob, SOURCE_LABEL, type JobSnapshot } from "./collector.js";
 import { GeocodeCache, createGeocoder, fixtureLookup, kakaoLookup, type Geocoder } from "./geocoder.js";
 import { loadOccupationMap, type OccupationMap } from "./occupationMap.js";
+import { analyzeRequirementTexts } from "./requirements.js";
+
+const REQUIREMENTS_METHOD = "keyword-lexicon-v1";
 import {
   decidePostingsStatus,
   postingsPaths,
@@ -112,6 +115,7 @@ export class PostingsService {
           now: this.config.fixture ? FIXTURE_NOW : startedAt,
           fetchedAt: startedAt,
           fixture: this.config.fixture,
+          detailLimit: this.config.detailLimit,
           log: safeLog
         });
         snapshot.errors = snapshot.errors.map((e) => ({ ...e, message: this.mask(e.message) }));
@@ -218,6 +222,21 @@ export class PostingsService {
       checks: data?.checks ?? null,
       items: data ? data.items.slice(0, MAX_API_ITEMS) : []
     };
+  }
+
+  // 공고 요구역량(U25). 예전 스냅샷(requirements 없음)은 제목만으로 바로 센다.
+  getRequirements(jobCode: string) {
+    const postings = this.getJobPostings(jobCode);
+    const base = { status: postings.status, job_code: jobCode, job_name: postings.job_name, fetched_at: postings.fetched_at, source: SOURCE_LABEL, method: REQUIREMENTS_METHOD };
+    if (postings.status !== "ok" && postings.status !== "stale") return { ...base, summary: null };
+    let snapshot: JobSnapshot | null = null;
+    try {
+      snapshot = this.readUsableSnapshot(jobCode);
+    } catch {
+      snapshot = null;
+    }
+    if (!snapshot) return { ...base, summary: null };
+    return { ...base, summary: snapshot.requirements ?? analyzeRequirementTexts(snapshot.items.map((item) => ({ title: item.title }))) };
   }
 
   getAdminStatus() {

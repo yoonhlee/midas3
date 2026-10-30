@@ -95,7 +95,8 @@ export function createEvaluationWorkflow({
     void sendEvaluationLog(entry);
   }
 
-  async function scoreAnswer(answer, mission) {
+  // 서버 카탈로그 미션(mission.key)으로 채점한다. 카탈로그에 없는 예전 미션만 내용을 함께 보낸다.
+  async function scoreAnswer(answer, mission, { round = 1, selfReport } = {}) {
     const rawEval = mission._raw?.evaluation || {};
     const payload = {
       mission_id: mission.mission_id,
@@ -115,8 +116,15 @@ export function createEvaluationWorkflow({
     };
 
     try {
-      const data = await evaluateAnswerRequest({ answer, mission: payload });
-      return { missionScore: data.missionScore, evaluation: data.evaluation };
+      const data = await evaluateAnswerRequest({
+        answer,
+        mission: payload,
+        missionKey: mission.key,
+        attemptId: state.attemptId || undefined,
+        round,
+        selfReport
+      });
+      return { missionScore: data.missionScore, evaluation: data.evaluation, scoring: data.scoring || null };
     } catch (error) {
       // API 실패를 0점 placeholder로 저장하지 않고, 화면 흐름에서 재시도 UX를 띄우도록 전파한다.
       console.warn("Server evaluation failed. Showing retry screen instead of saving a zero score.", error);

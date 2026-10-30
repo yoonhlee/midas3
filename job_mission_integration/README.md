@@ -96,6 +96,18 @@ EVALUATE_RATE_LIMIT_MAX=30
 | `POSTINGS_REG_DATE` | 고용24 등록 기간 조건. 기본값 `M-1`(한 달) |
 | `POSTINGS_MAX_PAGES` | 직업당 최대 페이지(페이지당 100건). 기본값 `10` |
 | `POSTINGS_REFRESH_HOURS` | 자동 갱신 주기(시간). 기본값 `24` |
+| `POSTINGS_DETAIL_LIMIT` | 공고 요구역량 분석을 위해 직업마다 상세 조회할 공고 수. 기본값 `10`, `0`이면 제목만 분석 |
+| `APP_ENV` | `production`이면 개발용 로그인을 강제로 끈다 |
+| `PUBLIC_BASE_URL` | 서비스 주소(예: `https://jobsim.example.com`). 카카오 로그인 콜백·쿠키 Secure 판단에 쓴다. 기본값 `http://localhost:{PORT}` |
+| `TRUST_PROXY` | 리버스 프록시(Caddy 등) 뒤에서 돌릴 때 `true` |
+| `DATABASE_PATH` | SQLite 파일 위치. 기본값 `reports/jobsim.sqlite`, 테스트는 `:memory:` |
+| `EVAL_MODE` | `fake`이면 OpenAI 없이 가짜 채점(테스트·시연용). 기본값은 실제 채점 |
+| `KAKAO_LOGIN_CLIENT_ID` / `KAKAO_LOGIN_CLIENT_SECRET` | 카카오 로그인(OpenID Connect) 앱의 REST API 키와 Client Secret |
+| `KAKAO_LOGIN_REDIRECT_URI` | 카카오 콘솔에 등록한 Redirect URI. 기본값 `{PUBLIC_BASE_URL}/auth/kakao/callback` |
+| `KAKAO_ADMIN_KEY` | 탈퇴할 때 카카오 연결 끊기(unlink)에 쓰는 어드민 키. 없으면 연결 끊기를 건너뛰고 안내만 한다 |
+| `AUTH_DEV_LOGIN` | `true`이면 카카오 없이 쓰는 개발용 로그인을 켠다(운영에서는 자동으로 꺼짐) |
+| `SESSION_IDLE_DAYS` / `SESSION_MAX_DAYS` | 로그인 유지 기간. 기본값 7일(활동 없을 때) / 30일(최대) |
+| `ANONYMOUS_RESULT_RETENTION_HOURS` | 로그인 전 체험 결과 보관 시간. 기본값 `24` |
 
 ## 설치와 실행
 
@@ -214,6 +226,47 @@ index만 다시 만들고 싶을 때는 다음 명령을 사용합니다.
 python scripts/export_missions.py --rebuild-index
 ```
 
+## 기능 지도로 추가된 화면과 기능
+
+| 화면 | 주소 | 내용 |
+| --- | --- | --- |
+| 직무 탐색 | `/jobs.html` | KNOW 537개 직무, 이름·일상어 검색, 분야·체험 가능 필터, 최근 본 직무 |
+| 직무 상세 | `/job.html?code=K…` | 하는 일·역량·환경·임금·전망(출처·조사연도), 비슷한 직무, 관심 저장·메모, 비교 담기 |
+| 직무 비교 | `/compare.html` | 최대 3개, 브라우저에 유지, 적합도 점수는 넣지 않음 |
+| 로그인 | `/login.html` | 카카오 로그인, 가입(약관·개인정보·만 14세 확인), 개발용 로그인 |
+| 내 기록 | `/me.html` | 완료한 체험 다시 보기·지우기, 쓰던 답안 이어 쓰기, 관심 직무, 닉네임·로그아웃·탈퇴 |
+| 약관 | `/terms.html`, `/privacy.html` | 초안. 배포 전에 연락처 자리(`[배포 전에 …]`)를 채워야 함 |
+
+체험 화면(`/`)에는 업무 요청서 형식의 미션, 시작 전·후 흥미 질문, 결과 해석(수행 수준·직무 유사도·측정 범위), 근거 문장 강조, 해설 보고 재도전(1차·2차 레이더), 덜 잰 역량의 다음 미션, 공고 요구역량 비교, 강점 역량 직무, PNG 결과 카드·인쇄가 붙었습니다. 해설(기대 답안·채점 기준)은 `/api/bootstrap`에서 빠졌고, 미션을 제출한 뒤에만 `/api/missions/:key/explanation`으로 받을 수 있습니다.
+
+외부 키 없이 전부 확인하려면:
+
+```bash
+npm run postings:fixture-snapshots
+# PowerShell: $env:EVAL_MODE="fake"; $env:AUTH_DEV_LOGIN="true"; $env:POSTINGS_FIXTURE="1"; npm run dev
+# bash:       EVAL_MODE=fake AUTH_DEV_LOGIN=true POSTINGS_FIXTURE=1 npm run dev
+```
+
+카카오 로그인을 켜려면 카카오 개발자 콘솔에서 앱을 만들고 카카오 로그인·OpenID Connect를 활성화한 뒤, 동의항목에 닉네임을 넣고 Redirect URI(`{PUBLIC_BASE_URL}/auth/kakao/callback`)를 등록합니다. 그다음 `.env`에 `KAKAO_LOGIN_CLIENT_ID`, `KAKAO_LOGIN_CLIENT_SECRET`, `KAKAO_ADMIN_KEY`, `PUBLIC_BASE_URL`을 넣습니다. 운영 도메인에서 HTTPS로 띄우는 방법은 `deploy/Caddyfile`과 `docker compose --profile https up -d`를 참고합니다.
+
+### 채점 품질 측정(U18)
+
+```bash
+npm run eval:quality -- --runs=3                 # 기준 답안 25개 × 3회 채점 → reports/eval-quality-YYYYMMDD.json
+npm run eval:quality -- --runs=3 --fail          # 기준 미달이면 실패 코드로 끝냄
+```
+
+기준 답안은 `data/eval/reference_answers.json`(쉬운 미션 5개 × 품질 5단계)에 있습니다. 팀원이 채점 기준을 보고 `human_scores`에 축별 점수(0~4, 재지 않는 축은 `null`)를 채우면 사람 점수와의 일치(±1점 비율, 평균 오차)도 함께 계산합니다. 반복 일관성은 실제 AI 채점(`OPENAI_API_KEY`)으로 돌릴 때 의미가 있습니다.
+
+### 사람이 쓴 미션 넣기(U11)
+
+```bash
+python3 scripts/build_manual_missions.py K000001196 --check   # 검증만
+python3 scripts/build_manual_missions.py K000001196           # 검증 통과 시 missions/scenarios와 index.json에 반영
+```
+
+`missions/manual/{직업코드}_{easy|normal|hard}.draft.json`을 생성 미션과 같은 validator.v1로 검사하고 같은 형식으로 저장합니다. 인사·교육·훈련사무원 미션 3개가 이 방법으로 들어갔습니다(조사 시트 `data/additional_search/K000001196.md` 기반).
+
 ## 채용공고 지도 (지금 이 일을 뽑는 곳)
 
 결과 화면 맨 아래에 체험한 직업의 고용24 채용공고를 근무지 기준 전국 지도와 목록으로 보여줍니다.
@@ -223,7 +276,7 @@ python scripts/export_missions.py --rebuild-index
 2. 스냅샷을 만듭니다. 서버가 켜져 있으면 시작 30초 뒤와 이후 1시간마다 오래된 스냅샷을 자동으로 갱신합니다.
 
 ```bash
-npm run postings:refresh -- --verbose            # 5개 직업 전체(직종 미정 직업은 건너뜀)
+npm run postings:refresh -- --verbose            # 체험 직업 전체(직종 미정 직업은 건너뜀)
 npm run postings:refresh -- --job K000001080     # 한 직업만
 npm run postings:discover                        # 직종코드 미정(tbd) 직업의 후보 코드 탐색 → docs/postings_occupation_discovery.md
 npm run postings:discover -- --apply             # 탐색 제안을 data/postings/occupation_map.json에 기록(검토 후 커밋)
@@ -260,10 +313,14 @@ node --check app/admin.js
 E2E 테스트가 필요한 경우 Playwright 테스트를 실행합니다.
 
 ```bash
-npm run test:e2e
-npm run test:unit            # 채용공고 수집·지역 판정 단위 테스트
+npm run check:frontend       # app/ 아래 모든 JS 문법 검사
+npm run test:unit            # 채용공고·지역·채점기·서버(로그인·기록·직무 API)·탐색/요구역량/품질 지표 단위 테스트
+npm run test:e2e             # 기존 smoke
 npm run test:e2e:postings    # 채용공고 섹션 E2E(고정 데이터, 8091 포트, 데스크톱·모바일)
+npm run test:e2e:features    # 탐색·상세·비교·로그인·내 기록·재도전·결과 카드 E2E(8092 포트, 가짜 채점·개발용 로그인)
 ```
+
+설치된 Playwright 브라우저 버전이 다르면 `PW_CHROMIUM_PATH`로 Chromium 실행 파일을 지정합니다. 같은 검사가 GitHub Actions(`.github/workflows/ci.yml`)에서 돕니다.
 
 서버 상태는 다음 주소로 확인할 수 있습니다.
 

@@ -425,10 +425,17 @@ export function renderPreQuestionScreen({ state, jobDefs, renderBrand }) {
     <div class="pq-txt">이 직무가 하루에 가장 많이 하는 일이 뭐일 것 같아?</div>
     <textarea id="pq1" rows="3">${esc(answers.q1)}</textarea>
   </div>
-  <div class="card">
+  <div class="card" style="margin-bottom:14px">
     <div class="pq-lbl">${selectedJob.icon} ${selectedJob.job_name}</div>
     <div class="pq-txt">이 직무에서 가장 자주 쓰는 능력이 뭐일 것 같아?</div>
     <textarea id="pq2" rows="3">${esc(answers.q2)}</textarea>
+  </div>
+  <div class="card" id="pq-interest">
+    <fieldset class="sr-scale"><legend>지금 이 직무에 얼마나 관심 있어? (선택)</legend>
+      <div class="sr-opts">${[1, 2, 3, 4, 5].map((v) => `<label><input type="radio" name="pq-interest" value="${v}"${Number(answers.interest_pre) === v ? " checked" : ""}> ${v}</label>`).join("")}</div>
+      <div class="sr-ends"><span>전혀 없음</span><span>매우 많음</span></div>
+    </fieldset>
+    <div class="axis-note" style="margin:0">체험이 끝난 뒤 한 번 더 물어보고 변화를 보여줄게.</div>
   </div>
   <div style="display:flex;gap:10px;margin-top:24px">
     <button class="btn btn-g" id="btn-pback">${state.preqIndex > 0 ? "← 이전 직무" : "← 직무 선택"}</button>
@@ -464,28 +471,37 @@ export function renderMissionScreen({
     </div>`
     : "";
 
-  const scenarioUI = `<div class="scenario">
-    ${scenario.role ? `<div class="sc-role"><span class="sc-tag">역할</span> ${esc(scenario.role)}</div>` : ""}
-    ${scenario.context ? `<p class="sc-context">${esc(scenario.context)}</p>` : ""}
-    ${facts.main_issue ? `<div class="sc-issue"><span class="sc-tag">핵심 이슈</span> ${esc(facts.main_issue)}</div>` : ""}
-    ${scenario.goal ? `<div class="sc-goal"><span class="sc-tag">목표</span> ${esc(scenario.goal)}</div>` : ""}
-    ${(scenario.constraints || []).length ? `<div class="sc-constraints"><span class="sc-tag">제약</span><ul>${scenario.constraints.map((constraint) => `<li>${esc(constraint)}</li>`).join("")}</ul></div>` : ""}
-    ${glossaryUI}
-  </div>`;
+  const difficulty = missionSpec.difficulty || {};
+  const requester = facts.org_name ? `${facts.org_name} 팀장` : "팀장";
+  const minutes = difficulty.estimated_time_minutes || submissionFormat.estimated_time_minutes;
+
+  // 업무 요청서(U12): 시나리오·과제·제출 형식을 실제 회사에서 받는 요청서 한 장으로 묶는다.
+  const requestDocUI = `<div class="req-doc" id="work-request">
+    <div class="req-doc-head"><b>업무 요청서</b><span>${difficulty.label ? `난이도 ${esc(difficulty.label)}` : ""}${minutes ? ` · 예상 ${esc(minutes)}분` : ""}</span></div>
+    <dl class="req-doc-meta">
+      <dt>요청자</dt><dd>${esc(requester)}</dd>
+      <dt>받는 사람</dt><dd>${esc(scenario.role || `${jobDef.job_name} 담당자`)}</dd>
+      <dt>제목</dt><dd>${esc(mission.title)}</dd>
+      ${facts.domain ? `<dt>업무 영역</dt><dd>${esc(facts.domain)}</dd>` : ""}
+    </dl>
+    <div class="req-doc-body">
+      ${scenario.context ? `<div class="req-doc-sec">배경</div><p class="sc-context">${esc(scenario.context)}</p>` : ""}
+      ${facts.main_issue ? `<div class="req-doc-sec">핵심 이슈</div><p>${esc(facts.main_issue)}</p>` : ""}
+      <div class="req-doc-sec">요청 사항</div>
+      ${tasks.length ? `<ol class="tasks-list">${tasks.map((task) => `<li>${esc(task.instruction)}</li>`).join("")}</ol>` : `<p>${esc(mission.task)}</p>`}
+      ${scenario.goal ? `<div class="req-doc-sec">이번 업무의 목표</div><p>${esc(scenario.goal)}</p>` : ""}
+      ${(scenario.constraints || []).length ? `<div class="req-doc-sec">유의 사항</div><ul>${scenario.constraints.map((constraint) => `<li>${esc(constraint)}</li>`).join("")}</ul>` : ""}
+      ${(submissionFormat.required_sections?.length || submissionFormat.length_hint) ? `<div class="req-doc-sec">회신 형식</div><p>${submissionFormat.required_sections?.length ? submissionFormat.required_sections.map(esc).join(" · ") : ""}${submissionFormat.length_hint ? ` (${esc(submissionFormat.length_hint)})` : ""}</p>` : ""}
+    </div>
+  </div>
+  ${glossaryUI}`;
 
   const materialsUI = materials.length
     ? `<div class="materials">
-      <div class="mat-hdr">📎 참고 자료 (${materials.length})</div>
+      <div class="mat-hdr">📎 첨부 자료 (${materials.length})</div>
       ${materials.map((item) => renderMaterial(item, esc)).join("")}
     </div>`
     : "";
-
-  const tasksUI = tasks.length
-    ? `<div class="tasks-block">
-      <div class="task-lbl">📋 수행 과제</div>
-      <ol class="tasks-list">${tasks.map((task) => `<li>${esc(task.instruction)}</li>`).join("")}</ol>
-    </div>`
-    : `<div style="margin-bottom:20px"><div class="task-lbl">📋 수행 과제</div><div class="task-txt">${esc(mission.task)}</div></div>`;
 
   const submitHintUI = (submissionFormat.required_sections?.length || submissionFormat.length_hint)
     ? `<div class="submit-hint">
@@ -501,9 +517,7 @@ export function renderMissionScreen({
       <div class="mis-breadcrumb">체험 <span>/</span> 미션 수행 <span>/</span> <span>${esc(jobDef.job_name)}</span></div>
       <div class="job-pill">${jobDef.icon} ${esc(jobDef.job_name)}</div>
       <div class="mis-q">${esc(mission.title)}</div>
-      ${scenarioUI}
-      <div class="mis-divider"></div>
-      ${tasksUI}
+      ${requestDocUI}
       ${materialsUI}
     </div>
     <div class="mis-right">
@@ -518,6 +532,7 @@ export function renderMissionScreen({
         ${submitHintUI}
         <textarea id="m-ans" placeholder="여기에 답변을 작성하세요…">${esc(state.missionAnswer)}</textarea>
         <div class="char-ct">${state.missionAnswer.length}자</div>
+        <div class="draft-status" id="draft-status" aria-live="polite">${esc(state.draftStatus || "")}</div>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <button class="btn btn-p" id="btn-mnext"${answerReady ? "" : " disabled"} style="width:100%">${isLastMission ? "결과 보기 →" : "다음 →"}</button>

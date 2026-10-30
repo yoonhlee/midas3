@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 고정 데이터(가상 공고). 요구역량 분석(U25) 테스트용 직무내용 -->
+<wantedDtl>
+  <wantedAuthNo>F1080000000002</wantedAuthNo>
+  <wantedInfo>
+    <jobsNm>(가상) 빅데이터 분석 엔지니어</jobsNm>
+    <wantedTitle>빅데이터 분석 엔지니어</wantedTitle>
+    <jobCont>• 대용량 로그 데이터 수집과 모니터링
+• 이상 징후 탐색과 원인 분석
+• 예측 모델링과 검증
+• 프로젝트 일정 관리</jobCont>
+  </wantedInfo>
+</wantedDtl>

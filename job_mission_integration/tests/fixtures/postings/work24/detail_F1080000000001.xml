@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 고정 데이터(가상 공고). 요구역량 분석(U25) 테스트용 직무내용 -->
+<wantedDtl>
+  <wantedAuthNo>F1080000000001</wantedAuthNo>
+  <wantedInfo>
+    <jobsNm>(가상) 데이터 분석가</jobsNm>
+    <wantedTitle>데이터 분석가 채용(BI 대시보드)</wantedTitle>
+    <jobCont>- 서비스 지표 정의와 대시보드 구축
+- SQL, Python으로 데이터 추출과 통계 분석
+- 분석 결과를 바탕으로 개선안 제안
+- 유관 부서와 협업해 지표 운영</jobCont>
+  </wantedInfo>
+</wantedDtl>

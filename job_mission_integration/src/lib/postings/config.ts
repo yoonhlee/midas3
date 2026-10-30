@@ -21,6 +21,8 @@ export interface PostingsConfig {
   maxPages: number;
   refreshHours: number;
   requestDelayMs: number;
+  // 요구역량 분석(U25)을 위해 직업마다 상세 조회할 공고 수
+  detailLimit: number;
 }
 
 const TRUTHY = new Set(["1", "true", "yes", "on"]);
@@ -37,6 +39,11 @@ function positiveInt(raw: string | undefined, fallback: number, max: number) {
   const n = Number(raw);
   if (!Number.isFinite(n) || n <= 0) return fallback;
   return Math.min(Math.floor(n), max);
+}
+
+function positiveIntOrZero(raw: string | undefined, fallback: number, max: number) {
+  if ((raw ?? "").trim() === "0") return 0;
+  return positiveInt(raw, fallback, max);
 }
 
 export function loadPostingsConfig(
@@ -57,7 +64,8 @@ export function loadPostingsConfig(
     regDate: (REG_DATE_VALUES as readonly string[]).includes(regDate) ? (regDate as RegDate) : "M-1",
     maxPages: positiveInt(env.POSTINGS_MAX_PAGES, 10, 1000),
     refreshHours: positiveInt(env.POSTINGS_REFRESH_HOURS, 24, 24 * 30),
-    requestDelayMs: fixture ? 0 : 300
+    requestDelayMs: fixture ? 0 : 300,
+    detailLimit: positiveIntOrZero(env.POSTINGS_DETAIL_LIMIT, 10, 100)
   };
 }
 

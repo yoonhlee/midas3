@@ -46,8 +46,8 @@ export function createApp(ctx: AppContext) {
   app.use(loadAuth(ctx.db, config));
 
   app.use(express.static(config.paths.app));
-  // 미션 JSON 정적 제공 — app/index.html 이 ../missions/* 경로로 fetch 함
-  app.use("/missions", express.static(config.paths.missions));
+  // 미션 JSON(기대 답안 포함)은 정적으로 내보내지 않는다. 화면은 /api/bootstrap(해설 제외)을 쓰고,
+  // 해설은 제출한 뒤 /api/missions/:key/explanation으로만 받는다.
   // 지도 라이브러리는 CDN 없이 node_modules에서 직접 제공한다(발표장 네트워크 대비).
   app.use("/vendor/leaflet", express.static(path.join(config.paths.root, "node_modules/leaflet/dist")));
   app.use("/vendor/leaflet.markercluster", express.static(path.join(config.paths.root, "node_modules/leaflet.markercluster/dist")));

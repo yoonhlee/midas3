@@ -20,6 +20,30 @@ function loadJsonFile<T = unknown>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
 }
 
+function withoutEvaluation(raw: unknown) {
+  if (!raw || typeof raw !== "object") return raw;
+  const { evaluation: _hidden, ...rest } = raw as Record<string, unknown>;
+  return rest;
+}
+
+// 제출 뒤에 보여주는 해설: 기대 답안 방향과 채점 기준
+export function missionExplanation(mission: CatalogMission) {
+  const evaluation = ((mission._raw as { evaluation?: Record<string, unknown> } | undefined)?.evaluation ?? {}) as {
+    expected_insights?: unknown[];
+    rubric?: Array<Record<string, unknown>>;
+  };
+  return {
+    mission_key: mission.key,
+    title: mission.title,
+    expected_insights: (evaluation.expected_insights ?? []).map((item) => String(item)),
+    rubric: (evaluation.rubric ?? []).map((item) => ({
+      criterion: String(item.criterion ?? ""),
+      description: String(item.description ?? ""),
+      points: Number(item.points) || 0
+    }))
+  };
+}
+
 // 서버가 가진 미션 카탈로그. 채점은 항상 이 카탈로그의 미션 정의로 한다.
 export class MissionStore {
   private payload: MissionBootstrapPayload | null = null;
@@ -35,6 +59,15 @@ export class MissionStore {
 
   get(): MissionBootstrapPayload | null {
     return this.payload;
+  }
+
+  // 브라우저에 보내는 카탈로그. 기대 답안·채점 기준(evaluation)은 빼고, 제출한 뒤 해설 API로만 준다(U21).
+  getPublic(): MissionBootstrapPayload | null {
+    if (!this.payload) return null;
+    return {
+      ...this.payload,
+      allMissions: this.payload.allMissions.map((mission) => ({ ...mission, _raw: withoutEvaluation(mission._raw) as CatalogMission["_raw"] }))
+    };
   }
 
   findByKey(key: string | null | undefined): CatalogMission | null {
