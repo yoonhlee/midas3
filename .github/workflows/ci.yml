@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [master, aws]
+  pull_request:
+
+defaults:
+  run:
+    working-directory: job_mission_integration
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      EVAL_MODE: fake
+      OPENAI_API_KEY: ""
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: job_mission_integration/package-lock.json
+      - run: npm ci
+      - name: 타입 검사
+        run: npm run typecheck
+      - name: 프론트 문법 검사
+        run: npm run check:frontend
+      - name: 단위·서버 테스트
+        run: npm run test:unit
+      - name: 직무 데이터가 생성기와 일치하는지
+        run: |
+          if [ -d data/api_raw ]; then npm run jobs:build && git diff --exit-code data/jobs/; else echo "data/api_raw 없음: 건너뜀"; fi
+      - name: Playwright 브라우저 설치
+        run: npx playwright install --with-deps chromium
+      - name: E2E (기존 smoke)
+        run: npm run test:e2e
+      - name: E2E (채용공고 지도)
+        run: npm run test:e2e:postings
+      - name: E2E (탐색·로그인·기록·재도전)
+        run: npm run test:e2e:features
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-results
+          path: job_mission_integration/test-results
+          retention-days: 7

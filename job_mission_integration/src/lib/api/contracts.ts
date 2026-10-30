@@ -28,14 +28,49 @@ export const EvaluateMissionSchema = z.object({
   materials: z.array(z.object({}).passthrough()).optional()
 });
 
+// mission_key가 있으면 서버 카탈로그의 미션으로 채점한다. mission은 예전 클라이언트 호환용이다.
 export const EvaluateRequestSchema = z.object({
-  mission: EvaluateMissionSchema,
-  answer: z.string().trim().min(1).max(3000)
-});
+  mission: EvaluateMissionSchema.optional(),
+  mission_key: z.string().min(1).max(200).optional(),
+  answer: z.string().trim().min(1).max(3000),
+  attempt_id: z.string().uuid().optional(),
+  round: z.number().int().min(1).max(5).optional(),
+  self_report: z.record(z.unknown()).optional()
+}).refine((value) => Boolean(value.mission || value.mission_key), { message: "mission 또는 mission_key가 필요해." });
 
 export const EvaluateResponseSchema = z.object({
   evaluation: EvaluationSchema,
-  missionScore: MissionScoreSchema
+  missionScore: MissionScoreSchema,
+  scoring: z.object({
+    mode: z.enum(["llm", "fake"]),
+    source: z.string(),
+    server_mission: z.boolean()
+  }).optional(),
+  attempt_mission_id: z.string().nullable().optional()
+});
+
+const JobCodeSchema = z.string().regex(/^K\d{9}$/);
+
+export const CreateAttemptRequestSchema = z.object({
+  job_codes: z.array(JobCodeSchema).min(1).max(3),
+  pre_answers: z.record(z.unknown()).optional()
+});
+
+export const UpdateAttemptRequestSchema = z.object({
+  pre_answers: z.record(z.unknown())
+});
+
+// 결과 화면을 다시 그리는 데 필요한 상태(처음 본 결과 화면 그대로 다시 보기)
+export const CompleteAttemptRequestSchema = z.object({
+  snapshot: z.object({
+    selectedJobs: z.array(JobCodeSchema).min(1).max(3),
+    preqAnswers: z.record(z.unknown()).default({}),
+    missionScores: z.record(z.array(z.record(z.number()))).default({}),
+    evaluationLogs: z.array(z.record(z.unknown())).max(30).default([]),
+    resultSummary: z.record(z.unknown()).nullable().default(null),
+    selfReports: z.record(z.unknown()).default({}),
+    retry: z.record(z.unknown()).nullable().default(null)
+  }).passthrough()
 });
 
 export const MissionScoreRowSchema = AxisProfileSchema.partial();

@@ -35,13 +35,14 @@ export const EvaluationSchema = z.object({
     "low_confidence",
     "possible_prompt_injection"
   ])),
-  source: z.enum(["llm", "heuristic", "unavailable", "precheck"]).optional(),
+  source: z.enum(["llm", "heuristic", "unavailable", "precheck", "fake"]).optional(),
+  model: z.string().optional(),
   prompt_version: z.string()
 });
 
 // OpenAI Structured Outputs parse용 스키마:
 // optional 필드는 parse 제약과 충돌할 수 있어 source를 제외한다.
-export const LlmEvaluationSchema = EvaluationSchema.omit({ source: true });
+export const LlmEvaluationSchema = EvaluationSchema.omit({ source: true, model: true });
 
 export type Axis = typeof AXES[number];
 export type Evaluation = z.infer<typeof EvaluationSchema>;
