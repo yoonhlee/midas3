@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { AXES, Evaluation, LlmEvaluationSchema, MissionScore } from "./schema.js";
 import { buildEvaluationPrompt, PROMPT_VERSION, RubricCriterion, SYSTEM_PROMPT } from "./prompts.js";
+import { fakeEvaluation } from "./fakeEvaluation.js";
 
 type AxisSignals = Partial<Record<(typeof AXES)[number], number>>;
 
@@ -33,6 +34,15 @@ type EvaluateAnswerResult = {
 
 let openaiClient: OpenAI | null = null;
 const DEFAULT_EVAL_MODEL = "gpt-5-nano";
+
+// 채점 방식: llm(기본, OpenAI 키가 없으면 휴리스틱으로 폴백) | fake(테스트·시연용 가짜 채점)
+export function getEvalMode(): "llm" | "fake" {
+  return (process.env.EVAL_MODE ?? "").trim().toLowerCase() === "fake" ? "fake" : "llm";
+}
+
+export function getEvalModel() {
+  return (process.env.OPENAI_EVAL_MODEL ?? "").trim() || DEFAULT_EVAL_MODEL;
+}
 
 function getOpenAIClient() {
   if (!process.env.OPENAI_API_KEY) return null;
@@ -199,7 +209,7 @@ function addFlag(evaluation: Evaluation, flag: Evaluation["flags"][number]) {
 }
 
 function capScoresForNonLlm(evaluation: Evaluation): Evaluation {
-  if (evaluation.source === "llm") return evaluation;
+  if (evaluation.source === "llm" || evaluation.source === "fake") return evaluation;
   const scoreCap = evaluation.source === "heuristic" ? 2 : 1;
   const confidenceCap = evaluation.source === "heuristic" ? 0.55 : 0.45;
   for (const axis of AXES) {
@@ -381,6 +391,11 @@ function lowContentEvaluation(
   };
 }
 
+export function supportsTemperature(model: string) {
+  const name = model.trim().toLowerCase();
+  return !(name.startsWith("gpt-5") || name.startsWith("o"));
+}
+
 function heuristicFallbackEvaluation(mission: Mission, answer: string, cause: string): Evaluation {
   const axisSignals = resolveAxisSignals(mission);
   const length = normalizeText(answer).length;
@@ -545,6 +560,11 @@ export async function evaluateAnswer({ mission, answer }: EvaluateAnswerInput): 
     return { evaluation: calibrated, missionScore: toMissionScore(calibrated, normalizedMission) };
   }
 
+  if (getEvalMode() === "fake") {
+    const evaluation = fakeEvaluation(normalizedMission, answer);
+    return { evaluation, missionScore: toMissionScore(evaluation, normalizedMission) };
+  }
+
   const openai = getOpenAIClient();
   if (!openai) {
     const evaluation = heuristicFallbackEvaluation(normalizedMission, answer, "missing_api_key");
@@ -553,10 +573,12 @@ export async function evaluateAnswer({ mission, answer }: EvaluateAnswerInput): 
   }
 
   let evaluation: Evaluation;
+  const model = getEvalModel();
   try {
     const response = await openai.responses.parse({
-      model: process.env.OPENAI_EVAL_MODEL ?? DEFAULT_EVAL_MODEL,
-      temperature: 0,
+      model,
+      // gpt-5·o 계열(추론 모델)은 temperature를 받지 않는다.
+      ...(supportsTemperature(model) ? { temperature: 0 } : {}),
       input: [
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: buildEvaluationPrompt({ mission: normalizedMission, answer }) }
@@ -574,10 +596,12 @@ export async function evaluateAnswer({ mission, answer }: EvaluateAnswerInput): 
     parsed.prompt_version = parsed.prompt_version || PROMPT_VERSION;
     evaluation = validateAndRecalculate(answer, {
       ...parsed,
-      source: "llm"
+      source: "llm",
+      model
     }, normalizedMission);
   } catch (error) {
     const cause = error instanceof Error ? error.message : "unknown_llm_error";
+    console.warn(`[evaluate] LLM 채점 실패로 휴리스틱 폴백(model=${model}): ${cause}`);
     evaluation = heuristicFallbackEvaluation(normalizedMission, answer, cause);
   }
 

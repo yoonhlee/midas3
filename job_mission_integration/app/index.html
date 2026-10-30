@@ -487,6 +487,8 @@ hr{border:none;border-top:1px solid var(--b0);margin:28px 0}
   .mat-table th,.mat-table td{padding:5px 7px}
 }
 </style>
+<link rel="stylesheet" href="./styles/postings.css">
+<link rel="stylesheet" href="./styles/results.css">
 </head>
 <body>
 
@@ -495,10 +497,11 @@ hr{border:none;border-top:1px solid var(--b0);margin:28px 0}
   <div class="nav-logo" onclick="window.resetAll && window.resetAll()">JOB<span>SIM</span></div>
   <div class="nav-spacer"></div>
   <div class="nav-links">
-    <a href="#about" class="nav-link">소개</a>
     <a href="#simulation" class="nav-link">체험</a>
-    <a href="#trust" class="nav-link">데이터</a>
-    <a href="./admin.html" class="nav-link">관리자</a>
+    <a href="./jobs.html" class="nav-link">직무 탐색</a>
+    <a href="./compare.html" class="nav-link">비교</a>
+    <a href="./me.html" class="nav-link">내 기록</a>
+    <a href="./login.html" class="nav-link" id="nav-user">로그인</a>
   </div>
   <button class="btn btn-nav" onclick="window.goSim && window.goSim()">체험 시작</button>
 </nav>
@@ -600,46 +603,39 @@ hr{border:none;border-top:1px solid var(--b0);margin:28px 0}
     <div>
       <div class="ft-col-h">제품</div>
       <div class="ft-links">
-        <a class="ft-link">직무 시뮬레이션</a>
-        <a class="ft-link">적성 분석 리포트</a>
-        <a class="ft-link">KNOW 데이터 연동</a>
-        <a class="ft-link">업데이트 소식</a>
+        <a class="ft-link" href="#simulation">직무 체험</a>
+        <a class="ft-link" href="./jobs.html">직무 탐색(537개)</a>
+        <a class="ft-link" href="./compare.html">직무 비교</a>
+        <a class="ft-link" href="./me.html">내 기록</a>
       </div>
     </div>
     <div>
       <div class="ft-col-h">리소스</div>
       <div class="ft-links">
-        <a class="ft-link">사용 가이드</a>
-        <a class="ft-link">KNOW 데이터 소개</a>
-        <a class="ft-link">직무별 프로파일</a>
-        <a class="ft-link">자주 묻는 질문</a>
+        <a class="ft-link" href="#trust">KNOW 데이터 소개</a>
+        <a class="ft-link" href="https://www.career.go.kr/" target="_blank" rel="noopener noreferrer">커리어넷</a>
+        <a class="ft-link" href="./admin.html">관리자</a>
       </div>
     </div>
     <div>
       <div class="ft-col-h">회사</div>
       <div class="ft-links">
-        <a class="ft-link">소개</a>
-        <a class="ft-link">블로그</a>
-        <a class="ft-link">채용</a>
-        <a class="ft-link">문의</a>
+        <a class="ft-link" href="#about">소개</a>
       </div>
     </div>
     <div>
       <div class="ft-col-h">약관</div>
       <div class="ft-links">
-        <a class="ft-link">이용약관</a>
-        <a class="ft-link">개인정보처리방침</a>
-        <a class="ft-link">쿠키 정책</a>
+        <a class="ft-link" href="./terms.html">이용약관</a>
+        <a class="ft-link" href="./privacy.html">개인정보 처리방침</a>
       </div>
     </div>
   </div>
   <div class="ft-btm">
     <div class="ft-logo">JOB<span>SIM</span></div>
-    <div class="ft-copy">© 2025 JOBSIM. KNOW 2019 재직자 조사 기반.</div>
+    <div class="ft-copy">© 2026 JOBSIM. 직업 정보: 한국고용정보원 KNOW.</div>
     <div class="ft-soc">
-      <a href="#">Twitter</a>
-      <a href="#">GitHub</a>
-      <a href="#">LinkedIn</a>
+      <a href="https://github.com/yoonhlee/midas3" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </div>
 </div>

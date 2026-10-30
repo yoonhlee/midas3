@@ -1,14 +1,12 @@
 {
   "schema_version": "missions-index.v1",
-  "generated_at": "2026-06-01",
+  "generated_at": "2026-10-30",
   "jobs": [
     {
       "job_cd": "K000000872",
       "job_name": "광고·홍보·마케팅전문가",
       "icon": "💼",
       "mission_keys": [
-        "pilot_v1_20260601_173827__mission_K000000872_easy_001",
-        "pilot_v1_20260601_173827__mission_K000000872_hard_001",
         "pilot_v1_20260601_173827__mission_K000000872_easy_001",
         "pilot_v1_20260601_173827__mission_K000000872_hard_001",
         "pilot_v1_20260601_173827__mission_K000000872_normal_001"
@@ -21,8 +19,6 @@
       "mission_keys": [
         "pilot_v1_20260601_173827__mission_K000000997_easy_001",
         "pilot_v1_20260601_173827__mission_K000000997_hard_001",
-        "pilot_v1_20260601_173827__mission_K000000997_easy_001",
-        "pilot_v1_20260601_173827__mission_K000000997_hard_001",
         "pilot_v1_20260601_173827__mission_K000000997_normal_001"
       ]
     },
@@ -31,8 +27,6 @@
       "job_name": "데이터분석가(빅데이터분석가)",
       "icon": "📊",
       "mission_keys": [
-        "pilot_v1_20260601_173827__mission_K000001080_easy_001",
-        "pilot_v1_20260601_173827__mission_K000001080_hard_001",
         "pilot_v1_20260601_173827__mission_K000001080_easy_001",
         "pilot_v1_20260601_173827__mission_K000001080_hard_001",
         "pilot_v1_20260601_173827__mission_K000001080_normal_001"
@@ -45,8 +39,6 @@
       "mission_keys": [
         "pilot_v1_20260601_173827__mission_K000001179_easy_001",
         "pilot_v1_20260601_173827__mission_K000001179_hard_001",
-        "pilot_v1_20260601_173827__mission_K000001179_easy_001",
-        "pilot_v1_20260601_173827__mission_K000001179_hard_001",
         "pilot_v1_20260601_173827__mission_K000001179_normal_001"
       ]
     },
@@ -57,9 +49,17 @@
       "mission_keys": [
         "pilot_v1_20260601_173827__mission_K000007519_easy_001",
         "pilot_v1_20260601_173827__mission_K000007519_hard_001",
-        "pilot_v1_20260601_173827__mission_K000007519_easy_001",
-        "pilot_v1_20260601_173827__mission_K000007519_hard_001",
         "pilot_v1_20260601_173827__mission_K000007519_normal_001"
+      ]
+    },
+    {
+      "job_cd": "K000001196",
+      "job_name": "인사·교육·훈련사무원",
+      "icon": "🤝",
+      "mission_keys": [
+        "manual_v1_20261030__mission_K000001196_easy_001",
+        "manual_v1_20261030__mission_K000001196_hard_001",
+        "manual_v1_20261030__mission_K000001196_normal_001"
       ]
     }
   ],
@@ -332,6 +332,60 @@
         "AX3": 0.45,
         "AX4": 0.0,
         "AX5": 0.0
+      }
+    },
+    {
+      "key": "manual_v1_20261030__mission_K000001196_easy_001",
+      "path": "scenarios/K000001196_01.json",
+      "mission_id": "mission_K000001196_easy_001",
+      "job_cd": "K000001196",
+      "job_name": "인사·교육·훈련사무원",
+      "difficulty": "easy",
+      "title": "온보딩 설문 메모로 먼저 고칠 점 찾기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.2,
+        "AX2": 0.2,
+        "AX3": 0.0,
+        "AX4": 0.2,
+        "AX5": 0.4
+      }
+    },
+    {
+      "key": "manual_v1_20261030__mission_K000001196_normal_001",
+      "path": "scenarios/K000001196_02.json",
+      "mission_id": "mission_K000001196_normal_001",
+      "job_cd": "K000001196",
+      "job_name": "인사·교육·훈련사무원",
+      "difficulty": "normal",
+      "title": "조기 퇴사율 차트로 온보딩 개선안 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.35,
+        "AX2": 0.0,
+        "AX3": 0.175,
+        "AX4": 0.325,
+        "AX5": 0.15
+      }
+    },
+    {
+      "key": "manual_v1_20261030__mission_K000001196_hard_001",
+      "path": "scenarios/K000001196_03.json",
+      "mission_id": "mission_K000001196_hard_001",
+      "job_cd": "K000001196",
+      "job_name": "인사·교육·훈련사무원",
+      "difficulty": "hard",
+      "title": "만족도 설문과 예산 메모로 복리후생 개편안 품의하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.125,
+        "AX2": 0.125,
+        "AX3": 0.3,
+        "AX4": 0.2,
+        "AX5": 0.25
       }
     }
   ]

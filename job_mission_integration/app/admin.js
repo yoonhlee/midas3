@@ -230,6 +230,7 @@ function timelineRenderKey(run) {
 }
 
 function renderAuth() {
+  hidePostingsPanel();
   app.innerHTML = `<div class="topbar">
     <div class="brand">JOB<span>SIM</span> Admin</div>
     <div class="spacer"></div>
@@ -661,8 +662,8 @@ function renderDemoUnlockNotice() {
   if (!state.demoUnlockEnabled || state.demoNoticeDismissed) return "";
   return `<div class="demo-modal-backdrop" role="alertdialog" aria-modal="true" aria-labelledby="demo-unlock-title">
     <section class="auth-card demo-modal">
-      <h1 id="demo-unlock-title">일시적으로 잠금이 해제되어 있습니다</h1>
-      <p class="help">교수님 확인을 위해 관리자 페이지 접근이 일시적으로 허용되어 있습니다.</p>
+      <h1 id="demo-unlock-title">조회만 일시적으로 열려 있습니다</h1>
+      <p class="help">교수님 확인을 위해 관리자 페이지 조회가 일시적으로 허용되어 있습니다. 미션 생성·내보내기·삭제는 서버의 <code>ADMIN_PASSWORD</code>를 입력해야 합니다.</p>
       <div class="demo-modal-actions">
         <button class="btn primary" id="demo-unlock-close" type="button">확인</button>
       </div>
@@ -682,6 +683,7 @@ function renderApp() {
   </main>
   ${renderDemoUnlockNotice()}`;
   bindAppEvents();
+  ensurePostingsPanel();
 }
 
 function bindAppEvents() {
@@ -884,3 +886,135 @@ async function exportRun() {
 }
 
 loadJobs({ silentAuthFailure: !state.token });
+
+/* ── 채용공고 데이터 (미션 생성 UI와 분리된 영역, 항상 ADMIN_PASSWORD 필요) ── */
+const postingsRoot = document.getElementById("admin-postings");
+const postingsState = { loaded: false, loading: false, data: null, error: "", notice: "" };
+let postingsPollTimer = null;
+
+function hidePostingsPanel() {
+  if (!postingsRoot) return;
+  postingsRoot.hidden = true;
+  postingsRoot.innerHTML = "";
+  postingsState.loaded = false;
+  clearTimeout(postingsPollTimer);
+}
+
+function ensurePostingsPanel() {
+  if (!postingsRoot || postingsState.loaded || postingsState.loading) return;
+  postingsRoot.hidden = false;
+  loadPostingsStatus();
+}
+
+const pctText = (n, d) => (d ? `${Math.round((n / d) * 100)}%` : "-");
+const checkText = (v) => (v === true ? "적용" : v === false ? "무시됨" : "확인 못 함");
+function timeText(iso) {
+  if (!iso) return "-";
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? String(iso) : d.toLocaleString("ko-KR", { timeZone: "Asia/Seoul", hour12: false });
+}
+
+async function loadPostingsStatus() {
+  postingsState.loading = true;
+  try {
+    postingsState.data = await requestJson("/api/admin/postings/status");
+    postingsState.error = "";
+    postingsState.loaded = true;
+  } catch (error) {
+    postingsState.error = error.status === 401
+      ? "채용공고 관리는 ADMIN_PASSWORD로 로그인해야 해(데모 잠금 해제로는 안 돼)."
+      : error.status === 503
+        ? "서버에 ADMIN_PASSWORD가 설정되지 않아 채용공고 관리 API를 쓸 수 없어."
+        : error.message;
+    postingsState.loaded = true;
+  } finally {
+    postingsState.loading = false;
+  }
+  renderPostingsPanel();
+  clearTimeout(postingsPollTimer);
+  if (postingsState.data?.refreshing) postingsPollTimer = setTimeout(loadPostingsStatus, 3000);
+}
+
+function renderPostingsRow(job) {
+  const c = job.counts;
+  const checks = job.checks;
+  const codes = job.mode === "code"
+    ? job.work24_codes.map((x) => `${x.code} ${x.name}`).join(", ")
+    : job.mode === "keyword" ? `키워드 '${job.keyword}'` : "미정";
+  const checkLines = checks
+    ? [
+        `직종: ${checkText(checks.occupation_filter_applied)}`,
+        `등록기간: ${checkText(checks.regdate_filter_applied)}`,
+        `기업형태: ${Object.entries(checks.company_type_filter_applied || {}).map(([k, v]) => `${k} ${checkText(v)}`).join(", ")}`
+      ].join("<br>")
+    : "-";
+  const errors = [job.last_error, ...(job.errors || []).map((e) => `[${e.stage}] ${e.message}`)].filter(Boolean);
+  return `<tr>
+    <td><b>${esc(job.job_name)}</b><div class="pst-admin-sub">${esc(job.job_code)} · API ${esc(job.api_status)}</div></td>
+    <td><span class="chip ${job.mode === "tbd" ? "warn" : "good"}">${esc(job.mode)}</span><div class="pst-admin-sub">${esc(codes)}</div></td>
+    <td>성공 ${esc(timeText(job.last_success_at))}<br>실패 ${esc(timeText(job.last_failure_at))}<div class="pst-admin-sub">기준 ${esc(timeText(job.fetched_at))}</div></td>
+    <td>${c ? `${c.kept}건<div class="pst-admin-sub">받은 ${c.received} · 중복 ${c.duplicates_removed} · 마감 ${c.expired_removed}</div>` : "-"}</td>
+    <td>${c ? `정확 ${pctText(c.geo_address, c.kept)}<br>대략 ${pctText(c.geo_region, c.kept)}<br>없음 ${pctText(c.geo_none, c.kept)}` : "-"}</td>
+    <td>${c ? `${c.metro} / ${c.nonmetro}<div class="pst-admin-sub">미상 ${c.region_unknown}</div>` : "-"}</td>
+    <td class="pst-admin-sub">${checkLines}</td>
+    <td>${job.mode === "tbd" ? "" : `<button class="btn" data-postings-refresh="${esc(job.job_code)}">이 직업 갱신</button>`}
+      ${errors.length ? `<div class="pst-admin-err">${errors.map(esc).join("<br>")}</div>` : ""}</td>
+  </tr>`;
+}
+
+function renderPostingsPanel() {
+  if (!postingsRoot) return;
+  const d = postingsState.data;
+  const pills = d
+    ? `<span class="chip ${d.fixture ? "warn" : "good"}">${d.fixture ? "고정 데이터 모드" : "실제 데이터"}</span>
+       <span class="chip ${d.work24_key_configured ? "good" : "warn"}">고용24 키 ${d.work24_key_configured ? "있음" : "없음"}</span>
+       <span class="chip ${d.kakao_key_configured ? "good" : "warn"}">카카오 키 ${d.kakao_key_configured ? "있음" : "없음"}</span>
+       <span class="chip">regDate ${esc(d.reg_date)} · ${esc(d.refresh_hours)}시간 주기</span>
+       ${d.refreshing ? `<span class="chip warn">갱신 중…</span>` : ""}`
+    : "";
+  postingsRoot.innerHTML = `<section class="panel">
+    <div class="panel-head">
+      <div class="panel-title">채용공고 데이터</div>
+      <div class="panel-sub">결과 화면 "지금 이 일을 뽑는 곳"에 쓰는 고용24 스냅샷 상태야. 갱신은 백그라운드로 돌아.</div>
+    </div>
+    <div class="panel-body">
+      <div class="pst-admin-actions">${pills}
+        <span style="flex:1"></span>
+        <button class="btn" data-postings-reload>새로고침</button>
+        <button class="btn primary" data-postings-refresh="*" ${d ? "" : "disabled"}>전체 갱신</button>
+      </div>
+      ${postingsState.notice ? `<p class="pst-admin-sub" style="margin-top:10px">${esc(postingsState.notice)}</p>` : ""}
+      ${postingsState.error ? `<div class="error" style="margin-top:12px">${esc(postingsState.error)}</div>` : ""}
+      ${d ? `<div class="pst-admin-scroll" style="margin-top:14px"><table class="pst-admin-table">
+        <thead><tr><th>직업</th><th>매핑</th><th>마지막 성공·실패</th><th>최종 건수</th><th>좌표</th><th>수도권/비수도권</th><th>조건 검증</th><th></th></tr></thead>
+        <tbody>${d.jobs.map(renderPostingsRow).join("")}</tbody>
+      </table></div>` : ""}
+    </div>
+  </section>`;
+}
+
+async function onPostingsClick(event) {
+  const target = event.target instanceof Element ? event.target : null;
+  if (!target) return;
+  if (target.closest("[data-postings-reload]")) {
+    loadPostingsStatus();
+    return;
+  }
+  const button = target.closest("[data-postings-refresh]");
+  if (!button) return;
+  const jobCode = button.dataset.postingsRefresh;
+  try {
+    const res = await requestJson("/api/admin/postings/refresh", {
+      method: "POST",
+      body: JSON.stringify(jobCode === "*" ? {} : { jobCode })
+    });
+    postingsState.notice = res.already_running
+      ? "이미 갱신이 돌고 있어. 끝나면 결과가 반영돼."
+      : `${jobCode === "*" ? "전체" : jobCode} 갱신을 시작했어.`;
+  } catch (error) {
+    postingsState.notice = `갱신 요청 실패: ${error.message}`;
+  }
+  loadPostingsStatus();
+}
+
+postingsRoot?.addEventListener("click", onPostingsClick);

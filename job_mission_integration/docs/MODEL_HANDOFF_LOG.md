@@ -545,7 +545,90 @@
 
 ---
 
+### 2026-10-26 — 채용공고 지도 "지금 이 일을 뽑는 곳" 추가
+왜:
+- 결과 화면에서 체험한 직업의 실제 고용24 채용공고를 근무지 기준 지도·목록으로 보여주기(명세 `docs/JOB_POSTINGS_MAP_SPEC.md`, 계획·결정 `docs/JOB_POSTINGS_MAP_PLAN.md`)
+- 함께: 평가기 temperature 호환(8장), 미션 인덱스 키 중복 제거
+
+주요 반영:
+- 서버 모듈 `src/lib/postings/`(config, work24Client, parse, regions, geocoder, occupationMap, collector, store, service, scheduler)
+- API: `GET /api/jobs/:jobCode/postings`(스냅샷만 읽음), `GET /api/admin/postings/status`, `POST /api/admin/postings/refresh`(둘 다 항상 ADMIN_PASSWORD), `/health.postings`
+- 정적: `/vendor/leaflet/`, `/vendor/leaflet.markercluster/`(node_modules에서 제공, CDN 없음)
+- 화면: `app/components/postingsSection.js`, `postingsMap.js`, `app/styles/postings.css`, `app/main.js`(render 훅·결과 섹션 뼈대), `jobsimApi.getJobPostings`
+- 관리자: `app/admin.html`, `app/admin.js` 아래쪽 "채용공고 데이터" 영역(기존 미션 생성 UI와 분리)
+- 스크립트: `postings:refresh`, `postings:fixture-snapshots`, `postings:discover`, `postings:sample`, `test:unit`, `test:e2e:postings`
+- 데이터: `data/postings/occupation_map.json`(3개 확정 + 투자분석가·보험상품개발자 tbd), 고정 데이터 `tests/fixtures/postings/`
+- 8장: `evaluateAnswer.ts` — gpt-5·o 계열은 temperature 생략, 휴리스틱 폴백 원인 console.warn / `missions/index.json` 중복 mission_keys 10개 제거
+
+관련 파일:
+- `server.ts`, `src/lib/api/contracts.ts`, `src/lib/postings/*.ts`, `src/lib/evaluator/evaluateAnswer.ts`
+- `app/main.js`, `app/index.html`, `app/admin.html`, `app/admin.js`, `app/api-client/jobsimApi.js`, `app/components/postings*.js`, `app/styles/postings.css`
+- `scripts/postings-refresh.ts`, `scripts/postings-discover.ts`, `scripts/postings-sample.ts`
+- `tests/unit/*.test.ts`, `tests/e2e-postings/postings.spec.ts`, `tests/fixtures/postings/**`, `playwright.postings.config.ts`
+- `package.json`(fast-xml-parser, leaflet 1.9.4, leaflet.markercluster 1.5.3), `tsconfig.json`(tests/unit 포함), `.env.example`(신규), `.env.server.example`, `README.md`
+- `docs/JOB_POSTINGS_METHOD.md`, `docs/JOB_POSTINGS_MAP_SPEC.md`, `docs/JOB_POSTINGS_MAP_PLAN.md`, `missions/index.json`
+
+검증:
+- `npm run typecheck` 통과
+- `npm run test:unit` 38 passed
+- `npm run test:e2e:postings` 6 passed(데스크톱·모바일 360px). 이 컨테이너는 브라우저 버전이 달라 `PW_CHROMIUM_PATH=/opt/pw-browsers/chromium`로 실행
+- `npm run test:e2e`(기존 smoke) 4 passed
+- `node --check` app/main.js, app/admin.js, postingsSection.js, postingsMap.js, jobsimApi.js 통과
+- 저장소 전체 `authKey=`/`KakaoAK ` 검색: 테스트용 가짜 값만 있음
+- 인증키가 없어 실제 수집(`postings:refresh`)·직종 탐색(`postings:discover`)은 실행하지 못함
+
+---
+
+### 2026-10-30 — JOBSIM 기능 지도 전체 구현(공통 기반 + ①~⑨)
+왜:
+- 팀 문서 "JOBSIM 기능 지도"의 공통 기반과 U01~U25 항목을 한 번에 반영. 외부 키(카카오·고용24·OpenAI)가 없어도 가짜 채점·개발용 로그인·고정 공고로 전부 확인할 수 있게 함.
+
+주요 반영:
+- 공통 기반(커밋 1): `server.ts` 기능별 분리(`src/server/**`), API 오류 형식 통일, SQLite(`node:sqlite`, 마이그레이션 v1), 관리자 API 잠금(데모 해제는 조회만), Caddy HTTPS 프로필, CI(`.github/workflows/ci.yml`), AI 작업 규칙(`AGENTS.md`)
+- ① U01 카카오 로그인(OIDC: state·nonce·PKCE, id_token 검증), 가입(약관·개인정보·만 14세), 약관·처리방침 초안, 탈퇴+카카오 연결 끊기, 닉네임, 세션(HttpOnly·SameSite·CSRF), 취소·실패 안내, 개발용 로그인(운영에서 꺼짐), 로그인 전 결과 옮기기(U01-9), 기록 개별 삭제(U01-11)
+- ② U02 내 기록(`/me.html`): 결과 스냅샷을 그대로 다시 보기(`/index.html?attempt=ID`), 요약, 관심 직무→비교·체험, 계정 설정, 빈 화면, 쓰던 답안 이어 쓰기(U02-2, 로그인 시 자동 저장). 채점은 서버 카탈로그 미션(`mission_key`)으로만
+- ③ U04·U05·U08·U09·U04-3·U04-4: `/jobs.html`, `/job.html`, 대표 이미지(대분류 10 + 체험 6), 비슷한 직무, 일상어 별칭(`data/jobs/aliases.json`), 최근 본 직무
+- ④ U06·U07: 관심 저장+메모, 비교(최대 3, 브라우저 유지, 적합도 없음)
+- ⑤ U25 공고 요구역량: 수집 때 공고 제목 + 상세 직무내용(`jobCont`, 직업당 `POSTINGS_DETAIL_LIMIT`건)을 5축 키워드 사전으로 집계해 스냅샷에 `requirements`로 저장(원문은 저장 안 함), `GET /api/jobs/:code/postings/requirements`. U24 강점 축 직무(`/api/jobs/by-axis/:axis`)
+- ⑥ U18 가짜 채점(`EVAL_MODE=fake`), 품질 측정 `npm run eval:quality`(기준 답안 25개 `data/eval/reference_answers.json`, 반복 일관성·품질 순서·사람 점수 일치). U19 근거 문장 강조, U17 결과 해석(수행 수준·직무 유사도·측정 범위)
+- ⑦ U21 해설 보고 재도전: 해설은 `/api/bootstrap`에서 빼고 제출한 기록이 있을 때만 `/api/missions/:key/explanation`으로 제공, `/missions` 정적 경로 제거. 2차 채점(round 2)을 1차와 레이더로 겹쳐 비교. U22 시작 전·후 흥미 질문, U20 덜 잰 축 미션 추천
+- ⑧ U03 PNG 결과 카드·인쇄(캔버스, 답변 원문 제외)
+- ⑨ U11 인사·교육·훈련사무원 미션 3개를 조사 시트로 직접 작성 → validator.v1 통과(신뢰도 1.0) → `scripts/build_manual_missions.py`로 카탈로그 반영. U12 미션 화면을 업무 요청서 형식(요청자·받는 사람·배경·요청 사항·회신 형식)으로 재배치
+- `eval:stability` 스크립트는 파일이 없는 상태로 남아 있어 `eval:quality`로 대체
+
+관련 파일(커밋 2):
+- `app/index.html`, `app/main.js`, `app/state/{store,flowController}.js`, `app/components/{missionScreens,resultExtras,radar,resultCard}.js`, `app/styles/results.css`
+- `app/{jobs,job,compare,login,me}.{html,js}`, `app/{terms,privacy}.html`, `app/common/{site.css,site.js,compareTray.js,recent.js,jobImages.js,jobSearch.js}`, `app/api-client/jobsimApi.js`, `app/domain/evaluationWorkflow.js`, `app/admin.js`
+- `src/server/{app,missionStore}.ts`, `src/server/routes/{missions,jobs}.ts`, `src/lib/postings/{requirements,collector,config,service,work24Client}.ts`
+- `scripts/eval-quality.ts`, `scripts/build_manual_missions.py`, `data/eval/reference_answers.json`, `missions/manual/*.draft.json`, `missions/scenarios/K000001196_0{1,2,3}.json`, `missions/index.json`, `data/postings/occupation_map.json`
+- `tests/unit/features.test.ts`, `tests/unit/{postings,server}.test.ts`, `tests/e2e-features/features.spec.ts`, `playwright.features.config.ts`, `playwright.config.ts`, `tests/fixtures/postings/work24/{routes.json,detail_F108000000000{1,2,3}.xml}`
+- `.github/workflows/ci.yml`, `README.md`, `.env.example`, `.env.server.example`
+
+검증:
+- `npm run typecheck` 통과, `npm run check:frontend` 26/26
+- `npm run test:unit` 58/58 통과
+- `npm run test:e2e` 4/4, `npm run test:e2e:postings` 6/6(데스크톱·모바일), `npm run test:e2e:features` 6/6 (이 컨테이너는 `PW_CHROMIUM_PATH=/opt/pw-browsers/chromium`)
+- `python3 scripts/build_manual_missions.py K000001196 --check` 3개 통과(신뢰도 1.0)
+- `EVAL_MODE=fake npm run eval:quality -- --runs=2` 품질 순서 0.889, 키 없는 휴리스틱 0.9(반복 일관성은 실제 AI 채점에서 측정 필요)
+
+---
+
 ## Open Items (Next)
+
+00. 기능 지도 후속(2026-10-30)
+- 카카오 로그인: 카카오 개발자 앱 생성·OIDC 활성화·Redirect URI 등록 후 `KAKAO_LOGIN_CLIENT_ID/SECRET`, `KAKAO_ADMIN_KEY`, `PUBLIC_BASE_URL`(HTTPS 도메인) 설정. 실제 카카오 계정으로 가입·탈퇴(연결 끊기) 확인 필요
+- `app/terms.html`, `app/privacy.html`의 `[배포 전에 …]` 자리(팀 대표 연락처 등)를 채우고 팀 검토
+- 고용24 상세 응답의 직무내용 필드명이 `jobCont`인지 실제 키로 확인(아니면 `parseDetailXml` 수정). 확인 전에는 요구역량이 공고 제목 위주로 계산됨
+- `data/eval/reference_answers.json`의 `human_scores`를 팀원이 채운 뒤 실제 AI 채점으로 `npm run eval:quality -- --runs=3 --fail`
+- 인사·교육·훈련사무원 미션 3개 사람 검토(`reliability.human_review_required=true`), 고용24 직종코드 탐색(현재 tbd)
+- 공유 링크(U03 2단계)는 공개 범위·개인정보 설계 뒤로 미룸(기능 지도 3주차 이후)
+
+0. 채용공고 지도 후속
+- 고용24·카카오 키를 넣고 `npm run postings:refresh -- --verbose` → `docs/JOB_POSTINGS_METHOD.md` 5장 실제 표 채우기
+- `npm run postings:discover`로 투자분석가·보험상품개발자 직종코드 결정(현재 tbd)
+- `npm run postings:sample` 후 사람 검토로 직종 연결 정확도 측정
+- 기존 레이더 차트(`resultDashboard.js`, 고정 폭 370px SVG)가 360px 화면에서 문서 가로 스크롤 6px을 만듦(새 섹션과 무관, 기존 섹션이라 수정하지 않음)
+- 전남광주 통합 후 도로명코드 시도 코드(`12`) 공식 확인
 
 1. `isLowInformationAnswer` 임계치 미세조정
 - 현재 값은 보수적 기본값
@@ -565,7 +648,11 @@
 ```bash
 npm run typecheck
 npm run pipeline:check
+npm run check:frontend
+npm run test:unit
 npm run test:e2e
-npm run eval:stability -- --runs=1 --out=reports/eval-stability-local.json --no-fail
-npm run analyze:compat
+npm run test:e2e:postings
+npm run test:e2e:features
+npm run eval:quality -- --runs=1
+python3 scripts/build_manual_missions.py K000001196 --check
 ```

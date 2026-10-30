@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 고정 데이터: 회사명·주소·공고번호는 모두 가짜야. -->
+<wantedRoot>
+  <total>13</total><startPage>1</startPage><display>100</display>
+  <wanted>
+    <wantedAuthNo>F1080000000001</wantedAuthNo>
+    <company>가상데이터(주)</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>데이터 분석가 채용(BI 대시보드)</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>서울 강남구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>채용시까지  26-11-30</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000001</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000001</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>116804166040</strtnmCd>
+    <basicAddr>서울특별시 강남구 가상로 1</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000002</wantedAuthNo>
+    <company>모의분석랩</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>빅데이터 분석 엔지니어</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>서울 마포구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-18</regDt>
+    <closeDt>26-11-15</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000002</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000002</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>114403000001</strtnmCd>
+    <basicAddr>서울특별시 마포구 시험로 22</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000003</wantedAuthNo>
+    <company>테스트커머스(주)</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>커머스 데이터 분석 담당</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>4000만원 ~ 5000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>경기 성남시 분당구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-15</regDt>
+    <closeDt>26-11-05</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000003</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000003</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>411353000001</strtnmCd>
+    <basicAddr>경기도 성남시 분당구 예시로 5</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000004</wantedAuthNo>
+    <company>샘플로지스</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>물류 데이터 분석가</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>인천 연수구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-10</regDt>
+    <closeDt>채용시까지</closeDt>
+    <infoSvc>SCRAP</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000004</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000004</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>281853000001</strtnmCd>
+    <basicAddr>인천광역시 연수구 견본로 9</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000005</wantedAuthNo>
+    <company>가상연구원</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>연구 데이터 분석 연구원</title>
+    <salTpNm>월급</salTpNm>
+    <sal>300만원 ~ 350만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>대전 유성구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-05</regDt>
+    <closeDt>26-11-20</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000005</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000005</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>302003000001</strtnmCd>
+    <basicAddr>대전광역시 유성구 모형로 3</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000006</wantedAuthNo>
+    <company>허구에너지(주)</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>에너지 데이터 분석 담당자</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>부산 해운대구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-01</regDt>
+    <closeDt>26-11-01</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000006</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000006</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>263503000001</strtnmCd>
+    <basicAddr>부산광역시 해운대구 임시로 7</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000007</wantedAuthNo>
+    <company>예시제조</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>생산 데이터 분석가</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>전남 나주시</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-09-30</regDt>
+    <closeDt>26-11-10</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000007</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000007</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>462003000001</strtnmCd>
+    <basicAddr>전라남도 나주시 가상길 10</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000008</wantedAuthNo>
+    <company>가상모빌리티</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>모빌리티 데이터 분석</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>광주 북구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-22</regDt>
+    <closeDt>채용시까지</closeDt>
+    <infoSvc>JOBROBOT</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000008</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000008</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd></strtnmCd>
+    <basicAddr></basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000009</wantedAuthNo>
+    <company>데모게임즈</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>게임 데이터 분석가</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>서울 강남구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-24</regDt>
+    <closeDt>26-12-01</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000009</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000009</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>116804166041</strtnmCd>
+    <basicAddr>서울특별시 강남구 가상로 1</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000010</wantedAuthNo>
+    <company>낡은회사</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>데이터 분석 (마감된 공고)</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>서울 종로구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-09-28</regDt>
+    <closeDt>26-10-20</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000010</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000010</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>111103000001</strtnmCd>
+    <basicAddr>서울특별시 종로구 지난로 1</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000002</wantedAuthNo>
+    <company>모의분석랩</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>빅데이터 분석 엔지니어</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>서울 마포구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-18</regDt>
+    <closeDt>26-11-15</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000002</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000002</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>114403000001</strtnmCd>
+    <basicAddr>서울특별시 마포구 시험로 22</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000012</wantedAuthNo>
+    <company></company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>사업 운영 담당</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>서울 구로구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-12</regDt>
+    <closeDt></closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000012</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000012</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>115303000001</strtnmCd>
+    <basicAddr>서울특별시 구로구 없는로 404</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F1080000000013</wantedAuthNo>
+    <company>미상기업</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>데이터 분석 보조</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region></region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-11</regDt>
+    <closeDt>26-11-30</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000013</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000013</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd></strtnmCd>
+    <basicAddr></basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+</wantedRoot>

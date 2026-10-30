@@ -22,3 +22,26 @@ services:
       retries: 3
       start_period: 20s
     restart: unless-stopped
+
+  # HTTPS(선택): 도메인을 연결했을 때만 켠다. `docker compose --profile https up -d`
+  # Caddy가 Let's Encrypt 인증서를 자동으로 받아 443으로 받고 jobsim:8080으로 넘긴다.
+  # .env.server에 JOBSIM_DOMAIN, PUBLIC_BASE_URL=https://도메인, TRUST_PROXY=true를 넣어야 쿠키가 Secure로 붙는다.
+  caddy:
+    image: caddy:2.8
+    profiles: ["https"]
+    depends_on:
+      - jobsim
+    env_file:
+      - .env.server
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

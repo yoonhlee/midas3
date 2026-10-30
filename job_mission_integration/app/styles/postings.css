@@ -1,0 +1,71 @@
+/* 결과 화면 "지금 이 일을 뽑는 곳" 섹션 */
+.pst{min-width:0}
+.pst-body{display:flex;flex-direction:column;gap:14px;min-width:0}
+.pst-summary{font-size:15px;color:var(--t2);line-height:1.7;word-break:keep-all;overflow-wrap:anywhere}
+.pst-summary strong{color:var(--t1);font-weight:600}
+.pst-types{font-size:13px;color:var(--t3)}
+.pst-stale{font-size:13px;color:var(--warn);background:rgba(242,201,76,.08);border:1px solid rgba(242,201,76,.2);border-radius:6px;padding:10px 12px}
+.pst-msg{font-size:14px;color:var(--t3);background:var(--bg2);border:1px solid var(--b0);border-radius:8px;padding:16px;line-height:1.6;word-break:keep-all}
+.pst-retry,.pst-more{min-height:40px;padding:0 14px;border-radius:6px;border:1px solid var(--b1);background:var(--bg3);color:var(--t1);font:inherit;font-size:13px;cursor:pointer}
+.pst-retry{margin-left:8px}
+.pst-retry:hover,.pst-more:hover{border-color:var(--b2)}
+.pst-more{width:100%;margin-top:10px}
+
+.pst-chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none}
+.pst-chip{font-size:12px;color:var(--t2);background:var(--bg3);border:1px solid var(--b0);border-radius:9999px;padding:3px 10px}
+.pst-chip b{color:var(--t1);font-weight:600;margin-left:2px}
+
+.pst-filters{display:flex;flex-wrap:wrap;gap:8px 16px}
+.pst-filter-group{display:flex;flex-wrap:wrap;gap:6px}
+.pst-filter{min-height:40px;padding:0 14px;border-radius:9999px;border:1px solid var(--b1);background:transparent;color:var(--t2);font:inherit;font-size:13px;cursor:pointer;transition:border-color .15s,background .15s,color .15s}
+.pst-filter:hover{border-color:var(--b2);color:var(--t1)}
+.pst-filter[aria-pressed="true"]{background:var(--a);border-color:var(--a);color:#fff}
+.pst-filter:focus-visible,.pst-more:focus-visible,.pst-retry:focus-visible,.pst-link:focus-visible{outline:2px solid var(--ah);outline-offset:2px}
+
+.pst-map{height:320px;width:100%;border-radius:8px;border:1px solid var(--b0);overflow:hidden;background:var(--bg3);z-index:0}
+@media (min-width:768px){.pst-map{height:420px}}
+/* 어두운 테마: 타일에만 필터를 건다(마커·팝업 제외) */
+.pst-tiles{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9)}
+.pst-map .leaflet-control-attribution{background:rgba(15,16,17,.8);color:var(--t3)}
+.pst-map .leaflet-control-attribution a{color:var(--t2)}
+
+.pst-marker{border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700}
+.pst-marker-exact{background:var(--a);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.5)}
+.pst-marker-approx{background:rgba(94,201,142,.35);border:2px dashed rgba(94,201,142,.9)}
+.pst-legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--t3)}
+.pst-legend span{display:inline-flex;align-items:center;gap:6px}
+.pst-dot{display:inline-block;width:12px;height:12px;border-radius:50%}
+.pst-dot-exact{background:var(--a);border:2px solid #fff}
+.pst-dot-approx{background:rgba(94,201,142,.35);border:2px dashed rgba(94,201,142,.9)}
+
+.pst-pop{list-style:none;margin:0;padding:0;max-height:220px;overflow:auto;color:#1c1d1f}
+.pst-pop-item+.pst-pop-item{border-top:1px solid #e3e3e3;margin-top:8px;padding-top:8px}
+.pst-pop-co{font-size:12px;color:#555;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.pst-pop-title{font-size:13px;font-weight:600;margin:2px 0}
+.pst-pop-meta{font-size:12px;color:#666}
+.pst-pop-link{font-size:12px}
+
+.pst-list-head{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--t3);margin-bottom:8px}
+.pst-count{color:var(--t1);font-weight:600}
+.pst-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.pst-item{background:var(--bg2);border:1px solid var(--b0);border-radius:8px;padding:14px 16px;min-width:0}
+.pst-item-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pst-co{font-size:13px;color:var(--t3);overflow-wrap:anywhere}
+.pst-title{font-size:15px;color:var(--t1);font-weight:500;margin:4px 0 6px;overflow-wrap:anywhere}
+.pst-meta{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--t3)}
+.pst-nomap{color:var(--t4)}
+.pst-link{display:inline-flex;align-items:center;min-height:32px;margin-top:6px;font-size:13px;color:var(--ah);text-decoration:none}
+.pst-link:hover{text-decoration:underline}
+.pst-badge{font-size:11px;font-weight:600;padding:1px 7px;border-radius:4px;background:var(--ab);color:var(--ah);border:1px solid var(--ab2)}
+.pst-badge-public{background:rgba(94,201,142,.12);color:var(--success);border-color:rgba(94,201,142,.3)}
+.pst-badge-foreign{background:rgba(242,201,76,.08);color:var(--warn);border-color:rgba(242,201,76,.25)}
+.pst-source{font-size:12px;color:var(--t4);line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+
+.pst-skeleton{display:flex;flex-direction:column;gap:10px}
+.pst-sk{background:var(--bg3);border-radius:6px;animation:pst-pulse 1.4s ease-in-out infinite}
+.pst-sk-line{height:16px;width:90%}
+.pst-sk-line.short{width:55%}
+.pst-sk-map{height:240px}
+@keyframes pst-pulse{0%,100%{opacity:.55}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.pst-sk{animation:none}}
+.pst-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 고정 데이터: 회사명·주소·공고번호는 모두 가짜야. -->
+<wantedRoot>
+  <total>10</total><startPage>1</startPage><display>100</display>
+  <wanted>
+    <wantedAuthNo>F0997000000001</wantedAuthNo>
+    <company>가상리테일(주)</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>상품 기획자(MD 기획)</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>서울 송파구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>채용시까지</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000001</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000001</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>117103000001</strtnmCd>
+    <basicAddr>서울특별시 송파구 가상로 30</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024301</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F0997000000002</wantedAuthNo>
+    <company>모의패션</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>의류 상품기획 담당</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>서울 성동구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>26-11-11</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000002</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000002</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>112003000001</strtnmCd>
+    <basicAddr>서울특별시 성동구 시험로 11</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024301</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F0997000000003</wantedAuthNo>
+    <company>테스트전자</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>가전 상품기획</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>경기 수원시 영통구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>26-11-12</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000003</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000003</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>411173000002</strtnmCd>
+    <basicAddr>경기도 수원시 영통구 예시로 12</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024301</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F0997000000004</wantedAuthNo>
+    <company>견본식품</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>식품 상품 기획자</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>충북 청주시 흥덕구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>채용시까지</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000004</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000004</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>431133000001</strtnmCd>
+    <basicAddr>충청북도 청주시 흥덕구 견본로 1</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024301</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F0997000000005</wantedAuthNo>
+    <company>임시화장품</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>화장품 상품기획</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>충남 천안시 서북구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>26-11-14</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000005</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000005</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>441333000001</strtnmCd>
+    <basicAddr>충청남도 천안시 서북구 임시로 2</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024301</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F0997000000006</wantedAuthNo>
+    <company>허구생활</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>생활용품 상품 기획</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>대구 동구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>26-11-15</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000006</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000006</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>271403000001</strtnmCd>
+    <basicAddr>대구광역시 동구 허구로 3</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024301</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F0997000000007</wantedAuthNo>
+    <company>예시모터스</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>자동차 부품 상품기획</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>울산 남구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>채용시까지</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000007</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000007</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>311403000001</strtnmCd>
+    <basicAddr>울산광역시 남구 예시로 4</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024301</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F0997000000008</wantedAuthNo>
+    <company>가상스포츠</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>스포츠용품 상품기획</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>경남 창원시 성산구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>26-11-17</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000008</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000008</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>481253000001</strtnmCd>
+    <basicAddr>경상남도 창원시 성산구 가상로 5</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024301</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F0997000000009</wantedAuthNo>
+    <company>모의아울렛</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>머천다이저(매장 MD)</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>경북 포항시 남구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>26-11-18</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000009</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000009</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>471113000001</strtnmCd>
+    <basicAddr>경상북도 포항시 남구 모의로 6</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024302</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+  <wanted>
+    <wantedAuthNo>F0997000000010</wantedAuthNo>
+    <company>테스트제주</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>관광상품 기획</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>제주 제주시</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>채용시까지</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000010</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000010</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>501103000001</strtnmCd>
+    <basicAddr>제주특별자치도 제주시 테스트로 7</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024301</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+</wantedRoot>

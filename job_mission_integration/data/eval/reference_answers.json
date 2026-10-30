@@ -1,0 +1,238 @@
+{
+  "schema_version": "eval_reference.v1",
+  "description": "채점 품질 측정(U18)용 기준 답안 25개. 쉬운 미션 5개 × 품질 5단계(excellent·good·partial·off_topic·too_short). human_scores에는 팀원이 채점 기준을 보고 매긴 축별 점수(0~4, 재지 않는 축은 null)를 적는다.",
+  "levels": {
+    "excellent": "과제 요구를 모두 충족하고 근거를 자료에서 직접 인용",
+    "good": "핵심은 맞지만 근거·연결이 짧음",
+    "partial": "방향만 맞고 근거가 없음",
+    "off_topic": "과제와 무관한 일반론",
+    "too_short": "한두 단어"
+  },
+  "items": [
+    {
+      "id": "ref_01",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000000872_easy_001",
+      "level": "excellent",
+      "expected_rank": 1,
+      "answer": "CTR은 D1~D3까지 3%대로 유지되다가 D4에 1.4%로 절반 넘게 급락했습니다. 첫 점검 포인트는 D4에 광고 소재나 노출 지면·타깃 설정이 바뀌었는지 확인하는 것입니다. 같은 광고인데 하루 만에 꺾였다면 클릭 의지보다 노출 조건이 달라졌을 가능성이 크기 때문입니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_02",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000000872_easy_001",
+      "level": "good",
+      "expected_rank": 2,
+      "answer": "D4에 CTR이 3.0%에서 1.4%로 크게 떨어졌습니다. 그날 광고 노출 설정이 바뀌었는지부터 확인하겠습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_03",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000000872_easy_001",
+      "level": "partial",
+      "expected_rank": 3,
+      "answer": "CTR이 마지막 날에 떨어졌습니다. 광고를 다시 점검해 봐야 할 것 같습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_04",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000000872_easy_001",
+      "level": "off_topic",
+      "expected_rank": 4,
+      "answer": "도시락 구독은 요즘 1인 가구가 늘어서 앞으로 잘될 것 같습니다. 메뉴를 다양하게 하면 좋겠습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_05",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000000872_easy_001",
+      "level": "too_short",
+      "expected_rank": 4,
+      "answer": "D4 떨어짐",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_06",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000000997_easy_001",
+      "level": "excellent",
+      "expected_rank": 1,
+      "answer": "우선순위 1인 A를 고르겠습니다. 장바구니 담기 수는 늘었는데 결제 수 비율이 낮아져 결제 직전 단계에서 흐름이 끊긴다는 strength가 표에 정리돼 있어, 문제를 ‘담기→결제’ 단계의 이탈로 보는 게 가장 근거가 분명합니다. 다만 쿠폰 같은 다른 요인도 함께 움직였는지는 확인이 필요합니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_07",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000000997_easy_001",
+      "level": "good",
+      "expected_rank": 2,
+      "answer": "A를 선택합니다. 담기는 늘었는데 결제 전환이 떨어진 게 표의 강점 칸에 근거로 나와 있어서 구매 단계 이탈이 핵심으로 보입니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_08",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000000997_easy_001",
+      "level": "partial",
+      "expected_rank": 3,
+      "answer": "A가 우선순위 1이라서 A를 고르겠습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_09",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000000997_easy_001",
+      "level": "off_topic",
+      "expected_rank": 4,
+      "answer": "썬크림은 여름에 많이 팔리니까 광고를 더 하면 매출이 오를 것 같아요.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_10",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000000997_easy_001",
+      "level": "too_short",
+      "expected_rank": 4,
+      "answer": "A요",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_11",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000001080_easy_001",
+      "level": "excellent",
+      "expected_rank": 1,
+      "answer": "가장 먼저 고쳐야 할 항목은 ‘어제(전일) 기간 필터 적용’입니다. 체크리스트에서 issue로 표시됐고 중요도도 높아서, 기간 조건이 틀리면 방문자 수 자체가 다른 날짜까지 섞여 집계되므로 다른 항목을 보기 전에 이것부터 바로잡아야 합니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_12",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000001080_easy_001",
+      "level": "good",
+      "expected_rank": 2,
+      "answer": "기간 필터 항목을 먼저 고치겠습니다. 어제 날짜 조건이 안 맞으면 방문자 수가 틀리게 나오기 때문입니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_13",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000001080_easy_001",
+      "level": "partial",
+      "expected_rank": 3,
+      "answer": "체크리스트에 문제가 있는 항목이 있어서 그걸 먼저 고쳐야 할 것 같습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_14",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000001080_easy_001",
+      "level": "off_topic",
+      "expected_rank": 4,
+      "answer": "쇼핑앱 방문자를 늘리려면 이벤트를 많이 하고 푸시 알림을 보내는 게 좋습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_15",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000001080_easy_001",
+      "level": "too_short",
+      "expected_rank": 4,
+      "answer": "필터",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_16",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000001179_easy_001",
+      "level": "excellent",
+      "expected_rank": 1,
+      "answer": "후보 A가 더 안정적으로 보입니다. 표에서 A는 최근 3분기 매출 성장률 +8%가 이어지고 영업이익률도 12%로 일정한 반면, B는 이익률이 9%로 낮고 변동폭이 크다고 나와 있습니다. 다만 A도 원가 압박으로 이익률이 소폭 흔들릴 수 있다는 점은 함께 보고하겠습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_17",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000001179_easy_001",
+      "level": "good",
+      "expected_rank": 2,
+      "answer": "A를 고르겠습니다. 매출 성장률이 꾸준하고 영업이익률이 12%로 B보다 높고 일정하기 때문입니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_18",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000001179_easy_001",
+      "level": "partial",
+      "expected_rank": 3,
+      "answer": "A가 숫자가 더 좋아 보여서 A를 선택합니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_19",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000001179_easy_001",
+      "level": "off_topic",
+      "expected_rank": 4,
+      "answer": "주식은 장기 투자가 중요하고 분산 투자를 해야 위험을 줄일 수 있습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_20",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000001179_easy_001",
+      "level": "too_short",
+      "expected_rank": 4,
+      "answer": "A",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_21",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000007519_easy_001",
+      "level": "excellent",
+      "expected_rank": 1,
+      "answer": "issue인 항목은 ‘고객이 보험료를 어떻게 느끼는지가 제도 내용과 연결돼 정리돼 있는가’입니다. 다음 단계가 소비자심리와 보험료 영향요인을 찾는 분석인데, 이 연결이 빠져 있으면 어떤 제도가 고객 부담감에 영향을 주는지 가설을 세울 수 없어서 먼저 보완해야 합니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_22",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000007519_easy_001",
+      "level": "good",
+      "expected_rank": 2,
+      "answer": "고객이 보험료를 어떻게 느끼는지와 제도가 연결되지 않은 항목이 문제입니다. 다음 분석이 소비자심리라서 이게 빠지면 분석을 시작하기 어렵습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_23",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000007519_easy_001",
+      "level": "partial",
+      "expected_rank": 3,
+      "answer": "고객 반응 부분이 부족해서 문제인 것 같습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_24",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000007519_easy_001",
+      "level": "off_topic",
+      "expected_rank": 4,
+      "answer": "보험은 나이가 들수록 필요하니까 젊을 때 가입하는 게 좋습니다.",
+      "human_scores": null,
+      "human_rater": null
+    },
+    {
+      "id": "ref_25",
+      "mission_key": "pilot_v1_20260601_173827__mission_K000007519_easy_001",
+      "level": "too_short",
+      "expected_rank": 4,
+      "answer": "첫번째",
+      "human_scores": null,
+      "human_rater": null
+    }
+  ]
+}

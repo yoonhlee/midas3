@@ -9,5 +9,5 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true
   },
-  "include": ["server.ts", "src/**/*.ts", "scripts/**/*.ts"]
+  "include": ["server.ts", "src/**/*.ts", "scripts/**/*.ts", "tests/unit/**/*.ts"]
 }

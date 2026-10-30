@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>직무 상세 — JOBSIM</title>
+<link rel="stylesheet" href="/common/site.css">
+<link rel="stylesheet" href="/styles/postings.css">
+<style>
+.hero{display:flex;gap:18px;align-items:flex-start;margin-bottom:12px}
+.hero .job-img{flex-shrink:0;border-radius:12px}
+@media (max-width:560px){.hero{flex-direction:column}}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.duties{padding-left:18px;color:var(--t2);font-size:14px}
+.duties li{margin-bottom:4px}
+.score-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 92px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--b0);font-size:14px}
+.score-row .between{font-size:12px;color:var(--t3);text-align:right}
+.score-row .between strong{color:var(--t1)}
+.seg{display:inline-flex;border:1px solid var(--b1);border-radius:8px;overflow:hidden;margin-bottom:8px}
+.seg button{border:0;background:transparent;color:var(--t3);padding:6px 12px;cursor:pointer;min-height:36px}
+.seg button[aria-pressed="true"]{background:var(--a);color:#fff}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.stack{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--bg4)}
+.stack span{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--t3);margin-top:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:middle}
+.sim-card .why{font-size:13px;color:var(--t2)}
+details summary{cursor:pointer;color:var(--t2)}
+.memo-row{display:flex;gap:8px;margin-top:8px}
+.memo-row .input{flex:1}
+.source{font-size:12px;color:var(--t4);margin-top:32px}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<main class="page" id="main"><div class="skeleton" style="height:240px"></div></main>
+<div id="site-footer"></div>
+<script type="module" src="/job.js"></script>
+</body>
+</html>
