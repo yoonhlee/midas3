@@ -1,3 +1,5 @@
+import { answerCountText } from "../components/missionScreens.js";
+
 const AXES = ["AX1", "AX2", "AX3", "AX4", "AX5"];
 
 function escapeHtml(value) {
@@ -198,7 +200,7 @@ export function refreshMissionNextButton(ctx) {
   const enabled = state.missionAnswer.trim().length > 10;
   button.disabled = !enabled;
   const charCt = document.querySelector(".char-ct");
-  if (charCt) charCt.textContent = `${state.missionAnswer.length}자`;
+  if (charCt) charCt.textContent = answerCountText(state.missionAnswer.length);
 }
 
 export function advanceMissionFlow(ctx) {

@@ -264,3 +264,91 @@ test("해설은 제출 전에는 잠겨 있고, 부팅 카탈로그에도 기대
   expect(missionsStatic.status()).toBe(404);
   await page.goto("/");
 });
+
+// ── 팀원 오류 보고(11/1) 회귀 테스트 ─────────────────────────
+test("재도전 표는 결과 화면처럼 미측정 축을 '미측정'으로, 인쇄는 카드 이미지를 다 불러온 뒤 연다", async ({ page }) => {
+  await page.goto("/index.html?job=K000007519");
+  await page.locator("#btn-pnext").click();
+  await page.locator(".mc").first().click();
+  await page.locator("#btn-ml-start").click();
+  // U06: 답변 한도(3,000자)가 쓰는 동안 보인다
+  await expect(page.locator(".char-ct")).toContainText("/ 3,000자");
+  await expect(page.locator("#m-ans")).toHaveAttribute("maxlength", "3000");
+  await page.locator("#m-ans").fill("issue 항목은 고객이 보험료를 어떻게 느끼는지가 제도와 연결되지 않은 점입니다. 다음 분석에서 소비자심리를 봐야 해서 먼저 보완하겠습니다.");
+  await expect(page.locator(".char-ct")).toContainText("/ 3,000자");
+  await page.locator("#btn-mnext").click();
+  await expect(page.locator("#btn-restart")).toBeVisible({ timeout: 30_000 });
+  const unmeasured = await page.locator(".axis-score-unmeasured").count();
+  expect(unmeasured).toBeGreaterThan(0);
+  await expect(page.locator("#interpretation")).toContainText("수행·몰입 반영");
+
+  // 인쇄: window.print가 불릴 때 카드 이미지가 이미 로드돼 있어야 한다
+  await page.evaluate(() => {
+    (window as unknown as { __printed: unknown[] }).__printed = [];
+    window.print = () => {
+      const img = document.getElementById("result-card-print") as HTMLImageElement;
+      (window as unknown as { __printed: unknown[] }).__printed.push({ complete: img.complete, width: img.naturalWidth, printClass: document.body.classList.contains("print-card") });
+    };
+  });
+  await page.locator("#btn-card-print").click();
+  await expect.poll(() => page.evaluate(() => (window as unknown as { __printed: Array<{ width: number }> }).__printed.length)).toBe(1);
+  const printed = await page.evaluate(() => (window as unknown as { __printed: Array<{ complete: boolean; width: number; printClass: boolean }> }).__printed[0]);
+  expect(printed.complete).toBe(true);
+  expect(printed.width).toBeGreaterThan(0);
+  expect(printed.printClass).toBe(true);
+
+  await page.locator("#btn-retry-open").click();
+  await page.locator("#retry-ans").fill("issue 항목은 고객 보험료 인식과 제도 연결이 빠진 점입니다. 고객 설문을 다시 관찰하고 팀원과 역할을 나눠 일정 안에 보완하겠습니다.");
+  await expect(page.locator("#retry-ct")).toContainText("/ 3,000자");
+  await page.locator("#btn-retry-submit").click();
+  const table = page.locator("#retry-result table");
+  await expect(table).toBeVisible({ timeout: 30_000 });
+  await expect(table.locator("tr", { hasText: "대인서비스" })).toContainText("미측정");
+  await expect(table.locator("tr", { hasText: "관찰·탐색" })).toContainText("미측정");
+});
+
+test("관심 직무: 비교할 직무를 고르고, 메모가 비교 담기 뒤에도 유지되고, 탐색·비교 화면에 관심·메모가 보인다", async ({ page }) => {
+  await devSignup(page, "member2", "메모회원");
+  for (const code of ["K000001080", "K000000872", "K000000997", "K000001179"]) {
+    await page.request.put(`/api/me/interests/${code}`, {
+      headers: { "x-csrf-token": (await (await page.request.get("/api/auth/session")).json()).csrf_token },
+      data: {}
+    });
+  }
+  await page.goto("/me.html");
+  const picks = page.locator("[data-pick]");
+  await expect(picks).toHaveCount(4);
+  await expect(page.locator("[data-pick]:checked")).toHaveCount(3);
+  // 4번째를 더 고르려 하면 막히고, 하나를 빼고 고르면 그 조합으로 비교한다(U01)
+  const last = picks.nth(3);
+  await last.check({ force: true }).catch(() => {});
+  await expect(page.locator("[data-pick]:checked")).toHaveCount(3);
+  await picks.nth(0).uncheck();
+  await last.check();
+  const pickedCodes = await page.locator("[data-pick]:checked").evaluateAll((els) => els.map((el) => (el as HTMLInputElement).dataset.pick).sort());
+  await page.locator("#compare-picked").click();
+  await page.waitForURL(/compare\.html/);
+  await expect(page.locator("table.compare thead th")).toHaveCount(4);
+  for (const code of pickedCodes) await expect(page.locator(`table.compare a[href="/job.html?code=${code}"]`)).toHaveCount(1);
+
+  // U04·U05: 메모는 여러 줄 입력칸, 저장 뒤 '비교 담기'를 눌러도 그대로
+  await page.goto("/me.html");
+  const memo = "데이터로 문제를 푸는 일이 재밌어 보여서 다음 학기에 관련 수업을 듣고 공모전도 나가보려고 함";
+  const memoBox = page.locator("textarea#memo-K000001080");
+  await expect(memoBox).toBeVisible();
+  await memoBox.fill(memo);
+  await page.locator('[data-memo="K000001080"]').click();
+  await expect(page.getByText("메모를 저장했어.")).toBeVisible();
+  await page.locator('.card.interest [data-compare="K000001080"]').click();
+  await expect(page.locator("textarea#memo-K000001080")).toHaveValue(memo);
+
+  // U02·U03: 탐색 목록과 비교표에서 관심 여부와 메모가 보인다
+  await page.goto("/jobs.html?q=%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D%EA%B0%80");
+  const card = page.locator(".job-card", { hasText: "데이터분석가" }).first();
+  await expect(card.locator(".chip-interest")).toHaveText("관심 저장됨");
+  await expect(card.locator(".memo-text")).toContainText("공모전");
+  await page.goto("/compare.html?codes=K000001080,K000000822");
+  const memoRow = page.locator("table.compare tr", { hasText: "내 메모" });
+  await expect(memoRow).toContainText("공모전");
+  await expect(memoRow).toContainText("관심 저장 후 메모 가능");
+});

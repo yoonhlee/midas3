@@ -3,7 +3,8 @@ import { clearCompare, readCompare, removeFromCompare } from "./common/compareTr
 import { jobImage } from "./common/jobImages.js";
 
 const host = document.getElementById("compare");
-let interests = new Set();
+// 관심 저장한 직무 코드 → 메모
+let interests = new Map();
 
 function list(items, n) {
   const rows = (items || []).slice(0, n);
@@ -40,7 +41,10 @@ function render(jobs, session) {
     ["체험", (j) => (j.experienceable ? `<a class="btn btn-sm btn-p" href="/index.html?job=${esc(j.code)}#simulation">체험하기</a>` : `<span class="muted">아직 미션 없음</span>`)],
     ["관심 직무", (j) => (session.authenticated
       ? `<button class="btn btn-sm" type="button" data-interest="${esc(j.code)}" aria-pressed="${interests.has(j.code)}">${interests.has(j.code) ? "저장됨 · 빼기" : "관심 저장"}</button>`
-      : `<a class="btn btn-sm" href="${esc(loginUrl())}">로그인하고 저장</a>`)]
+      : `<a class="btn btn-sm" href="${esc(loginUrl())}">로그인하고 저장</a>`)],
+    ...(session.authenticated ? [["내 메모", (j) => (interests.get(j.code)
+      ? `<span class="memo-text">${esc(interests.get(j.code))}</span>`
+      : `<span class="muted">${interests.has(j.code) ? "메모 없음" : "관심 저장 후 메모 가능"}</span>`)]] : [])
   ];
   host.innerHTML = `<div class="table-wrap"><table class="compare">
     <thead><tr><th scope="col"><span class="sr-only">항목</span></th>${jobs.map((j) => `<th scope="col"><div class="col-head">
@@ -60,9 +64,9 @@ async function load() {
   const session = await getSession();
   if (session.authenticated) {
     try {
-      interests = new Set((await api("GET", "/api/me/interests")).interests.map((row) => row.job_code));
+      interests = new Map((await api("GET", "/api/me/interests")).interests.map((row) => [row.job_code, row.memo || ""]));
     } catch (_) {
-      interests = new Set();
+      interests = new Map();
     }
   }
   if (!codes.length) return render([], session);
@@ -97,7 +101,7 @@ host.addEventListener("click", async (event) => {
         interests.delete(code);
       } else {
         await api("PUT", `/api/me/interests/${code}`, {});
-        interests.add(code);
+        interests.set(code, "");
       }
       load();
     } catch (error) {

@@ -28,22 +28,37 @@ function draftsHtml() {
     </div>`).join("")}`;
 }
 
+// 비교할 관심 직무(최대 3개). 처음에는 최근 저장한 3개를 골라 둔다.
+let pickedForCompare = new Set();
+let pickedInitialized = false;
+
+function syncPicked() {
+  const codes = new Set(data.interests.map((i) => i.job_code));
+  pickedForCompare = new Set([...pickedForCompare].filter((code) => codes.has(code)));
+  if (!pickedInitialized && data.interests.length) {
+    data.interests.slice(0, 3).forEach((i) => pickedForCompare.add(i.job_code));
+    pickedInitialized = true;
+  }
+}
+
 function interestsHtml() {
+  syncPicked();
   const body = data.interests.length
     ? data.interests.map((i) => `<div class="card interest">
         <div class="record">
           <div style="display:flex;gap:10px;align-items:center">${jobImage({ code: i.job_code, lrcl: i.lrcl }, { height: 40 })}
             <div><a class="title" href="/job.html?code=${esc(i.job_code)}" style="color:var(--t1)">${esc(i.name)}</a><div class="meta">${esc(i.lrcl)} · 저장 ${formatDate(i.created_at)}</div></div></div>
           <div class="btn-row">
+            ${data.interests.length > 1 ? `<label class="check pick-label"><input type="checkbox" data-pick="${esc(i.job_code)}"${pickedForCompare.has(i.job_code) ? " checked" : ""}> 비교에 넣기</label>` : ""}
             ${i.experienceable ? `<a class="btn btn-sm btn-p" href="/index.html?job=${esc(i.job_code)}#simulation">체험하기</a>` : `<span class="chip">아직 미션 없음</span>`}
             <button class="btn btn-sm" type="button" data-compare="${esc(i.job_code)}" data-name="${esc(i.name)}">${isInCompare(i.job_code) ? "비교에서 빼기" : "비교 담기"}</button>
             <button class="btn btn-sm" type="button" data-unsave="${esc(i.job_code)}">빼기</button>
           </div>
         </div>
-        <div class="memo-row"><label class="sr-only" for="memo-${esc(i.job_code)}">메모</label><input class="input" id="memo-${esc(i.job_code)}" maxlength="100" placeholder="한 줄 메모" value="${esc(i.memo)}"><button class="btn btn-sm" type="button" data-memo="${esc(i.job_code)}">메모 저장</button></div>
+        <div class="memo-row"><label class="sr-only" for="memo-${esc(i.job_code)}">메모</label><textarea class="input memo-input" id="memo-${esc(i.job_code)}" rows="2" maxlength="100" placeholder="메모 (100자)">${esc(i.memo)}</textarea><button class="btn btn-sm" type="button" data-memo="${esc(i.job_code)}">메모 저장</button></div>
       </div>`).join("")
     : `<div class="empty">아직 저장한 관심 직무가 없어.<div class="btn-row"><a class="btn" href="/jobs.html">직무 둘러보기</a></div></div>`;
-  return `<h2 class="sec-h">관심 직무</h2>${body}${data.interests.length > 1 ? `<div class="btn-row" style="margin-top:8px"><a class="btn btn-sm" href="/compare.html?codes=${data.interests.slice(0, 3).map((i) => i.job_code).join(",")}">관심 직무 ${Math.min(3, data.interests.length)}개 비교하기</a></div>` : ""}`;
+  return `<h2 class="sec-h">관심 직무</h2>${body}${data.interests.length > 1 ? `<div class="btn-row" style="margin-top:8px"><button class="btn btn-sm" type="button" id="compare-picked"${pickedForCompare.size ? "" : " disabled"}>고른 관심 직무 ${pickedForCompare.size}개 비교하기</button><span class="small muted">최대 3개까지 고를 수 있어.</span></div>` : ""}`;
 }
 
 function recordsHtml() {
@@ -141,8 +156,16 @@ main.addEventListener("click", async (event) => {
     const memo = target.closest("[data-memo]");
     if (memo) {
       const code = memo.dataset.memo;
-      await api("PUT", `/api/me/interests/${code}`, { memo: document.getElementById(`memo-${code}`).value });
+      const saved = (await api("PUT", `/api/me/interests/${code}`, { memo: document.getElementById(`memo-${code}`).value })).interest;
+      // 다시 그릴 때(비교 담기 등) 예전 메모로 돌아가지 않게 화면 상태도 바꾼다.
+      const row = data.interests.find((i) => i.job_code === code);
+      if (row) row.memo = saved?.memo ?? document.getElementById(`memo-${code}`).value;
       return toast("메모를 저장했어.");
+    }
+    if (target.closest("#compare-picked")) {
+      if (!pickedForCompare.size) return toast("비교할 직무를 골라줘.");
+      location.href = `/compare.html?codes=${[...pickedForCompare].join(",")}`;
+      return;
     }
     const compare = target.closest("[data-compare]");
     if (compare) {
@@ -161,6 +184,26 @@ main.addEventListener("click", async (event) => {
     if (delDraft) { await api("DELETE", `/api/me/drafts/${encodeURIComponent(delDraft.dataset.delDraft)}`); return reload(); }
   } catch (error) {
     toast(error.message);
+  }
+});
+
+main.addEventListener("change", (event) => {
+  const box = event.target instanceof HTMLInputElement ? event.target : null;
+  if (!box?.dataset.pick) return;
+  if (box.checked) {
+    if (pickedForCompare.size >= COMPARE_MAX) {
+      box.checked = false;
+      toast(`비교는 ${COMPARE_MAX}개까지 고를 수 있어.`);
+      return;
+    }
+    pickedForCompare.add(box.dataset.pick);
+  } else {
+    pickedForCompare.delete(box.dataset.pick);
+  }
+  const button = document.getElementById("compare-picked");
+  if (button) {
+    button.textContent = `고른 관심 직무 ${pickedForCompare.size}개 비교하기`;
+    button.disabled = !pickedForCompare.size;
   }
 });
 

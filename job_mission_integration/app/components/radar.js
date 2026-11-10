@@ -34,3 +34,12 @@ export function averageAxisScores(axes, logs) {
     return [axis, values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0];
   }));
 }
+
+// 결과 화면 레이더와 같은 기준: 이번 미션 구성이 재지 않은 축(axisCoverage.measured === false)은 점수를 0으로 두고 '미측정'으로 표시한다.
+export function isMeasuredAxis(coverage, axis) {
+  return coverage?.[axis]?.measured !== false;
+}
+
+export function maskUnmeasured(axes, values, coverage) {
+  return Object.fromEntries(axes.map((axis) => [axis, isMeasuredAxis(coverage, axis) ? (Number(values?.[axis]) || 0) : 0]));
+}

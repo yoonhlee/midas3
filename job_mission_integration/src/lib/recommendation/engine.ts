@@ -89,6 +89,9 @@ export type ResultSummary = {
     reliable: boolean;
     silhouette: number | null;
     referenceWeights: AxisProfile | null;
+    // 적합도 구성: 축 비중 모양 유사도(0~100)와 수행·몰입 반영 계수(0.3~1)
+    shapeSimilarityPct?: number;
+    levelFactor?: number;
   }>;
   recommendations: Record<string, RecommendationItem[]>;
   bestMatch: {
@@ -436,6 +439,16 @@ function computeEmotionByJob(evaluationLogs: RecommendationLog[], jobCode: strin
   return count > 0 ? total / count : 0.5;
 }
 
+// 수행 70% + 몰입 추정 30%로 수준을 잡고, 수준이 0.75(4점 만점에 3점) 이상이면 모양 유사도를 그대로 쓴다.
+// 수준이 0이어도 0.3은 남겨 "결이 비슷하다"는 정보는 지운다기보다 낮춰 보여준다.
+export const COMPATIBILITY_LEVEL_FLOOR = 0.3;
+export const COMPATIBILITY_LEVEL_FULL = 0.75;
+
+export function compatibilityLevelFactor(performance: number, emotion: number): number {
+  const level = clamp01(0.7 * clamp01(performance) + 0.3 * clamp01(emotion));
+  return COMPATIBILITY_LEVEL_FLOOR + (1 - COMPATIBILITY_LEVEL_FLOOR) * clamp01(level / COMPATIBILITY_LEVEL_FULL);
+}
+
 function toQuadrant(performance: number, emotion: number): Quadrant {
   if (performance >= 0.45 && emotion >= 0.6) return "q1";
   if (performance >= 0.45 && emotion < 0.6) return "q2";
@@ -574,8 +587,14 @@ export function buildResultSummary(input: {
       continue;
     }
 
-    const sim = cosineSim(similarityProfile, refWeightsForSimilarity);
-    const score = similarityToPct(sim);
+    // 축 비중의 모양만 비교하면 점수가 낮아도(또는 측정 축이 하나뿐이어도) 100%에 가깝게 나온다.
+    // 그래서 모양 유사도에 수행 수준·몰입 추정을 반영한 계수를 곱한다.
+    const shapePct = similarityToPct(cosineSim(similarityProfile, refWeightsForSimilarity));
+    const levelFactor = compatibilityLevelFactor(
+      computePerformanceByJob(input.missionScoresByJob, jobCode),
+      computeEmotionByJob(evaluationLogs, jobCode)
+    );
+    const score = Math.round(shapePct * levelFactor);
     compatibility[jobCode] = score;
 
     selectedJobMeta[jobCode] = {
@@ -583,7 +602,9 @@ export function buildResultSummary(input: {
       clusterId: ref.clusterId,
       reliable: ref.reliable,
       silhouette: ref.silhouette,
-      referenceWeights: ref.weights
+      referenceWeights: ref.weights,
+      shapeSimilarityPct: shapePct,
+      levelFactor: round4(levelFactor)
     };
 
     if (!bestMatch || score > bestMatch.score) {

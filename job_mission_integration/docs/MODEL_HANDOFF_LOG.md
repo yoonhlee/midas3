@@ -613,6 +613,31 @@
 
 ---
 
+### 2026-11-10 — 팀원 오류 보고(11/1) 10건 재현·수정
+왜:
+- 지은·영민·현서가 보고한 오류를 직접 재현해 원인을 확인하고 고침.
+
+재현 결과와 수정:
+- 결과 카드·재도전 1차 점수가 결과 화면과 다름: 결과 화면은 미션이 재지 않은 축을 '미측정'(0)으로 숨기는데, 카드·재도전 표·강점 직무·요구역량 비교는 그 축의 원시 점수(예: 대인서비스 1점)를 그대로 씀 → `radar.js`의 `maskUnmeasured`로 같은 기준 적용, 카드는 화면처럼 %·'미측정' 표기
+- 적합도가 수행·몰입과 무관하게 높음(측정 축이 1개면 항상 100%): 축 비중 모양 유사도만 계산했음 → `engine.ts`에서 모양 유사도 × 수행·몰입 반영 계수(`compatibilityLevelFactor`: 수행 70% + 몰입 30%, 수준 0.75 이상이면 1, 최저 0.3). 보고 사례(수행 25%·몰입 30%)는 96 → 약 53. `selectedJobMeta`에 `shapeSimilarityPct`·`levelFactor`를 함께 내려 결과 해석에 표시
+- 결과 카드 첫 인쇄가 빈 페이지: 이미지 로드 전에 `window.print()` → 로드·디코드 뒤 인쇄
+- U01 관심 직무 비교가 앞 3개로 고정 → 내 기록에서 체크박스로 최대 3개 선택
+- U02·U03 탐색 목록에 관심 여부·메모가 안 보임 → 탐색 카드에 '관심 저장됨'·메모, 비교표에 '내 메모' 행
+- U04 긴 메모가 칸 밖으로 밀림 → 여러 줄 입력칸
+- U05 비교 담기 뒤 메모가 예전 값으로 돌아감 → 메모 저장 시 화면 상태도 갱신
+- U06 답변 한도를 미리 알 수 없음 → `n / 3,000자` 표시와 `maxlength=3000`(미션·재도전)
+
+수정 파일:
+- `app/components/{radar,resultExtras,resultCard,missionScreens}.js`, `app/main.js`, `app/state/flowController.js`, `app/{me,jobs,job,compare}.js`, `app/common/site.css`
+- `src/lib/recommendation/engine.ts`, `src/lib/api/contracts.ts`
+- `tests/unit/features.test.ts`, `tests/e2e-features/features.spec.ts`
+
+검증:
+- typecheck 통과, check:frontend 26/26, test:unit 60/60, test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 8/8(회귀 테스트 2개 추가)
+- DSD 6장의 적합도 식(코사인 유사도 → γ=1.5)은 이번 변경으로 달라짐. 문서를 다시 낼 일이 있으면 반영 필요
+
+---
+
 ## Open Items (Next)
 
 00. 기능 지도 후속(2026-10-30)

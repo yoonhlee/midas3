@@ -92,3 +92,10 @@ h2.sec-h{font-size:18px;font-weight:600;margin:32px 0 12px}
 .legal th,.legal td{border:1px solid var(--b1);padding:6px 8px;text-align:left;color:var(--t2)}
 footer.site-foot{max-width:1080px;margin:0 auto;padding:24px 20px 40px;color:var(--t4);font-size:12px;display:flex;flex-wrap:wrap;gap:12px}
 footer.site-foot a{color:var(--t3)}
+
+/* 관심 직무 메모(U03·U04): 여러 줄로 보이게, 목록·비교표에서도 같은 모양 */
+.memo-input{resize:vertical;min-height:44px;line-height:1.5;font-family:inherit}
+.memo-text{font-size:13px;color:var(--t2);overflow-wrap:anywhere;white-space:pre-wrap;margin-top:6px}
+.chip-interest{border-color:rgba(113,112,255,.35);background:rgba(113,112,255,.12);color:var(--ah)}
+.pick-label{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--t2)}
+.memo-row{align-items:flex-start}

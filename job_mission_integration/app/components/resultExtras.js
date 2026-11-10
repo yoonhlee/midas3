@@ -1,6 +1,7 @@
 /* 결과 화면 확장: 저장 상태, 결과 해석(U17), 근거 강조(U19), 흥미 변화(U22), 재도전(U21), 다음 미션(U20), 강점 공고(U24), 공고 요구역량(U25), 결과 카드(U03) */
 
-import { averageAxisScores, radarSvg } from "./radar.js";
+import { averageAxisScores, isMeasuredAxis, maskUnmeasured, radarSvg } from "./radar.js";
+import { ANSWER_MAX, answerCountText } from "./missionScreens.js";
 
 const SCORING_LABEL = { llm: "AI 채점", heuristic: "임시 추정(키 없음)", fake: "가짜 채점(테스트·시연용)", precheck: "사전 점검", unavailable: "채점 실패" };
 
@@ -86,7 +87,7 @@ export function renderInterpretation({ state, axes, axisLabels, jobDefs, esc }) 
   const logs = roundOneLogs(state);
   if (!logs.length) return "";
   const summary = state.resultSummary || {};
-  const avg = averageAxisScores(axes, logs);
+  const avg = maskUnmeasured(axes, averageAxisScores(axes, logs), summary.axisCoverage);
   const measured = summary.measuredAxes || axes;
   const unmeasured = axes.filter((a) => !measured.includes(a));
   const ranked = measured.slice().sort((a, b) => avg[b] - avg[a]);
@@ -98,7 +99,8 @@ export function renderInterpretation({ state, axes, axisLabels, jobDefs, esc }) 
   const compat = state.selectedJobs.map((code) => {
     const job = jobDefs.find((j) => j.job_code === code);
     const meta = summary.selectedJobMeta?.[code] || {};
-    return `<li>${esc(job?.job_name || code)}: <b>${state.compatibility?.[code] ?? 0}%</b>${meta.referenceJobName ? ` <span class="axis-note">(기준: ${esc(meta.referenceJobName)})</span>` : ""}</li>`;
+    const shape = Number.isFinite(meta.shapeSimilarityPct) ? ` <span class="axis-note">(축 비중 유사도 ${meta.shapeSimilarityPct}% × 수행·몰입 반영 ${Math.round((meta.levelFactor ?? 1) * 100)}%)</span>` : "";
+    return `<li>${esc(job?.job_name || code)}: <b>${state.compatibility?.[code] ?? 0}%</b>${shape}</li>`;
   }).join("");
   return `<div class="rs" id="interpretation"><div class="rs-title">결과를 이렇게 읽어줘</div>
     <div class="interp-grid">
@@ -106,7 +108,7 @@ export function renderInterpretation({ state, axes, axisLabels, jobDefs, esc }) 
         <p>답변에서 실제로 드러난 역량이야(0~4점). 가장 잘 드러난 건 <b>${esc(axisLabels[top])}</b> ${fmt(avg[top])}점${low && low !== top ? `, 가장 덜 드러난 건 <b>${esc(axisLabels[low])}</b> ${fmt(avg[low])}점` : ""}이야.</p></div>
       <div class="interp-card"><div class="interp-k">직무 유사도</div>
         <ul>${compat}</ul>
-        <p class="axis-note">답변의 5축 비중이 KNOW 재직자 직무 프로필과 얼마나 비슷한지야. 잘했다는 뜻이 아니라 ‘결이 비슷하다’는 뜻이야.</p></div>
+        <p class="axis-note">답변의 5축 비중이 KNOW 재직자 직무 프로필과 얼마나 비슷한지에, 수행 수준과 몰입 추정을 반영한 점수야. 비중이 비슷해도 답변 수준이 낮으면 점수가 낮아져.</p></div>
       <div class="interp-card"><div class="interp-k">측정 범위</div>
         <p>미션 ${logs.length}개로 잰 결과야. ${unmeasured.length ? `이번 미션은 <b>${esc(withJosa(unmeasured.map((a) => axisLabels[a]).join(", "), "을", "를"))}</b> 거의 재지 않았어.` : "다섯 축을 모두 조금씩 쟀어."}</p>
         <p class="axis-note">채점: ${sources.map((s) => SCORING_LABEL[s] || s).join(", ")} · 평균 확실도 ${Math.round(avgConf * 100)}%</p></div>
@@ -162,9 +164,15 @@ export function renderRetrySection({ state, axes, axisLabels, esc }) {
   if (!first) return "";
   const retry = state.retry;
   if (retry?.second) {
-    const before = Object.fromEntries(axes.map((a) => [a, Number(retry.first?.evaluation?.axes?.[a]?.score) || 0]));
-    const after = Object.fromEntries(axes.map((a) => [a, Number(retry.second?.evaluation?.axes?.[a]?.score) || 0]));
+    // 결과 화면 레이더와 같은 기준으로, 이 미션이 재지 않은 축은 '미측정'으로 둔다.
+    const coverage = state.resultSummary?.axisCoverage;
+    const scoreOf = (log, a) => Number(log?.evaluation?.axes?.[a]?.score) || 0;
+    const before = maskUnmeasured(axes, Object.fromEntries(axes.map((a) => [a, scoreOf(retry.first, a)])), coverage);
+    const after = maskUnmeasured(axes, Object.fromEntries(axes.map((a) => [a, scoreOf(retry.second, a)])), coverage);
     const rows = axes.map((a) => {
+      if (!isMeasuredAxis(coverage, a)) {
+        return `<tr><td>${esc(axisLabels[a])}</td><td colspan="3" class="axis-note" style="margin:0">미측정</td></tr>`;
+      }
       const d = after[a] - before[a];
       return `<tr><td>${esc(axisLabels[a])}</td><td>${before[a]}</td><td>${after[a]}</td><td>${d > 0 ? `<b style="color:var(--success)">+${d}</b>` : d < 0 ? `<b style="color:var(--danger)">${d}</b>` : "0"}</td></tr>`;
     }).join("");
@@ -204,8 +212,8 @@ export function renderRetryScreen({ state, mission, axes, axisLabels, esc }) {
       </div>
       <div class="card">
         <div class="pq-lbl">다시 쓰기</div>
-        <textarea id="retry-ans" rows="12">${esc(state.retry?.draft ?? first?.answer ?? "")}</textarea>
-        <div class="char-ct" id="retry-ct">${(state.retry?.draft ?? first?.answer ?? "").length}자</div>
+        <textarea id="retry-ans" rows="12" maxlength="${ANSWER_MAX}">${esc(state.retry?.draft ?? first?.answer ?? "")}</textarea>
+        <div class="char-ct" id="retry-ct">${answerCountText((state.retry?.draft ?? first?.answer ?? "").length)}</div>
         <div style="display:flex;gap:10px;margin-top:12px">
           <button class="btn btn-g" id="btn-retry-cancel" type="button">← 결과로 돌아가기</button>
           <button class="btn btn-p" id="btn-retry-submit" type="button" style="margin-left:auto">다시 제출</button>
@@ -262,7 +270,7 @@ export function strongestAxis(axes, avg) {
 
 export async function mountStrengthJobs({ root, state, axes, axisLabels, jobsByAxisRequest, esc }) {
   if (!root) return;
-  const avg = averageAxisScores(axes, roundOneLogs(state));
+  const avg = maskUnmeasured(axes, averageAxisScores(axes, roundOneLogs(state)), state.resultSummary?.axisCoverage);
   const { axis, strong } = strongestAxis(axes, avg);
   try {
     const data = await jobsByAxisRequest(axis);
@@ -287,7 +295,8 @@ export function renderRequirementShell() {
 export async function mountRequirementCompare({ root, state, axes, axisLabels, postingRequirementsRequest, esc }) {
   if (!root) return;
   const code = state.selectedJobs[0];
-  const avg = averageAxisScores(axes, roundOneLogs(state));
+  const coverage = state.resultSummary?.axisCoverage;
+  const avg = maskUnmeasured(axes, averageAxisScores(axes, roundOneLogs(state)), coverage);
   try {
     const data = await postingRequirementsRequest(code);
     if ((data.status !== "ok" && data.status !== "stale") || !data.analyzed_postings || !data.axes) {
@@ -296,12 +305,13 @@ export async function mountRequirementCompare({ root, state, axes, axisLabels, p
     }
     const rows = axes.map((a) => {
       const req = Math.round((data.axes[a]?.share || 0) * 100);
+      const measured = isMeasuredAxis(coverage, a);
       const mine = Math.round((avg[a] / 4) * 100);
       return `<div class="req-row"><span class="req-lbl">${esc(axisLabels[a])}</span>
         <div class="req-bars"><div class="req-bar req-post" style="width:${req}%" title="공고 언급 비중 ${req}%"></div><div class="req-bar req-me" style="width:${mine}%" title="내 점수 ${mine}%"></div></div>
-        <span class="req-val">${req}% · ${mine}%</span></div>`;
+        <span class="req-val">${req}% · ${measured ? `${mine}%` : "미측정"}</span></div>`;
     }).join("");
-    const gap = axes.filter((a) => (data.axes[a]?.share || 0) >= 0.2 && avg[a] < 2).map((a) => axisLabels[a]);
+    const gap = axes.filter((a) => isMeasuredAxis(coverage, a) && (data.axes[a]?.share || 0) >= 0.2 && avg[a] < 2).map((a) => axisLabels[a]);
     root.innerHTML = `<div class="rs-title">공고가 요구하는 역량 vs 내 결과</div>
       <p class="axis-note">최근 공고 ${data.analyzed_postings}건의 ${data.detail_postings ? `제목과 직무내용(${data.detail_postings}건)` : "제목"}에서 문장 ${data.analyzed_sentences}개를 5개 역량으로 나눠 센 비중(위)과 내 점수(아래)야.</p>
       <div class="req-legend"><span><i class="req-post"></i>공고 언급 비중</span><span><i class="req-me"></i>내 점수(4점=100%)</span></div>

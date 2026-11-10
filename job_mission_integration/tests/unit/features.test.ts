@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 // @ts-expect-error 타입 선언이 없는 브라우저 JS 모듈
 import { filterJobs, suggestWhenEmpty } from "../../app/common/jobSearch.js";
 // @ts-expect-error 타입 선언이 없는 브라우저 JS 모듈
-import { pickNextMissions, quoteMatchesSentence, splitSentences, strongestAxis, withJosa } from "../../app/components/resultExtras.js";
+import { pickNextMissions, quoteMatchesSentence, roundOneLogs, splitSentences, strongestAxis, withJosa } from "../../app/components/resultExtras.js";
 import { analyzeRequirementTexts, axesOfSentence, splitRequirementSentences } from "../../src/lib/postings/requirements.js";
 import { humanAgreement, orderConcordance, repeatConsistency } from "../../scripts/eval-quality.js";
 
@@ -119,4 +119,61 @@ test("기준 답안 25개: 5개 미션 × 5단계, 모두 서버 카탈로그 �
   assert.equal(ref.items.length, 25);
   assert.equal(new Set(ref.items.map((i) => i.mission_key)).size, 5);
   assert.ok(ref.items.every((i) => keys.has(i.mission_key)));
+});
+
+// ── 직무 적합도: 수행·몰입 반영(팀 보고: 수행 25%·몰입 30%인데 적합도 96점) ──
+test("적합도: 축 비중이 같아도 수행·몰입이 낮으면 점수가 낮아진다", async () => {
+  const { buildResultSummary, compatibilityLevelFactor } = await import("../../src/lib/recommendation/engine.js");
+  assert.equal(compatibilityLevelFactor(1, 1), 1);
+  assert.ok(Math.abs(compatibilityLevelFactor(0.25, 0.3) - 0.547) < 0.01);
+  assert.equal(compatibilityLevelFactor(0, 0), 0.3);
+
+  const weights = { AX1: 0.4, AX2: 0.15, AX3: 0.15, AX4: 0.15, AX5: 0.15 };
+  const catalog = { K000007519: { code: "K000007519", jobName: "보험상품개발자", clusterId: "c1", silhouette: 0.3, reliable: true, weights } };
+  const signals = { AX1: 1, AX2: 0, AX3: 0, AX4: 0, AX5: 0 };
+  const log = (score: number, answer: string) => ({
+    job_code: "K000007519",
+    mission_key: "m1",
+    mission_title: "미션",
+    answer,
+    evaluation: {
+      mission_id: "m1",
+      prompt_version: "test",
+      source: "llm",
+      flags: [],
+      axes: Object.fromEntries(AXES.map((a) => [a, { score: a === "AX1" ? score : 0, confidence: 0.3, evidence: [], reason: "" }]))
+    }
+  });
+  const run = (missionScore: number, score: number, answer: string) => buildResultSummary({
+    selectedJobs: ["K000007519"],
+    missionScoresByJob: { K000007519: [{ AX1: missionScore, AX2: 0, AX3: 0, AX4: 0, AX5: 0 }] },
+    evaluationLogs: [log(score, answer)] as never,
+    catalog,
+    missionSignalsByKey: { m1: signals }
+  });
+  const weak = run(0.25, 1, "잘 모르겠습니다");
+  const strong = run(0.9, 4, "지난 4분기 데이터를 비교해 원인을 가설로 세우고 검증하겠습니다. ".repeat(12));
+  assert.ok(weak.compatibility.K000007519 < 60, `약한 답변 적합도 ${weak.compatibility.K000007519}`);
+  assert.ok(strong.compatibility.K000007519 >= 90, `좋은 답변 적합도 ${strong.compatibility.K000007519}`);
+  assert.equal(weak.selectedJobMeta.K000007519.shapeSimilarityPct, strong.selectedJobMeta.K000007519.shapeSimilarityPct);
+});
+
+test("결과 카드: 결과 화면처럼 미측정 축은 0으로 두고 '미측정'으로 표시", async () => {
+  // @ts-expect-error 타입 선언이 없는 브라우저 JS 모듈
+  const { buildCardData } = await import("../../app/components/resultCard.js");
+  // @ts-expect-error 타입 선언이 없는 브라우저 JS 모듈
+  const { averageAxisScores } = await import("../../app/components/radar.js");
+  const scores = { AX1: 3, AX2: 0, AX3: 1, AX4: 0, AX5: 1 };
+  const state = {
+    selectedJobs: ["K1"],
+    evaluationLogs: [{ evaluation: { axes: Object.fromEntries(AXES.map((a) => [a, { score: scores[a as "AX1"] }])) } }],
+    compatibility: { K1: 91 },
+    resultSummary: { axisCoverage: { AX2: { measured: false }, AX3: { measured: false }, AX4: { measured: false }, AX5: { measured: false } }, recommendations: { K1: [] } }
+  };
+  const data = buildCardData({ state, axes: AXES, axisLabels: { AX1: "정보분석·논리", AX2: "a", AX3: "b", AX4: "c", AX5: "d" }, jobDefs: [{ job_code: "K1", job_name: "직무" }], averageAxisScores, roundOneLogs, withJosa });
+  assert.deepEqual(data.measured, ["AX1"]);
+  assert.equal(data.values.AX1, 3);
+  assert.equal(data.values.AX3, 0);
+  assert.equal(data.values.AX5, 0);
+  assert.equal(data.summary, "정보분석·논리가 가장 잘 드러났어.");
 });

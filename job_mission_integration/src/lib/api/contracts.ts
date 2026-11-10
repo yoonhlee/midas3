@@ -138,7 +138,9 @@ export const RecommendationsResponseSchema = z.object({
     clusterId: z.string().nullable(),
     reliable: z.boolean(),
     silhouette: z.number().nullable(),
-    referenceWeights: AxisProfileSchema.nullable()
+    referenceWeights: AxisProfileSchema.nullable(),
+    shapeSimilarityPct: z.number().optional(),
+    levelFactor: z.number().optional()
   })),
   recommendations: z.record(z.array(RecommendationItemSchema)),
   bestMatch: z.object({

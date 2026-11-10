@@ -94,7 +94,7 @@ async function renderInterest() {
   }
   host.innerHTML = interest
     ? `<button class="btn" type="button" data-action="unsave" aria-pressed="true">관심 직무에서 빼기</button>
-       <div class="memo-row"><label class="sr-only" for="memo">관심 메모</label><input class="input" id="memo" maxlength="100" placeholder="왜 관심이 생겼는지 한 줄 메모 (100자)" value="${esc(interest.memo || "")}"><button class="btn" type="button" data-action="memo">메모 저장</button></div>`
+       <div class="memo-row"><label class="sr-only" for="memo">관심 메모</label><textarea class="input memo-input" id="memo" rows="2" maxlength="100" placeholder="왜 관심이 생겼는지 메모 (100자)">${esc(interest.memo || "")}</textarea><button class="btn" type="button" data-action="memo">메모 저장</button></div>`
     : `<button class="btn" type="button" data-action="save" aria-pressed="false">관심 직무 저장</button>`;
 }
 

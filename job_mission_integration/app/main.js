@@ -67,6 +67,7 @@ import {
   unmountPostingsSection
 } from "./components/postingsSection.js";
 import {
+  answerCountText,
   renderMissionListScreen,
   renderMissionScreen,
   renderPreQuestionScreen,
@@ -572,7 +573,7 @@ function bindRetryScreen() {
   byId("retry-ans")?.addEventListener("input", (event) => {
     state.retry.draft = event.target.value;
     const counter = byId("retry-ct");
-    if (counter) counter.textContent = `${state.retry.draft.length}자`;
+    if (counter) counter.textContent = answerCountText(state.retry.draft.length);
   });
   byId("btn-retry-cancel")?.addEventListener("click", () => {
     state.screen = "result";
@@ -624,7 +625,7 @@ async function handleCard(kind) {
     if (kind === "png") {
       await downloadCard(canvas, `jobsim-result-${data.date.replace(/[^0-9]/g, "")}.png`);
     } else {
-      printCard(canvas, document.getElementById("result-card-print"));
+      await printCard(canvas, document.getElementById("result-card-print"));
     }
   } catch (error) {
     console.warn("결과 카드를 만들지 못했어", error);

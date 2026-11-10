@@ -1,3 +1,11 @@
+// 서버가 받는 답변 길이 한도(contracts.ts EvaluateRequest.answer.max)와 같게 둔다.
+export const ANSWER_MAX = 3000;
+
+export function answerCountText(length) {
+  const near = length >= ANSWER_MAX * 0.9;
+  return `${near ? "⚠ " : ""}${length.toLocaleString("ko-KR")} / ${ANSWER_MAX.toLocaleString("ko-KR")}자${length >= ANSWER_MAX ? " (한도에 닿았어)" : ""}`;
+}
+
 function renderMaterial(material, esc) {
   const title = `<div class="mat-title">${esc(material.title || material.subtype || material.material_id)}</div>`;
   const description = material.description ? `<div class="mat-desc">${esc(material.description)}</div>` : "";
@@ -530,8 +538,8 @@ export function renderMissionScreen({
       <div>
         <div class="panel-lbl">Your Answer</div>
         ${submitHintUI}
-        <textarea id="m-ans" placeholder="여기에 답변을 작성하세요…">${esc(state.missionAnswer)}</textarea>
-        <div class="char-ct">${state.missionAnswer.length}자</div>
+        <textarea id="m-ans" maxlength="${ANSWER_MAX}" placeholder="여기에 답변을 작성하세요… (최대 ${ANSWER_MAX.toLocaleString("ko-KR")}자)">${esc(state.missionAnswer)}</textarea>
+        <div class="char-ct">${answerCountText(state.missionAnswer.length)}</div>
         <div class="draft-status" id="draft-status" aria-live="polite">${esc(state.draftStatus || "")}</div>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px">
