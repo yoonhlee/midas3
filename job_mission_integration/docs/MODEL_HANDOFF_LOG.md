@@ -675,9 +675,41 @@
 - 미션 150개를 브라우저로 하나씩 열어 미션 파일과 견줌(가짜 채점, 저장소 밖의 검사 스크립트): 모두 통과. 글자가 칸을 넘치는 자료가 고치기 전 미션 8개 → 고친 뒤 0개. 데스크톱과 휴대폰 너비에서 캡처로 확인
 - typecheck 통과, check:frontend 26/26, test:unit 65/65, test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9
 
+### 2026-11-14 — 미션 생성기 추가: 두 단계 생성, 내용 검수, 한 건 생성용 명령
+왜:
+- 관리자 페이지의 미션 생성을 새 방식(하는 일 문장 ↔ NCS 능력단위 연결 → 설계서 → 미션, 근거 기록, 내용 검수)으로 바꾸는 일의 첫 부분. 이 항목은 명령줄에서 한 건을 만들고 검수할 수 있게 하는 데까지다. 관리자 화면과 서버 경로는 아직 예전 방식 그대로 돈다.
+
+바뀐 것:
+- 두 단계 생성(`pilot_runner --ncs-background --two-stage-basis --ncs-targets <대상 파일> --ncs-root data/ncs/jobs`): 근거 자료 묶음 → 설계서 → 코드 검사(걸리면 한 번 다시) → 미션 작성 → 검증·근거 검사(걸리면 한 번 고침) → 근거 기록(`generation_basis.json`)과 근거 카드(`basis_cards/`). 실행 폴더는 `outputs/` 아래에 생긴다.
+- 미션 내용 검수(`mission_reviewer --run-dir <실행 폴더>`): 기대 답을 가리고 풀어 보기 → 판정. 통과·의심·문제·검수 실패 가운데 하나를 `review/`에 남긴다. 미션은 고치지 않는다.
+- 생성 준비 확인(`python -m src.mission_generation.preflight`): 패키지 → key → 모델 조회 순서로 보고 실패한 데서 멈춘다. 글을 만들지 않는다. JSON 한 줄, 준비가 됐으면 종료 코드 0, 아니면 1. 설정 값이 틀려도 같은 모양으로 알린다.
+- 한 건짜리 대상 파일(`python -m src.mission_generation.admin_target --job … --exec … --unit … --difficulty … (--out <파일> | --print)`): 직접 또는 간접(분야 한정) 연결만 받고, 그 밖의 연결이나 없는 연결은 오류 코드를 내며 파일을 쓰지 않는다. 자료 형태는 낱말 규칙(`material_planner`)이 좁혀서 붙인다. `--no-narrow`면 붙이지 않는다(일곱 형태를 모두 연다).
+- 빠른 모드 설정: 켜면 요청에 속도 값을 넣고, 요청 한도에 걸리면 보통 속도로 한 번 내려온 뒤 보통의 재시도 규칙을 따른다. 호출 결과에 실제로 쓴 속도를 남긴다.
+- LLM 제공자와 모델은 설정으로 고른다. 설정 이름과 기본값은 `.env.example` 참고. 관리자 화면의 생성 경로(`adminGeneration.ts`의 `pythonSpawnEnv`)는 예전 제공자로 고정해 두어 전처럼 돈다.
+- 자료: `data/ncs/jobs/`에 직업별 NCS 파일 76개(문장 ↔ 능력단위 연결과 그 능력단위의 상세). 연결 811개 가운데 고를 수 있는 것은 직접 361개와 분야 한정 187개(직업 74개, 문장 399개)다. `data/ncs/ncs_keco_link_20230407.csv`는 NCS–KECO 연계표다.
+- 근거 기록 3단계(문장 → 능력단위)의 "정한 주체"는 "연결 판단 · 기준 …"으로 채운다.
+- Python 패키지는 `requirements.txt`에 있다. 실제 호출 때만 필요하고, mock 실행과 테스트는 표준 라이브러리만으로 돈다. 가상환경 `.venv/`는 Git에서 뺐다.
+
+수정 파일:
+- `src/mission_generation/` 새 파일: `admin_target.py`, `preflight.py`, `basis_card_exporter.py`, `basis_source_pack.py`, `blueprint_checker.py`, `blueprint_designer.py`, `generation_basis.py`, `material_planner.py`, `mission_reviewer.py`, `ncs_background_loader.py`
+- `src/mission_generation/` 고친 파일: `config.py`, `llm_runtime.py`, `pilot_runner.py`, `draft_generator.py`, `repair_manager.py`, `decision_selector.py`, `schema_constraints_builder.py`, `ui_exporter.py`
+- `src/server/routes/adminGeneration.ts`, `tests/unit/server.test.ts`
+- `tests/python/`(새 폴더, 파일 23개), `requirements.txt`, `.env.example`, `.gitignore`
+- `data/ncs/jobs/*.json`(76개), `data/ncs/ncs_keco_link_20230407.csv`
+
+검증:
+- Python 테스트(`python -X utf8 -m unittest discover -s tests/python`, API를 부르지 않음): 385개 통과. Windows에서는 `python3`가 아니라 `python`을 쓴다
+- typecheck 통과, check:frontend 26/26, test:unit 66/66(새 테스트 1개), test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9
+
 ---
 
 ## Open Items (Next)
+
+0000. 관리자 미션 생성 후속(2026-11-14)
+- 관리자 화면과 서버 경로는 아직 예전 방식이다. 위의 명령을 부르는 서버 경로, 생성 기록 저장, 화면, 배포 이미지(Python 패키지 설치)가 남았다
+- Python 테스트는 CI에 걸려 있지 않다
+- `pilot_runner`의 `--ncs-targets` 도움말이 이 브랜치에 없는 모듈(`target_planner`)을 가리킨다
+- 문장 ↔ 능력단위 연결은 사람이 확인하지 않았다(판단 기준은 자료에 적혀 있다)
 
 000. 미션 카탈로그 교체 후속(2026-11-14)
 - 실제 채점으로 새 미션 확인(특히 과제가 2개인 어려움 미션에서 두 과제를 모두 보는지). 가짜 채점으로만 돌려 봤음
