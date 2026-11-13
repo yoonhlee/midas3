@@ -1,0 +1,472 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000956_easy_001",
+  "job_identity": {
+    "job_cd": "K000000956",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "건축·토목공학 기술자 및 시험원",
+    "job_smcl_nm": "건축구조기술자",
+    "source_ref": {
+      "file": "K000000956/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "건물의 형태적 특성과 용도에 따라 구조계산을 한다.",
+    "source_ref": {
+      "file": "K000000956/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "새봄구조설계사무소",
+    "domain": "건축 구조설계 - 3층 상가 건물 구조계산 결과 검토",
+    "period": [
+      "2026년 11월 둘째 주"
+    ],
+    "trend_pattern": "X방향 지진하중을 넣어 계산한 층별 층간변위는 1층 45mm, 2층 47mm, 3층 33mm이다.",
+    "main_issue": "설계기준에 따른 허용 층간변위(모든 층 45mm 이하)를 넘는 층이 있는지 판독해야 한다.",
+    "feedback_themes": [
+      "허용 기준의 '이하' 조건 적용",
+      "층별 층간변위 값과 기준값 비교"
+    ],
+    "decision_goal": "층별 구조해석 결과표에서 허용 층간변위 조건을 넘는 층과 그 이유를 팀장에게 짧게 보고한다."
+  },
+  "mission": {
+    "title": "구조해석 결과표로 층간변위 기준 확인하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 새봄구조설계사무소 구조설계팀의 인턴입니다.",
+      "context": "팀에서 3층짜리 상가 건물의 구조계산을 막 마쳤습니다. 구조 해석 프로그램에 X방향으로 지진하중이 작용하도록 넣고 계산한 뒤, 층마다 층간변위를 뽑아 표로 정리해 두었습니다. 담당 팀장님이 이렇게 요청했습니다. \"설계기준에 따라 이 건물의 허용 층간변위는 모든 층에서 45mm 이하야. 결과표를 보고 이 조건을 넘는 층이 있는지 확인해서 알려 줘.\"",
+      "goal": "층별 구조해석 결과표를 허용 층간변위 조건과 비교해, 조건을 넘는 층이 있는지와 그렇게 본 이유를 팀장님께 짧게 보고합니다.",
+      "constraints": [
+        "설계기준에 따라 이 건물의 허용 층간변위는 모든 층에서 45mm 이하로 한다.",
+        "결과표에 있는 층별 값만 사용해 판단합니다.",
+        "답변은 1~2문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "층간변위",
+          "definition": "건물이 옆으로 미는 힘을 받을 때, 한 층의 바닥과 바로 위층 바닥이 옆으로 밀려난 거리의 차이입니다. 값이 클수록 그 층이 옆으로 많이 흔들리거나 기울어진다는 뜻입니다."
+        },
+        {
+          "term": "수평하중",
+          "definition": "건물을 옆으로 미는 힘입니다. 바람이 미는 힘(풍하중)이나 지진 때 땅이 흔들려 생기는 힘(지진하중) 등이 있습니다."
+        },
+        {
+          "term": "지진하중",
+          "definition": "지진으로 땅이 흔들릴 때 건물에 작용하는 힘으로, 수평하중의 한 종류입니다."
+        },
+        {
+          "term": "구조 해석 프로그램",
+          "definition": "건물을 지탱하는 기둥, 보, 벽 같은 주요 부재가 힘을 받을 때 어떻게 움직이고 얼마나 힘을 받는지 컴퓨터로 계산해 주는 프로그램입니다."
+        },
+        {
+          "term": "X방향",
+          "definition": "건물 평면에서 미리 정해 둔 한쪽 가로 방향입니다. 이 방향으로 힘이 작용한다고 보고 계산했다는 뜻입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "structural_analysis_result",
+        "title": "3층 상가 건물 층별 구조해석 결과 (층간변위 단위: mm)",
+        "description": "구조 해석 프로그램으로 X방향 지진하중을 넣어 계산한 뒤, 층별 층간변위를 뽑아 정리한 결과표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "층별 층간변위 값을 시나리오에 적힌 허용 층간변위 조건과 비교하는 데 사용합니다.",
+        "evidence_source": [
+          "건축 및 설계",
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "층"
+            },
+            {
+              "key": "strength",
+              "label": "검토 방향"
+            },
+            {
+              "key": "weakness",
+              "label": "적용 하중"
+            },
+            {
+              "key": "priority",
+              "label": "층간변위(mm)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "1층",
+              "strength": "X방향",
+              "weakness": "지진하중",
+              "priority": 45
+            },
+            {
+              "option": "2층",
+              "strength": "X방향",
+              "weakness": "지진하중",
+              "priority": 47
+            },
+            {
+              "option": "3층",
+              "strength": "X방향",
+              "weakness": "지진하중",
+              "priority": 33
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "결과표의 층별 층간변위 값을 팀장님이 알려 준 허용 층간변위 조건과 비교해 보세요. 조건을 넘는 층이 있는지, 있다면 어느 층인지와 그렇게 판단한 이유를 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "층별 층간변위 값을 허용 층간변위 조건과 한 번씩 비교해, 조건을 넘는 층과 그 이유를 값과 기준값을 들어 1-2문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "판독 결과와 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "2층의 층간변위는 47mm로 허용 기준 45mm를 넘으므로, 조건을 넘는 층은 2층이다.",
+      "1층은 45mm로 기준값과 같아 '45mm 이하' 조건을 만족하므로 조건을 넘는 층으로 보지 않는다.",
+      "판단 이유에는 해당 층의 층간변위 값과 기준값 45mm를 비교한 내용이 들어간다."
+    ],
+    "rubric": [
+      {
+        "criterion": "조건을 넘는 층 판독",
+        "description": "허용 층간변위 45mm 이하 조건을 넘는 층으로 2층(47mm)을 정확히 골라냈다.",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "'이하' 조건의 정확한 적용",
+        "description": "기준값과 같은 1층(45mm)을 조건을 넘는 층으로 잘못 판단하지 않았다.",
+        "points": 30,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "건축 및 설계"
+        ]
+      },
+      {
+        "criterion": "값과 기준의 비교로 이유 제시",
+        "description": "판단 이유에 해당 층의 층간변위 값과 기준값 45mm를 비교한 내용이 들어 있다.",
+        "points": 30,
+        "linked_evidence": [
+          "건축 및 설계",
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "건물의 형태적 특성과 용도에 따라 구조계산을 한다.",
+      "source_ref": {
+        "file": "K000000956/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 99,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 97,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 96,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 96,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 95,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "공간지각력",
+          "score": 99,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "기술 설계",
+          "score": 99,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설치",
+          "score": 98,
+          "description": "작업 지시서에 따라 장비, 도구, 배선, 프로그램을 설치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "건축 및 설계",
+          "score": 99,
+          "description": "집, 빌딩, 혹은 도로를 만들고 수리하기 위해 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "물리",
+          "score": 96,
+          "description": "공기, 물, 빛, 열, 전기이론 및 자연현상에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 94,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 97,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 87,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "공문, 문서 주고받기",
+          "score": 86,
+          "description": "업무 수행하면서 공문이나 문서를 주고받는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "건축 및 설계",
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.76,
+    "AX2": 0.06,
+    "AX3": 0.06,
+    "AX4": 0.06,
+    "AX5": 0.06
+  }
+}

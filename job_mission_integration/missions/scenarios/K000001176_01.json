@@ -1,0 +1,457 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001176_easy_001",
+  "job_identity": {
+    "job_cd": "K000001176",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "응용소프트웨어개발자",
+    "source_ref": {
+      "file": "K000001176/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_008",
+    "text": "테스트를 통해 버그를 수정한다.",
+    "source_ref": {
+      "file": "K000001176/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 8
+    },
+    "selection_reason": "Pilot config selected exec_008."
+  },
+  "mission_facts": {
+    "org_name": "별빛커머스",
+    "domain": "쇼핑몰 앱 배송비 계산 기능 테스트",
+    "period": [
+      "배포 전 테스트 기간"
+    ],
+    "trend_pattern": "주문 금액 49,000원, 50,000원, 60,000원 세 가지 입력으로 배송비 결과를 확인함",
+    "main_issue": "배송비 기능 테스트 결과 중 요구사항과 다른 결과가 있는지 확인이 필요함",
+    "feedback_themes": [
+      "배송비 요구사항: 주문 금액 50,000원 이상이면 배송비 0원, 50,000원 미만이면 배송비 3,000원"
+    ],
+    "decision_goal": "요구사항대로 동작하지 않은 테스트 케이스와 잘못 처리된 조건을 찾아 고칠 지점을 알린다"
+  },
+  "mission": {
+    "title": "배송비 기능 테스트 결과 확인하기",
+    "task_type": "diagnosis_and_improvement",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "쇼핑몰 앱 개발팀 인턴",
+      "context": "당신은 쇼핑몰 앱을 만드는 별빛커머스 개발팀의 인턴입니다. 다음 주 배포를 앞두고 배송비 계산 기능을 테스트했고, 사수 개발자가 \"결과표를 배송비 요구사항과 맞춰 보고, 요구사항대로 안 된 곳이 있으면 알려 주세요. 그래야 어디를 고칠지 정할 수 있어요.\"라고 부탁했습니다.",
+      "goal": "결과표를 배송비 요구사항과 비교해 요구사항대로 동작하지 않은 테스트 케이스 하나를 찾고, 요구사항의 어떤 조건이 잘못 처리되었는지 이유를 적어보세요.",
+      "constraints": [
+        "기획팀이 정한 배송비 요구사항: 주문 금액이 50,000원 이상이면 배송비는 0원, 50,000원 미만이면 배송비는 3,000원입니다.",
+        "결과표에 나온 내용만 보고 판단합니다.",
+        "답은 1~2문장으로 적어보세요."
+      ],
+      "glossary": [
+        {
+          "term": "테스트 케이스",
+          "definition": "프로그램이 제대로 동작하는지 확인하려고 입력값과 기대 결과를 미리 정해 둔 시험 항목입니다. 이 미션의 결과표에는 테스트 케이스마다 입력값(주문 금액)과 실행해서 나온 실제 결과가 한 줄씩 적혀 있습니다."
+        },
+        {
+          "term": "서버모듈",
+          "definition": "사용자 눈에 보이지 않는 서버에서 계산이나 저장 같은 일을 처리하는 프로그램 부분입니다."
+        },
+        {
+          "term": "화면모듈",
+          "definition": "사용자가 보는 앱 화면에 내용을 보여 주는 프로그램 부분입니다."
+        },
+        {
+          "term": "기능단위",
+          "definition": "프로그램을 맡은 일에 따라 나눈 한 덩어리입니다. 이 미션에서는 서버모듈, 화면모듈처럼 테스트한 프로그램 부분을 말합니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "test_result_table",
+        "title": "배송비 기능 테스트 결과표",
+        "description": "별빛커머스 쇼핑몰 앱의 배송비 기능을 테스트한 결과표입니다. 주문 금액의 단위는 원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "테스트 케이스별 주문 금액과 실제 결과를 배송비 요구사항과 비교하는 데 사용합니다.",
+        "evidence_source": [
+          "절차, 자료, 주변환경 관찰",
+          "추리력"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "테스트 케이스"
+            },
+            {
+              "key": "strength",
+              "label": "기능단위"
+            },
+            {
+              "key": "weakness",
+              "label": "실제 결과"
+            },
+            {
+              "key": "priority",
+              "label": "주문 금액(원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "TC-01",
+              "strength": "서버모듈",
+              "weakness": "배송비 3,000원 부과",
+              "priority": 49000
+            },
+            {
+              "option": "TC-02",
+              "strength": "서버모듈",
+              "weakness": "배송비 3,000원 부과",
+              "priority": 50000
+            },
+            {
+              "option": "TC-03",
+              "strength": "화면모듈",
+              "weakness": "결제 화면에 배송비 0원 표시",
+              "priority": 60000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "결과표의 주문 금액과 실제 결과를 배송비 요구사항과 비교해 요구사항대로 동작하지 않은 테스트 케이스를 하나 찾고, 요구사항의 어떤 조건이 잘못 처리되었는지 이유와 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "요구사항대로 동작하지 않은 테스트 케이스 하나를 찾고, 잘못 처리된 요구사항 조건을 이유로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "찾은 테스트 케이스와 잘못 처리된 조건"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "TC-02는 주문 금액이 50,000원이어서 '50,000원 이상이면 배송비 0원' 조건에 해당하므로 배송비가 0원이어야 하는데, 3,000원이 부과되었다.",
+      "기준 금액과 똑같은 50,000원을 '이상' 쪽에 넣지 않고 '미만' 쪽으로 처리한, 기준 금액 경계 처리 문제로 볼 수 있다.",
+      "참고: TC-01은 배송비가 부과되었지만 49,000원은 50,000원 미만이므로 요구사항대로이고, TC-03은 60,000원이어서 배송비 0원 표시가 맞다."
+    ],
+    "rubric": [
+      {
+        "criterion": "요구사항과 다른 테스트 케이스 찾기",
+        "description": "요구사항대로 동작하지 않은 테스트 케이스로 주문 금액 50,000원인 TC-02를 찾았는지 평가한다.",
+        "points": 50,
+        "linked_evidence": [
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "criterion": "잘못 처리된 조건 설명",
+        "description": "이유에서 50,000원은 '50,000원 이상' 조건에 포함되어 배송비가 0원이어야 하는데 3,000원이 부과되었다는 점, 곧 기준 금액 경계 처리가 잘못되었음을 요구사항 조건과 비교해 썼는지 평가한다.",
+        "points": 50,
+        "linked_evidence": [
+          "추리력"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_008",
+      "text": "테스트를 통해 버그를 수정한다.",
+      "source_ref": {
+        "file": "K000001176/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 8
+      },
+      "selection_reason": "Pilot config selected exec_008."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 99,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 99,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 89,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "의사 결정, 문제점 해결",
+          "score": 86,
+          "description": "가장 좋은 해결책을 선택하기 위해 정보를 분석하고 문제점을 해결하기 위해 결과를 평가하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 85,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 분석",
+          "score": 100,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "전산",
+          "score": 100,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "기술 설계",
+          "score": 99,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 94,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 86,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 82,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 93,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "자동화 정도",
+          "score": 91,
+          "description": "업무의 자동화 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "절차, 자료, 주변환경 관찰",
+          "추리력"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.5,
+    "AX2": 0.5,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

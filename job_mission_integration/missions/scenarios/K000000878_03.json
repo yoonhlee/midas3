@@ -1,0 +1,600 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000878_hard_001",
+  "job_identity": {
+    "job_cd": "K000000878",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "건축·토목공학 기술자 및 시험원",
+    "job_smcl_nm": "도시계획·설계가",
+    "source_ref": {
+      "file": "K000000878/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "도시개발의 경제성과 토지이용의 효율성을 감안하여 구체적인 토지이용상황, 교통, 생활환경 등에 대한 세부계획안을 발주자에게 제시한다.",
+    "source_ref": {
+      "file": "K000000878/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "솔내도시계획사무소",
+    "domain": "도시개발사업 세부계획(새벌지구 초등학교 용지 배치)",
+    "period": [
+      "2028.03~2029.02 A구역(1단계) 입주",
+      "2029.09~2030.08 B구역(2단계) 입주",
+      "2031.03~2031.12 C구역(3단계) 입주"
+    ],
+    "trend_pattern": "A·B·C구역 순서로 단계별 입주가 이어지며, 입주 세대수는 A구역 1,600세대, B구역 1,400세대, C구역 400세대다.",
+    "main_issue": "초등학교 용지 1곳을 어느 구역에 둘지 정해야 하는데, 분양 세대를 지켜 달라는 요청과 입주 시작부터 통학 불편을 막아 달라는 요청이 함께 있다.",
+    "feedback_themes": [
+      "A구역(1단계) 공동주택용지 분양 세대를 줄이지 말아 달라는 경제성 요청",
+      "입주가 시작될 때부터 통학 민원이 생기지 않게 해 달라는 요청",
+      "초등학교 용지 위치를 한 개 안으로 정해 세부계획안에 담아 달라는 요청"
+    ],
+    "decision_goal": "내부 검토 기준을 지키면서 발주자에게 제시할 세부계획안의 초등학교 용지 구역을 하나 정한다."
+  },
+  "mission": {
+    "title": "새벌지구 초등학교 용지 배치안 정하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "솔내도시계획사무소 계획팀 인턴",
+      "context": "당신은 솔내도시계획사무소 계획팀 인턴입니다. 사무소는 새벌지구 도시개발사업의 세부계획안을 만들어 발주자에게 제시하는 일을 맡았습니다. 새벌지구는 A·B·C 세 구역에 단계를 나누어 주민이 입주할 예정인데, 초등학교 용지 1곳을 어느 구역에 둘지 아직 정하지 못했습니다. 계획팀장이 발주자의 요청 메모, 팀의 내부 검토 기준, 단계별 입주 일정표를 건네며 \"학교가 언제까지 필요한지부터 확인하고, 발주자에게 낼 배치안을 하나 골라 봐요\"라고 부탁했습니다.",
+      "goal": "아래 자료를 보고 단계별 수용인구로 초등학교가 필요한 시점과 배치안마다 기준을 지키는지 확인한 뒤, 세부계획안에 담을 초등학교 용지 구역을 하나 정해 이유와 주의점을 적어보세요.",
+      "constraints": [
+        "자료에 나온 수치와 조건만 사용하세요. 검토 기준 메모의 수치는 이 사업 검토를 위해 정한 내부 가정입니다.",
+        "초등학교 용지는 A·B·C구역 중 한 구역에 1곳만 둡니다.",
+        "계산은 세대수를 더하고 곱하는 정도면 충분합니다.",
+        "과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "수용인구",
+          "definition": "계획한 지역에 들어와 살게 될 것으로 예상하는 사람 수입니다."
+        },
+        {
+          "term": "공공시설",
+          "definition": "학교, 공공청사, 사회복지시설처럼 주민 모두가 함께 쓰도록 공공이 마련하는 시설입니다. 이 미션에서는 초등학교를 말합니다."
+        },
+        {
+          "term": "공동주택용지",
+          "definition": "아파트나 연립주택처럼 여러 세대가 한 건물에 모여 사는 주택을 짓도록 정해 둔 땅입니다."
+        },
+        {
+          "term": "단독주택용지",
+          "definition": "한 세대가 한 채씩 따로 사는 단독주택을 짓도록 정해 둔 땅입니다."
+        },
+        {
+          "term": "발주자",
+          "definition": "일을 맡기고 그 결과물을 받는 쪽입니다. 이 미션에서는 새벌지구 개발사업을 벌이는 사업시행자를 말합니다."
+        },
+        {
+          "term": "경제성",
+          "definition": "들인 돈에 비해 얻는 수입이나 이익이 얼마나 되는지를 뜻합니다. 이 미션에서는 주택 분양으로 사업비를 마련할 수 있는지를 말합니다."
+        },
+        {
+          "term": "분양",
+          "definition": "새로 지은 주택이나 땅을 여러 사람에게 나누어 파는 일입니다."
+        },
+        {
+          "term": "세부계획안",
+          "definition": "땅을 어디에 어떤 용도로 쓸지, 교통과 생활환경을 어떻게 갖출지를 구체적으로 정해 발주자에게 내놓는 계획 문서입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "client_request",
+        "title": "발주자 요청 메모 (새벌지구 사업시행자 사업담당 작성)",
+        "description": "새벌지구 사업시행자의 사업담당이 세부계획안에 바라는 점을 적어 사무소에 보낸 요청 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 초등학교 용지 구역을 정할 때 발주자가 바라는 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "의사 결정, 문제점 해결"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "새벌지구 사업시행자 사업담당",
+          "items": [
+            "1단계 분양수입으로 2단계 공사비를 마련해야 합니다. 사업 경제성을 위해 A구역(1단계) 공동주택용지의 분양 세대 1,600세대는 줄이지 않기를 바랍니다.",
+            "입주가 시작되는 때부터 아이들 통학이 불편하다는 민원이 생기지 않도록 해 주십시오.",
+            "초등학교 용지를 A·B·C구역 중 어디에 둘지 한 개 안으로 정해 세부계획안에 담아 주십시오."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "memo",
+        "subtype": "internal_review_criteria",
+        "title": "계획팀장 정리: 새벌지구 학교 배치 내부 검토 기준",
+        "description": "계획팀장이 새벌지구 세부계획안 검토용으로 정리한 내부 기준 메모입니다. 수치는 이 사업 검토를 위해 정한 내부 가정입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 단계별 누적 수용인구를 계산하고, 배치안마다 개교 시점 규칙에 대어 보는 데 씁니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "계획팀장",
+          "items": [
+            "단계별 누적 수용인구는 그 단계까지 입주하는 세대수를 모두 더한 뒤 세대당 2.5명을 곱해 산정한다.",
+            "누적 수용인구가 6,000명 이상이 되는 단계는 그 단계의 입주 시작 시점까지 초등학교 1개소가 개교해 있어야 한다.",
+            "초등학교는 용지를 둔 구역의 입주 시작 시점에 맞춰 개교한다."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "schedule",
+        "subtype": "phased_move_in_plan",
+        "title": "새벌지구 단계별 입주 일정표",
+        "description": "계획팀이 정리한 구역별 입주 기간과 입주 세대수, 그 구역에 초등학교 용지를 둘 때 줄어드는 분양 세대를 담은 일정표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1의 누적 수용인구 계산과 배치안별 개교 시점 확인, 과제 2의 구역별 분양 세대 감소와 입주 시점 비교에 씁니다.",
+        "evidence_source": [
+          "정보 처리",
+          "논리적 분석"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "items": [
+            {
+              "period": "2028.03~2029.02",
+              "task": "A구역(1단계) 공동주택용지 1,600세대 입주",
+              "constraint": "이 구역에 초등학교 용지를 두면 공동주택 분양 세대가 300세대 줄어든다."
+            },
+            {
+              "period": "2029.09~2030.08",
+              "task": "B구역(2단계) 공동주택용지 1,400세대 입주",
+              "constraint": "이 구역에 초등학교 용지를 두면 공동주택 분양 세대가 300세대 줄어든다."
+            },
+            {
+              "period": "2031.03~2031.12",
+              "task": "C구역(3단계) 단독주택용지 400세대 입주",
+              "constraint": "이 구역에 초등학교 용지를 두면 단독주택 분양 세대가 100세대 줄어든다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "계획팀장의 검토 기준 메모에 적힌 방법으로 입주 일정표의 1·2·3단계 누적 수용인구를 각각 계산해 보세요. 그 결과로 초등학교가 언제까지 개교해 있어야 하는지 밝히고, A·B·C구역에 초등학교 용지를 두는 세 안이 각각 메모의 개교 시점 규칙을 지키는지 판정해 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "검토 기준 메모의 산정 방법을 일정표의 세대수에 적용해 단계별 누적 수용인구를 계산하고, 개교 기한을 밝힌 뒤 A·B·C 배치안이 각각 개교 시점 규칙을 지키는지 판정한다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 판정 결과와 발주자 요청 메모를 바탕으로, 발주자에게 제시할 세부계획안에서 초등학교 용지를 A·B·C구역 중 어느 구역에 둘지 하나를 정하세요. 고른 구역, 그 안이 다른 구역 안보다 나은 이유, 그 안을 택할 때의 주의점 1가지를 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "과제 1 결과와 발주자 요청, 일정표의 분양 세대 감소와 입주 시점을 견주어 초등학교 용지 구역 하나를 고르고, 다른 안보다 나은 이유와 고른 안의 주의점 1가지를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 단계별 누적 수용인구, 개교 기한, 배치안별 판정",
+        "과제 2: 고른 구역, 이유, 주의점 1가지"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "단계별 누적 수용인구는 1단계 1,600세대×2.5=4,000명, 2단계 3,000세대×2.5=7,500명, 3단계 3,400세대×2.5=8,500명이다. 배치안별 세대 감소를 반영해 계산해도(A안 3,250명→6,750명, B안 4,000명→6,750명) 2단계에서 처음 6,000명 이상이 된다.",
+      "따라서 초등학교는 2단계 입주 시작 시점인 2029.09까지 개교해 있어야 한다. A안은 2028.03, B안은 2029.09에 개교해 기준을 지키고, C안은 2031.03에 개교해 기준을 어긴다.",
+      "C안은 분양 세대 감소가 100세대로 가장 작고 1·2단계 분양을 건드리지 않아 발주자 요청 항목 1에 잘 맞아 보이지만, 개교가 기한보다 늦어 기준을 어기므로 고를 수 없다.",
+      "A안은 기한보다 이르게 학교를 갖춰 입주 초기 통학 불편을 막지만 1단계 공동주택 분양 세대가 300세대 줄어 발주자의 경제성 요청과 부딪친다. B안은 1단계 분양을 지키지만 1단계 입주 후 약 1년 6개월 동안 지구 안에 초등학교가 없다.",
+      "예시: B구역을 고르면 기한(2029.09)을 지키면서 A구역 공동주택 1,600세대 분양을 그대로 두어 발주자의 경제성 요청에 맞고, A구역 안보다 1단계 분양수입 손실이 없다.",
+      "예시: B구역을 고른 경우의 주의점은 1단계 입주(2028.03)부터 개교(2029.09)까지 약 1년 6개월 동안 초등학교가 없어 발주자 요청 항목 2의 통학 민원이 생길 수 있다는 점이다. A구역을 고른 경우에는 1단계 분양 세대 300세대 감소로 발주자 요청 항목 1과 부딪친다는 점이 주의점이 된다."
+    ],
+    "rubric": [
+      {
+        "criterion": "단계별 누적 수용인구와 개교 기한",
+        "description": "과제 1에서 1·2·3단계 누적 수용인구를 4,000명, 7,500명, 8,500명으로 맞게 계산하고, 6,000명 이상이 처음 되는 2단계의 입주 시작 시점(2029.09)을 개교 기한으로 밝혔는지 본다. 배치안별 세대 감소를 반영해 계산했더라도 2단계에서 6,000명을 넘는다는 결론과 기한이 같으면 인정한다. 계산이나 기한 가운데 하나만 맞으면 부분 점수를 준다.",
+        "points": 20,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "배치안별 개교 시점 판정",
+        "description": "과제 1에서 A안(2028.03 개교)과 B안(2029.09 개교)은 개교 시점 규칙을 지키고 C안(2031.03 개교)은 어긴다고 세 안 모두 맞게 판정했는지 본다. 자료가 정답을 하나로 정하는 부분이며, 한 안이라도 잘못 판정하면 부분 점수만 준다.",
+        "points": 20,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "구역 선택과 이유",
+        "description": "과제 2에서 고른 구역이 과제 1에서 기준을 지킨 안인지, 그리고 이유가 과제 1 결과와 자료(발주자 요청 항목 1·2, 일정표의 분양 세대 감소와 입주 시점)에 근거해 자료에 나온 다른 구역 안보다 왜 나은지를 보여 주는지 본다. 특정 구역을 정답으로 요구하지 않는다. 자료의 사실을 맞게 적었어도 다른 안과 견주어 왜 더 나은지 보여 주지 못하면 부분 점수만 준다. 기준을 어기는 C구역을 고르면 이유가 선택을 뒷받침하지 못한 것으로 본다. 예: B구역을 고르고 기한을 지키면서 1단계 공동주택 1,600세대 분양을 그대로 두어 A구역 안보다 1단계 분양수입 손실이 없다고 쓴 경우.",
+        "points": 35,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결"
+        ]
+      },
+      {
+        "criterion": "고른 안의 주의점",
+        "description": "과제 2에서 쓴 주의점 1가지가 고른 안의 실제 위험이나 한계로서 자료에 나타난 것인지 본다. 자료와 관계없는 막연한 일반론은 점수를 주지 않는다. 예: B구역이면 1단계 입주(2028.03)부터 개교(2029.09)까지 약 1년 6개월 동안 초등학교가 없어 발주자 요청 항목 2의 통학 민원이 생길 수 있다는 점, A구역이면 1단계 분양 세대가 300세대 줄어 발주자 요청 항목 1과 부딪친다는 점.",
+        "points": 25,
+        "linked_evidence": [
+          "논리적 분석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "도시개발의 경제성과 토지이용의 효율성을 감안하여 구체적인 토지이용상황, 교통, 생활환경 등에 대한 세부계획안을 발주자에게 제시한다.",
+      "source_ref": {
+        "file": "K000000878/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 수집",
+          "score": 94,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 92,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 88,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 88,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 87,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "공간지각력",
+          "score": 99,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 98,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "논리적 분석",
+          "score": 92,
+          "description": "문제를 해결하기 위해(혹은 의사결정을 하기 위해) 체계적으로 이치에 맞는 생각을 해낸다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "건축 및 설계",
+          "score": 97,
+          "description": "집, 빌딩, 혹은 도로를 만들고 수리하기 위해 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 92,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "지리",
+          "score": 91,
+          "description": "육지, 바다 그리고 하늘의 특성 및 상호관계에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 92,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 90,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 89,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "의사 결정, 문제점 해결"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "정보 처리",
+          "논리적 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.65,
+    "AX2": 0.0,
+    "AX3": 0.35,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

@@ -1,0 +1,538 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007532_normal_001",
+  "job_identity": {
+    "job_cd": "K000007532",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "학예사·사서·기록물관리사",
+    "job_smcl_nm": "사서",
+    "source_ref": {
+      "file": "K000007532/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "책, 비디오, DVD, 연간물 등 이용자가 희망한 자료나 신간자료를 구입한다.",
+    "source_ref": {
+      "file": "K000007532/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "솔내 공공도서관",
+    "domain": "공공도서관 자료실의 이용자 희망 도서 구입",
+    "period": [
+      "11월 12일 신청",
+      "11월 19일 도착 기한",
+      "11월 20일 독서모임"
+    ],
+    "trend_pattern": "후보 거래처 4곳은 4권 합계 금액이 적을수록 도착 예정일이 늦다.",
+    "main_issue": "지역 독서모임이 신청한 도서 4권을 모임 전날인 11월 19일까지 받으면서 구입 비용도 줄여야 한다.",
+    "feedback_themes": [
+      "도착 기한",
+      "4권 합계 금액"
+    ],
+    "decision_goal": "11월 19일까지 도착하는 입수 방법 가운데 4권 합계 금액이 가장 적은 거래처를 정한다."
+  },
+  "mission": {
+    "title": "독서모임이 신청한 책, 어디서 살까?",
+    "task_type": "coordination_and_negotiation",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 솔내 공공도서관 자료실에서 도서 구입 업무를 돕는 인턴입니다.",
+      "context": "솔내 공공도서관에 지역 독서모임이 모임에서 함께 읽을 책 4권을 사 달라는 신청을 했습니다. 수서 담당 팀장이 구입 조건을 적은 메모를 남겼고, 후보 거래처 4곳의 견적을 정리한 비교표도 함께 받았습니다. 도서관에서 책을 살 때는 얼마나 빨리 받을 수 있는지(입수의 신속성)와 돈을 얼마나 아낄 수 있는지(비용의 효율성)를 함께 봅니다.",
+      "goal": "팀장 메모의 조건에 맞춰 이 책을 어느 거래처의 어떤 입수 방법으로 구입할지 고르고, 그 이유를 적어보세요.",
+      "constraints": [
+        "메모와 거래처 비교표에 나온 정보만 사용하세요.",
+        "고른 거래처와 입수 방법, 그 이유를 2~3문장으로 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "입수 방법",
+          "definition": "도서관이 자료를 들여오는 방식입니다. 정기 납품, 온라인 주문, 직원이 직접 가서 사 오기, 출판사에서 바로 사기 등이 있습니다."
+        },
+        {
+          "term": "입수의 신속성",
+          "definition": "필요한 자료를 얼마나 빨리 도서관에 들여올 수 있는지를 보는 기준입니다."
+        },
+        {
+          "term": "비용의 효율성",
+          "definition": "같은 자료를 들여올 때 돈을 얼마나 적게 쓰는지를 보는 기준입니다."
+        },
+        {
+          "term": "수서",
+          "definition": "도서관에 들일 자료를 고르고 구입하는 일입니다."
+        },
+        {
+          "term": "거래처",
+          "definition": "도서관이 자료를 사 오는 서점이나 출판사 같은 곳입니다."
+        },
+        {
+          "term": "정기 납품",
+          "definition": "거래처가 정해진 때(여기서는 매달 말)에 주문받은 자료를 한꺼번에 가져다주는 방식입니다."
+        },
+        {
+          "term": "출판사 직거래",
+          "definition": "서점을 거치지 않고 책을 만든 출판사에서 바로 사는 방식입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "업무 요청 메모",
+        "title": "자료실 수서 담당 팀장 메모 - 독서모임 신청 도서 구입 요청",
+        "description": "자료실 수서 담당 팀장이 인턴에게 남긴 구입 요청 메모입니다. 신청 내용, 도착 기한, 거래처를 정하는 원칙이 적혀 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "이번 구입의 도착 기한과 거래처를 정하는 원칙을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "행정, 관리 업무"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "자료실 수서 담당 팀장",
+          "items": [
+            "이용자가 희망한 자료: 지역 독서모임이 신청한 도서 1종 4권입니다. (신청일 11월 12일)",
+            "독서모임이 11월 20일에 열리므로, 책이 11월 19일까지 도서관에 도착해야 합니다.",
+            "11월 19일까지 도착하는 입수 방법 가운데 4권 합계 금액이 가장 적은 거래처로 정해 주세요."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "견적 비교표",
+        "title": "후보 거래처 견적 비교표 (도서 1종 4권 기준)",
+        "description": "거래처 4곳에서 받은 견적을 정리한 표입니다. 금액은 4권을 합친 값이며 단위는 원입니다. 도착 예정일은 11월 12일에 주문했을 때 기준입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "후보 거래처별 입수 방법, 도착 예정일, 4권 합계 금액을 메모의 조건과 맞춰 보는 데 쓴다.",
+        "evidence_source": [
+          "범주화",
+          "행정, 관리 업무"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "거래처"
+            },
+            {
+              "key": "strength",
+              "label": "입수 방법"
+            },
+            {
+              "key": "weakness",
+              "label": "도착 예정일"
+            },
+            {
+              "key": "priority",
+              "label": "4권 합계 금액(원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "가람서적",
+              "strength": "정기 납품(월말 일괄)",
+              "weakness": "11월 28일",
+              "priority": 57600
+            },
+            {
+              "option": "누리북스",
+              "strength": "온라인 개별 주문(택배)",
+              "weakness": "11월 17일",
+              "priority": 60000
+            },
+            {
+              "option": "다솜서점",
+              "strength": "직원 방문 구입",
+              "weakness": "11월 14일",
+              "priority": 64000
+            },
+            {
+              "option": "라온출판사",
+              "strength": "출판사 직거래",
+              "weakness": "11월 21일",
+              "priority": 59000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장 메모의 도착 기한과 결정 원칙을 거래처 비교표에 적용해 보세요. 이용자가 희망한 책을 어느 거래처의 어떤 입수 방법으로 구입할지 고르고, 그 이유를 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 도착 기한과 결정 원칙을 비교표의 후보 거래처에 적용해 거래처와 입수 방법 하나를 고르고, 고른 이유를 2~3문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "고른 거래처와 입수 방법, 그 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "가람서적(11월 28일 도착)과 라온출판사(11월 21일 도착)는 금액이 적은 편이지만 11월 19일 도착 기한을 넘기므로 후보에서 빠진다.",
+      "기한 안에 도착하는 누리북스(60,000원)와 다솜서점(64,000원) 가운데 합계 금액이 4,000원 적은 누리북스의 온라인 개별 주문(택배)으로 구입한다. 다솜서점은 가장 빨리 도착하지만 금액이 더 많아 고르지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "도착 기한으로 후보 거르기",
+        "description": "각 거래처의 도착 예정일을 11월 19일 기한과 비교해, 금액이 적더라도 기한을 넘기는 가람서적과 라온출판사를 후보에서 뺐는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "범주화"
+        ]
+      },
+      {
+        "criterion": "기한 안 후보 중 금액이 적은 거래처 결정과 이유",
+        "description": "기한 안에 도착하는 후보 가운데 합계 금액이 더 적은 누리북스의 온라인 개별 주문을 골랐는지, 가장 빨리 도착하는 다솜서점을 금액 차이 때문에 고르지 않았다는 이유를 밝혔는지 본다.",
+        "points": 60,
+        "linked_evidence": [
+          "행정, 관리 업무"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "책, 비디오, DVD, 연간물 등 이용자가 희망한 자료나 신간자료를 구입한다.",
+      "source_ref": {
+        "file": "K000007532/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 100,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 99,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 99,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "상사, 동료, 부하직원과 소통",
+          "score": 99,
+          "description": "상사, 동료, 부하직원에게 정보를 서면, 이메일 또는 직접 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 99,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 95,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 91,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 89,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "역사",
+          "score": 75,
+          "description": "역사적 사건과 원인 그리고 유적에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "사무",
+          "score": 66,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "국어",
+          "score": 64,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "앉아서 근무",
+          "score": 84,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "외부 고객 대하기",
+          "score": 84,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 접촉",
+          "score": 83,
+          "description": "업무 수행하면서 사람들과 접촉(전화, 대면, 메신저 등) 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "행정, 관리 업무"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "범주화",
+          "행정, 관리 업무"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.08,
+    "AX2": 0.08,
+    "AX3": 0.08,
+    "AX4": 0.68,
+    "AX5": 0.08
+  }
+}

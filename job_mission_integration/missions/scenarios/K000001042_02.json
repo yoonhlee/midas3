@@ -1,0 +1,538 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001042_normal_001",
+  "job_identity": {
+    "job_cd": "K000001042",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "모바일앱개발자",
+    "source_ref": {
+      "file": "K000001042/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "어플리케이션의 성능을 검사하고 실행시간을 개선한다.",
+    "source_ref": {
+      "file": "K000001042/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "하늬앱스",
+    "domain": "동네 소식 공유 모바일 앱 '하늬피드'",
+    "period": [
+      "이번 주 애플리케이션 테스트"
+    ],
+    "trend_pattern": "앱을 시작하면 첫 화면 표시 전에 호출 네 개가 차례로 실행되어 첫 화면(홈 피드)이 늦게 뜬다.",
+    "main_issue": "첫 화면 표시 전 실행시간이 파트 리드가 정한 목표(1,200ms 이하)를 넘는다.",
+    "feedback_themes": [
+      "앱을 켜고 첫 화면이 뜨기까지 오래 걸린다"
+    ],
+    "decision_goal": "첫 화면 표시 전에 꼭 실행할 호출은 지키면서, 첫 화면 표시 뒤로 옮길 호출을 정해 실행시간 목표를 맞춘다."
+  },
+  "mission": {
+    "title": "첫 화면이 늦게 뜨는 앱, 어떤 호출을 뒤로 미룰까?",
+    "task_type": "diagnosis_and_improvement",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 하늬앱스 모바일 앱 파트에 새로 들어온 개발 인턴입니다.",
+      "context": "하늬앱스의 동네 소식 앱 '하늬피드'는 앱을 켠 뒤 첫 화면(홈 피드)이 뜨기까지 오래 걸린다는 사용자 의견이 늘었습니다. 지금 앱은 측정표에 있는 호출 네 개를 모두 첫 화면 표시 전에, 표의 순서대로 하나씩 실행합니다. 파트 리드가 이번 주 애플리케이션 테스트 결과와 개선 지시 메모를 건네며, 첫 화면을 늦추는 성능 저하 요인을 찾아 어떤 호출을 첫 화면 표시 뒤로 옮길지 정해 달라고 했습니다.",
+      "goal": "메모의 기준을 지키면서 첫 화면 표시 뒤로 옮길 호출을 고르고, 그렇게 했을 때 첫 화면 표시 전 실행시간이 얼마가 되는지 근거로 들어 파트 리드에게 답해 보세요.",
+      "constraints": [
+        "메모와 측정표에 있는 호출과 소요시간만 사용하세요.",
+        "호출을 없애거나 코드를 고치는 방법이 아니라, 호출을 실행하는 순서(시점)를 옮기는 방법만 생각하세요.",
+        "각 호출의 소요시간은 실행 순서를 옮겨도 그대로라고 봅니다.",
+        "답은 2~3문장으로 적어 주세요."
+      ],
+      "glossary": [
+        {
+          "term": "성능 저하 요인",
+          "definition": "앱을 느리게 만드는 원인입니다. 여기서는 첫 화면이 늦게 뜨게 만드는 원인을 말합니다."
+        },
+        {
+          "term": "호출 순서 조정",
+          "definition": "호출 자체는 그대로 두고 실행하는 순서나 시점만 바꾸는 일입니다. 예를 들어 어떤 호출을 첫 화면이 뜬 뒤에 실행하도록 미루는 것입니다."
+        },
+        {
+          "term": "실행시간",
+          "definition": "어떤 작업이 시작해서 끝날 때까지 걸리는 시간입니다."
+        },
+        {
+          "term": "호출",
+          "definition": "앱이 특정 기능(모듈)에게 정해진 일을 하라고 시키는 것입니다."
+        },
+        {
+          "term": "ms(밀리초)",
+          "definition": "1,000분의 1초입니다. 1,000ms가 1초입니다."
+        },
+        {
+          "term": "SDK",
+          "definition": "앱에 끼워 넣어 쓰는 기능 묶음입니다. 여기서 광고 SDK는 앱에 광고를 띄우기 위한 기능 묶음입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "work_instruction",
+        "title": "모바일 앱 파트 리드의 첫 화면 성능 개선 지시 메모",
+        "description": "모바일 앱 파트 리드가 첫 화면 표시 속도 개선 작업을 맡기며 남긴 지시 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "첫 화면 표시 전 실행시간 목표와 계산 방법, 첫 화면 표시 전에 꼭 실행할 호출, 순서를 옮길 수 있는 호출의 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "고장의 발견.수리",
+          "수리력"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "모바일 앱 파트 리드",
+          "items": [
+            "첫 화면(홈 피드) 표시 전 실행시간 목표는 1,200ms 이하입니다. 첫 화면 표시 전 실행시간은 그 전에 차례로 실행되는 호출들의 소요시간을 모두 더한 값으로 봅니다.",
+            "첫 화면 표시 전에는 로그인 상태 확인과 첫 화면에 보여 줄 데이터 불러오기를 반드시 실행해야 합니다.",
+            "그 밖의 호출은 목표를 맞추는 데 필요하면 첫 화면 표시 뒤로 호출 순서 조정을 해도 됩니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "test_measurement",
+        "title": "애플리케이션 테스트 측정 결과: 앱 시작 시 첫 화면 표시 전 호출",
+        "description": "테스트 기기에서 앱을 시작할 때 첫 화면 표시 전에 실행되는 호출 네 개를 실행 순서대로 정리한 측정표입니다. 소요시간 단위는 ms(1,000분의 1초)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "호출마다 맡은 일과 소요시간을 확인해 메모의 목표와 실행 기준에 비추어 보는 데 씁니다.",
+        "evidence_source": [
+          "정보 처리",
+          "수리력"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "호출 단계(실행 순서)"
+            },
+            {
+              "key": "strength",
+              "label": "모듈"
+            },
+            {
+              "key": "weakness",
+              "label": "하는 일"
+            },
+            {
+              "key": "priority",
+              "label": "소요시간(ms)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "1. 로그인 상태 확인",
+              "strength": "인증 모듈",
+              "weakness": "기기에 저장된 로그인 정보 확인",
+              "priority": 450
+            },
+            {
+              "option": "2. 광고 SDK 초기화",
+              "strength": "광고 모듈",
+              "weakness": "이벤트 탭 배너 광고 준비",
+              "priority": 380
+            },
+            {
+              "option": "3. 홈 피드 불러오기",
+              "strength": "피드 모듈",
+              "weakness": "첫 화면 게시물 목록 서버 조회",
+              "priority": 520
+            },
+            {
+              "option": "4. 사용 기록 전송",
+              "strength": "분석 모듈",
+              "weakness": "지난 실행의 사용 기록 서버 전송",
+              "priority": 300
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "파트 리드의 메모와 애플리케이션 테스트 측정표를 보고, 첫 화면 표시 뒤로 옮길 호출을 골라 보세요. 고른 호출과 그 이유를, 옮긴 뒤의 첫 화면 표시 전 실행시간과 함께 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 실행시간 목표와 첫 화면 표시 전 실행 기준을 측정표의 호출별 하는 일과 소요시간에 적용해 첫 화면 표시 뒤로 옮길 호출을 고르고, 옮긴 뒤의 첫 화면 표시 전 실행시간을 계산해 근거로 제시한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "옮길 호출과 근거"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "광고 SDK 초기화(이벤트 탭 배너 광고 준비)와 사용 기록 전송(지난 실행의 사용 기록 전송)은 첫 화면에 필요 없는데도 첫 화면 표시 전에 실행되어 실행시간을 늘리는 성능 저하 요인이다. 소요시간이 가장 긴 홈 피드 불러오기(520ms)는 첫 화면에 보여 줄 데이터이므로 메모 기준에 따라 첫 화면 표시 뒤로 옮길 수 없다.",
+      "광고 SDK 초기화와 사용 기록 전송을 둘 다 첫 화면 표시 뒤로 옮기면 첫 화면 표시 전 실행시간은 450+520=970ms로 목표인 1,200ms 이하가 된다. 광고 SDK 초기화만 옮기면 1,270ms, 사용 기록 전송만 옮기면 1,350ms로 목표를 넘으므로 둘 다 옮겨야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "성능 저하 요인 찾기",
+        "description": "첫 화면에 필요 없는데 첫 화면 표시 전에 실행되는 광고 SDK 초기화와 사용 기록 전송을 옮길 호출로 골랐는지, 소요시간이 가장 긴 홈 피드 불러오기는 첫 화면 데이터라서 옮길 수 없다고 메모 기준에 맞게 판단했는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "고장의 발견.수리",
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "개선안의 실행시간 확인",
+        "description": "두 호출을 옮긴 뒤 첫 화면 표시 전 실행시간이 450+520=970ms로 1,200ms 이하가 됨을 계산해 근거로 들었는지, 하나만 옮기면 목표를 넘는다는 점과 맞는 결론을 냈는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "수리력"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "어플리케이션의 성능을 검사하고 실행시간을 개선한다.",
+      "source_ref": {
+        "file": "K000001042/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 98,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 90,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 90,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 82,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 96,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "창의력",
+          "score": 90,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "고장의 발견.수리",
+          "score": 74,
+          "description": "오작동의 원인이 무엇인가를 확인하고 이를 어떻게 처리할 것인지 결정한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 95,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 89,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 85,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 90,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "실내 근무",
+          "score": 77,
+          "description": "실내에서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "고장의 발견.수리",
+          "수리력"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 처리",
+          "수리력"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.8,
+    "AX2": 0.05,
+    "AX3": 0.05,
+    "AX4": 0.05,
+    "AX5": 0.05
+  }
+}

@@ -1,0 +1,534 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007526_normal_001",
+  "job_identity": {
+    "job_cd": "K000007526",
+    "job_lrcl_nm": "교육·법률·사회복지·경찰·소방직 및 군인",
+    "job_mdcl_nm": "사회복지사 및 상담사",
+    "job_smcl_nm": "청소년지도사",
+    "source_ref": {
+      "file": "K000007526/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "청소년의 생활적응과 사회적 고민해소를 위해 상담하고 보호활동을 수행한다.",
+    "source_ref": {
+      "file": "K000007526/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "새봄청소년상담센터",
+    "domain": "청소년 개인상담 종결 사례의 추수상담",
+    "period": [
+      "11/10",
+      "11/11"
+    ],
+    "trend_pattern": "종결 4주 뒤 전화 점검에서 청소년내담자 4명의 현재 상태가 종결보고 당시의 주 호소와 비교해 서로 다르게 나타남",
+    "main_issue": "추수 점검 전화 결과를 기관의 추수상담 계획 조건에 맞춰 2주 안에 추수상담 회기를 잡을 청소년내담자를 가려야 함",
+    "feedback_themes": [
+      "종결보고 주 호소 문제나 관련 증상의 재발",
+      "이전 문제행동으로 돌아가려는 퇴행",
+      "종결 뒤 새로 생긴 고민",
+      "생활 적응 상태"
+    ],
+    "decision_goal": "2주 안에 추수상담 회기를 잡아야 할 청소년내담자를 모두 고르고 각각 해당하는 조건을 밝힌다"
+  },
+  "mission": {
+    "title": "종결 4주 뒤, 추수상담이 필요한 청소년은 누구일까?",
+    "task_type": "operation_and_scheduling",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 새봄청소년상담센터 상담팀에서 일하는 인턴 청소년지도사입니다.",
+      "context": "센터는 개인상담을 마친 청소년내담자에게 종결 4주 뒤 전화를 걸어 요즘 어떻게 지내는지 확인합니다. 이번 주에 상담팀이 청소년내담자 4명과 통화를 마쳤고, 상담팀장이 기관의 추수상담 계획 메모와 통화 기록을 건네며 다음 주 상담 일정에 넣을 사람을 정리해 달라고 했습니다.",
+      "goal": "추수상담 계획 메모와 추수 점검 전화 기록을 함께 보고, 2주 안에 추수상담 회기를 잡아야 할 청소년내담자를 골라 보세요.",
+      "constraints": [
+        "두 자료에 적힌 내용만으로 판단하세요.",
+        "청소년내담자는 개인정보 보호를 위해 이름 대신 A~D로 적혀 있습니다.",
+        "답은 2~3문장으로 짧게 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "추수상담",
+          "definition": "상담을 마친 뒤에도 청소년이 일상에서 잘 지내고 있는지 확인하고, 필요하면 다시 도와주기 위해 여는 상담입니다."
+        },
+        {
+          "term": "신체화 증상",
+          "definition": "마음의 어려움이 복통이나 두통처럼 몸의 증상으로 나타나는 것입니다."
+        },
+        {
+          "term": "퇴행",
+          "definition": "나아졌던 사람이 예전에 하던 문제행동으로 다시 돌아가려는 모습입니다."
+        },
+        {
+          "term": "종결보고",
+          "definition": "상담을 마칠 때 상담자가 쓰는 기록으로, 처음 상담을 받으러 온 이유와 상담 결과 등을 적어 둡니다."
+        },
+        {
+          "term": "주 호소",
+          "definition": "내담자가 상담을 받으러 오면서 가장 크게 털어놓은 고민이나 문제입니다."
+        },
+        {
+          "term": "청소년내담자",
+          "definition": "상담을 받는 청소년을 부르는 말입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "상담규정 발췌 메모",
+        "title": "종결 사례 추수상담 계획(기관 상담규정 발췌)",
+        "description": "새봄청소년상담센터 상담팀장이 기관 상담규정 가운데 종결 사례의 추수상담 계획 부분을 옮겨 적은 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "종결 4주 뒤 점검에서 어떤 경우에 2주 안에 추수상담 회기를 잡는지 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "상담",
+          "심리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "새봄청소년상담센터 상담팀장",
+          "items": [
+            "추수상담은 상담에서 해결한 문제가 실제 생활에서도 잘 적용되는지, 청소년내담자가 적응을 잘하고 있는지 확인하기 위한 것이다.",
+            "종결 4주 뒤 전화 점검에서 다음 중 하나라도 확인된 청소년내담자는 2주 안에 추수상담 회기를 잡는다. (가) 종결보고에 적힌 주 호소 문제, 또는 그 문제와 관련된 증상이 다시 나타남. 증상에는 우울·불안·무기력 같은 심리적 증상과 복통·두통 같은 신체화 증상이 모두 포함된다. (나) 이전 문제행동으로 돌아가려는 퇴행.",
+            "위 두 조건에 해당하지 않으면 새로운 고민을 이야기하더라도 이번에는 추수상담 회기를 잡지 않고, 다음 정기 점검에서 다시 확인한다."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "추수 점검 전화 기록",
+        "title": "종결 4주 뒤 추수 점검 전화 기록",
+        "description": "상담팀이 개인상담을 마친 청소년내담자 4명에게 종결 4주 뒤 전화를 걸어 확인한 현재 상태를 시간순으로 적은 기록입니다. 메모 칸에는 각 청소년내담자의 종결보고에 적힌 주 호소를 옮겨 두었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "청소년내담자별 현재 상태를 종결보고의 주 호소와 나란히 보고 메모의 조건에 맞춰 보는 데 씁니다.",
+        "evidence_source": [
+          "상담",
+          "심리"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "feedback_themes",
+          "main_issue"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "11/10 10:00",
+              "actor": "청소년내담자 A",
+              "event": "친구들과 다툼 없이 지내고 있다고 함. 새로 다니기 시작한 학원의 숙제가 많아 걱정된다고 말함.",
+              "note": "종결보고 주 호소: 친구관계 갈등"
+            },
+            {
+              "time": "11/10 14:00",
+              "actor": "청소년내담자 B",
+              "event": "지난주부터 아침마다 복통이 다시 생겨 학교에서 두 번 조퇴했다고 함.",
+              "note": "종결보고 주 호소: 등교 전 복통"
+            },
+            {
+              "time": "11/11 11:00",
+              "actor": "청소년내담자 C",
+              "event": "매일 아침 7시에 일어나 등교하고 있으며, 지난주에 동아리에 새로 들어갔다고 함.",
+              "note": "종결보고 주 호소: 무기력과 늦잠"
+            },
+            {
+              "time": "11/11 16:00",
+              "actor": "청소년내담자 D",
+              "event": "시험이 끝난 뒤 다시 새벽까지 게임을 하고 있으며, 이번 주에 두 번 지각했다고 함.",
+              "note": "종결보고 주 호소: 새벽 게임으로 인한 지각"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "상담팀장이 \"이번 추수 점검 결과를 보고 2주 안에 추수상담 회기를 잡을 청소년내담자를 알려 주세요\"라고 요청했습니다. 추수상담 계획 메모의 조건을 추수 점검 전화 기록에 적용해, 회기를 잡아야 할 청소년내담자를 모두 고르고 각각 어떤 조건에 해당하는지 2~3문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 회기 조건을 전화 기록에 있는 네 청소년내담자의 현재 상태와 종결보고 주 호소에 맞춰 보고, 대상자와 각자가 해당하는 조건을 짧은 글로 밝힌다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "추수상담 회기를 잡을 청소년내담자",
+        "각 청소년내담자가 해당하는 조건"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "청소년내담자 B는 종결보고의 주 호소였던 등교 전 복통이 다시 나타났으므로, 신체화 증상까지 포함하는 조건 (가)에 해당해 2주 안에 추수상담 회기를 잡아야 한다.",
+      "청소년내담자 D는 시험 뒤 다시 새벽까지 게임을 하고 지각하는 이전 문제행동으로 돌아갔으므로 퇴행(조건 (나))에 해당해 추수상담 대상이다. 종결보고 주 호소가 다시 나타난 것(조건 (가))으로 설명해도 맞다.",
+      "청소년내담자 A는 학원 숙제 걱정이라는 새로운 고민을 말했지만 종결보고의 친구관계 갈등은 다시 나타나지 않았으므로 메모 항목 3에 따라 이번 대상이 아니고, C는 무기력과 늦잠이 나아져 대상이 아니다."
+    ],
+    "rubric": [
+      {
+        "criterion": "추수상담 대상 선택",
+        "description": "B와 D를 모두 골랐고, 새로운 고민만 말한 A와 생활이 나아진 C를 대상에 넣지 않았다.",
+        "points": 40,
+        "linked_evidence": [
+          "상담"
+        ]
+      },
+      {
+        "criterion": "신체화 증상 판단",
+        "description": "B의 아침 복통을 단순히 몸이 아픈 일로 넘기지 않고, 종결보고 주 호소가 다시 나타난 신체화 증상으로 보아 조건 (가)에 연결했다.",
+        "points": 30,
+        "linked_evidence": [
+          "심리",
+          "상담"
+        ]
+      },
+      {
+        "criterion": "퇴행 판단",
+        "description": "D의 새벽 게임과 지각을 이전 문제행동으로 돌아간 퇴행으로 보아 조건에 연결했다. 종결보고 주 호소의 재발(조건 (가))로 설명해도 인정한다.",
+        "points": 30,
+        "linked_evidence": [
+          "심리",
+          "상담"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "청소년의 생활적응과 사회적 고민해소를 위해 상담하고 보호활동을 수행한다.",
+      "source_ref": {
+        "file": "K000007526/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들을 훈련, 교육",
+          "score": 100,
+          "description": "교육 요구 사항을 파악하고, 공식적인 교육 또는 훈련 프로그램을 만들며, 교육이나 강의를 제공하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 99,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들을 배려, 돌봄",
+          "score": 98,
+          "description": "동료, 고객, 환자를 치료하고, 정서적으로 지지하고 돌보기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 97,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 96,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "가르치기",
+          "score": 97,
+          "description": "다른 사람들에게 일하는 방법에 대해 가르친다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "학습전략",
+          "score": 95,
+          "description": "새로운 것을 배우거나 가르칠 때 적절한 방법을 활용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 78,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "상담",
+          "score": 90,
+          "description": "개인의 신상 및 경력 혹은 정신적 어려움에 관한 상담을 하는 절차나 방법 혹은 원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "심리",
+          "score": 84,
+          "description": "사람들의 행동, 성격, 흥미, 동기 등에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "철학과 신학",
+          "score": 78,
+          "description": "생활에 영향을 미치는 다양한 철학과 종교에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "건강 및 안전에 대한 책임",
+          "score": 83,
+          "description": "함께 근무하는 사람의 건강 및 안전에 대한 책임",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "연설, 발표, 회의하기",
+          "score": 79,
+          "description": "사람들 앞에서 공식적으로 연설(발표,회의 등의 상황)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람들을 조율하거나 이끌기",
+          "score": 76,
+          "description": "업무 특성상 다른 사람들을 조율하거나 이끄는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "상담",
+          "심리"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "상담",
+          "심리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "feedback_themes",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.2,
+    "AX2": 0.2,
+    "AX3": 0.2,
+    "AX4": 0.2,
+    "AX5": 0.2
+  }
+}

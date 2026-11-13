@@ -1,0 +1,673 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001215_hard_001",
+  "job_identity": {
+    "job_cd": "K000001215",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "금융·보험 전문가",
+    "job_smcl_nm": "신용분석가",
+    "source_ref": {
+      "file": "K000001215/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "사업체의 사업내용, 거래실적, 설비규모, 자본금 및 사채발행 현황 등과 같은 자산구성, 경영자의 능력 및 동종업계의 현황과 전망 등을 조사·검토한다.",
+    "source_ref": {
+      "file": "K000001215/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "A사",
+    "domain": "기업 여신 심사(설비 증설 대출의 재무상태 검토)",
+    "period": [
+      "2024년 말",
+      "2025년 말",
+      "2026년 3월",
+      "2026년 9월"
+    ],
+    "trend_pattern": "2024년 말에서 2025년 말 사이 자산총계는 500억원에서 600억원, 비유동자산은 300억원에서 400억원, 유형자산은 250억원에서 330억원으로 늘었고, 자기자본과 비유동부채의 합은 300억원에서 320억원으로 늘었다.",
+    "main_issue": "A사가 2026년 3월 생산설비 증설 대금 100억원을 금리가 가장 낮은 만기 1년 운전자금대출 형태로 신청했다.",
+    "feedback_themes": [
+      "금리",
+      "대출 만기",
+      "설비 발주 일정",
+      "유상증자 확정 여부"
+    ],
+    "decision_goal": "A사의 재무상태 분석 결과를 근거로 설비 증설 대출의 세 취급 방안 가운데 하나를 권고하고 주의할 점 하나를 적는다."
+  },
+  "mission": {
+    "title": "A사 설비 증설 대출, 재무상태표로 먼저 따져 보기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "은행 여신부서에서 기업 대출 심사를 배우는 인턴",
+      "context": "당신은 은행 여신부서에서 기업 대출 심사를 배우고 있는 인턴입니다. 제조업체 A사가 2026년 3월에 생산설비를 늘리는 데 드는 100억원을 빌려 달라고 신청했습니다. 팀장은 대출을 어떤 방식으로 내줄지 정하기 전에, A사 자산 가운데 설비가 얼마나 되는지와 그 설비를 어떤 돈으로 마련해 왔는지를 재무상태표 숫자로 먼저 확인해 달라고 했습니다.",
+      "goal": "아래 세 자료를 보고 A사의 자산구성과 장기 자금 상태가 두 해 동안 어떻게 달라졌는지 따져 본 뒤, 그 결과를 바탕으로 팀장에게 대출 취급 방안 하나를 권고해 보세요.",
+      "constraints": [
+        "자료에 나온 금액, 산식, 기준값만 사용하세요. 따로 찾아볼 자료는 없습니다.",
+        "계산은 나눗셈과 덧셈만으로 충분하며, 비율은 % 단위로 적으세요.",
+        "답은 과제마다 3~5문장으로 적으세요.",
+        "A사, 은행, 금액은 모두 연습을 위해 만든 가상의 내용입니다."
+      ],
+      "glossary": [
+        {
+          "term": "유형자산구성비",
+          "definition": "회사 자산 가운데 설비, 기계, 건물처럼 형태가 있는 유형자산이 차지하는 비중을 나타내는 비율입니다."
+        },
+        {
+          "term": "비유동장기적합률",
+          "definition": "설비처럼 오래 쓰는 비유동자산을 갚지 않아도 되는 회사 자신의 돈과 오래 빌린 돈으로 얼마나 감당하고 있는지 보여 주는 비율입니다."
+        },
+        {
+          "term": "재무상태표",
+          "definition": "정해진 날짜에 회사가 가진 자산, 갚아야 할 부채, 주주 몫인 자본이 각각 얼마인지 정리한 표입니다."
+        },
+        {
+          "term": "동업계평균비율",
+          "definition": "같은 업종에 속한 회사들의 재무비율을 평균한 값으로, 한 회사의 비율이 높은지 낮은지 견주어 보는 기준으로 씁니다."
+        },
+        {
+          "term": "여신부서",
+          "definition": "금융기관에서 기업이나 개인에게 돈을 빌려주는 일을 맡는 부서입니다."
+        },
+        {
+          "term": "자산구성",
+          "definition": "회사의 자산이 어떤 종류로 얼마씩 이루어져 있는지를 나타낸 짜임새입니다."
+        },
+        {
+          "term": "자산총계",
+          "definition": "회사가 가진 모든 자산의 금액을 더한 값입니다."
+        },
+        {
+          "term": "비유동자산",
+          "definition": "설비, 건물, 토지처럼 1년이 넘도록 회사에 남아 쓰이는 자산입니다."
+        },
+        {
+          "term": "유형자산",
+          "definition": "비유동자산 가운데 설비, 기계, 건물, 토지처럼 눈에 보이는 형태가 있는 자산입니다."
+        },
+        {
+          "term": "자기자본",
+          "definition": "주주가 낸 돈과 회사가 벌어 쌓아 둔 돈처럼 남에게 갚지 않아도 되는 회사 자신의 돈입니다."
+        },
+        {
+          "term": "비유동부채",
+          "definition": "갚을 기한이 1년보다 뒤에 오는 부채입니다. 만기가 긴 대출이나 회사가 돈을 빌리려고 발행한 사채 등이 여기에 들어갑니다."
+        },
+        {
+          "term": "운전자금대출",
+          "definition": "원재료 구입이나 인건비처럼 회사가 평소 영업을 이어 가는 데 드는 돈을 빌려주는 대출입니다."
+        },
+        {
+          "term": "시설자금대출",
+          "definition": "설비, 공장 같은 시설을 마련하는 데 쓰도록 빌려주는 대출입니다."
+        },
+        {
+          "term": "유상증자",
+          "definition": "회사가 새 주식을 발행해 팔고 그 대금을 받아 자기자본을 늘리는 일입니다."
+        },
+        {
+          "term": "만기 연장 심사",
+          "definition": "갚기로 한 날이 된 대출을 바로 돌려받지 않고 기간을 늘려 줄지 은행이 다시 따져 보는 심사입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "manual_excerpt",
+        "title": "여신심사부 재무분석매뉴얼 발췌: 자산구성 비율 두 가지",
+        "description": "여신심사부가 쓰는 재무분석매뉴얼에서 두 비율의 산식과 읽는 법, A사 업종의 2025년 동업계평균비율을 옮겨 적은 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 두 비율을 계산하고 업계 기준과 견줄 때, 과제 2에서 방안을 따질 때 기준으로 씁니다.",
+        "evidence_source": [
+          "경제와 회계",
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "period"
+        ],
+        "data": {
+          "author": "여신심사부 (재무분석매뉴얼 발췌)",
+          "items": [
+            "유형자산구성비(%) = 유형자산 ÷ 자산총계 × 100. 회사 자산 가운데 설비, 건물 같은 유형자산이 차지하는 비중을 나타낸다.",
+            "비유동장기적합률(%) = 비유동자산 ÷ (자기자본 + 비유동부채) × 100. 100% 이하이면 비유동자산을 자기자본과 장기 부채로 마련한 것이고, 100%를 넘으면 그 일부를 1년 안에 갚아야 하는 단기 자금으로 마련한 것으로 본다. 두 비율은 동업계평균비율과 견주어 해석한다.",
+            "A사 업종의 2025년 동업계평균비율(연구기관 기업경영분석자료 기준): 유형자산구성비 50%, 비유동장기적합률 95%."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "memo",
+        "subtype": "request_memo",
+        "title": "여신부서 팀장 요청 메모: A사 설비 증설 대출 취급 방안 검토",
+        "description": "여신부서 팀장이 A사의 대출 신청 내용과 검토할 세 가지 취급 방안을 정리해 맡긴 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 세 방안의 금리, 만기, 일정 조건을 견주어 권고할 방안을 정할 때 씁니다.",
+        "evidence_source": [
+          "판단과 의사결정",
+          "경제와 회계"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "여신부서 팀장",
+          "items": [
+            "A사는 2026년 3월에 생산설비 증설 대금 100억원을 대출로 신청했고, 금리가 가장 낮은 만기 1년 운전자금대출 형태를 원합니다.",
+            "검토할 취급 방안은 세 가지입니다. (가) 신청대로 만기 1년 운전자금대출 100억원을 3월에 전액 취급: 금리가 세 방안 가운데 가장 낮고, 1년 뒤 갚거나 매년 만기 연장 심사를 받아야 합니다. (나) 만기 5년 시설자금대출 100억원을 3월에 전액 취급: 금리는 (가)보다 높습니다. (다) (나)와 같은 조건의 만기 5년 시설자금대출은 50억원만 취급하고, 나머지 50억원은 A사가 2026년 9월에 계획한 유상증자로 마련: 유상증자는 아직 확정되지 않았고, 설비 발주의 절반은 유상증자를 마친 9월 이후로 미뤄야 합니다.",
+            "재무상태 분석 결과를 근거로 세 방안 가운데 하나를 권고하고, 그 방안을 택할 때 주의할 점 하나를 함께 적어 주세요."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "chart",
+        "subtype": "balance_sheet_comparison",
+        "title": "A사 자산구성과 장기 자금: 재무상태표 주요 항목 (단위: 억원)",
+        "description": "A사 재무상태표의 자산총계, 비유동자산, 유형자산, 자기자본, 비유동부채를 2024년 말과 2025년 말 두 해로 나란히 보여 주는 막대그래프입니다. 단위는 억원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 자료 1의 산식에 넣을 두 해의 금액을 읽을 때 씁니다.",
+        "evidence_source": [
+          "정보 처리",
+          "경제와 회계"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "재무상태표 항목",
+            "values": [
+              "자산총계",
+              "비유동자산",
+              "유형자산",
+              "자기자본",
+              "비유동부채"
+            ]
+          },
+          "y_axis": {
+            "label": "금액",
+            "unit": "억원"
+          },
+          "series": [
+            {
+              "name": "2024년 말",
+              "values": [
+                500,
+                300,
+                250,
+                180,
+                120
+              ]
+            },
+            {
+              "name": "2025년 말",
+              "values": [
+                600,
+                400,
+                330,
+                190,
+                130
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "자료 3의 2024년 말과 2025년 말 금액에 자료 1의 두 산식을 적용해 해마다 유형자산구성비와 비유동장기적합률을 계산하고, 자료 1의 동업계평균비율과 견주어 A사의 설비 자산 비중과 그 설비를 마련한 돈의 상태가 어떻게 달라졌는지 해석해 보세요. 3~5문장으로 적으세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_003"
+        ],
+        "expected_action": "두 해의 유형자산구성비와 비유동장기적합률을 계산하고 동업계평균비율과 견주어 설비 자산과 자금 조달 상태를 해석한다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 결과를 근거로, A사의 설비 증설 대출을 자료 2의 세 방안 (가), (나), (다) 가운데 어느 방안으로 취급하자고 팀장에게 권고할지 정해 보세요. 고른 방안이 다른 두 방안보다 나은 이유와, 그 방안을 택할 때 주의할 점 하나를 함께 3~5문장으로 적으세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "세 취급 방안 가운데 하나를 골라 다른 방안과 견준 이유와 그 방안의 주의할 점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 두 비율 계산과 해석",
+        "과제 2: 권고 방안, 다른 방안과 견준 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "유형자산구성비는 2024년 말 50%(250 ÷ 500 × 100), 2025년 말 55%(330 ÷ 600 × 100)이다.",
+      "비유동장기적합률은 2024년 말 100%(300 ÷ (180 + 120) × 100), 2025년 말 125%(400 ÷ (190 + 130) × 100)이다.",
+      "2025년 말 A사는 유형자산 비중이 동업계평균비율 50%를 넘었고, 비유동장기적합률이 100%와 동업계평균비율 95%를 모두 넘어 설비 등 비유동자산의 일부를 1년 안에 갚아야 하는 단기 자금으로 마련하고 있다.",
+      "신청대로 (가) 만기 1년 대출 100억원을 취급하면 비유동장기적합률이 약 156%(500 ÷ 320 × 100)로 더 높아지고, (나)와 (다)는 설비 증설을 마친 뒤 약 119%(500 ÷ 420 × 100)로 2025년 말보다 낮아진다. (나)와 (다)는 부채 부담과 설비 일정에서 갈리므로 자료만으로 하나의 정답이 정해지지 않는다.",
+      "(가)는 금리가 가장 낮고 A사가 원하는 방식이지만, 단기 자금 비중을 더 키우고 매년 만기 연장 심사가 필요하다. 이런 점을 다루지 않고 (가)를 고른 이유는 다른 방안보다 낫다는 근거가 약하다.",
+      "예시: (나)를 권고한다. 금리는 (가)보다 높지만 장기 자금으로 설비를 마련해 (가)처럼 비유동장기적합률을 더 높이지 않고, (다)와 달리 확정되지 않은 유상증자를 기다리지 않아 3월 설비 일정을 지킬 수 있다. 주의할 점은 장기 대출로 받아도 비유동장기적합률이 약 119%로 100%와 동업계평균비율 95%를 여전히 넘는다는 것이다.",
+      "(다)를 고른 답도 인정된다. 빌리는 돈이 50억원으로 줄고 자기자본이 늘어 부채 부담이 가장 작다는 이유를 들 수 있고, 이때 주의할 점은 유상증자가 확정되지 않아 늦어지면 설비 절반의 발주와 증설도 늦어진다는 것이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "두 비율 계산",
+        "description": "자료 1의 산식과 자료 3의 금액으로 유형자산구성비(2024년 말 50%, 2025년 말 55%)와 비유동장기적합률(2024년 말 100%, 2025년 말 125%)을 구했는지 본다. 네 값이 모두 맞으면 만점, 일부만 맞으면 맞은 값의 수에 따라 부분 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "정보 처리",
+          "경제와 회계"
+        ]
+      },
+      {
+        "criterion": "업계 평균과 견준 해석",
+        "description": "유형자산 비중이 50%에서 55%로 늘어 동업계평균비율 50%를 넘었고, 비유동장기적합률이 100%에서 125%로 올라 100%와 동업계평균비율 95%를 넘었으므로 설비 등 비유동자산의 일부를 단기 자금으로 마련하고 있다고 해석했는지 본다. 업계 평균과의 비교나 두 해의 변화 가운데 한쪽만 다루었거나, 비율 값만 적고 자금 조달 상태를 해석하지 않았으면 부분 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "정보, 자료 분석",
+          "경제와 회계"
+        ]
+      },
+      {
+        "criterion": "권고 방안과 다른 방안과 견준 이유",
+        "description": "특정 방안을 정답으로 요구하지 않는다. 이유가 과제 1의 결과와 자료 2의 방안별 사실(금리, 대출 만기, 유상증자 확정 여부, 설비 발주 일정)에서 나와, 고른 방안이 다른 두 방안보다 왜 나은지를 실제로 뒷받침하면 만점을 준다. 자료에 있는 사실을 맞게 적었더라도 다른 방안보다 나은 까닭을 보여 주지 못하면 부분 점수만 준다. 예: (나)를 골라 장기 자금으로 설비를 마련해 (가)처럼 비유동장기적합률을 더 높이지 않으면서 3월 설비 일정을 지킬 수 있다고 적은 경우.",
+        "points": 30,
+        "linked_evidence": [
+          "판단과 의사결정",
+          "경제와 회계"
+        ]
+      },
+      {
+        "criterion": "고른 방안의 주의할 점",
+        "description": "고른 방안의 실제 위험이나 한계로서 자료가 보여 주는 것을 하나 적었는지 본다. 자료와 관계없는 일반적인 말이면 점수를 주지 않는다. 예: (나)라면 장기 대출로 받아도 비유동장기적합률이 약 119%로 100%와 동업계평균비율 95%를 여전히 넘는다는 점, (다)라면 유상증자가 확정되지 않아 늦어지면 설비 발주와 증설도 늦어진다는 점, (가)라면 매년 만기 연장 심사를 받아야 하고 단기 자금 비중이 더 커진다는 점.",
+        "points": 20,
+        "linked_evidence": [
+          "판단과 의사결정",
+          "정보, 자료 분석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "사업체의 사업내용, 거래실적, 설비규모, 자본금 및 사채발행 현황 등과 같은 자산구성, 경영자의 능력 및 동종업계의 현황과 전망 등을 조사·검토한다.",
+      "source_ref": {
+        "file": "K000001215/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 92,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 87,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 81,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 80,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 작성, 기록",
+          "score": 80,
+          "description": "정보를 전자 또는 서면으로 작성, 기록, 저장, 관리하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "시간 관리",
+          "score": 97,
+          "description": "자신의 시간과 다른 사람의 시간을 관리한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 97,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "판단과 의사결정",
+          "score": 96,
+          "description": "이득과 손실을 평가해서 결정을 내린다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "경제와 회계",
+          "score": 96,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 90,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 85,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 96,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 89,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "경제와 회계",
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "판단과 의사결정",
+          "경제와 회계"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "정보 처리",
+          "경제와 회계"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "domain",
+          "period"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.75,
+    "AX2": 0.0,
+    "AX3": 0.25,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

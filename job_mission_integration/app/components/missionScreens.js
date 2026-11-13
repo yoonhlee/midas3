@@ -167,7 +167,16 @@ function renderChart(data, esc) {
     body += `<path d="${path}" fill="none" stroke="${color}" stroke-width="2"/>`;
     item.values.forEach((rawValue, itemIndex) => {
       const value = Number(rawValue);
-      body += `<circle cx="${(plotLeft + itemIndex * xStep).toFixed(1)}" cy="${yScale(value).toFixed(1)}" r="3" fill="${color}"/>`;
+      const cx = plotLeft + itemIndex * xStep;
+      const cy = yScale(value);
+      body += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="3" fill="${color}"/>`;
+      if (!Number.isFinite(value)) return;
+      // 꺾은선도 막대처럼 점마다 값을 적는다(값을 읽어야 푸는 미션이 있다).
+      // 계열이 여럿이면 같은 가로 자리에서 가장 작은 값은 점 아래에, 나머지는 점 위에 적어 숫자끼리 겹치지 않게 한다.
+      const column = series.map((other) => Number(other.values[itemIndex])).filter(Number.isFinite);
+      const below = column.length > 1 && value === Math.min(...column) && value !== Math.max(...column) && cy + 14 <= plotBottom + 12;
+      const labelY = below ? cy + 14 : Math.max(10, cy - 8);
+      body += `<text x="${cx.toFixed(1)}" y="${labelY.toFixed(1)}" class="chart-val" fill="var(--sub)" font-size="10" text-anchor="middle">${formatValue(value)}</text>`;
     });
   });
 

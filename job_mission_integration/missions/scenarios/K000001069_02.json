@@ -1,0 +1,546 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001069_normal_001",
+  "job_identity": {
+    "job_cd": "K000001069",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "경영지원 사무원",
+    "job_smcl_nm": "광고·홍보·마케팅사무원",
+    "source_ref": {
+      "file": "K000001069/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_006",
+    "text": "유료 광고지면 등을 사용하기도 하며 신문이나 잡지에 기사를 제공하기도 한다.",
+    "source_ref": {
+      "file": "K000001069/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 6
+    },
+    "selection_reason": "Pilot config selected exec_006."
+  },
+  "mission_facts": {
+    "org_name": "하루온리빙",
+    "domain": "생활용품 신제품 출시 지면 광고",
+    "period": [
+      "11월 17일",
+      "11월 18일",
+      "11월 19일",
+      "11월 20일(신제품 출시일)",
+      "12월 1일"
+    ],
+    "trend_pattern": "유료 광고지면 후보 4곳은 주요 독자층, 첫 게재 가능일, 1회 게재 단가가 서로 다르다.",
+    "main_issue": "광고 목표, 광고 예산, 광고 일정 조건을 모두 만족하는 지면을 골라야 한다.",
+    "feedback_themes": [
+      "주요 독자층",
+      "첫 게재 가능일",
+      "2회 게재 비용"
+    ],
+    "decision_goal": "신제품 출시 광고를 실을 유료 광고지면 한 곳을 고른다."
+  },
+  "mission": {
+    "title": "신제품 광고, 어느 지면에 실을까?",
+    "task_type": "operation_and_scheduling",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 생활용품 회사 하루온리빙 홍보팀의 인턴입니다.",
+      "context": "하루온리빙은 11월 20일에 사무실용 보온 텀블러 신제품을 출시합니다. 홍보팀은 출시 소식을 알리려고 신문이나 잡지의 유료 광고지면을 사서 광고를 실을 계획입니다. 과장님이 광고 전략 기획서에서 이번 구매에 필요한 조건만 뽑아 메모로 주셨고, 매체 담당자들에게 받은 후보 지면 4곳의 정보는 표로 정리되어 있습니다. 과장님이 \"이 조건대로 지면 한 곳만 골라서 왜 그곳인지 알려 줘요\"라고 부탁하셨습니다.",
+      "goal": "과장님 메모의 조건에 맞는 유료 광고지면 한 곳을 골라, 고른 이유를 과장님께 짧게 보고해 보세요.",
+      "constraints": [
+        "메모와 표에 나온 정보만 사용하세요.",
+        "지면은 한 곳만 고르세요.",
+        "답은 2~3문장으로 적어보세요."
+      ],
+      "glossary": [
+        {
+          "term": "유료 광고지면",
+          "definition": "신문이나 잡지에서 돈을 내고 광고를 싣는 자리입니다."
+        },
+        {
+          "term": "광고 매체",
+          "definition": "광고를 실어 사람들에게 전하는 수단입니다. 이 미션에서는 신문과 잡지를 말합니다."
+        },
+        {
+          "term": "게재",
+          "definition": "신문이나 잡지에 글이나 광고를 싣는 일입니다."
+        },
+        {
+          "term": "1회 게재 단가",
+          "definition": "광고를 한 번 싣는 데 드는 값입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "manager_memo",
+        "title": "홍보팀 과장 메모: 신제품 지면 광고 조건",
+        "description": "홍보팀 과장이 광고 전략 기획서에서 이번 유료 광고지면 구매에 필요한 광고 목표, 광고 예산, 광고 일정을 옮겨 적은 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "표의 후보 지면에 적용할 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "목표, 전략 수립",
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "홍보팀 과장",
+          "items": [
+            "광고 목표: 신제품 출시 소식을 30~40대 직장인에게 알립니다. 주요 독자층이 30~40대 직장인인 지면에 싣습니다.",
+            "광고 예산: 이번 유료 광고지면 예산은 총 600만원입니다. 고른 지면 한 곳에 같은 광고를 2회 게재하며, 2회분 게재비를 모두 이 예산에서 냅니다.",
+            "광고 일정: 첫 게재가 신제품 출시일인 11월 20일 이전에 실려야 합니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "option_comparison",
+        "title": "유료 광고지면 후보 4곳 비교표 (단가 단위: 만원)",
+        "description": "매체 담당자들에게 받은 정보를 바탕으로 후보 광고 매체 4곳의 주요 독자층, 첫 게재 가능일, 1회 게재 단가를 정리한 표입니다. 단가 단위는 만원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 조건을 후보 지면 4곳의 독자층, 첫 게재 가능일, 단가에 맞춰 보는 데 씁니다.",
+        "evidence_source": [
+          "의사소통과 미디어",
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "광고 매체"
+            },
+            {
+              "key": "strength",
+              "label": "주요 독자층"
+            },
+            {
+              "key": "weakness",
+              "label": "첫 게재 가능일"
+            },
+            {
+              "key": "priority",
+              "label": "1회 게재 단가(만원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "가 경제신문(일간)",
+              "strength": "30~40대 직장인",
+              "weakness": "11월 18일",
+              "priority": 350
+            },
+            {
+              "option": "나 직장인 월간지",
+              "strength": "30~40대 직장인",
+              "weakness": "12월 1일",
+              "priority": 200
+            },
+            {
+              "option": "다 지역 생활신문(주간)",
+              "strength": "50~60대 지역 주민",
+              "weakness": "11월 17일",
+              "priority": 150
+            },
+            {
+              "option": "라 비즈니스 주간지",
+              "strength": "30~40대 직장인",
+              "weakness": "11월 19일",
+              "priority": 280
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "과장님 메모의 조건을 표의 유료 광고지면 후보 4곳에 적용해, 이번에 구매할 지면 한 곳을 고르세요. 고른 지면과 다른 후보를 고르지 않은 이유를 함께 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 광고 목표, 광고 예산, 광고 일정 조건을 표의 후보마다 맞춰 보고, 모든 조건에 맞는 지면 한 곳과 나머지 후보를 제외한 이유를 2~3문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "고른 지면과 그 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "광고 목표(30~40대 직장인 독자), 광고 예산(2회 게재 총액 600만원 이내), 광고 일정(11월 20일 이전 첫 게재)을 모두 만족하는 곳은 라 비즈니스 주간지 하나다. 2회 게재하면 560만원이고 첫 게재가 11월 19일이다.",
+      "가 경제신문은 독자층과 일정은 맞지만 1회 350만원을 2회 게재하면 700만원이라 예산 600만원을 넘는다. 나 직장인 월간지는 독자층과 예산(2회 400만원)은 맞지만 첫 게재가 12월 1일로 출시일보다 늦고, 다 지역 생활신문은 가장 싸고 일정도 맞지만 주요 독자층이 50~60대 지역 주민이라 광고 목표와 맞지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "세 조건을 모두 만족하는 지면 선정",
+        "description": "광고 목표, 광고 예산, 광고 일정을 모두 만족하는 라 비즈니스 주간지를 골랐는지, 독자층이 광고 목표와 다른 다 지역 생활신문처럼 일부 조건만 맞는 후보를 고르지 않았는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "영업과 마케팅",
+          "목표, 전략 수립"
+        ]
+      },
+      {
+        "criterion": "2회 게재 총액으로 예산 비교",
+        "description": "1회 게재 단가를 2회 게재 총액으로 계산해 예산 600만원과 비교했는지 본다. 가 경제신문은 2회 700만원이라 예산을 넘고, 라 비즈니스 주간지는 2회 560만원이라 예산 안에 든다는 점이 드러나야 한다.",
+        "points": 30,
+        "linked_evidence": [
+          "의사소통과 미디어",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "criterion": "첫 게재 가능일과 출시일 대조",
+        "description": "후보별 첫 게재 가능일을 출시일 11월 20일과 대조해, 첫 게재가 12월 1일인 나 직장인 월간지를 일정 조건으로 제외한 이유를 제시했는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "의사소통과 미디어"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_006",
+      "text": "유료 광고지면 등을 사용하기도 하며 신문이나 잡지에 기사를 제공하기도 한다.",
+      "source_ref": {
+        "file": "K000001069/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 6
+      },
+      "selection_reason": "Pilot config selected exec_006."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 90,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 85,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 81,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 81,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 81,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 95,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "협상",
+          "score": 91,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "전산",
+          "score": 90,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영업과 마케팅",
+          "score": 87,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사소통과 미디어",
+          "score": 84,
+          "description": "말, 글, 그림 등을 이메일이나 방송매체를 통해 전달하는 것에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "국어",
+          "score": 83,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "이메일 이용하기",
+          "score": 91,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 89,
+          "description": "재택근무 가능성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 88,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "목표, 전략 수립",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "의사소통과 미디어",
+          "영업과 마케팅"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.15,
+    "AX2": 0.15,
+    "AX3": 0.4,
+    "AX4": 0.15,
+    "AX5": 0.15
+  }
+}

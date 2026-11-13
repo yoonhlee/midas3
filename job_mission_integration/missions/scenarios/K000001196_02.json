@@ -8,7 +8,8 @@
     "job_smcl_nm": "인사·교육·훈련사무원",
     "source_ref": {
       "file": "K000001196/dtlGb_2.xml",
-      "field": "jobsDo"
+      "field": "jobsDo",
+      "index": null
     }
   },
   "target_exec_job": {
@@ -19,25 +20,26 @@
       "field": "jobsDo.execJob",
       "index": 6
     },
-    "selection_reason": "조사 시트(인사∙교육∙훈련사무원 HR)의 의사결정 사례(온보딩·복리후생)와 맞닿은 수행직무라 사람이 직접 골라 작성함."
+    "selection_reason": "Pilot config selected exec_006."
   },
   "mission_facts": {
-    "org_name": "한결솔루션(가상)",
-    "domain": "신규 입사자 조기 퇴사 관리",
+    "org_name": "새솔산업",
+    "domain": "제조 회사 인사팀의 복리후생 개선안 기획",
     "period": [
-      "최근 4개 분기",
-      "입사 후 3개월"
+      "2026년 10월"
     ],
-    "trend_pattern": "버디를 배정하지 않은 팀의 3개월 내 퇴사율이 4개 분기 내내 더 높고, 최근 분기에 차이가 커짐",
-    "main_issue": "입사 3개월 안에 그만두는 신규 입사자가 늘어 채용 비용이 반복해서 듦",
+    "trend_pattern": "니즈조사의 개선 요구 응답 수는 통근버스 52명, 건강검진 44명, 동호회 지원 37명, 통신비 19명 순이다.",
+    "main_issue": "내년 복리후생 개선안에 맨 먼저 올릴 항목을 응답 수와 우선순위 기준을 함께 따져 정해야 한다.",
     "feedback_themes": [
-      "첫 달에 물어볼 사람이 없다",
-      "교육은 많은데 실제 업무와 따로 논다"
+      "통근버스 노선 확대 요구",
+      "건강검진 지원 확대 요구",
+      "동호회 활동 지원 요구",
+      "통신비 지원 요구"
     ],
-    "decision_goal": "다음 분기에 먼저 도입할 온보딩 개선안 1개를 고른다"
+    "decision_goal": "회사 단독 복리후생 개선안에 올릴 1순위 항목 1개를 정한다."
   },
   "mission": {
-    "title": "조기 퇴사율 차트로 온보딩 개선안 고르기",
+    "title": "복리후생 개선안에 올릴 1순위 항목 고르기",
     "task_type": "research_and_analysis",
     "secondary_task_types": [
       "planning_and_proposal"
@@ -61,78 +63,57 @@
       "requires_domain_expertise": false
     },
     "scenario": {
-      "role": "당신은 한결솔루션 인사팀 신입 사원입니다.",
-      "context": "인사팀장이 메신저로 요청했어요. “다음 분기 예산 회의 전에 온보딩 개선안을 하나만 올리려고 해. 조기 퇴사율 차트랑 후보 표 보고, 뭘 먼저 할지 이유랑 같이 정리해줘.”",
-      "goal": "차트와 후보 표를 함께 보고, 다음 분기에 먼저 도입할 개선안 1개와 그 이유를 2~3문장으로 적어 주세요.",
+      "role": "당신은 새솔산업 인사팀 인턴입니다.",
+      "context": "새솔산업 인사팀은 내년 복리후생 개선안을 준비하고 있습니다. 지난 10월에 직원 니즈조사와 타사 3곳 비교 조사를 마쳤고, 그 결과가 표 하나로 정리되어 있습니다. 인사팀장님이 \"개선안에 맨 먼저 올릴 항목을 하나 골라 줘요. 기준은 메모로 보낼게요.\"라고 요청하셨습니다.",
+      "goal": "팀장님 메모의 기준에 맞춰 이번 회사 단독 개선안에 올릴 1순위 복리후생 항목을 고르고, 그 이유를 팀장님께 짧게 설명해 보세요.",
       "constraints": [
-        "반드시 차트와 표에 있는 내용만 근거로 쓰세요.",
-        "개선안은 1개만 고르세요.",
-        "차트의 수치를 1개 이상 이유에 넣으세요."
+        "메모와 표에 있는 내용만 근거로 쓰세요.",
+        "후보는 표에 있는 복리후생 항목 4개 중에서만 고르세요.",
+        "답은 2~3문장으로 적으세요."
       ],
       "glossary": [
         {
-          "term": "조기 퇴사율",
-          "definition": "입사 후 3개월 안에 퇴사한 사람의 비율"
+          "term": "복리후생",
+          "definition": "회사가 월급 말고도 직원의 생활과 건강을 돕기 위해 주는 지원이에요. 통근버스, 건강검진, 동호회 지원 같은 것이 여기에 들어가요."
         },
         {
-          "term": "버디",
-          "definition": "신규 입사자의 적응을 돕도록 짝지어 주는 선배 동료"
+          "term": "니즈조사",
+          "definition": "직원들이 무엇을 원하고 무엇이 불편한지 설문 등으로 물어보는 조사예요."
+        },
+        {
+          "term": "단체협상 합의서",
+          "definition": "회사와 노동조합이 협상해서 함께 정한 약속을 적은 문서예요."
+        },
+        {
+          "term": "노사 협의",
+          "definition": "회사와 노동조합이 만나 의논해서 함께 정하는 절차예요."
         }
       ]
     },
     "materials": [
       {
-        "material_id": "mat_chart_early_leave_001",
-        "type": "chart",
-        "subtype": "early_leave_rate_by_buddy",
-        "title": "버디 배정 여부별 입사 3개월 내 퇴사율(가상)",
-        "description": "최근 4개 분기 동안 버디를 배정한 팀과 배정하지 않은 팀의 3개월 내 퇴사율을 비교한 막대 차트입니다.",
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "guideline_excerpt",
+        "title": "인사팀장 메모: 복리후생 규정 적용지침 중 개선안 우선순위 기준",
+        "description": "인사팀장이 복리후생 규정 적용지침에서 개선안 우선순위 기준 부분을 발췌해 보낸 메모입니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "어떤 조건에서 조기 퇴사가 많은지 확인하기",
+        "used_for": "표의 후보 항목에 적용할 우선순위 기준을 확인하는 데 씁니다.",
         "evidence_source": [
-          "인사 업무",
           "기준에 따른 정보 평가",
-          "사람들의 능력 개발, 지도"
+          "인사"
         ],
         "mission_fact_refs": [
-          "period",
-          "trend_pattern",
-          "main_issue"
+          "org_name",
+          "domain",
+          "decision_goal"
         ],
         "data": {
-          "chart_type": "bar",
-          "x_axis": {
-            "label": "분기",
-            "values": [
-              "1분기",
-              "2분기",
-              "3분기",
-              "4분기"
-            ]
-          },
-          "y_axis": {
-            "label": "3개월 내 퇴사율",
-            "unit": "%"
-          },
-          "series": [
-            {
-              "name": "버디 배정 팀",
-              "values": [
-                8,
-                7,
-                9,
-                8
-              ]
-            },
-            {
-              "name": "버디 미배정 팀",
-              "values": [
-                14,
-                15,
-                18,
-                22
-              ]
-            }
+          "author": "인사팀장",
+          "items": [
+            "① 니즈조사에서 개선 요구 응답 수가 많은 복리후생 항목부터 우선순위를 둔다.",
+            "② 타사 비교에서 당사 수준이 타사보다 낮은 항목만 개선 후보로 삼는다.",
+            "③ 당사에는 노동조합이 있으므로 단체협상 합의서에 정한 항목은 회사 규정보다 합의서가 우선한다. 이런 항목은 회사 단독 개선안에서 빼고 노사 협의 안건으로 넘긴다."
           ]
         },
         "confidence": {
@@ -144,59 +125,66 @@
         }
       },
       {
-        "material_id": "mat_table_onboarding_options_001",
+        "material_id": "mat_002",
         "type": "table",
-        "subtype": "onboarding_improvement_options",
-        "title": "다음 분기 온보딩 개선안 후보(가상)",
-        "description": "인사팀이 정리한 개선안 후보 3개와 각각의 기대 효과, 주의할 점, 예상 비용입니다.",
+        "subtype": "comparison_table",
+        "title": "복리후생 항목별 조사 결과 (2026년 10월)",
+        "description": "후보 복리후생 항목 4개의 타사 3곳 비교 결과, 단체협상 합의서 반영 여부, 니즈조사 개선 요구 응답 수(단위: 명)를 정리한 표입니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "차트에서 본 문제에 맞는 개선안 고르기",
+        "used_for": "메모의 기준을 적용할 후보 항목과 조사 수치를 확인하는 데 씁니다.",
         "evidence_source": [
-          "사람들을 훈련, 교육",
-          "목표, 전략 수립",
-          "사람들의 업무와 활동을 조직, 편성"
+          "인사",
+          "인적자원 관리"
         ],
         "mission_fact_refs": [
-          "feedback_themes",
-          "decision_goal"
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
         ],
         "data": {
           "columns": [
             {
               "key": "option",
-              "label": "개선안"
+              "label": "복리후생 항목"
             },
             {
-              "key": "effect",
-              "label": "기대 효과"
+              "key": "strength",
+              "label": "타사 비교 (비교 대상 3개사)"
             },
             {
-              "key": "caution",
-              "label": "주의할 점"
+              "key": "weakness",
+              "label": "단체협상 합의서 반영 (포함/미포함)"
             },
             {
-              "key": "cost",
-              "label": "예상 비용(분기)"
+              "key": "priority",
+              "label": "개선 요구 응답 수 (명)"
             }
           ],
           "rows": [
             {
-              "option": "A: 모든 팀에 입사 첫날 버디 배정",
-              "effect": "첫 달에 물어볼 사람이 생김",
-              "caution": "버디 역할을 맡을 선배의 업무 시간을 조정해야 함",
-              "cost": "120만원"
+              "option": "통근버스",
+              "strength": "타사 3곳보다 운행 노선이 적음",
+              "weakness": "포함",
+              "priority": 52
             },
             {
-              "option": "B: 입사 첫 주 집합 교육 2일 추가",
-              "effect": "회사 제도와 시스템을 한 번에 익힘",
-              "caution": "실제 팀 업무와 따로 논다는 의견이 이미 있음",
-              "cost": "300만원"
+              "option": "건강검진",
+              "strength": "타사 3곳과 같은 수준",
+              "weakness": "미포함",
+              "priority": 44
             },
             {
-              "option": "C: 입사 1·2·3개월 차 인사팀 면담",
-              "effect": "퇴사 신호를 일찍 알아챔",
-              "caution": "면담만으로는 팀 안에서 도움 받을 사람이 생기지 않음",
-              "cost": "40만원"
+              "option": "동호회 지원",
+              "strength": "타사 3곳 모두 지원, 당사 미지원",
+              "weakness": "미포함",
+              "priority": 37
+            },
+            {
+              "option": "통신비",
+              "strength": "타사 2곳 지원, 당사 미지원",
+              "weakness": "미포함",
+              "priority": 19
             }
           ]
         },
@@ -211,57 +199,57 @@
     ],
     "tasks": [
       {
-        "task_id": "task_001_choose_onboarding_option",
-        "instruction": "차트와 표를 함께 보고, 다음 분기에 먼저 도입할 개선안 1개를 고르세요. 차트의 수치 1개 이상과 표의 기대 효과·주의할 점을 연결해 이유를 2~3문장으로 적어 주세요.",
+        "task_id": "task_001",
+        "instruction": "팀장님 메모의 개선안 우선순위 기준을 표에 있는 복리후생 항목 후보 모두에 적용해 보고, 이번 회사 단독 개선안에 올릴 1순위 항목 하나를 고르세요. 고른 항목과 함께 다른 후보를 고르지 않은 이유를 2~3문장으로 적어보세요.",
         "required_materials": [
-          "mat_chart_early_leave_001",
-          "mat_table_onboarding_options_001"
+          "mat_001",
+          "mat_002"
         ],
-        "expected_action": "개선안 1개 선택 + 차트 수치와 표 내용을 연결한 이유"
+        "expected_action": "메모의 세 기준을 표의 응답 수, 타사 비교, 단체협상 합의서 반영 여부에 함께 적용해 1순위 항목과 다른 후보를 고르지 않은 이유를 2~3문장으로 쓴다."
       }
     ],
     "submission_format": {
-      "type": "text",
+      "type": "short_text",
       "estimated_time_minutes": 15,
       "required_sections": [
-        "고른 개선안",
-        "이유(차트 수치 + 표 근거)"
+        "1순위 항목과 고른 이유",
+        "다른 후보를 고르지 않은 이유"
       ],
-      "length_hint": "2-3 short sentences"
+      "length_hint": "2~3문장"
     }
   },
   "evaluation": {
     "expected_insights": [
-      "버디 미배정 팀의 퇴사율이 4개 분기 모두 높고 4분기에 22%로 벌어진 점을 근거로 든다.",
-      "차트의 문제(도움 받을 사람 부재)에 바로 맞는 A안을 고르거나, 다른 안을 고르면 그 한계를 함께 설명한다.",
-      "버디를 맡을 선배의 업무 시간 조정처럼 실행할 때 주의할 점을 짚는다."
+      "메모의 세 기준을 모두 적용하면 이번 회사 단독 개선안의 1순위는 동호회 지원(37명)이다. 기준을 통과한 남은 후보인 통신비(19명)보다 응답 수가 많기 때문이다.",
+      "통근버스는 응답 수가 52명으로 가장 많고 타사보다 노선이 적지만, 단체협상 합의서에 포함된 항목이라 회사 단독 개선안에서 빠지고 노사 협의 안건으로 넘어간다.",
+      "건강검진은 응답 수가 44명으로 두 번째로 많지만 타사 3곳과 같은 수준이라 개선 후보가 아니다."
     ],
     "rubric": [
       {
-        "criterion": "차트 수치로 문제 진단",
-        "description": "버디 배정 여부에 따른 퇴사율 차이를 수치로 짚는다(예: 8% 대 22%).",
-        "points": 35,
+        "criterion": "기준을 모두 적용한 1순위 선택",
+        "description": "니즈조사 응답 수와 메모의 세 기준을 함께 적용해 동호회 지원을 1순위로 골랐는지 본다. 응답 수만 보고 통근버스나 건강검진을 고르면 점수를 주지 않는다.",
+        "points": 40,
         "linked_evidence": [
-          "정보, 자료 분석",
-          "기준에 따른 정보 평가"
+          "기준에 따른 정보 평가",
+          "인사"
         ]
       },
       {
-        "criterion": "문제에 맞는 개선안 선택",
-        "description": "진단한 원인에 맞는 개선안 1개를 고르고 표의 기대 효과와 연결한다.",
-        "points": 35,
-        "linked_evidence": [
-          "의사 결정, 문제점 해결",
-          "인사 업무"
-        ]
-      },
-      {
-        "criterion": "실행 시 사람 문제 고려",
-        "description": "버디를 맡는 선배의 부담, 팀 업무 조정 같은 사람 쪽 고려를 함께 적는다.",
+        "criterion": "통근버스 제외 근거",
+        "description": "통근버스가 단체협상 합의서에 포함된 항목이라 회사 단독 개선안에서 빠진다는 근거를 밝혔는지 본다.",
         "points": 30,
         "linked_evidence": [
-          "사람들의 업무와 활동을 조직, 편성",
-          "사람들을 배려, 돌봄"
+          "기준에 따른 정보 평가",
+          "인적자원 관리"
+        ]
+      },
+      {
+        "criterion": "건강검진 제외 근거",
+        "description": "건강검진이 타사 3곳과 같은 수준이라 개선 후보가 아니라는 근거를 밝혔는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "인적자원 관리"
         ]
       }
     ]
@@ -300,8 +288,7 @@
         "max": 10,
         "earned": 10
       }
-    },
-    "authored_by": "human"
+    }
   },
   "evidence_chain": {
     "created_by": "validator.v1",
@@ -313,7 +300,7 @@
         "field": "jobsDo.execJob",
         "index": 6
       },
-      "selection_reason": "General keyword score 12."
+      "selection_reason": "Pilot config selected exec_006."
     },
     "linked_evidence": {
       "activities": [
@@ -481,49 +468,41 @@
     },
     "material_evidence_map": [
       {
-        "material_id": "mat_chart_early_leave_001",
+        "material_id": "mat_001",
         "supported_by": [
-          "인사 업무",
           "기준에 따른 정보 평가",
-          "사람들의 능력 개발, 지도"
+          "인사"
         ]
       },
       {
-        "material_id": "mat_table_onboarding_options_001",
+        "material_id": "mat_002",
         "supported_by": [
-          "사람들을 훈련, 교육",
-          "목표, 전략 수립",
-          "사람들의 업무와 활동을 조직, 편성"
+          "인사",
+          "인적자원 관리"
         ]
       }
     ],
     "items": [
       {
         "target_type": "material",
-        "target_id": "mat_chart_early_leave_001",
+        "target_id": "mat_001",
         "mission_fact_refs": [
-          "period",
-          "trend_pattern",
-          "main_issue"
+          "org_name",
+          "domain",
+          "decision_goal"
         ],
         "source_refs": [
           {
             "file": "K000001196/dtlGb_7.xml",
             "field": "jobActv.jobActvImprtnc",
-            "index": 1,
-            "source_root": "/home/user/midas3/job_mission_integration/data/api_raw"
-          },
-          {
-            "file": "K000001196/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
             "index": 8,
-            "source_root": "/home/user/midas3/job_mission_integration/data/api_raw"
+            "source_root": "data/api_raw"
           },
           {
-            "file": "K000001196/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 9,
-            "source_root": "/home/user/midas3/job_mission_integration/data/api_raw"
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
           }
         ],
         "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
@@ -531,29 +510,25 @@
       },
       {
         "target_type": "material",
-        "target_id": "mat_table_onboarding_options_001",
+        "target_id": "mat_002",
         "mission_fact_refs": [
-          "feedback_themes",
-          "decision_goal"
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
         ],
         "source_refs": [
           {
-            "file": "K000001196/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 2,
-            "source_root": "/home/user/midas3/job_mission_integration/data/api_raw"
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
           },
           {
-            "file": "K000001196/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 7,
-            "source_root": "/home/user/midas3/job_mission_integration/data/api_raw"
-          },
-          {
-            "file": "K000001196/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 6,
-            "source_root": "/home/user/midas3/job_mission_integration/data/api_raw"
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
           }
         ],
         "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
@@ -562,10 +537,10 @@
     ]
   },
   "axis_signals_derived": {
-    "AX1": 0.35,
-    "AX2": 0.0,
-    "AX3": 0.175,
-    "AX4": 0.325,
-    "AX5": 0.15
+    "AX1": 0.6,
+    "AX2": 0.1,
+    "AX3": 0.1,
+    "AX4": 0.1,
+    "AX5": 0.1
   }
 }

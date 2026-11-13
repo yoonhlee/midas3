@@ -636,16 +636,52 @@
 - typecheck 통과, check:frontend 26/26, test:unit 60/60, test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 8/8(회귀 테스트 2개 추가)
 - DSD 6장의 적합도 식(코사인 유사도 → γ=1.5)은 이번 변경으로 달라짐. 문서를 다시 낼 일이 있으면 반영 필요
 
+### 2026-11-14 — 미션 카탈로그 교체(직업 50개 · 미션 150개)와 새 미션에 필요한 수정
+왜:
+- KNOW 직업의 수행직무 문장과 NCS 능력단위에 연결해 만든 미션 가운데 검수를 거쳐 고른 직업 50개(직업마다 쉬움·보통·어려움 하나씩, 150개)를 서비스에 넣음. 예전 미션 18개(직업 6개)는 뺌.
+- 새 미션을 화면에서 돌려 보며 찾은 문제 가운데 미션이 돌아가는 데 필요한 세 가지를 함께 고침.
+
+바뀐 것:
+- 카탈로그: `missions/scenarios/` 150개, `missions/index.json`(직업 50개, 직업코드 순, 직업마다 쉬움 → 보통 → 어려움). 키는 `jobsim_service_v1__mission_<직업코드>_<난이도>_001`. 예전 직업 6개 가운데 광고·홍보·마케팅전문가, 데이터분석가, 보험상품개발자, 인사·교육·훈련사무원은 새 미션으로 바뀌고, 상품기획자·투자분석가는 카탈로그에서 빠짐. `missions/manual/`의 초안은 그대로 둠.
+- 넣은 방법: `scripts/export_missions.py --outputs <미션 폴더>`를 미션마다 한 번씩 실행함. 한 번에 여러 미션을 넘기면 `index.json`의 `jobs[].mission_keys`에 같은 키가 겹쳐 들어가고 직업 안의 순서가 쉬움·어려움·보통이 됨. `--rebuild-index`는 키를 바꾸므로 쓰지 않음.
+- 기준 답안: `data/eval/reference_answers.json` 25개를 새 쉬움 미션 5개(광고·홍보·마케팅전문가, 데이터분석가, 보험상품개발자, 인사·교육·훈련사무원, 정보보안전문가)에 맞춰 다시 씀. `human_scores`는 비어 있음.
+- 기록 자료 스타일: `app/index.html`의 `.mat-log` → `pre.mat-log`. 기록 자료의 바깥 상자에도 같은 클래스가 붙어 자료 전체가 고정폭 글꼴로 나오던 것을 막음.
+- 꺾은선 차트: 점마다 값을 숫자로 적음(`missionScreens.js`). 꺾은선 차트를 쓰는 미션 4개는 값을 읽어야 풀리는데 세로축의 가장 큰 값만 보였음. 계열이 둘 이상이면 같은 자리의 가장 작은 값은 점 아래에 적어 숫자가 겹치지 않게 함.
+- 적합도: `job_weights.json`에서 `is_simulation_target`이 거짓인 직업도 체험한 직업 자신의 적합도는 계산함(`engine.ts`의 `buildJobWeightCatalog`가 5축 비중이 있는 직업을 모두 담고 `simulationTarget`으로 표시). 카탈로그 50개 가운데 8개(정보보안전문가, 정보시스템운영자, 정보통신컨설턴트 및 감리원, 네트워크관리자, 3D프린팅모델러, 건축구조기술자, 조사전문가, 사서)가 여기에 들고, 고치기 전에는 결과 화면에 "0점 · 분석 기준 데이터 없음"으로 나왔음. 비슷한 직업 추천의 후보는 지금처럼 `is_simulation_target`이 참인 직업뿐이라 이 8개 직업에는 추천 직업이 나오지 않음.
+- 저장된 결과 다시 보기: 결과의 직무가 지금 카탈로그에 없어도(미션이 빠진 직무) 이름과 기본 아이콘으로 결과 화면을 그림(`resultExtras.js`의 `jobDefsForResult`, `main.js`). 고치기 전에는 "미션을 불러오는 중…"에서 멈췄음.
+
+수정 파일:
+- `missions/index.json`, `missions/scenarios/*.json`(새 미션 150개, 예전 18개는 교체·삭제), `data/eval/reference_answers.json`
+- `app/index.html`, `app/main.js`, `app/components/{missionScreens,resultExtras}.js`
+- `src/lib/recommendation/engine.ts`
+- `tests/unit/{server,features}.test.ts`, `tests/e2e-features/features.spec.ts`
+
+검증:
+- typecheck 통과, check:frontend 26/26, test:unit 65/65(새 테스트 5개), test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9(회귀 테스트 1개 추가), `build_manual_missions.py K000001196 --check` 통과
+- 카탈로그 검증(`MissionStore.validateAndRefresh`) 통과: 직업 50개, 미션 150개
+- 가짜 채점으로 표본 미션(일곱 자료 형태, 과제가 2개인 어려움 미션 포함)을 화면에서 결과까지 확인. 실제 채점으로는 아직 확인하지 않음
+
 ---
 
 ## Open Items (Next)
+
+000. 미션 카탈로그 교체 후속(2026-11-14)
+- 실제 채점으로 새 미션 확인(특히 과제가 2개인 어려움 미션에서 두 과제를 모두 보는지). 가짜 채점으로만 돌려 봤음
+- `/api/bootstrap` 응답이 268KB → 2.44MB로 커졌고 응답 압축이 없음. 배포 환경에서 첫 화면 시간을 재 볼 것
+- 직무 선택 화면: 카드 50장이 3열 17줄로 나옴. 카드 설명은 모두 "미션 기반 탐색", 아이콘은 48장이 💼, "직무당 약 15분 소요"는 고정 문구(미션은 10·15·20분). 검색이나 분야 묶음이 없음
+- 추천 계산 대상이 아닌 직업 8개는 결과 화면에 비슷한 직업 추천이 나오지 않음
+- 업무 요청서의 "받는 사람" 칸에 문장이 들어가는 미션이 78개, "요청자"는 항상 "○○ 팀장"으로 나옴(배경에 팀장이 나오지 않는 미션 62개)
+- 메모 자료의 작성자(`author`)가 화면에 나오지 않음
+- 내 기록의 쓰던 답안에서 없어진 미션은 제목 대신 미션 키가 나옴
+- E2E의 답 문장(`features.spec.ts`의 `ANSWER` 등)은 예전 미션 내용 그대로임(가짜 채점이라 통과에는 영향 없음)
+- 따로 쓴 소개 문구가 없는 직업이 48개(`missionBootstrap.ts`의 `JOB_SUMMARY_BY_CODE`), 대표 그림이 없는 직업이 46개(`jobImages.js`의 `JOB_ART`)
 
 00. 기능 지도 후속(2026-10-30)
 - 카카오 로그인: 카카오 개발자 앱 생성·OIDC 활성화·Redirect URI 등록 후 `KAKAO_LOGIN_CLIENT_ID/SECRET`, `KAKAO_ADMIN_KEY`, `PUBLIC_BASE_URL`(HTTPS 도메인) 설정. 실제 카카오 계정으로 가입·탈퇴(연결 끊기) 확인 필요
 - `app/terms.html`, `app/privacy.html`의 `[배포 전에 …]` 자리(팀 대표 연락처 등)를 채우고 팀 검토
 - 고용24 상세 응답의 직무내용 필드명이 `jobCont`인지 실제 키로 확인(아니면 `parseDetailXml` 수정). 확인 전에는 요구역량이 공고 제목 위주로 계산됨
 - `data/eval/reference_answers.json`의 `human_scores`를 팀원이 채운 뒤 실제 AI 채점으로 `npm run eval:quality -- --runs=3 --fail`
-- 인사·교육·훈련사무원 미션 3개 사람 검토(`reliability.human_review_required=true`), 고용24 직종코드 탐색(현재 tbd)
+- 인사·교육·훈련사무원 미션 3개 사람 검토(`reliability.human_review_required=true`), 고용24 직종코드 탐색(현재 tbd). 2026-11-14: 카탈로그의 인사·교육·훈련사무원 미션은 새 미션으로 바뀜(사람이 쓴 초안은 `missions/manual/`에 있음)
 - 공유 링크(U03 2단계)는 공개 범위·개인정보 설계 뒤로 미룸(기능 지도 3주차 이후)
 
 0. 채용공고 지도 후속

@@ -1,0 +1,548 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007514_normal_001",
+  "job_identity": {
+    "job_cd": "K000007514",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "회계·세무·감정 전문가",
+    "job_smcl_nm": "감정평가사",
+    "source_ref": {
+      "file": "K000007514/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "부동산 및 동산 등의 평가물을 대상으로 내용, 성능, 구조 등 가치에 미치는 제반요인을 확인하고 이를 정리한다.",
+    "source_ref": {
+      "file": "K000007514/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "다솜감정평가사무소",
+    "domain": "부동산 감정평가(은행담보 목적 건물 1동의 개별요인 정리)",
+    "period": [
+      "현장조사를 마친 직후의 개별요인 정리 단계"
+    ],
+    "trend_pattern": "1층과 3층은 건축물대장 기재와 현장조사 내용이 같고, 2층은 구조는 같지만 이용 상태가 다르며, 옥상 조립식 사무실은 건축물대장에 기재가 없다.",
+    "main_issue": "건축물대장 기재와 현장조사 내용이 서로 다르거나 한쪽에만 있는 부분을 정리 기준에 따라 개별요인에 어떻게 반영할지 정해야 한다.",
+    "feedback_themes": [
+      "건축물대장과 현장 이용 상태가 다른 층",
+      "건축물대장에 기재되지 않은 옥상 공간",
+      "건축물대장과 현장조사 내용이 같은 층"
+    ],
+    "decision_goal": "건물 네 부분을 건축물대장 기재대로 정리, 현장조사 내용으로 반영, 개별요인에 반영하지 않고 따로 적기 중 하나로 구분한다."
+  },
+  "mission": {
+    "title": "건축물대장과 현장조사 결과로 건물의 개별요인 정리하기",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "다솜감정평가사무소 인턴",
+      "context": "당신은 다솜감정평가사무소의 인턴입니다. 한 은행이 대출 담보로 잡을 지상 3층 근린생활시설 건물 한 동의 감정평가를 의뢰했습니다. 담당 감정평가사가 현장조사를 마친 뒤 '내가 남긴 정리 기준대로 층별 개별요인을 어떻게 정리할지 먼저 구분해서 알려 주세요'라고 부탁했습니다.",
+      "goal": "건물의 네 부분(1층, 2층, 3층, 옥상)을 개별요인에 어떻게 정리할지 구분해 담당 감정평가사에게 짧게 보고합니다.",
+      "constraints": [
+        "메모와 대조표에 나온 내용만 근거로 삼으세요.",
+        "건물의 가격이나 금액은 계산하지 않습니다.",
+        "답은 2~3문장으로 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "개별요인",
+          "definition": "건물이나 땅 하나하나의 구체적인 가치에 영향을 주는, 그 물건만의 고유한 특성입니다. 이 미션에서는 구조, 용도, 면적을 말합니다."
+        },
+        {
+          "term": "공적장부",
+          "definition": "공공기관이 발행한 서류로, 평가하는 물건의 경계, 면적, 구조, 용도 등을 확인하는 데 쓰는 장부입니다."
+        },
+        {
+          "term": "물적동일성",
+          "definition": "서류에 적힌 물건과 현장에 실제로 있는 물건이 구조, 용도, 면적 등에서 같은 물건인지를 말합니다."
+        },
+        {
+          "term": "인·허가사항",
+          "definition": "건물을 짓거나 용도를 정할 때 관청에서 받은 허가나 신고 내용입니다."
+        },
+        {
+          "term": "건축물대장",
+          "definition": "건물의 구조, 용도, 면적 등을 적어 관청이 관리하는 공적장부입니다."
+        },
+        {
+          "term": "근린생활시설",
+          "definition": "동네 사람들의 생활에 필요한 가게, 사무소, 학원 등이 들어서는 건물 용도입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "work_instruction",
+        "title": "담당 감정평가사 작업 메모: 개별요인 정리 기준",
+        "description": "은행담보 목적으로 의뢰된 지상 3층 근린생활시설 건물 1동에 대해 담당 감정평가사가 인턴에게 남긴 개별요인 정리 기준입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "건물의 각 부분을 개별요인에 어떻게 정리할지 판단할 때 적용하는 기준으로 사용합니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "정보 작성, 기록"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "담당 감정평가사",
+          "items": [
+            "1. 공적장부인 건축물대장의 구조·용도와 현장조사 내용을 부분별로 비교해 물적동일성을 확인하고, 둘이 같으면 건축물대장 기재대로 개별요인에 정리합니다.",
+            "2. 건축물대장에 있는 부분인데 현장의 이용 상태가 다르면 현장조사 내용으로 개별요인에 반영하고, 건축물대장과 다르다는 점을 함께 적습니다.",
+            "3. 건축물대장에 기재되지 않은 부분은 인·허가사항이 확인되지 않으므로 개별요인에 반영하지 않고, '확인 필요' 사항으로 따로 적습니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "comparison_table",
+        "title": "건물 부분별 건축물대장 기재와 현장조사 내용 대조표",
+        "description": "건축물대장에 적힌 구조·용도와 현장조사에서 확인한 구조·이용 상태, 면적을 건물 부분별로 나란히 적은 표입니다. 면적 단위는 ㎡입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "건물 부분별로 건축물대장 기재와 현장조사 내용을 비교할 때 사용합니다.",
+        "evidence_source": [
+          "절차, 자료, 주변환경 관찰",
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "부분"
+            },
+            {
+              "key": "strength",
+              "label": "건축물대장 기재(구조·용도)"
+            },
+            {
+              "key": "weakness",
+              "label": "현장조사 내용(구조·이용 상태)"
+            },
+            {
+              "key": "priority",
+              "label": "현장조사 면적(㎡)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "1층",
+              "strength": "철근콘크리트구조, 소매점",
+              "weakness": "철근콘크리트구조, 소매점으로 영업 중",
+              "priority": 120
+            },
+            {
+              "option": "2층",
+              "strength": "철근콘크리트구조, 사무소",
+              "weakness": "철근콘크리트구조, 학원으로 이용 중",
+              "priority": 120
+            },
+            {
+              "option": "3층",
+              "strength": "철근콘크리트구조, 사무소",
+              "weakness": "철근콘크리트구조, 사무소로 이용 중",
+              "priority": 120
+            },
+            {
+              "option": "옥상",
+              "strength": "기재 없음",
+              "weakness": "조립식 패널 구조, 사무실로 이용 중",
+              "priority": 35
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "담당 감정평가사의 메모에 적힌 정리 기준을 대조표의 1층, 2층, 3층, 옥상에 적용해 보세요. 각 부분을 '건축물대장 기재대로 정리', '현장조사 내용으로 반영', '개별요인에 반영하지 않고 따로 적기' 중 어떻게 처리할지 메모의 어느 기준에 따른 것인지와 함께 2~3문장으로 정리해 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 기준을 대조표의 네 부분에 적용해 부분별 처리 방법과 그 근거 기준을 2~3문장으로 보고한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "부분별 처리 방법과 근거 기준"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "1층과 3층은 건축물대장과 현장조사 내용의 구조·용도가 같으므로 건축물대장 기재대로 개별요인에 정리한다.",
+      "2층은 건축물대장에 있는 부분이지만 이용 상태가 사무소가 아닌 학원이므로, 현장조사 내용(학원 이용)으로 개별요인에 반영하고 건축물대장과 다르다는 점을 함께 적는다.",
+      "옥상 조립식 사무실 35㎡는 현장에서 확인됐더라도 건축물대장에 기재가 없어 인·허가사항이 확인되지 않으므로, 개별요인에 반영하지 않고 '확인 필요' 사항으로 따로 적는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "2층을 현장조사 내용으로 반영",
+        "description": "2층은 건축물대장과 이용 상태가 다르지만 건축물대장에 있는 부분이므로 제외하지 않고 현장조사 내용(학원 이용)으로 개별요인에 반영하며, 건축물대장과 다르다는 점을 적는다고 판단했는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "criterion": "1층·3층을 건축물대장 기재대로 정리",
+        "description": "1층과 3층은 건축물대장 기재와 현장조사 내용이 같으므로 건축물대장 기재대로 정리한다고 했는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "criterion": "옥상을 개별요인에서 빼고 따로 기록",
+        "description": "옥상 조립식 사무실을 현장에서 확인됐다는 이유로 반영하지 않고, 건축물대장에 없어 인·허가사항이 확인되지 않으므로 개별요인에서 빼고 '확인 필요' 사항으로 따로 적는다고 했는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "정보 작성, 기록"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "부동산 및 동산 등의 평가물을 대상으로 내용, 성능, 구조 등 가치에 미치는 제반요인을 확인하고 이를 정리한다.",
+      "source_ref": {
+        "file": "K000007514/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 수집",
+          "score": 97,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 95,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 94,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "절차, 자료, 주변환경 관찰",
+          "score": 94,
+          "description": "문제점을 확인하고 평가하기 위하여 자료, 사건, 주변 환경에서 정보를 관찰하고 검토하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 94,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "공간지각력",
+          "score": 98,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "판단과 의사결정",
+          "score": 95,
+          "description": "이득과 손실을 평가해서 결정을 내린다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "시간 관리",
+          "score": 94,
+          "description": "자신의 시간과 다른 사람의 시간을 관리한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "법",
+          "score": 95,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "경제와 회계",
+          "score": 94,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "지리",
+          "score": 93,
+          "description": "육지, 바다 그리고 하늘의 특성 및 상호관계에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "움직이는 기계",
+          "score": 99,
+          "description": "움직이는 기계(자동차, 트랙터 등)에서 근무 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "치열한 경쟁",
+          "score": 98,
+          "description": "동료 혹은 다른 사람들과의 경쟁 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 95,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "정보 작성, 기록"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "절차, 자료, 주변환경 관찰",
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 8,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.7,
+    "AX2": 0.3,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

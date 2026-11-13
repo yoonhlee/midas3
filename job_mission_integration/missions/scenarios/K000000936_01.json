@@ -1,0 +1,474 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000936_easy_001",
+  "job_identity": {
+    "job_cd": "K000000936",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "컴퓨터하드웨어·통신공학 기술자",
+    "job_smcl_nm": "통신기술개발자",
+    "source_ref": {
+      "file": "K000000936/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "[통신망개발기획원] 전파자원의 효율적인 관리를 위해통신망 연동 및 통합계획을 수립하고 차세대 전송망 발전계획 등을 수립한다.",
+    "source_ref": {
+      "file": "K000000936/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "새봄망 통신연구소 전송망기획팀",
+    "domain": "차세대 전송망 발전계획의 1단계 구축 일정 수립",
+    "period": [
+      "착수 후 18주(1단계 구축 기한)"
+    ],
+    "trend_pattern": "설계, 시공, 시험 세 작업이 앞 작업이 끝난 뒤에 차례로 시작하는 일정",
+    "main_issue": "작업 항목별 일정 기간으로 산정한 1단계 전체 일정이 18주 기한 안에 들어오는지 확인해야 한다",
+    "feedback_themes": [
+      "작업 항목별 일정 기간",
+      "선행 작업 순서",
+      "18주 구축 기한"
+    ],
+    "decision_goal": "1단계 구축의 전체 일정을 산정하고 기한 안에 끝나는지 판단해 일정관리계획에 반영한다"
+  },
+  "mission": {
+    "title": "차세대 전송망 1단계 구축, 18주 안에 끝날까?",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 새봄망 통신연구소 전송망기획팀의 인턴입니다.",
+      "context": "연구소는 지역 사무소들을 잇는 차세대 전송망 발전계획을 세우고 있습니다. 그 첫걸음인 1단계 구축은 새 전송시스템을 설계하고, 장비와 선로를 설치하고, 시험하는 세 작업으로 나뉘며, 팀에서 작업 항목별 일정 기간을 표로 정리해 두었습니다. 팀장님이 이렇게 부탁했습니다. \"1단계는 착수하고 18주 안에 모두 끝나야 해요. 각 작업은 앞 작업이 끝나야 시작할 수 있고요. 표대로 진행하면 전체 일정이 몇 주가 되는지, 기한 안에 끝나는지 확인해서 일정관리계획에 넣을 수 있게 알려 줄래요?\"",
+      "goal": "표를 보고 1단계 구축의 전체 일정이 몇 주인지 구한 뒤, 18주 기한 안에 끝나는지 판단해 보세요.",
+      "constraints": [
+        "1단계 구축은 착수 후 18주 안에 모두 끝나야 합니다.",
+        "각 작업은 선행 작업이 끝난 뒤에 시작합니다.",
+        "표에 적힌 작업 항목과 일정 기간만 사용합니다."
+      ],
+      "glossary": [
+        {
+          "term": "전송망",
+          "definition": "음성, 데이터, 영상 신호를 멀리 떨어진 곳까지 실어 나르는 통신 선로와 장비의 연결망입니다."
+        },
+        {
+          "term": "전송시스템",
+          "definition": "전송망에서 신호를 보내고 받는 장비와 선로를 한데 묶어 부르는 말입니다."
+        },
+        {
+          "term": "일정관리계획",
+          "definition": "작업을 어떤 순서로 얼마 동안 할지 정리하고, 전체 일정이 기한 안에 들어오는지 관리하려고 세우는 계획입니다."
+        },
+        {
+          "term": "선행 작업",
+          "definition": "어떤 작업을 시작하기 전에 먼저 끝나 있어야 하는 작업입니다."
+        },
+        {
+          "term": "송·수신 시험",
+          "definition": "신호를 보내고 받는 일이 제대로 되는지 확인하는 시험입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "작업 항목별 일정표",
+        "title": "차세대 전송망 1단계 구축 작업 항목별 일정 기간 (단위: 주)",
+        "description": "새봄망 통신연구소 전송망기획팀이 정리한 1단계 구축 일정표입니다. 작업 항목마다 작업 내용, 선행 작업, 일정 기간(주)을 적었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "작업 항목별 일정 기간과 선행 작업을 읽고 1단계 구축의 전체 일정을 산정하는 데 씁니다.",
+        "evidence_source": [
+          "정보 처리",
+          "산수와 수학"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "작업 항목"
+            },
+            {
+              "key": "strength",
+              "label": "작업 내용"
+            },
+            {
+              "key": "weakness",
+              "label": "선행 작업"
+            },
+            {
+              "key": "priority",
+              "label": "일정 기간(주)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "설계",
+              "strength": "차세대 전송망 연동 구간 설계",
+              "weakness": "없음",
+              "priority": 6
+            },
+            {
+              "option": "시공",
+              "strength": "전송장비 설치 및 선로 공사",
+              "weakness": "설계",
+              "priority": 9
+            },
+            {
+              "option": "시험",
+              "strength": "구간별 송·수신 시험",
+              "weakness": "시공",
+              "priority": 4
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "표의 작업 항목별 일정 기간과 선행 작업을 보고 1단계 구축의 전체 일정이 몇 주인지 구한 다음, 18주 기한 안에 끝나는지 판단해 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "작업이 이어지는 순서를 읽고 작업 항목별 일정 기간으로 전체 일정을 산정한 뒤, 기한과 비교한 판단을 짧게 서술한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "전체 일정과 기한 판단"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "설계, 시공, 시험은 앞 작업이 끝나야 시작하므로 차례로 이어지고, 전체 일정은 6주+9주+4주=19주로 산정된다.",
+      "19주는 18주 기한보다 1주 길어서 표대로 진행하면 1단계 구축이 기한 안에 끝나지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "전체 일정 산정",
+        "description": "세 작업이 선행 작업 순서대로 이어진다는 점을 읽고 일정 기간 6·9·4주를 합해 전체 일정을 19주로 산정했는지 본다.",
+        "points": 45,
+        "linked_evidence": [
+          "산수와 수학",
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "기한 판단",
+        "description": "산정한 19주를 18주 기한과 비교해 1주를 넘으므로 기한 안에 끝나지 않는다고 판단했는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "목표, 전략 수립",
+          "산수와 수학"
+        ]
+      },
+      {
+        "criterion": "근거 있는 짧은 서술",
+        "description": "작업 항목별 일정 기간을 근거로 들어 산정 결과와 판단을 1-2문장으로 분명하게 적었는지 본다.",
+        "points": 15,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "[통신망개발기획원] 전파자원의 효율적인 관리를 위해통신망 연동 및 통합계획을 수립하고 차세대 전송망 발전계획 등을 수립한다.",
+      "source_ref": {
+        "file": "K000000936/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 87,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 84,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 82,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 76,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 97,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 95,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "품질관리분석",
+          "score": 92,
+          "description": "품질 또는 성과를 평가하기 위하여 제품, 서비스, 공정을 검사하거나 조사한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "통신",
+          "score": 97,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 96,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 93,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 97,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 89,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 88,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 처리",
+          "산수와 수학"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.8,
+    "AX2": 0.0,
+    "AX3": 0.2,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

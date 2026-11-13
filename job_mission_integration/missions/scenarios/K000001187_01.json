@@ -1,0 +1,465 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001187_easy_001",
+  "job_identity": {
+    "job_cd": "K000001187",
+    "job_lrcl_nm": "미용·여행·숙박·음식·경비·청소직",
+    "job_mdcl_nm": "여행 서비스원",
+    "job_smcl_nm": "여행사무원",
+    "source_ref": {
+      "file": "K000001187/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "행선지, 교통편, 여행일정, 경비, 숙박시설을 고객과 협의·결정한다.",
+    "source_ref": {
+      "file": "K000001187/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "누리별여행사",
+    "domain": "4박 5일 여행상품 요금 상담",
+    "period": [
+      "4박 5일 일정"
+    ],
+    "trend_pattern": "세 상품안은 행선지와 일정이 같고, 숙박시설 등급이 높을수록 1인 여행요금이 높으며 지상비 포함 항목은 안마다 다르다.",
+    "main_issue": "고객이 1인 경비 100만 원 이내와 현지 식사 포함이라는 두 조건을 요청했다.",
+    "feedback_themes": [
+      "1인 경비 100만 원 이내",
+      "현지 식사가 여행요금에 포함"
+    ],
+    "decision_goal": "고객 요청의 두 조건에 맞는 상품안 하나를 골라 고객에게 제안한다."
+  },
+  "mission": {
+    "title": "고객 요청에 맞는 4박 5일 상품안 고르기",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 누리별여행사 상담팀에 새로 들어온 인턴입니다.",
+      "context": "한 고객이 4박 5일 여행을 문의했습니다. 행선지와 일정은 이미 정해졌고, 팀장님이 숙박시설과 포함 항목이 다른 세 가지 안을 요금표로 정리해 두었습니다. 고객은 상담 중에 이렇게 말했습니다. \"1인 경비는 100만 원 이내였으면 좋겠고, 현지 식사가 여행요금에 포함된 안으로 해 주세요.\"",
+      "goal": "팀장님이 \"요금표 보고 이 고객께 어떤 안을 권할지 정리해 줄래요?\"라고 부탁했습니다. 고객에게 제안할 안 하나와 그 이유를 적어보세요.",
+      "constraints": [
+        "고객이 말한 1인 경비는 요금표의 1인 여행요금을 기준으로 봅니다.",
+        "요금표의 세 안 가운데 하나만 골라 제안합니다.",
+        "요금표에 없는 할인이나 추가 상품은 생각하지 않습니다."
+      ],
+      "glossary": [
+        {
+          "term": "지상비",
+          "definition": "여행지에 도착한 뒤 현지에서 드는 비용입니다. 호텔, 식사, 차량비, 입장료, 가이드비 등을 말합니다."
+        },
+        {
+          "term": "성급(5성급·4성급·3성급)",
+          "definition": "호텔의 등급을 나타내는 말입니다. 숫자가 클수록 시설과 서비스 수준이 높은 편입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "fee_comparison_table",
+        "title": "4박 5일 상품안별 요금표",
+        "description": "같은 행선지, 같은 4박 5일 일정으로 짠 세 상품안의 숙박시설, 지상비 포함 항목, 1인 여행요금을 정리한 고객 상담용 요금표입니다. 금액 단위는 원이며, 여행요금에는 지상비 포함 항목 칸에 적힌 것만 들어 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "고객 요청의 두 조건에 맞는 안을 고를 때 각 안의 1인 여행요금과 지상비 포함 항목을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "고객서비스",
+          "판단과 의사결정"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "상품안"
+            },
+            {
+              "key": "strength",
+              "label": "숙박시설"
+            },
+            {
+              "key": "weakness",
+              "label": "지상비 포함 항목"
+            },
+            {
+              "key": "priority",
+              "label": "1인 여행요금(원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안",
+              "strength": "시내 5성급 호텔 4박",
+              "weakness": "호텔, 식사, 차량비, 가이드비",
+              "priority": 1250000
+            },
+            {
+              "option": "B안",
+              "strength": "시내 4성급 호텔 4박",
+              "weakness": "호텔, 차량비, 가이드비",
+              "priority": 960000
+            },
+            {
+              "option": "C안",
+              "strength": "시내 3성급 호텔 4박",
+              "weakness": "호텔, 식사, 차량비",
+              "priority": 940000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 요금표의 세 안을 고객이 말한 두 조건(1인 경비 100만 원 이내, 현지 식사 포함)에 비추어 보고, 고객에게 제안할 안 하나를 골라 그 이유와 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "요금표에서 각 안의 1인 여행요금과 지상비 포함 항목을 읽고, 두 조건을 모두 만족하는 안 하나를 골라 두 조건에 비추어 이유를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "제안할 안과 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "C안은 1인 여행요금이 940,000원으로 100만 원 이내이고 지상비 포함 항목에 식사가 들어 있어 고객의 두 조건을 모두 만족한다.",
+      "A안은 식사가 포함되지만 1인 여행요금이 1,250,000원으로 고객의 경비 상한을 넘는다.",
+      "B안은 1인 여행요금이 960,000원으로 경비 안에 들고 숙박시설 등급도 C안보다 높지만, 지상비 포함 항목에 식사가 없어 고객 요청에 맞지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "조건에 맞는 안 선택",
+        "description": "경비 상한(1인 100만 원 이내)과 식사 포함이라는 두 조건을 모두 만족하는 C안을 골랐는지 확인한다.",
+        "points": 40,
+        "linked_evidence": [
+          "판단과 의사결정"
+        ]
+      },
+      {
+        "criterion": "요금표 바르게 읽기",
+        "description": "각 안의 1인 여행요금과 지상비 포함 항목(식사 포함 여부)을 요금표에서 바르게 읽었는지 확인한다.",
+        "points": 30,
+        "linked_evidence": [
+          "고객서비스"
+        ]
+      },
+      {
+        "criterion": "고객 요청에 비춘 이유 설명",
+        "description": "고른 안이 1인 경비 상한과 식사 포함이라는 고객의 두 조건에 어떻게 맞는지 이유로 설명했는지 확인한다.",
+        "points": 30,
+        "linked_evidence": [
+          "고객서비스",
+          "판단과 의사결정"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "행선지, 교통편, 여행일정, 경비, 숙박시설을 고객과 협의·결정한다.",
+      "source_ref": {
+        "file": "K000001187/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 97,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001187/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 97,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001187/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 96,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001187/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 92,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001187/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 89,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001187/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "서비스 지향",
+          "score": 84,
+          "description": "다른 사람들을 돕기 위해 적극적으로 노력한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "말하기",
+          "score": 80,
+          "description": "자기가 알고 있는 것을 다른 사람에게 조리있게 말한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상",
+          "score": 63,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영업과 마케팅",
+          "score": 86,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "상담",
+          "score": 84,
+          "description": "개인의 신상 및 경력 혹은 정신적 어려움에 관한 상담을 하는 절차나 방법 혹은 원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "고객서비스",
+          "score": 84,
+          "description": "고객에게 서비스를 제공하는데 필요한 지식(고객의 욕구평가, 고객의 만족도 평가, 서비스 기준 설정 등)",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "외부 고객 대하기",
+          "score": 92,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 87,
+          "description": "재택근무 가능성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 86,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "고객서비스",
+          "판단과 의사결정"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.09,
+    "AX2": 0.09,
+    "AX3": 0.64,
+    "AX4": 0.09,
+    "AX5": 0.09
+  }
+}

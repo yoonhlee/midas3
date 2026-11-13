@@ -1,0 +1,538 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007560_normal_001",
+  "job_identity": {
+    "job_cd": "K000007560",
+    "job_lrcl_nm": "영업·판매·운전·운송직",
+    "job_mdcl_nm": "영업원 및 상품중개인",
+    "job_smcl_nm": "해외영업원",
+    "source_ref": {
+      "file": "K000007560/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "시장 동향 파악을 위하여 조사 계획을 수립하고, 환경을 분석한 것을 토대로 해외시장 조사 보고서를 작성한다.",
+    "source_ref": {
+      "file": "K000007560/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "도담펌프",
+    "domain": "산업용 펌프 해외영업",
+    "period": [
+      "최근 연도"
+    ],
+    "trend_pattern": "후보 시장 네 곳의 최근 연도 펌프 수입액은 560만~1,300만 달러로 시장마다 차이가 크다.",
+    "main_issue": "이번 해외시장 조사에 넣을 시장을 팀장이 정한 기준에 맞게 골라야 한다.",
+    "feedback_themes": [
+      "회사가 주로 판매하는 상품(산업용 펌프) 기준",
+      "FTA 발효 여부",
+      "최근 연도 수입액 500만 달러 기준"
+    ],
+    "decision_goal": "팀장 메모의 기준을 모두 만족하는 시장만 이번 시장조사 범위에 넣는다."
+  },
+  "mission": {
+    "title": "이번 해외시장 조사에 넣을 시장 고르기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "planning_and_proposal",
+      "communication_and_reporting"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 도담펌프 해외영업팀 인턴입니다.",
+      "context": "도담펌프는 공장과 건물에 쓰이는 산업용 펌프를 만들어 해외에 판매하는 회사입니다. 해외영업팀은 다음 분기 해외시장 조사를 준비하고 있고, 조사 계획의 첫 단계로 어느 나라 시장을 살펴볼지 정해야 합니다. 팀장님이 시장조사 범위 기준을 메모로 보냈고, 선배가 수출통계 자료에서 후보 시장 네 곳의 수입 통계를 표로 정리해 두었습니다.",
+      "goal": "팀장님 메모의 기준에 맞춰 이번 조사에서 살펴볼 시장을 정하고, 빠지는 시장은 왜 빠지는지 짧게 보고해 보세요.",
+      "constraints": [
+        "주어진 메모와 표의 내용만 사용하세요.",
+        "후보 시장은 표에 있는 A국, B국, C국, D국 네 곳입니다.",
+        "답은 2~3문장으로 적어보세요."
+      ],
+      "glossary": [
+        {
+          "term": "FTA",
+          "definition": "자유무역협정. 나라끼리 수입품에 붙는 세금(관세)을 낮추거나 없애기로 맺는 약속입니다."
+        },
+        {
+          "term": "시장조사 범위",
+          "definition": "이번 조사에서 실제로 살펴볼 나라(시장)의 목록입니다. 범위에 들어가지 않은 시장은 이번에는 조사하지 않습니다."
+        },
+        {
+          "term": "수출통계 자료",
+          "definition": "나라별로 어떤 상품을 얼마나 사고팔았는지 모아 놓은 무역 통계입니다."
+        },
+        {
+          "term": "발효",
+          "definition": "나라끼리 맺은 협정이 정식으로 효력을 갖기 시작하는 것입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "manager_instruction",
+        "title": "해외영업팀장 메모 - 이번 시장조사 범위 기준",
+        "description": "해외영업팀장이 이번 해외시장 조사에서 살펴볼 시장을 정하는 기준을 적어 보낸 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "조사 범위에 넣을 시장이 갖춰야 할 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "업무 계획, 우선순위 결정",
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "해외영업팀장",
+          "items": [
+            "이번 시장조사 범위는 회사가 주로 판매하는 상품인 산업용 펌프를 수입하는 시장으로 한정합니다.",
+            "FTA가 발효된 시장만 넣어 주세요.",
+            "최근 연도 수입액이 500만 달러 이상인 시장만 넣어 주세요."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "market_import_statistics",
+        "title": "후보 해외시장별 펌프 수입 통계 (최근 연도, 단위: 만 달러)",
+        "description": "선배가 수출통계 자료에서 후보 시장 네 곳의 품목, FTA 현황, 최근 연도 수입액을 옮겨 적은 표입니다. 수입액은 품목 칸에 적힌 품목의 수입액이며 단위는 만 달러입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "후보 시장마다 품목, FTA 현황, 수입액을 메모의 조건과 대조하는 데 씁니다.",
+        "evidence_source": [
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "해외시장"
+            },
+            {
+              "key": "strength",
+              "label": "품목"
+            },
+            {
+              "key": "weakness",
+              "label": "FTA 현황"
+            },
+            {
+              "key": "priority",
+              "label": "최근 연도 수입액(만 달러)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A국",
+              "strength": "산업용 펌프",
+              "weakness": "발효",
+              "priority": 820
+            },
+            {
+              "option": "B국",
+              "strength": "가정용 펌프",
+              "weakness": "발효",
+              "priority": 1300
+            },
+            {
+              "option": "C국",
+              "strength": "산업용 펌프",
+              "weakness": "협상 중",
+              "priority": 1100
+            },
+            {
+              "option": "D국",
+              "strength": "산업용 펌프",
+              "weakness": "발효",
+              "priority": 560
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장님 메모의 시장조사 범위 기준을 표의 네 시장에 적용해, 이번 조사 범위에 넣을 시장을 골라 보세요. 넣지 않는 시장은 어떤 기준에 맞지 않는지 이유를 함께 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 세 기준을 표의 네 시장에 모두 대조해 조사 범위에 넣을 시장을 고르고, 넣지 않는 시장마다 맞지 않는 기준을 2-3문장으로 설명한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "조사 범위에 넣을 시장",
+        "넣지 않는 시장과 그 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "세 기준을 모두 만족하는 A국과 D국만 이번 시장조사 범위에 넣는다. D국은 수입액이 네 곳 중 가장 작지만 560만 달러로 500만 달러 이상이므로 빠뜨리지 않는다.",
+      "B국은 수입액이 가장 크고 FTA도 발효됐지만 품목이 가정용 펌프라서 회사가 주로 판매하는 상품인 산업용 펌프 기준에 맞지 않아 뺀다.",
+      "C국은 산업용 펌프를 수입하고 수입액도 500만 달러 이상이지만 FTA 현황이 협상 중이라 발효 기준에 맞지 않아 뺀다."
+    ],
+    "rubric": [
+      {
+        "criterion": "조사 범위 시장 선정",
+        "description": "세 기준을 모두 만족하는 A국과 D국만 조사 범위에 넣었는지, 수입액이 가장 작아도 기준을 넘는 D국을 빠뜨리지 않았는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "criterion": "주력 상품 기준 적용",
+        "description": "수입액이 가장 큰 B국을 품목이 회사의 주력 상품(산업용 펌프)과 다르다는 이유로 제외했는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "criterion": "FTA 현황 반영",
+        "description": "표의 FTA 현황을 읽고, 품목과 수입액 조건을 만족해도 FTA가 발효되지 않은 C국을 범위에서 빼야 한다는 점을 이유로 들었는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "영업과 마케팅"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "시장 동향 파악을 위하여 조사 계획을 수립하고, 환경을 분석한 것을 토대로 해외시장 조사 보고서를 작성한다.",
+      "source_ref": {
+        "file": "K000007560/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 99,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "업무상 사람들을 직접 응대",
+          "score": 99,
+          "description": "식당, 상점에서 일반 손님을 접대하거나, 거래처 고객 또는 손님을 접대하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무 계획, 우선순위 결정",
+          "score": 98,
+          "description": "업무의 우선순위를 결정, 배치하고 완수하기 위해 구체적인 목표와 계획 세우기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 98,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 97,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "협상",
+          "score": 98,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "말하기",
+          "score": 95,
+          "description": "자기가 알고 있는 것을 다른 사람에게 조리있게 말한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "시력",
+          "score": 94,
+          "description": "먼 곳이나 가까운 것을 보기 위해 눈을 사용한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영어",
+          "score": 94,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 90,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "운송",
+          "score": 84,
+          "description": "비행기, 철도, 선박 그리고 자동차를 통해 사람들과 물품을 움직이는 원리와 방법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 90,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 90,
+          "description": "재택근무 가능성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "업무 계획, 우선순위 결정",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "영업과 마케팅"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.16,
+    "AX2": 0.16,
+    "AX3": 0.36,
+    "AX4": 0.16,
+    "AX5": 0.16
+  }
+}

@@ -4,8 +4,8 @@ import { Client, startTestServer } from "./helpers/testServer.js";
 import { checkIdTokenPayload, KakaoAuthError } from "../../src/lib/auth/kakao.js";
 import { hashToken, safeReturnTo } from "../../src/lib/auth/session.js";
 
-const MISSION_KEY = "pilot_v1_20260601_173827__mission_K000001080_easy_001";
-const GOOD_ANSWER = "체크리스트에서 기간 필터 항목이 issue로 표시돼 있어서 먼저 고쳐야 합니다. 어제 기간 조건이 빠지면 방문자 수 비교가 틀어지니 데이터부터 다시 확인하겠습니다.";
+const MISSION_KEY = "jobsim_service_v1__mission_K000001080_easy_001";
+const GOOD_ANSWER = "3월을 색으로 강조해야 합니다. 2월 49,000명에서 3월 41,000명으로 8,000명 줄어 전월 대비 감소폭이 가장 크니, 차트의 수치부터 다시 확인하겠습니다.";
 
 test("공통: /health에 DB 상태, 없는 API는 같은 오류 형식", async () => {
   const srv = await startTestServer();
@@ -313,7 +313,7 @@ test("직무 API: 537개 목록, 상세의 비슷한 직무와 체험 가능 여
     const list = await c.get("/api/jobs");
     assert.equal(list.json.total, 537);
     assert.equal(list.json.fields.length, 10);
-    assert.equal(list.json.experienceable.length, 6); // 파일럿 5개 + 인사·교육·훈련사무원(U11)
+    assert.equal(list.json.experienceable.length, 50); // 카탈로그의 직업 50개(직업마다 쉬움·보통·어려움 미션 하나씩)
     const detail = await c.get("/api/jobs/K000001080");
     assert.equal(detail.json.job.experienceable, true);
     assert.ok(detail.json.job.missions.length >= 1);
@@ -330,6 +330,27 @@ test("직무 API: 537개 목록, 상세의 비슷한 직무와 체험 가능 여
     const byAxis = await c.get("/api/jobs/by-axis/AX1");
     assert.ok(byAxis.json.jobs.length > 0);
     assert.equal((await c.get("/api/jobs/by-axis/AX9")).status, 400);
+  } finally {
+    await srv.close();
+  }
+});
+
+test("결과 요약: 추천 계산 대상이 아닌 직업(정보보안전문가)도 체험한 직업의 적합도와 분석 기준이 나온다", async () => {
+  const srv = await startTestServer();
+  const c = new Client(srv.base);
+  try {
+    const body = (code: string) => ({ selectedJobs: [code], missionScoresByJob: { [code]: [{ AX1: 0.9, AX2: 0.6, AX3: 0.5, AX4: 0.5, AX5: 0.3 }] } });
+    const outside = await c.post("/api/recommendations", body("K000000832"));
+    assert.equal(outside.status, 200);
+    assert.ok(outside.json.compatibility.K000000832 > 0, `적합도 ${outside.json.compatibility.K000000832}`);
+    assert.equal(outside.json.selectedJobMeta.K000000832.referenceJobName, "정보보안전문가");
+    assert.match(outside.json.jobInsights.K000000832.detail, /^정보보안전문가 미션 1개 기준/);
+    // 묶음 C1에는 추천 계산 대상 직업이 없어 비슷한 직업 추천은 비어 있다
+    assert.deepEqual(outside.json.recommendations.K000000832, []);
+
+    // 대상 직업(데이터분석가)은 지금처럼 비슷한 직업 3개가 나온다
+    const inside = await c.post("/api/recommendations", body("K000001080"));
+    assert.equal(inside.json.recommendations.K000001080.length, 3);
   } finally {
     await srv.close();
   }

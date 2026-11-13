@@ -1,0 +1,520 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001215_normal_001",
+  "job_identity": {
+    "job_cd": "K000001215",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "금융·보험 전문가",
+    "job_smcl_nm": "신용분석가",
+    "source_ref": {
+      "file": "K000001215/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "법인 또는 개인사업자가 기업 및 기관(금융기관, 정부기관 등)과 거래, 계약, 금융업무 등을 진행하기 위하여 신용정보를 의뢰할 경우, 기업 및 기관에 대한 조사·분석에 착수한다.",
+    "source_ref": {
+      "file": "K000001215/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "하늘결신용정보 신용조사팀",
+    "domain": "거래를 앞둔 기업에 대한 신용정보 조사 의뢰 접수와 조사·분석 착수 판단",
+    "period": [
+      "11월 10일",
+      "11월 11일",
+      "11월 12일",
+      "11월 13일 오전"
+    ],
+    "trend_pattern": "세 조사대상기업의 서류가 사흘에 걸쳐 여러 번에 나뉘어 교부·입수·징구되었다",
+    "main_issue": "기업마다 서류가 갖춰진 정도가 달라 착수 전 확인 사항 세 가지를 모두 채운 기업을 가려내야 한다",
+    "feedback_themes": [
+      "기업재무보고서 자료 입수",
+      "사업현황 양식 교부와 작성결과 제출",
+      "개인정보활용동의서 징구"
+    ],
+    "decision_goal": "11월 13일 오전 기준으로 오늘 조사·분석에 착수할 수 있는 기업을 고르고 나머지 기업을 제외한 근거를 정리한다"
+  },
+  "mission": {
+    "title": "오늘 신용조사에 들어갈 수 있는 기업 고르기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "하늘결신용정보 신용조사팀 인턴",
+      "context": "당신은 하늘결신용정보 신용조사팀 인턴입니다. 신용조사팀에는 거래나 계약을 앞둔 거래처들이 상대 기업의 신용정보를 조사해 달라는 의뢰를 보내옵니다. 이번 주에는 가람상사, 누리푸드, 다온테크 세 곳에 대한 의뢰가 들어와 팀에서 서류를 주고받는 중입니다. 오늘은 11월 13일 오전이고, 팀장님이 \"서류 기록을 보고 오늘 바로 조사·분석에 들어갈 수 있는 곳이 어디인지 알려 주세요\"라고 요청했습니다.",
+      "goal": "팀장 메모의 착수 전 확인 사항과 서류 기록을 함께 보고, 오늘 조사·분석에 착수할 수 있는 기업과 그 근거를 짧게 보고합니다.",
+      "constraints": [
+        "제공된 메모와 서류 기록에 적힌 내용만 근거로 판단합니다.",
+        "서류 기록에 없는 서류는 아직 받지 않은 것으로 봅니다.",
+        "기업의 실제 신용 상태나 신용등급은 이번 과제에서 판단하지 않습니다.",
+        "답은 2~3문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "신용정보",
+          "definition": "기업이나 개인이 빌린 돈이나 거래 대금을 제때 갚을 수 있는지 판단하는 데 쓰는 정보입니다. 거래 상대를 믿을 만한지 알아보려고 조사를 의뢰합니다."
+        },
+        {
+          "term": "기업재무보고서",
+          "definition": "기업이 번 돈과 쓴 돈, 가진 재산과 빚을 정리한 보고서입니다."
+        },
+        {
+          "term": "사업현황 양식",
+          "definition": "기업이 어떤 사업을 어떻게 하고 있는지 적어 내도록 조사하는 쪽이 보내는 빈 서식입니다."
+        },
+        {
+          "term": "교부",
+          "definition": "서류나 양식을 상대에게 내어 주는 것입니다."
+        },
+        {
+          "term": "개인정보활용동의서",
+          "definition": "조사에 필요한 대표자 등의 개인정보를 써도 된다고 동의하는 문서입니다."
+        },
+        {
+          "term": "징구",
+          "definition": "필요한 서류를 상대에게 요청해 받아 두는 것입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "internal_guideline",
+        "title": "조사·분석 착수 전 확인 사항 (신용조사팀장 메모)",
+        "description": "신용조사팀장이 팀에 공유한 내부 기준 메모입니다. 신용정보 의뢰가 들어온 기업은 아래 세 항목이 모두 확인된 뒤에만 조사·분석에 착수합니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "조사·분석 착수 여부를 판단할 기준을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "신용조사팀장",
+          "items": [
+            "① 해당 기업체로부터 기업재무보고서 자료를 입수했는가",
+            "② 해당 기업에 사업현황 양식을 교부하고, 그 작성결과를 제출받았는가",
+            "③ 개인정보활용동의서를 징구해 신용조사에 활용할 수 있는 상태인가"
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "document_handling_log",
+        "title": "조사대상기업 서류 처리 기록 (11월 10일~12일)",
+        "description": "가람상사, 누리푸드, 다온테크 세 기업과 주고받은 서류의 교부·입수·징구 기록입니다. 11월 13일 오전까지 팀 공용 기록장에 남은 기록을 시간순으로 모두 옮겼습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "기업별로 어떤 서류가 언제 오갔는지 확인하는 데 씁니다.",
+        "evidence_source": [
+          "정보 처리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "11월 10일 10:00",
+              "actor": "이 대리",
+              "event": "가람상사, 누리푸드, 다온테크 세 곳에 사업현황 양식 교부",
+              "note": "이메일 발송"
+            },
+            {
+              "time": "11월 11일 11:00",
+              "actor": "이 대리",
+              "event": "가람상사, 누리푸드로부터 기업재무보고서 자료 입수",
+              "note": "방문 수령"
+            },
+            {
+              "time": "11월 11일 16:00",
+              "actor": "박 주임",
+              "event": "가람상사로부터 사업현황 양식 작성결과 제출받음, 가람상사·누리푸드로부터 개인정보활용동의서 징구",
+              "note": "우편 접수"
+            },
+            {
+              "time": "11월 12일 15:00",
+              "actor": "박 주임",
+              "event": "다온테크로부터 기업재무보고서 자료 입수 및 사업현황 양식 작성결과 제출받음",
+              "note": "이메일 수신"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장 메모의 착수 전 확인 사항을 서류 기록에 적용해 보세요. 세 기업 가운데 오늘 조사·분석에 착수할 수 있는 기업을 고르고, 나머지 기업을 제외한 이유와 함께 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "세 기업의 서류 상황을 메모의 세 가지 확인 사항과 하나씩 맞춰 본 뒤, 착수할 수 있는 기업 한 곳을 고르고 나머지 두 기업이 어떤 확인 사항을 채우지 못했는지 근거로 설명한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "착수할 수 있는 기업",
+        "제외한 기업과 근거"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "메모의 세 가지 확인 사항을 모두 채운 기업은 가람상사 한 곳뿐이므로, 오늘 조사·분석에 착수할 수 있는 기업은 가람상사다.",
+      "누리푸드는 기업재무보고서와 개인정보활용동의서는 갖췄지만, 사업현황 양식을 교부만 했을 뿐 작성결과를 제출받은 기록이 없어 두 번째 확인 사항을 채우지 못한다.",
+      "다온테크는 기업재무보고서와 사업현황 양식 작성결과는 받았지만, 개인정보활용동의서를 징구한 기록이 없어 세 번째 확인 사항을 채우지 못한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "착수 가능 기업 판단",
+        "description": "메모의 세 가지 확인 사항을 서류 기록 여러 줄과 맞춰 보고, 세 항목을 모두 채운 가람상사만 오늘 착수할 수 있다고 판단했는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "누리푸드 제외 근거",
+        "description": "사업현황 양식을 교부한 것과 작성결과를 제출받은 것을 구분해, 누리푸드는 작성결과를 제출받은 기록이 없어 두 번째 확인 사항을 채우지 못했다는 점을 근거로 들었는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "다온테크 제외 근거",
+        "description": "다온테크는 기업재무보고서와 작성결과가 들어왔지만 개인정보활용동의서를 징구한 기록이 없어 세 번째 확인 사항을 채우지 못했다는 점을 근거로 들었는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "정보 처리",
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "법인 또는 개인사업자가 기업 및 기관(금융기관, 정부기관 등)과 거래, 계약, 금융업무 등을 진행하기 위하여 신용정보를 의뢰할 경우, 기업 및 기관에 대한 조사·분석에 착수한다.",
+      "source_ref": {
+        "file": "K000001215/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 92,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 87,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 81,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 80,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 작성, 기록",
+          "score": 80,
+          "description": "정보를 전자 또는 서면으로 작성, 기록, 저장, 관리하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "시간 관리",
+          "score": 97,
+          "description": "자신의 시간과 다른 사람의 시간을 관리한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 97,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "판단과 의사결정",
+          "score": 96,
+          "description": "이득과 손실을 평가해서 결정을 내린다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "경제와 회계",
+          "score": 96,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 90,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 85,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 96,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 89,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001215/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 처리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001215/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

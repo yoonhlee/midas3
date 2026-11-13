@@ -1,0 +1,644 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007536_hard_001",
+  "job_identity": {
+    "job_cd": "K000007536",
+    "job_lrcl_nm": "영업·판매·운전·운송직",
+    "job_mdcl_nm": "부동산 컨설턴트 및 중개인",
+    "job_smcl_nm": "부동산중개인",
+    "source_ref": {
+      "file": "K000007536/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "매입을 희망하는 고객과 상담하여 매입희망 물건의 종류와 매입금액 등을 파악하고 적절한 매물을 추천한다.",
+    "source_ref": {
+      "file": "K000007536/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "푸른마을 부동산중개사무소",
+    "domain": "주거용 부동산 매매 중개",
+    "period": [
+      "11월 2일~11월 11일"
+    ],
+    "trend_pattern": "11월 동안 매수 고객 김OO 님과 상담이 네 차례 이어졌고, 상담 뒤 고객 이메일이 한 통 왔으며, 같은 기간 매매 매물 4건이 접수됨",
+    "main_issue": "상담일지와 이메일에 나뉘어 적힌 고객의 매입 조건을 모아, 접수된 매물 4건과 하나씩 대조해야 함",
+    "feedback_themes": [
+      "매입희망 물건의 종류",
+      "매입금액",
+      "방 수",
+      "OO초등학교까지 통학 거리"
+    ],
+    "decision_goal": "김OO 고객에게 추천할 매물 1건을 정하고 이유와 주의할 점을 정리함"
+  },
+  "mission": {
+    "title": "흩어진 상담 기록을 모아 매수 고객에게 맞는 매물 추천하기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "부동산중개사무소 인턴",
+      "context": "당신은 푸른마을 부동산중개사무소에서 일을 배우고 있는 인턴입니다. 이 사무소는 동네 주거용 집의 매매를 중개합니다. 담당 중개인 선배가 집을 사려는 김OO 고객의 상담일지, 고객이 보낸 이메일, 이번 달 매매 의뢰 접수 기록을 건네며 이렇게 부탁했습니다. '김OO 고객 조건이 여러 기록에 나뉘어 있어요. 조건을 하나로 모아서 접수된 매물마다 맞는지 확인해 주고, 고객에게 먼저 추천할 매물도 하나 골라 줘요.'",
+      "goal": "아래 자료를 보고 김OO 고객의 매입 조건에 비추어 접수된 매물 4건을 하나씩 판정한 뒤, 고객에게 추천할 매물 1건을 이유와 주의할 점과 함께 제안해 보세요.",
+      "constraints": [
+        "제공된 상담일지, 고객 이메일, 매매 의뢰 접수 기록에 적힌 내용만 근거로 씁니다.",
+        "금액은 자료에 적힌 매입금액과 매도 희망가를 그대로 비교하고, 시세나 대출 조건을 따로 추측하지 않습니다.",
+        "답안은 과제마다 3~5문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "상담일지",
+          "definition": "고객과 상담할 때마다 날짜, 상담 상대, 나눈 이야기를 적어 두는 업무 기록입니다."
+        },
+        {
+          "term": "융자",
+          "definition": "집을 살 때처럼 큰돈이 필요할 때 은행 같은 금융기관에서 돈을 빌리는 것입니다."
+        },
+        {
+          "term": "매물",
+          "definition": "팔려고 내놓은 집이나 땅 같은 부동산입니다. 이 미션에서는 사무소에 팔아 달라는 의뢰가 들어온 집을 말합니다."
+        },
+        {
+          "term": "매매",
+          "definition": "돈을 주고 집 같은 물건을 사고파는 것입니다."
+        },
+        {
+          "term": "매수 고객",
+          "definition": "집을 사려는 고객입니다."
+        },
+        {
+          "term": "매입금액",
+          "definition": "집을 사는 사람이 집값으로 낼 수 있는 금액입니다. 이 미션에서는 고객이 집값으로 쓸 수 있다고 밝힌 최대 금액을 말합니다."
+        },
+        {
+          "term": "매입희망 물건의 종류",
+          "definition": "고객이 사고 싶어 하는 집의 종류입니다. 아파트, 단독주택처럼 건물의 형태로 나눕니다."
+        },
+        {
+          "term": "다세대주택(빌라)",
+          "definition": "한 건물 안에 여러 가구가 각자 따로 사는 비교적 작은 공동주택으로, 흔히 빌라라고 부릅니다."
+        },
+        {
+          "term": "매도 의뢰인",
+          "definition": "자기 집을 팔아 달라고 중개사무소에 맡긴 사람입니다."
+        },
+        {
+          "term": "매도 희망가",
+          "definition": "집을 파는 사람이 받고 싶다고 말한 가격입니다."
+        },
+        {
+          "term": "세입자",
+          "definition": "집주인에게 돈을 내고 그 집을 빌려 살고 있는 사람입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "log",
+        "subtype": "consultation_log",
+        "title": "매수 고객 상담일지(고객: 김OO)",
+        "description": "담당 중개인이 집을 사려는 김OO 고객과 상담할 때마다 날짜순으로 남긴 상담일지입니다. 각 줄에 상담 일시, 상담 상대와 방법, 상담 내용, 비고가 적혀 있으며 금액 단위는 원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "고객이 상담 때마다 밝힌 매입 조건을 확인해 과제 1의 비교 기준을 세우고, 과제 2에서 고객이 원하는 점을 살피는 데 쓴다.",
+        "evidence_source": [
+          "정보 수집"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "11월 3일 10:00",
+              "actor": "김OO 고객(전화)",
+              "event": "아파트 매입을 희망하며, 매입금액은 5억 원 이내라고 말함",
+              "note": "첫 상담"
+            },
+            {
+              "time": "11월 5일 14:00",
+              "actor": "김OO 고객(사무소 방문)",
+              "event": "초등학생 자녀 2명이 있어 방 3개가 필요하고, 자녀가 다닐 OO초등학교까지 도보 10분 이내인 곳을 원한다고 말함",
+              "note": "대면 상담"
+            },
+            {
+              "time": "11월 8일 11:00",
+              "actor": "김OO 고객(전화)",
+              "event": "아파트를 우선 원하지만, 조건이 맞으면 다세대주택(빌라)도 검토하겠다고 말함",
+              "note": "매입희망 물건의 종류 추가 확인"
+            },
+            {
+              "time": "11월 10일 15:00",
+              "actor": "담당 중개인",
+              "event": "고객에게 은행 융자 상담을 받은 뒤 매입금액을 다시 알려 달라고 요청함",
+              "note": "회신 대기"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "email",
+        "subtype": "customer_request",
+        "title": "김OO 고객 이메일: 융자 상담 결과와 매입금액 조정",
+        "description": "11월 11일에 김OO 고객이 푸른마을 부동산중개사무소 담당 중개인에게 보낸 이메일입니다. 금액 단위는 원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "고객이 이메일로 알려 온 매입금액과 그 밖의 조건을 확인해 과제 1의 비교 기준에 반영하는 데 쓴다.",
+        "evidence_source": [
+          "정보 수집"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "김OO 고객",
+              "to": "푸른마을 부동산중개사무소 담당 중개인",
+              "subject": "융자 상담 결과와 매입금액 조정",
+              "body": "안녕하세요, 김OO입니다. 지난번에 말씀하신 대로 금융기관에서 융자 상담을 받아 봤습니다. 대출 가능 금액이 생각보다 적게 나와서 매입금액을 4억 8천만 원 이내로 낮춰야 할 것 같습니다. 방 3개와 OO초등학교까지 도보 10분 이내라는 조건은 그대로입니다. 이 기준에 맞는 매물이 있으면 추천해 주세요. 감사합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "log",
+        "subtype": "listing_intake_log",
+        "title": "11월 매매 의뢰 접수 기록",
+        "description": "11월에 푸른마을 부동산중개사무소에 접수된 매매 매물 4건을 접수일 순서로 적은 기록입니다. 각 줄에 접수일, 매도 의뢰인, 매물 내용(집의 종류, 방 수, 매도 희망가), 비고가 적혀 있으며 금액 단위는 원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "접수된 매물 4건의 정보를 고객 조건과 하나씩 대조하고(과제 1), 추천할 매물과 주의할 점을 정하는 데(과제 2) 쓴다.",
+        "evidence_source": [
+          "정보 수집",
+          "사물, 서비스, 사람의 질 판단"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "11월 2일",
+              "actor": "매도 의뢰인 박OO",
+              "event": "매물 A 접수: 아파트, 방 3개, 매도 희망가 4억 9천만 원",
+              "note": "OO초등학교 도보 5분, 매도인이 가격 협의가 가능하다고 말함"
+            },
+            {
+              "time": "11월 4일",
+              "actor": "매도 의뢰인 이OO",
+              "event": "매물 B 접수: 다세대주택, 방 3개, 매도 희망가 4억 3천만 원",
+              "note": "OO초등학교 도보 8분, 세입자 거주 중(내년 2월 계약 만료)"
+            },
+            {
+              "time": "11월 6일",
+              "actor": "매도 의뢰인 최OO",
+              "event": "매물 C 접수: 아파트, 방 2개, 매도 희망가 4억 5천만 원",
+              "note": "OO초등학교 도보 6분, 즉시 입주 가능"
+            },
+            {
+              "time": "11월 9일",
+              "actor": "매도 의뢰인 정OO",
+              "event": "매물 D 접수: 아파트, 방 3개, 매도 희망가 4억 6천만 원",
+              "note": "OO초등학교 도보 20분(버스 2정거장)"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_1",
+        "instruction": "상담일지와 고객 이메일을 함께 읽고 확인한 김OO 고객의 최종 매입 조건(매입희망 물건의 종류, 매입금액, 방 수, OO초등학교까지 통학 거리)에 비추어, 매매 의뢰 접수 기록의 매물 A~D가 조건을 모두 충족하는지 하나씩 판정해 보세요. 충족하지 못하는 매물은 맞지 않는 조건이 무엇인지 함께 적어 주세요. 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "여러 자료에 나뉜 고객 조건을 모아 매물 4건을 하나씩 대조하고, 매물마다 조건 충족 여부와 맞지 않는 조건을 판정한다."
+      },
+      {
+        "task_id": "task_2",
+        "instruction": "과제 1의 판정 결과를 바탕으로 김OO 고객에게 추천할 매물 1건을 정하고, 그 매물이 다른 매물보다 나은 이유와 이 매물을 추천할 때 고객에게 알려야 할 주의할 점 1가지를 써 보세요. 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "판정 결과와 자료를 근거로 추천 매물 1건을 고르고, 다른 매물과 견준 이유와 자료에 드러난 주의할 점 1가지를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 매물별 조건 판정",
+        "과제 2: 추천 매물, 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "매물별 판정은 자료로 정해진다. 매물 A는 매도 희망가 4억 9천만 원이 이메일에서 바뀐 최종 매입금액 4억 8천만 원 이내 조건을 넘어 금액 조건을 충족하지 못한다. 매물 B는 다세대주택이지만 11월 8일 상담에서 조건이 맞으면 다세대주택도 검토하겠다고 했으므로 물건 종류, 금액(4억 3천만 원), 방 3개, 도보 8분 조건을 모두 충족한다. 매물 C는 방이 2개라 방 수 조건을, 매물 D는 도보 20분이라 도보 10분 이내 통학 조건을 충족하지 못한다.",
+      "첫 상담의 5억 원이나 아파트만 원한다는 처음 조건을 그대로 적용하면 매물 A를 맞는 매물로, 매물 B를 맞지 않는 매물로 잘못 판정하게 된다. 최종 조건은 상담일지 여러 줄과 이메일을 함께 읽어야 정리된다.",
+      "추천 매물은 하나로 정해 두지 않는다. 고른 매물이 과제 1의 판정과 자료의 사실을 근거로 다른 매물보다 왜 나은지 보여 주는지가 핵심이다. 예시: 매물 B — 최종 매입금액 4억 8천만 원 이내이면서 방 3개와 도보 10분 이내 통학 조건을 모두 충족하는 유일한 매물이기 때문.",
+      "예시: 매물 B를 추천할 때의 주의할 점은 세입자의 계약이 내년 2월에 끝나므로 고객이 원하는 입주 시기와 맞는지 확인해야 한다는 점, 또는 고객이 우선 원한 아파트가 아니라는 점이다.",
+      "다른 선택의 예: 매물 A를 고른다면 매도인이 가격 협의가 가능하다고 한 점을 이유로 들 수 있지만, 협의가 되지 않으면 최종 매입금액을 넘는다는 점이 주의할 점이 된다. 매물 C와 D는 각각 방 수와 통학 거리가 고객의 필수 조건에 맞지 않아 다른 매물보다 낫다는 근거를 대기 어렵다."
+    ],
+    "rubric": [
+      {
+        "criterion": "최종 조건에 따른 매물별 판정",
+        "description": "과제 1에서 상담일지와 이메일을 모은 최종 조건(매입금액 4억 8천만 원 이내, 아파트를 우선하되 조건이 맞으면 다세대주택도 검토, 방 3개, OO초등학교 도보 10분 이내)에 비추어 매물 A~D를 판정했는지 본다. 자료로 정해지는 판정은 매물 A 매입금액 초과(4억 9천만 원), 매물 B 조건 모두 충족, 매물 C 방 수 부족(방 2개), 매물 D 통학 거리 미충족(도보 20분)이다. 네 매물의 판정과 맞지 않는 조건이 모두 맞으면 만점이다. 처음 말한 5억 원이나 아파트만 허용하는 조건을 적용해 A를 충족, B를 미충족으로 판정했거나 판정이 빠진 매물이 있으면 맞게 판정한 매물 수에 따라 부분 점수를 준다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보 수집",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      },
+      {
+        "criterion": "추천 매물과 다른 매물보다 나은 이유",
+        "description": "과제 2에서 고른 추천 매물 1건과 그 이유를 본다. 특정 매물을 정답으로 요구하지 않는다. 이유가 과제 1의 판정 결과와 자료의 사실에 근거해, 자료에 나온 다른 매물과 견주어 고른 매물이 왜 더 나은지를 보여 주면 만점이다. 자료의 사실은 맞지만 다른 매물보다 나은 점을 보여 주지 못하면 부분 점수만 주고, 자료와 맞지 않는 사실이나 판정에 기대면 낮은 점수를 준다. 예: 매물 B를 고르고 최종 매입금액 이내이면서 방 수와 통학 거리 조건을 모두 충족하는 유일한 매물이라고 설명한 답.",
+        "points": 35,
+        "linked_evidence": [
+          "사물, 서비스, 사람의 질 판단",
+          "설득"
+        ]
+      },
+      {
+        "criterion": "추천 매물의 주의할 점",
+        "description": "과제 2에서 쓴 주의할 점 1가지가 학습자가 고른 매물의 실제 위험이나 한계로서 자료에 드러난 것인지 본다. 고른 매물에 해당하는 자료 속 위험이나 한계를 짚으면 만점이다. 자료에 근거하지 않은 막연한 당부는 부분 점수만 주고, 고른 매물과 관계없거나 자료와 맞지 않는 내용이면 점수를 주지 않는다. 예: 매물 B라면 세입자가 내년 2월 계약 만료까지 살고 있어 입주 시기를 확인해야 한다는 점, 또는 고객이 우선 원한 아파트가 아니라는 점.",
+        "points": 25,
+        "linked_evidence": [
+          "정보 수집",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "매입을 희망하는 고객과 상담하여 매입희망 물건의 종류와 매입금액 등을 파악하고 적절한 매물을 추천한다.",
+      "source_ref": {
+        "file": "K000007536/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "자원 관리",
+          "score": 98,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "대인관계 유지",
+          "score": 98,
+          "description": "다른 사람들과 건설적이고 협조적인 업무 관계를 맺고, 오랫동안 유지하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 97,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 95,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 94,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "협상",
+          "score": 99,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 96,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설득",
+          "score": 96,
+          "description": "다른 사람들의 마음이나 행동을 변화시키기 위해 설득한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "지리",
+          "score": 92,
+          "description": "육지, 바다 그리고 하늘의 특성 및 상호관계에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 89,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "법",
+          "score": 88,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "치열한 경쟁",
+          "score": 95,
+          "description": "동료 혹은 다른 사람들과의 경쟁 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 90,
+          "description": "재택근무 가능성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "의사결정 가능성",
+          "score": 90,
+          "description": "관리자나 감독자(상사)의 개입 없이 의사결정 할 수 있는 재량 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 수집"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 수집"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "정보 수집",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.325,
+    "AX2": 0.5,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.175
+  }
+}

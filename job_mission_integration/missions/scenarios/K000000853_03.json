@@ -1,0 +1,683 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000853_hard_001",
+  "job_identity": {
+    "job_cd": "K000000853",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "시스템소프트웨어개발자",
+    "source_ref": {
+      "file": "K000000853/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_007",
+    "text": "컴퓨터시스템의 각종 주변 장치의 제어 및 인터페이스에 관련된 소프트웨어를 설계하고 개발한다.",
+    "source_ref": {
+      "file": "K000000853/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 7
+    },
+    "selection_reason": "Pilot config selected exec_007."
+  },
+  "mission_facts": {
+    "org_name": "새솔임베디드 펌웨어팀",
+    "domain": "소형 장비 제어 보드의 센서 디바이스 드라이버 설계",
+    "period": [
+      "새 센서 디바이스 드라이버 수신 부분 설계 검토 기간"
+    ],
+    "trend_pattern": "센서 디바이스는 평상시 1ms당 1바이트, 가장 많을 때 1ms당 8바이트를 보내고, 애플리케이션이 수신 버퍼를 읽는 최대 간격은 상황에 따라 10ms에서 30ms까지 달라진다.",
+    "main_issue": "수신 버퍼가 가득 차면 새로 들어온 데이터가 버려지므로, 수신 버퍼에 쓸 수 있는 384바이트 안에서 데이터 손실 없이 받을 버퍼링 메커니즘을 정해야 한다.",
+    "feedback_themes": [
+      "같은 보드의 모터 제어 루틴을 위해 수신 인터럽트는 적을수록 좋다",
+      "화면 표시를 위해 센서 값은 애플리케이션에 빨리 전달될수록 좋다"
+    ],
+    "decision_goal": "설계 조건을 만족하는 후보 가운데 새 센서 디바이스 드라이버에 쓸 버퍼링 메커니즘 하나를 추천한다."
+  },
+  "mission": {
+    "title": "센서 드라이버의 수신 버퍼 방식 정하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "새솔임베디드 펌웨어팀 시스템소프트웨어 개발 인턴",
+      "context": "당신은 새솔임베디드 펌웨어팀의 시스템소프트웨어 개발 인턴입니다. 팀은 소형 장비의 제어 보드에 새로 붙일 센서 디바이스의 디바이스 드라이버를 설계하고 있습니다. 센서가 보내는 데이터를 드라이버가 어떻게 받아 둘지 정해야 해서, 선임 개발자가 설계 조건 메모와 버퍼 읽기 간격 측정표, 버퍼링 메커니즘 후보 비교표를 넘겨주며 검토를 부탁했습니다.",
+      "goal": "세 자료를 함께 보고 후보들이 설계 조건을 지키는지 판정한 다음, 이 드라이버에 쓸 버퍼링 메커니즘 하나를 추천해 보세요.",
+      "constraints": [
+        "자료에 나온 숫자와 조건만 사용하세요. 외부 자료는 찾지 않아도 됩니다.",
+        "계산은 자료의 숫자를 곱하고 크기를 비교하는 정도면 충분합니다.",
+        "답은 과제마다 3~5문장으로 적어 보세요."
+      ],
+      "glossary": [
+        {
+          "term": "디바이스 드라이버",
+          "definition": "컴퓨터나 보드가 센서 같은 주변 장치를 다룰 수 있게 해 주는 소프트웨어입니다. 장치에서 들어온 데이터를 받아 프로그램에 넘겨주는 일을 합니다."
+        },
+        {
+          "term": "버퍼링 메커니즘",
+          "definition": "장치에서 들어온 데이터를 임시 저장 공간(버퍼)에 모아 두었다가 프로그램에 넘겨주는 방식입니다. 버퍼의 개수와 크기, 데이터를 옮기는 단위에 따라 방식이 나뉩니다."
+        },
+        {
+          "term": "수신 버퍼",
+          "definition": "장치에서 받은 데이터를 애플리케이션이 읽어 갈 때까지 담아 두는 임시 저장 공간입니다."
+        },
+        {
+          "term": "인터럽트",
+          "definition": "주변 장치가 신호를 보내 CPU가 하던 일을 잠시 멈추고 그 장치의 일을 먼저 처리하게 하는 것입니다. 이때 실행되는 짧은 처리 코드를 인터럽트 루틴이라고 합니다."
+        },
+        {
+          "term": "실시간성",
+          "definition": "정해진 시간 안에 끝내야 하는 처리가 늦지 않고 제때 실행되는 성질입니다."
+        },
+        {
+          "term": "데이터시트",
+          "definition": "부품을 만든 곳이 그 부품의 동작 방식과 속도 같은 사양을 정리해 둔 문서입니다."
+        },
+        {
+          "term": "디바이스 초기화",
+          "definition": "장치를 처음 쓸 수 있는 상태로 설정하는 과정입니다."
+        },
+        {
+          "term": "애플리케이션",
+          "definition": "이 미션에서는 드라이버가 받아 둔 센서 값을 읽어 가 화면에 보여 주는 프로그램을 말합니다."
+        },
+        {
+          "term": "플래시 메모리",
+          "definition": "전원이 꺼져도 저장한 내용이 지워지지 않는 저장 장치입니다."
+        },
+        {
+          "term": "ms",
+          "definition": "밀리초입니다. 1초를 1000으로 나눈 시간입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "design_requirements_memo",
+        "title": "선임 개발자 메모: 센서 드라이버 수신 부분 설계 조건",
+        "description": "펌웨어팀 선임 개발자가 새 센서 디바이스 드라이버의 수신 부분을 설계하기 전에 정리한 데이터시트 발췌, 지켜야 할 조건, 권장 사항입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "1번 과제에서 손실 없이 담아야 할 데이터 양을 계산하는 규칙과 수신 버퍼 메모리 한도를 확인하고, 2번 과제에서 추천 이유를 따질 때 씁니다.",
+        "evidence_source": [
+          "기술 설계",
+          "산수와 수학"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "data": {
+          "author": "펌웨어팀 선임 개발자",
+          "items": [
+            "데이터시트 발췌: 센서 디바이스는 평상시 1ms당 1바이트, 가장 많을 때 1ms당 8바이트를 보냅니다. 수신 버퍼가 가득 차면 새로 들어온 데이터는 버려집니다.",
+            "조건: 애플리케이션이 버퍼를 가장 오래 읽지 않는 동안 가장 빠른 속도(1ms당 8바이트)로 들어오는 데이터를 모두 담아 손실이 없어야 합니다. 수신 버퍼에는 384바이트까지 쓸 수 있습니다(드라이버 메모리 512바이트 중 128바이트는 송신 버퍼용).",
+            "권장: 같은 보드에서 모터 제어 루틴이 함께 돌아가므로 실시간성을 위해 수신 인터럽트는 적을수록 좋고, 화면 표시를 위해 센서 값은 애플리케이션에 빨리 전달될수록 좋습니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "measurement_record_table",
+        "title": "상황별 애플리케이션 버퍼 읽기 간격 측정표",
+        "description": "보드에서 실행되는 애플리케이션이 상황별로 수신 버퍼를 읽는 최대 간격을 측정한 기록입니다. 간격 단위는 ms(밀리초)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "1번 과제에서 메모의 조건에 맞는 읽기 간격을 찾아 손실 없이 담아야 할 수신 데이터 양을 계산할 때 씁니다.",
+        "evidence_source": [
+          "정보, 자료 분석",
+          "산수와 수학"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "측정 상황"
+            },
+            {
+              "key": "strength",
+              "label": "실행 중인 작업"
+            },
+            {
+              "key": "weakness",
+              "label": "발생 빈도"
+            },
+            {
+              "key": "priority",
+              "label": "최대 읽기 간격(ms)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "대기 화면",
+              "strength": "센서 값 표시",
+              "weakness": "상시",
+              "priority": 10
+            },
+            {
+              "option": "그래프 갱신",
+              "strength": "화면 다시 그리기",
+              "weakness": "1초마다",
+              "priority": 18
+            },
+            {
+              "option": "디바이스 초기화 직후",
+              "strength": "설정값 불러오기",
+              "weakness": "전원을 켤 때 1회",
+              "priority": 22
+            },
+            {
+              "option": "설정 저장",
+              "strength": "플래시 메모리 쓰기",
+              "weakness": "하루 몇 차례",
+              "priority": 30
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "option_comparison_table",
+        "title": "수신 버퍼링 메커니즘 후보 비교표",
+        "description": "새 드라이버의 수신 부분에 검토 중인 버퍼링 메커니즘 후보 4개의 버퍼 구조, 수신 인터럽트 발생 시점, 버퍼 크기를 정리한 표입니다. 버퍼 크기 단위는 바이트입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "1번 과제에서 후보마다 조건 충족 여부를 판정하고, 2번 과제에서 조건을 통과한 후보끼리 견줄 때 씁니다.",
+        "evidence_source": [
+          "기술 설계",
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "버퍼링 메커니즘"
+            },
+            {
+              "key": "strength",
+              "label": "버퍼 구조와 옮기는 방식"
+            },
+            {
+              "key": "weakness",
+              "label": "수신 인터럽트 발생 시점"
+            },
+            {
+              "key": "priority",
+              "label": "버퍼 크기(바이트)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "후보 A",
+              "strength": "버퍼 1개, 인터럽트 루틴이 1바이트씩 옮김",
+              "weakness": "1바이트 받을 때마다",
+              "priority": 128
+            },
+            {
+              "option": "후보 B",
+              "strength": "버퍼 1개, 인터럽트 루틴이 1바이트씩 옮김",
+              "weakness": "1바이트 받을 때마다",
+              "priority": 256
+            },
+            {
+              "option": "후보 C",
+              "strength": "버퍼 1개, 디바이스가 16바이트를 모아 한 번에 옮김",
+              "weakness": "16바이트가 모일 때마다",
+              "priority": 320
+            },
+            {
+              "option": "후보 D",
+              "strength": "버퍼 2개(각 256바이트)를 번갈아 사용",
+              "weakness": "버퍼 1개가 다 찰 때마다",
+              "priority": 512
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_1",
+        "instruction": "선임 개발자 메모의 조건을 읽기 간격 측정표에 적용해, 후보 비교표의 버퍼링 메커니즘 후보 A~D가 각각 메모의 두 조건(데이터 손실 없음, 수신 버퍼 메모리 한도)을 만족하는지 판정해 보세요. 판정 근거로 손실 없이 담아야 할 수신 데이터 양(바이트)을 계산한 식과 값을 함께 적고, 3~5문장으로 써 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "메모의 조건과 측정표로 손실 없이 담아야 할 수신 데이터 양을 계산하고, 그 값과 수신 버퍼 메모리 한도를 기준으로 후보 4개를 각각 판정한다."
+      },
+      {
+        "task_id": "task_2",
+        "instruction": "1번에서 두 조건을 모두 만족한 후보 가운데 이 드라이버에 쓸 버퍼링 메커니즘 하나를 골라 추천해 보세요. 자료의 숫자를 들어 그 후보가 다른 통과 후보보다 나은 이유를 적고, 고른 방식의 주의점 하나를 덧붙여 3~5문장으로 써 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "조건을 만족한 후보 가운데 하나를 골라 다른 통과 후보와 견준 추천 이유를 적고, 고른 방식의 주의점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 필요한 수신 데이터 양 계산과 후보별 판정",
+        "과제 2: 추천 버퍼링 메커니즘, 이유, 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "손실 없이 담아야 할 수신 데이터 양은 측정표에서 가장 긴 읽기 간격인 설정 저장 30ms와 메모의 가장 빠른 속도 1ms당 8바이트를 곱한 240바이트다. 가장 흔한 대기 화면 10ms로 계산하면 80바이트가 되어 후보 A(128바이트)도 충분해 보이는 함정이 있다.",
+      "후보 A(128바이트)는 240바이트보다 작아 손실 조건을 어긴다. 후보 D(512바이트)는 인터럽트가 가장 적고 버퍼도 가장 크지만 드라이버 메모리 전체와 같은 크기라 수신 버퍼 한도 384바이트를 넘어 메모리 조건을 어긴다. 후보 B(256바이트)와 C(320바이트)만 240바이트 이상이면서 384바이트 이하라 두 조건을 모두 만족한다.",
+      "B와 C 중 무엇을 고를지는 메모의 두 권장(인터럽트는 적을수록, 전달은 빠를수록)이 서로 당겨 하나로 정해지지 않는다. B는 받는 즉시 버퍼에 들어가 전달이 빠르고 메모리를 덜 쓰지만 가장 빠를 때 1ms에 8번 인터럽트가 걸리고 여유가 16바이트뿐이다. C는 가장 빠를 때 2ms에 1번 인터럽트가 걸리고 여유가 80바이트지만 평상시(1ms당 1바이트)에는 16바이트가 모일 때까지 최대 16ms 늦게 전달된다.",
+      "예시: 후보 C를 추천한다. 가장 빠를 때 인터럽트가 2ms에 1번으로 B(1ms에 8번)보다 훨씬 적어 모터 제어 루틴의 실시간성에 유리하고, 240바이트 대비 여유분도 80바이트로 B(16바이트)보다 크다. 주의점은 평상시에는 16바이트가 모일 때까지 센서 값이 최대 16ms 늦게 애플리케이션에 전달된다는 점이다.",
+      "예시: 후보 B를 고른 경우의 주의점은 여유분이 16바이트(가장 빠를 때 2ms분)뿐이라 읽기 간격이 32ms를 넘으면 데이터가 버려진다는 점, 또는 가장 빠를 때 1ms에 8번 인터럽트가 걸려 모터 제어 루틴을 자주 끊는다는 점이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "필요한 수신 데이터 양 계산",
+        "description": "1번 답에서 손실 없이 담아야 할 양을 측정표의 가장 긴 읽기 간격 30ms(설정 저장)와 메모의 가장 빠른 속도 1ms당 8바이트를 곱해 240바이트로 구하고, 식과 값을 함께 적었는지 본다. 가장 흔한 10ms나 평균값, 평상시 속도(1ms당 1바이트)로 계산했다면 맞지 않은 것으로 본다. 올바른 값을 적었지만 식이 빠졌다면 부분 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "산수와 수학"
+        ]
+      },
+      {
+        "criterion": "후보별 조건 충족 판정",
+        "description": "1번 답에서 후보 4개를 손실 조건과 수신 버퍼 한도에 함께 비춰 판정했는지 본다. A(128바이트)는 240바이트에 못 미쳐 불충족, B(256바이트)와 C(320바이트)는 240바이트 이상이고 384바이트 한도 안이라 충족, D(512바이트)는 수신 버퍼 한도 384바이트를 넘어 불충족이다. 네 판정이 모두 맞아야 만점이고, 맞은 판정 수에 따라 부분 점수를 준다.",
+        "points": 30,
+        "linked_evidence": [
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "criterion": "추천 후보와 다른 통과 후보와 견준 이유",
+        "description": "1번에서 두 조건을 만족한 후보 가운데 하나를 골랐는지, 그 이유가 1번 결과와 자료(가장 빠를 때의 1ms당 인터럽트 횟수, 240바이트 대비 여유분, 평상시 전달 지연, 메모리 사용량)에서 나와 다른 통과 후보보다 왜 나은지를 실제로 보여 주는지 본다. 특정 후보를 정답으로 요구하지 않는다. 자료의 사실은 맞지만 다른 통과 후보와 견주어 왜 더 나은지를 보여 주지 않으면 부분 점수만 준다. 1번에서 조건을 만족하지 못한 후보를 추천하면 이유가 1번 결과를 뒷받침하지 못하므로 점수를 주지 않는다. 예: 후보 C를 골라 가장 빠를 때 인터럽트가 2ms에 1번으로 B(1ms에 8번)보다 훨씬 적어 실시간성에 유리하고 여유분도 80바이트로 B(16바이트)보다 크다고 설명한 경우.",
+        "points": 30,
+        "linked_evidence": [
+          "기술 설계"
+        ]
+      },
+      {
+        "criterion": "고른 방식의 주의점",
+        "description": "2번 답에 고른 방식에 실제로 따르고 자료에서 확인되는 위험이나 한계를 하나 적었는지 본다. 고른 방식과 관계없는 일반론이나 자료에 없는 위험은 점수를 주지 않는다. 예: C를 골랐다면 평상시(1ms당 1바이트)에는 16바이트가 모일 때까지 최대 16ms 늦게 애플리케이션에 전달된다. 예: B를 골랐다면 여유분이 16바이트뿐이라 읽기 간격이 32ms를 넘으면 데이터가 버려진다.",
+        "points": 15,
+        "linked_evidence": [
+          "기술 설계"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_007",
+      "text": "컴퓨터시스템의 각종 주변 장치의 제어 및 인터페이스에 관련된 소프트웨어를 설계하고 개발한다.",
+      "source_ref": {
+        "file": "K000000853/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 7
+      },
+      "selection_reason": "Pilot config selected exec_007."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 98,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 95,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 84,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "상사, 동료, 부하직원과 소통",
+          "score": 83,
+          "description": "상사, 동료, 부하직원에게 정보를 서면, 이메일 또는 직접 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 79,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 100,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "전산",
+          "score": 100,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설치",
+          "score": 99,
+          "description": "작업 지시서에 따라 장비, 도구, 배선, 프로그램을 설치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 96,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 90,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 89,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 88,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "자동화 정도",
+          "score": 85,
+          "description": "업무의 자동화 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 84,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기술 설계",
+          "산수와 수학"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보, 자료 분석",
+          "산수와 수학"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "기술 설계",
+          "정보, 자료 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.64,
+    "AX2": 0.09,
+    "AX3": 0.09,
+    "AX4": 0.09,
+    "AX5": 0.09
+  }
+}

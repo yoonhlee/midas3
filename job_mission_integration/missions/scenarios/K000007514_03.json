@@ -1,0 +1,642 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007514_hard_001",
+  "job_identity": {
+    "job_cd": "K000007514",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "회계·세무·감정 전문가",
+    "job_smcl_nm": "감정평가사",
+    "source_ref": {
+      "file": "K000007514/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "대상물의 감정목적을 감안하여 조건, 목록 등 감정의 기본적 사항을 책정하고 이에 따라 감정계획을 세운다.",
+    "source_ref": {
+      "file": "K000007514/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "새봄감정평가법인",
+    "domain": "공장 담보 감정평가의 대상물건 확정과 실지조사 일정 계획",
+    "period": [
+      "11/16~11/18 사전조사",
+      "11/19, 11/23 공장장 동행 가능일",
+      "11/20 102번지 명의 변경 등기 완료 예정",
+      "11/27 감정평가서 제출 기한"
+    ],
+    "trend_pattern": "선임 감정평가사의 감정계획 초안은 의뢰 목록의 물건 전부를 11/19 하루에 실지조사하도록 잡혀 있다.",
+    "main_issue": "의뢰 목록에 소유가 아직 서류로 확인되지 않은 토지와 다른 회사 소유 장비가 섞여 있어, 대상물건을 가린 뒤 실지조사 일정을 다시 정해야 한다.",
+    "feedback_themes": [
+      "담보 목적 조건: 다온정밀 소유로 확인되는 물건만 평가",
+      "확정·미확정·제외 판정 기준",
+      "실지조사 재방문 1회 한도",
+      "감정평가서 작성 최소 3일"
+    ],
+    "decision_goal": "대상물건을 확정·미확정·제외로 가리고, 그 결과에 맞는 실지조사 일정안 하나를 추천한다."
+  },
+  "mission": {
+    "title": "공장 담보 감정평가: 대상물건 가리기와 실지조사 일정 잡기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "새봄감정평가법인 수습 감정평가사",
+      "context": "당신은 새봄감정평가법인에 들어온 지 얼마 안 된 수습 감정평가사입니다. 하늘빛은행이 다온정밀에 돈을 빌려주기 전에, 담보로 잡을 공장과 기계의 감정평가를 의뢰해 왔습니다. 팀장은 이 건의 감정계획을 당신에게 맡기면서, 지켜야 할 기준을 메일로 보내 주었고 선임 감정평가사가 먼저 만들어 둔 초안도 함께 넘겨주었습니다.",
+      "goal": "의뢰 메일, 팀장 메일, 감정계획 초안을 함께 보고 실제로 평가할 대상물건을 가린 다음, 그 결과에 맞는 실지조사 일정을 팀장에게 추천해 보세요.",
+      "constraints": [
+        "자료에 적힌 사실과 기준만 사용하세요. 법령이나 실무 지식을 따로 찾아볼 필요는 없습니다.",
+        "날짜는 모두 같은 해 11월이며, 주말이나 휴일 여부는 따지지 않습니다.",
+        "답은 과제마다 3~5문장으로 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "대상물건",
+          "definition": "감정평가로 가치를 매기는 물건입니다. 이 미션에서는 의뢰 메일 목록에 오른 토지, 건물, 기계를 말합니다."
+        },
+        {
+          "term": "실지조사",
+          "definition": "감정평가사가 대상물건이 있는 현장에 직접 가서 상태와 현황을 확인하는 조사입니다."
+        },
+        {
+          "term": "사전조사",
+          "definition": "현장에 가기 전에 받은 서류와 자료로 대상물건을 미리 살펴보는 조사입니다."
+        },
+        {
+          "term": "등기사항전부증명서",
+          "definition": "부동산의 소유자와 권리 관계가 등기부에 어떻게 기록되어 있는지 보여 주는 공식 증명서입니다."
+        },
+        {
+          "term": "토지대장",
+          "definition": "토지의 위치, 면적, 쓰임새, 소유자 등을 적어 관청이 관리하는 장부입니다."
+        },
+        {
+          "term": "건축물관리대장",
+          "definition": "건물의 위치, 면적, 구조, 용도, 소유자 등을 적어 관청이 관리하는 장부입니다."
+        },
+        {
+          "term": "동산",
+          "definition": "토지나 건물처럼 한곳에 붙어 있지 않고 옮길 수 있는 재산입니다. 이 미션에서는 공장 안의 기계를 말합니다."
+        },
+        {
+          "term": "감정평가 목적",
+          "definition": "감정평가 결과를 어디에 쓰려는지를 말합니다."
+        },
+        {
+          "term": "담보",
+          "definition": "돈을 빌려줄 때, 빌린 사람이 갚지 못하는 경우에 대비해 잡아 두는 재산입니다."
+        },
+        {
+          "term": "리스",
+          "definition": "장비 등을 소유한 회사에서 일정 기간 빌려 쓰고 사용료를 내는 방식입니다."
+        },
+        {
+          "term": "명의 변경 등기",
+          "definition": "등기부에 적힌 부동산 소유자의 이름을 새 주인으로 바꾸는 절차입니다."
+        },
+        {
+          "term": "필지",
+          "definition": "땅을 나누어 등록하는 단위입니다. 이 미션에서는 번지 하나가 한 필지입니다."
+        },
+        {
+          "term": "감정계획",
+          "definition": "감정평가를 어떤 순서와 일정으로 진행할지 미리 정해 둔 계획입니다."
+        },
+        {
+          "term": "감정평가서",
+          "definition": "감정평가 결과와 그 근거를 정리해 의뢰인에게 내는 문서입니다."
+        },
+        {
+          "term": "여신심사부",
+          "definition": "은행에서 돈을 빌려줄지 검토하는 부서입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "client_request",
+        "title": "의뢰 메일: 공장 담보 감정평가 의뢰",
+        "description": "하늘빛은행 여신심사부 담당자가 새봄감정평가법인 담당 감정평가사에게 보낸 감정평가 의뢰 이메일입니다. 감정평가 목적과 조건, 대상물건 목록, 물건별 첨부 서류 현황이 들어 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 물건별 소유 현황과 의뢰인이 밝힌 조건을 확인하고, 과제 2에서 그 결과를 일정에 반영할 때 다시 봅니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "하늘빛은행 여신심사부 담당자",
+              "to": "새봄감정평가법인 담당 감정평가사",
+              "subject": "공장 담보 감정평가 의뢰",
+              "body": "안녕하세요, 하늘빛은행 여신심사부입니다.\n저희 은행이 다온정밀에 대한 대출을 검토하고 있어 감정평가를 의뢰드립니다. 이번 감정평가 목적은 다온정밀 대출의 담보입니다. 담보 목적이므로 다온정밀 소유로 확인되는 물건만 평가해 주시기 바랍니다.\n\n[대상물건 목록]\n1. 토지 101번지 (공장 부지)\n2. 토지 102번지 (주차장 부지)\n3. 공장 건물 1동 (101번지 위)\n4. 기계(동산) 3대: 절단기, 프레스, 포장기\n\n[물건별 현황]\n- 101번지 토지와 공장 건물은 다온정밀 명의이며, 등기사항전부증명서, 토지대장, 건축물관리대장을 첨부했습니다.\n- 절단기와 프레스는 다온정밀이 직접 구입한 기계로, 구입 계약서를 첨부했습니다.\n- 포장기는 리스 회사 소유이고, 다온정밀이 빌려 쓰고 있는 장비입니다.\n- 102번지는 다온정밀 명의로 바꾸는 명의 변경 등기를 신청해 두어서 곧 명의가 바뀝니다. 지금 등기상 소유자는 이전 소유자입니다.\n\n감정평가서는 11월 27일까지 보내 주시면 됩니다. 잘 부탁드립니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "email",
+        "subtype": "internal_instruction",
+        "title": "팀장 메일: 감정계획 세울 때 지킬 기준",
+        "description": "팀장 감정평가사가 이번 의뢰 건의 담당 감정평가사에게 보낸 업무 기준 이메일입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1의 판정 기준과 과제 2의 일정 기준(조사 대상, 재방문, 작성 기간)을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "시간 관리"
+        ],
+        "mission_fact_refs": [
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "팀장 감정평가사",
+              "to": "담당 감정평가사",
+              "subject": "감정계획 세울 때 지킬 기준",
+              "body": "이번 공장 담보 건 감정계획을 세울 때 아래 세 가지를 꼭 지켜 주세요.\n\n① 대상물건 목록에는 등기사항전부증명서, 토지대장, 건축물관리대장으로 소유가 확인된 물건만 '확정'으로 올립니다. 기계 같은 동산은 구입 계약서로 소유를 확인합니다. 아직 소유가 확인되지 않은 물건은 '미확정'으로 적어 두고, 서류로 확인되면 그때 확정으로 올립니다. 의뢰인이 정한 조건에 맞지 않는 물건은 목록에서 '제외'합니다.\n② 실지조사는 확정된 물건만 대상으로 합니다. 같은 의뢰 건의 재방문은 1회까지만 잡습니다.\n③ 감정평가서 작성 기간은 마지막 실지조사 다음 날부터 최소 3일을 잡습니다.\n\n일정안이 정해지면 이유와 함께 공유해 주세요."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "schedule",
+        "subtype": "work_plan_draft",
+        "title": "감정계획 초안 (선임 감정평가사 작성)",
+        "description": "선임 감정평가사가 먼저 만들어 둔 이번 의뢰 건의 감정계획 초안으로, 단계별 기간, 작업, 제약이 적혀 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 날짜별 제약을 확인하고 실지조사 일정안을 정하는 데 씁니다.",
+        "evidence_source": [
+          "판단과 의사결정",
+          "시간 관리"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "data": {
+          "items": [
+            {
+              "period": "11/16~11/18",
+              "task": "사전조사: 받은 서류로 대상물건 소유 확인",
+              "constraint": "102번지 명의 변경 등기 완료는 11/20 예정 (완료 전에 발급한 등기사항전부증명서에는 이전 소유자가 나옴)"
+            },
+            {
+              "period": "11/19",
+              "task": "실지조사: 토지 2필지(101·102번지), 공장 건물 1동, 기계 3대(절단기·프레스·포장기)",
+              "constraint": "공장 부지(101·102번지) 출입은 공장장 동행 필요. 공장장 동행 가능일은 11/19와 11/23뿐"
+            },
+            {
+              "period": "11/20~11/26",
+              "task": "감정평가서 작성",
+              "constraint": "11/27까지 의뢰인에게 제출"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "의뢰 메일의 대상물건 목록에 있는 물건(토지 2필지, 공장 건물 1동, 기계 3대)을 하나씩 살펴, 팀장 메일의 기준 ①과 의뢰 메일에 적힌 감정평가 목적·조건에 따라 '확정·미확정·제외' 중 하나로 판정해 보세요. 판정마다 근거가 된 서류나 조건을 함께 적고, 3~5문장으로 답하세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "물건별로 확정·미확정·제외를 판정하고 각 판정의 근거 서류나 조건을 짧은 글로 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 판정 결과와 감정계획 초안의 날짜별 제약을 바탕으로, 실지조사를 어느 날짜에 어떤 물건으로 잡을지 일정안 하나를 정해 팀장에게 추천해 보세요. 자료로 보아 가능한 다른 일정과 견주어 이 안을 고른 이유와, 이 안에서 주의할 점 한 가지를 함께 적고, 3~5문장으로 답하세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "실지조사 날짜와 조사할 물건을 담은 일정안 하나를 골라, 다른 일정과 견준 이유와 주의할 점 한 가지를 짧은 글로 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 대상물건 판정과 근거",
+        "과제 2: 실지조사 일정 추천, 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1: 101번지 토지와 공장 건물은 등기사항전부증명서·토지대장·건축물관리대장으로, 절단기와 프레스는 구입 계약서로 다온정밀 소유가 확인되므로 확정이다.",
+      "과제 1: 102번지 토지는 명의 변경 등기를 신청만 해 두었고 지금 등기상 소유자가 이전 소유자이므로, '곧 명의가 바뀐다'는 설명만으로는 확정할 수 없어 미확정이다.",
+      "과제 1: 포장기는 리스 회사 소유라 '다온정밀 소유로 확인되는 물건만 평가'한다는 담보 목적 조건에 맞지 않으므로 제외한다.",
+      "감정계획 초안의 11/19 실지조사는 미확정인 102번지와 제외 대상인 포장기까지 포함하고 있어 팀장 기준 ②와 맞지 않으므로 그대로 따를 수 없다.",
+      "과제 2는 자료로 정답이 하나로 정해지지 않는다. 가능한 안으로 (가) 11/19 확정 물건 조사 후 등기 완료 뒤인 11/23에 102번지 재방문, 작성 11/24~11/26, (나) 11/23 하루에 모두 조사, 작성 11/24~11/26, (다) 의뢰인과 협의해 102번지를 빼고 11/19에 조사를 끝냄, 작성 11/20~11/26 등이 있다.",
+      "(가)는 주요 물건을 일찍 확인하지만 재방문 1회를 쓰고 102번지를 등기 완료에 기대야 한다. (나)는 재방문이 필요 없지만 모든 조사가 마지막 동행 가능일 하루에 몰려 그날 문제가 생기면 대신할 날이 없다. (다)는 작성 기간이 넉넉하지만 의뢰인이 담보로 넣으려던 102번지가 빠져 의뢰인과의 협의가 필요하다.",
+      "예시: 11/19에 확정 물건(101번지 토지·공장 건물·절단기·프레스)을 먼저 보고 11/23에 102번지를 한 번 다시 보면 주요 물건을 일찍 확인하면서 11/24~11/26 작성 3일도 지킬 수 있다. 주의할 점은 등기 완료가 11/23보다 늦어지면 남은 공장장 동행 가능일이 없어 11/27 제출 전에 102번지를 볼 수 없으므로 의뢰인에게 미리 알려 두어야 한다는 것이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "물건별 판정",
+        "description": "과제 1에서 여섯 물건의 판정이 자료와 맞는지 본다. 판정은 자료로 하나로 정해진다: 101번지 토지·공장 건물·절단기·프레스는 확정, 102번지 토지는 미확정, 포장기는 제외. 모두 맞으면 만점이고, 틀린 판정 하나마다 5점씩 뺀다(최저 0점).",
+        "points": 25,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "판정 근거",
+        "description": "과제 1의 각 판정에 근거가 된 서류나 조건을 들었는지 본다. 확정은 등기사항전부증명서·토지대장·건축물관리대장 또는 구입 계약서, 102번지 미확정은 명의 변경 등기가 끝나지 않아 등기상 소유자가 이전 소유자라는 점, 포장기 제외는 리스 회사 소유라 다온정밀 소유 물건만 평가한다는 담보 목적 조건에 맞지 않는다는 점이다. 근거가 같은 물건은 묶어 설명해도 된다. 근거 없이 판정만 적은 물건은 그만큼 점수를 주지 않는다.",
+        "points": 15,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "일정안과 이유",
+        "description": "과제 2에서 추천한 일정안의 이유가 과제 1 결과(102번지 미확정, 포장기 제외)와 자료의 사실(102번지 등기 완료 11/20 예정, 공장장 동행 가능일 11/19·11/23, 재방문 1회 한도, 감정평가서 작성 최소 3일, 11/27 제출)을 들어, 자료로 가능한 다른 일정보다 이 안이 왜 나은지 보여 주는지 본다. 특정 안을 정답으로 요구하지 않는다. 다른 안과 견주어 왜 나은지를 보여 주면 만점, 사실은 맞게 들었지만 다른 안보다 나은 점이 없으면 부분 점수(15점 안팎)만 준다. 일정안이 제외 물건이나 조사 날짜에 아직 미확정인 물건을 실지조사에 넣거나, 재방문 1회 한도·작성 최소 3일·11/27 제출을 지키지 못하면 이유가 선택을 뒷받침하지 못하는 것으로 보고 낮은 점수를 준다. 예: 11/19 확정 물건 조사 후 11/23 102번지 재방문.",
+        "points": 35,
+        "linked_evidence": [
+          "판단과 의사결정"
+        ]
+      },
+      {
+        "criterion": "주의할 점",
+        "description": "과제 2에 적은 주의할 점 한 가지가 고른 일정안의 실제 위험이나 한계로서 자료에 드러난 것인지 본다. 자료에 근거가 없는 일반적인 걱정은 인정하지 않는다. 예: 11/23 재방문에 기대는 안이라면 등기 완료가 11/23보다 늦어질 경우 남은 공장장 동행 가능일이 없어 11/27 제출 전에 102번지를 볼 수 없다는 점.",
+        "points": 25,
+        "linked_evidence": [
+          "시간 관리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "대상물의 감정목적을 감안하여 조건, 목록 등 감정의 기본적 사항을 책정하고 이에 따라 감정계획을 세운다.",
+      "source_ref": {
+        "file": "K000007514/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 수집",
+          "score": 97,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 95,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 94,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "절차, 자료, 주변환경 관찰",
+          "score": 94,
+          "description": "문제점을 확인하고 평가하기 위하여 자료, 사건, 주변 환경에서 정보를 관찰하고 검토하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 94,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "공간지각력",
+          "score": 98,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "판단과 의사결정",
+          "score": 95,
+          "description": "이득과 손실을 평가해서 결정을 내린다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "시간 관리",
+          "score": 94,
+          "description": "자신의 시간과 다른 사람의 시간을 관리한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "법",
+          "score": 95,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "경제와 회계",
+          "score": 94,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "지리",
+          "score": 93,
+          "description": "육지, 바다 그리고 하늘의 특성 및 상호관계에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "움직이는 기계",
+          "score": 99,
+          "description": "움직이는 기계(자동차, 트랙터 등)에서 근무 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "치열한 경쟁",
+          "score": 98,
+          "description": "동료 혹은 다른 사람들과의 경쟁 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 95,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "시간 관리"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "판단과 의사결정",
+          "시간 관리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.45,
+    "AX2": 0.05,
+    "AX3": 0.4,
+    "AX4": 0.05,
+    "AX5": 0.05
+  }
+}

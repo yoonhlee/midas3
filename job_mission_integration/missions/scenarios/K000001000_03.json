@@ -1,0 +1,664 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001000_hard_001",
+  "job_identity": {
+    "job_cd": "K000001000",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "디자이너",
+    "job_smcl_nm": "제품디자이너",
+    "source_ref": {
+      "file": "K000001000/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "제품의 모양 및 기능, 편리성, 제품의 원료, 제품생산기술, 생산원가, 생산방법, 시장특성, 고객의 요구사항 등을 고려하여 디자인에 대한 아이디어를 개발한다.",
+    "source_ref": {
+      "file": "K000001000/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "모하리빙",
+    "domain": "생활가전 제품디자인(무선 탁상 스탠드)",
+    "period": [
+      "브레인스토밍 회의 10:00~10:50",
+      "아이디어 1차 선별 단계"
+    ],
+    "trend_pattern": "매장에 있는 경쟁 제품 대부분이 흰색 원통형이다.",
+    "main_issue": "브레인스토밍에서 나온 A·B·C 세 안을 고객 요구, 목표 생산원가, 신규 금형 한도에 비춰 검토해야 한다.",
+    "feedback_themes": [
+      "한 손으로 헤드 각도 조절",
+      "개당 생산원가 18,000원 이하",
+      "신규 금형 1벌 한도",
+      "흰색 원통형 경쟁 제품과 구별되는 차별점"
+    ],
+    "decision_goal": "다음 단계로 발전시킬 아이디어 1안을 추천한다."
+  },
+  "mission": {
+    "title": "무선 탁상 스탠드 아이디어 세 안 검토하고 1안 추천하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 생활가전 회사 모하리빙 제품디자인팀의 인턴입니다.",
+      "context": "모하리빙 제품디자인팀은 새로 개발할 무선 탁상 스탠드의 아이디어를 모으려고 브레인스토밍 회의를 열었고, 디자이너 세 명이 A안·B안·C안을 내놓았습니다. 제품 아이디어는 모양만 보고 고르지 않고 사용 방식, 생산원가, 만드는 방법, 시장 상황을 함께 따져 봅니다. 상품기획팀 정 과장님이 세 안을 검토해 다음 단계로 발전시킬 안 하나를 추천해 달라는 메일을 보냈고, 팀장님이 첫 검토를 당신에게 맡겼습니다.",
+      "goal": "메일의 조건과 회의 기록을 체크리스트로 대조해 세 안을 판정하고, 그 결과를 바탕으로 다음 단계로 발전시킬 안 하나를 추천해 보세요.",
+      "constraints": [
+        "메일, 회의 기록, 체크리스트에 나온 조건과 값만 근거로 씁니다. 외부 정보나 개인 취향은 근거로 쓰지 않습니다.",
+        "모양의 아름다움이나 스케치 실력은 이번 검토 대상이 아닙니다.",
+        "과제마다 3~5문장으로 답합니다."
+      ],
+      "glossary": [
+        {
+          "term": "브레인스토밍",
+          "definition": "여러 사람이 서로 비판하지 않고 자유롭게 아이디어를 내놓아 되도록 많은 안을 모으는 회의 방법이다."
+        },
+        {
+          "term": "CMF",
+          "definition": "제품 표면의 색상(Color), 소재(Material), 마감(Finishing)을 묶어 부르는 말이다."
+        },
+        {
+          "term": "금형",
+          "definition": "녹인 재료를 넣어 같은 모양의 부품을 반복해서 찍어 내는 틀이다. '1벌'은 금형 한 세트를 세는 말이다."
+        },
+        {
+          "term": "가공방법",
+          "definition": "재료를 원하는 모양의 부품으로 만드는 방법이다. 재료를 깎는 방법, 틀에 넣어 굳히는 방법 등이 있다."
+        },
+        {
+          "term": "사출",
+          "definition": "녹인 플라스틱을 금형 안에 밀어 넣고 굳혀 부품을 만드는 가공방법이다."
+        },
+        {
+          "term": "절삭 가공",
+          "definition": "금속 같은 재료 덩어리를 공구로 깎아 내어 모양을 만드는 가공방법이다."
+        },
+        {
+          "term": "생산원가",
+          "definition": "제품 하나를 만드는 데 드는 재료비, 가공비 같은 비용이다."
+        },
+        {
+          "term": "경제성",
+          "definition": "들이는 비용에 비해 알맞은 값어치를 얻을 수 있는 정도다. 이 미션에서는 생산원가 쪽의 형편을 가리킨다."
+        },
+        {
+          "term": "실현가능성",
+          "definition": "계획한 것을 실제로 만들어 낼 수 있는 정도다. 이 미션에서는 정해진 생산 여건 안에서 만들 수 있는지를 가리킨다."
+        },
+        {
+          "term": "시장특성",
+          "definition": "제품이 팔릴 시장의 상황이다. 경쟁 제품의 모습이나 소비자 취향 등이 포함된다."
+        },
+        {
+          "term": "ABS·PP 플라스틱",
+          "definition": "생활용품 부품에 흔히 쓰이는 플라스틱 재료의 종류 이름이다."
+        },
+        {
+          "term": "투톤",
+          "definition": "두 가지 색을 함께 써서 꾸민 배색이다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "request_email",
+        "title": "상품기획팀 아이디어 선별 요청 메일",
+        "description": "상품기획팀 정 과장이 제품디자인팀에 보낸 메일로, 무선 탁상 스탠드 세 안을 검토할 때의 조건과 요청 사항이 적혀 있다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "세 안을 판정할 조건(고객 요구, 목표 생산원가, 신규 금형 한도)과 추천할 때 함께 볼 시장특성을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "의사 결정, 문제점 해결",
+          "상품 제조 및 공정"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "상품기획팀 정 과장",
+              "to": "제품디자인팀",
+              "subject": "무선 탁상 스탠드 아이디어 선별 요청",
+              "body": "안녕하세요, 상품기획팀 정 과장입니다.\n지난 브레인스토밍 회의에서 나온 무선 탁상 스탠드 세 안 가운데 다음 단계로 발전시킬 안을 정하려고 합니다. 검토하실 때 아래 내용을 기준으로 삼아 주세요.\n① 고객의 요구사항: 사용자 조사에서 '한 손으로 헤드 각도를 바꾸고 싶다'는 요구가 가장 많았습니다.\n② 생산원가: 개당 18,000원 이하로 맞춰야 합니다.\n③ 금형: 이번 개발에서 새로 만들 수 있는 금형은 1벌까지입니다.\n④ 시장특성: 매장에 있는 경쟁 제품 대부분이 흰색 원통형이라, 진열대에서 눈에 띄는 차별점이 필요합니다.\n⑤ 첨부한 '아이디어 1차 선별 체크리스트'로 회의에서 나온 세 안을 검토하신 뒤, 다음 단계로 발전시킬 1안을 추천해 주세요.\n감사합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "meeting_log",
+        "title": "무선 탁상 스탠드 브레인스토밍 회의 기록",
+        "description": "제품디자인팀이 작성한 회의 기록으로, 디자이너 세 명의 안 발표와 생산기술 담당자의 검토 내용을 시간 순서로 적었다. 메모 칸에는 발표자가 밝힌 예상 생산원가와 검토 결과를 적었다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "A·B·C안의 조작 방식, CMF, 예상 생산원가와 안별 가공방법에 필요한 신규 금형 수를 찾아 체크리스트 항목에 대어 보는 데 쓴다.",
+        "evidence_source": [
+          "상품 제조 및 공정",
+          "사물, 행동, 사건 파악"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "10:00",
+              "actor": "디자이너 김OO",
+              "event": "A안 발표: 접이식 암 구조. 손잡이 레버를 잡고 한 손으로 헤드 각도를 조절한다. CMF는 은색 알루미늄·무광 마감.",
+              "note": "예상 생산원가 21,000원"
+            },
+            {
+              "time": "10:15",
+              "actor": "디자이너 이OO",
+              "event": "B안 발표: 흰색 원통형 바디. 받침을 한 손으로 잡고 다른 손으로 헤드 옆 다이얼을 돌려 각도를 조절한다. CMF는 흰색 ABS 플라스틱·무광 도장.",
+              "note": "예상 생산원가 15,000원"
+            },
+            {
+              "time": "10:30",
+              "actor": "디자이너 박OO",
+              "event": "C안 발표: 받침에 펜꽂이를 합친 형태. 헤드를 밀어 한 손으로 각도를 조절한다. CMF는 회색 본체·민트색 받침의 투톤 PP 플라스틱·무광 마감.",
+              "note": "예상 생산원가 17,500원"
+            },
+            {
+              "time": "10:50",
+              "actor": "생산기술 최OO",
+              "event": "CMF별 가공방법 검토 결과 공유",
+              "note": "A안: 알루미늄 절삭 가공, 신규 금형 필요 없음 / B안: ABS 사출, 신규 금형 1벌 / C안: 색별로 부품을 나눠 사출, 신규 금형 2벌"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "checklist",
+        "subtype": "selection_checklist",
+        "title": "아이디어 1차 선별 체크리스트 (검토 대상: A안 / B안 / C안)",
+        "description": "메일에 첨부된 선별 양식으로, A·B·C안에 똑같이 적용하는 기준 세 가지가 적혀 있다. 세 항목 모두 아직 체크하지 않은 빈 양식이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "세 안에 같은 기준 세 가지를 하나씩 적용해 항목별 충족·미충족을 판정하는 양식으로 쓴다.",
+        "evidence_source": [
+          "사물, 서비스, 사람의 질 판단",
+          "사물, 행동, 사건 파악"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "items": [
+            {
+              "label": "① [고객의 요구사항] 메일에 적힌 고객 요구 사용 방식을 충족한다.",
+              "status": "unchecked",
+              "importance": "normal"
+            },
+            {
+              "label": "② [경제성] 예상 생산원가가 메일의 목표 생산원가 이하이다.",
+              "status": "unchecked",
+              "importance": "normal"
+            },
+            {
+              "label": "③ [실현가능성] CMF에 따른 가공방법에 필요한 신규 금형 수가 메일의 금형 한도 이내이다.",
+              "status": "unchecked",
+              "importance": "normal"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "체크리스트의 세 항목을 메일의 조건과 회의 기록의 값에 대어 보고, A안·B안·C안이 항목마다 충족인지 미충족인지 판정해 보세요. 판정마다 근거가 된 금액, 조작 방식, 금형 수 같은 값을 함께 적어 3~5문장으로 써 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "체크리스트 세 항목을 A·B·C안에 적용해 안별·항목별 충족·미충족을 판정하고, 판정마다 메일과 회의 기록에서 가져온 근거 값을 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "1번 판정 결과와 메일의 시장특성을 바탕으로, 다음 단계로 발전시킬 안 하나를 정해 정 과장님께 추천하는 답을 써 보세요. 고른 안이 나머지 두 안보다 나은 이유와, 그 안을 택할 때 주의할 점 하나를 함께 3~5문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "1번 판정 결과와 시장특성을 근거로 발전시킬 안 하나를 추천하고, 나머지 두 안보다 나은 이유와 그 안의 주의점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 안별·항목별 판정과 근거 값",
+        "과제 2: 추천 안, 다른 두 안보다 나은 이유, 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "1번 판정에서 A안은 ① 충족(손잡이 레버로 한 손 각도 조절), ② 미충족(예상 생산원가 21,000원이 목표 18,000원 초과), ③ 충족(알루미늄 절삭 가공으로 신규 금형 필요 없음)이다.",
+      "B안은 ① 미충족(받침을 한 손으로 잡고 다른 손으로 다이얼을 돌려야 해 한 손 조절이 안 됨), ② 충족(15,000원으로 목표 이하), ③ 충족(ABS 사출 신규 금형 1벌로 한도 1벌 이내)이다.",
+      "C안은 ① 충족(헤드를 밀어 한 손 조절), ② 충족(17,500원으로 목표 이하), ③ 미충족(색별로 부품을 나눠 사출해 신규 금형 2벌로 한도 1벌 초과)이다.",
+      "세 안 모두 한 항목씩 미충족이라 모든 조건을 만족하는 안은 없다. 2번은 고객 요구, 생산원가, 금형 한도, 시장 차별성 사이의 절충 판단이며 특정 안 하나만 정답이 아니다.",
+      "예시: C안을 추천한다. 고객 요구와 목표 생산원가를 충족하고 투톤·펜꽂이 형태로 흰색 원통형 경쟁 제품과 구별되며, 걸리는 항목이 금형 한도뿐이라 원가를 넘는 A안이나 한 손 조절이 안 되고 경쟁 제품과 비슷한 B안보다 낫다. 주의점은 신규 금형이 2벌 필요해 한도 1벌을 넘으므로 금형 예산이나 부품 구성을 따로 협의해야 한다는 점이다.",
+      "다른 안을 고른 경우의 배경: A안은 고객 요구와 금형 조건을 충족하고 은색 알루미늄으로 흰색 원통형 경쟁 제품과 구별되지만 개당 3,000원 원가 초과가 위험이다. B안은 원가와 금형 조건을 모두 충족하지만 한 손 조절 요구를 맞추지 못하고 경쟁 제품과 비슷한 흰색 원통형이라는 점이 위험이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "안별·항목별 판정의 정확성",
+        "description": "1번 과제에서 A·B·C안 각각에 체크리스트 세 항목을 적용한 판정이 자료와 맞는지 본다. 자료가 다른 판정을 허용하지 않으므로 다음 결과를 기준으로 채점한다: A안은 ②만 미충족(21,000원이 18,000원 초과), B안은 ①만 미충족(받침을 잡고 다른 손으로 다이얼을 돌려 한 손 조절 불가), C안은 ③만 미충족(신규 금형 2벌이 한도 1벌 초과), 나머지 항목은 모두 충족. 아홉 개 판정이 모두 맞으면 만점이고, 틀리거나 빠진 판정 수에 따라 감점한다.",
+        "points": 30,
+        "linked_evidence": [
+          "사물, 행동, 사건 파악",
+          "상품 제조 및 공정"
+        ]
+      },
+      {
+        "criterion": "판정 근거 값 제시",
+        "description": "1번 과제의 각 판정에 메일과 회의 기록에서 가져온 근거 값이나 내용(예상 생산원가와 목표 생산원가, 조작 방식, 신규 금형 수와 한도)을 적었는지 본다. 미충족 판정 세 개의 근거만 있으면 부분 점수를, 충족 판정의 근거까지 적었으면 만점을 준다. 자료와 다른 값을 근거로 쓰면 감점한다.",
+        "points": 15,
+        "linked_evidence": [
+          "사물, 행동, 사건 파악",
+          "상품 제조 및 공정"
+        ]
+      },
+      {
+        "criterion": "추천 이유의 비교 타당성",
+        "description": "2번 과제에서 고른 안이 나머지 두 안보다 왜 나은지를 1번 판정 결과와 자료(메일의 시장특성, 회의 기록의 형태·원가·금형 수)로 비교해 보여 주는지 본다. 특정 안을 정답으로 요구하지 않는다. 사실은 맞지만 다른 안과의 비교 없이 고른 안의 장점만 나열하면 부분 점수만 주고, 1번 판정과 어긋나는 근거를 들면 감점한다. 예: C안이 고객 요구와 원가를 충족하고 투톤·펜꽂이 형태로 흰색 원통형 경쟁 제품과 구별되며, 원가를 넘는 A안이나 한 손 조절이 안 되는 B안보다 걸리는 조건이 덜 치명적이라고 설명한다.",
+        "points": 35,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      },
+      {
+        "criterion": "고른 안의 주의점",
+        "description": "2번 과제의 주의점이 학습자가 고른 안에 대해 자료에 나타난 실제 위험이나 한계인지 본다. 고른 안과 상관없거나 자료에 없는 위험이면 점수를 주지 않는다. 예: C안이면 신규 금형 2벌이 한도 1벌을 넘으므로 금형 예산이나 부품 구성을 따로 협의해야 한다는 점. A안의 개당 3,000원 원가 초과, B안의 한 손 조절 요구 미충족이나 경쟁 제품과 비슷한 형태도 그 안을 고른 경우 인정한다.",
+        "points": 20,
+        "linked_evidence": [
+          "상품 제조 및 공정",
+          "의사 결정, 문제점 해결"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "제품의 모양 및 기능, 편리성, 제품의 원료, 제품생산기술, 생산원가, 생산방법, 시장특성, 고객의 요구사항 등을 고려하여 디자인에 대한 아이디어를 개발한다.",
+      "source_ref": {
+        "file": "K000001000/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 97,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 83,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 78,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사물, 서비스, 사람의 질 판단",
+          "score": 72,
+          "description": "사물, 사람의 가치, 중요성, 질을 평가하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 68,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 84,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "협상",
+          "score": 75,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "행동조정",
+          "score": 65,
+          "description": "다른 사람들의 행동에 맞추어 적절히 대응한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "디자인",
+          "score": 98,
+          "description": "밑그림, 제도와 같이 디자인에 필요한 기법 및 도구에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "예술",
+          "score": 96,
+          "description": "음악, 무용, 미술, 드라마에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "상품 제조 및 공정",
+          "score": 95,
+          "description": "상품의 제조 및 유통을 효율적으로 하기 위해 필요한 원자재, 제조공정, 품질관리, 비용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 96,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 86,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "의사 결정, 문제점 해결",
+          "상품 제조 및 공정"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "상품 제조 및 공정",
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "사물, 서비스, 사람의 질 판단",
+          "사물, 행동, 사건 파악"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.065,
+    "AX2": 0.465,
+    "AX3": 0.34,
+    "AX4": 0.065,
+    "AX5": 0.065
+  }
+}

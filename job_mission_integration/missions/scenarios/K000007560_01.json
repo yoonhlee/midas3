@@ -1,0 +1,461 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007560_easy_001",
+  "job_identity": {
+    "job_cd": "K000007560",
+    "job_lrcl_nm": "영업·판매·운전·운송직",
+    "job_mdcl_nm": "영업원 및 상품중개인",
+    "job_smcl_nm": "해외영업원",
+    "source_ref": {
+      "file": "K000007560/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "상품의 해외 판매를 위하여 목표시장 진입전략, 시장 유지전략, 경쟁 전략 및 각종 위기관리계획을 수립한다.",
+    "source_ref": {
+      "file": "K000007560/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "온새미가전",
+    "domain": "해외영업(가정용 소형 가전 수출 판매)",
+    "period": [
+      "2026년 3분기 기준"
+    ],
+    "trend_pattern": "동남아시아 판매 시장에서 세 회사가 모두 가정용 소형 가전을 팔고 있으며, 시장점유율은 경쟁사 A 35%, 경쟁사 B 27%, 우리 회사 22%이다. 신제품 출시 예정이 있는 곳은 경쟁사 B뿐이다.",
+    "main_issue": "경쟁 전략을 준비하기 전에 먼저 대응할 경쟁사 한 곳을 정해야 한다.",
+    "feedback_themes": [
+      "시장점유율",
+      "신제품 출시 계획"
+    ],
+    "decision_goal": "우리 회사보다 시장점유율이 높은 경쟁사 가운데 신제품 출시를 앞둔 회사를 경쟁 전략의 우선 대응 대상으로 정한다."
+  },
+  "mission": {
+    "title": "경쟁 전략, 어느 경쟁사부터 대응할까?",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 온새미가전 해외영업팀 인턴입니다.",
+      "context": "온새미가전은 가정용 소형 가전을 동남아시아의 한 나라에 수출해 판매하고 있습니다. 해외영업팀은 이 시장에서 다른 회사들과 어떻게 겨룰지 경쟁 전략을 준비하고 있습니다. 팀장님이 표 한 장을 건네며 이렇게 말했습니다. \"우리보다 시장점유율이 높은 경쟁사 가운데 신제품 출시를 앞둔 회사를 경쟁 전략의 우선 대응 대상으로 정합시다. 표를 보고 어느 회사인지 알려 주세요.\"",
+      "goal": "팀장님의 기준에 맞는 경쟁사 한 곳을 골라 이유와 함께 짧게 보고해 보세요.",
+      "constraints": [
+        "우선 대응 대상은 '우리 회사보다 시장점유율이 높은 경쟁사 가운데 신제품 출시를 앞둔 회사'로 정한다는 팀장님의 기준을 따릅니다.",
+        "표에 있는 정보만 사용합니다.",
+        "경쟁사는 한 곳만 고릅니다."
+      ],
+      "glossary": [
+        {
+          "term": "시장점유율",
+          "definition": "한 시장에서 팔린 전체 상품 가운데 한 회사의 상품이 차지하는 비율입니다. 숫자가 클수록 그 시장에서 더 많이 팔고 있다는 뜻입니다."
+        },
+        {
+          "term": "경쟁 전략",
+          "definition": "같은 시장에서 비슷한 상품을 파는 다른 회사보다 앞서기 위해 세우는 계획입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "competitor_comparison",
+        "title": "동남아시아 판매 시장 경쟁사 분석자료 (2026년 3분기 기준)",
+        "description": "해외영업팀이 정리한 표로, 우리 회사와 경쟁사 두 곳의 주력 상품, 신제품 출시 계획, 시장점유율을 담고 있습니다. 시장점유율 단위는 %입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "팀장님의 기준을 표의 각 회사에 적용해 우선 대응할 경쟁사를 고를 때 사용합니다.",
+        "evidence_source": [
+          "영업과 마케팅",
+          "목표, 전략 수립"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "회사"
+            },
+            {
+              "key": "strength",
+              "label": "주력 상품"
+            },
+            {
+              "key": "weakness",
+              "label": "신제품 출시"
+            },
+            {
+              "key": "priority",
+              "label": "시장점유율(%)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "우리 회사",
+              "strength": "가정용 소형 가전",
+              "weakness": "계획 없음",
+              "priority": 22
+            },
+            {
+              "option": "경쟁사 A",
+              "strength": "가정용 소형 가전",
+              "weakness": "계획 없음",
+              "priority": 35
+            },
+            {
+              "option": "경쟁사 B",
+              "strength": "가정용 소형 가전",
+              "weakness": "다음 분기 출시 예정",
+              "priority": 27
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 표의 시장점유율과 신제품 출시 정보를 팀장님의 기준에 비추어 확인해 보세요. 경쟁 전략에서 우선 대응할 경쟁사 한 곳을 골라, 고른 회사와 그 이유를 한두 문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "기준의 두 조건인 '우리 회사보다 높은 시장점유율'과 '신제품 출시 예정'을 표에 적용해 경쟁사 한 곳을 고르고, 표의 값을 근거로 이유를 한두 문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "우선 대응할 경쟁사",
+        "고른 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "경쟁사 A(35%)와 경쟁사 B(27%)는 모두 우리 회사(22%)보다 시장점유율이 높다.",
+      "두 회사 가운데 신제품 출시를 앞둔 곳은 다음 분기 출시 예정인 경쟁사 B뿐이므로, 경쟁사 B를 우선 대응 대상으로 고른다.",
+      "경쟁사 A는 시장점유율이 가장 높지만 신제품 출시 계획이 없어 기준의 두 조건을 모두 채우지는 못한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "기준에 맞는 경쟁사 선택",
+        "description": "우리 회사보다 시장점유율이 높고 신제품 출시를 앞둔 경쟁사 B를 우선 대응 대상으로 골랐는지 확인한다.",
+        "points": 50,
+        "linked_evidence": [
+          "목표, 전략 수립"
+        ]
+      },
+      {
+        "criterion": "시장점유율 근거 제시",
+        "description": "이유에 경쟁사 B의 시장점유율(27%)이 우리 회사(22%)보다 높다는 표의 값을 근거로 들었는지 확인한다.",
+        "points": 25,
+        "linked_evidence": [
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "criterion": "신제품 출시 근거 제시",
+        "description": "이유에 경쟁사 B가 다음 분기 신제품 출시를 앞두고 있다는 표의 정보를 근거로 들었는지 확인한다.",
+        "points": 25,
+        "linked_evidence": [
+          "영업과 마케팅"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "상품의 해외 판매를 위하여 목표시장 진입전략, 시장 유지전략, 경쟁 전략 및 각종 위기관리계획을 수립한다.",
+      "source_ref": {
+        "file": "K000007560/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 99,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "업무상 사람들을 직접 응대",
+          "score": 99,
+          "description": "식당, 상점에서 일반 손님을 접대하거나, 거래처 고객 또는 손님을 접대하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무 계획, 우선순위 결정",
+          "score": 98,
+          "description": "업무의 우선순위를 결정, 배치하고 완수하기 위해 구체적인 목표와 계획 세우기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 98,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 97,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "협상",
+          "score": 98,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "말하기",
+          "score": 95,
+          "description": "자기가 알고 있는 것을 다른 사람에게 조리있게 말한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "시력",
+          "score": 94,
+          "description": "먼 곳이나 가까운 것을 보기 위해 눈을 사용한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영어",
+          "score": 94,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 90,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "운송",
+          "score": 84,
+          "description": "비행기, 철도, 선박 그리고 자동차를 통해 사람들과 물품을 움직이는 원리와 방법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 90,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 90,
+          "description": "재택근무 가능성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "영업과 마케팅",
+          "목표, 전략 수립"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.1,
+    "AX2": 0.1,
+    "AX3": 0.6,
+    "AX4": 0.1,
+    "AX5": 0.1
+  }
+}

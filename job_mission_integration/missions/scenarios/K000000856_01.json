@@ -1,0 +1,475 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000856_easy_001",
+  "job_identity": {
+    "job_cd": "K000000856",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "컴퓨터시스템 전문가",
+    "job_smcl_nm": "컴퓨터시스템설계 및 분석가",
+    "source_ref": {
+      "file": "K000000856/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "기업체, 대학교, 병원, 정부기관 등으로부터 시스템 구축 의뢰가 들어오면 새로운 시스템이 수행해야 할 기능과 특성, 데이터베이스 성격, 비용 등을 종합적으로 분석한다.",
+    "source_ref": {
+      "file": "K000000856/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "다온숲병원",
+    "domain": "병원 진료 예약 정보시스템 구축",
+    "period": [
+      "이해관계자 인터뷰 직후 초안 정리 단계"
+    ],
+    "trend_pattern": "인터뷰 요청 인원은 예약 화면 응답 시간 6명, 진료 예약 등록 4명, 예약 알림 발송 3명이다.",
+    "main_issue": "개발팀에 넘기기 전에 기능요구사항 정의서 초안에 기능이 아닌 요구사항이 섞여 있는지 가려내야 한다.",
+    "feedback_themes": [
+      "진료 예약 등록",
+      "예약 알림 발송",
+      "예약 화면 응답 시간"
+    ],
+    "decision_goal": "비기능요구사항 정의서로 옮길 요구사항 하나를 고르고 어떤 품질속성에 해당하는지 밝힌다."
+  },
+  "mission": {
+    "title": "진료 예약 시스템 기능요구사항 정의서 초안 점검하기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 병원 정보시스템 구축 프로젝트에 새로 합류한 시스템 분석 인턴입니다.",
+      "context": "다온숲병원이 새 진료 예약 시스템 구축을 의뢰했습니다. 담당 분석가가 원무과와 간호부 직원들을 인터뷰한 뒤, 들은 요청을 기능요구사항 정의서 초안으로 정리해 두었습니다. 분석가는 '내일 개발팀에 넘기기 전에, 초안이 우리 팀 작성 규칙대로 되어 있는지 한번 봐 줄래요?'라고 부탁했습니다.",
+      "goal": "초안에서 비기능요구사항 정의서로 옮겨야 할 요구사항 하나를 찾아, 그것이 어떤 품질속성에 해당하는지 분석가에게 알려 주세요.",
+      "constraints": [
+        "팀 작성 규칙: 기능요구사항 정의서에는 시스템이 반드시 수행해야 하는 기능만 적고, 가용성, 성능, 보안, 유지보수성 같은 품질속성은 비기능요구사항 정의서로 따로 옮긴다.",
+        "표에 적힌 내용만 보고 판단하세요."
+      ],
+      "glossary": [
+        {
+          "term": "기능요구사항",
+          "definition": "시스템이 실제로 해 주어야 하는 일을 적은 요구사항입니다. '시스템이 무엇을 하는가'에 답합니다."
+        },
+        {
+          "term": "품질속성",
+          "definition": "시스템이 하는 일 자체가 아니라, 그 일을 어떤 수준으로 해내야 하는지를 나타내는 성질입니다. 가용성, 성능, 보안, 유지보수성 등이 있습니다."
+        },
+        {
+          "term": "가용성",
+          "definition": "시스템이 멈추지 않고 필요할 때 언제든 쓸 수 있는 정도입니다."
+        },
+        {
+          "term": "유지보수성",
+          "definition": "시스템을 나중에 고치거나 바꾸기 쉬운 정도입니다."
+        },
+        {
+          "term": "비기능요구사항 정의서",
+          "definition": "기능이 아닌 요구사항, 즉 품질속성 같은 조건을 따로 모아 적는 문서입니다."
+        },
+        {
+          "term": "동시 접속자",
+          "definition": "같은 시각에 시스템에 들어와 함께 쓰고 있는 사람 수입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "requirements_definition_draft",
+        "title": "다온숲병원 진료 예약 시스템 기능요구사항 정의서(초안)",
+        "description": "이해관계자 인터뷰 뒤 담당 분석가가 정리한 요구사항 목록입니다. 인터뷰 요청 인원은 그 요구사항을 말한 직원 수(단위: 명)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "각 요구사항의 내용을 팀 작성 규칙에 비추어, 시스템이 수행할 일인지 그 일이 갖춰야 할 성질인지 확인하는 데 씁니다.",
+        "evidence_source": [
+          "정보의 의미 해석",
+          "기술 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "요구사항명"
+            },
+            {
+              "key": "strength",
+              "label": "내용"
+            },
+            {
+              "key": "weakness",
+              "label": "요청 부서"
+            },
+            {
+              "key": "priority",
+              "label": "인터뷰 요청 인원(명)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "진료 예약 등록",
+              "strength": "환자가 진료과, 의사, 날짜를 골라 예약을 등록한다.",
+              "weakness": "원무과",
+              "priority": 4
+            },
+            {
+              "option": "예약 알림 발송",
+              "strength": "예약 하루 전 환자 휴대전화로 안내 문자를 보낸다.",
+              "weakness": "간호부",
+              "priority": 3
+            },
+            {
+              "option": "예약 화면 응답 시간",
+              "strength": "오전 9시 동시 접속자 500명일 때도 예약 화면이 3초 안에 열린다.",
+              "weakness": "원무과",
+              "priority": 6
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 기능요구사항 정의서 초안을 팀 작성 규칙에 비추어 보고, 비기능요구사항 정의서로 옮겨야 할 요구사항 하나와 그것이 어떤 품질속성에 해당하는지를 이유와 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "초안의 세 요구사항 내용을 작성 규칙에 한 번씩 적용해, 기능이 아닌 요구사항 하나를 고르고 해당 품질속성과 이유를 한두 문장으로 밝힌다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "옮길 요구사항과 해당 품질속성, 그 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "'예약 화면 응답 시간'은 시스템이 새로 해 주는 일이 아니라 예약 화면이 얼마나 빨리 열려야 하는지를 정한 요구사항이므로 비기능요구사항 정의서로 옮겨야 한다.",
+      "이 요구사항은 품질속성 가운데 성능에 해당한다.",
+      "인터뷰 요청 인원이 가장 많다는 점은 기능인지 품질속성인지를 가르는 근거가 아니며, 판단은 요구사항 내용으로 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "기능이 아닌 요구사항 골라내기",
+        "description": "세 요구사항 가운데 시스템이 수행할 기능이 아닌 '예약 화면 응답 시간'을 비기능요구사항 정의서로 옮길 대상으로 골랐는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보의 의미 해석"
+        ]
+      },
+      {
+        "criterion": "품질속성 이름 맞게 밝히기",
+        "description": "고른 요구사항을 가용성, 성능, 보안, 유지보수성 가운데 성능으로 맞게 밝혔는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "기술 분석"
+        ]
+      },
+      {
+        "criterion": "내용에 근거한 이유",
+        "description": "요청 인원 같은 숫자가 아니라 '3초 안에 열린다'처럼 요구사항 내용이 일의 수준을 정한다는 점을 이유로 들었는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "정보의 의미 해석",
+          "기술 분석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "기업체, 대학교, 병원, 정부기관 등으로부터 시스템 구축 의뢰가 들어오면 새로운 시스템이 수행해야 할 기능과 특성, 데이터베이스 성격, 비용 등을 종합적으로 분석한다.",
+      "source_ref": {
+        "file": "K000000856/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 91,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 90,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "전자장비 유지 보수",
+          "score": 83,
+          "description": "기계가 아닌 전자적 원리에 의해 작동되는 장비, 부품, 장치, 기계를 정비, 수리, 조절, 시험하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 81,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 78,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 99,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 95,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설치",
+          "score": 89,
+          "description": "작업 지시서에 따라 장비, 도구, 배선, 프로그램을 설치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 94,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 85,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 82,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 89,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 89,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람들을 조율하거나 이끌기",
+          "score": 86,
+          "description": "업무 특성상 다른 사람들을 조율하거나 이끄는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보의 의미 해석",
+          "기술 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

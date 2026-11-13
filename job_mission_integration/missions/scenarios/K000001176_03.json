@@ -1,0 +1,660 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001176_hard_001",
+  "job_identity": {
+    "job_cd": "K000001176",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "응용소프트웨어개발자",
+    "source_ref": {
+      "file": "K000001176/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "상세 설계에 따라서 단위 프로그램을 개발하고, 개발된 여러 프로그램들을 모아서 응용시스템으로 결합시킨다.",
+    "source_ref": {
+      "file": "K000001176/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "해솔데브 개발팀",
+    "domain": "사내 회의실 예약 시스템 개발",
+    "period": [
+      "목요일 오전 응용시스템 결합 시작 전"
+    ],
+    "trend_pattern": "단위 프로그램 개발은 끝났고, 결합 전에 각 프로그램이 공통 모듈 사용 기준을 따랐는지 아직 확인하지 않았다",
+    "main_issue": "결합 전 남은 6시간 안에서 상세 설계와 어긋난 단위 프로그램을 어떻게 처리할지 정해야 한다",
+    "feedback_themes": [
+      "공통 모듈 사용 기준",
+      "단위 테스트 결과",
+      "결합 전 수정 시간"
+    ],
+    "decision_goal": "결합 전에 택할 수정 방안 하나를 근거와 함께 추천하고 주의할 점을 밝힌다"
+  },
+  "mission": {
+    "title": "결합 전에 단위 프로그램을 상세 설계와 맞춰 보기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "해솔데브 개발팀 응용소프트웨어 개발 인턴",
+      "context": "당신은 해솔데브 개발팀에서 일하는 응용소프트웨어 개발 인턴입니다. 팀은 사내 회의실 예약 시스템을 만들고 있고, 상세 설계에 따라 단위 프로그램 개발을 막 마쳤습니다. 목요일 오전부터는 이 프로그램들을 모아 하나의 응용시스템으로 결합할 예정입니다. 개발 리더가 \"결합하기 전에 단위 프로그램들이 상세 설계 기준대로 만들어졌는지 확인해 주고, 어긋난 게 있으면 어떻게 처리할지 의견도 주세요\"라고 부탁했습니다.",
+      "goal": "아래 자료를 보고 상세 설계 기준과 어긋난 단위 프로그램을 찾은 뒤, 결합 전에 택할 수정 방안 하나를 이유와 함께 추천해 보세요.",
+      "constraints": [
+        "자료에 나온 정보만으로 판단하세요.",
+        "답은 과제마다 3~5문장으로 쓰세요.",
+        "수정에 필요한 시간은 자료에 적힌 숫자로만 따지세요."
+      ],
+      "glossary": [
+        {
+          "term": "상세 설계",
+          "definition": "프로그램을 만들기 전에 각 프로그램이 무엇을 어떤 방식으로 처리할지 구체적으로 정해 둔 설계 내용입니다."
+        },
+        {
+          "term": "공통 모듈",
+          "definition": "여러 프로그램이 같은 기능을 각자 따로 만들지 않고 함께 불러 쓰도록 한곳에 모아 만든 기능 묶음입니다."
+        },
+        {
+          "term": "업무 프로그램",
+          "definition": "사용자가 하려는 실제 업무(예: 회의실 예약하기)를 처리하는 프로그램입니다."
+        },
+        {
+          "term": "단위 프로그램",
+          "definition": "한 가지 기능을 맡아 따로 만들고 따로 시험할 수 있는 작은 프로그램입니다."
+        },
+        {
+          "term": "단위 테스트",
+          "definition": "단위 프로그램 하나를 다른 프로그램과 떼어 놓고 제대로 동작하는지 확인하는 시험입니다."
+        },
+        {
+          "term": "결함",
+          "definition": "프로그램이 의도와 다르게 동작하는 잘못된 부분입니다. 이 미션에서는 단위 테스트에서 발견된 개수로 적혀 있습니다."
+        },
+        {
+          "term": "형식 검사",
+          "definition": "입력한 전화번호나 날짜가 정해진 모양(예: 자리 수, 구분 기호)에 맞는지 확인하는 일입니다."
+        },
+        {
+          "term": "데이터베이스",
+          "definition": "예약 내역 같은 자료를 저장해 두고 필요할 때 꺼내 쓰는 저장소입니다."
+        },
+        {
+          "term": "응용시스템",
+          "definition": "여러 단위 프로그램을 모아 하나로 동작하게 만든 전체 프로그램입니다. 이 미션에서는 회의실 예약 시스템을 말합니다."
+        },
+        {
+          "term": "결합",
+          "definition": "따로 만든 단위 프로그램들을 서로 연결해 하나의 응용시스템으로 합치는 작업입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "design_guideline_excerpt",
+        "title": "회의실 예약 시스템 상세 설계 기준과 결합 일정 (개발 리더 메모)",
+        "description": "개발 리더가 팀에 공유한 상세 설계 기준 발췌와 결합 일정 안내 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 단위 프로그램에 대어 볼 상세 설계 기준을 확인하고, 과제 2에서 결합 전에 쓸 수 있는 수정 시간을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "절차, 자료, 주변환경 관찰"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "개발 리더",
+          "items": [
+            "[기준 1] 업무 프로그램은 전화번호·날짜 입력값의 형식 검사를 프로그램 안에서 직접 하지 않고, 공통 모듈 cm_validate를 호출해서 한다.",
+            "[기준 2] 업무 프로그램은 데이터베이스에 직접 연결하지 않고, 공통 모듈 cm_db를 거쳐 읽고 쓴다.",
+            "[일정] 응용시스템 결합은 목요일 오전에 시작한다. 그 전까지 상세 설계와 어긋난 부분을 고치는 데 쓸 수 있는 시간은 모두 6시간이다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "implementation_status",
+        "title": "회의실 예약 시스템 단위 프로그램 구현 현황",
+        "description": "결합 전에 정리한 단위 프로그램 네 개의 구현 내용과 단위 테스트 결과 목록입니다. 마지막 열은 단위 테스트에서 나온 결함 개수(건)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 단위 프로그램마다 구분과 구현 내용을 자료 1의 기준과 하나씩 대어 보는 데 씁니다.",
+        "evidence_source": [
+          "절차, 자료, 주변환경 관찰"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "단위 프로그램"
+            },
+            {
+              "key": "strength",
+              "label": "구분"
+            },
+            {
+              "key": "weakness",
+              "label": "구현 내용"
+            },
+            {
+              "key": "priority",
+              "label": "단위 테스트 결함 수(건)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "cm_validate",
+              "strength": "공통 모듈",
+              "weakness": "전화번호·날짜 형식을 검사해 결과를 돌려준다",
+              "priority": 0
+            },
+            {
+              "option": "예약 등록",
+              "strength": "업무 프로그램",
+              "weakness": "cm_validate를 호출해 입력값을 검사하고 cm_db로 데이터베이스에 저장한다",
+              "priority": 1
+            },
+            {
+              "option": "예약 변경",
+              "strength": "업무 프로그램",
+              "weakness": "날짜 형식을 프로그램 안의 자체 코드로 검사하고 cm_db로 데이터베이스에 저장한다",
+              "priority": 0
+            },
+            {
+              "option": "예약 취소",
+              "strength": "업무 프로그램",
+              "weakness": "cm_validate를 호출해 입력값을 검사하고 데이터베이스에 직접 연결해 예약을 삭제한다",
+              "priority": 0
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "option_comparison",
+        "title": "결합 전 수정 방안 후보",
+        "description": "결합 전에 택할 수 있는 수정 방안 세 가지를 나란히 적은 비교표입니다. 마지막 열은 프로그램 1개를 처리하는 데 드는 작업 시간(시간)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 방안마다 방법, 결합에 미치는 영향, 작업 시간을 견주어 하나를 고르는 데 씁니다.",
+        "evidence_source": [
+          "의사 결정, 문제점 해결",
+          "조직체계의 분석 및 평가"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "방안"
+            },
+            {
+              "key": "strength",
+              "label": "방법"
+            },
+            {
+              "key": "weakness",
+              "label": "결합에 미치는 영향"
+            },
+            {
+              "key": "priority",
+              "label": "프로그램 1개당 작업 시간(시간)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안",
+              "strength": "어긋난 부분을 상세 설계대로 공통 모듈 호출로 고친 뒤 단위 테스트를 다시 수행한다",
+              "weakness": "고친 프로그램이 단위 테스트를 통과한 상태로 결합된다",
+              "priority": 4
+            },
+            {
+              "option": "B안",
+              "strength": "어긋난 부분을 상세 설계대로 공통 모듈 호출로 고치되, 단위 테스트는 결합 후 시험에서 함께 확인한다",
+              "weakness": "고친 부분의 단위 테스트 결과 없이 결합된다",
+              "priority": 2
+            },
+            {
+              "option": "C안",
+              "strength": "지금은 고치지 않고 그대로 결합한 뒤 문제가 생기면 고친다",
+              "weakness": "상세 설계와 다른 코드가 응용시스템에 그대로 들어간다",
+              "priority": 0
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "자료 1의 상세 설계 기준(기준 1, 기준 2)을 자료 2의 단위 프로그램마다 하나씩 대어 보세요. 기준을 따르지 않은 프로그램과 그 프로그램이 어긴 기준 항목을 찾아 3~5문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "자료 1의 기준 1·2를 자료 2의 단위 프로그램마다 대어 보고, 기준을 따르지 않은 프로그램과 어긴 기준 항목을 짝지어 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 결과와 자료 1의 결합 전 수정 시간, 자료 3의 프로그램 1개당 작업 시간을 근거로 필요한 시간을 따져 보세요. 그리고 결합 전에 택할 수정 방안 하나를 A안·B안·C안 중에서 추천하고, 그 방안이 다른 방안보다 나은 이유와 그 방안을 택할 때 주의할 점 하나를 3~5문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "고칠 프로그램 수에 방안별 작업 시간을 곱해 6시간과 견주고, 다른 방안과 비교한 이유를 들어 수정 방안 하나를 추천한 뒤 그 방안의 주의할 점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 기준을 따르지 않은 프로그램과 어긴 기준 항목",
+        "과제 2: 추천 수정 방안과 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1: 자료 2의 업무 프로그램 가운데 예약 변경은 날짜 형식을 프로그램 안의 자체 코드로 검사해 기준 1을 어겼고, 예약 취소는 데이터베이스에 직접 연결해 예약을 삭제하므로 기준 2를 어겼다.",
+      "예약 등록은 단위 테스트 결함 수가 1건이지만 cm_validate와 cm_db를 모두 거치므로 두 기준을 따른다. 결함 수는 상세 설계 기준을 따랐는지를 말해 주지 않는다.",
+      "cm_validate는 형식을 직접 검사하지만 그 검사를 맡은 공통 모듈이므로, 업무 프로그램을 대상으로 한 기준 1을 어긴 것이 아니다.",
+      "과제 2: 고칠 프로그램이 2개이므로 A안은 2개 × 4시간 = 8시간, B안은 2개 × 2시간 = 4시간, C안은 0시간이 필요하고, 자료 1의 수정 시간은 6시간이다.",
+      "예시: B안을 추천한다. 4시간이면 6시간 안에 끝나고 두 프로그램을 상세 설계 기준대로 고칠 수 있는 반면, A안은 8시간이 필요해 2시간이 모자라고 C안은 설계와 다른 코드가 응용시스템에 그대로 들어간다. 주의할 점은 고친 부분이 단위 테스트 결과 없이 결합된다는 것이다.",
+      "A안이나 C안을 고른 답도, 필요한 시간 계산과 다른 방안과의 비교로 그 선택이 왜 더 나은지를 보이고 고른 방안의 실제 위험을 주의할 점으로 들면 좋은 답이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "기준을 따르지 않은 프로그램과 어긴 기준 항목 찾기",
+        "description": "과제 1에서 기준을 따르지 않은 프로그램과 어긴 기준 항목을 맞게 짝지었는지 본다. 자료로 정해지는 답은 하나다: 예약 변경(날짜 형식을 자체 코드로 검사해 기준 1을 어김)과 예약 취소(데이터베이스에 직접 연결해 기준 2를 어김). 두 프로그램과 각각의 기준 항목을 모두 맞게 짝지으면 만점, 하나만 맞으면 부분 점수를 준다. 예약 등록(결함 1건이지만 두 기준을 모두 따름)이나 cm_validate(형식 검사를 맡은 공통 모듈이라 기준 1의 대상인 업무 프로그램이 아님)를 기준 위반으로 적으면 감점한다.",
+        "points": 40,
+        "linked_evidence": [
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "criterion": "수정 방안 추천과 그 이유",
+        "description": "과제 2에서 추천한 방안의 이유를 본다. 특정 방안을 정답으로 요구하지 않는다. 과제 1에서 찾은 프로그램 수와 자료 3의 프로그램 1개당 작업 시간으로 필요한 시간을 따져 자료 1의 6시간과 견주고, 고른 방안이 자료 3의 다른 방안보다 왜 나은지를 보이면 만점이다. 사실을 맞게 적었어도 다른 방안과 견주어 왜 이 방안이 나은지를 보이지 않으면 부분 점수만 준다. 과제 1의 결과를 잘못 적었더라도 그 결과에 맞게 시간을 계산했으면 계산은 인정한다. 예: B안 — 2개 × 2시간 = 4시간으로 6시간 안에 끝나고 상세 설계 기준도 맞출 수 있는 반면, A안은 8시간이라 2시간이 모자라고 C안은 설계와 다른 코드가 결합된다.",
+        "points": 35,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결"
+        ]
+      },
+      {
+        "criterion": "고른 방안의 주의할 점",
+        "description": "과제 2에서 적은 주의할 점 하나가 고른 방안의 실제 위험이나 한계로서 자료에 드러난 것인지 본다. 고른 방안과 관계없는 일반적인 주의는 인정하지 않는다. 예: A안이면 필요한 8시간이 6시간을 넘어 결합 시작이 늦어질 수 있다, B안이면 고친 부분이 단위 테스트 결과 없이 결합된다, C안이면 자료 1의 공통 모듈 기준과 다른 코드가 응용시스템에 그대로 들어간다.",
+        "points": 25,
+        "linked_evidence": [
+          "조직체계의 분석 및 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "상세 설계에 따라서 단위 프로그램을 개발하고, 개발된 여러 프로그램들을 모아서 응용시스템으로 결합시킨다.",
+      "source_ref": {
+        "file": "K000001176/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 99,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 99,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 89,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "의사 결정, 문제점 해결",
+          "score": 86,
+          "description": "가장 좋은 해결책을 선택하기 위해 정보를 분석하고 문제점을 해결하기 위해 결과를 평가하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 85,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 분석",
+          "score": 100,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "전산",
+          "score": 100,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "기술 설계",
+          "score": 99,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 94,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 86,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 82,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 93,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "자동화 정도",
+          "score": 91,
+          "description": "업무의 자동화 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "의사 결정, 문제점 해결",
+          "조직체계의 분석 및 평가"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001176/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001176/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.05,
+    "AX2": 0.45,
+    "AX3": 0.4,
+    "AX4": 0.05,
+    "AX5": 0.05
+  }
+}

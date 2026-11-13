@@ -1,0 +1,540 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007580_normal_001",
+  "job_identity": {
+    "job_cd": "K000007580",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "게임프로그래머",
+    "source_ref": {
+      "file": "K000007580/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "게임기획자, 게임그래픽디자이너, 게임음악가 등으로부터 넘겨받을 자료를 기반으로 게임프로그램의 구조를 설계한다.",
+    "source_ref": {
+      "file": "K000007580/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "별빛조각 스튜디오",
+    "domain": "모바일 액션 게임 개발",
+    "period": [
+      "다음 달 정기 업데이트 준비 기간"
+    ],
+    "trend_pattern": "매달 정기 업데이트 때 게임음악가의 효과음과 게임그래픽디자이너의 캐릭터 이미지가 새로 추가된다.",
+    "main_issue": "새 전투 화면에 쓸 구조안 후보 세 개 가운데 하나를 정해야 한다.",
+    "feedback_themes": [
+      "변경용이성",
+      "성능"
+    ],
+    "decision_goal": "게임기획자가 정리한 품질속성 시나리오에 맞는 전투 화면 구조안 하나를 고른다."
+  },
+  "mission": {
+    "title": "넘겨받을 자료에 맞는 전투 화면 구조안 고르기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 별빛조각 스튜디오 게임프로그래밍팀의 인턴입니다.",
+      "context": "별빛조각 스튜디오는 모바일 액션 게임의 전투 화면을 새로 만들고 있습니다. 게임기획자가 게임음악가와 게임그래픽디자이너에게서 넘겨받을 자료에 맞춰 구조가 지켜야 할 조건을 메모로 보내왔고, 프로그래밍팀은 검토 중인 구조안 세 개를 표로 정리해 두었습니다. 팀장님이 \"메모를 보고 전투 화면에 쓸 구조안을 하나 골라서, 왜 그걸 골랐는지 짧게 알려 줄래요?\"라고 부탁했습니다.",
+      "goal": "게임기획자의 메모와 구조안 비교표를 함께 보고, 전투 화면에 쓸 구조안 하나를 골라 이유를 적어보세요.",
+      "constraints": [
+        "메모와 표에 적힌 정보만 사용하세요.",
+        "구조안은 하나만 고르세요.",
+        "답은 2~3문장의 짧은 글로 적어보세요."
+      ],
+      "glossary": [
+        {
+          "term": "품질속성 시나리오",
+          "definition": "프로그램 구조가 지켜야 할 품질 조건을 '이런 상황에서는 이렇게 되어야 한다'는 식으로 적은 문장입니다."
+        },
+        {
+          "term": "변경용이성",
+          "definition": "기능이나 자료를 새로 더하거나 바꿀 때, 고쳐야 하는 곳이 얼마나 적은지를 나타내는 성질입니다."
+        },
+        {
+          "term": "아키텍처 스타일",
+          "definition": "프로그램의 큰 뼈대를 짜는 대표적인 방식입니다. 프로그램을 어떤 부분으로 나누고 그 부분끼리 어떻게 주고받을지를 정한 틀입니다."
+        },
+        {
+          "term": "Layered",
+          "definition": "프로그램을 여러 층으로 나누고, 위층이 바로 아래층의 기능을 불러 쓰는 구조 방식입니다."
+        },
+        {
+          "term": "Repository",
+          "definition": "여러 부분이 하나의 공통 저장소에 자료를 모아 두고, 필요할 때 그 저장소에서 꺼내 쓰는 구조 방식입니다."
+        },
+        {
+          "term": "Publish Subscribe",
+          "definition": "어떤 일이 생겼다는 소식을 내보내는 쪽과, 그 소식을 받겠다고 미리 등록해 둔 쪽이 서로를 직접 부르지 않고 소식을 주고받는 구조 방식입니다."
+        },
+        {
+          "term": "게임 로직 모듈",
+          "definition": "전투 규칙, 피해량 계산처럼 게임이 돌아가는 규칙을 담당하는 프로그램 부분입니다."
+        },
+        {
+          "term": "프레임 처리 시간",
+          "definition": "게임 화면 한 장면(프레임)을 계산하고 그리는 데 걸리는 시간입니다. ms(밀리초)는 1000분의 1초입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "request_memo",
+        "title": "[게임기획자 메모] 전투 화면 구조 설계를 위한 품질속성 시나리오",
+        "description": "게임기획자가 전투 화면 구조 설계를 앞두고 게임프로그래밍팀에 보낸 요청 메모입니다. 게임음악가와 게임그래픽디자이너가 넘겨줄 자료와 관련해 구조가 지켜야 할 조건이 적혀 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "구조안 후보에 적용할 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "창조적 생각",
+          "논리적 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "author": "게임기획자 (기획팀)",
+          "items": [
+            "변경용이성: 게임음악가가 넘겨줄 효과음과 게임그래픽디자이너가 넘겨줄 캐릭터 이미지는 매달 정기 업데이트 때 새로 추가됩니다. 이 자료를 추가할 때 게임 로직 모듈의 코드는 수정하지 않아야 합니다.",
+            "성능: 전투 장면의 한 프레임 처리 시간은 16ms 이하여야 합니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "option_comparison",
+        "title": "전투 화면 구조안 후보 비교표",
+        "description": "게임프로그래밍팀이 검토 중인 전투 화면 구조안 세 개의 아키텍처 스타일, 효과음·이미지를 추가할 때 수정하는 곳, 시험 빌드에서 잰 전투 장면 프레임 처리 시간(단위: ms)을 정리한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 조건을 구조안 후보마다 맞춰 보는 데 씁니다.",
+        "evidence_source": [
+          "논리적 분석",
+          "사물, 행동, 사건 파악"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "구조안"
+            },
+            {
+              "key": "strength",
+              "label": "아키텍처 스타일"
+            },
+            {
+              "key": "weakness",
+              "label": "효과음·이미지 추가 시 수정하는 곳"
+            },
+            {
+              "key": "priority",
+              "label": "전투 장면 프레임 처리 시간(ms)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안",
+              "strength": "Layered",
+              "weakness": "게임 로직 모듈과 사운드·그래픽 모듈",
+              "priority": 12
+            },
+            {
+              "option": "B안",
+              "strength": "Publish Subscribe",
+              "weakness": "사운드·그래픽 모듈의 리소스 목록",
+              "priority": 14
+            },
+            {
+              "option": "C안",
+              "strength": "Repository",
+              "weakness": "리소스 저장소의 등록 목록",
+              "priority": 21
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "게임기획자 메모의 품질속성 시나리오를 비교표의 구조안 후보 세 개에 비추어 보고, 전투 화면에 쓸 구조안 하나를 골라보세요. 고른 구조안과 그 이유, 그리고 나머지 두 후보를 고르지 않은 이유를 2~3문장의 짧은 글로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 변경용이성 조건과 성능 조건을 표의 세 구조안에 각각 적용해 두 조건을 모두 만족하는 구조안 하나를 고르고, 나머지 후보가 어느 조건에 어긋나는지를 근거로 들어 짧게 설명한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "고른 구조안과 이유",
+        "고르지 않은 후보와 그 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "B안(Publish Subscribe)은 효과음·이미지를 추가할 때 사운드·그래픽 모듈의 리소스 목록만 고쳐 게임 로직 모듈을 수정하지 않고, 프레임 처리 시간도 14ms로 16ms 이하라서 변경용이성과 성능 두 조건을 모두 만족한다.",
+      "A안(Layered)은 12ms로 성능 조건은 맞지만 효과음·이미지를 추가할 때 게임 로직 모듈을 고쳐야 해서 변경용이성 조건에 어긋나고, C안(Repository)은 게임 로직 모듈을 고치지 않지만 21ms로 16ms 이하라는 성능 조건에 어긋난다."
+    ],
+    "rubric": [
+      {
+        "criterion": "두 조건을 모두 만족하는 구조안 선택",
+        "description": "변경용이성(효과음·이미지 추가 때 게임 로직 모듈 수정 없음)과 성능(프레임 처리 시간 16ms 이하) 두 조건을 모두 만족하는 B안(Publish Subscribe)을 골랐는지 확인한다.",
+        "points": 60,
+        "linked_evidence": [
+          "창조적 생각",
+          "논리적 분석"
+        ]
+      },
+      {
+        "criterion": "나머지 후보가 어긋나는 조건 제시",
+        "description": "A안은 효과음·이미지 추가 때 게임 로직 모듈을 고쳐야 해서 변경용이성에, C안은 21ms로 성능 조건에 어긋난다는 점을 근거로 들었는지 확인한다.",
+        "points": 40,
+        "linked_evidence": [
+          "사물, 행동, 사건 파악"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "게임기획자, 게임그래픽디자이너, 게임음악가 등으로부터 넘겨받을 자료를 기반으로 게임프로그램의 구조를 설계한다.",
+      "source_ref": {
+        "file": "K000007580/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 99,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 98,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "절차, 자료, 주변환경 관찰",
+          "score": 85,
+          "description": "문제점을 확인하고 평가하기 위하여 자료, 사건, 주변 환경에서 정보를 관찰하고 검토하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 84,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 76,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 99,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "창의력",
+          "score": 98,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "선택적 집중력",
+          "score": 97,
+          "description": "주의를 산만하게 하는 자극에도 불구하고 원하는 일에 집중한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 95,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 91,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 78,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사결정 권한",
+          "score": 98,
+          "description": "해야 할 일, 일의 우선순위, 목표를 정할 수 있는 재량 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 90,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "창조적 생각",
+          "논리적 분석"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "논리적 분석",
+          "사물, 행동, 사건 파악"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.3,
+    "AX2": 0.4,
+    "AX3": 0.3,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

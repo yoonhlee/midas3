@@ -1,0 +1,555 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001134_normal_001",
+  "job_identity": {
+    "job_cd": "K000001134",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "데이터·네트워크 및 시스템 운영 전문가",
+    "job_smcl_nm": "데이터베이스운영·관리자",
+    "source_ref": {
+      "file": "K000001134/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "데이터베이스의 보안 정책을 수립하고, 이에 따른 보안 관리를 준수해 나간다.",
+    "source_ref": {
+      "file": "K000001134/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "하늘결 온라인몰",
+    "domain": "온라인 쇼핑몰 고객정보 데이터베이스의 접근 권한 관리",
+    "period": [
+      "2026년 11월"
+    ],
+    "trend_pattern": "이번 달 사내 부서 세 곳과 외부 통계분석기관 한 곳이 고객정보 테이블 접근 권한을 함께 신청함",
+    "main_issue": "서비스 이용자 네 곳의 고객정보 테이블 접근 권한을 조직 내규에 맞게 정해야 함",
+    "feedback_themes": [
+      "조회 범위(개인정보 포함 여부)",
+      "수정 권한",
+      "계정 수"
+    ],
+    "decision_goal": "서비스 이용자별 조회 범위, 수정 여부, 계정 수를 정한 데이터 접근 정책 초안 작성"
+  },
+  "mission": {
+    "title": "고객정보 테이블, 누구에게 어디까지 열어 줄까?",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 하늘결 온라인몰 데이터베이스운영팀의 인턴입니다.",
+      "context": "하늘결 온라인몰은 고객의 이름·연락처·주소와 구매 기록을 고객정보 테이블 한곳에 모아 둡니다. 이번 달 사내 부서 세 곳과 외부 통계분석기관이 이 테이블을 쓰게 해 달라고 접근 권한을 신청했습니다. 데이터베이스 보안 정책을 맡은 선임이 말합니다. \"개인정보보호 때문에 신청을 그대로 다 열어 줄 수는 없어요. 정보보호팀이 보내 준 조직 내규 발췌를 기준으로, 이용자마다 어디까지 허용할지 데이터 접근 정책 초안을 잡아 줄래요?\"",
+      "goal": "조직 내규 메모를 기준으로 신청한 네 서비스 이용자마다 허용할 권한을 정한 데이터 접근 정책 초안을 써 보세요.",
+      "constraints": [
+        "자료에 있는 조직 내규 세 항목만 기준으로 삼으세요.",
+        "내규에 어긋나지 않는 신청은 신청한 그대로 허용하고, 어긋나는 부분이 있으면 그 부분만 내규에 맞게 줄여서 허용합니다. 신청보다 넓은 권한을 새로 더해 주지는 않습니다.",
+        "이용자마다 조회 범위(개인정보 포함 여부), 수정 가능 여부, 계정 수가 드러나게 2~3문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "보안 정책",
+          "definition": "회사 데이터를 안전하게 지키기 위해 누가 어떤 데이터를 어디까지 다룰 수 있는지 정해 둔 규칙입니다."
+        },
+        {
+          "term": "데이터 접근 정책",
+          "definition": "보안 정책 가운데 이용자마다 어떤 데이터를 볼 수 있고 고칠 수 있는지, 계정을 몇 개 줄지 정한 부분입니다."
+        },
+        {
+          "term": "조직 내규",
+          "definition": "회사가 스스로 정해 직원과 부서가 따르도록 한 내부 규칙입니다."
+        },
+        {
+          "term": "개인정보보호",
+          "definition": "이름·연락처·주소처럼 특정 사람을 알아볼 수 있는 정보가 필요 없는 사람에게 보이거나 함부로 바뀌지 않도록 지키는 일입니다."
+        },
+        {
+          "term": "고객정보 테이블",
+          "definition": "데이터베이스 안에서 고객 정보와 구매 기록을 행과 열로 정리해 담아 둔 표입니다."
+        },
+        {
+          "term": "조회 권한·수정 권한",
+          "definition": "조회 권한은 데이터를 볼 수만 있는 권한이고, 수정 권한은 데이터를 고치거나 새로 넣을 수 있는 권한입니다."
+        },
+        {
+          "term": "연계 계정",
+          "definition": "회사 바깥의 기관이 우리 데이터베이스에 접속할 수 있도록 따로 만들어 주는 전용 계정입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "policy_excerpt",
+        "title": "고객정보 테이블 접근 관련 조직 내규 발췌 (정보보호팀 담당자 작성)",
+        "description": "정보보호팀 담당자가 고객정보 테이블 접근 권한을 정할 때 따를 조직 내규 가운데 세 항목을 발췌해 보낸 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "신청 목록의 각 신청에 적용할 접근 권한 기준으로 씁니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "정보보호팀 담당자",
+          "items": [
+            "1. 고객정보 테이블의 개인정보 항목(이름·연락처·주소)은 고객 응대(고객 문의 처리) 또는 회원 관리(회원 가입·회원 정보 변경 처리) 업무를 맡은 이용자만 조회할 수 있다. 그 밖의 이용자는 개인정보 항목을 뺀 데이터(구매 일자·구매 품목·구매 금액)만 조회한다.",
+            "2. 고객정보 테이블의 수정 권한은 고객정보를 관리하는 회원관리팀에만 준다.",
+            "3. 외부기관 연계 계정은 기관당 1개만 발급한다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "access_request_list",
+        "title": "고객정보 테이블 접근 권한 신청 목록 (2026년 11월)",
+        "description": "이번 달 고객정보 테이블 접근 권한을 신청한 서비스 이용자 네 곳의 신청 내용입니다. 요청 권한은 고객정보 테이블 전체를 대상으로 한 신청이고, 계정 수는 신청한 계정 개수입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 기준을 적용해 서비스 이용자별 허용 권한을 정할 신청 내용으로 씁니다.",
+        "evidence_source": [
+          "정보, 자료 분석",
+          "논리적 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "서비스 이용자"
+            },
+            {
+              "key": "strength",
+              "label": "담당 업무"
+            },
+            {
+              "key": "weakness",
+              "label": "요청 권한(테이블 전체 대상)"
+            },
+            {
+              "key": "priority",
+              "label": "계정 수(개)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "고객지원팀",
+              "strength": "고객 문의 응대",
+              "weakness": "조회",
+              "priority": 12
+            },
+            {
+              "option": "회원관리팀",
+              "strength": "회원 정보 등록·변경",
+              "weakness": "조회·수정",
+              "priority": 3
+            },
+            {
+              "option": "마케팅팀",
+              "strength": "할인 행사 대상 고객 선정",
+              "weakness": "조회·수정",
+              "priority": 6
+            },
+            {
+              "option": "외부기관 연계 계정(통계분석기관)",
+              "strength": "구매 경향 통계 분석",
+              "weakness": "조회",
+              "priority": 2
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "조직 내규 메모를 신청 목록의 네 서비스 이용자에게 적용해 보세요. 이용자마다 허용할 조회 범위(개인정보 포함 여부), 수정 가능 여부, 계정 수를 정한 데이터 접근 정책 초안을 2~3문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 내규 세 항목을 신청 목록의 네 이용자에게 모두 적용해, 이용자별로 허용할 조회 범위, 수정 여부, 계정 수를 정한 정책 초안을 짧게 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "서비스 이용자별 허용 권한(조회 범위·수정 여부·계정 수)"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "고객지원팀은 고객 응대 업무이므로 개인정보를 포함한 조회를 12개 계정으로, 회원관리팀은 회원 관리 업무이자 수정 권한을 받을 수 있는 유일한 팀이므로 개인정보를 포함한 조회·수정을 3개 계정으로 신청대로 허용한다.",
+      "마케팅팀의 할인 행사 대상 고객 선정은 고객 응대나 회원 관리 업무가 아니므로 개인정보 항목을 뺀 데이터만 조회하게 하고, 회원관리팀이 아니므로 수정 권한은 주지 않는다. 계정 6개는 걸리는 항목이 없어 그대로 둔다.",
+      "통계분석기관 연계 계정은 조회만 신청해 수정 기준에는 걸리지 않지만, 개인정보 항목을 뺀 데이터만 조회하게 하고 기관당 1개 기준에 따라 계정을 2개에서 1개로 줄인다.",
+      "수정 권한을 신청했다는 이유만으로 회원관리팀의 권한을 줄이거나, 고객 상대 업무처럼 보인다는 이유로 마케팅팀에 개인정보 조회를 허용하면 내규와 맞지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "네 이용자 모두에 내규 세 항목 적용",
+        "description": "네 서비스 이용자 각각에 대해 조회 범위(개인정보 포함 여부), 수정 가능 여부, 계정 수를 메모의 세 항목에 맞게 빠짐없이 정했는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "논리적 분석"
+        ]
+      },
+      {
+        "criterion": "신청대로 허용할 권한 유지",
+        "description": "내규에 걸리지 않는 고객지원팀(개인정보 포함 조회, 12개)과 회원관리팀(개인정보 포함 조회·수정, 3개)의 권한을 불필요하게 줄이지 않았는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "업무와 무관한 개인정보 조회·수정 차단",
+        "description": "마케팅팀이 개인정보 항목을 조회하거나 고객정보를 수정하게 되는 문제를 미리 찾아, 개인정보를 뺀 조회만 허용하고 수정 권한을 빼는 것으로 정했는지 본다.",
+        "points": 25,
+        "linked_evidence": [
+          "정보, 자료 분석",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "조회만 신청한 외부기관 신청도 점검",
+        "description": "조회만 신청해 안전해 보이는 통계분석기관 연계 계정에도 개인정보 제외와 계정 1개 기준을 적용해, 개인정보를 뺀 조회를 계정 1개로 허용했는지 본다.",
+        "points": 25,
+        "linked_evidence": [
+          "정보, 자료 분석",
+          "논리적 분석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "데이터베이스의 보안 정책을 수립하고, 이에 따른 보안 관리를 준수해 나간다.",
+      "source_ref": {
+        "file": "K000001134/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 96,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001134/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 91,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001134/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 88,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001134/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 85,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001134/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보의 의미 해석",
+          "score": 80,
+          "description": "정보가 뜻하는 바와 그것이 어떻게 사용되는지 번역하거나 설명하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001134/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 93,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001134/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "수리력",
+          "score": 91,
+          "description": "어떤 문제를 해결하기 위해 수학을 사용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001134/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "논리적 분석",
+          "score": 90,
+          "description": "문제를 해결하기 위해(혹은 의사결정을 하기 위해) 체계적으로 이치에 맞는 생각을 해낸다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001134/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 89,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001134/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영어",
+          "score": 78,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001134/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 78,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001134/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 97,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001134/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "자동화 정도",
+          "score": 96,
+          "description": "업무의 자동화 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001134/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "정확성, 정밀성 유지",
+          "score": 95,
+          "description": "업무 수행을 위해 정밀하거나 정확한 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001134/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보, 자료 분석",
+          "논리적 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001134/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 8,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001134/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001134/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

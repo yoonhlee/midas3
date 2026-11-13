@@ -1,0 +1,544 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001000_normal_001",
+  "job_identity": {
+    "job_cd": "K000001000",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "디자이너",
+    "job_smcl_nm": "제품디자이너",
+    "source_ref": {
+      "file": "K000001000/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "디자인의 개념을 수립하기 위한 각종 자료를 수집하고 제품제조기술자, 판매담당자, 경영주 및 기타관련된 사람들과 협의한다.",
+    "source_ref": {
+      "file": "K000001000/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "솔바람가전 디자인팀",
+    "domain": "소형 생활가전 제품디자인",
+    "period": [
+      "2025년 이후 발행 자료",
+      "2026년 자료 수집"
+    ],
+    "trend_pattern": "지금까지 모은 자료 후보 4건은 다루는 제품, 수집루트, 발행연도가 서로 다르다.",
+    "main_issue": "모은 자료 후보 중 팀장 메모의 수집 기준을 모두 충족하는 자료만 남겨야 한다.",
+    "feedback_themes": [
+      "개발 방향과의 관련성",
+      "수집루트와 출처 명기",
+      "발행연도"
+    ],
+    "decision_goal": "1인 가구용 탁상형 소형 가습기의 디자인 개념 수립에 쓸 자료를 확정한다."
+  },
+  "mission": {
+    "title": "소형 가습기 디자인 자료, 쓸 것과 뺄 것 가려내기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "planning_and_proposal"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 솔바람가전 디자인팀의 제품디자인 인턴입니다.",
+      "context": "솔바람가전 디자인팀은 새 프로젝트로 1인 가구용 탁상형 소형 가습기를 디자인합니다. 디자인 개념을 세우기 전에 참고할 자료를 모으는 중이고, 선배 디자이너가 지금까지 찾은 자료 후보 4건을 표로 정리해 두었습니다. 디자인팀장은 인턴인 당신에게 '내 메모에 적은 기준에 맞는 자료만 남기고, 빼는 자료는 이유를 붙여서 알려 달라'고 부탁했습니다.",
+      "goal": "팀장 메모의 기준에 따라 자료 후보 가운데 디자인 개념 수립에 쓸 수 있는 자료를 판정하고, 제외하는 자료의 이유를 짧게 보고합니다.",
+      "constraints": [
+        "메모와 표에 있는 내용만 근거로 판단하세요.",
+        "외부 검색이나 전문 지식 없이 답할 수 있습니다.",
+        "답은 2~3문장으로 적어 주세요."
+      ],
+      "glossary": [
+        {
+          "term": "수집루트",
+          "definition": "자료를 어디에서 구해 왔는지, 즉 자료를 얻은 경로나 곳을 말합니다."
+        },
+        {
+          "term": "디자인 트렌드",
+          "definition": "요즘 제품 디자인에서 많이 나타나는 모양, 색, 재질의 흐름입니다."
+        },
+        {
+          "term": "조형",
+          "definition": "제품의 겉모양과 형태, 또는 그 모양을 만드는 일입니다."
+        },
+        {
+          "term": "거시환경",
+          "definition": "사회, 기술, 환경, 경제, 정치처럼 회사 바깥에서 제품과 생활에 영향을 주는 큰 흐름입니다."
+        },
+        {
+          "term": "칼라",
+          "definition": "색, 색상을 뜻합니다."
+        },
+        {
+          "term": "디자인 페어",
+          "definition": "새로 나온 제품과 디자인을 한자리에 모아 보여 주는 전시 행사입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "guideline_memo",
+        "title": "디자인팀장 메모: 소형 가습기 프로젝트 자료 수집 기준",
+        "description": "디자인팀장이 이번 소형 가습기 프로젝트의 개발 방향과 자료 수집 기준을 정리해 팀에 공유한 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "자료 후보를 판정할 때 적용할 개발 방향과 수집 기준을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "정보 수집",
+          "사물, 서비스, 사람의 질 판단"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "디자인팀장",
+          "items": [
+            "이번 프로젝트의 개발 방향은 '1인 가구용 탁상형 소형 가습기'입니다. 디자인 개념을 세우는 자료는 소형 가습기의 조형, 칼라, 소재 경향이나 1인 가구의 사용 환경을 다룬 것만 모아 주세요.",
+            "수집루트는 경험과 신뢰도가 있는 기관·매체로 한정합니다. 정부기관·민간연구소의 분석 보고서, 전시·디자인 페어 자료, 관련 잡지만 인정하고, 출처(기관·행사·매체 이름)를 명기할 수 있는 자료만 씁니다.",
+            "최신 출시 제품과 최근 경향을 반영해야 하므로 2025년 이후에 발행된 자료만 씁니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "candidate_list",
+        "title": "디자인 개념 수립용 자료 후보 목록",
+        "description": "선배 디자이너가 지금까지 모은 자료 후보 4건을 자료명, 수집루트, 주요 내용, 발행연도로 정리한 목록입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 기준을 적용할 자료 후보의 수집루트, 주요 내용, 발행연도를 확인하는 데 쓴다.",
+        "evidence_source": [
+          "사물, 행동, 사건 파악",
+          "정보 수집"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "자료명"
+            },
+            {
+              "key": "strength",
+              "label": "수집루트"
+            },
+            {
+              "key": "weakness",
+              "label": "주요 내용"
+            },
+            {
+              "key": "priority",
+              "label": "발행연도"
+            }
+          ],
+          "rows": [
+            {
+              "option": "소형 가습기 디자인 트렌드 분석 보고서",
+              "strength": "민간연구소(누리디자인연구소)",
+              "weakness": "탁상형 소형 가습기의 조형·칼라·소재 경향",
+              "priority": 2026
+            },
+            {
+              "option": "매장용 대형 가습기 디자인 사례",
+              "strength": "관련 잡지(월간 생활조형)",
+              "weakness": "매장·사무실용 대형 가습기의 형태 사례",
+              "priority": 2026
+            },
+            {
+              "option": "소형 가습기 디자인 후기 모음",
+              "strength": "개인 블로그(작성자 미상)",
+              "weakness": "사용자가 올린 소형 가습기 사진과 사용 후기",
+              "priority": 2026
+            },
+            {
+              "option": "1인 가구 생활환경 분석 보고서",
+              "strength": "정부기관(주거생활청)",
+              "weakness": "1인 가구의 주거 면적·생활 패턴 등 거시환경",
+              "priority": 2021
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장 메모의 기준을 자료 후보 표에 적용해 보세요. 디자인 개념 수립에 쓸 수 있는 자료를 고르고, 제외하는 자료마다 어떤 기준에 맞지 않는지 이유를 함께 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 수집 기준을 표의 자료 후보 4건 각각에 대어 보고, 모든 기준을 충족하는 자료를 쓸 자료로 판정한 뒤 제외한 자료마다 어긋나는 기준을 근거로 든다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "쓸 수 있는 자료 판정과 제외한 자료별 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "메모의 세 기준(개발 방향과의 관련성, 허용된 수집루트와 출처 명기, 2025년 이후 발행)을 모두 충족하는 자료는 '소형 가습기 디자인 트렌드 분석 보고서'뿐이므로 이것만 쓸 수 있는 자료로 고른다.",
+      "'매장용 대형 가습기 디자인 사례'는 대형 제품을 다뤄 개발 방향과 맞지 않고, '소형 가습기 디자인 후기 모음'은 개인 블로그라 허용된 수집루트가 아니며 출처를 밝힐 수 없고, '1인 가구 생활환경 분석 보고서'는 2021년 발행이라 2025년 이후 기준에 어긋나 제외한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "쓸 수 있는 자료의 올바른 판정",
+        "description": "메모의 세 기준을 모두 충족하는 '소형 가습기 디자인 트렌드 분석 보고서'만 쓸 수 있는 자료로 골랐는지, 일부 기준만 맞는 나머지 세 후보를 포함하지 않았는지 확인한다.",
+        "points": 50,
+        "linked_evidence": [
+          "정보 수집",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      },
+      {
+        "criterion": "제외한 자료별 근거 제시",
+        "description": "제외한 자료마다 어긋나는 기준을 맞게 들었는지 확인한다. 매장용 대형 가습기 사례는 개발 방향과 다른 제품, 후기 모음은 허용되지 않은 수집루트와 출처 불명, 1인 가구 생활환경 보고서는 2025년 이전 발행이 근거여야 한다.",
+        "points": 50,
+        "linked_evidence": [
+          "사물, 행동, 사건 파악"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "디자인의 개념을 수립하기 위한 각종 자료를 수집하고 제품제조기술자, 판매담당자, 경영주 및 기타관련된 사람들과 협의한다.",
+      "source_ref": {
+        "file": "K000001000/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 97,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 83,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 78,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사물, 서비스, 사람의 질 판단",
+          "score": 72,
+          "description": "사물, 사람의 가치, 중요성, 질을 평가하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 68,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 84,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "협상",
+          "score": 75,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "행동조정",
+          "score": 65,
+          "description": "다른 사람들의 행동에 맞추어 적절히 대응한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "디자인",
+          "score": 98,
+          "description": "밑그림, 제도와 같이 디자인에 필요한 기법 및 도구에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "예술",
+          "score": 96,
+          "description": "음악, 무용, 미술, 드라마에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "상품 제조 및 공정",
+          "score": 95,
+          "description": "상품의 제조 및 유통을 효율적으로 하기 위해 필요한 원자재, 제조공정, 품질관리, 비용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 96,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 86,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001000/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 수집",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "사물, 행동, 사건 파악",
+          "정보 수집"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001000/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.25,
+    "AX2": 0.75,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

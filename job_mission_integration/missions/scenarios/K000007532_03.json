@@ -1,0 +1,691 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007532_hard_001",
+  "job_identity": {
+    "job_cd": "K000007532",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "학예사·사서·기록물관리사",
+    "job_smcl_nm": "사서",
+    "source_ref": {
+      "file": "K000007532/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "자료명칭, 저자, 출판사항, 분류 및 주제명 등을 확인하여 컴퓨터에 입력한다.",
+    "source_ref": {
+      "file": "K000007532/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "하늘숲구립도서관",
+    "domain": "공공도서관 신착도서 목록 입력",
+    "period": [
+      "신착도서 입력일(어제)",
+      "수정 입력일(오늘)"
+    ],
+    "trend_pattern": "어제 입력된 신착도서 4건의 입력값과 실물 책의 표제지·판권기 표기를 같은 순서로 나란히 비교할 수 있다.",
+    "main_issue": "목록시스템에 입력된 신착도서 기록이 목록규칙과 실물 표기에 맞는지 확인하고, 하루 1건만 수정 입력할 수 있는 조건에서 먼저 고칠 기록을 정해야 한다.",
+    "feedback_themes": [
+      "예약 인원",
+      "이용자 검색 화면에 보이는 기록",
+      "하루 1건 수정 입력 제한"
+    ],
+    "decision_goal": "오늘 수정 입력할 기록 1건을 이유와 주의점과 함께 추천한다."
+  },
+  "mission": {
+    "title": "신착도서 목록 기록 점검하고 오늘 고칠 1건 정하기",
+    "task_type": "coordination_and_negotiation",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "하늘숲구립도서관 자료정리팀 인턴 사서",
+      "context": "당신은 하늘숲구립도서관 자료정리팀의 인턴 사서입니다. 어제 신착도서 4권의 기록이 목록시스템에 입력되었고, 오늘 아침 자료정리팀장이 입력 내용을 실물 책과 대조해 달라고 부탁했습니다. 오늘은 수정 입력을 1건만 할 수 있어서, 어느 기록을 먼저 고칠지도 함께 정해야 합니다.",
+      "goal": "팀장이 준 입력 기준에 비추어 기록 4건을 점검하고, 오늘 고칠 1건을 이유와 함께 추천해 보세요.",
+      "constraints": [
+        "제공된 세 자료와 용어 설명만 보고 판단하세요.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "신착도서",
+          "definition": "도서관에 새로 들어온 책."
+        },
+        {
+          "term": "목록규칙",
+          "definition": "도서관이 자료 정보를 목록에 적을 때 따르는 입력 방법과 기준을 정해 둔 규칙."
+        },
+        {
+          "term": "목록시스템",
+          "definition": "도서관 자료의 정보를 입력하고 저장해, 이용자가 검색 화면에서 자료를 찾을 수 있게 하는 컴퓨터 프로그램."
+        },
+        {
+          "term": "출판사항",
+          "definition": "책을 펴낸 곳(발행지), 펴낸 출판사(발행처), 펴낸 해(발행년)를 함께 이르는 정보."
+        },
+        {
+          "term": "표제지",
+          "definition": "책 앞부분에서 제목과 저자 이름을 정식으로 적어 둔 쪽."
+        },
+        {
+          "term": "판권기",
+          "definition": "책의 맨 앞이나 맨 뒤에 발행처, 발행일, 판과 쇄 같은 출판 정보를 모아 적은 부분."
+        },
+        {
+          "term": "본서명",
+          "definition": "책의 중심이 되는 제목."
+        },
+        {
+          "term": "부서명",
+          "definition": "본서명 뒤에 붙어 내용을 덧붙여 설명하는 작은 제목. 흔히 부제목이라고 부른다."
+        },
+        {
+          "term": "초판",
+          "definition": "책을 처음 펴낸 판. 같은 초판을 다시 찍을 때는 판은 그대로이고 쇄만 늘어난다."
+        },
+        {
+          "term": "쇄",
+          "definition": "같은 판의 책을 인쇄한 차례. 처음 찍으면 1쇄, 다시 찍으면 2쇄, 3쇄로 센다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "rule_excerpt_and_request",
+        "title": "자료정리팀장 메모: 신착도서 입력 기준(목록규칙 발췌)과 오늘 처리 요청",
+        "description": "자료정리팀장이 우리 도서관 목록규칙에서 신착도서 입력 기준을 발췌하고 오늘 처리 요청을 덧붙인 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "기록을 판정할 입력 기준과 오늘의 수정 입력 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "사무",
+          "행정, 관리 업무"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "자료정리팀장",
+          "items": [
+            "[목록규칙 발췌 1] 자료명칭은 표제지에 적힌 서명을 부서명까지 '본서명 : 부서명' 형태로 입력한다. 저자는 표제지에 적힌 대로 입력하되, 번역서는 옮긴이까지 '; ○○ 옮김' 형태로 이어서 입력한다.",
+            "[목록규칙 발췌 2] 출판사항은 '발행지 : 발행처, 발행년' 순서로 입력한다. 발행년은 판권기에서 그 판이 처음 발행된 해를 쓰며, 쇄가 바뀌어도 발행년은 바꾸지 않는다.",
+            "[오늘 처리 요청] 어제 목록시스템에 입력된 신착도서 4건을 실물 확인표와 하나씩 대조해 주세요. 오늘은 수정 입력을 1건만 할 수 있고, 고치지 못한 기록은 내일까지 이용자 검색 화면에 그대로 보입니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "catalog_entry_list",
+        "title": "입력 기록표: 어제 목록시스템에 입력된 신착도서 4건",
+        "description": "목록시스템에 입력된 신착도서 기록의 자료명칭, 저자, 출판사항과 기록별 예약 인원을 옮긴 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "기준과 실물 표기에 비추어 점검할 입력값과, 오늘 고칠 기록을 정할 때 참고할 예약 인원을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "행정, 관리 업무",
+          "사람들에게 조언, 상담"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "자료명칭"
+            },
+            {
+              "key": "strength",
+              "label": "저자"
+            },
+            {
+              "key": "weakness",
+              "label": "출판사항"
+            },
+            {
+              "key": "priority",
+              "label": "예약 인원(명)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "작은 정원의 사계절",
+              "strength": "윤하나 지음",
+              "weakness": "서울 : 초록마당, 2022",
+              "priority": 1
+            },
+            {
+              "option": "느리게 읽는 법",
+              "strength": "마틴 홀 지음",
+              "weakness": "서울 : 다온북스, 2023",
+              "priority": 4
+            },
+            {
+              "option": "동네 책방 탐구",
+              "strength": "김도윤 지음",
+              "weakness": "파주 : 책마루, 2024",
+              "priority": 2
+            },
+            {
+              "option": "우리말 맞춤법 길잡이",
+              "strength": "박서연 지음",
+              "weakness": "서울 : 한빛말, 2023",
+              "priority": 0
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "physical_item_check_sheet",
+        "title": "실물 확인표: 신착도서 4권의 표제지·판권기 표기",
+        "description": "정리 담당자가 실물 책의 표제지와 판권기를 보고 적은 내용과 각 책의 쇄를 입력 기록표와 같은 순서로 정리한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "입력값과 대조할 실물 책의 자료명칭, 저자, 출판사항 표기와 쇄를 확인하는 데 씁니다.",
+        "evidence_source": [
+          "행정, 관리 업무",
+          "사무"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "표제지의 자료명칭"
+            },
+            {
+              "key": "strength",
+              "label": "표제지의 저자 표기"
+            },
+            {
+              "key": "weakness",
+              "label": "판권기의 출판사항 표기"
+            },
+            {
+              "key": "priority",
+              "label": "쇄(인쇄 차수)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "작은 정원의 사계절 : 베란다에서 시작하는 식물 기르기",
+              "strength": "윤하나 지음",
+              "weakness": "서울 : 초록마당 / 2022년 4월 초판 1쇄",
+              "priority": 1
+            },
+            {
+              "option": "느리게 읽는 법",
+              "strength": "마틴 홀 지음 ; 이수진 옮김",
+              "weakness": "서울 : 다온북스 / 2023년 8월 초판 1쇄",
+              "priority": 1
+            },
+            {
+              "option": "동네 책방 탐구",
+              "strength": "김도윤 지음",
+              "weakness": "파주 : 책마루 / 2021년 5월 초판 1쇄, 2024년 2월 초판 3쇄",
+              "priority": 3
+            },
+            {
+              "option": "우리말 맞춤법 길잡이",
+              "strength": "박서연 지음",
+              "weakness": "서울 : 한빛말 / 2023년 3월 초판 1쇄, 2023년 9월 초판 2쇄",
+              "priority": 2
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "자료정리팀장 메모의 목록규칙 발췌에 비추어, 입력 기록표의 기록 4건을 실물 확인표와 하나씩 대조해 보세요. 건마다 기준에 맞는지 판정하고, 맞지 않는 건은 어긋난 항목과 고쳐 입력할 값을 적어보세요. 답은 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "입력 기록 4건을 기준과 실물 표기에 대조해 건별로 판정하고, 어긋난 건의 항목과 고쳐 입력할 값을 쓴다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1에서 기준에 맞지 않는다고 판정한 기록 가운데 오늘 수정 입력할 1건을 정해 추천해 보세요. 다른 기록보다 이 건을 먼저 고쳐야 하는 이유와, 이 선택에 따르는 주의점 1가지를 함께 적어보세요. 답은 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "어긋난 기록 중 오늘 고칠 1건을 골라 다른 기록보다 먼저인 이유와 주의점 1가지를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 기록별 판정과 고쳐 입력할 값",
+        "과제 2: 오늘 고칠 1건 추천, 이유, 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1은 자료로 답이 하나로 정해진다. 「작은 정원의 사계절」은 자료명칭에 부서명이 빠졌고, 「느리게 읽는 법」은 번역서인데 저자에 옮긴이가 빠졌으며, 「동네 책방 탐구」는 출판사항의 발행년이 초판 1쇄(2021년)가 아닌 3쇄 연도(2024년)로 들어갔다.",
+      "「우리말 맞춤법 길잡이」는 2쇄이지만 초판 1쇄와 같은 2023년에 나왔으므로 입력값 2023이 기준에 맞는다. 따라서 과제 2의 추천 대상이 아니다.",
+      "고쳐 입력할 값은 자료명칭 '작은 정원의 사계절 : 베란다에서 시작하는 식물 기르기', 저자 '마틴 홀 지음 ; 이수진 옮김', 출판사항 '파주 : 책마루, 2021'이다.",
+      "과제 2는 자료만으로 정답이 하나로 정해지지 않는다. 추천은 과제 1에서 어긋난 3건 중 하나여야 하고, 이유는 틀린 항목, 예약 인원, 고치지 못한 기록이 내일까지 검색 화면에 남는다는 점을 들어 나머지 두 건보다 먼저인 까닭을 보여야 한다.",
+      "예시: 예약 인원이 4명으로 가장 많은 「느리게 읽는 법」을 먼저 고쳐 가장 많은 이용자가 보는 기록을 바로잡는다. 서명으로 책을 찾는 이용자에게 영향을 주는 「작은 정원의 사계절」을 먼저 고친다는 추천도 이유가 비교로 뒷받침되면 인정된다.",
+      "예시: 주의점으로 오늘 고치지 못한 「동네 책방 탐구」는 내일까지 발행년이 2024로 보여 이용자가 실제와 다른 해에 나온 책으로 알 수 있다는 점을 들 수 있다."
+    ],
+    "rubric": [
+      {
+        "criterion": "기록별 판정과 어긋난 항목",
+        "description": "입력 기록 4건 각각이 기준에 맞는지 판정하고, 어긋난 건의 항목을 바르게 짚었는지 본다. 자료로 답이 하나로 정해진다: 「작은 정원의 사계절」은 자료명칭(부서명 누락), 「느리게 읽는 법」은 저자(옮긴이 누락), 「동네 책방 탐구」는 출판사항(발행년을 3쇄 연도로 입력), 「우리말 맞춤법 길잡이」는 기준에 맞음. 판정이나 항목이 틀린 건마다 감점한다.",
+        "points": 30,
+        "linked_evidence": [
+          "행정, 관리 업무",
+          "사무"
+        ]
+      },
+      {
+        "criterion": "고쳐 입력할 값의 형식",
+        "description": "과제 1에서 쓴 고쳐 입력할 값이 자료정리팀장 메모의 입력 형식에 맞는지 본다. 기대값: 자료명칭 '작은 정원의 사계절 : 베란다에서 시작하는 식물 기르기', 저자 '마틴 홀 지음 ; 이수진 옮김', 출판사항 '파주 : 책마루, 2021'. 세 값 가운데 틀리거나 빠진 값마다 감점한다.",
+        "points": 25,
+        "linked_evidence": [
+          "사무",
+          "행정, 관리 업무"
+        ]
+      },
+      {
+        "criterion": "추천 1건과 비교 이유",
+        "description": "특정 답을 요구하지 않는다. 추천이 과제 1에서 기준에 어긋난다고 판정한 기록 중 하나이고, 이유가 과제 1의 결과(틀린 항목)와 자료(예약 인원, 고치지 못한 기록이 내일까지 검색 화면에 남는다는 점)에서 나와 나머지 두 기록보다 왜 먼저인지를 보여 주면 만점이다. 자료의 사실은 맞지만 다른 기록과 비교해 왜 더 나은지 보여 주지 못하면 부분 점수만 준다. 예: 예약 인원이 4명으로 가장 많은 「느리게 읽는 법」을 먼저 고쳐 가장 많은 이용자가 보는 기록을 바로잡는다.",
+        "points": 30,
+        "linked_evidence": [
+          "사람들에게 조언, 상담",
+          "행정, 관리 업무"
+        ]
+      },
+      {
+        "criterion": "선택에 따르는 주의점",
+        "description": "선택한 기록을 먼저 고칠 때 남는 실제 위험이나 한계로서 자료에 나타난 것을 1가지 들었는지 본다. 자료에 근거한 위험이면 인정한다. 예: 오늘 고치지 못한 「동네 책방 탐구」는 내일까지 발행년이 2024로 보여 이용자가 실제와 다른 해에 나온 책으로 알 수 있다.",
+        "points": 15,
+        "linked_evidence": [
+          "사람들에게 조언, 상담"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "자료명칭, 저자, 출판사항, 분류 및 주제명 등을 확인하여 컴퓨터에 입력한다.",
+      "source_ref": {
+        "file": "K000007532/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 100,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 99,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 99,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "상사, 동료, 부하직원과 소통",
+          "score": 99,
+          "description": "상사, 동료, 부하직원에게 정보를 서면, 이메일 또는 직접 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 99,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 95,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 91,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 89,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "역사",
+          "score": 75,
+          "description": "역사적 사건과 원인 그리고 유적에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "사무",
+          "score": 66,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "국어",
+          "score": 64,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "앉아서 근무",
+          "score": 84,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "외부 고객 대하기",
+          "score": 84,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 접촉",
+          "score": 83,
+          "description": "업무 수행하면서 사람들과 접촉(전화, 대면, 메신저 등) 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "사무",
+          "행정, 관리 업무"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "행정, 관리 업무",
+          "사람들에게 조언, 상담"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "행정, 관리 업무",
+          "사무"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.275,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.425,
+    "AX5": 0.3
+  }
+}

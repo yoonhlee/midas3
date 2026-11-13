@@ -1,0 +1,532 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000936_normal_001",
+  "job_identity": {
+    "job_cd": "K000000936",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "컴퓨터하드웨어·통신공학 기술자",
+    "job_smcl_nm": "통신기술개발자",
+    "source_ref": {
+      "file": "K000000936/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "[통신망관리기획원] 통신망의 효율성과 성능 향상을 위하여 통신망 관리체제를 기획하고 망관리시설의 구축 업무를 수행하며, 통신망의 품질을 평가한다.",
+    "source_ref": {
+      "file": "K000000936/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "누리망기술 통신망관리기획팀",
+    "domain": "고객사 사내 통신망 운용관리 기획",
+    "period": [
+      "2027년 1분기 운용관리계획"
+    ],
+    "trend_pattern": "초안 일정의 점검 업무마다 반복 주기와 대상 사업장이 다르게 정해져 있다.",
+    "main_issue": "운용관리계획 초안의 점검 일정이 고객사 네트워크 요구사항을 모두 충족하는지 아직 확인되지 않았다.",
+    "feedback_themes": [
+      "점검 대상 사업장 범위",
+      "점검 반복 주기",
+      "긴급 복구 계획 점검"
+    ],
+    "decision_goal": "고객사 요구사항을 충족하지 못하는 초안 항목을 찾아 항목별로 고칠 내용을 제안한다."
+  },
+  "mission": {
+    "title": "운용관리계획 초안, 고객 요구사항에 맞게 고치기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [
+      "decision_making"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 누리망기술 통신망관리기획팀의 신입 인턴입니다.",
+      "context": "누리망기술은 한결물류의 본사·1지사·2지사를 잇는 사내 통신망을 맡아 운용관리하기로 했습니다. 팀에서 운용관리계획 초안의 정기 점검 일정을 만들었고, 한결물류 정보시스템팀은 계획에 꼭 넣어야 할 네트워크 요구사항을 메일로 보내왔습니다. 팀장님이 초안을 고객사에 보내기 전에 요구사항과 맞는지 먼저 확인해 달라고 부탁했습니다.",
+      "goal": "고객사 메일과 초안 일정을 함께 보고, 고쳐야 할 항목과 고칠 방법을 팀장님께 제안해 보세요.",
+      "constraints": [
+        "제공된 메일과 일정표에 있는 내용만 근거로 삼으세요.",
+        "답은 2~3문장으로 짧게 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "네트워크 요구사항",
+          "definition": "고객이 통신망을 운영할 때 꼭 지켜 달라고 요청한 조건입니다."
+        },
+        {
+          "term": "운용상태",
+          "definition": "통신망 장비와 회선이 지금 정상으로 돌아가고 있는지를 나타내는 상태입니다."
+        },
+        {
+          "term": "운용관리시스템",
+          "definition": "통신망 장비의 상태 정보를 자동으로 모아 한 화면에 보여 주는 관리 프로그램입니다."
+        },
+        {
+          "term": "긴급 복구 계획",
+          "definition": "통신망에 큰 장애가 났을 때 누가 무엇을 어떤 순서로 해서 빨리 되살릴지 미리 정해 둔 계획입니다."
+        },
+        {
+          "term": "모의 복구 훈련",
+          "definition": "실제로 장애가 난 것처럼 가정하고 복구 순서를 미리 연습해 보는 훈련입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "customer_requirement_email",
+        "title": "한결물류 정보시스템팀의 네트워크 요구사항 메일",
+        "description": "고객사 한결물류 정보시스템팀 담당자가 운용관리계획에 반영해 달라고 보낸 메일입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "운용관리계획 초안의 점검 업무가 지켜야 할 대상 사업장과 주기 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "통신",
+          "조직체계의 분석 및 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "한결물류 정보시스템팀 담당자",
+              "to": "누리망기술 통신망관리기획팀",
+              "subject": "운용관리계획 초안에 반영할 네트워크 요구사항",
+              "body": "안녕하세요, 한결물류 정보시스템팀입니다.\n준비 중이신 운용관리계획에 아래 네트워크 요구사항 세 가지를 꼭 반영해 주세요.\n① 네트워크 운용상태 파악: 본사·1지사·2지사 세 사업장 모두를 대상으로 1일 이내 주기\n② 품질 측정: 본사·1지사·2지사 세 사업장 모두를 대상으로 30일 이내 주기\n③ 긴급 복구 계획 점검: 본사·1지사·2지사 세 사업장 모두를 대상으로 90일 이내 주기\n주기는 적어 둔 일수를 넘지만 않으면 됩니다. 일수가 딱 같아도 괜찮습니다.\n초안이 정리되면 한번 같이 검토했으면 합니다. 감사합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "schedule",
+        "subtype": "operation_plan_draft_schedule",
+        "title": "운용관리계획 초안 정기 점검 일정 (통신망관리기획팀 작성)",
+        "description": "통신망관리기획팀이 작성한 2027년 1분기 운용관리계획 초안의 정기 점검 일정입니다. 기간 칸에는 반복 주기를, 제약 칸에는 대상 사업장을 적었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "고객사 요구사항과 비교할 초안의 점검 업무, 반복 주기, 대상 사업장을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "사물, 행동, 사건 파악",
+          "통신"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "items": [
+            {
+              "period": "1일마다",
+              "task": "네트워크 운용상태 파악 (운용관리시스템으로 자동 수집)",
+              "constraint": "대상: 본사·1지사"
+            },
+            {
+              "period": "45일마다",
+              "task": "품질 측정 (측정기로 현장 측정)",
+              "constraint": "대상: 본사·1지사·2지사"
+            },
+            {
+              "period": "90일마다",
+              "task": "긴급 복구 계획 점검 (모의 복구 훈련)",
+              "constraint": "대상: 본사·1지사·2지사"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "고객사 메일의 네트워크 요구사항을 초안 일정의 각 항목에 적용해 보고, 요구사항을 충족하지 못하는 항목을 모두 찾아 항목마다 무엇을 어떻게 고쳐야 하는지 2~3문장으로 제안해 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메일의 대상 사업장 조건과 주기 조건을 초안 일정의 세 항목에 하나씩 대어 보고, 충족하지 못하는 항목과 그 항목을 고칠 내용을 항목별로 짧게 제안한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "항목별 수정 제안"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "네트워크 운용상태 파악 항목은 1일 주기는 요구사항에 맞지만 대상에 2지사가 빠져 있으므로, 대상을 본사·1지사·2지사 세 사업장으로 넓혀야 한다.",
+      "품질 측정 항목은 45일마다로 30일 이내 조건을 넘으므로, 주기를 30일 이내(예: 30일마다)로 줄여야 한다.",
+      "긴급 복구 계획 점검 항목은 90일마다로 90일 이내 조건을 충족하고 대상도 세 사업장 모두이므로 고칠 필요가 없다."
+    ],
+    "rubric": [
+      {
+        "criterion": "대상 범위 누락 항목 찾기",
+        "description": "네트워크 운용상태 파악 항목이 주기는 맞지만 대상에서 2지사가 빠졌음을 찾고, 대상을 세 사업장으로 넓히자고 제안했는지 본다.",
+        "points": 35,
+        "linked_evidence": [
+          "사물, 행동, 사건 파악",
+          "통신"
+        ]
+      },
+      {
+        "criterion": "주기 초과 항목 찾기",
+        "description": "품질 측정 항목의 45일 주기가 30일 이내 조건을 넘는다는 점을 찾고, 주기를 30일 이내로 줄이자고 제안했는지 본다.",
+        "points": 35,
+        "linked_evidence": [
+          "사물, 행동, 사건 파악",
+          "통신"
+        ]
+      },
+      {
+        "criterion": "충족 항목 올바르게 판단하기",
+        "description": "90일 주기의 긴급 복구 계획 점검 항목을 90일 이내 조건을 충족하는 항목으로 보고, 고칠 항목에 잘못 넣지 않았는지 본다.",
+        "points": 15,
+        "linked_evidence": [
+          "조직체계의 분석 및 평가"
+        ]
+      },
+      {
+        "criterion": "항목별 수정 내용 제시",
+        "description": "고칠 항목마다 무엇을 어떻게 바꿀지(대상 추가, 주기 단축)를 구체적으로 나누어 2~3문장으로 적었는지 본다.",
+        "points": 15,
+        "linked_evidence": [
+          "조직체계의 분석 및 평가",
+          "통신"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "[통신망관리기획원] 통신망의 효율성과 성능 향상을 위하여 통신망 관리체제를 기획하고 망관리시설의 구축 업무를 수행하며, 통신망의 품질을 평가한다.",
+      "source_ref": {
+        "file": "K000000936/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 87,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 84,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 82,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 76,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 97,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 95,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "품질관리분석",
+          "score": 92,
+          "description": "품질 또는 성과를 평가하기 위하여 제품, 서비스, 공정을 검사하거나 조사한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "통신",
+          "score": 97,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 96,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 93,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 97,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 89,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 88,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "통신",
+          "조직체계의 분석 및 평가"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "사물, 행동, 사건 파악",
+          "통신"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.13,
+    "AX2": 0.48,
+    "AX3": 0.13,
+    "AX4": 0.13,
+    "AX5": 0.13
+  }
+}

@@ -1,0 +1,708 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007581_hard_001",
+  "job_identity": {
+    "job_cd": "K000007581",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "제도사 및 기타 인쇄·목재 등 공학 기술자 및 시험원",
+    "job_smcl_nm": "3D프린팅모델러",
+    "source_ref": {
+      "file": "K000007581/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "제품의 형상을 이미지로 디자인하고, 컴퓨터 프로그램을 활용하여 3D모델링 과정을 수행한다.",
+    "source_ref": {
+      "file": "K000007581/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "모래알3D 스튜디오",
+    "domain": "3D프린팅 소량 맞춤 제작(매장용 소품)",
+    "period": [
+      "주문 접수 주",
+      "다음 주 금요일(납품 기한)"
+    ],
+    "trend_pattern": "단골손님 50명 대상 콘셉트 테스트의 선호 응답 수는 A안 12명, B안 15명, C안 18명, D안 5명이다.",
+    "main_issue": "테이블 번호 거치대 아이디어 스케치 4개 가운데 고객의 요구 세 가지와 개당 출력 시간 조건을 지키는 안을 가려내고, 정밀 스케치로 발전시킬 안을 정해야 한다.",
+    "feedback_themes": [
+      "번호가 잘 보이고 잡기 편함",
+      "흔한 모양이라 기억에 남지 않음",
+      "원목 가구와 잘 어울림",
+      "물결 사이 먼지 우려",
+      "개성 있고 눈에 띔",
+      "잎 모양이 귀여움"
+    ],
+    "decision_goal": "정밀 스케치로 발전시킬 스케치안 하나와 그 안을 진행할 때 주의할 점을 정한다."
+  },
+  "mission": {
+    "title": "카페 테이블 번호 거치대, 정밀 스케치로 발전시킬 안 고르기",
+    "task_type": "operation_and_scheduling",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "모래알3D 스튜디오의 3D프린팅모델러 인턴",
+      "context": "당신은 모래알3D 스튜디오에서 일하는 3D프린팅모델러 인턴입니다. 동네 카페에서 테이블 번호 거치대 20개를 주문받았고, 팀에서 서로 다른 콘셉트의 아이디어 스케치 4개를 그려 두었습니다. 프로젝트 담당 팀장이 고객의 요구와 출력 일정을 정리한 메일을 보내면서, 스케치 비교표와 단골손님 대상 콘셉트 테스트 결과표를 함께 보고 검토해 달라고 부탁했습니다.",
+      "goal": "아래 자료를 보고 스케치안 4개가 고객의 요구와 출력 일정 조건에 맞는지 하나씩 확인한 뒤, 정밀 스케치로 발전시킬 안 하나를 골라 이유와 주의할 점을 적어보세요.",
+      "constraints": [
+        "메일, 비교표, 결과표에 나온 조건과 수치만 근거로 판단하세요.",
+        "답은 과제마다 3~5문장으로 적어 주세요.",
+        "모델링 프로그램을 다루거나 실제로 출력하지는 않습니다. 문서 자료만 보고 판단합니다."
+      ],
+      "glossary": [
+        {
+          "term": "아이디어 스케치",
+          "definition": "디자인 초기 단계에서 떠올린 여러 콘셉트를 빠르게 그려 본 그림이다."
+        },
+        {
+          "term": "정밀 스케치",
+          "definition": "고른 아이디어를 형태, 색, 표면 느낌까지 자세히 표현해 완성품이 어떻게 보일지 미리 그린 그림이다."
+        },
+        {
+          "term": "형태 스타일",
+          "definition": "물건의 전체 모양과 윤곽이 주는 느낌이다. 둥근지, 각졌는지, 곡선이 들어갔는지 같은 점을 말한다."
+        },
+        {
+          "term": "질감 효과",
+          "definition": "물건 표면이 눈으로 보거나 손으로 만졌을 때 주는 느낌을 표현한 것이다. 이 미션에서는 표면의 광택 정도와 나뭇결 같은 표면 무늬를 말한다."
+        },
+        {
+          "term": "무광·유광",
+          "definition": "무광은 빛이 비쳐도 번쩍이지 않는 표면 마감이고, 유광은 빛을 받으면 반짝이는 표면 마감이다."
+        },
+        {
+          "term": "우드톤",
+          "definition": "나무 색과 비슷한 색감을 말한다."
+        },
+        {
+          "term": "출력",
+          "definition": "3D프린터로 디지털 모델을 실제 물건으로 만들어 내는 일이다."
+        },
+        {
+          "term": "콘셉트 테스트",
+          "definition": "제품을 만들기 전에 아이디어를 사람들에게 보여 주고 반응을 모아 평가하는 방법이다. 이 미션에서는 단골손님에게 스케치안 4개를 보여 주고 가장 마음에 드는 안을 하나씩 고르게 한 조사를 말한다."
+        },
+        {
+          "term": "디자인의 조건",
+          "definition": "좋은 디자인인지 살펴볼 때 쓰는 기준들이다. 합목적성, 심미성, 경제성, 독창성 등이 있다."
+        },
+        {
+          "term": "합목적성",
+          "definition": "디자인이 원래의 쓰임새와 목적에 잘 맞는 정도를 말한다."
+        },
+        {
+          "term": "심미성",
+          "definition": "디자인이 보기에 아름답고 주변과 잘 어울리는 정도를 말한다."
+        },
+        {
+          "term": "독창성",
+          "definition": "디자인이 다른 것과 구별되는 새롭고 개성 있는 정도를 말한다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "work_request",
+        "title": "팀장 메일: 카페 테이블 번호 거치대 아이디어 스케치 검토 요청",
+        "description": "프로젝트 담당 팀장이 고객의 요구와 출력 일정 조건을 정리해 3D프린팅모델러 인턴에게 검토를 요청한 메일이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 스케치안을 확인할 기준(고객의 요구 세 가지와 개당 출력 시간 조건)을 찾고, 과제 2에서 추천할 안이 지켜야 할 조건을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "기술 설계",
+          "상품 제조 및 공정"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "프로젝트 담당 팀장",
+              "to": "3D프린팅모델러 인턴",
+              "subject": "카페 테이블 번호 거치대 아이디어 스케치 검토 요청",
+              "body": "안녕하세요, 팀장입니다.\n동네 카페 운영자분이 테이블 번호 거치대 20개를 주문하셨고, 다음 주 금요일까지 납품해야 합니다.\n\n고객의 요구는 세 가지입니다.\n① 형태 스타일: 손님이 손을 다치지 않도록 모서리가 둥근 형태\n② 컬러: 매장의 흰 벽과 원목 가구에 맞춰 흰색 또는 밝은 우드톤\n③ 질감 효과: 조명이 비쳐도 번쩍이지 않도록 광택 없는 무광\n\n출력 일정 조건도 하나 있습니다. 프린터 일정상 20개를 기한 안에 만들려면 개당 예상 출력 시간이 100분 이하인 안만 진행할 수 있습니다.\n\n팀에서 그린 아이디어 스케치 4개(A~D안)는 비교표로 정리해 두었습니다. 단골손님 50명에게 가장 마음에 드는 안을 하나씩 고르게 한 콘셉트 테스트 결과표도 함께 보냅니다.\n스케치안 4개를 위 조건에 비추어 하나씩 확인해 주시고, 정밀 스케치로 발전시킬 안 하나와 그 안을 진행할 때 주의할 점을 알려 주세요.\n\n감사합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "option_comparison",
+        "title": "테이블 번호 거치대 아이디어 스케치 비교표",
+        "description": "팀에서 그린 아이디어 스케치 4개(A~D안)의 형태 스타일, 컬러·질감 효과, 개당 예상 출력 시간(분)을 정리한 표다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 각 안의 형태 스타일, 컬러·질감 효과, 개당 예상 출력 시간을 메일의 조건과 하나씩 대조하고, 과제 2에서 안별 출력 시간을 비교하는 데 쓴다.",
+        "evidence_source": [
+          "디자인",
+          "범주화",
+          "상품 제조 및 공정"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "아이디어 스케치"
+            },
+            {
+              "key": "strength",
+              "label": "형태 스타일"
+            },
+            {
+              "key": "weakness",
+              "label": "컬러·질감 효과"
+            },
+            {
+              "key": "priority",
+              "label": "개당 예상 출력 시간(분)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안",
+              "strength": "모서리가 둥근 낮은 원통형",
+              "weakness": "흰색, 무광",
+              "priority": 70
+            },
+            {
+              "option": "B안",
+              "strength": "물결 곡선이 들어간 둥근 기둥형",
+              "weakness": "밝은 우드톤, 무광 나뭇결",
+              "priority": 95
+            },
+            {
+              "option": "C안",
+              "strength": "각진 면이 이어진 다면체형",
+              "weakness": "흰색, 무광",
+              "priority": 60
+            },
+            {
+              "option": "D안",
+              "strength": "둥근 잎사귀 모양",
+              "weakness": "밝은 우드톤, 유광",
+              "priority": 130
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "survey_result",
+        "title": "단골손님 콘셉트 테스트 결과표",
+        "description": "단골손님 50명이 스케치안 4개 가운데 가장 마음에 드는 안을 하나씩 고른 결과를, 안별로 높게 평가된 디자인의 조건, 주요 의견, 선호 응답 수(명)와 함께 정리한 표다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 안별 선호 응답 수, 높게 평가된 디자인의 조건, 주요 의견을 비교해 추천 이유와 주의할 점을 찾는 데 쓴다.",
+        "evidence_source": [
+          "디자인",
+          "기술 설계"
+        ],
+        "mission_fact_refs": [
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "아이디어 스케치"
+            },
+            {
+              "key": "strength",
+              "label": "높게 평가된 디자인의 조건"
+            },
+            {
+              "key": "weakness",
+              "label": "주요 의견"
+            },
+            {
+              "key": "priority",
+              "label": "선호 응답 수(명)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안",
+              "strength": "합목적성",
+              "weakness": "번호가 잘 보이고 잡기 편하지만, 흔한 모양이라 기억에 남지 않는다.",
+              "priority": 12
+            },
+            {
+              "option": "B안",
+              "strength": "심미성",
+              "weakness": "매장의 원목 가구와 잘 어울리지만, 물결 사이에 먼지가 낄 것 같다.",
+              "priority": 15
+            },
+            {
+              "option": "C안",
+              "strength": "독창성",
+              "weakness": "개성 있고 눈에 띈다.",
+              "priority": 18
+            },
+            {
+              "option": "D안",
+              "strength": "심미성",
+              "weakness": "잎 모양이 귀엽다.",
+              "priority": 5
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장 메일에 적힌 고객의 요구 세 가지(형태 스타일, 컬러, 질감 효과)와 개당 출력 시간 조건에 비추어, 아이디어 스케치 비교표의 A~D안을 하나씩 확인해 보세요. 각 안이 네 조건을 모두 충족하는지, 충족하지 못한다면 어떤 조건을 충족하지 못하는지 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메일의 네 조건과 비교표의 각 안을 대조해, 안마다 조건을 모두 충족하는지와 충족하지 못한 조건이 무엇인지 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 결과와 콘셉트 테스트 결과표를 함께 보고, 메일의 조건을 모두 지키면서 정밀 스케치로 발전시킬 스케치안 하나를 정해 추천해 보세요. 추천하는 안과 그 이유, 그 안을 진행할 때 주의할 점 하나를 3~5문장으로 적어보세요. 이유에는 그 안이 조건을 충족한 다른 안보다 나은 점이 드러나게 적어 주세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "과제 1에서 조건을 충족한 안들을 콘셉트 테스트 결과와 출력 시간으로 견주어 정밀 스케치할 안 하나를 고르고, 다른 충족 안보다 나은 이유와 자료에 나타난 주의할 점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "서술형 답변",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 스케치안별 조건 확인 결과",
+        "과제 2: 추천 안, 추천 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "A안과 B안은 형태 스타일(모서리가 둥근 형태), 컬러(흰색 또는 밝은 우드톤), 질감 효과(무광), 개당 출력 시간 100분 이하라는 네 조건을 모두 충족한다.",
+      "C안은 흰색·무광이고 출력 시간도 60분이지만, 각진 면이 이어진 다면체형이라 형태 스타일 조건을 충족하지 못한다. 콘셉트 테스트 선호 응답 수가 18명으로 가장 많아도 고객의 요구를 지키지 못하므로 정밀 스케치 후보가 될 수 없다.",
+      "D안은 유광이라 질감 효과 조건을 충족하지 못하고, 개당 출력 시간 130분도 기준 100분을 넘는다.",
+      "조건을 충족한 A안과 B안 사이에서는 자료가 정답을 하나로 정해 주지 않는다. B안은 선호 응답 수(15명)가 A안(12명)보다 많고 심미성(원목 가구와 어울림)이 높게 평가되었으며, A안은 출력 시간(70분)에 여유가 크고 합목적성(번호가 잘 보이고 잡기 편함)이 높게 평가되었다.",
+      "예시: B안 추천 — 조건을 모두 충족한 두 안 가운데 선호 응답 수가 더 많고 매장의 원목 가구와 어울린다는 평가를 받았다. 주의할 점은 개당 출력 시간 95분이 기준 100분에 가까워 다시 출력할 여유가 적다는 점, 또는 물결 사이에 먼지가 낄 수 있다는 의견이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "스케치안별 조건 충족 판정",
+        "description": "과제 1에서 네 안 각각에 대해 형태 스타일, 컬러, 질감 효과, 개당 출력 시간 100분 이하의 충족 여부를 자료대로 판정하고, 충족하지 못한 안은 그 조건을 짚었는지 본다. 자료상 A안과 B안은 네 조건을 모두 충족하고, C안은 각진 다면체형이라 형태 스타일 조건을, D안은 유광이라 질감 효과 조건을 충족하지 못하며 출력 시간 130분도 기준을 넘는다. 네 안의 판정이 모두 맞으면 만점을 주고, 한 안의 판정이 틀렸거나 D안의 충족하지 못한 두 조건 중 하나만 짚었으면 부분 점수를 준다.",
+        "points": 40,
+        "linked_evidence": [
+          "범주화",
+          "디자인"
+        ]
+      },
+      {
+        "criterion": "추천 안의 조건 충족",
+        "description": "과제 2에서 추천한 안이 과제 1에서 메일의 네 조건(형태 스타일, 컬러, 질감 효과, 개당 출력 시간)을 모두 충족한 안인지 본다. 조건을 충족한 안이라면 어느 안이든 인정한다.",
+        "points": 10,
+        "linked_evidence": [
+          "기술 설계"
+        ]
+      },
+      {
+        "criterion": "추천 이유의 비교 근거",
+        "description": "추천 이유가 과제 1의 결과와 콘셉트 테스트 결과표(선호 응답 수, 높게 평가된 디자인의 조건, 주요 의견)나 출력 시간을 근거로, 고른 안이 조건을 충족한 다른 안보다 왜 나은지 보여 주는지 본다. 특정 안을 정답으로 요구하지 않는다. 자료의 사실을 맞게 적었더라도 다른 충족 안과 견주어 더 나은 점을 보이지 못하면 부분 점수만 준다. 예: B안을 고르고 조건을 충족한 두 안 가운데 선호 응답 수가 더 많고 원목 가구와 어울린다는 평가를 근거로 든 답. A안을 골라 출력 시간 여유가 크고 잡기 편하다는 평가를 근거로 든 답도 같은 기준으로 채점한다.",
+        "points": 30,
+        "linked_evidence": [
+          "기술 설계"
+        ]
+      },
+      {
+        "criterion": "고른 안의 주의할 점",
+        "description": "과제 2에서 적은 주의할 점이 자료에 나타난, 고른 안의 실제 위험이나 한계인지 본다. 예: B안이면 개당 출력 시간 95분이 기준 100분에 가까워 다시 출력할 여유가 적다는 점이나 물결 사이에 먼지가 낄 수 있다는 의견, A안이면 흔한 모양이라 기억에 남지 않는다는 의견. 고른 안과 관계없거나 자료에 나타나지 않은 위험이면 점수를 주지 않는다.",
+        "points": 20,
+        "linked_evidence": [
+          "상품 제조 및 공정"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "제품의 형상을 이미지로 디자인하고, 컴퓨터 프로그램을 활용하여 3D모델링 과정을 수행한다.",
+      "source_ref": {
+        "file": "K000007581/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 96,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 95,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 95,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 89,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 86,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 100,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 100,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "기술 설계",
+          "score": 100,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "상품 제조 및 공정",
+          "score": 80,
+          "description": "상품의 제조 및 유통을 효율적으로 하기 위해 필요한 원자재, 제조공정, 품질관리, 비용에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "기계",
+          "score": 74,
+          "description": "기계와 도구를 사용하고, 수리.유지하는 것과 관련된 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "디자인",
+          "score": 74,
+          "description": "밑그림, 제도와 같이 디자인에 필요한 기법 및 도구에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "자동화 정도",
+          "score": 99,
+          "description": "업무의 자동화 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "균형을 유지하기",
+          "score": 99,
+          "description": "(몸의) 균형을 유지하면서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "건강 및 안전에 대한 책임",
+          "score": 95,
+          "description": "함께 근무하는 사람의 건강 및 안전에 대한 책임",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기술 설계",
+          "상품 제조 및 공정"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "디자인",
+          "범주화",
+          "상품 제조 및 공정"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "디자인",
+          "기술 설계"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.2,
+    "AX2": 0.2,
+    "AX3": 0.2,
+    "AX4": 0.2,
+    "AX5": 0.2
+  }
+}

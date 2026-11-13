@@ -7,7 +7,9 @@ import { fileURLToPath } from "node:url";
 // @ts-expect-error 타입 선언이 없는 브라우저 JS 모듈
 import { filterJobs, suggestWhenEmpty } from "../../app/common/jobSearch.js";
 // @ts-expect-error 타입 선언이 없는 브라우저 JS 모듈
-import { pickNextMissions, quoteMatchesSentence, roundOneLogs, splitSentences, strongestAxis, withJosa } from "../../app/components/resultExtras.js";
+import { jobDefsForResult, pickNextMissions, quoteMatchesSentence, roundOneLogs, splitSentences, strongestAxis, withJosa } from "../../app/components/resultExtras.js";
+// @ts-expect-error 타입 선언이 없는 브라우저 JS 모듈
+import { renderMissionScreen } from "../../app/components/missionScreens.js";
 import { analyzeRequirementTexts, axesOfSentence, splitRequirementSentences } from "../../src/lib/postings/requirements.js";
 import { humanAgreement, orderConcordance, repeatConsistency } from "../../scripts/eval-quality.js";
 
@@ -176,4 +178,95 @@ test("결과 카드: 결과 화면처럼 미측정 축은 0으로 두고 '미측
   assert.equal(data.values.AX3, 0);
   assert.equal(data.values.AX5, 0);
   assert.equal(data.summary, "정보분석·논리가 가장 잘 드러났어.");
+});
+
+// ── 미션 화면의 차트: 꺾은선도 값을 숫자로 적는다 ──────────────────
+function missionScreenWithChart(series: Array<{ name: string; values: number[] }>, xValues: string[]) {
+  const esc = (value: unknown) => String(value ?? "").replace(/[&<>"']/g, (ch) => `&#${ch.charCodeAt(0)};`);
+  const chart = { material_id: "mat_1", type: "chart", title: "차트", data: { chart_type: "line", x_axis: { label: "월", values: xValues }, y_axis: { label: "값" }, series } };
+  return renderMissionScreen({
+    state: { missionAnswer: "", missionStepIndex: 0, draftStatus: "" },
+    mission: { title: "미션", task: "", _raw: { mission: { materials: [chart], tasks: [], scenario: {}, difficulty: {}, submission_format: {} }, mission_facts: {} } },
+    jobDef: { job_name: "직무", icon: "💼" },
+    missionProgressPct: 0,
+    missionCount: 1,
+    renderBrand: () => "",
+    isLastMission: true,
+    esc
+  }) as string;
+}
+
+function chartValueLabels(html: string) {
+  return Array.from(html.matchAll(/<text x="([\d.]+)" y="([\d.]+)"[^>]*class="chart-val"[^>]*>([^<]*)<\/text>/g))
+    .map((m) => ({ x: Number(m[1]), y: Number(m[2]), text: m[3] }));
+}
+
+test("꺾은선 차트: 점마다 값이 숫자로 나온다(값을 읽어야 푸는 미션이 있다)", () => {
+  const values = [52000, 49000, 41000, 39000];
+  const labels = chartValueLabels(missionScreenWithChart([{ name: "이용자 수", values }], ["1월", "2월", "3월", "4월"]));
+  assert.deepEqual(labels.map((l) => l.text), values.map(String));
+  // 가장 큰 값의 숫자도 그림 밖으로 밀려나지 않는다
+  assert.ok(labels.every((l) => l.y >= 10 && l.y <= 220), JSON.stringify(labels));
+});
+
+test("꺾은선 차트: 계열이 둘이면 같은 자리의 두 숫자가 겹치지 않는다", () => {
+  const upper = [88, 90, 89, 90, 90];
+  const lower = [84, 80, 77, 73, 70];
+  const labels = chartValueLabels(missionScreenWithChart([{ name: "갑", values: upper }, { name: "을", values: lower }], ["6월", "7월", "8월", "9월", "10월"]));
+  assert.deepEqual(labels.map((l) => l.text).sort(), [...upper, ...lower].map(String).sort());
+  for (const x of new Set(labels.map((l) => l.x))) {
+    const [a, b] = labels.filter((l) => l.x === x);
+    assert.ok(Math.abs(a.y - b.y) >= 12, `x=${x}에서 두 숫자가 겹친다: ${a.y}, ${b.y}`);
+  }
+});
+
+// ── 직무 적합도: 추천 계산 대상이 아닌 직업 ─────────────────────────
+test("적합도: 추천 계산 대상이 아닌 직업도 체험한 직업 자신의 적합도는 계산하고, 비슷한 직업은 대상 안에서만 고른다", async () => {
+  const { buildJobWeightCatalog, buildResultSummary } = await import("../../src/lib/recommendation/engine.js");
+  const weights = { AX1: 0.4, AX2: 0.15, AX3: 0.15, AX4: 0.15, AX5: 0.15 };
+  const entry = (job_name: string, cluster_id: string, is_simulation_target: boolean) => ({ job_name, cluster_id, silhouette: 0.2, sil_reliable: true, is_simulation_target, weights });
+  const catalog = buildJobWeightCatalog({
+    N1: entry("대상 밖 직업", "C1", false),
+    N2: entry("대상 밖 이웃", "C1", false),
+    T1: entry("대상 직업", "C4", true),
+    T2: entry("대상 이웃", "C4", true),
+    T3: entry("대상인데 묶음이 대상 밖 직업과 같은 직업", "C1", true)
+  });
+  const run = (jobCode: string) => buildResultSummary({
+    selectedJobs: [jobCode],
+    missionScoresByJob: { [jobCode]: [{ AX1: 0.9, AX2: 0.5, AX3: 0.5, AX4: 0.5, AX5: 0.5 }] },
+    evaluationLogs: [],
+    catalog
+  });
+
+  const outside = run("N1");
+  assert.ok(outside.compatibility.N1 > 0, `대상 밖 직업의 적합도 ${outside.compatibility.N1}`);
+  assert.equal(outside.selectedJobMeta.N1.referenceJobName, "대상 밖 직업");
+  assert.match(outside.jobInsights.N1.detail, /^대상 밖 직업 미션 1개 기준/);
+  // 비슷한 직업 추천에는 대상이 아닌 직업(N2)이 끼지 않는다
+  assert.deepEqual(outside.recommendations.N1.map((item) => item.code), ["T3"]);
+
+  const inside = run("T1");
+  assert.equal(inside.compatibility.T1, outside.compatibility.N1, "같은 비중·같은 점수면 대상 여부와 상관없이 적합도가 같다");
+  assert.deepEqual(inside.recommendations.T1.map((item) => item.code), ["T2"]);
+
+  // 직무 데이터에 없는 직업은 지금처럼 0점이다
+  assert.equal(run("X9").compatibility.X9, 0);
+});
+
+// ── 저장된 결과 다시 보기: 미션이 빠진 직무 ─────────────────────────
+test("결과 화면의 직무 정의: 지금 카탈로그에 없는 직무는 이름과 기본 아이콘으로 채운다", () => {
+  const jobDefs = [{ job_code: "K1", job_name: "남은 직무", icon: "📊", desc: "" }];
+  // 모두 카탈로그에 있으면 그대로 돌려준다
+  assert.equal(jobDefsForResult({ jobDefs, selectedJobs: ["K1"], selectedJobMeta: {} }), jobDefs);
+
+  const filled = jobDefsForResult({ jobDefs, selectedJobs: ["K1", "K2", "K3"], selectedJobMeta: { K2: { referenceJobName: "빠진 직무" } } });
+  assert.deepEqual(filled.map((job: { job_code: string }) => job.job_code), ["K1", "K2", "K3"]);
+  const byCode = Object.fromEntries(filled.map((job: { job_code: string }) => [job.job_code, job]));
+  assert.equal(byCode.K2.job_name, "빠진 직무");
+  assert.equal(byCode.K2.icon, "💼");
+  // 이름을 알 수 없으면 직업 코드를 쓴다
+  assert.equal(byCode.K3.job_name, "K3");
+  // 원래 목록은 바꾸지 않는다(직무 선택 화면에 빠진 직무가 나오면 안 된다)
+  assert.equal(jobDefs.length, 1);
 });

@@ -1,0 +1,663 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000936_hard_001",
+  "job_identity": {
+    "job_cd": "K000000936",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "컴퓨터하드웨어·통신공학 기술자",
+    "job_smcl_nm": "통신기술개발자",
+    "source_ref": {
+      "file": "K000000936/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_014",
+    "text": "[무선시설기술자] 시내외 무선망 구축을 위한 중장기 및 연도계획 수립, 무선시설 건설 및 공급계획 수립, 시공품질관리 및 공정관리, 무선시설의 기술기준, 표준공법, 규격을 제·개정한다.",
+    "source_ref": {
+      "file": "K000000936/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 14
+    },
+    "selection_reason": "Pilot config selected exec_014."
+  },
+  "mission_facts": {
+    "org_name": "하늘결네트웍스 무선망기술팀",
+    "domain": "시내외 무선망 기지국 증설 계획",
+    "period": [
+      "1차년도",
+      "2차년도",
+      "3차년도"
+    ],
+    "trend_pattern": "네 서비스 영역의 기지국 용량 대비 예측 트래픽 비율이 해마다 오르며, 오르는 수준은 영역마다 다르다.",
+    "main_issue": "3년 안에 네 서비스 영역의 기지국 증설을 마쳐야 하며, 영역별 증설 시한과 연도별 예산 상한을 함께 맞춰야 한다.",
+    "feedback_themes": [
+      "임계치를 넘는 해까지 증설 완료",
+      "연도별 예산 상한 준수",
+      "예산 전용 승인 기간"
+    ],
+    "decision_goal": "발주처 조건을 지키는 1차년도 연도계획안 하나를 정해 회신한다."
+  },
+  "mission": {
+    "title": "시내외 무선망 3개년 증설 계획, 1차년도 연도계획안 세우기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "하늘결네트웍스 무선망기술팀의 신입 통신기술개발자",
+      "context": "당신은 하늘결네트웍스 무선망기술팀에 새로 들어온 통신기술개발자입니다. 회사는 발주처의 시내 2곳, 시외 2곳 서비스 영역 기지국 증설을 3년에 걸쳐 맡게 되었습니다. 무선사업기획팀장이 발주처 조건을 정리한 메일과 함께 영역별 예측 트래픽 비율 차트, 구축 비용·소요기간 차트를 보내며 3개년 계획 가운데 1차년도 연도계획안을 먼저 만들어 달라고 요청했습니다.",
+      "goal": "아래 자료를 보고 서비스 영역별 증설 시한과 연도별 예산을 검토한 뒤, 1차년도 연도계획안 하나를 정해 이유와 주의점을 함께 추천해 보세요.",
+      "constraints": [
+        "메일과 두 차트에 나온 조건과 수치만 사용하세요.",
+        "계산은 차트의 값을 더하거나 비교하는 정도면 충분합니다.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "임계치",
+          "definition": "어떤 값이 그 선을 넘으면 조치가 필요하다고 미리 정해 둔 기준값. 이 미션에서는 기지국 용량 대비 트래픽 비율에 대해 발주처가 정한 기준값을 말한다."
+        },
+        {
+          "term": "기지국 용량",
+          "definition": "한 지역의 기지국들이 한꺼번에 처리할 수 있는 통신량의 최대치. 이 미션에서는 트래픽이 이 최대치의 몇 %인지를 비율로 나타낸다."
+        },
+        {
+          "term": "서비스 영역",
+          "definition": "무선망 계획을 세울 때 하나로 묶어 관리하는 지역. 이 미션에서는 A 시내 도심, B 시내 주거지, C 시외 산업단지, D 시외 관광지 네 곳을 말한다."
+        },
+        {
+          "term": "예산집행계획",
+          "definition": "공사에 드는 돈을 언제, 어디에, 얼마나 쓸지 단계별로 정한 계획."
+        },
+        {
+          "term": "중장기 및 연도계획",
+          "definition": "몇 년에 걸친 큰 계획(중장기 계획)과 그중 한 해 동안 할 일을 정한 계획(연도계획)을 함께 이르는 말."
+        },
+        {
+          "term": "증설",
+          "definition": "기지국 장비를 더 설치해 처리할 수 있는 통신량을 늘리는 일."
+        },
+        {
+          "term": "트래픽",
+          "definition": "통신망을 오가는 데이터의 양."
+        },
+        {
+          "term": "예산 전용",
+          "definition": "이 미션에서는 한 해에 배정된 예산의 일부를 발주처 승인을 받아 다른 해로 옮겨 쓰는 것을 말한다. 나라 예산에서 말하는 전용(같은 해 안에서 항목 사이로 옮기는 것)과는 뜻이 다르다."
+        },
+        {
+          "term": "발주처",
+          "definition": "공사나 일을 맡긴 쪽, 즉 일을 의뢰한 회사."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "request_email",
+        "title": "무선사업기획팀장 메일: 시내외 무선망 3개년 계획 수립 요청",
+        "description": "무선사업기획팀장이 발주처 요구사항을 정리해 보낸 계획 수립 요청 메일이다. 대상 서비스 영역, 증설 조건, 연도별 예산 상한, 예산 전용 조건이 들어 있다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "서비스 영역별 증설 시한을 정하는 조건과 연도별 예산 상한, 예산 전용 조건을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "목표, 전략 수립",
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "무선사업기획팀 팀장",
+              "to": "무선망기술팀 신입 통신기술개발자",
+              "subject": "시내외 무선망 3개년 중장기 및 연도계획 수립 요청",
+              "body": "안녕하세요, 무선사업기획팀장입니다.\n발주처에서 시내외 무선망 기지국 증설 요구사항을 보내와 정리해 전달합니다. 대상 서비스 영역은 시내 2곳(A 도심, B 주거지)과 시외 2곳(C 산업단지, D 관광지)이며, 네 곳 모두 3년 안에 증설을 마쳐야 합니다.\n\n발주처 조건은 다음과 같습니다.\n① 기지국 용량 대비 트래픽 비율이 임계치 80%를 넘는 것으로 예측된 해가 있으면, 그 해의 말까지 해당 서비스 영역의 증설을 끝내야 합니다.\n② 연도별 예산 상한은 1차년도 30억 원, 2차년도 25억 원, 3차년도 25억 원입니다. 한 서비스 영역의 구축 비용은 그 영역을 증설하는 해의 예산에 모두 잡습니다.\n③ 3년 예산 총액 80억 원 안에서는 발주처 승인을 받으면 연도 간 예산 전용이 가능합니다. 승인 요청은 그 해가 시작될 때 바로 낼 수 있고, 승인까지 약 3개월이 걸립니다. 한 해에 여러 공사를 잡을 때, 그 해 상한 안에 들어가는 공사는 승인 없이 바로 착공할 수 있지만, 거기에 더해져 그 해 합계를 상한 위로 올리는 공사는 승인이 난 뒤에 착공해야 합니다. 어느 공사를 상한 안에 둘지는 계획을 세우는 쪽에서 정하면 됩니다.\n\n첨부한 예측 트래픽 비율 차트와 구축 비용·소요기간 차트를 참고해 중장기 및 연도계획을 검토하고, 우선 위 조건을 모두 지키는 1차년도 연도계획안을 회신해 주세요.\n감사합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "chart",
+        "subtype": "forecast_comparison",
+        "title": "서비스 영역별 기지국 용량 대비 예측 트래픽 비율(%)",
+        "description": "가입자 및 트래픽 데이터를 바탕으로 네 서비스 영역의 트래픽이 기지국 용량의 몇 %가 될지 1차년도 말과 2차년도 말 기준으로 예측한 차트다. 단위는 %다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메일의 조건 ①을 적용해 서비스 영역마다 증설을 끝내야 하는 연도를 정하는 데 쓴다.",
+        "evidence_source": [
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "서비스 영역",
+            "values": [
+              "A 시내 도심",
+              "B 시내 주거지",
+              "C 시외 산업단지",
+              "D 시외 관광지"
+            ]
+          },
+          "y_axis": {
+            "label": "기지국 용량 대비 예측 트래픽 비율",
+            "unit": "%"
+          },
+          "series": [
+            {
+              "name": "1차년도 말 예측",
+              "values": [
+                92,
+                74,
+                83,
+                58
+              ]
+            },
+            {
+              "name": "2차년도 말 예측",
+              "values": [
+                98,
+                86,
+                89,
+                69
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "chart",
+        "subtype": "cost_duration_comparison",
+        "title": "서비스 영역별 구축 비용(억 원)과 구축 소요기간(개월)",
+        "description": "경제성 분석자료와 구축일정표에서 서비스 영역별 구축 비용과 공사에 걸리는 기간을 옮겨 온 차트다. 구축 비용의 단위는 억 원, 구축 소요기간의 단위는 개월이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "영역별 비용을 연도별로 더해 예산 상한과 비교하고, 계획에 따른 공사 기간을 따져 보는 데 쓴다.",
+        "evidence_source": [
+          "산수와 수학",
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "서비스 영역",
+            "values": [
+              "A 시내 도심",
+              "B 시내 주거지",
+              "C 시외 산업단지",
+              "D 시외 관광지"
+            ]
+          },
+          "y_axis": {
+            "label": "구축 비용 / 구축 소요기간",
+            "unit": "억 원 / 개월"
+          },
+          "series": [
+            {
+              "name": "구축 비용(억 원)",
+              "values": [
+                18,
+                9,
+                15,
+                8
+              ]
+            },
+            {
+              "name": "구축 소요기간(개월)",
+              "values": [
+                10,
+                6,
+                8,
+                5
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "메일의 조건 ①을 예측 트래픽 비율 차트에 적용해 서비스 영역 A~D의 증설을 각각 늦어도 몇 차년도까지 끝내야 하는지 정하고, 각 영역을 그 연도에 배치한 단계별 구축일정을 적어 보세요. 그리고 구축 비용·소요기간 차트의 비용으로 이 일정의 연도별 예산집행계획을 세웠을 때 예산 상한을 넘는 해가 있는지, 있다면 몇 억 원을 넘는지 계산해 함께 쓰세요. 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "조건 ①로 영역별 증설 완료 연도를 정해 근거로 쓰고, 영역별 비용을 연도별로 더해 상한과 비교한 뒤 상한을 넘는 연도와 금액을 계산한다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 결과를 바탕으로 1차년도 연도계획안 하나를 정해 추천해 보세요. 1차년도에 증설할 서비스 영역과 각 공사를 언제 착공할지, 그 비용을 예산 상한에 맞추는 방법을 정하고, 그 계획이 메일 조건과 두 차트로 보아 다른 방법보다 나은 이유와 그 계획의 주의점 하나를 함께 적어 보세요. 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "메일의 세 조건을 모두 지키도록 1차년도에 증설할 영역, 각 공사의 착공 시점, 예산을 상한에 맞추는 방법을 정하고, 다른 방법이 어느 조건을 어기는지 비교한 근거와 고른 계획의 주의점 하나를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 단계별 구축일정과 연도별 예산 검토",
+        "과제 2: 1차년도 연도계획안 추천과 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "A 시내 도심(1차년도 말 92%)과 C 시외 산업단지(1차년도 말 83%)는 1차년도 말에 임계치 80%를 넘으므로 1차년도까지, B 시내 주거지는 2차년도 말(86%)에 넘으므로 2차년도까지, D 시외 관광지는 2차년도 말까지 넘지 않으므로(69%) 3차년도까지 증설을 끝내면 된다.",
+      "이 일정의 연도별 소요 예산은 1차년도 A 18억 원 + C 15억 원 = 33억 원으로 상한 30억 원을 3억 원 넘고, 2차년도 B 9억 원과 3차년도 D 8억 원은 각 상한 25억 원 안이다.",
+      "과제 2에서 메일의 세 조건을 모두 지키는 1차년도 계획은 A와 C를 모두 1차년도에 넣고, 2차년도(또는 3차년도) 예산 가운데 3억 원을 1차년도로 전용하는 안이다. 3년 총액 80억 원 안이고, 전용 뒤 남는 2차년도 22억 원(또는 3차년도 22억 원)으로도 B 9억 원(또는 D 8억 원)을 감당할 수 있다.",
+      "이 안에서는 A(18억 원)를 1차년도 상한 30억 원 안의 공사로 두어 1차년도 초에 바로 착공하고(공사 10개월), 합계를 상한 위로 올리는 C(15억 원)는 1차년도 초에 낸 승인 요청이 약 3개월 뒤 나면 착공한다(공사 8개월). 그러면 C는 약 11개월째에 끝나 두 영역 모두 1차년도 안에 마친다. 반대로 C를 상한 안에 두고 A를 승인 뒤로 돌리면 3개월 + 10개월 = 13개월로 1차년도 안에 끝낼 수 없다.",
+      "다른 방법은 조건을 어긴다. C를 2차년도로 미루면 1차년도 18억 원, 2차년도 B+C 24억 원으로 예산 상한은 지키지만, C가 1차년도 말 83%로 임계치를 넘는데도 1차년도에 끝나지 않아 조건 ①을 어긴다. A를 2차년도로 미루면 A가 1차년도 말 92%로 조건 ①을 어기고, 2차년도도 A 18억 원 + B 9억 원 = 27억 원으로 상한 25억 원을 2억 원 넘는다.",
+      "주의점 예시: C는 승인 약 3개월과 공사 8개월로 11개월이 걸려 1차년도 안에 여유가 약 1개월뿐이므로, 승인이 늦어지면 C를 1차년도 안에 끝내지 못할 수 있다. 그래서 승인 요청을 1차년도 초에 바로 내야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "영역별 증설 완료 연도",
+        "description": "과제 1에서 근거로 쓴 영역별 증설 완료 연도가 예측 트래픽 비율 차트의 값과 메일의 임계치 80% 조건에 맞는지 본다. 자료상 답이 하나로 정해진다: A와 C는 1차년도 말 비율이 80%를 넘어 1차년도까지, B는 2차년도 말에 넘어 2차년도까지, D는 2차년도 말까지 넘지 않아 3차년도까지다. 네 영역이 모두 맞으면 만점, 일부만 맞으면 맞은 영역 수에 따라 부분 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "criterion": "연도별 예산 상한 초과 계산",
+        "description": "과제 1에서 계산한 상한 초과 연도와 금액을 본다. 자료상 답이 하나로 정해진다: 1차년도 소요 예산이 A 18억 원과 C 15억 원을 합친 33억 원으로 상한 30억 원을 3억 원 넘고, 2차년도(9억 원)와 3차년도(8억 원)는 상한 안이다. 초과 연도와 금액이 모두 맞으면 만점, 초과 연도만 맞고 금액이 틀리면 부분 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "산수와 수학"
+        ]
+      },
+      {
+        "criterion": "1차년도 계획 추천과 근거",
+        "description": "과제 2에서 추천한 1차년도 계획(1차년도에 증설할 영역, 각 공사의 착공 시점, 비용을 예산 상한에 맞추는 방법)과 그 근거를 본다. 메일은 세 조건을 모두 지키는 계획을 요구하며, 자료상 그런 계획은 A와 C를 모두 1차년도에 넣고 2차년도 또는 3차년도 예산 3억 원을 1차년도로 전용하되, A를 상한 안의 공사로 바로 착공하고 C를 승인 뒤 착공하는 안이다. 이 안을 추천하고, 다른 방법과 비교한 근거(C나 A를 2차년도로 미루면 조건 ①을 어긴다, A를 미루면 2차년도도 27억 원으로 상한 25억 원을 넘는다, A를 승인 뒤로 돌리면 3+10=13개월이 걸린다 가운데 하나 이상)를 자료로 들면 만점(30점)이다. 예산 전용 안을 추천했지만 착공 시점을 쓰지 않았거나 다른 방법과 비교하지 못하면 부분 점수(15~20점), 착공 순서를 반대로 써서 A가 1차년도 안에 끝나지 않는 계획이면 10점 이하를 준다. C나 A를 2차년도로 미루는 안은 조건 ①을 어기는 안이므로, 그 위반을 스스로 짚고 연도별 예산 계산이 맞으면 최대 10점, 위반을 짚지 못하면 0점이다.",
+        "points": 30,
+        "linked_evidence": [
+          "목표, 전략 수립"
+        ]
+      },
+      {
+        "criterion": "고른 계획의 주의점",
+        "description": "과제 2에서 쓴 주의점 하나가 학습자가 고른 계획의 실제 위험이나 한계로서 자료에 나타난 것인지 본다. 고른 계획과 맞는 주의점이면 인정하고, 고른 계획과 관계없는 일반론이나 자료에 없는 위험이면 점수를 주지 않는다. 예산 전용 안의 예: C는 승인 약 3개월 뒤 공사 8개월로 11개월이 걸려 여유가 약 1개월뿐이므로, 승인이 늦어지면 1차년도 안에 끝내지 못할 수 있다. 예: A도 공사가 10개월이라 1차년도 초에 바로 착공하지 않으면 1차년도 안에 끝내지 못한다. 미루는 안을 고른 경우에는 미룬 영역이 1차년도 동안 임계치를 넘은 채 운용되어 조건 ①을 어긴다는 점을 쓰면 인정한다.",
+        "points": 20,
+        "linked_evidence": [
+          "목표, 전략 수립"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 1,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_014",
+      "text": "[무선시설기술자] 시내외 무선망 구축을 위한 중장기 및 연도계획 수립, 무선시설 건설 및 공급계획 수립, 시공품질관리 및 공정관리, 무선시설의 기술기준, 표준공법, 규격을 제·개정한다.",
+      "source_ref": {
+        "file": "K000000936/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 14
+      },
+      "selection_reason": "Pilot config selected exec_014."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 87,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 84,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 82,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 76,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 97,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 95,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "품질관리분석",
+          "score": 92,
+          "description": "품질 또는 성과를 평가하기 위하여 제품, 서비스, 공정을 검사하거나 조사한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "통신",
+          "score": 97,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 96,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 93,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 97,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 89,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 88,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "목표, 전략 수립",
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "산수와 수학",
+          "정보, 자료 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 8,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000936/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000936/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.5,
+    "AX2": 0.0,
+    "AX3": 0.5,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

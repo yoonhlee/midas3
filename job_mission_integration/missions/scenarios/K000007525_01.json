@@ -1,0 +1,473 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007525_easy_001",
+  "job_identity": {
+    "job_cd": "K000007525",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "회계·세무·감정 전문가",
+    "job_smcl_nm": "세무사",
+    "source_ref": {
+      "file": "K000007525/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "세법에 따라 납부세액, 결정세액 등을 계산하여 알려주며, 각종 세금과 관련한 내용을 상담하고 자문하는 등 납세자에게 유리한 합법적 납세절차를 조언하고 대리한다.",
+    "source_ref": {
+      "file": "K000007525/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "다솜 세무사무소",
+    "domain": "개인사업자 지출 증빙 점검과 가산세 예방 조언",
+    "period": [
+      "2026년 10월"
+    ],
+    "trend_pattern": "고객 소담베이커리의 10월 지출 3건은 모두 증빙을 받았지만, 받은 증빙의 종류가 건마다 다르다.",
+    "main_issue": "사무소 점검 기준에 지출 건별 증빙을 대 보고, 가산세가 붙지 않도록 고객에게 증빙 관리를 조언해야 한다.",
+    "feedback_themes": [
+      "지출 건별 증빙 종류 구분",
+      "증빙불비 가산세 예방",
+      "납세자에게 유리한 합법적 조언"
+    ],
+    "decision_goal": "점검 기준에 따라 증빙을 보완해야 할 지출과 갖춰야 할 증빙을 정해 사장님께 짧게 조언한다."
+  },
+  "mission": {
+    "title": "가산세 걱정 없는 지출 증빙 조언하기",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "다솜 세무사무소 인턴",
+      "context": "당신은 다솜 세무사무소에 새로 들어온 인턴입니다. 고객인 개인사업자 '소담베이커리' 사장님이 10월 지출 내역과 건마다 받은 증빙을 보내왔습니다. 담당 세무사님이 \"사장님이 괜히 세금을 더 내시는 일이 없도록, 우리 사무소 점검 기준으로 이 세 건을 확인하고 사장님께 드릴 조언을 한두 문장으로 써 줘요\"라고 부탁했습니다.",
+      "goal": "사무소 점검 기준을 지출 내역에 대 보고, 가산세를 피하려면 어느 지출에 어떤 증빙을 갖춰야 하는지 사장님께 드릴 조언을 써 보세요.",
+      "constraints": [
+        "사무소 점검 기준: 세금계산서를 받은 지출은 적격지출증빙을 갖춘 것으로 보고, 거래명세서처럼 내부증빙만 있는 지출은 증빙불비 가산세 검토 대상으로 분류한다.",
+        "표에 있는 10월 지출 3건만 보고 판단합니다.",
+        "사장님이 바로 이해할 수 있는 쉬운 말로 1~2문장 안에 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "적격지출증빙",
+          "definition": "세법이 지출의 증거로 인정하는 정식 증빙입니다. 이 미션에서는 세금계산서가 여기에 해당합니다."
+        },
+        {
+          "term": "내부증빙",
+          "definition": "지출결의서처럼 거래 당사자가 내부 관리용으로 챙겨 두는 서류입니다. 지출이 있었다는 참고 자료는 되지만 정식 증빙을 대신하지는 못합니다."
+        },
+        {
+          "term": "증빙불비 가산세",
+          "definition": "지출에 대해 정식 증빙을 갖추지 못했을 때 붙을 수 있는 가산세입니다."
+        },
+        {
+          "term": "세금계산서",
+          "definition": "사업자 사이에 물건이나 서비스를 사고팔 때, 판매한 쪽이 거래 금액과 세금을 적어 발급하는 법정 서류입니다."
+        },
+        {
+          "term": "가산세",
+          "definition": "세법에서 정한 의무를 지키지 않았을 때, 원래 내야 할 세금에 더해 내는 세금입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "expense_receipt_list",
+        "title": "소담베이커리 10월 지출 건별 수취 증빙 목록",
+        "description": "소담베이커리 회계장부에서 10월 지출 3건을 옮겨, 건마다 거래처와 받은 증빙, 금액(원)을 정리한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "사무소 점검 기준을 지출 건마다 대 보고, 조언에 담을 지출과 증빙을 정하는 데 씁니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "법"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "지출 내용"
+            },
+            {
+              "key": "strength",
+              "label": "거래처"
+            },
+            {
+              "key": "weakness",
+              "label": "수취 증빙"
+            },
+            {
+              "key": "priority",
+              "label": "금액(원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "사무용품 구입",
+              "strength": "봄빛문구",
+              "weakness": "세금계산서",
+              "priority": 330000
+            },
+            {
+              "option": "매장 간판 제작",
+              "strength": "누리광고기획",
+              "weakness": "거래명세서",
+              "priority": 1650000
+            },
+            {
+              "option": "업무용 노트북 구입",
+              "strength": "한결전자",
+              "weakness": "세금계산서",
+              "priority": 1980000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "표의 지출 3건을 사무소 점검 기준에 대 보고, 사장님이 가산세를 피하려면 어느 지출에 어떤 증빙을 갖춰야 하는지 1~2문장의 조언으로 써 보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "점검 기준을 표의 지출 건마다 한 번씩 적용해 보완이 필요한 지출을 고르고, 그 지출에 갖춰야 할 증빙과 그것이 사장님께 유리한 이유를 1-2문장의 조언으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "사장님께 드리는 조언"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "점검 기준에 따르면 거래명세서만 받은 매장 간판 제작 지출(누리광고기획, 1,650,000원)이 내부증빙만 있는 건이라 증빙불비 가산세 검토 대상이다.",
+      "이 지출에 대해 거래처에서 적격지출증빙인 세금계산서를 받아 두도록 조언하면 증빙불비 가산세를 피할 수 있어 납세자에게 유리하다.",
+      "세금계산서를 이미 받은 사무용품 구입과 업무용 노트북 구입은 기준상 적격지출증빙을 갖춘 것이므로 보완 대상으로 잡지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "점검 기준에 따른 지출 건 판별",
+        "description": "사무소 점검 기준을 적용해 내부증빙(거래명세서)만 있는 매장 간판 제작 지출을 정확히 골라냈는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "법"
+        ]
+      },
+      {
+        "criterion": "납세자에게 유리한 증빙 조언",
+        "description": "골라낸 지출에 적격지출증빙인 세금계산서를 갖추라는 조언을 하고, 그것이 증빙불비 가산세를 피한다는 사장님의 이익과 이어지게 썼는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "사람들에게 조언, 상담",
+          "법"
+        ]
+      },
+      {
+        "criterion": "이미 갖춘 건의 올바른 구분",
+        "description": "세금계산서를 이미 받은 사무용품 구입과 업무용 노트북 구입까지 문제로 잡지 않았는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "세법에 따라 납부세액, 결정세액 등을 계산하여 알려주며, 각종 세금과 관련한 내용을 상담하고 자문하는 등 납세자에게 유리한 합법적 납세절차를 조언하고 대리한다.",
+      "source_ref": {
+        "file": "K000007525/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "행정, 관리 업무",
+          "score": 97,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "부하 직원들에게 업무 안내, 지시, 동기부여",
+          "score": 94,
+          "description": "부하 직원들의 업무 기준을 정하여 업무 성과를 관찰하고 업무 방향과 지침을 제공하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 89,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "인사 업무",
+          "score": 85,
+          "description": "조직에서 직원을 모집, 면담, 채용하고 승진시키기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 81,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "재정 관리",
+          "score": 99,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "수리력",
+          "score": 98,
+          "description": "어떤 문제를 해결하기 위해 수학을 사용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상",
+          "score": 96,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "경제와 회계",
+          "score": 97,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 96,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "경영 및 행정",
+          "score": 91,
+          "description": "사업운영, 기획, 자원배분, 인적자원관리, 리더십, 생산기법에 대한 원리 등 경영 및 관리에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이미지/평판/재정에 미치는 강도",
+          "score": 97,
+          "description": "본인의 의사결정이 다른 사람 또는 회사 이미지/평판/재정에 어느 정도의 결과 초래",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "정확성, 정밀성 유지",
+          "score": 96,
+          "description": "업무 수행을 위해 정밀하거나 정확한 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "법"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.48,
+    "AX2": 0.08,
+    "AX3": 0.08,
+    "AX4": 0.08,
+    "AX5": 0.28
+  }
+}

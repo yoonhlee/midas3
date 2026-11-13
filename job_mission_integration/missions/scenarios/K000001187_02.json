@@ -1,0 +1,539 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001187_normal_001",
+  "job_identity": {
+    "job_cd": "K000001187",
+    "job_lrcl_nm": "미용·여행·숙박·음식·경비·청소직",
+    "job_mdcl_nm": "여행 서비스원",
+    "job_smcl_nm": "여행사무원",
+    "source_ref": {
+      "file": "K000001187/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "고객의 요구에 맞는 여행상품을 추천하고, 상품별 비용 등 각종 자료를 제시한다.",
+    "source_ref": {
+      "file": "K000001187/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "솔마루여행사",
+    "domain": "국내 여행상품 상담과 추천",
+    "period": [
+      "2026년 12월 출발 상품 상담"
+    ],
+    "trend_pattern": "상담용 후보 상품 4개 가운데 3개가 효도관광 상품이며, 상품마다 차량, 쇼핑 횟수, 1인 요금이 서로 다르다.",
+    "main_issue": "고객이 이메일로 보낸 여행 목적, 세부적인 요구사항, 예산을 모두 만족하는 상품을 골라야 한다.",
+    "feedback_themes": [
+      "부모님을 위한 효도관광 목적",
+      "휠체어를 탄 채 오르내릴 수 있는 차량",
+      "쇼핑 일정이 없는 상품",
+      "1인 요금 140만 원 이하"
+    ],
+    "decision_goal": "고객에게 추천할 상품 하나를 고르고 그 근거를 설명한다."
+  },
+  "mission": {
+    "title": "부모님 여행, 어떤 상품을 추천할까?",
+    "task_type": "operation_and_scheduling",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 솔마루여행사 국내여행팀의 상담 인턴입니다.",
+      "context": "솔마루여행사는 허니문, 효도관광처럼 여행 목적에 따라 꾸린 목적별·테마별 상품을 판매합니다. 상담 담당자는 고객의 여행 목적과 세부적인 요구사항을 확인한 뒤 알맞은 상품을 추천합니다. 오늘 아침 부모님 여행을 알아보는 고객에게서 문의 이메일이 한 통 들어왔고, 팀장님이 \"우리 여행상품 자료에서 이 고객분께 추천할 상품을 하나 골라 줄래요?\"라고 부탁했습니다.",
+      "goal": "고객 이메일과 여행상품 자료를 보고, 고객에게 추천할 상품 하나와 그 이유를 적어보세요.",
+      "constraints": [
+        "고객 이메일과 여행상품 자료에 나온 내용만 근거로 삼으세요.",
+        "추천할 상품은 하나만 고르세요.",
+        "답은 2~3문장으로 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "목적별·테마별 상품",
+          "definition": "허니문, 효도관광처럼 여행의 특별한 목적에 맞춰 꾸린 여행상품입니다."
+        },
+        {
+          "term": "효도관광 상품",
+          "definition": "부모님처럼 나이 드신 가족이 편하게 다녀오실 수 있도록 꾸린, 부모님께 효도하려는 목적의 여행상품입니다."
+        },
+        {
+          "term": "허니문 상품",
+          "definition": "결혼한 부부의 신혼여행을 위해 꾸린 여행상품입니다."
+        },
+        {
+          "term": "세부적인 요구사항",
+          "definition": "객실, 식사, 쇼핑, 차량, 휠체어 이용처럼 고객이 여행에서 따로 바라는 구체적인 조건입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "customer_inquiry",
+        "title": "고객 문의 이메일: 부모님 여행 상품 문의",
+        "description": "고객 한지윤 님이 솔마루여행사 상담 창구로 보낸 상품 문의 이메일입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "추천할 상품이 맞춰야 하는 고객의 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "고객서비스"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "한지윤 (고객)",
+              "to": "솔마루여행사 상담 담당자",
+              "subject": "부모님 여행 상품 문의",
+              "body": "안녕하세요. 12월에 70대이신 부모님 두 분께 여행을 보내 드리고 싶어서 효도관광 상품을 찾고 있습니다. 어머니가 휠체어를 쓰셔서, 휠체어를 탄 채로 오르내리실 수 있는 차량이 꼭 있어야 합니다. 그리고 두 분 모두 쇼핑 일정은 힘들어하셔서 쇼핑이 없는 상품이면 좋겠어요. 요금은 1인 140만 원 이하로 생각하고 있습니다. 이 조건에 맞는 상품을 추천해 주시면 감사하겠습니다. 한지윤 드림"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "product_comparison",
+        "title": "12월 출발 국내 여행상품 자료 (상담용 후보 4개)",
+        "description": "국내여행팀이 12월 출발 상품 가운데 상담용으로 뽑아 둔 후보 4개의 테마, 세부 조건, 1인 요금을 정리한 여행상품 자료입니다. 요금 단위는 원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "후보 상품마다 고객의 조건에 맞는지 견주어 보는 데 씁니다.",
+        "evidence_source": [
+          "고객서비스",
+          "판단과 의사결정"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "상품명"
+            },
+            {
+              "key": "strength",
+              "label": "테마"
+            },
+            {
+              "key": "weakness",
+              "label": "세부 조건"
+            },
+            {
+              "key": "priority",
+              "label": "1인 요금(원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "경주 천년고도 3박 4일",
+              "strength": "효도관광 상품",
+              "weakness": "휠체어 탑승 가능 차량, 쇼핑 2회",
+              "priority": 1190000
+            },
+            {
+              "option": "제주 노을빛 3박 4일",
+              "strength": "허니문 상품",
+              "weakness": "휠체어 탑승 가능 차량, 쇼핑 없음",
+              "priority": 1320000
+            },
+            {
+              "option": "남해 쪽빛바다 3박 4일",
+              "strength": "효도관광 상품",
+              "weakness": "일반 차량(휠체어 탑승 불가), 쇼핑 없음",
+              "priority": 980000
+            },
+            {
+              "option": "강릉 솔향바다 3박 4일",
+              "strength": "효도관광 상품",
+              "weakness": "휠체어 탑승 가능 차량, 쇼핑 없음",
+              "priority": 1380000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "고객 이메일과 여행상품 자료를 보고, 이 고객에게 추천할 상품 하나를 골라 그 이유를 2~3문장으로 적어보세요. 이유에는 고객이 적은 조건에 비추어 다른 후보 대신 이 상품을 고른 까닭이 드러나야 합니다.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "이메일에 적힌 고객의 조건을 후보 상품 4개에 적용해 모든 조건을 충족하는 상품 하나를 고르고, 다른 후보가 맞지 않는 까닭이 드러나게 2~3문장으로 추천 근거를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "추천 상품과 그 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "고객 이메일에서 효도관광 목적, 휠체어를 탄 채 오르내릴 수 있는 차량, 쇼핑 없는 일정, 1인 요금 140만 원 이하라는 네 조건을 모두 찾아 후보 상품마다 적용한다.",
+      "네 조건을 모두 충족하는 상품은 '강릉 솔향바다 3박 4일' 하나이며, 1인 요금 1,380,000원은 예산 140만 원 안에 든다.",
+      "'경주 천년고도 3박 4일'은 쇼핑이 2회 있고, '제주 노을빛 3박 4일'은 허니문 상품이라 목적이 다르며, '남해 쪽빛바다 3박 4일'은 가장 저렴하지만 차량에 휠체어가 탈 수 없어 추천할 수 없다."
+    ],
+    "rubric": [
+      {
+        "criterion": "고객 조건 파악",
+        "description": "이메일에서 효도관광 목적, 휠체어 탑승 가능 차량, 쇼핑 없음, 1인 140만 원 이하 예산의 네 조건을 빠짐없이 뽑아 후보 상품에 적용했는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "고객서비스"
+        ]
+      },
+      {
+        "criterion": "조건을 모두 충족하는 상품 선택",
+        "description": "목적에 맞는 테마이면서 차량, 쇼핑, 예산 조건을 모두 충족하는 '강릉 솔향바다 3박 4일'을 추천 상품으로 골랐는지 본다.",
+        "points": 35,
+        "linked_evidence": [
+          "판단과 의사결정",
+          "고객서비스"
+        ]
+      },
+      {
+        "criterion": "다른 후보를 고르지 않은 이유",
+        "description": "근거에 일부 조건만 맞는 후보(쇼핑 2회, 허니문 상품, 휠체어 탑승 불가 차량)가 어떤 조건 때문에 맞지 않는지가 드러나는지 본다.",
+        "points": 25,
+        "linked_evidence": [
+          "판단과 의사결정"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "고객의 요구에 맞는 여행상품을 추천하고, 상품별 비용 등 각종 자료를 제시한다.",
+      "source_ref": {
+        "file": "K000001187/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 97,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001187/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 97,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001187/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 96,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001187/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 92,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001187/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 89,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001187/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "서비스 지향",
+          "score": 84,
+          "description": "다른 사람들을 돕기 위해 적극적으로 노력한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "말하기",
+          "score": 80,
+          "description": "자기가 알고 있는 것을 다른 사람에게 조리있게 말한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상",
+          "score": 63,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영업과 마케팅",
+          "score": 86,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "상담",
+          "score": 84,
+          "description": "개인의 신상 및 경력 혹은 정신적 어려움에 관한 상담을 하는 절차나 방법 혹은 원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "고객서비스",
+          "score": 84,
+          "description": "고객에게 서비스를 제공하는데 필요한 지식(고객의 욕구평가, 고객의 만족도 평가, 서비스 기준 설정 등)",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "외부 고객 대하기",
+          "score": 92,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 87,
+          "description": "재택근무 가능성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 86,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "고객서비스"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "고객서비스",
+          "판단과 의사결정"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001187/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.115,
+    "AX2": 0.115,
+    "AX3": 0.54,
+    "AX4": 0.115,
+    "AX5": 0.115
+  }
+}

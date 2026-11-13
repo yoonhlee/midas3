@@ -1,0 +1,483 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001097_easy_001",
+  "job_identity": {
+    "job_cd": "K000001097",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "에너지·환경공학 기술자 및 시험원",
+    "job_smcl_nm": "환경시험원",
+    "source_ref": {
+      "file": "K000001097/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "소음측정기를 통해 작업장이나 공간의 소음진동 문제를 시험한다.",
+    "source_ref": {
+      "file": "K000001097/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "소리누리환경시험소",
+    "domain": "작업장 소음 측정 결과 정리",
+    "period": [
+      "11월 둘째 주 측정"
+    ],
+    "trend_pattern": "대상소음 측정값은 프레스 라인 88 dB, 포장 라인 83 dB이고, 모든 설비를 멈춘 상태의 배경소음은 64 dB이다.",
+    "main_issue": "의뢰처가 정한 관리 기준에 따라 저감 검토 대상이 되는 발생원을 가려야 한다.",
+    "feedback_themes": [
+      "대상소음과 배경소음 구분",
+      "관리 기준 85 dB 적용",
+      "측정값을 근거로 보고"
+    ],
+    "decision_goal": "관리 기준을 넘는 발생원 하나를 골라 근거가 된 측정값과 함께 선배 시험원에게 보고한다."
+  },
+  "mission": {
+    "title": "작업장 소음, 기준을 넘는 발생원은 어디일까?",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "소리누리환경시험소 환경시험원 인턴",
+      "context": "당신은 소리누리환경시험소의 인턴입니다. 11월 둘째 주에 선배 시험원과 함께 한 금속부품 공장의 작업장 소음을 측정했고, 결과가 측정평가표로 정리되었습니다. 의뢰처가 과업 내역서에 정한 이번 측정의 관리 기준은 '대상소음 측정값이 85 dB를 넘는 발생원을 저감 검토 대상으로 본다'입니다. 선배 시험원이 '기준을 넘는 발생원을 하나 골라서 근거와 같이 알려 줘요'라고 부탁했습니다.",
+      "goal": "측정평가표에 의뢰처의 관리 기준을 적용해 저감 검토 대상이 되는 발생원을 찾아 선배 시험원에게 보고합니다.",
+      "constraints": [
+        "관리 기준: 대상소음 측정값이 85 dB를 넘는 발생원을 저감 검토 대상으로 본다(의뢰처 과업 내역서).",
+        "표에 적힌 측정값만 사용하고, 값을 새로 재거나 바꾸지 않습니다.",
+        "답은 1~2문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "대상소음",
+          "definition": "측정하려는 대상, 즉 특정 설비나 장소에서 나는 소음입니다."
+        },
+        {
+          "term": "배경소음",
+          "definition": "측정하려는 대상의 소음 외에 함께 측정되는 주변 소음입니다."
+        },
+        {
+          "term": "발생원",
+          "definition": "소음을 만들어 내는 설비나 물체입니다."
+        },
+        {
+          "term": "과업 내역서",
+          "definition": "의뢰처와 맺은 계약에서 해야 할 일과 조건을 정리해 둔 문서입니다."
+        },
+        {
+          "term": "dB(데시벨)",
+          "definition": "소리의 크기를 나타내는 단위입니다. 숫자가 클수록 큰 소리입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "noise_measurement_result_table",
+        "title": "작업장 소음 측정평가표 (측정값 단위: dB)",
+        "description": "소리누리환경시험소가 11월 둘째 주에 금속부품 공장 작업장에서 측정 지점과 발생원별로 잰 소음값을 정리한 측정평가표입니다. 측정값의 단위는 dB입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "의뢰처의 관리 기준을 표의 측정값에 적용해 저감 검토 대상이 되는 발생원을 찾는 데 씁니다.",
+        "evidence_source": [
+          "정보 처리",
+          "기준에 따른 정보 평가",
+          "범주화"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "측정 지점"
+            },
+            {
+              "key": "strength",
+              "label": "발생원"
+            },
+            {
+              "key": "weakness",
+              "label": "소음 구분"
+            },
+            {
+              "key": "priority",
+              "label": "측정값(dB)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "1번 지점(프레스 라인)",
+              "strength": "프레스기",
+              "weakness": "대상소음",
+              "priority": 88
+            },
+            {
+              "option": "2번 지점(포장 라인)",
+              "strength": "컨베이어",
+              "weakness": "대상소음",
+              "priority": 83
+            },
+            {
+              "option": "1번 지점(프레스 라인)",
+              "strength": "없음(모든 설비 정지)",
+              "weakness": "배경소음",
+              "priority": 64
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 측정평가표에 의뢰처의 관리 기준을 적용해 저감 검토 대상이 되는 발생원을 찾고, 어떤 측정값을 근거로 판단했는지 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "관리 기준을 표의 측정값에 적용해 저감 검토 대상 발생원 하나를 고르고, 근거가 된 측정값과 함께 1-2문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "저감 검토 대상 발생원과 판단 근거"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "관리 기준은 대상소음 측정값에 적용하므로, 모든 설비를 멈추고 잰 배경소음 행(64 dB)은 비교 대상에서 뺀다.",
+      "대상소음 가운데 85 dB를 넘는 것은 1번 지점 프레스기(88 dB)뿐이므로 프레스기가 저감 검토 대상이다.",
+      "2번 지점 컨베이어(83 dB)는 85 dB를 넘지 않아 이번 기준으로는 저감 검토 대상이 아니다."
+    ],
+    "rubric": [
+      {
+        "criterion": "기준을 넘는 발생원 선택",
+        "description": "관리 기준(대상소음 85 dB 초과)을 적용해 저감 검토 대상 발생원으로 1번 지점 프레스기를 바르게 골랐는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "측정값 근거 제시",
+        "description": "프레스기의 측정값 88 dB가 기준 85 dB를 넘는다는 점을 표의 값으로 근거로 들었는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "대상소음과 배경소음 구분",
+        "description": "배경소음 행을 기준 비교에서 빼고 대상소음 측정값만 관리 기준과 비교했는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "범주화"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "소음측정기를 통해 작업장이나 공간의 소음진동 문제를 시험한다.",
+      "source_ref": {
+        "file": "K000001097/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 처리",
+          "score": 91,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 작성, 기록",
+          "score": 90,
+          "description": "정보를 전자 또는 서면으로 작성, 기록, 저장, 관리하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "자원 관리",
+          "score": 87,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 87,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보의 의미 해석",
+          "score": 84,
+          "description": "정보가 뜻하는 바와 그것이 어떻게 사용되는지 번역하거나 설명하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "선택적 집중력",
+          "score": 99,
+          "description": "주의를 산만하게 하는 자극에도 불구하고 원하는 일에 집중한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "읽고 이해하기",
+          "score": 95,
+          "description": "업무와 관련된 문서를 읽고 이해한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 95,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "화학",
+          "score": 85,
+          "description": "물질의 구성, 구조, 특성, 화학적 변환과정에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "물리",
+          "score": 83,
+          "description": "공기, 물, 빛, 열, 전기이론 및 자연현상에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "생물",
+          "score": 78,
+          "description": "동.식물 또는 생명현상에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "질병 혹은 감염 위험 노출",
+          "score": 95,
+          "description": "질병 혹은 병균에 노출되는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "정확성, 정밀성 유지",
+          "score": 93,
+          "description": "업무 수행을 위해 정밀하거나 정확한 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "오염물질 노출",
+          "score": 91,
+          "description": "오염물질(가스, 먼지, 악취 등)에 노출되는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 처리",
+          "기준에 따른 정보 평가",
+          "범주화"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.84,
+    "AX2": 0.04,
+    "AX3": 0.04,
+    "AX4": 0.04,
+    "AX5": 0.04
+  }
+}

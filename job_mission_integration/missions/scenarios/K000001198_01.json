@@ -1,0 +1,461 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001198_easy_001",
+  "job_identity": {
+    "job_cd": "K000001198",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "작가·통번역가",
+    "job_smcl_nm": "출판물기획자",
+    "source_ref": {
+      "file": "K000001198/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "다양한 조사 등을 통해 독자가 원하는 출판물의 내용과 출판 시장 동향 등을 파악한다.",
+    "source_ref": {
+      "file": "K000001198/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "온새길 출판사",
+    "domain": "단행본 출판 기획",
+    "period": [
+      "7월",
+      "8월",
+      "9월",
+      "10월"
+    ],
+    "trend_pattern": "에세이는 네 달 모두 판매 부수가 더 많지만 5200권에서 4300권으로 매달 줄었고, 과학 교양은 판매 부수가 더 적지만 2100권에서 3700권으로 매달 늘었다.",
+    "main_issue": "판매 부수가 가장 많은 분야와 판매 부수가 매달 늘어나는 분야가 서로 다르다.",
+    "feedback_themes": [
+      "편집장 요청: 최근 4개월 동안 판매 부수가 매달 늘어난 분야를 다음 출판물 기획 분야로 제안",
+      "독자가 점점 더 찾는 분야 파악"
+    ],
+    "decision_goal": "편집장의 조건(최근 4개월 동안 판매 부수가 매달 증가)에 맞는 다음 출판물 기획 분야 하나를 고른다."
+  },
+  "mission": {
+    "title": "서점 판매자료로 다음 책 분야 고르기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 온새길 출판사 기획팀의 인턴입니다.",
+      "context": "온새길 출판사 기획팀은 다음에 낼 출판물의 분야를 정하고 있습니다. 독자의 욕구와 출판 시장 동향을 살피기 위해, 팀은 거래하는 온/오프라인 서점의 판매자료를 모아 분야별 월간 판매 부수를 정리했습니다. 정리된 자료를 본 편집장이 이렇게 요청했습니다. \"최근 4개월 동안 판매 부수가 매달 늘어난 분야를 찾아서, 다음 출판물을 기획할 분야로 제안해 주세요.\"",
+      "goal": "아래 판매자료 차트를 보고 편집장의 조건에 맞는 분야 하나를 골라, 그 근거와 함께 편집장에게 짧게 제안해 보세요.",
+      "constraints": [
+        "편집장의 조건은 '7월부터 10월까지 4개월 동안 판매 부수가 매달 늘어난 분야'입니다.",
+        "차트에 나온 판매 부수만 근거로 삼습니다.",
+        "답은 편집장에게 보내는 1~2문장으로 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "출판 시장 동향",
+          "definition": "책이 팔리는 흐름이 시간이 지나면서 어느 쪽으로 움직이는지를 말합니다."
+        },
+        {
+          "term": "독자의 욕구",
+          "definition": "독자가 읽고 싶어 하거나 찾고 있는 책의 내용과 주제를 말합니다."
+        },
+        {
+          "term": "온/오프라인 서점",
+          "definition": "인터넷으로 책을 파는 서점과 매장에서 책을 파는 서점을 함께 이르는 말입니다."
+        },
+        {
+          "term": "판매 부수",
+          "definition": "책이 팔린 권수입니다."
+        },
+        {
+          "term": "과학 교양",
+          "definition": "전문가가 아닌 일반 독자가 읽기 쉽게 과학 이야기를 풀어 쓴 책 분야입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "chart",
+        "subtype": "monthly_sales_trend",
+        "title": "온/오프라인 서점 판매자료 - 분야별 월간 판매 부수(권)",
+        "description": "온새길 출판사 기획팀이 온/오프라인 서점에서 받은 판매자료를 분야별로 합쳐, 7월부터 10월까지 에세이와 과학 교양의 월간 판매 부수를 정리한 선 그래프입니다. 단위는 권입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "두 분야의 월별 판매 부수 흐름을 살펴 편집장의 조건에 맞는 분야를 고를 때 사용합니다.",
+        "evidence_source": [
+          "정보 수집"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "chart_type": "line",
+          "x_axis": {
+            "label": "월",
+            "values": [
+              "7월",
+              "8월",
+              "9월",
+              "10월"
+            ]
+          },
+          "y_axis": {
+            "label": "판매 부수",
+            "unit": "권"
+          },
+          "series": [
+            {
+              "name": "에세이",
+              "values": [
+                5200,
+                4900,
+                4600,
+                4300
+              ]
+            },
+            {
+              "name": "과학 교양",
+              "values": [
+                2100,
+                2600,
+                3100,
+                3700
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "차트에서 두 분야의 월별 판매 부수 흐름을 보고, 편집장의 조건에 맞는 분야 하나와 그 분야를 고른 근거가 되는 판매 흐름을 1~2문장으로 적어 편집장에게 제안해 보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "두 분야의 7월부터 10월까지 판매 부수 흐름을 비교해 편집장의 조건에 맞는 분야를 하나 고르고, 월별 판매 부수 변화를 근거로 든 1-2문장의 제안을 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "제안 분야와 근거"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과학 교양은 7월 2100권, 8월 2600권, 9월 3100권, 10월 3700권으로 네 달 동안 매달 판매 부수가 늘어 편집장의 조건에 맞는 분야다.",
+      "에세이는 네 달 모두 판매 부수가 더 많지만 5200권에서 4300권으로 매달 줄어 조건에 맞지 않는다.",
+      "월별 판매 부수 변화를 근거로 과학 교양을 독자가 점점 더 찾고 시장이 커지는 분야로 편집장에게 짧게 제안한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "조건에 맞는 분야 선택",
+        "description": "판매 부수가 가장 많은 에세이를 그대로 고르지 않고, 7월부터 10월까지 매달 판매 부수가 늘어난 과학 교양을 골랐는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "정보 수집"
+        ]
+      },
+      {
+        "criterion": "판매 흐름 근거 제시",
+        "description": "과학 교양의 판매 부수가 매달 늘었다는 월별 변화(예: 2100권에서 3700권으로 증가)를 근거로 들었는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "정보 수집"
+        ]
+      },
+      {
+        "criterion": "편집장에게 짧게 전달",
+        "description": "고른 분야와 근거를 편집장이 바로 이해할 수 있도록 1-2문장의 제안으로 전달했는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "상사, 동료, 부하직원과 소통"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "다양한 조사 등을 통해 독자가 원하는 출판물의 내용과 출판 시장 동향 등을 파악한다.",
+      "source_ref": {
+        "file": "K000001198/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "상사, 동료, 부하직원과 소통",
+          "score": 96,
+          "description": "상사, 동료, 부하직원에게 정보를 서면, 이메일 또는 직접 전달하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 95,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 92,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 91,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들을 훈련, 교육",
+          "score": 91,
+          "description": "교육 요구 사항을 파악하고, 공식적인 교육 또는 훈련 프로그램을 만들며, 교육이나 강의를 제공하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "글쓰기",
+          "score": 99,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 95,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 94,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "국어",
+          "score": 98,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "예술",
+          "score": 91,
+          "description": "음악, 무용, 미술, 드라마에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "역사",
+          "score": 88,
+          "description": "역사적 사건과 원인 그리고 유적에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 91,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 수집"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.8,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.2
+  }
+}

@@ -1,0 +1,477 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007526_easy_001",
+  "job_identity": {
+    "job_cd": "K000007526",
+    "job_lrcl_nm": "교육·법률·사회복지·경찰·소방직 및 군인",
+    "job_mdcl_nm": "사회복지사 및 상담사",
+    "job_smcl_nm": "청소년지도사",
+    "source_ref": {
+      "file": "K000007526/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "청소년의 봉사활동, 문화활동, 수련활동의 인증을 위한 프로그램을 개발하고 지도한다.",
+    "source_ref": {
+      "file": "K000007526/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "다온숲청소년수련관",
+    "domain": "청소년 숙박형 수련활동 인증프로그램 기획",
+    "period": [
+      "인증 신청 전 계획서 초안 점검 단계"
+    ],
+    "trend_pattern": "계획서 초안의 숙박형 추가 기준요소 표에 기준요소 3행이 있고, 각 행에 작성 내용, 첨부 서류, 배치 인원이 적혀 있다.",
+    "main_issue": "1박 2일 숙박형 캠프의 인증프로그램 계획서 초안이 숙박형 기준요소를 모두 갖췄는지 신청 전에 확인해야 한다.",
+    "feedback_themes": [
+      "숙박형 추가 기준요소 충족 여부",
+      "기준요소별 첨부 서류 준비"
+    ],
+    "decision_goal": "인증 신청 전에 계획서 초안에서 보완해야 할 기준요소를 찾아 담당 지도사에게 알린다."
+  },
+  "mission": {
+    "title": "별빛 탐험 캠프 인증 계획서 점검하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 다온숲청소년수련관 프로그램팀의 청소년지도사 인턴입니다.",
+      "context": "수련관은 다음 달 중학생을 대상으로 1박 2일 숙박형 수련활동 '별빛 탐험 캠프'를 열 예정이고, 그 전에 인증을 신청하려고 합니다. 담당 지도사가 인증프로그램 계획서 초안 가운데 숙박형이라서 더 넣어야 하는 기준요소 부분을 표로 정리해 두고 이렇게 부탁했습니다. '신청서를 내기 전에 이 표가 매뉴얼 기준에 맞는지 한번 봐 줄래요?'",
+      "goal": "아래 표를 매뉴얼 기준과 맞춰 보고, 인증 신청 전에 계획서에 보완해야 할 기준요소를 담당 지도사에게 1~2문장으로 알려 주세요.",
+      "constraints": [
+        "국가청소년활동인증매뉴얼 기준: 숙박형 인증프로그램의 기준요소는 기본형 기준요소 외에 숙박관리계획, 영양관리자의 자격사항 첨부, 안전관리인력확보 계획 3가지가 추가됩니다.",
+        "표에 적힌 내용과 위 기준만 보고 판단합니다. 따로 찾아볼 자료는 없습니다.",
+        "답은 1~2문장으로 짧게 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "숙박형 인증프로그램",
+          "definition": "청소년이 하룻밤 이상 묵으면서 참여하는 수련활동 가운데 국가 인증을 받으려는 프로그램입니다. 1박 2일 캠프가 그 예입니다."
+        },
+        {
+          "term": "기준요소",
+          "definition": "인증을 받으려면 프로그램 계획서에 꼭 담아야 하는 항목입니다."
+        },
+        {
+          "term": "국가청소년활동인증매뉴얼",
+          "definition": "청소년 수련활동 인증을 신청할 때 계획서를 어떻게 써야 하는지 정해 둔 안내서입니다."
+        },
+        {
+          "term": "기본형",
+          "definition": "숙박 없이 진행하는 인증프로그램의 기본 형태입니다."
+        },
+        {
+          "term": "영양관리자",
+          "definition": "캠프에서 제공하는 식사의 영양과 위생을 맡는 사람입니다. '자격사항 첨부'는 이 사람이 관련 자격을 갖췄음을 보여 주는 서류를 계획서에 붙인다는 뜻입니다."
+        },
+        {
+          "term": "안전관리인력확보 계획",
+          "definition": "활동하는 동안 안전을 맡을 사람을 몇 명, 어떻게 둘지 정해 두는 계획입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "인증프로그램 계획서 초안",
+        "title": "별빛 탐험 캠프 인증프로그램 계획서 초안 - 숙박형 추가 기준요소",
+        "description": "1박 2일 숙박형 수련활동 인증프로그램 계획서 초안 가운데 담당 지도사가 숙박형 추가 기준요소로 정리한 부분입니다. 기준요소별 작성 내용, 첨부 서류, 배치 인원(단위: 명)을 적었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "시나리오의 숙박형 추가 기준요소 조건과 표의 행을 맞춰 보며 계획서에 보완할 기준요소를 확인하는 데 사용합니다.",
+        "evidence_source": [
+          "사람들을 훈련, 교육",
+          "업무 계획, 우선순위 결정"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "기준요소"
+            },
+            {
+              "key": "strength",
+              "label": "작성 내용"
+            },
+            {
+              "key": "weakness",
+              "label": "첨부 서류"
+            },
+            {
+              "key": "priority",
+              "label": "배치 인원(명)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "숙박관리계획",
+              "strength": "남녀 숙소 분리, 야간 순찰 2회",
+              "weakness": "숙소 배치도",
+              "priority": 2
+            },
+            {
+              "option": "안전관리인력확보 계획",
+              "strength": "활동 시간 동안 안전요원 상주",
+              "weakness": "안전요원 명단",
+              "priority": 3
+            },
+            {
+              "option": "지도자역할 및 배치계획",
+              "strength": "프로그램별 주지도자·보조지도자 역할 분담",
+              "weakness": "지도자 배치표",
+              "priority": 4
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "표를 시나리오에 적힌 숙박형 추가 기준요소 조건과 맞춰 보고, 인증 신청 전에 계획서에 보완해야 할 기준요소가 무엇인지 이유와 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "조건에 적힌 숙박형 추가 기준요소 3가지와 표의 행을 하나씩 대조해 계획서에 없는 기준요소를 찾고, 보완할 항목과 그 이유를 1~2문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "보완할 기준요소와 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "숙박형 추가 기준요소 3가지 가운데 '영양관리자의 자격사항 첨부'가 계획서 초안 표에 없으므로, 인증 신청 전에 영양관리자의 자격 서류를 계획서에 보완해야 한다.",
+      "표의 '지도자역할 및 배치계획'은 숙박형 추가 기준요소 3가지에 들지 않는 기본형 기준요소이므로, 이 행으로 세 번째 추가 요소가 채워졌다고 볼 수 없다.",
+      "표의 '안전요원 명단'은 안전관리인력확보 계획의 첨부 서류이며 영양관리자의 자격사항 첨부를 대신하지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "보완할 기준요소 확인",
+        "description": "숙박형 추가 기준요소 3가지 중 계획서 초안에 없는 '영양관리자의 자격사항 첨부'를 보완 대상으로 정확히 짚었다.",
+        "points": 50,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정",
+          "사람들을 훈련, 교육"
+        ]
+      },
+      {
+        "criterion": "추가 기준요소 구분",
+        "description": "'지도자역할 및 배치계획'을 숙박형 추가 기준요소로 세지 않았고, '안전요원 명단'을 영양관리자 자격 서류로 착각하지 않았다.",
+        "points": 30,
+        "linked_evidence": [
+          "사람들을 훈련, 교육"
+        ]
+      },
+      {
+        "criterion": "판단 이유 제시",
+        "description": "시나리오의 숙박형 추가 기준요소 조건과 표를 대조했다는 이유를 1~2문장 안에 분명히 적었다.",
+        "points": 20,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "청소년의 봉사활동, 문화활동, 수련활동의 인증을 위한 프로그램을 개발하고 지도한다.",
+      "source_ref": {
+        "file": "K000007526/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들을 훈련, 교육",
+          "score": 100,
+          "description": "교육 요구 사항을 파악하고, 공식적인 교육 또는 훈련 프로그램을 만들며, 교육이나 강의를 제공하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 99,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들을 배려, 돌봄",
+          "score": 98,
+          "description": "동료, 고객, 환자를 치료하고, 정서적으로 지지하고 돌보기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 97,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 96,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "가르치기",
+          "score": 97,
+          "description": "다른 사람들에게 일하는 방법에 대해 가르친다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "학습전략",
+          "score": 95,
+          "description": "새로운 것을 배우거나 가르칠 때 적절한 방법을 활용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 78,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "상담",
+          "score": 90,
+          "description": "개인의 신상 및 경력 혹은 정신적 어려움에 관한 상담을 하는 절차나 방법 혹은 원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "심리",
+          "score": 84,
+          "description": "사람들의 행동, 성격, 흥미, 동기 등에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "철학과 신학",
+          "score": 78,
+          "description": "생활에 영향을 미치는 다양한 철학과 종교에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "건강 및 안전에 대한 책임",
+          "score": 83,
+          "description": "함께 근무하는 사람의 건강 및 안전에 대한 책임",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "연설, 발표, 회의하기",
+          "score": 79,
+          "description": "사람들 앞에서 공식적으로 연설(발표,회의 등의 상황)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람들을 조율하거나 이끌기",
+          "score": 76,
+          "description": "업무 특성상 다른 사람들을 조율하거나 이끄는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "사람들을 훈련, 교육",
+          "업무 계획, 우선순위 결정"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.0,
+    "AX2": 0.0,
+    "AX3": 0.45,
+    "AX4": 0.0,
+    "AX5": 0.55
+  }
+}

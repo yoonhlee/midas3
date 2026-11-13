@@ -1,0 +1,533 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001060_normal_001",
+  "job_identity": {
+    "job_cd": "K000001060",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "디자이너",
+    "job_smcl_nm": "시각디자이너",
+    "source_ref": {
+      "file": "K000001060/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "광고디자이너는 텔레비전, 잡지, 신문, 라디오, 포스터, 옥외광고 등 영상이나 인쇄매체의 광고 화면을 구성하고 필요한 그림과 이미지를 맡아 처리한다.",
+    "source_ref": {
+      "file": "K000001060/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "새벽들 광고스튜디오",
+    "domain": "잡지 광고 이미지 처리",
+    "period": [
+      "잡지 광고 지면 마감 3일 전"
+    ],
+    "trend_pattern": "촬영팀이 보낸 이미지 4장은 가로 크기가 2400~4000픽셀로 서로 다르고, 색·밝기와 배경 상태도 이미지마다 다르다.",
+    "main_issue": "잡지 광고 한 면에 들어갈 이미지 4장마다 보정 후 사용, 그대로 사용, 촬영팀 재요청 중 어떤 처리를 할지 정해야 한다.",
+    "feedback_themes": [
+      "가로 크기 기준",
+      "색·밝기 차이",
+      "배경의 불필요한 물체"
+    ],
+    "decision_goal": "아트디렉터의 보정 기준에 맞춰 이미지 4장의 처리 방법과 그 근거를 정리한다."
+  },
+  "mission": {
+    "title": "잡지 광고 이미지, 어떻게 처리할까?",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 새벽들 광고스튜디오의 인턴 광고디자이너입니다.",
+      "context": "새벽들 광고스튜디오는 신제품 레몬 탄산음료의 잡지 광고 한 면을 만들고 있습니다. 촬영팀이 광고에 들어갈 이미지 4장을 보내왔고, 아트디렉터가 이미지 처리 기준을 메모로 남겼습니다. 아트디렉터는 당신에게 '받은 이미지를 기준대로 어떻게 처리할지 정리해서 알려 주세요'라고 부탁했습니다.",
+      "goal": "메모의 기준에 따라 이미지 4장을 보정한 뒤 쓸 이미지, 그대로 쓸 이미지, 촬영팀에 다시 요청할 이미지로 나누고 그 이유를 짧게 정리합니다.",
+      "constraints": [
+        "제공된 메모와 표에 있는 정보만 사용하세요.",
+        "이미지를 직접 고치거나 그릴 필요는 없습니다. 처리 방법만 정하면 됩니다.",
+        "답은 2~3문장으로 짧게 적어보세요."
+      ],
+      "glossary": [
+        {
+          "term": "보정",
+          "definition": "사진의 색이나 밝기를 고치거나 필요 없는 부분을 지우는 등, 이미지를 손봐서 쓸 수 있게 만드는 작업입니다."
+        },
+        {
+          "term": "픽셀",
+          "definition": "디지털 이미지를 이루는 아주 작은 점입니다. 가로 픽셀 수는 이미지의 가로 크기를 나타냅니다."
+        },
+        {
+          "term": "아트디렉터",
+          "definition": "광고의 전체적인 보이는 방향을 정하고 디자이너의 작업을 이끄는 책임자입니다."
+        },
+        {
+          "term": "지면",
+          "definition": "잡지에서 광고가 실리는 페이지 공간입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "작업 지시 메모",
+        "title": "아트디렉터 메모: 잡지 광고 이미지 보정 기준",
+        "description": "아트디렉터가 신제품 레몬 탄산음료 잡지 광고 한 면에 들어갈 이미지를 처리할 때 따르라고 남긴 작업 기준입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "이미지마다 어떤 처리를 할지 정할 때 적용할 기준으로 사용합니다.",
+        "evidence_source": [
+          "범주화"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "아트디렉터",
+          "items": [
+            "지면에 넣을 이미지는 가로 3000픽셀 이상이어야 합니다. 3000픽셀 미만인 이미지는 보정으로 크기를 키우지 말고, 다른 보정도 하지 않은 채 촬영팀에 다시 요청해 주세요.",
+            "색이나 밝기가 실제 제품·모델과 다르게 나온 이미지는 실제에 맞게 색·밝기를 보정한 뒤 씁니다.",
+            "배경에 촬영 장비(조명, 반사판 등) 같은 불필요한 물체가 보이면 그 부분을 지우는 보정을 한 뒤 씁니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "이미지 목록",
+        "title": "촬영팀 전달 이미지 목록 (가로 크기 단위: 픽셀)",
+        "description": "촬영팀이 보낸 이미지 4장의 파일명, 지면에서 들어갈 위치, 촬영된 상태, 가로 픽셀 수를 정리한 목록입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "이미지마다 상태와 크기를 확인해 메모의 기준에 맞춰 볼 때 사용합니다.",
+        "evidence_source": [
+          "절차, 자료, 주변환경 관찰"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "이미지"
+            },
+            {
+              "key": "strength",
+              "label": "들어갈 위치"
+            },
+            {
+              "key": "weakness",
+              "label": "상태"
+            },
+            {
+              "key": "priority",
+              "label": "가로 픽셀 수"
+            }
+          ],
+          "rows": [
+            {
+              "option": "제품컷_01",
+              "strength": "지면 중앙 제품",
+              "weakness": "병 색이 실제 제품보다 어둡게 나옴 / 배경에 다른 물체 없음",
+              "priority": 4000
+            },
+            {
+              "option": "모델컷_02",
+              "strength": "지면 왼쪽 모델",
+              "weakness": "모델 얼굴이 실제보다 어둡게 나옴 / 배경에 다른 물체 없음",
+              "priority": 2400
+            },
+            {
+              "option": "배경컷_03",
+              "strength": "지면 전체 배경",
+              "weakness": "색과 밝기가 실제와 같음 / 배경에 다른 물체 없음",
+              "priority": 3000
+            },
+            {
+              "option": "제품컷_04",
+              "strength": "지면 하단 제품",
+              "weakness": "색과 밝기가 실제와 같음 / 배경에 조명 스탠드가 보임",
+              "priority": 3200
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아트디렉터 메모의 기준을 표의 이미지 4장에 하나씩 적용해 보세요. 그리고 이미지를 '보정한 뒤 쓸 이미지(어떤 보정인지 포함)', '그대로 쓸 이미지', '촬영팀에 다시 요청할 이미지'로 나누어, 각각 어떤 기준 때문인지 이유와 함께 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 기준과 표의 상태·가로 픽셀 수를 함께 살펴 이미지 4장을 세 가지 처리로 나누고, 각 처리의 근거가 된 기준을 짧게 설명한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "이미지별 처리 분류와 근거"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "모델컷_02는 얼굴이 어둡게 나와 밝기 보정 대상처럼 보이지만 가로 2400픽셀로 3000픽셀 미만이므로, 보정하지 않고 촬영팀에 다시 요청해야 한다.",
+      "배경컷_03은 가로 3000픽셀로 '3000픽셀 이상' 기준을 채우고 색·밝기와 배경에도 문제가 없으므로 그대로 쓴다.",
+      "제품컷_01은 병 색이 실제보다 어둡게 나왔으므로 색·밝기 보정 후 쓰고, 제품컷_04는 배경에 보이는 조명 스탠드를 지우는 보정 후 쓴다."
+    ],
+    "rubric": [
+      {
+        "criterion": "크기 기준을 먼저 적용한 재요청 판단",
+        "description": "모델컷_02를 밝기 문제가 있더라도 가로 3000픽셀 미만이라는 이유로 보정 없이 촬영팀 재요청으로 분류했는지 확인한다.",
+        "points": 35,
+        "linked_evidence": [
+          "범주화",
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "criterion": "기준 경계값을 바르게 읽기",
+        "description": "배경컷_03의 가로 3000픽셀을 '3000픽셀 이상' 기준 충족으로 읽고, 상태에도 문제가 없어 그대로 사용으로 분류했는지 확인한다.",
+        "points": 20,
+        "linked_evidence": [
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "criterion": "보정 종류 구분",
+        "description": "제품컷_01은 색·밝기 보정, 제품컷_04는 불필요한 물체(조명 스탠드)를 지우는 보정으로 각각 알맞은 보정을 정했는지 확인한다.",
+        "points": 30,
+        "linked_evidence": [
+          "범주화",
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "criterion": "기준을 근거로 든 설명",
+        "description": "각 분류의 이유로 메모의 해당 기준(가로 크기, 색·밝기, 불필요한 물체)을 들어 2~3문장으로 설명했는지 확인한다.",
+        "points": 15,
+        "linked_evidence": [
+          "범주화"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "광고디자이너는 텔레비전, 잡지, 신문, 라디오, 포스터, 옥외광고 등 영상이나 인쇄매체의 광고 화면을 구성하고 필요한 그림과 이미지를 맡아 처리한다.",
+      "source_ref": {
+        "file": "K000001060/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 92,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001060/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 90,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001060/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 88,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001060/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 84,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001060/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "업무상 사람들을 직접 응대",
+          "score": 82,
+          "description": "식당, 상점에서 일반 손님을 접대하거나, 거래처 고객 또는 손님을 접대하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001060/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 98,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001060/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 93,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001060/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "시력",
+          "score": 93,
+          "description": "먼 곳이나 가까운 것을 보기 위해 눈을 사용한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001060/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "디자인",
+          "score": 98,
+          "description": "밑그림, 제도와 같이 디자인에 필요한 기법 및 도구에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001060/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "예술",
+          "score": 96,
+          "description": "음악, 무용, 미술, 드라마에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001060/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 85,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001060/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 96,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001060/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 91,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001060/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 89,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001060/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "범주화"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "절차, 자료, 주변환경 관찰"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001060/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001060/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.095,
+    "AX2": 0.62,
+    "AX3": 0.095,
+    "AX4": 0.095,
+    "AX5": 0.095
+  }
+}

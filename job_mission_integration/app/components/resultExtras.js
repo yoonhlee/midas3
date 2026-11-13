@@ -21,6 +21,23 @@ export function withJosa(word, withBatchim, withoutBatchim) {
   return `${text}${(code - 0xac00) % 28 ? withBatchim : withoutBatchim}`;
 }
 
+// 결과 화면에 쓸 직무 정의. 저장된 결과의 직무가 지금 카탈로그에 없으면(미션이 빠진 직무)
+// 이름과 기본 아이콘으로 채워서, 결과 화면이 없는 직무를 읽다가 멈추지 않게 한다.
+// 원래 목록은 바꾸지 않는다(직무 선택 화면에는 미션이 있는 직무만 나와야 한다).
+export function jobDefsForResult({ jobDefs, selectedJobs, selectedJobMeta }) {
+  const known = new Set(jobDefs.map((job) => job.job_code));
+  const missing = (selectedJobs || []).filter((code) => !known.has(code));
+  if (!missing.length) return jobDefs;
+  return jobDefs.concat(missing.map((code) => ({
+    job_code: code,
+    real_job_code: code,
+    job_name: selectedJobMeta?.[code]?.referenceJobName || code,
+    cluster_id: selectedJobMeta?.[code]?.clusterId || "UNMAPPED",
+    icon: "💼",
+    desc: ""
+  })));
+}
+
 // ── 저장 상태 + 체험 후 질문(U22) ─────────────────────────
 export function renderResultStatus({ state, esc }) {
   const notes = [];

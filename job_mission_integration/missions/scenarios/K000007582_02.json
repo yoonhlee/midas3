@@ -1,0 +1,554 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007582_normal_001",
+  "job_identity": {
+    "job_cd": "K000007582",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "에너지·환경공학 기술자 및 시험원",
+    "job_smcl_nm": "환경영향평가원",
+    "source_ref": {
+      "file": "K000007582/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "체크리스트법, 상호작용 메트릭스법, 네트워크법 등의 기법을 활용하여 현지조사를 실시하고, 문헌조사 등을 통하여 환경 현황을 종합적으로 파악·정리한다.",
+    "source_ref": {
+      "file": "K000007582/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "솔빛터 환경연구소",
+    "domain": "환경영향평가 현황 자료 정리",
+    "period": [
+      "2026년 9~10월 현황 자료 수집"
+    ],
+    "trend_pattern": "현지조사 자료와 문헌조사 자료가 한 목록에 섞여 모였다",
+    "main_issue": "모인 현황 자료 가운데 환경조사계획의 조사지점·조사범위·조사방법 조건과 맞지 않는 자료가 있을 수 있다",
+    "feedback_themes": [
+      "조사항목별 조사지점",
+      "사업지구 경계로부터 500 m 조사범위",
+      "조사항목별로 쓸 수 있는 조사방법"
+    ],
+    "decision_goal": "환경현황 종합보고서에 그대로 정리할 수 없는 자료를 가려내고 어긋나는 조건을 밝힌다"
+  },
+  "mission": {
+    "title": "환경현황 종합보고서에 넣을 자료 가려내기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 솔빛터 환경연구소 조사팀에 새로 들어온 인턴입니다.",
+      "context": "솔빛터 환경연구소는 다온 물류단지 조성사업의 환경영향평가를 맡고 있습니다. 9~10월에 현지조사와 문헌조사로 모은 환경 현황 자료 4건이 한 목록에 올라왔고, 이제 이 자료를 환경현황 종합보고서에 정리할 차례입니다. 책임연구원이 \"보고서에 옮기기 전에 계획 조건에 맞지 않는 자료가 있는지 먼저 걸러 주세요\"라고 부탁했습니다.",
+      "goal": "환경조사계획 발췌 메모의 조건을 수집 자료 목록에 적용해, 환경현황 종합보고서에 그대로 정리할 수 없는 자료와 그 이유를 짧게 적습니다.",
+      "constraints": [
+        "메모와 표에 나온 내용만으로 판단하세요.",
+        "정리할 수 없다고 본 자료마다 이유를 함께 적어주세요.",
+        "답은 2~3문장으로 짧게 적어주세요."
+      ],
+      "glossary": [
+        {
+          "term": "현지조사",
+          "definition": "조사하는 사람이 직접 현장에 나가 보고 측정해서 자료를 모으는 조사입니다."
+        },
+        {
+          "term": "문헌조사",
+          "definition": "현장에 직접 가지 않고, 이미 나와 있는 보고서나 비슷한 다른 사업의 자료를 찾아 정리하는 조사입니다."
+        },
+        {
+          "term": "환경조사계획",
+          "definition": "어디서(조사지점), 무엇을(조사항목), 어느 범위까지(조사범위), 어떤 방법으로(조사방법) 조사할지 미리 정해 둔 계획입니다."
+        },
+        {
+          "term": "환경현황 종합보고서",
+          "definition": "사업지 주변 환경이 지금 어떤 상태인지, 모은 조사 자료를 항목별로 정리해 한데 묶은 보고서입니다."
+        },
+        {
+          "term": "수환경",
+          "definition": "하천, 호수, 지하수처럼 물과 관련된 환경입니다."
+        },
+        {
+          "term": "자연생태환경",
+          "definition": "동식물과 그들이 사는 숲, 습지 같은 자연 환경입니다."
+        },
+        {
+          "term": "사업지구",
+          "definition": "이번 사업으로 공사나 개발이 이루어지는 땅의 범위입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "plan_excerpt",
+        "title": "환경조사계획 발췌(환경현황 종합보고서 정리 기준)",
+        "description": "과업 책임연구원이 이번 환경현황 종합보고서 정리에 적용할 환경조사계획 조건을 발췌해 보낸 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "표의 수집 자료가 계획 조건에 맞는지 판단하는 기준으로 씁니다.",
+        "evidence_source": [
+          "범주화"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "과업 책임연구원",
+          "items": [
+            "조사항목·조사지점·조사범위: 조사항목별 조사지점은 수환경 W-1·W-2, 대기환경 A-1, 자연생태환경 E-1입니다. 조사범위는 사업지구 경계로부터 500 m 이내입니다.",
+            "조사방법(수환경·대기환경): 현지조사로 직접 측정한 자료만 씁니다.",
+            "조사방법(자연생태환경): 현지조사 자료와 함께, 조사지점 주변을 다룬 유사사업 문헌 자료를 이용한 문헌조사 자료도 쓸 수 있습니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "data_inventory",
+        "title": "현황 자료 수집 목록(2026년 9~10월)",
+        "description": "현지조사와 문헌조사로 모은 환경 현황 자료 4건을 조사항목, 조사지점, 조사방법, 사업지구 경계로부터 거리(m)로 정리한 목록입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 계획 조건을 한 건씩 적용해 볼 대상 자료로 씁니다.",
+        "evidence_source": [
+          "범주화",
+          "정보의 의미 해석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "조사항목"
+            },
+            {
+              "key": "strength",
+              "label": "조사지점"
+            },
+            {
+              "key": "weakness",
+              "label": "조사방법"
+            },
+            {
+              "key": "priority",
+              "label": "사업지구 경계로부터 거리(m)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "수환경",
+              "strength": "W-1",
+              "weakness": "현지조사",
+              "priority": 250
+            },
+            {
+              "option": "수환경",
+              "strength": "W-2",
+              "weakness": "문헌조사",
+              "priority": 300
+            },
+            {
+              "option": "대기환경",
+              "strength": "A-2",
+              "weakness": "현지조사",
+              "priority": 800
+            },
+            {
+              "option": "자연생태환경",
+              "strength": "E-1",
+              "weakness": "문헌조사",
+              "priority": 400
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 메모의 환경조사계획 조건을 수집 자료 목록 4건에 적용해 보세요. 환경현황 종합보고서에 그대로 정리할 수 없는 자료를 모두 찾아, 각각 메모의 어떤 조건에 어긋나는지 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 조사지점·조사범위·조사방법 조건을 표의 자료 4건에 적용해, 정리할 수 없는 자료와 그 자료가 어긋나는 조건을 짧게 서술한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "정리할 수 없는 자료와 어긋나는 조건"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "수환경 W-2 자료는 조사지점과 거리(300 m)는 계획에 맞지만 문헌조사 자료이므로, 수환경은 현지조사 자료만 쓴다는 조사방법 조건에 어긋나 그대로 정리할 수 없다.",
+      "대기환경 A-2 자료는 현지조사라 조사방법은 맞지만, 계획에 정한 조사지점(A-1)이 아니고 거리가 800 m라 500 m 조사범위 밖이므로 그대로 정리할 수 없다.",
+      "자연생태환경 E-1 자료는 문헌조사 자료이지만 계획이 자연생태환경에는 문헌조사 자료를 허용하고 조사지점과 조사범위(400 m)도 맞으므로 제외하지 않는다. 수환경 W-1 자료도 모든 조건에 맞는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "수환경 문헌조사 자료 판단",
+        "description": "수환경 W-2 자료를 수환경은 현지조사 자료만 쓴다는 조사방법 조건에 어긋나는 자료로 찾았는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "범주화"
+        ]
+      },
+      {
+        "criterion": "대기환경 자료 판단",
+        "description": "대기환경 A-2 자료를 계획에 없는 조사지점이면서 500 m 조사범위 밖인 자료로 찾았는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "범주화",
+          "정보의 의미 해석"
+        ]
+      },
+      {
+        "criterion": "허용된 문헌조사 자료 유지",
+        "description": "자연생태환경 E-1 문헌조사 자료를 계획이 허용하는 자료로 보고 제외하지 않았는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "정보의 의미 해석"
+        ]
+      },
+      {
+        "criterion": "적용한 조건 밝히기",
+        "description": "정리할 수 없다고 본 자료마다 메모의 어느 조건(조사지점, 조사범위, 조사방법)에 어긋나는지 밝혔는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "정보의 의미 해석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "체크리스트법, 상호작용 메트릭스법, 네트워크법 등의 기법을 활용하여 현지조사를 실시하고, 문헌조사 등을 통하여 환경 현황을 종합적으로 파악·정리한다.",
+      "source_ref": {
+        "file": "K000007582/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "협상, 갈등 해결",
+          "score": 96,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보의 의미 해석",
+          "score": 93,
+          "description": "정보가 뜻하는 바와 그것이 어떻게 사용되는지 번역하거나 설명하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보 작성, 기록",
+          "score": 91,
+          "description": "정보를 전자 또는 서면으로 작성, 기록, 저장, 관리하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 91,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "자원 관리",
+          "score": 91,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "추리력",
+          "score": 88,
+          "description": "문제해결 및 의사결정을 위해 새로운 정보가 가지는 의미를 파악한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 83,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 79,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "지리",
+          "score": 87,
+          "description": "육지, 바다 그리고 하늘의 특성 및 상호관계에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "화학",
+          "score": 87,
+          "description": "물질의 구성, 구조, 특성, 화학적 변환과정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "생물",
+          "score": 85,
+          "description": "동.식물 또는 생명현상에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 91,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 89,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 85,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "범주화"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "범주화",
+          "정보의 의미 해석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.64,
+    "AX2": 0.09,
+    "AX3": 0.09,
+    "AX4": 0.09,
+    "AX5": 0.09
+  }
+}

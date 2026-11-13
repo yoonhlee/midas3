@@ -1,0 +1,471 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000875_easy_001",
+  "job_identity": {
+    "job_cd": "K000000875",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "경영·인사 전문가",
+    "job_smcl_nm": "인적자원전문가",
+    "source_ref": {
+      "file": "K000000875/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_006",
+    "text": "교육훈련프로그램을 설계 및 개발하고 근로자나 사업담당자, 관리자를 대상으로 직무능력 향상을 위한 교육을 실시한다.",
+    "source_ref": {
+      "file": "K000000875/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 6
+    },
+    "selection_reason": "Pilot config selected exec_006."
+  },
+  "mission_facts": {
+    "org_name": "온다리물산 인재개발팀",
+    "domain": "신임 관리자 직무능력 향상 교육과정 설계",
+    "period": [
+      "11월 신임 관리자 과정 준비 기간"
+    ],
+    "trend_pattern": "설계안 초안은 도입 20분(강의), 전개 40분(강의), 정리 60분(실습)으로 총 120분이다.",
+    "main_issue": "설계안의 학습단계별 학습내용과 교육 방법 배치가 영업본부 요청에 맞는지 확인해야 한다.",
+    "feedback_themes": [
+      "역할연기 실습은 전개 단계에서 진행",
+      "정리 단계는 20분 이내로 배운 내용 요약"
+    ],
+    "decision_goal": "설계안의 학습단계 배치가 요청에 맞는지 판단하고 고칠 방향을 정한다."
+  },
+  "mission": {
+    "title": "신임 관리자 과정 설계안의 학습단계 배치 점검하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 온다리물산 인재개발팀에서 교육과정 설계를 돕는 인턴입니다.",
+      "context": "인재개발팀은 이번 달 새로 관리자가 된 직원들의 직무능력 향상을 위해 '부하직원 지도' 과정(총 120분)을 준비하고 있습니다. 선임이 교육과정 설계안 초안을 만들었고, 이 과정을 요청한 영업본부에서 진행 방식에 대한 요청을 보내왔습니다. 선임은 '영업본부에 보내기 전에 설계안이 요청대로 짜였는지 한번 봐 줄래요?'라고 부탁했습니다.",
+      "goal": "설계안 표의 학습단계별 배치가 영업본부 요청에 맞는지 확인하고, 맞지 않으면 어떻게 고쳐야 하는지 적어보세요.",
+      "constraints": [
+        "영업본부 요청: '역할연기 실습은 전개 단계에서 진행하고, 정리 단계는 20분 이내로 배운 내용을 요약해 주세요.'",
+        "아래 설계안 표 한 장만 보고 답합니다.",
+        "답은 1~2문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "교육과정 설계",
+          "definition": "교육 목표에 맞춰 무엇을, 어떤 순서와 방법으로 가르칠지 미리 정하는 일입니다."
+        },
+        {
+          "term": "학습단계",
+          "definition": "한 과정을 진행 순서에 따라 나눈 단계입니다. 보통 도입(목표 안내와 시작), 전개(핵심 내용을 배우고 익히기), 정리(배운 내용 요약과 마무리)로 나눕니다."
+        },
+        {
+          "term": "직무능력",
+          "definition": "맡은 일을 해내는 데 필요한 지식과 기술입니다."
+        },
+        {
+          "term": "교육 방법",
+          "definition": "내용을 가르치는 방식입니다. 이 설계안에서는 강사가 설명하는 '강의'와 학습자가 직접 해 보는 '실습'을 씁니다."
+        },
+        {
+          "term": "역할연기",
+          "definition": "실제 업무 상황을 가정하고 역할을 나눠 직접 말하고 행동해 보는 연습 방식입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "교육과정 설계안",
+        "title": "'부하직원 지도' 과정 교육과정 설계안(초안)",
+        "description": "신임 관리자 대상 '부하직원 지도' 과정(총 120분)의 학습단계별 학습내용, 교육 방법, 시간을 한 줄씩 적은 설계안 초안입니다. 시간 단위는 분입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "학습단계마다 놓인 학습내용, 교육 방법, 시간을 영업본부 요청과 비교해 보는 데 씁니다.",
+        "evidence_source": [
+          "사람들을 훈련, 교육",
+          "인사"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "학습단계"
+            },
+            {
+              "key": "strength",
+              "label": "학습내용"
+            },
+            {
+              "key": "weakness",
+              "label": "교육 방법"
+            },
+            {
+              "key": "priority",
+              "label": "시간(분)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "도입",
+              "strength": "과정 목표 안내와 지도 사례 공유",
+              "weakness": "강의",
+              "priority": 20
+            },
+            {
+              "option": "전개",
+              "strength": "부하직원 지도 면담 질문 기법 설명",
+              "weakness": "강의",
+              "priority": 40
+            },
+            {
+              "option": "정리",
+              "strength": "지도 면담 역할연기와 피드백",
+              "weakness": "실습",
+              "priority": 60
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "설계안 표의 학습단계별 배치가 영업본부 요청에 맞는지 확인하고, 맞지 않는 부분이 있다면 어떻게 고쳐야 하는지 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "영업본부 요청을 표의 각 학습단계 배치와 한 번 비교해, 요청과 어긋나는 점과 고칠 방향을 1~2문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "점검 결과와 고칠 방향"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "정리 단계에 역할연기 실습(실습, 60분)이 놓여 있어, 역할연기 실습은 전개 단계에서 하고 정리는 20분 이내 요약으로 하라는 요청에 어긋난다.",
+      "역할연기 실습을 전개 단계로 옮기고, 정리 단계는 20분 이내로 배운 내용을 요약하도록 고쳐야 한다.",
+      "과정 총 시간 120분은 요청과 충돌하지 않으므로 시간 합계는 문제가 아니다."
+    ],
+    "rubric": [
+      {
+        "criterion": "요청과 어긋난 배치 찾기",
+        "description": "정리 단계에 역할연기 실습(실습, 60분)이 놓여 있어 영업본부 요청과 맞지 않는다는 점을 찾아냈는가.",
+        "points": 50,
+        "linked_evidence": [
+          "사람들을 훈련, 교육"
+        ]
+      },
+      {
+        "criterion": "고칠 방향 제시",
+        "description": "역할연기 실습을 전개 단계로 옮기고 정리 단계를 20분 이내의 내용 요약으로 줄이자고 제안했는가. 분 단위의 세부 재배분까지는 요구하지 않는다.",
+        "points": 40,
+        "linked_evidence": [
+          "사람들을 훈련, 교육",
+          "인사"
+        ]
+      },
+      {
+        "criterion": "조건을 정확히 읽기",
+        "description": "총 시간 120분처럼 요청과 관계없는 부분을 문제로 잘못 지적하지 않았는가. 시간 합계를 언급하지 않아도 만점으로 본다.",
+        "points": 10,
+        "linked_evidence": [
+          "인사"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_006",
+      "text": "교육훈련프로그램을 설계 및 개발하고 근로자나 사업담당자, 관리자를 대상으로 직무능력 향상을 위한 교육을 실시한다.",
+      "source_ref": {
+        "file": "K000000875/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 6
+      },
+      "selection_reason": "Pilot config selected exec_006."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들을 훈련, 교육",
+          "score": 97,
+          "description": "교육 요구 사항을 파악하고, 공식적인 교육 또는 훈련 프로그램을 만들며, 교육이나 강의를 제공하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000875/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들을 배려, 돌봄",
+          "score": 94,
+          "description": "동료, 고객, 환자를 치료하고, 정서적으로 지지하고 돌보기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000875/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 94,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000875/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 92,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000875/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 91,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000875/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "인적자원 관리",
+          "score": 99,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000875/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "협상",
+          "score": 98,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000875/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람 파악",
+          "score": 98,
+          "description": "타인의 반응을 파악하고 왜 그렇게 행동하는지 이해한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000875/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "인사",
+          "score": 98,
+          "description": "채용, 훈련, 급여, 노사관계와 같은 인적자원관리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000875/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "경영 및 행정",
+          "score": 87,
+          "description": "사업운영, 기획, 자원배분, 인적자원관리, 리더십, 생산기법에 대한 원리 등 경영 및 관리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000875/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "법",
+          "score": 85,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000875/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "이메일 이용하기",
+          "score": 88,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000875/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "다른 사람과의 접촉",
+          "score": 88,
+          "description": "업무 수행하면서 사람들과 접촉(전화, 대면, 메신저 등) 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000875/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 85,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000875/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "사람들을 훈련, 교육",
+          "인사"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000875/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000875/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.06,
+    "AX2": 0.06,
+    "AX3": 0.06,
+    "AX4": 0.06,
+    "AX5": 0.76
+  }
+}

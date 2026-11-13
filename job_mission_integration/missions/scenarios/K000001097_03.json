@@ -1,0 +1,651 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001097_hard_001",
+  "job_identity": {
+    "job_cd": "K000001097",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "에너지·환경공학 기술자 및 시험원",
+    "job_smcl_nm": "환경시험원",
+    "source_ref": {
+      "file": "K000001097/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "오폐수 처리장 시설진단 및 오염물 상태점검 등 수질 환경문제를 시험한다.",
+    "source_ref": {
+      "file": "K000001097/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "푸른내 폐수처리장",
+    "domain": "폐수처리장 처리 단계별 수질 시험(부유물질)",
+    "period": [
+      "시료 채취일 09:00~10:30",
+      "다음 점검일"
+    ],
+    "trend_pattern": "처리 순서(유입수 → 침전조 유출수 → 여과기 유출수 → 방류수)에 따라 지점마다 여과한 시료량과 거름종이 무게 증가량이 다르게 기록됨",
+    "main_issue": "처리 단계별 부유물질 시험 결과를 시험실 SOP대로 정리하고 처리장 관리 목표와 비교해 점검해야 함",
+    "feedback_themes": [
+      "처리장이 정한 지점별 관리 목표",
+      "SOP의 계산식과 참고값 표시 규칙",
+      "점검 인력 사정상 한 구간만 먼저 점검 가능"
+    ],
+    "decision_goal": "다음 점검 때 침전조 구간과 여과기 구간 중 먼저 볼 구간 하나를 추천"
+  },
+  "mission": {
+    "title": "폐수처리장 부유물질 시험 결과 정리와 점검 구간 의견 내기",
+    "task_type": "diagnosis_and_improvement",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "다온 수질시험실의 인턴 시험원",
+      "context": "당신은 다온 수질시험실의 인턴 시험원입니다. 푸른내 폐수처리장에서 처리 단계별 물의 부유물질 시험을 의뢰해 왔고, 선배 시험원이 네 지점의 시료를 시험한 기록표를 남겨 두었습니다. 분석 책임자가 '시험실 SOP대로 결과를 정리하고, 의뢰서에 적힌 요청에 답할 의견도 초안으로 써 달라'고 부탁했습니다.",
+      "goal": "아래 세 자료를 보고 지점별 시험 결과를 SOP대로 정리한 뒤, 의뢰처가 다음 점검 때 먼저 볼 구간에 대한 의견을 적어 보세요.",
+      "constraints": [
+        "계산과 판정에는 자료에 적힌 계산식, 규칙, 관리 목표만 사용합니다.",
+        "자료에 없는 설비 고장 원인은 추측하지 않습니다.",
+        "답은 과제마다 3~5문장으로 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "부유물질",
+          "definition": "물에 녹지 않고 떠다니는 흙이나 찌꺼기 같은 작은 알갱이. 물을 거름종이로 걸렀을 때 종이에 남는 물질이다."
+        },
+        {
+          "term": "무게차법",
+          "definition": "시료를 거름종이로 거른 뒤, 거르기 전과 후의 거름종이 무게 차이로 걸러진 물질의 양을 구하는 시험 방법."
+        },
+        {
+          "term": "표준작업절차서(SOP)",
+          "definition": "시험실이 같은 시험을 늘 같은 방법으로 하도록 순서와 규칙을 정해 둔 문서."
+        },
+        {
+          "term": "시료",
+          "definition": "시험하려고 채취한 물의 일부."
+        },
+        {
+          "term": "mg/L",
+          "definition": "물 1 L에 들어 있는 물질의 양을 mg으로 나타낸 농도 단위."
+        },
+        {
+          "term": "유입수",
+          "definition": "처리장에 처음 들어오는, 처리하기 전의 물."
+        },
+        {
+          "term": "유출수",
+          "definition": "한 처리 시설을 거쳐 그 시설에서 나온 물. 이 미션에서는 침전조 유출수, 여과기 유출수처럼 시설 이름을 앞에 붙여 부른다."
+        },
+        {
+          "term": "침전조",
+          "definition": "물을 한동안 머물게 해 무거운 찌꺼기를 바닥에 가라앉히는 처리 시설."
+        },
+        {
+          "term": "여과기",
+          "definition": "물을 모래 같은 거름층에 통과시켜 남은 작은 알갱이를 걸러 내는 처리 시설."
+        },
+        {
+          "term": "방류수",
+          "definition": "처리를 모두 마치고 처리장 밖으로 내보내는 물."
+        },
+        {
+          "term": "관리 목표",
+          "definition": "처리장이 지점별 물의 상태를 관리하려고 스스로 정해 둔 목표 수치. 이 미션에서는 법으로 정한 기준이 아니라 처리장의 운영 목표를 뜻한다."
+        },
+        {
+          "term": "참고값",
+          "definition": "아직 확정되지 않아 확정값과 구분해 표시하는 결과값. 이 미션에서는 시험실 SOP의 규칙에 따라 붙이는 표시를 뜻한다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "analysis_request",
+        "title": "푸른내 폐수처리장 분석 의뢰서",
+        "description": "푸른내 폐수처리장 운영 담당자가 다온 수질시험실에 보낸 분석 의뢰서입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 지점별 관리 목표와 비교하는 데 쓰고, 과제 2에서 처리 순서와 의뢰처의 요청을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "푸른내 폐수처리장 운영 담당자",
+          "items": [
+            "대상 수질: 처리 순서대로 유입수 → 침전조 유출수 → 여과기 유출수 → 방류수, 모두 4곳. 분석항목: 부유물질.",
+            "처리장 관리 목표(법정 기준이 아니라 우리 처리장이 정한 운영 목표): 침전조 유출수 80 mg/L 이하, 여과기 유출수 30 mg/L 이하, 방류수 30 mg/L 이하. 유입수는 목표를 따로 두지 않습니다.",
+            "요청: 다음 점검일에는 인력 사정상 침전조 구간과 여과기 구간 중 한 곳만 먼저 점검할 수 있습니다. 각 구간은 그 시설에서 나온 물(유출수)의 결과를 보고 판단합니다. 이 의뢰서의 시험 결과와 함께, 먼저 볼 구간에 대한 의견도 주시기 바랍니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "memo",
+        "subtype": "sop_excerpt",
+        "title": "부유물질 무게차법 표준작업절차서(SOP) 발췌",
+        "description": "다온 수질시험실 분석 책임자가 정리한 시험실 표준작업절차서(SOP)에서 계산식과 결과 표시 규칙만 발췌한 문서입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 농도를 계산하고 참고값인지 판정하는 데 쓰고, 과제 2에서 결과를 얼마나 믿을 수 있는지 따질 때 쓴다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "산수와 수학"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "feedback_themes"
+        ],
+        "data": {
+          "author": "다온 수질시험실 분석 책임자",
+          "items": [
+            "계산식: 부유물질(mg/L) = 거름종이 무게 증가량(mg) × 1,000 ÷ 여과한 시료량(mL). 결과는 정수로 적는다.",
+            "시험실 내부 규칙: 거름종이 무게 증가량이 2 mg 미만이면 계산값에 '참고값'이라고 표시하고, 시료량을 늘려 다시 분석한 뒤 결과를 확정한다.",
+            "결과 통보: 참고값은 확정값이 아니므로, 의뢰처에 결과를 알릴 때 참고값임을 함께 적는다."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "test_record",
+        "title": "지점별 부유물질 무게차법 시험 기록표",
+        "description": "다온 수질시험실이 푸른내 폐수처리장 네 지점의 시료를 무게차법으로 시험하며 남긴 기록입니다. 거름종이 무게 증가량의 단위는 mg입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1의 계산에 필요한 지점별 시료량과 거름종이 무게 증가량을 읽고, 과제 2에서 지점별 결과를 견주는 데 쓴다.",
+        "evidence_source": [
+          "정보 처리",
+          "산수와 수학"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "채취 지점"
+            },
+            {
+              "key": "strength",
+              "label": "채취 시각"
+            },
+            {
+              "key": "weakness",
+              "label": "여과한 시료량"
+            },
+            {
+              "key": "priority",
+              "label": "거름종이 무게 증가량(mg)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "유입수",
+              "strength": "09:00",
+              "weakness": "50 mL",
+              "priority": 12
+            },
+            {
+              "option": "침전조 유출수",
+              "strength": "09:30",
+              "weakness": "100 mL",
+              "priority": 9
+            },
+            {
+              "option": "여과기 유출수",
+              "strength": "10:00",
+              "weakness": "25 mL",
+              "priority": 1
+            },
+            {
+              "option": "방류수",
+              "strength": "10:30",
+              "weakness": "500 mL",
+              "priority": 19
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "SOP 발췌의 계산식과 결과 표시 규칙을 시험 기록표에 적용해 네 지점의 부유물질 농도(mg/L)를 구하고, 지점마다 의뢰서의 관리 목표를 넘는지와 참고값인지를 판정해 3~5문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "SOP 계산식으로 네 지점의 농도를 구하고, 지점별로 관리 목표 초과 여부와 참고값 여부를 판정해 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 결과를 바탕으로, 의뢰처가 다음 점검 때 침전조 구간과 여과기 구간 중 어느 구간을 먼저 볼지 하나를 추천하고, 그 근거와 이 추천의 주의점 하나를 3~5문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "과제 1의 결과와 의뢰서 내용을 근거로 먼저 볼 구간 하나를 추천하고, 다른 구간과 견준 근거와 주의점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 지점별 농도와 판정",
+        "과제 2: 먼저 볼 구간 추천, 근거, 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "네 지점의 부유물질 농도는 유입수 240 mg/L(12 × 1,000 ÷ 50), 침전조 유출수 90 mg/L(9 × 1,000 ÷ 100), 여과기 유출수 40 mg/L(1 × 1,000 ÷ 25), 방류수 38 mg/L(19 × 1,000 ÷ 500)이다. 무게 증가량만 보면 방류수(19 mg)가 가장 크고 여과기 유출수(1 mg)가 가장 작아 보이지만, 시료량으로 나누면 순서가 달라진다.",
+      "침전조 유출수(90 > 80), 여과기 유출수(40 > 30), 방류수(38 > 30)가 관리 목표를 넘고, 유입수는 목표가 없다. 무게 증가량이 2 mg 미만인 여과기 유출수만 SOP상 참고값이다.",
+      "과제 2는 자료만으로 정답이 하나로 정해지지 않는다. 두 구간 모두 목표보다 10 mg/L 높아 초과량은 같지만, 침전조 유출수 값은 확정값이고 여과기 유출수 값은 참고값이며, 여과기 구간은 목표가 30으로 낮아 목표 대비로는 더 크게 벗어나고 바로 뒤 방류수도 확정값으로 목표를 넘는다. 침전조를 고르는 답은 초과가 확정된 값이라는 점을, 여과기를 고르는 답은 목표 대비 벗어난 정도와 방류수와의 연결을 근거로 들 수 있다.",
+      "예시: 여과기 구간을 먼저 보자고 추천한다. 두 구간 모두 목표보다 10 mg/L 높지만 여과기 구간은 목표의 약 3분의 1만큼 넘어 침전조(목표의 8분의 1)보다 크게 벗어나고, 바로 뒤 방류수가 확정값 38 mg/L로 목표 30을 넘어 방류수 문제와 가장 직접 이어진다. 주의점: 여과기 유출수 값은 무게 증가량이 1 mg이라 참고값이므로, 시료량을 늘려 다시 분석해 확정하기 전에는 여과기 구간의 초과를 단정할 수 없다."
+    ],
+    "rubric": [
+      {
+        "criterion": "지점별 부유물질 농도 계산",
+        "description": "과제 1에서 SOP 계산식(무게 증가량 × 1,000 ÷ 시료량)대로 네 지점의 농도를 구했는지 본다. 정답은 유입수 240 mg/L, 침전조 유출수 90 mg/L, 여과기 유출수 40 mg/L, 방류수 38 mg/L이다. 무게 증가량(mg)을 그대로 농도로 읽었거나 시료량으로 나누지 않은 값은 틀린 것으로 본다. 네 값이 모두 맞으면 만점, 틀린 값이 있으면 그 수만큼 점수를 줄인다.",
+        "points": 25,
+        "linked_evidence": [
+          "정보 처리",
+          "산수와 수학"
+        ]
+      },
+      {
+        "criterion": "관리 목표 초과와 참고값 판정",
+        "description": "과제 1에서 지점마다 두 가지 판정을 적었는지 본다. 관리 목표: 침전조 유출수(90 > 80), 여과기 유출수(40 > 30), 방류수(38 > 30)는 목표를 넘고, 유입수는 목표가 없어 초과로 판정하지 않는다. 참고값: 무게 증가량이 2 mg 미만인 여과기 유출수만 참고값으로 표시한다. 두 판정이 모두 맞으면 만점, 한 가지만 맞거나 일부 지점이 틀리면 부분 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "먼저 볼 구간 추천과 근거",
+        "description": "특정 구간을 정답으로 요구하지 않는다. 학습자가 고른 구간에 대해 과제 1의 계산·판정 결과와 의뢰서 내용(처리 순서, 관리 목표)을 들어 다른 구간보다 먼저 볼 만한 이유를 보였는지 본다. 맞는 사실을 들었더라도 다른 구간과 견주어 왜 더 나은지 보이지 못하면 부분 점수만 준다. 두 구간은 모두 목표보다 10 mg/L 높아 초과량이 같으므로 '초과량이 더 크다'는 근거는 사실과 맞지 않으며, 목표 대비 비율로 견준 근거는 인정한다. 예: 여과기 구간을 고르고, 목표 대비 더 크게 벗어나며 바로 뒤 방류수도 확정값 38 mg/L로 목표를 넘는다는 점을 든다.",
+        "points": 30,
+        "linked_evidence": [
+          "추리력"
+        ]
+      },
+      {
+        "criterion": "추천의 주의점",
+        "description": "학습자가 고른 구간을 먼저 보는 것에 대해 자료가 보여주는 실제 위험이나 한계 하나를 적었는지 본다. 근거로 쓴 값의 신뢰도나, 고르지 않은 구간에 남는 목표 초과 같은 주의점을 인정한다. 자료에 없는 설비 고장 원인을 단정한 주의점은 인정하지 않는다. 예: 여과기 유출수 값은 무게 증가량이 1 mg이라 참고값이므로, 시료량을 늘려 다시 분석해 확정하기 전에는 여과기 구간의 초과를 단정할 수 없다.",
+        "points": 20,
+        "linked_evidence": [
+          "추리력"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "오폐수 처리장 시설진단 및 오염물 상태점검 등 수질 환경문제를 시험한다.",
+      "source_ref": {
+        "file": "K000001097/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 처리",
+          "score": 91,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 작성, 기록",
+          "score": 90,
+          "description": "정보를 전자 또는 서면으로 작성, 기록, 저장, 관리하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "자원 관리",
+          "score": 87,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 87,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보의 의미 해석",
+          "score": 84,
+          "description": "정보가 뜻하는 바와 그것이 어떻게 사용되는지 번역하거나 설명하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "선택적 집중력",
+          "score": 99,
+          "description": "주의를 산만하게 하는 자극에도 불구하고 원하는 일에 집중한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "읽고 이해하기",
+          "score": 95,
+          "description": "업무와 관련된 문서를 읽고 이해한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 95,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "화학",
+          "score": 85,
+          "description": "물질의 구성, 구조, 특성, 화학적 변환과정에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "물리",
+          "score": 83,
+          "description": "공기, 물, 빛, 열, 전기이론 및 자연현상에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "생물",
+          "score": 78,
+          "description": "동.식물 또는 생명현상에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "질병 혹은 감염 위험 노출",
+          "score": 95,
+          "description": "질병 혹은 병균에 노출되는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "정확성, 정밀성 유지",
+          "score": 93,
+          "description": "업무 수행을 위해 정밀하거나 정확한 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "오염물질 노출",
+          "score": 91,
+          "description": "오염물질(가스, 먼지, 악취 등)에 노출되는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "산수와 수학"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "정보 처리",
+          "산수와 수학"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

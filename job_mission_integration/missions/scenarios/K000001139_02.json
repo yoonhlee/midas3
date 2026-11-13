@@ -1,0 +1,548 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001139_normal_001",
+  "job_identity": {
+    "job_cd": "K000001139",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "광고·조사·상품기획·행사기획 전문가",
+    "job_smcl_nm": "조사전문가",
+    "source_ref": {
+      "file": "K000001139/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "조사를 수행하는 면접원이나 조사원을 교육하거나 실사관리자를 감독하기도 한다.",
+    "source_ref": {
+      "file": "K000001139/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "모아결리서치",
+    "domain": "주민 생활 만족도 현장방문조사의 실사 진행 관리",
+    "period": [
+      "1차 현장방문조사 중간 점검일 11월 7일"
+    ],
+    "trend_pattern": "네 팀의 누적 완료 부수가 36부에서 54부까지 서로 다르고, 팀마다 담당 지역의 배정 부수도 다르다.",
+    "main_issue": "중간 점검일 기준으로 실사 진행이 계획보다 늦은 팀이 있는지 확인해야 한다.",
+    "feedback_themes": [
+      "팀별 실사 진행 속도 차이",
+      "지역별 배정 부수 차이"
+    ],
+    "decision_goal": "실사관리자에게 면접원 독려와 응답자 추가 모집을 지시할 팀을 정한다."
+  },
+  "mission": {
+    "title": "실사 중간 점검: 독려가 필요한 팀 고르기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 모아결리서치 조사운영팀의 인턴입니다.",
+      "context": "모아결리서치는 한 구청의 의뢰로 주민 생활 만족도 현장방문조사를 진행하고 있습니다. 네 개 팀이 지역을 나눠 맡고, 팀마다 실사관리자 한 명이 면접원들을 이끌고 있습니다. 오늘은 11월 7일 중간 점검일입니다. 조사 프로젝트 책임자가 점검 기준을 정리한 메모와 오늘 자 진행사항 실적표를 보내며 이렇게 부탁했습니다. “기준대로 확인해서, 이번에 조치를 지시할 팀을 알려 주세요.”",
+      "goal": "메모의 점검 기준을 실적표에 적용해, 면접원 독려와 응답자 추가 모집을 지시해야 할 팀을 고르고 이유를 적어보세요.",
+      "constraints": [
+        "제공된 메모와 진행사항 실적표에 있는 정보만 사용하세요.",
+        "고른 팀과 그 이유를 2~3문장으로 적으세요.",
+        "이유에는 판단에 쓴 숫자를 함께 적어 주세요."
+      ],
+      "glossary": [
+        {
+          "term": "실사",
+          "definition": "조사원이 실제로 응답자를 만나 설문 응답을 모으는 현장 작업입니다."
+        },
+        {
+          "term": "실사관리자",
+          "definition": "한 팀의 면접원들을 이끌며 그 팀의 실사 진행을 챙기는 관리자입니다."
+        },
+        {
+          "term": "면접원",
+          "definition": "응답자를 직접 만나 질문하고 설문지를 받아 오는 조사원입니다."
+        },
+        {
+          "term": "진행사항 실적표",
+          "definition": "팀별로 지금까지 조사를 얼마나 마쳤는지 정리한 표입니다."
+        },
+        {
+          "term": "현장방문조사",
+          "definition": "조사원이 응답자의 집이나 생활 장소를 직접 찾아가 설문을 받는 조사 방식입니다."
+        },
+        {
+          "term": "배정 부수",
+          "definition": "한 팀이 이번 조사에서 받아 와야 할 설문지의 목표 수입니다."
+        },
+        {
+          "term": "누적 완료 부수",
+          "definition": "조사를 시작한 날부터 점검일까지 응답을 끝까지 받은 설문지 수를 모두 더한 값입니다."
+        },
+        {
+          "term": "응답자 추가 모집",
+          "definition": "조사에 응해 줄 사람을 더 찾아 섭외하는 일입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "instruction_memo",
+        "title": "1차 현장방문조사 중간 점검 기준 (조사 프로젝트 책임자 메모)",
+        "description": "조사 프로젝트 책임자가 실사 계획표에서 이번 중간 점검에 적용할 기준, 지역별 배정 부수, 조치 규칙을 발췌해 보낸 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "실적표의 팀별 진행 상황을 판단할 기준과, 기준에 못 미친 팀에 내릴 조치를 확인하는 데 씁니다.",
+        "evidence_source": [
+          "사람들의 업무와 활동을 조직, 편성",
+          "논리적 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "조사 프로젝트 책임자",
+          "items": [
+            "1차 현장방문조사의 중간 점검일은 11월 7일입니다. 이날까지 팀별 누적 완료 부수가 담당 지역 배정 부수의 50% 이상이어야 합니다.",
+            "지역별 배정 부수: 강북권 120부, 강남권 80부, 서부권 100부, 동부권 60부",
+            "기준에 못 미친 팀의 실사관리자에게는 면접원 독려와 응답자 추가 모집을 지시합니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "progress_report",
+        "title": "진행사항 실적표 (11월 7일 기준)",
+        "description": "11월 7일 기준으로 팀별 실사관리자, 담당 지역, 누적 완료 부수를 정리한 진행사항 실적표입니다. 부수의 단위는 부(응답을 끝까지 받은 설문지 1장)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "팀별 담당 지역과 누적 완료 부수를 확인해 메모의 점검 기준과 비교하는 데 씁니다.",
+        "evidence_source": [
+          "절차, 자료, 주변환경 관찰",
+          "논리적 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "팀"
+            },
+            {
+              "key": "strength",
+              "label": "실사관리자"
+            },
+            {
+              "key": "weakness",
+              "label": "담당 지역"
+            },
+            {
+              "key": "priority",
+              "label": "누적 완료 부수(부)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "1팀",
+              "strength": "한도윤",
+              "weakness": "강북권",
+              "priority": 54
+            },
+            {
+              "option": "2팀",
+              "strength": "서지아",
+              "weakness": "강남권",
+              "priority": 42
+            },
+            {
+              "option": "3팀",
+              "strength": "문태호",
+              "weakness": "서부권",
+              "priority": 47
+            },
+            {
+              "option": "4팀",
+              "strength": "오세린",
+              "weakness": "동부권",
+              "priority": 36
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "메모의 중간 점검 기준과 진행사항 실적표를 함께 보고, 실사관리자에게 면접원 독려와 응답자 추가 모집을 지시해야 할 팀을 모두 골라 그 이유를 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 중간 점검 기준과 지역별 배정 부수를 실적표의 팀별 누적 완료 부수에 적용해 조치를 지시할 팀을 고르고, 판단에 쓴 숫자와 함께 근거를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "조치를 지시할 팀과 판단 근거"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "팀마다 담당 지역의 배정 부수가 달라 점검 기준도 다르다. 배정 부수의 50%는 강북권 60부, 강남권 40부, 서부권 50부, 동부권 30부이므로, 누적 완료 부수의 많고 적음만으로는 판단할 수 없다.",
+      "1팀(강북권, 54부로 기준 60부 미만)과 3팀(서부권, 47부로 기준 50부 미만)이 기준에 못 미쳐 면접원 독려와 응답자 추가 모집을 지시할 대상이다. 2팀(42부, 기준 40부)과 4팀(36부, 기준 30부)은 완료 부수가 적어 보여도 기준을 충족했으므로 조치 대상이 아니다."
+    ],
+    "rubric": [
+      {
+        "criterion": "지역별 기준을 적용한 진행 점검",
+        "description": "팀별로 담당 지역 배정 부수의 50%(강북권 60부, 강남권 40부, 서부권 50부, 동부권 30부)를 기준으로 누적 완료 부수를 비교했는지, 완료 부수의 많고 적음만으로 판단하지 않았는지 확인한다.",
+        "points": 50,
+        "linked_evidence": [
+          "절차, 자료, 주변환경 관찰",
+          "논리적 분석"
+        ]
+      },
+      {
+        "criterion": "조치 대상 팀 선정",
+        "description": "기준에 못 미친 1팀(강북권)과 3팀(서부권)만 조치 대상으로 고르고, 2팀과 4팀처럼 완료 부수가 적어도 기준을 충족한 팀은 제외했는지 확인한다.",
+        "points": 50,
+        "linked_evidence": [
+          "사람들의 업무와 활동을 조직, 편성"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "조사를 수행하는 면접원이나 조사원을 교육하거나 실사관리자를 감독하기도 한다.",
+      "source_ref": {
+        "file": "K000001139/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 99,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 99,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무 계획, 우선순위 결정",
+          "score": 99,
+          "description": "업무의 우선순위를 결정, 배치하고 완수하기 위해 구체적인 목표와 계획 세우기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 99,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 99,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "가르치기",
+          "score": 89,
+          "description": "다른 사람들에게 일하는 방법에 대해 가르친다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "공간지각력",
+          "score": 79,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 79,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "사무",
+          "score": 82,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 82,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "국어",
+          "score": 78,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 99,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 92,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "사람들의 업무와 활동을 조직, 편성",
+          "논리적 분석"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "절차, 자료, 주변환경 관찰",
+          "논리적 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.25,
+    "AX2": 0.25,
+    "AX3": 0.0,
+    "AX4": 0.5,
+    "AX5": 0.0
+  }
+}

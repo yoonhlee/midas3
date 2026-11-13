@@ -1,0 +1,651 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001198_hard_001",
+  "job_identity": {
+    "job_cd": "K000001198",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "작가·통번역가",
+    "job_smcl_nm": "출판물기획자",
+    "source_ref": {
+      "file": "K000001198/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "독자가 요구하는 주제를 발굴하기 위해 다양한 조사와 연구를 수행하며, 시장성, 타 출판물과의 차별성, 최근 경향을 고려해 출판물 기획안을 작성한다.",
+    "source_ref": {
+      "file": "K000001198/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "푸른책갈피출판사",
+    "domain": "실용 분야 단행본 출판 기획",
+    "period": [
+      "2024년",
+      "2026년",
+      "최근 1년"
+    ],
+    "trend_pattern": "세부 분야마다 2024년 대비 2026년 판매량이 늘거나 줄었고, 최근 1년 신간 종수도 분야마다 크게 다르다.",
+    "main_issue": "내년 상반기에 낼 실용 분야 신간 1종의 출판물 기획안을 어느 세부 분야로 쓸지 정해야 한다.",
+    "feedback_themes": [
+      "최근 경향(판매량 증감)",
+      "신간 1종당 평균 판매량",
+      "타 출판물과의 차별성"
+    ],
+    "decision_goal": "편집장의 두 조건을 모두 충족하는 세부 분야 가운데 기획안 주제 분야 하나를 골라 근거와 주의할 점을 함께 회신한다."
+  },
+  "mission": {
+    "title": "실용 분야 신간, 어느 세부 분야로 기획할까",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "planning_and_proposal",
+      "communication_and_reporting"
+    ],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "푸른책갈피출판사 기획팀 신입 출판물기획자",
+      "context": "당신은 푸른책갈피출판사 기획팀에 새로 들어온 출판물기획자입니다. 출판사는 내년 상반기에 실용 분야 신간 1종을 낼 계획이고, 편집장이 어느 세부 분야로 출판물 기획안을 쓸지 검토해 달라는 이메일을 보냈습니다. 이메일과 함께 세부 분야별 판매량 차트와 신간 발행 종수 차트를 받았습니다.",
+      "goal": "아래 자료를 보고 편집장이 정한 두 조건으로 네 세부 분야를 판정한 뒤, 조건을 충족한 분야 가운데 기획안 주제 분야 하나를 근거와 주의할 점을 들어 추천해 보세요.",
+      "constraints": [
+        "편집장 이메일의 조건과 두 차트의 수치만 근거로 쓰세요. 다른 출판 통계는 찾아보지 않아도 됩니다.",
+        "계산은 뺄셈과 나눗셈 정도면 충분합니다.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "틈새시장",
+          "definition": "큰 시장 안에서 아직 비슷한 상품이 많지 않지만 찾는 사람이 있는 작은 시장입니다. 이 미션에서는 실용 분야 안에서 독자가 있고 앞으로 커질 수 있는 세부 분야를 가리킵니다."
+        },
+        {
+          "term": "세분화",
+          "definition": "큰 묶음을 더 작은 갈래로 나누는 일입니다. 이 미션에서는 실용 분야를 네 개의 세부 분야로 나눈 것을 말합니다."
+        },
+        {
+          "term": "출판물 기획안",
+          "definition": "어떤 책을 누구를 위해, 왜 낼지 정리해 회사에 제안하는 문서입니다."
+        },
+        {
+          "term": "신간",
+          "definition": "새로 펴낸 책입니다."
+        },
+        {
+          "term": "종",
+          "definition": "책을 제목 단위로 세는 말입니다. 신간 10종은 새로 나온 책이 제목 기준으로 10가지라는 뜻입니다."
+        },
+        {
+          "term": "첫 쇄",
+          "definition": "책을 처음 인쇄할 때 찍는 부수입니다."
+        },
+        {
+          "term": "타 출판물과의 차별성",
+          "definition": "이미 나와 있는 다른 책들과 구별되는 점입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "기획 검토 요청 메일",
+        "title": "편집장 이메일: 실용 분야 신간 기획 방향 검토 요청",
+        "description": "편집장이 기획팀 출판물기획자에게 보낸 신간 기획 검토 요청 메일로, 세부 분야 목록과 후보 조건, 회신 요청이 담겨 있다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "후보가 되기 위한 두 조건과 계산 방법을 확인하고, 편집장에게 회신할 내용을 정하는 데 쓴다.",
+        "evidence_source": [
+          "글쓰기",
+          "범주화"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "편집장",
+              "to": "기획팀 출판물기획자",
+              "subject": "실용 분야 신간 기획 방향 검토 요청",
+              "body": "안녕하세요, 편집장입니다.\n내년 상반기에 실용 분야 신간 1종을 내려고 합니다. 어느 세부 분야로 출판물 기획안을 쓸지 방향을 잡아 주세요.\n실용 분야는 1인 가구 요리, 반려식물 가꾸기, 중장년 스마트폰 활용, 캠핑의 네 세부 분야로 세분화해 두었습니다. 독자가 있고 성장 가능성이 높은 틈새시장을 찾는 것이 목표라서, 아래 두 조건을 모두 충족하는 분야만 후보로 삼겠습니다.\n조건 ① 최근 경향: 2026년 판매량이 2024년보다 늘었을 것.\n조건 ② 2026년 판매량을 최근 1년 신간 종수로 나눈 신간 1종당 평균 판매량이 우리 출판사의 첫 쇄(처음 인쇄하는 부수)인 3,000부보다 많을 것. 비슷한 신간이 많으면 타 출판물과의 차별성을 내기 어렵기 때문입니다.\n판매량 차트는 만 부 단위로 되어 있으니, 계산할 때는 1만 부를 10,000부로 바꿔 주세요.\n조건을 충족한 분야 가운데 하나를 골라, 고른 이유와 주의할 점을 함께 회신 부탁합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "chart",
+        "subtype": "세부 분야별 판매 통계",
+        "title": "세분화한 실용 분야별 연간 판매량(단위: 만 부)",
+        "description": "업계 판매 통계를 정리한 자료(가상 수치)로, 네 세부 분야의 2024년과 2026년 연간 판매량을 만 부 단위로 보여 준다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "세부 분야별로 2024년 대비 2026년 판매량 증감을 구하고, 신간 1종당 평균 판매량을 계산하는 데 쓴다.",
+        "evidence_source": [
+          "정보 수집"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "세부 분야",
+            "values": [
+              "1인 가구 요리",
+              "반려식물 가꾸기",
+              "중장년 스마트폰 활용",
+              "캠핑"
+            ]
+          },
+          "y_axis": {
+            "label": "연간 판매량",
+            "unit": "만 부"
+          },
+          "series": [
+            {
+              "name": "2024년",
+              "values": [
+                42,
+                6,
+                12,
+                20
+              ]
+            },
+            {
+              "name": "2026년",
+              "values": [
+                45,
+                12,
+                20,
+                16
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "chart",
+        "subtype": "세부 분야별 신간 발행 현황",
+        "title": "세부 분야별 최근 1년 신간 발행 종수(단위: 종)",
+        "description": "출판 현황 자료를 정리한 자료(가상 수치)로, 네 세부 분야에서 최근 1년 동안 나온 신간이 몇 종인지 보여 준다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "신간 1종당 평균 판매량을 계산하고, 분야마다 경쟁하는 신간이 얼마나 나와 있는지 비교하는 데 쓴다.",
+        "evidence_source": [
+          "정보 수집",
+          "범주화"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "feedback_themes"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "세부 분야",
+            "values": [
+              "1인 가구 요리",
+              "반려식물 가꾸기",
+              "중장년 스마트폰 활용",
+              "캠핑"
+            ]
+          },
+          "y_axis": {
+            "label": "신간 발행 종수",
+            "unit": "종"
+          },
+          "series": [
+            {
+              "name": "최근 1년 신간 종수",
+              "values": [
+                150,
+                20,
+                40,
+                40
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "두 차트의 수치로 네 세부 분야마다 2024년 대비 2026년 판매량 증감과 신간 1종당 평균 판매량(2026년 판매량 ÷ 최근 1년 신간 종수)을 계산하고, 그 값으로 편집장 이메일의 두 조건을 충족하는지 분야별로 판정해 3~5문장으로 정리해 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "네 분야의 판매량 증감과 신간 1종당 평균 판매량을 계산하고, 그 값으로 두 조건의 충족 여부를 분야별로 판정해 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1에서 두 조건을 모두 충족한 분야 가운데 신간 출판물 기획안의 주제 분야 하나를 골라 편집장에게 추천하는 회신을 3~5문장으로 써 보세요. 고른 분야, 다른 충족 분야보다 이 분야가 나은 근거, 이 선택에서 주의할 점 하나를 담아야 합니다.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "조건을 충족한 분야 가운데 하나를 골라, 과제 1 결과와 차트 수치로 다른 충족 분야와 비교한 근거와 주의할 점 하나를 담아 추천한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 분야별 계산과 조건 판정",
+        "과제 2: 추천 분야, 근거, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1 계산: 2024년 대비 2026년 판매량 증감은 1인 가구 요리 +3만 부, 반려식물 가꾸기 +6만 부, 중장년 스마트폰 활용 +8만 부, 캠핑 -4만 부다. 신간 1종당 평균 판매량은 1인 가구 요리 3,000부(45만 부 ÷ 150종), 반려식물 가꾸기 6,000부(12만 부 ÷ 20종), 중장년 스마트폰 활용 5,000부(20만 부 ÷ 40종), 캠핑 4,000부(16만 부 ÷ 40종)다.",
+      "과제 1 판정: 두 조건을 모두 충족하는 분야는 반려식물 가꾸기와 중장년 스마트폰 활용이다. 1인 가구 요리는 판매 규모가 가장 크지만 1종당 3,000부로 '3,000부보다 많을 것'을 충족하지 못하고, 캠핑은 1종당 4,000부로 조건 ②는 넘지만 판매량이 줄어 조건 ①을 충족하지 못한다. 판매 규모나 한 가지 지표만 보면 잘못 판정하기 쉽다.",
+      "과제 2는 정답이 하나로 정해지지 않는다. 반려식물 가꾸기는 판매 증가율(2배), 1종당 판매량(6,000부), 적은 신간 수(20종)에서 앞서고, 중장년 스마트폰 활용은 시장 규모(20만 부)와 판매 증가량(+8만 부)에서 앞선다. 어느 쪽을 고르든 다른 충족 분야와 견주어 왜 이 선택이 나은지 보여야 한다.",
+      "예시: 반려식물 가꾸기를 추천한다. 판매량이 6만 부에서 12만 부로 2배가 되었고 1종당 6,000부로 가장 높으며 신간이 20종뿐이라 타 출판물과의 차별성을 내기 쉽다. 다만 전체 판매량이 12만 부로 작아 비슷한 신간이 조금만 늘어도 1종당 판매량이 빠르게 줄 수 있다.",
+      "조건을 충족하지 못한 1인 가구 요리나 캠핑을 추천한 답은 근거가 성립하지 않는다. 1인 가구 요리는 시장이 가장 커 보여도 신간이 150종이나 되어 1종당 판매량이 기준을 넘지 못한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "과제 1 계산의 정확성",
+        "description": "과제 1에서 네 분야의 판매량 증감(1인 가구 요리 +3만 부, 반려식물 가꾸기 +6만 부, 중장년 스마트폰 활용 +8만 부, 캠핑 -4만 부)과 신간 1종당 평균 판매량(각각 3,000부, 6,000부, 5,000부, 4,000부)을 맞게 계산했는지 본다. 증감은 부수나 비율 어느 쪽으로 써도 인정한다. 일부 분야만 맞으면 맞은 만큼 부분 점수를 준다.",
+        "points": 20,
+        "linked_evidence": [
+          "정보 수집"
+        ]
+      },
+      {
+        "criterion": "과제 1 조건 판정",
+        "description": "과제 1에서 두 조건을 모두 충족하는 분야를 반려식물 가꾸기와 중장년 스마트폰 활용으로 판정했는지 본다. 1인 가구 요리는 1종당 3,000부로 '3,000부보다 많을 것'을 충족하지 못하고, 캠핑은 판매량이 줄어 조건 ①을 충족하지 못한다고 판정해야 한다. 자료가 하나의 답만 허용하는 부분이다.",
+        "points": 25,
+        "linked_evidence": [
+          "범주화",
+          "정보 수집"
+        ]
+      },
+      {
+        "criterion": "과제 2 추천 분야와 비교 근거",
+        "description": "과제 2에서 과제 1의 충족 분야 가운데 하나를 골랐는지, 그리고 근거가 과제 1 결과와 차트 수치를 들어 다른 충족 분야보다 이 선택이 나은 이유를 보여주는지 본다. 특정 분야를 정답으로 요구하지 않으며, 두 충족 분야 중 어느 쪽을 골라도 같은 기준으로 채점한다. 맞는 사실을 나열했지만 다른 충족 분야와 비교해 왜 이 선택이 나은지 보이지 않으면 부분 점수만 준다. 조건을 충족하지 못한 분야를 고르면 근거가 성립하지 않는다. 예: 반려식물 가꾸기 — 판매량 2배 증가, 1종당 6,000부로 가장 높음, 신간 20종으로 경쟁이 적음. 예: 중장년 스마트폰 활용 — 시장 규모 20만 부, 판매 증가량 +8만 부로 가장 큼.",
+        "points": 35,
+        "linked_evidence": [
+          "범주화",
+          "글쓰기"
+        ]
+      },
+      {
+        "criterion": "과제 2 주의할 점",
+        "description": "과제 2에서 고른 분야에 대해 자료가 보여주는 실제 위험이나 한계를 하나 들었는지 본다. 고른 분야와 맞지 않거나 자료에 근거가 없는 주의점은 점수를 주지 않는다. 예: 반려식물 가꾸기는 전체 판매량이 12만 부로 작아 비슷한 신간이 조금만 늘어도 1종당 판매량이 빠르게 줄 수 있다는 점, 중장년 스마트폰 활용은 신간이 40종이라 기존 책과 다른 점을 기획안에 분명히 세워야 한다는 점, 두 해 수치만으로 성장이 계속될지 단정하기 어렵다는 점.",
+        "points": 20,
+        "linked_evidence": [
+          "글쓰기",
+          "정보 수집"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "독자가 요구하는 주제를 발굴하기 위해 다양한 조사와 연구를 수행하며, 시장성, 타 출판물과의 차별성, 최근 경향을 고려해 출판물 기획안을 작성한다.",
+      "source_ref": {
+        "file": "K000001198/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "상사, 동료, 부하직원과 소통",
+          "score": 96,
+          "description": "상사, 동료, 부하직원에게 정보를 서면, 이메일 또는 직접 전달하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 95,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 92,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 91,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들을 훈련, 교육",
+          "score": 91,
+          "description": "교육 요구 사항을 파악하고, 공식적인 교육 또는 훈련 프로그램을 만들며, 교육이나 강의를 제공하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "글쓰기",
+          "score": 99,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 95,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 94,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "국어",
+          "score": 98,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "예술",
+          "score": 91,
+          "description": "음악, 무용, 미술, 드라마에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "역사",
+          "score": 88,
+          "description": "역사적 사건과 원인 그리고 유적에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 91,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "글쓰기",
+          "범주화"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 수집"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "정보 수집",
+          "범주화"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "domain",
+          "period",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.54,
+    "AX2": 0.115,
+    "AX3": 0.115,
+    "AX4": 0.115,
+    "AX5": 0.115
+  }
+}

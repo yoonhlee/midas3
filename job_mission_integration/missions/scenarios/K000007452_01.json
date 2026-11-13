@@ -1,0 +1,444 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007452_easy_001",
+  "job_identity": {
+    "job_cd": "K000007452",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "가상현실전문가",
+    "source_ref": {
+      "file": "K000007452/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_006",
+    "text": "제작된 3차원 가상현실소프트웨어에 오류는 없는지 테스트하고 수정작업을 거쳐 제품을 완성한다.",
+    "source_ref": {
+      "file": "K000007452/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 6
+    },
+    "selection_reason": "Pilot config selected exec_006."
+  },
+  "mission_facts": {
+    "org_name": "하늘숲VR 콘텐츠팀",
+    "domain": "소화기 사용 훈련용 가상현실 콘텐츠의 출시 전 테스트",
+    "period": [
+      "출시 전 테스트 당일 오전 10:10~10:40"
+    ],
+    "trend_pattern": "오전 테스트에서 오류 3건이 기록되었고, 재현 횟수는 오류마다 5회 중 5회, 10회 중 7회, 5회 중 2회로 서로 다르다.",
+    "main_issue": "테스트 수행 결과에 기록된 오류 3건 가운데 개발자가 먼저 조치할 오류 하나를 정해야 한다.",
+    "feedback_themes": [
+      "'소화기 들기' 단계의 소화기 모델 색이 설계서와 다름",
+      "'화재 신고' 단계의 효과음이 화면보다 늦게 재생됨",
+      "'안전핀 뽑기' 단계 뒤 다음 단계 안내가 나오지 않음"
+    ],
+    "decision_goal": "훈련생이 다음 단계로 진행할 수 없게 만드는 오류를 가장 먼저 조치한다는 팀 기준에 따라 먼저 조치할 오류 하나를 고른다."
+  },
+  "mission": {
+    "title": "소화기 훈련 VR, 먼저 고칠 오류 하나 고르기",
+    "task_type": "diagnosis_and_improvement",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "하늘숲VR 콘텐츠팀 테스트 담당 인턴",
+      "context": "당신은 하늘숲VR 콘텐츠팀의 테스트 담당 인턴입니다. 팀은 소화기 사용법을 따라 해 보는 가상훈련콘텐츠를 다음 주에 납품하기 전에 마지막 테스트를 하고 있습니다. 오늘 오전 테스트에서 오류 3건이 기록되었고, 개발자는 한 번에 하나씩 고칠 수 있습니다. 오후 결함 관리 회의 전에 어떤 오류부터 고칠지 정해야 합니다.",
+      "goal": "팀장님 요청: \"우리 팀은 훈련생이 다음 단계로 진행할 수 없게 만드는 오류를 가장 먼저 조치해요. 오늘 테스트 기록을 보고 먼저 고칠 오류 하나를 골라 주세요.\"",
+      "constraints": [
+        "팀의 조치 기준: 훈련생이 다음 단계로 진행할 수 없게 만드는 오류를 가장 먼저 조치한다.",
+        "테스트 수행 결과 기록에 적힌 내용만 근거로 판단합니다.",
+        "오류를 고치는 방법까지 쓸 필요는 없습니다."
+      ],
+      "glossary": [
+        {
+          "term": "가상훈련콘텐츠",
+          "definition": "실제 상황을 가상현실 화면 속에서 직접 따라 해 보며 연습할 수 있게 만든 훈련용 프로그램"
+        },
+        {
+          "term": "결함 관리",
+          "definition": "테스트에서 발견된 오류를 기록하고, 어떤 순서로 고칠지 정해 처리 상황을 챙기는 일"
+        },
+        {
+          "term": "테스트 도구",
+          "definition": "사람 대신 프로그램을 자동으로 실행해 보고 오류가 생기면 기록을 남겨 주는 프로그램"
+        },
+        {
+          "term": "재현",
+          "definition": "같은 조작을 다시 했을 때 같은 오류가 다시 나타나는 것. '5회 중 2회 재현'은 5번 해 보았을 때 2번 오류가 나왔다는 뜻"
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "log",
+        "subtype": "test_result_log",
+        "title": "가상훈련콘텐츠(소화기 사용 훈련 시나리오) 테스트 수행 결과",
+        "description": "출시 전 테스트 당일 오전에 테스터와 테스트 도구가 남긴 오류 기록입니다. 각 줄에 시간, 수행자, 발생한 일, 재현 횟수가 적혀 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "기록된 오류들을 팀의 조치 기준과 하나씩 비교해 먼저 조치할 오류를 고르는 데 사용합니다.",
+        "evidence_source": [
+          "정보, 자료 분석",
+          "업무 계획, 우선순위 결정"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "10:10",
+              "actor": "테스터 김OO",
+              "event": "'소화기 들기' 단계에서 소화기 모델 색이 설계서의 빨간색이 아닌 회색으로 보이는 오류 발생",
+              "note": "5회 중 5회 재현"
+            },
+            {
+              "time": "10:25",
+              "actor": "테스트 도구(자동 수집)",
+              "event": "'화재 신고' 단계에서 효과음이 화면보다 약 0.5초 늦게 재생되는 오류 발생",
+              "note": "10회 중 7회 재현"
+            },
+            {
+              "time": "10:40",
+              "actor": "테스터 김OO",
+              "event": "'안전핀 뽑기' 단계에서 안전핀을 잡아 당겨도 다음 단계 안내가 나오지 않아 훈련이 다음 단계로 넘어가지 않는 오류 발생",
+              "note": "5회 중 2회 재현"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 테스트 수행 결과 기록을 팀장님이 말한 조치 기준과 비교해 보고, 가장 먼저 조치해야 할 오류 하나를 골라 그 이유와 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "기록된 오류 중 조치 기준에 맞는 오류 하나를 고르고, 그 오류가 훈련 진행에 주는 영향을 이유로 들어 1-2문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "먼저 조치할 오류와 그 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "'안전핀 뽑기' 단계에서 다음 단계 안내가 나오지 않는 오류는 훈련생이 다음 단계로 진행할 수 없게 만들므로, 팀의 조치 기준에 따라 가장 먼저 조치해야 한다.",
+      "효과음 지연 오류는 재현 횟수가 가장 많고 소화기 색 오류는 매번 재현되지만, 둘 다 훈련 진행을 막지는 않으므로 우선순위의 근거는 재현 횟수가 아니라 훈련 진행에 주는 영향이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "조치 기준에 맞는 오류 선택",
+        "description": "기록된 오류 3건 가운데 훈련생이 다음 단계로 진행할 수 없게 만드는 '안전핀 뽑기' 단계 오류를 먼저 조치할 오류로 골랐는지 확인한다.",
+        "points": 60,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정"
+        ]
+      },
+      {
+        "criterion": "훈련 진행 영향을 근거로 든 이유",
+        "description": "이유에서 재현 횟수가 아니라 그 오류 때문에 훈련이 다음 단계로 넘어가지 않는다는 점, 즉 훈련 진행에 주는 영향을 근거로 들었는지 확인한다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보, 자료 분석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_006",
+      "text": "제작된 3차원 가상현실소프트웨어에 오류는 없는지 테스트하고 수정작업을 거쳐 제품을 완성한다.",
+      "source_ref": {
+        "file": "K000007452/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 6
+      },
+      "selection_reason": "Pilot config selected exec_006."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 98,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 98,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 94,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 87,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 98,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "공간지각력",
+          "score": 98,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 98,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 94,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 85,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 77,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 99,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 88,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보, 자료 분석",
+          "업무 계획, 우선순위 결정"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.4,
+    "AX2": 0.0,
+    "AX3": 0.6,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

@@ -30,6 +30,7 @@ import {
   missionExplanationRequest
 } from "./api-client/jobsimApi.js";
 import {
+  jobDefsForResult,
   mountRequirementCompare,
   mountStrengthJobs,
   renderCardActions,
@@ -227,6 +228,11 @@ function rMission() {
   });
 }
 
+// 결과 화면용 직무 정의: 저장된 결과의 직무가 지금 카탈로그에 없어도(미션이 빠진 직무) 화면을 그릴 수 있게 채운다.
+function resultJobDefs() {
+  return jobDefsForResult({ jobDefs: JOB_DEFS, selectedJobs: state.selectedJobs, selectedJobMeta: state.resultSummary?.selectedJobMeta });
+}
+
 function rResult() {
   const nonLlmCount = (state.evaluationLogs || [])
     .filter((log) => inferEvaluationSource(log?.evaluation) !== "llm")
@@ -237,7 +243,7 @@ function rResult() {
   const sourceWarn = nonLlmCount > 0 && state.evalMode !== "fake"
     ? `<div class="log-note" style="margin-bottom:16px">임시 추정 결과가 포함되어 있습니다. (비LLM 평가 ${nonLlmCount}건)</div>`
     : "";
-  const extras = { state, axes: AXES, axisLabels: AX_LABELS, jobDefs: JOB_DEFS, allMissions: ALL_MISSIONS, esc };
+  const extras = { state, axes: AXES, axisLabels: AX_LABELS, jobDefs: resultJobDefs(), allMissions: ALL_MISSIONS, esc };
   return `<div class="eyebrow">시뮬레이션 완료</div>
   <div class="res-h">당신의 적성 분석 결과</div>
   <div class="res-sub">KNOW 재직자 데이터와 당신의 반응을 교차 분석했습니다</div>
@@ -269,7 +275,7 @@ function rRadar() {
     levelInfo: LEVEL_INFO,
     radarScale: RADAR_SCALE,
     emptyAxisProfile,
-    jobDefs: JOB_DEFS
+    jobDefs: resultJobDefs()
   });
 }
 
@@ -293,7 +299,7 @@ function rEvaluationLogSummary() { return ""; }
 function rJobIntro() {
   return renderJobIntroSection({
     state,
-    jobDefs: JOB_DEFS,
+    jobDefs: resultJobDefs(),
     jobInfo: JOB_INFO,
     esc
   });
@@ -302,14 +308,14 @@ function rJobIntro() {
 function rCompat() {
   return renderCompatibilitySection({
     state,
-    jobDefs: JOB_DEFS
+    jobDefs: resultJobDefs()
   });
 }
 
 function rQuad() {
   return renderQuadSection({
     selectedJobs: state.selectedJobs,
-    jobDefs: JOB_DEFS,
+    jobDefs: resultJobDefs(),
     jobInsights: state.resultSummary?.jobInsights || {}
   });
 }
@@ -317,7 +323,7 @@ function rQuad() {
 function rRec() {
   return renderRecommendationsSection({
     state,
-    jobDefs: JOB_DEFS,
+    jobDefs: resultJobDefs(),
     axes: AXES,
     axisLabels: AX_LABELS,
     radarScale: RADAR_SCALE
@@ -327,7 +333,7 @@ function rRec() {
 function rGap() {
   return renderGapSection({
     state,
-    jobDefs: JOB_DEFS,
+    jobDefs: resultJobDefs(),
     getMissionsByJobCode: getMissions,
     esc
   });
@@ -521,7 +527,7 @@ function bindResultExtras() {
     const box = byId("post-survey");
     if (box) box.outerHTML = `<div class="notice notice-ok" id="post-survey-done">고마워! 답변을 저장했어.</div>`;
     const slot = byId("interest-change-slot");
-    if (slot) slot.innerHTML = renderInterestChange({ state, jobDefs: JOB_DEFS, esc });
+    if (slot) slot.innerHTML = renderInterestChange({ state, jobDefs: resultJobDefs(), esc });
     void saveAttemptSnapshot();
   });
 
@@ -620,7 +626,7 @@ async function handleCard(kind) {
   const button = document.getElementById(kind === "png" ? "btn-card-png" : "btn-card-print");
   if (button) button.disabled = true;
   try {
-    const data = buildCardData({ state, axes: AXES, axisLabels: AX_LABELS, jobDefs: JOB_DEFS, averageAxisScores, roundOneLogs, withJosa });
+    const data = buildCardData({ state, axes: AXES, axisLabels: AX_LABELS, jobDefs: resultJobDefs(), averageAxisScores, roundOneLogs, withJosa });
     const canvas = await drawResultCard(data, { axes: AXES, axisLabels: AX_LABELS });
     if (kind === "png") {
       await downloadCard(canvas, `jobsim-result-${data.date.replace(/[^0-9]/g, "")}.png`);

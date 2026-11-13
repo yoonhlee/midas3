@@ -1,0 +1,445 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000832_easy_001",
+  "job_identity": {
+    "job_cd": "K000000832",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "정보보안 전문가",
+    "job_smcl_nm": "정보보안전문가",
+    "source_ref": {
+      "file": "K000000832/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "조직의 정보보호 수준을 최상으로 유지하기 위해 정기적으로 정보보호 수준을 평가하고, 새롭게 대두되는 정보보호 방식을 채택한다.",
+    "source_ref": {
+      "file": "K000000832/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "누리온소프트",
+    "domain": "사내 정보보호 정기 보안감사",
+    "period": [
+      "4분기",
+      "10월 15일~11월 12일"
+    ],
+    "trend_pattern": "감사일지 3건에 퇴사자별 퇴사일과 계정 삭제일, 삭제한 사람, 확인 방법이 기록되어 있다.",
+    "main_issue": "퇴사자 계정이 사내 정보보호 지침의 기한(퇴사일 다음 날)까지 삭제되었는지 점검해야 한다.",
+    "feedback_themes": [
+      "퇴사자 계정 삭제 기한",
+      "감사증적 확인 방법(시스템 화면 보관, 퇴사자 명단 대조)"
+    ],
+    "decision_goal": "감사일지에서 사내 지침을 지키지 못한 문제점 한 가지를 찾아 근거와 함께 선배에게 알린다."
+  },
+  "mission": {
+    "title": "감사일지로 퇴사자 계정 삭제 기한 점검하기",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 누리온소프트 정보보호팀에 새로 온 인턴입니다.",
+      "context": "누리온소프트 정보보호팀은 분기마다 정기 보안감사를 하며 회사의 정보보호 수준을 평가합니다. 이번 4분기 감사에서는 회사를 떠난 직원의 사내 시스템 계정이 제때 지워졌는지 확인하고 있습니다. 감사를 맡은 선배가 오늘 작성한 감사일지를 건네며 이렇게 부탁했습니다. “우리 사내 정보보호 지침에는 ‘퇴사자 계정은 퇴사일 다음 날까지 삭제해야 한다’고 되어 있어요. 이 일지를 보고 지침을 지키지 못한 기록이 있는지 확인해 줄래요?”",
+      "goal": "감사일지에 적힌 퇴사일과 계정 삭제일을 사내 지침의 기한과 비교해, 지침을 지키지 못한 문제점 한 가지를 찾고 그 근거를 선배에게 알려 주세요.",
+      "constraints": [
+        "사내 정보보호 지침: 퇴사자 계정은 퇴사일 다음 날까지 삭제해야 합니다.",
+        "감사일지에 적힌 날짜만 보고 판단합니다.",
+        "답은 1~2문장으로 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "보안감사",
+          "definition": "회사의 보안 규칙과 절차가 잘 지켜지고 있는지 정해진 때에 점검하고, 어긴 부분을 찾아내는 일입니다."
+        },
+        {
+          "term": "감사일지",
+          "definition": "감사하는 사람이 점검한 시각, 확인한 내용, 확인 방법을 차례대로 적어 두는 기록입니다."
+        },
+        {
+          "term": "감사증적",
+          "definition": "업무가 규칙대로 처리됐는지 확인할 수 있도록 남아 있는 흔적입니다. 누가 언제 어떤 일을 했는지가 담겨 있습니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "log",
+        "subtype": "보안감사 감사일지",
+        "title": "4분기 정기 보안감사 감사일지 (11월 12일, 정보보호팀)",
+        "description": "정보보호팀 감사 담당자가 정기 보안감사 날 퇴사자 계정의 삭제 감사증적을 확인하고 남긴 감사일지입니다. 각 기록에는 확인 시각, 작성자, 확인한 내용, 확인 방법이 적혀 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "감사일지에 적힌 퇴사일과 계정 삭제일을 사내 지침의 기한과 하나씩 비교하는 데 사용합니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "정보 처리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "11월 12일 09:30",
+              "actor": "감사 담당자(정보보호팀)",
+              "event": "퇴사자 A 계정의 삭제 감사증적 확인: 10월 31일 퇴사, 11월 1일 인사팀 담당자가 계정 삭제",
+              "note": "시스템 화면 보관"
+            },
+            {
+              "time": "11월 12일 11:00",
+              "actor": "감사 담당자(정보보호팀)",
+              "event": "퇴사자 B 계정의 삭제 감사증적 확인: 10월 15일 퇴사, 10월 20일 인사팀 담당자가 계정 삭제",
+              "note": "퇴사자 명단과 대조"
+            },
+            {
+              "time": "11월 12일 14:20",
+              "actor": "감사 담당자(정보보호팀)",
+              "event": "퇴사자 C 계정의 삭제 감사증적 확인: 11월 10일 퇴사, 11월 10일 인사팀 담당자가 계정 삭제",
+              "note": "시스템 화면 보관, 퇴사자 명단과 대조"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "감사일지의 각 기록에서 퇴사일과 계정 삭제일을 확인하고, 사내 지침(퇴사일 다음 날까지 삭제)과 비교해 보세요. 지침을 지키지 못한 문제점 한 가지를 찾아, 그렇게 판단한 근거와 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "감사일지의 기록마다 퇴사일과 삭제일을 지침의 기한과 비교해, 기한을 넘긴 기록 한 건을 문제점으로 짚고 날짜 차이를 근거로 1~2문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "찾은 문제점과 판단 근거"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "퇴사자 B의 계정은 10월 15일 퇴사 후 10월 20일에 삭제되어, 퇴사일 다음 날(10월 16일)까지 삭제해야 한다는 사내 지침을 지키지 못했다.",
+      "퇴사자 A는 퇴사일(10월 31일)과 삭제일(11월 1일)이 다르지만 다음 날 삭제되어 기한 안이고, 퇴사자 C는 퇴사 당일 삭제되어 지침을 지켰으므로 문제로 보지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "기한을 넘긴 문제점 식별",
+        "description": "감사일지의 날짜를 사내 지침의 기한과 비교해, 기한을 넘겨 삭제된 퇴사자 B의 계정 기록을 문제점으로 정확히 짚었다.",
+        "points": 50,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "날짜 차이를 근거로 제시",
+        "description": "퇴사일(10월 15일)과 삭제일(10월 20일)을 대조해 퇴사일 다음 날이라는 기한을 넘겼다는 근거를 들었다.",
+        "points": 30,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "기한 안의 기록을 잘못 고르지 않음",
+        "description": "퇴사일과 삭제일이 다른 퇴사자 A처럼 기한 안에 처리된 기록이나 당일 삭제된 퇴사자 C의 기록을 문제로 잘못 고르지 않았다.",
+        "points": 20,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "정보 처리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "조직의 정보보호 수준을 최상으로 유지하기 위해 정기적으로 정보보호 수준을 평가하고, 새롭게 대두되는 정보보호 방식을 채택한다.",
+      "source_ref": {
+        "file": "K000000832/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사물, 서비스, 사람의 질 판단",
+          "score": 98,
+          "description": "사물, 사람의 가치, 중요성, 질을 평가하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000832/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000832/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 97,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000832/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "인사 업무",
+          "score": 96,
+          "description": "조직에서 직원을 모집, 면담, 채용하고 승진시키기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000832/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 95,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000832/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "가르치기",
+          "score": 100,
+          "description": "다른 사람들에게 일하는 방법에 대해 가르친다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000832/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "공간지각력",
+          "score": 97,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000832/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "물적자원 관리",
+          "score": 97,
+          "description": "업무를 수행하는데 필요한 장비, 시설, 자재 등을 구매하고 관리한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000832/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 95,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000832/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 95,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000832/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "법",
+          "score": 82,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000832/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "앉아서 근무",
+          "score": 89,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000832/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 89,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000832/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 87,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000832/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "정보 처리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000832/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000832/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

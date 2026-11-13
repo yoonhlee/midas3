@@ -24,6 +24,8 @@ export type JobWeightEntry = {
   silhouette: number;
   reliable: boolean;
   weights: AxisProfile;
+  // 비슷한 직업 추천의 후보가 되는 직업인지(job_weights.json의 is_simulation_target). 빠져 있으면 후보로 본다.
+  simulationTarget?: boolean;
 };
 
 export type MissionScoresByJob = Record<string, Array<Partial<Record<Axis, number>>>>;
@@ -500,23 +502,26 @@ function buildJobInsights(input: {
   return insights;
 }
 
+// 5축 비중이 있는 직업을 모두 담는다. 추천 계산 대상이 아닌 직업(is_simulation_target이 거짓)도
+// 체험한 직업 자신의 적합도를 계산할 수 있게 넣고, 비슷한 직업 추천의 후보에서는 simulationTarget으로 뺀다.
 export function buildJobWeightCatalog(raw: unknown): Record<string, JobWeightEntry> {
   if (!raw || typeof raw !== "object") return {};
   const entries = raw as Record<string, RawJobWeight>;
 
   const catalog = Object.entries(entries)
-    .filter(([, value]) => value?.is_simulation_target === true)
     .map(([code, value]) => {
-      const weights = toAxisProfile(value.weights);
+      const weights = toAxisProfile(value?.weights);
       if (!weights) return null;
-      return [code, {
+      const entry: JobWeightEntry = {
         code,
         jobName: typeof value.job_name === "string" ? value.job_name : code,
         clusterId: typeof value.cluster_id === "string" ? value.cluster_id : "C8",
         silhouette: asNumber(value.silhouette, 0),
         reliable: Boolean(value.sil_reliable),
-        weights
-      }] as const;
+        weights,
+        simulationTarget: value.is_simulation_target === true
+      };
+      return [code, entry] as const;
     })
     .filter((entry): entry is readonly [string, JobWeightEntry] => entry !== null);
 
@@ -619,6 +624,7 @@ export function buildResultSummary(input: {
     recommendations[jobCode] = Object.values(input.catalog)
       .filter((candidate) => {
         return (
+          candidate.simulationTarget !== false &&
           candidate.clusterId === ref.clusterId &&
           candidate.reliable === true &&
           candidate.code !== ref.code

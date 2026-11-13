@@ -1,0 +1,650 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000856_hard_001",
+  "job_identity": {
+    "job_cd": "K000000856",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "컴퓨터시스템 전문가",
+    "job_smcl_nm": "컴퓨터시스템설계 및 분석가",
+    "source_ref": {
+      "file": "K000000856/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "시스템 설계안에 제시된 기능이 제대로 구현되고, 일정에 맞춰 시스템 구축이 완료될 수 있도록 관리한다.",
+    "source_ref": {
+      "file": "K000000856/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "누리상사",
+    "domain": "사내 주문관리 시스템 구축 프로젝트의 일정 관리",
+    "period": [
+      "2026-11-02",
+      "2026-11-30"
+    ],
+    "trend_pattern": "회원 관리 기능은 11/6에 구현을 마쳤지만, 11/11에 신규요건(쿠폰 적용 기능)이 추가되고 11/16부터 투입 개발자가 2명에서 1명으로 줄어든다.",
+    "main_issue": "신규요건 추가와 인력 감소를 반영하면 기능 구현이 계획보다 늦어지고, 그 영향이 내부 테스트와 데이터 이행작업, 11/30 오픈으로 이어진다.",
+    "feedback_themes": [
+      "스폰서의 쿠폰 적용 기능 추가 요청과 11/30 오픈 기한 유지 요청",
+      "이 개발자의 11/16 이후 투입 불가 확정",
+      "11/12 오전 회의에서 나온 일정변경 대응안 3개"
+    ],
+    "decision_goal": "11/30 오픈을 지키기 위해 일정변경 대응안 하나를 근거와 주의할 점을 붙여 추천한다."
+  },
+  "mission": {
+    "title": "주문관리 시스템 구축 일정 점검하고 대응안 추천하기",
+    "task_type": "operation_and_scheduling",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "누리상사 주문관리 시스템 구축 프로젝트의 PM 보조 인턴",
+      "context": "당신은 누리상사의 새 주문관리 시스템을 만드는 프로젝트에서 PM을 돕는 인턴입니다. 새 시스템은 2026년 11/30(월)에 문을 열 예정이고, 지금은 11/12(목) 오전입니다. 어제 스폰서의 기능 추가 요청과 개발 인력 변동이 한꺼번에 생겼고, 오늘 오전 회의에서 일정변경 대응안 세 가지가 나왔습니다. PM이 이렇게 부탁했습니다. '계획 일정과 진척 기록을 맞춰 보고 지금 상태로 가면 일정이 어떻게 되는지 먼저 점검해 줘요. 그다음 회의에서 나온 안 중에 하나를 추천해 주세요.' 진척 기록에 적힌 남은 작업량은 11/11(수) 업무 종료 기준입니다.",
+      "goal": "계획 일정과 진척 기록을 대조해 현재 일정 상태를 점검하고, 그 결과를 근거로 일정변경 대응안 하나를 골라 PM에게 추천합니다.",
+      "constraints": [
+        "자료에 적힌 날짜, 작업량, 인원, 조건만 사용해 판단하세요.",
+        "작업량은 투입 인원수만큼 나누어 함께 처리할 수 있다고 보고 계산합니다. 예를 들어 2명이 하루 일하면 1인 기준 2일분이 줄어듭니다.",
+        "기능 구현과 내부 테스트는 평일(월~금)에만 하며, 이 기간에는 공휴일이 없습니다. 앞 작업이 끝난 다음 평일부터 다음 작업을 시작합니다.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "PM",
+          "definition": "프로젝트 관리자. 프로젝트의 일정, 인력, 작업 범위를 관리하고 결정 사항을 정리하는 사람입니다."
+        },
+        {
+          "term": "스폰서",
+          "definition": "프로젝트를 요청하고 예산과 기한을 정하며, 중요한 변경을 승인하는 사람이나 부서입니다."
+        },
+        {
+          "term": "신규요건",
+          "definition": "프로젝트 도중에 처음 계획에 없던 기능이나 조건을 새로 넣어 달라는 요구입니다."
+        },
+        {
+          "term": "산출물",
+          "definition": "작업을 마친 뒤 결과로 내놓는 결과물입니다. 이 미션에서는 소스 코드와 단위 테스트 결과를 말합니다."
+        },
+        {
+          "term": "단위 테스트",
+          "definition": "프로그램을 작은 기능 단위로 나누어 하나씩 제대로 동작하는지 확인하는 시험입니다."
+        },
+        {
+          "term": "진척",
+          "definition": "계획한 일이 실제로 얼마나 진행되었는지의 정도입니다."
+        },
+        {
+          "term": "1인 기준 N일",
+          "definition": "한 사람이 N일 동안 일하면 끝나는 작업량을 나타내는 표현입니다."
+        },
+        {
+          "term": "영업일",
+          "definition": "주말과 공휴일을 뺀, 실제로 일하는 평일입니다."
+        },
+        {
+          "term": "내부 테스트",
+          "definition": "새 시스템을 실제 사용자에게 열기 전에 개발팀 안에서 기능이 제대로 돌아가는지 시험해 보는 작업입니다."
+        },
+        {
+          "term": "데이터 이행작업",
+          "definition": "기존 시스템에 쌓여 있던 회원, 주문 같은 데이터를 새 시스템으로 옮기는 작업입니다."
+        },
+        {
+          "term": "일정변경",
+          "definition": "상황이 바뀌어 처음 세운 일정의 기간, 인력, 작업 범위 등을 다시 정하는 일입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "schedule",
+        "subtype": "project_plan",
+        "title": "자료 1. 주문관리 시스템 구축 계획 일정",
+        "description": "PM이 프로젝트를 시작할 때 세운 단계별 계획 일정입니다. 기간, 작업, 지켜야 할 조건을 한 줄씩 적었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "작업 1에서 진척 기록과 대조할 기준 일정과 단계 사이의 선후 조건을 확인하고, 작업 2에서 각 대응안을 택했을 때의 일정을 따져 보는 데 씁니다.",
+        "evidence_source": [
+          "정보의 의미 해석",
+          "조직체계의 분석 및 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period"
+        ],
+        "data": {
+          "items": [
+            {
+              "period": "11/2(월)~11/13(금)",
+              "task": "기능 구현(회원 관리·주문 처리·정산 조회 3개 기능)",
+              "constraint": "개발자 2명(김·이) 투입 기준"
+            },
+            {
+              "period": "11/16(월)~11/20(금)",
+              "task": "내부 테스트(5일)",
+              "constraint": "모든 기능 구현이 끝난 뒤에 시작"
+            },
+            {
+              "period": "11/28(토)~11/29(일)",
+              "task": "데이터 이행작업(11/30(월) 오픈 직전 주말)",
+              "constraint": "내부 테스트를 마친 뒤, 기존 시스템을 멈출 수 있는 주말에만 수행"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "progress_log",
+        "title": "자료 2. 구축 프로젝트 진척 기록(11/6~11/11)",
+        "description": "프로젝트 진척 기록 가운데 11/11(수) 업무 종료 시점까지 남은 기록을 시간 순으로 모은 것입니다. 작업량은 '1인 기준 N일'로 적었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "작업 1에서 11/11까지의 진척, 추가 요청, 인력 상황을 확인해 계획 일정과 대조하고, 작업 2에서 대응안별 일정을 따져 보는 데 씁니다.",
+        "evidence_source": [
+          "정보의 의미 해석",
+          "조직체계의 분석 및 평가"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "11/6(금) 17:00",
+              "actor": "김 개발자",
+              "event": "회원 관리 기능 구현 완료, 산출물(소스 코드·단위 테스트 결과) 제출",
+              "note": "산출물 검토 완료"
+            },
+            {
+              "time": "11/11(수) 15:00",
+              "actor": "스폰서",
+              "event": "신규요건 '쿠폰 적용' 기능 추가 요청, 11/30(월) 오픈 기한은 그대로 유지해 달라고 요청",
+              "note": "개발팀 추정 작업량: 1인 기준 4일"
+            },
+            {
+              "time": "11/11(수) 18:00",
+              "actor": "이 개발자",
+              "event": "주문 처리·정산 조회 진척 점검: 주문 처리는 남은 작업 1인 기준 3일",
+              "note": "정산 조회는 미착수, 1인 기준 3일 예상"
+            },
+            {
+              "time": "11/11(수) 19:00",
+              "actor": "PM",
+              "event": "이 개발자가 11/16(월)부터 다른 프로젝트 지원으로 이 프로젝트에 투입 불가 확정",
+              "note": "11/13(금)까지는 2명, 11/16(월)부터는 김 개발자 1명만 투입"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "memo",
+        "subtype": "meeting_memo",
+        "title": "자료 3. PM 메모: 일정변경 대응안(11/12 오전 회의)",
+        "description": "PM이 11/12(목) 오전 회의에서 나온 일정변경 대응안 세 가지와 각 안의 조건을 정리한 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "작업 2에서 세 대응안의 내용과 조건을 서로 견주어 추천할 안을 고르는 데 씁니다.",
+        "evidence_source": [
+          "조직체계의 분석 및 평가",
+          "사람들에게 조언, 상담"
+        ],
+        "mission_fact_refs": [
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "PM",
+          "items": [
+            "A안: 쿠폰 적용 기능은 오픈 뒤 2차로 반영하고, 나머지 기능은 현재 인력으로 진행한다. 스폰서 동의가 필요하다.",
+            "B안: 외부 개발자 1명을 11/18(수)부터 추가로 투입해 쿠폰 적용 기능까지 포함해 오픈한다. 외부 개발자는 투입 첫 주(11/18~11/20)에는 업무를 익히는 중이라 1인 기준 절반 속도(하루 0.5일분)로 일한다. 추가 비용이 발생한다.",
+            "C안: 쿠폰 적용 기능까지 포함해 현재 인력으로 진행하고, 내부 테스트를 5일에서 3일로 줄인다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_1",
+        "instruction": "자료 1의 계획 일정과 자료 2의 진척 기록을 대조해 보세요. 신규요건과 인력 변동을 모두 반영하면 기능 구현이 언제 끝나 계획보다 몇 영업일 늦어지는지, 그 때문에 계획표의 조건을 지킬 수 없게 되는 후속 일정이 무엇인지 3~5문장으로 점검해 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "계획 일정과 진척 기록을 대조해 구현 완료 예상일, 계획 대비 지연 영업일 수, 조건을 지킬 수 없게 되는 후속 일정을 점검해 적는다."
+      },
+      {
+        "task_id": "task_2",
+        "instruction": "작업 1의 점검 결과를 바탕으로, 11/30(월) 오픈을 지키기 위해 자료 3의 세 일정변경 대응안 중 택할 안 하나를 골라 PM에게 추천해 보세요. 고른 안으로 바꾸면 구현 완료일과 내부 테스트, 데이터 이행작업 일정이 어떻게 되는지, 다른 두 안보다 나은 이유가 무엇인지, 그 안을 택할 때 주의할 점 하나를 함께 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "작업 1의 결과를 근거로 대응안 하나를 골라, 그 안을 택했을 때의 일정, 다른 두 안보다 나은 이유, 주의할 점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "작업 1: 일정 진척 점검 결과",
+        "작업 2: 추천 대응안과 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "남은 작업은 1인 기준 10일(주문 처리 3일, 정산 조회 3일, 쿠폰 적용 4일)이다. 11/12~11/13에 2명이 4일분을 처리하고 11/16부터 김 개발자 혼자 나머지 6일분을 처리하므로 구현은 11/23(월)에 끝나며, 계획한 11/13(금)보다 6영업일 늦다.",
+      "5일짜리 내부 테스트가 11/24(화)~11/30(월)로 밀리므로, 내부 테스트를 마친 뒤 주말에만 할 수 있는 데이터 이행작업을 오픈 직전 주말(11/28~11/29)에 할 수 없고, 그 결과 11/30 오픈을 지킬 수 없다.",
+      "11/16 인력 변동을 빠뜨리고 2명 기준으로 계산하면 구현이 11/18에 끝나 3영업일 지연으로 보이고 내부 테스트도 11/25에 끝나 오픈에 문제가 없다고 잘못 판단하게 된다. 쿠폰 적용 작업량을 빠뜨려도 지연을 작게 보게 된다.",
+      "계산하면 세 안 모두 11/30 오픈을 맞출 수 있다. A안은 구현 11/17(화) 완료, 내부 테스트 5일 11/18~11/24, 11/25~11/27 사흘 여유가 남지만 쿠폰 없이 오픈되고 스폰서 동의가 필요하다. B안은 외부 개발자가 11/18부터 하루 0.5일분씩 더해 구현 11/20(금) 완료, 내부 테스트 11/23~11/27로 여유가 없고 추가 비용이 든다. C안은 구현 11/23 완료, 내부 테스트 3일 11/24~11/26, 11/27 하루 여유가 남지만 테스트 기간이 줄어든다.",
+      "예시: A안을 추천한다. 쿠폰 적용을 2차로 미루면 구현이 11/17에 끝나 내부 테스트 5일을 그대로 지키고도 데이터 이행작업 전 사흘 여유가 남으므로, 여유가 없는 B안이나 테스트를 줄이는 C안보다 기한을 지킬 가능성이 높다. 주의할 점은 스폰서 동의를 받지 못하면 이 안을 쓸 수 없고, 동의를 받아도 쿠폰 없이 오픈된다는 것이다.",
+      "다른 안을 고른 경우의 주의할 점 예: B안은 여유일이 없어 외부 개발자의 업무 파악이 조금만 늦어도 바로 오픈이 밀리고 추가 비용이 든다. C안은 기능이 4개로 늘었는데 내부 테스트가 3일로 줄어 결함을 놓칠 수 있다."
+    ],
+    "rubric": [
+      {
+        "criterion": "구현 완료 예상일과 지연 영업일 수",
+        "description": "남은 작업 1인 기준 10일(주문 처리 3일, 정산 조회 3일, 쿠폰 적용 4일) 중 11/12~11/13에 2명이 4일분, 11/16부터 1명이 6일분을 처리해 구현이 11/23(월)에 끝나고, 계획(11/13)보다 6영업일 늦다고 썼는지 본다. 자료가 허용하는 답은 이것 하나다. 11/16 인력 변동을 빠뜨려 지연을 작게 계산했거나(예: 11/18 완료, 3영업일 지연) 쿠폰 적용 작업량을 빠뜨렸으면 부분 점수.",
+        "points": 25,
+        "linked_evidence": [
+          "정보의 의미 해석",
+          "조직체계의 분석 및 평가"
+        ]
+      },
+      {
+        "criterion": "조건을 지킬 수 없게 되는 후속 일정",
+        "description": "5일짜리 내부 테스트가 11/24~11/30으로 밀려, 내부 테스트를 마친 뒤 주말에만 할 수 있는 데이터 이행작업을 오픈 직전 주말(11/28~11/29)에 할 수 없고 11/30 오픈을 지킬 수 없다는 점을 짚었는지 본다. 내부 테스트가 밀린다는 것만 쓰고 데이터 이행작업과 오픈에 미치는 영향을 쓰지 않았으면 부분 점수. 지연을 작게 계산해 후속 일정에 문제가 없다고 썼으면 점수를 주지 않는다.",
+        "points": 20,
+        "linked_evidence": [
+          "정보의 의미 해석",
+          "조직체계의 분석 및 평가"
+        ]
+      },
+      {
+        "criterion": "추천안과 그 이유",
+        "description": "특정 안을 정답으로 요구하지 않는다. 학습자가 고른 안으로 바꾸면 작업 1에서 드러난 일정 문제가 어떻게 풀리는지(구현 완료일, 내부 테스트 기간, 데이터 이행작업을 11/28~11/29에 할 수 있는지)를 자료로 보여 주고, 자료 3의 다른 두 안과 견주어 왜 이 안이 더 나은지(여유일, 테스트 기간, 스폰서 요청 충족, 비용 등)를 드러내는지 본다. 자료에 맞는 사실을 말했더라도 다른 안보다 나은 이유를 보여 주지 못하면 부분 점수. 고른 안의 일정 계산이 자료와 맞지 않으면 감점. 예: A안이면 구현이 11/17에 끝나 내부 테스트 5일을 지키고도 사흘 여유가 남아, 여유가 없는 B안이나 테스트를 줄이는 C안보다 기한을 지킬 가능성이 높다는 이유.",
+        "points": 35,
+        "linked_evidence": [
+          "조직체계의 분석 및 평가",
+          "사람들에게 조언, 상담"
+        ]
+      },
+      {
+        "criterion": "고른 안의 주의할 점",
+        "description": "작업 2에 쓴 주의할 점 하나가 학습자가 고른 안의 실제 위험이나 한계로서 자료에 드러난 것이면 인정한다. 고른 안과 관계없는 위험이나 자료에 근거가 없는 위험은 인정하지 않는다. 예: A안이면 스폰서 동의를 받지 못하면 쓸 수 없고 쿠폰 없이 오픈된다 / B안이면 여유일이 없어 외부 개발자의 업무 파악이 더 늦어지면 바로 오픈이 밀리고 추가 비용이 든다 / C안이면 기능이 4개로 늘었는데 테스트가 3일로 줄어 결함을 놓칠 수 있다.",
+        "points": 20,
+        "linked_evidence": [
+          "사람들에게 조언, 상담"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "시스템 설계안에 제시된 기능이 제대로 구현되고, 일정에 맞춰 시스템 구축이 완료될 수 있도록 관리한다.",
+      "source_ref": {
+        "file": "K000000856/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 91,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 90,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "전자장비 유지 보수",
+          "score": 83,
+          "description": "기계가 아닌 전자적 원리에 의해 작동되는 장비, 부품, 장치, 기계를 정비, 수리, 조절, 시험하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 81,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 78,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 99,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 95,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설치",
+          "score": 89,
+          "description": "작업 지시서에 따라 장비, 도구, 배선, 프로그램을 설치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 94,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 85,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 82,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 89,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 89,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람들을 조율하거나 이끌기",
+          "score": 86,
+          "description": "업무 특성상 다른 사람들을 조율하거나 이끄는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보의 의미 해석",
+          "조직체계의 분석 및 평가"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보의 의미 해석",
+          "조직체계의 분석 및 평가"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "조직체계의 분석 및 평가",
+          "사람들에게 조언, 상담"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.305,
+    "AX2": 0.08,
+    "AX3": 0.08,
+    "AX4": 0.08,
+    "AX5": 0.455
+  }
+}

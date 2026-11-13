@@ -1,0 +1,557 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007536_normal_001",
+  "job_identity": {
+    "job_cd": "K000007536",
+    "job_lrcl_nm": "영업·판매·운전·운송직",
+    "job_mdcl_nm": "부동산 컨설턴트 및 중개인",
+    "job_smcl_nm": "부동산중개인",
+    "source_ref": {
+      "file": "K000007536/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "양 거래당사자(매도·매수인) 간에 부동산 거래계약이 성립하도록 권리분석, 자료제공, 시장조사, 현장안내, 거래조건의 흥정·교섭 등을 진행한다.",
+    "source_ref": {
+      "file": "K000007536/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "새봄공인중개사사무소",
+    "domain": "아파트 매매 중개",
+    "period": [
+      "2026년 8월~10월(매수인이 정한 비교 기간)",
+      "2026년 4월~10월(거래사례 정리표에 담긴 계약 시기)"
+    ],
+    "trend_pattern": "한빛마을 1단지 84㎡ 거래가격은 2026년 4월 46,400만원, 2026년 9~10월 49,800~50,200만원으로 기록되어 있다.",
+    "main_issue": "매도인 희망가격 52,000만원이 부담스럽다는 매수인과 매도인 사이의 가격 차이를 거래사례를 근거로 좁혀야 한다.",
+    "feedback_themes": [
+      "매도인 희망가격이 부담스럽다는 매수인 의견",
+      "같은 단지·같은 면적·최근 3개월 거래사례의 평균 가격이라면 계약하겠다는 매수인 조건"
+    ],
+    "decision_goal": "매수인이 내건 조건에 맞는 거래사례 평균으로 매도인에게 제시할 조정 거래가격을 정한다."
+  },
+  "mission": {
+    "title": "매수인 조건으로 조정 거래가격 정하기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "새봄공인중개사사무소 중개 보조 인턴",
+      "context": "당신은 아파트 매매를 중개하는 새봄공인중개사사무소의 인턴입니다. 한빛마을 1단지 84㎡ 아파트를 두고 매도인과 매수인이 가격이라는 거래조건을 흥정하고 있습니다. 매수인이 매도인 희망가격이 부담스럽다며 가격 조율을 부탁하는 이메일을 보내왔고, 담당 중개인은 \"매수인 조건대로라면 매도인에게 얼마를 제시하면 될지 정리해 줘요\"라고 요청했습니다.",
+      "goal": "매수인이 받아들이겠다고 한 기준에 맞는 적정가격을 찾아, 매도인에게 제시할 조정 거래가격을 정해 보세요.",
+      "constraints": [
+        "자료에 나온 거래사례와 금액만 사용하세요.",
+        "금액은 만원 단위나 억 원 단위 가운데 편한 방식으로 적어도 됩니다.",
+        "답은 2~3문장으로 적어보세요."
+      ],
+      "glossary": [
+        {
+          "term": "매수인",
+          "definition": "집 같은 부동산을 사려는 사람입니다."
+        },
+        {
+          "term": "매도인",
+          "definition": "부동산을 파는 사람입니다."
+        },
+        {
+          "term": "거래사례",
+          "definition": "실제로 계약이 이루어진 부동산 매매 기록입니다. 어떤 집이 언제 얼마에 팔렸는지 보여 줍니다."
+        },
+        {
+          "term": "적정가격",
+          "definition": "비슷한 집이 실제로 팔린 가격 등을 근거로 볼 때 무리가 없다고 할 수 있는 가격입니다."
+        },
+        {
+          "term": "거래조건",
+          "definition": "가격, 계약 날짜처럼 사고파는 사람이 서로 합의해야 하는 계약 내용입니다."
+        },
+        {
+          "term": "조정 거래가격",
+          "definition": "처음 부른 가격에서 양쪽 의견을 반영해 다시 맞춘 거래가격입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "buyer_price_request",
+        "title": "매수인 박지훈 님의 가격 조율 요청 메일",
+        "description": "한빛마을 1단지 84㎡ 아파트 매수를 검토하는 매수인이 담당 중개인에게 보낸 이메일입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "매도인에게 제시할 가격을 정할 때 매수인이 내건 비교 조건과 요청을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "협상",
+          "협상, 갈등 해결"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "매수인 박지훈",
+              "to": "새봄공인중개사사무소 담당 중개인",
+              "subject": "한빛마을 1단지 84㎡ 가격 조율 요청",
+              "body": "안녕하세요, 박지훈입니다. 집은 마음에 들지만 매도인께서 말씀하신 희망가격 52,000만원(5억 2,000만원)은 저희에게 조금 부담스럽습니다. 그래서 이렇게 제안드립니다. 같은 단지(한빛마을 1단지)의 같은 면적(84㎡) 집이 최근 3개월, 즉 2026년 8월부터 10월 사이에 계약된 거래사례들의 평균 가격이라면 그 가격에 계약하겠습니다. 이 가격으로 매도인과 조율해 주시면 감사하겠습니다. 박지훈 드림"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "transaction_cases",
+        "title": "한빛마을 1단지 매매 거래사례 정리표 (거래가격 단위: 만원)",
+        "description": "사무소가 거래 기록을 모아 정리한 한빛마을 1단지 아파트 매매 거래사례 4건입니다. 거래가격은 계약서에 적힌 매매 금액이며 단위는 만원입니다(10,000만원 = 1억원).",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "매수인이 적은 조건을 적용해 볼 거래사례와 거래가격을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "경제와 회계",
+          "협상"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "단지명"
+            },
+            {
+              "key": "strength",
+              "label": "면적"
+            },
+            {
+              "key": "weakness",
+              "label": "계약 시기"
+            },
+            {
+              "key": "priority",
+              "label": "거래가격(만원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "한빛마을 1단지",
+              "strength": "84㎡",
+              "weakness": "2026년 9월",
+              "priority": 49800
+            },
+            {
+              "option": "한빛마을 1단지",
+              "strength": "84㎡",
+              "weakness": "2026년 10월",
+              "priority": 50200
+            },
+            {
+              "option": "한빛마을 1단지",
+              "strength": "59㎡",
+              "weakness": "2026년 10월",
+              "priority": 38600
+            },
+            {
+              "option": "한빛마을 1단지",
+              "strength": "84㎡",
+              "weakness": "2026년 4월",
+              "priority": 46400
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "매수인의 이메일과 거래사례 정리표를 함께 보고, 매도인에게 제시할 조정 거래가격을 정해 보세요. 정한 금액과 그 금액이 나온 이유를 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "이메일에 적힌 매수인의 비교 조건을 정리표의 거래사례에 적용해 조건에 맞는 사례의 평균 거래가격을 구하고, 이를 매도인 희망가격과 견주어 매도인에게 제시할 조정 거래가격으로 밝힌다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "조정 거래가격",
+        "그 금액이 나온 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "단지(한빛마을 1단지), 면적(84㎡), 계약 시기(2026년 8~10월) 세 조건을 모두 맞는 거래사례는 2026년 9월 49,800만원과 2026년 10월 50,200만원 두 건뿐이고, 평균 거래가격은 50,000만원(5억원)이다. 59㎡ 사례는 면적이, 2026년 4월 사례는 계약 시기가 조건에 맞지 않아 빠진다.",
+      "계산한 50,000만원은 매도인 희망가격 52,000만원보다 2,000만원 낮으며, 매수인이 이 가격이면 계약하겠다고 했으므로 매도인에게 50,000만원을 조정 거래가격으로 제시한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "조건에 맞는 거래사례 선택",
+        "description": "단지·면적·계약 시기 세 조건을 모두 맞는 거래사례(2026년 9월 49,800만원, 2026년 10월 50,200만원)만 골랐는지 본다. 59㎡ 사례나 2026년 4월 사례를 넣었다면 점수를 주지 않는다.",
+        "points": 40,
+        "linked_evidence": [
+          "경제와 회계",
+          "협상"
+        ]
+      },
+      {
+        "criterion": "평균 거래가격 계산",
+        "description": "고른 거래사례의 평균 거래가격을 50,000만원(5억원)으로 바르게 냈는지 본다. 2026년 4월 사례를 넣어 나온 48,800만원은 정답으로 보지 않는다.",
+        "points": 20,
+        "linked_evidence": [
+          "경제와 회계"
+        ]
+      },
+      {
+        "criterion": "조정 거래가격 제시",
+        "description": "계산한 금액을 매도인 희망가격 52,000만원과 견주어 매도인에게 제시할 조정 거래가격으로 분명히 밝혔는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "협상, 갈등 해결",
+          "협상"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "양 거래당사자(매도·매수인) 간에 부동산 거래계약이 성립하도록 권리분석, 자료제공, 시장조사, 현장안내, 거래조건의 흥정·교섭 등을 진행한다.",
+      "source_ref": {
+        "file": "K000007536/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "자원 관리",
+          "score": 98,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "대인관계 유지",
+          "score": 98,
+          "description": "다른 사람들과 건설적이고 협조적인 업무 관계를 맺고, 오랫동안 유지하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 97,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 95,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 94,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "협상",
+          "score": 99,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 96,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설득",
+          "score": 96,
+          "description": "다른 사람들의 마음이나 행동을 변화시키기 위해 설득한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "지리",
+          "score": 92,
+          "description": "육지, 바다 그리고 하늘의 특성 및 상호관계에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 89,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "법",
+          "score": 88,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "치열한 경쟁",
+          "score": 95,
+          "description": "동료 혹은 다른 사람들과의 경쟁 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 90,
+          "description": "재택근무 가능성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "의사결정 가능성",
+          "score": 90,
+          "description": "관리자나 감독자(상사)의 개입 없이 의사결정 할 수 있는 재량 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "협상",
+          "협상, 갈등 해결"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "경제와 회계",
+          "협상"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007536/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007536/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.48,
+    "AX2": 0.08,
+    "AX3": 0.08,
+    "AX4": 0.08,
+    "AX5": 0.28
+  }
+}

@@ -1,0 +1,666 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000968_hard_001",
+  "job_identity": {
+    "job_cd": "K000000968",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "데이터·네트워크 및 시스템 운영 전문가",
+    "job_smcl_nm": "네트워크시스템개발자",
+    "source_ref": {
+      "file": "K000000968/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "평가 검증된 네트워크 시스템을 기초로 세부적으로 시스템을 설계한다.",
+    "source_ref": {
+      "file": "K000000968/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "가람넷설계",
+    "domain": "기관 본관 네트워크 실시설계 (업링크 용량 산정과 업링크 안 결정)",
+    "period": [
+      "평가 검증일 하루 (09:30~17:30)",
+      "2년 후 사용자 증가 시점"
+    ],
+    "trend_pattern": "시범 층 업링크 트래픽은 업무 시작 시간대 160Mbps, 실시간 영상회의 중 400Mbps, 파일 대량 업로드 중 320Mbps로 시간대마다 다르며, 2년 안에 층마다 사용자가 50% 늘어날 예정이다.",
+    "main_issue": "평가 검증 측정값을 기초로 2년 후 본관 업링크에 필요한 용량을 산정하고, 기본설계에서 검토한 업링크 안 세 가지 가운데 실시설계에 반영할 안을 정해야 한다.",
+    "feedback_themes": [
+      "품질기준: 실시간 영상회의 시간대에도 업링크 사용률 70% 이하",
+      "확장성: 2년 안에 층마다 사용자 50% 증가분 수용",
+      "기반시설: 전산실 랙 잔여 전력 200W",
+      "백본 스위치에 남은 1G 포트 4개"
+    ],
+    "decision_goal": "실시설계에 반영할 본관 업링크 안 하나를 A·B·C 가운데 정한다."
+  },
+  "mission": {
+    "title": "평가 검증 기록으로 본관 업링크 실시설계 정하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [
+      "decision_making"
+    ],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "네트워크 설계 회사 가람넷설계의 신입 설계 엔지니어",
+      "context": "당신은 네트워크 설계 회사 가람넷설계의 신입 설계 엔지니어입니다. 새봄재단 본관(3개 층) 네트워크 구축 사업은 기본설계를 마쳤고, 3개 층 가운데 시범 층 하나에 먼저 네트워크를 구성해 평가 검증까지 끝냈습니다. 이제 실시설계 단계에서 본관 업링크의 상세 용량계산서를 만들고, 기본설계에서 검토한 업링크 안 가운데 하나를 실시설계에 반영해야 합니다. 설계 책임자가 이렇게 요청했습니다. “평가 검증 기록과 발주처 요구사항을 기초로 2년 뒤까지 버틸 업링크 용량을 계산하고, 그 결과로 어느 안으로 갈지 정해 주세요.”",
+      "goal": "세 자료를 함께 보고 2년 후 본관 업링크에 필요한 최소 용량을 계산한 뒤, 그 결과를 근거로 실시설계에 반영할 업링크 안 하나를 정해 보세요.",
+      "constraints": [
+        "자료에 적힌 수치와 조건만 근거로 삼으세요. 장비 가격처럼 자료에 없는 정보는 고려하지 않습니다.",
+        "용량 단위는 1Gbps를 1,000Mbps로 계산합니다.",
+        "계산은 덧셈, 곱셈, 나눗셈이면 충분하며, 소수점 아래는 반올림해 대략적인 값으로 적어도 됩니다.",
+        "답은 과제마다 3~5문장으로 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "실시설계",
+          "definition": "기본설계를 바탕으로 실제 구축에 바로 쓸 수 있도록 장비, 용량, 연결 방식을 자세히 정하는 설계 단계."
+        },
+        {
+          "term": "기본설계",
+          "definition": "요구사항을 분석해 전체 구성과 대략적인 용량, 검토할 장비 안을 정하는 앞 단계의 설계."
+        },
+        {
+          "term": "상세 용량계산서",
+          "definition": "실시설계 단계에서 회선과 장비에 필요한 용량을 자세히 계산해 정리한 문서."
+        },
+        {
+          "term": "백본망",
+          "definition": "건물이나 기관 안의 여러 네트워크 구간을 하나로 이어 주는 중심 네트워크."
+        },
+        {
+          "term": "전력소모량",
+          "definition": "장비가 작동하면서 쓰는 전기의 양. 가장 많이 쓸 때의 값을 최대 전력소모량, 평소 기준으로 잡은 값을 기준 전력소모량이라고 한다."
+        },
+        {
+          "term": "기반시설",
+          "definition": "네트워크 장비가 설치되고 작동하는 데 바탕이 되는 전산실 공간, 전력, 냉방 같은 시설."
+        },
+        {
+          "term": "평가 검증",
+          "definition": "설계한 네트워크를 일부 구간에 먼저 구성해 놓고 실제로 측정하며 제대로 작동하는지 확인하는 일."
+        },
+        {
+          "term": "업링크",
+          "definition": "아래쪽 네트워크의 트래픽을 위쪽 상위 네트워크로 올려 보내는 연결 구간. 이 미션에서는 본관 3개 층을 백본망에 잇는 구간을 말한다."
+        },
+        {
+          "term": "트래픽",
+          "definition": "네트워크에 흐르는 데이터의 양."
+        },
+        {
+          "term": "사용률",
+          "definition": "회선이 낼 수 있는 용량 가운데 실제로 쓰이고 있는 몫을 백분율로 나타낸 값."
+        },
+        {
+          "term": "Mbps / Gbps",
+          "definition": "회선이 1초에 보낼 수 있는 데이터 양을 나타내는 단위. Gbps가 Mbps보다 큰 단위다."
+        },
+        {
+          "term": "회선 묶음",
+          "definition": "여러 개의 회선을 하나의 연결처럼 묶어 함께 쓰는 방식."
+        },
+        {
+          "term": "백본 스위치",
+          "definition": "백본망의 중심에서 여러 네트워크 구간을 연결해 주는 장비."
+        },
+        {
+          "term": "포트",
+          "definition": "스위치에 회선을 꽂아 연결하는 접속구. 이 미션에서는 1G 포트가 1Gbps 회선 하나를 연결하는 자리를 뜻한다."
+        },
+        {
+          "term": "모듈",
+          "definition": "스위치에 끼워 넣어 새로운 종류의 포트를 늘리는 부품. 이 미션에서는 10G 모듈이 10Gbps 회선을 연결할 수 있게 해 준다."
+        },
+        {
+          "term": "랙 잔여 전력",
+          "definition": "전산실에서 장비를 넣어 두는 선반형 틀(랙)에 앞으로 더 공급할 수 있는 남은 전력."
+        },
+        {
+          "term": "발주처",
+          "definition": "설계나 공사를 맡긴 쪽, 곧 이 사업의 고객 기관."
+        },
+        {
+          "term": "서비스 요구사항",
+          "definition": "네트워크를 쓰는 기관이 서비스가 갖추기를 바라는 조건을 정리한 것."
+        },
+        {
+          "term": "품질기준",
+          "definition": "서비스가 일정한 품질을 내기 위해 지켜야 하는 기준."
+        },
+        {
+          "term": "확장성",
+          "definition": "나중에 사용자나 장비가 늘어나도 큰 공사 없이 받아들일 수 있는 정도."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "requirement_memo",
+        "title": "본관 네트워크 서비스 요구사항 (발주처 정보화 담당자 작성)",
+        "description": "발주처인 새봄재단의 정보화 담당자가 본관 업링크 설계에 적용해 달라며 항목별로 적어 보낸 서비스 요구사항 메모다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 측정값에 적용할 합산, 증가분, 사용률 조건을 확인하고, 과제 2에서 각 업링크 안이 요구사항을 만족하는지 견주는 데 쓴다.",
+        "evidence_source": [
+          "통신",
+          "기술 설계"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "발주처 정보화 담당자",
+          "items": [
+            "연결 구조: 본관 3개 층의 트래픽을 하나의 업링크 구간으로 모아 백본망에 연결합니다. 업링크 용량은 층별 하루 최대 트래픽이 같은 시간에 발생한다고 보고, 세 층의 값을 합산해 산정해 주세요.",
+            "품질기준: 실시간 영상회의가 진행되는 시간대에도 업링크 사용률을 70% 이하로 유지해야 합니다. 사용률은 업링크에 흐르는 트래픽을 회선 용량으로 나눈 비율입니다.",
+            "확장성: 2년 안에 층마다 사용자가 50% 늘어날 예정입니다. 트래픽도 사용자 수에 비례해 늘어난다고 보고, 그 증가분까지 수용할 수 있게 설계해 주세요."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "test_measurement_log",
+        "title": "시범 층 평가 검증 기록 (업링크 트래픽 측정, 단위 Mbps)",
+        "description": "본관 시범 층에서 하루 동안 진행한 평가 검증 기록이다. 이날 업링크 트래픽 측정은 세 차례 진행했고, 측정값 단위는 Mbps이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 용량 계산의 기초가 되는 측정값과 본관 층 구성을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "정보 처리",
+          "통신"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "09:30",
+              "actor": "시험 담당 엔지니어",
+              "event": "시범 층(사용자 40명) 업무 시작 시간대 업링크 트래픽 측정: 최대 160Mbps",
+              "note": "웹·메일 위주"
+            },
+            {
+              "time": "11:00",
+              "actor": "시험 담당 엔지니어",
+              "event": "실시간 영상회의 8건이 동시에 진행되는 중 업링크 트래픽 측정: 최대 400Mbps",
+              "note": "영상 끊김 없음"
+            },
+            {
+              "time": "15:00",
+              "actor": "시험 담당 엔지니어",
+              "event": "파일 서버 대량 업로드 중 업링크 트래픽 측정: 최대 320Mbps",
+              "note": "영상회의 없음"
+            },
+            {
+              "time": "17:30",
+              "actor": "설계 책임자",
+              "event": "평가 검증 종료. 시범 층 구성을 나머지 층에 그대로 적용하기로 확정",
+              "note": "나머지 2개 층도 사용자 40명이고 업무 형태가 같음"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "memo",
+        "subtype": "design_option_memo",
+        "title": "실시설계 반영 전 기본설계 업링크 안 정리 (기본설계 담당자 작성)",
+        "description": "기본설계 담당자가 실시설계에 반영하기 전에 기본설계에서 검토한 본관 업링크 안 세 가지를 안마다 한 항목씩 정리한 메모다. 회선 용량 단위는 Gbps, 전력 단위는 W이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 세 업링크 안의 회선 용량과 장비, 포트, 기반시설 조건을 서로 비교하는 데 쓴다.",
+        "evidence_source": [
+          "기술 설계",
+          "통신"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "기본설계 담당자",
+          "items": [
+            "안 A: 1Gbps 회선 2개를 묶어 사용(합계 2Gbps). 백본 스위치에 남은 1G 포트 4개 중 2개 사용. 추가 장비 없음.",
+            "안 B: 10Gbps 회선 1개 사용. 백본 스위치에 10G 모듈 1개 추가. 모듈 전력소모량 최대 150W, 기준 90W. 기반시설 조건: 백본 스위치가 있는 전산실 랙의 잔여 전력 200W.",
+            "안 C: 1Gbps 회선 4개를 묶어 사용(합계 4Gbps). 백본 스위치에 남은 1G 포트 4개를 모두 사용(추가 장비 없음). 이후 별관 연결에 쓸 1G 포트가 남지 않음."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "‘시범 층 평가 검증 기록’의 측정값에 ‘본관 네트워크 서비스 요구사항’ 메모의 산정 조건을 적용해, 2년 후 본관 업링크에 필요한 최소 회선 용량을 계산해 보세요. 어떤 측정값에서 출발했는지, 각 조건을 어떻게 적용했는지, 최종 용량이 얼마인지를 3~5문장으로 적으세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "기록에서 하루 최대 측정값을 골라 3개 층 합산, 사용자 50% 증가 반영, 사용률 70% 이하 조건을 차례로 적용해 2년 후 필요한 최소 업링크 용량을 계산하고 그 과정을 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1에서 구한 필요 용량과 ‘실시설계 반영 전 기본설계 업링크 안 정리’ 메모를 근거로, 실시설계에 반영할 본관 업링크 안을 A·B·C 중 하나로 정하세요. 고른 안, 다른 안과 견주어 그 안을 고른 이유, 그 안을 택할 때 주의할 점 하나를 3~5문장으로 적으세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_003"
+        ],
+        "expected_action": "필요 용량과 각 안의 회선 용량, 장비, 포트, 기반시설 조건을 견주어 업링크 안 하나를 정하고, 다른 안보다 나은 이유와 그 안의 주의점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 2년 후 필요한 최소 업링크 용량과 계산 과정",
+        "과제 2: 실시설계에 반영할 업링크 안, 고른 이유, 주의점 하나"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1: 하루 최대 측정값은 실시간 영상회의 중 측정한 400Mbps이다. 세 층이 같은 구성이므로 400 × 3 = 1,200Mbps이고, 사용자 50% 증가를 반영하면 1,200 × 1.5 = 1,800Mbps이다. 사용률 70% 이하를 지키려면 1,800 ÷ 0.7 ≈ 2,571Mbps, 곧 약 2.6Gbps 이상의 업링크 용량이 필요하다.",
+      "업무 시작 시간대 160Mbps나 대량 업로드 중 320Mbps는 하루 최대값이 아니므로, 이를 기초로 쓰면 필요 용량이 작게 나온다.",
+      "안 A(합계 2Gbps)는 현재 합산 1,200Mbps에서는 사용률 60%로 품질기준을 만족하지만, 2년 후 1,800Mbps에서는 사용률 90%가 되어 품질기준(70% 이하)과 확장성 조건을 지키지 못한다.",
+      "안 B(10Gbps)는 2년 후 사용률 약 18%로 여유가 크지만, 10G 모듈의 최대 전력소모량 150W를 더하면 랙 잔여 전력이 50W로 줄어든다. 안 C(합계 4Gbps)는 2년 후 사용률 약 45%로 품질기준을 지키고 추가 장비가 없지만, 남은 1G 포트 4개를 모두 써서 이후 별관 연결에 쓸 포트가 남지 않는다. 자료로는 B와 C 가운데 하나로 정해지지 않으므로, 근거가 맞으면 어느 쪽이든 인정한다.",
+      "예시: 안 C를 고른다. 2년 후 필요 용량 약 2.6Gbps를 4Gbps 회선 묶음으로 받아 사용률 약 45%를 유지할 수 있고, 안 B처럼 모듈을 추가하거나 랙 전력을 더 쓰지 않아도 되며, 안 A와 달리 2년 후에도 품질기준을 지킨다. 주의점은 백본 스위치의 1G 포트가 모두 소진되어, 이후 별관을 연결할 때 포트를 따로 확보할 방안이 필요하다는 점이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "평가 검증 수치로 2년 후 필요 업링크 용량 계산",
+        "description": "과제 1에서 하루 최대 측정값 400Mbps를 기초로 3개 층을 합산(1,200Mbps)하고, 사용자 50% 증가를 반영(1,800Mbps)한 뒤, 사용률 70% 이하 조건을 적용(1,800 ÷ 0.7)해 약 2,571Mbps, 곧 약 2.6Gbps 이상이 필요하다고 계산 과정과 함께 적었는지 본다. 자료로 값이 하나로 정해지므로 이 값을 기대 답으로 한다(반올림한 2.57Gbps, 2.6Gbps 등도 인정). 하루 최대값이 아닌 측정값(160Mbps, 320Mbps)을 쓰거나, 50% 증가분 반영과 70% 조건 가운데 하나를 빠뜨리거나, 계산 과정 없이 결과만 적으면 일부 점수만 준다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "필요 용량과 기본설계 조건에 근거한 업링크 안 선택과 이유",
+        "description": "과제 2에서 고른 안의 이유가 과제 1의 필요 용량과 기본설계 메모의 조건에 근거하고, 자료에 나온 다른 안과 견주어 그 안이 더 나은 점을 보여 주는지 본다. 특정 안을 정답으로 요구하지 않으며, 2년 후 필요 용량을 채우는 안 B와 안 C는 근거가 맞으면 어느 쪽이든 인정한다. 2년 후 필요 용량을 채우지 못하는 안 A(합계 2Gbps, 2년 후 사용률 90%)를 고르면 품질기준·확장성 조건과 맞지 않아 이유가 선택을 뒷받침하지 못한다. 자료의 맞는 사실을 나열하기만 하고 다른 안보다 왜 나은지 보이지 않으면 일부 점수만 준다. 예: 안 C — 2년 후 사용률 약 45%로 품질기준을 지키면서, 안 B와 달리 모듈 추가나 랙 전력 부담 없이 구성할 수 있다.",
+        "points": 35,
+        "linked_evidence": [
+          "기술 설계",
+          "통신"
+        ]
+      },
+      {
+        "criterion": "고른 안의 주의점",
+        "description": "과제 2에서 적은 주의점 하나가 고른 안에 대해 자료에 드러난 실제 위험이나 한계인지 본다. 자료에 근거한 위험이나 한계이면 인정하며, 자료에 없는 내용이거나 고른 안과 관계없는 내용이면 점수를 주지 않는다. 예: 안 B라면 10G 모듈 최대 전력소모량 150W를 더하면 랙 잔여 전력이 50W만 남는 점, 안 C라면 백본 스위치에 남은 1G 포트를 모두 써서 이후 별관 연결에 쓸 포트가 남지 않는 점. 이는 예시이며 이것만 정답은 아니다.",
+        "points": 25,
+        "linked_evidence": [
+          "기술 설계"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "평가 검증된 네트워크 시스템을 기초로 세부적으로 시스템을 설계한다.",
+      "source_ref": {
+        "file": "K000000968/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "전자장비 유지 보수",
+          "score": 93,
+          "description": "기계가 아닌 전자적 원리에 의해 작동되는 장비, 부품, 장치, 기계를 정비, 수리, 조절, 시험하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 93,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 92,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 87,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 91,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "조직체계의 분석 및 평가",
+          "score": 87,
+          "description": "환경이나 조건의 변화가 조직의 체계, 구성, 방식에 어떤 영향을 미칠지 분석하고, 시스템의 효율성을 평가한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "인적자원 관리",
+          "score": 85,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "통신",
+          "score": 97,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 90,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 81,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "이메일 이용하기",
+          "score": 88,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "공문, 문서 주고받기",
+          "score": 84,
+          "description": "업무 수행하면서 공문이나 문서를 주고받는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "반복적인 신체행동, 정신적 활동",
+          "score": 84,
+          "description": "지속적이고 반복적인 신체적 행동이나 정신적 활동의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "통신",
+          "기술 설계"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 처리",
+          "통신"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "기술 설계",
+          "통신"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.52,
+    "AX2": 0.12,
+    "AX3": 0.12,
+    "AX4": 0.12,
+    "AX5": 0.12
+  }
+}

@@ -1,0 +1,682 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007525_hard_001",
+  "job_identity": {
+    "job_cd": "K000007525",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "회계·세무·감정 전문가",
+    "job_smcl_nm": "세무사",
+    "source_ref": {
+      "file": "K000007525/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "납세자의 권익과 재산권을 보호하기 위해 납세신고서를 작성하여 신고하며 부당 납부고지에 대해서는 세무서 등(국세청 및 조세심판원)에 불복청구(이의신청·심사청구·심판청구)를 수행한다.",
+    "source_ref": {
+      "file": "K000007525/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "온결 세무사무소",
+    "domain": "개인사업자의 세무 통지에 대한 이의신청 상담",
+    "period": [
+      "2026-11-13(의뢰 이메일 날짜)",
+      "2026-10-30~2027-01-18(통지별 청구기간 만료일)"
+    ],
+    "trend_pattern": "통지 4건의 청구기간 만료일이 이미 지난 날부터 두 달 뒤까지 흩어져 있고, 통지마다 자료 준비 상황이 다르다.",
+    "main_issue": "의뢰인이 받은 통지 4건 가운데 지금 이의신청을 진행할 수 있는 건을 가려야 하고, 의뢰인은 비용 때문에 한 건만 먼저 맡기려 한다.",
+    "feedback_themes": [
+      "의뢰인은 통지 4건이 모두 부당하다고 생각함",
+      "비용 부담으로 이번에는 한 건만 먼저 의뢰함",
+      "거래처 확인서와 송금 내역은 11월 27일쯤 도착 예정"
+    ],
+    "decision_goal": "의뢰인이 이번에 먼저 이의신청할 한 건을 이유와 주의할 점과 함께 추천한다."
+  },
+  "mission": {
+    "title": "세무 통지 4건, 무엇부터 이의신청할까?",
+    "task_type": "communication_and_reporting",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "온결 세무사무소 인턴",
+      "context": "당신은 온결 세무사무소에 새로 들어온 인턴입니다. 소품 가게를 운영하는 개인사업자 의뢰인이 세무서에서 받은 통지 4건이 모두 부당하다며 이의신청을 맡기고 싶다는 이메일을 보냈습니다. 담당 세무사는 '사무소 확인표로 4건을 하나씩 따져 보고, 의뢰인에게 보낼 추천 의견 초안을 써 달라'고 부탁했습니다.",
+      "goal": "사무소 확인표로 통지마다 지금 이의신청을 할 수 있는지 가려 보고, 의뢰인이 먼저 진행할 한 건을 이유와 주의할 점과 함께 추천해 보세요.",
+      "constraints": [
+        "의뢰인 이메일, 확인표, 통지 정리표에 있는 내용만으로 판단하세요. 따로 찾아볼 필요는 없습니다.",
+        "오늘 날짜는 의뢰인 이메일에 적힌 날짜로 봅니다.",
+        "답변은 과제마다 3~5문장으로 적어 주세요."
+      ],
+      "glossary": [
+        {
+          "term": "이의신청",
+          "definition": "세무서 등이 내린 처분이 부당하다고 볼 때, 그 처분을 다시 살펴 바로잡아 달라고 세무 관청에 청구하는 절차."
+        },
+        {
+          "term": "처분",
+          "definition": "세무 관청이 납세자의 세금에 대해 내린 결정."
+        },
+        {
+          "term": "과세처분",
+          "definition": "세무서가 납세자가 내야 할 세금을 정하는 결정."
+        },
+        {
+          "term": "경정거부처분",
+          "definition": "납세자가 낸 경정청구를 세무서가 받아들이지 않기로 한 결정."
+        },
+        {
+          "term": "과세예고통지서",
+          "definition": "세무서가 세금을 정하기 전에, 앞으로 이런 내용으로 과세할 예정이라고 납세자에게 미리 알리는 문서."
+        },
+        {
+          "term": "납세고지서",
+          "definition": "세무서가 정한 세액과 납부 기한을 적어, 그 세금을 내라고 알리는 문서."
+        },
+        {
+          "term": "경정청구",
+          "definition": "이미 신고하거나 낸 세금이 너무 많다고 볼 때, 세액을 바로잡아 돌려 달라고 세무서에 요청하는 것."
+        },
+        {
+          "term": "경정청구거부통지서",
+          "definition": "납세자의 경정청구를 받아들이지 않기로 했다고 세무서가 알리는 문서."
+        },
+        {
+          "term": "청구기간",
+          "definition": "이의신청 같은 청구를 낼 수 있도록 정해진 기간. 이 미션에서는 표의 '청구기간 만료일'이 그 통지에 대해 청구를 낼 수 있는 마지막 날이다."
+        },
+        {
+          "term": "이유서",
+          "definition": "처분이 왜 부당한지 그 이유와 근거를 적어 이의신청서와 함께 내는 글."
+        },
+        {
+          "term": "과세 근거 자료",
+          "definition": "세금이 매겨진 내용과 그 바탕이 된 거래나 비용을 보여 주는 서류(통지서, 세금계산서, 영수증 등)."
+        },
+        {
+          "term": "사실관계 확인 자료",
+          "definition": "주장하는 일이 실제로 있었음을 보여 주는 확인서나 내역 같은 서류."
+        },
+        {
+          "term": "가산세",
+          "definition": "신고나 납부를 기한보다 늦게 하거나 잘못했을 때 원래 세금에 더해 물리는 세금."
+        },
+        {
+          "term": "귀속",
+          "definition": "세금이 어느 해의 소득에 대한 것인지를 나타내는 말. '2025년 귀속 종합소득세'는 2025년에 번 소득에 대한 종합소득세다."
+        },
+        {
+          "term": "1기·2기",
+          "definition": "부가가치세를 반년씩 나눈 기간. 1기는 1~6월, 2기는 7~12월이다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "client_request",
+        "title": "의뢰인 이메일: 받은 통지 4건 이의신청 의뢰",
+        "description": "소품 가게를 운영하는 의뢰인 한서윤 씨가 2026년 11월 13일에 사무소 담당자에게 보낸 의뢰 이메일.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "오늘 날짜, 이번에는 한 건만 먼저 맡긴다는 조건, 통지별 자료 준비 상황을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "사람들에게 조언, 상담"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "한서윤(소품 가게 운영, 개인사업자)",
+              "to": "온결 세무사무소 담당자님",
+              "subject": "받은 통지 4건 이의신청 의뢰",
+              "body": "안녕하세요, 소품 가게를 하는 한서윤입니다. 오늘(2026년 11월 13일)까지 세무서에서 받은 통지가 4건인데, 저는 4건 모두 부당하다고 생각합니다. 통지서 4장은 어제 사무소에 맡겨 두었습니다.\n다만 비용이 부담돼서 이번에는 한 건만 먼저 이의신청을 맡기고, 나머지는 형편을 보아 나중에 의뢰하려고 합니다. 어느 건을 먼저 하면 좋을지 추천해 주세요.\n자료 준비 상황도 함께 적습니다.\n- 부가가치세 거래처 거래 건: 세금계산서는 있습니다. 그런데 실제로 거래했다는 걸 보여 줄 거래처 확인서와 송금 내역은 거래처 사정 때문에 11월 27일쯤에야 받을 수 있다고 합니다.\n- 종합소득세 경정청구 거부 건: 경정청구 때 냈던 서류와 경정청구거부통지서를 모두 가지고 있습니다.\n- 차량 유지비 건: 주유 영수증을 모아 두었습니다.\n- 가산세 건: 신고가 늦어진 사정을 보여 줄 서류는 따로 없습니다.\n잘 부탁드립니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "checklist",
+        "subtype": "intake_checklist",
+        "title": "이의신청 착수 전 확인표(사무소 공용 양식)",
+        "description": "사무소에서 이의신청을 맡기 전에 통지 한 건마다 적용하는 확인표. 세 항목 모두 아직 체크하지 않은 빈 양식이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "통지마다 지금 이의신청에 착수할 수 있는지 따져 볼 세 가지 기준으로 쓴다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "법"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "main_issue"
+        ],
+        "data": {
+          "items": [
+            {
+              "label": "항목 1. 이의신청의 대상이 되는 처분(과세처분과 경정거부처분 등)인가",
+              "status": "unchecked",
+              "importance": "normal"
+            },
+            {
+              "label": "항목 2. 청구기간 만료일 전에 이의신청서와 그 이유서를 낼 수 있는가",
+              "status": "unchecked",
+              "importance": "normal"
+            },
+            {
+              "label": "항목 3. 이유서를 뒷받침할 과세 근거 자료와 사실관계 확인 자료가 지금 갖추어져 있는가",
+              "status": "unchecked",
+              "importance": "normal"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "notice_summary",
+        "title": "의뢰인 통지서 4건 정리표",
+        "description": "의뢰인이 맡긴 통지서 4장을 사무소에서 옮겨 정리한 표. 청구기간 만료일은 각 통지서에 안내된 날짜이고, 관련 세액은 원 단위다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "확인표의 세 항목을 적용할 통지 4건의 내용, 청구기간 만료일, 세액을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "법"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "문서명"
+            },
+            {
+              "key": "strength",
+              "label": "통지 내용"
+            },
+            {
+              "key": "weakness",
+              "label": "청구기간 만료일"
+            },
+            {
+              "key": "priority",
+              "label": "관련 세액(원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "과세예고통지서",
+              "strength": "2025년 귀속 종합소득세: 차량 유지비를 경비로 인정하지 않고 과세할 예정임을 미리 알림",
+              "weakness": "2026-12-02",
+              "priority": 3200000
+            },
+            {
+              "option": "납세고지서",
+              "strength": "2026년 1기 부가가치세: 한 거래처와의 거래를 실제 거래로 인정하지 않아 세액을 정하고 납부를 알림",
+              "weakness": "2026-11-28",
+              "priority": 4800000
+            },
+            {
+              "option": "경정청구거부통지서",
+              "strength": "2024년 귀속 종합소득세: 세액을 바로잡아 돌려 달라는 경정청구를 받아들이지 않는다고 알림",
+              "weakness": "2027-01-18",
+              "priority": 2100000
+            },
+            {
+              "option": "납세고지서",
+              "strength": "2025년 2기 부가가치세: 신고가 늦었다며 가산세를 정하고 납부를 알림",
+              "weakness": "2026-10-30",
+              "priority": 600000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "의뢰인 이메일에 적힌 날짜와 통지별 자료 준비 상황을 반영해, 확인표의 세 항목을 정리표의 통지 4건에 하나씩 적용해 보세요. 통지마다 충족하지 못하는 항목이 무엇인지 판정하고, 세 항목을 모두 충족하는 통지는 그렇다고 적어 3~5문장으로 정리해 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "확인표의 세 항목을 통지 4건에 각각 적용해 통지마다 충족하지 못하는 항목을 판정한다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1에서 항목 1과 항목 2를 모두 충족한 통지 가운데, 의뢰인이 이번에 먼저 이의신청할 한 건을 골라 추천해 보세요. 의뢰인에게 보내는 답변처럼 고른 건, 다른 후보와 견주어 이 건이 더 나은 이유, 그리고 이 선택에서 주의할 점 하나를 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "항목 1·2를 충족한 통지 가운데 먼저 이의신청할 한 건을 골라, 다른 후보와 견준 이유와 주의할 점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 통지별 확인표 판정",
+        "과제 2: 먼저 진행할 한 건 추천, 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과세예고통지서는 세금을 정하기 전에 과세할 예정임을 미리 알린 통지여서 아직 처분이 아니므로 항목 1을 충족하지 못한다. 청구기간 만료일이 남아 있고 세액이 크며 주유 영수증도 있어 대상처럼 보이는 것이 함정이다.",
+      "2026년 1기 부가가치세 납세고지서와 2025년 2기 부가가치세(가산세) 납세고지서는 세액을 정한 과세처분이고, 경정청구거부통지서는 경정거부처분이므로 세 통지는 항목 1을 충족한다.",
+      "가산세 납세고지서는 청구기간 만료일 2026-10-30이 이메일 날짜 2026-11-13보다 앞서 항목 2를 충족하지 못한다. 신고가 늦어진 사정을 보여 줄 서류도 없어 항목 3도 충족하지 못한다.",
+      "2026년 1기 부가가치세(거래처 거래) 납세고지서는 항목 1·2를 충족하지만, 거래처 확인서와 송금 내역이 11월 27일쯤 도착할 예정이라 지금은 항목 3을 충족하지 못한다. 경정청구거부통지서는 세 항목을 모두 충족한다.",
+      "과제 2의 후보는 거래처 거래 건 납세고지서(4,800,000원, 만료 2026-11-28, 자료 11월 27일쯤 도착)와 경정청구거부통지서(2,100,000원, 만료 2027-01-18, 자료 완비) 두 건이며, 자료가 하나의 정답을 정하지 않으므로 다른 후보와 견준 이유가 선택을 뒷받침하면 어느 쪽이든 인정한다.",
+      "예시: 거래처 거래 건은 세액이 더 크고 11월 28일이 지나면 이의신청을 할 수 없지만, 경정청구 거부 건은 2027년 1월 18일까지 시간이 있어 나중에 맡겨도 되므로 거래처 거래 건을 먼저 진행한다. 주의할 점은 거래처 확인서가 11월 27일보다 늦어지면 만료일까지 사실관계 확인 자료 없이 이유서를 내야 할 수 있다는 것이다.",
+      "예시: 경정청구 거부 건을 고른다면, 자료가 모두 갖추어져 있어 바로 이유서를 쓸 수 있는 반면 거래처 거래 건은 만료일 전까지 자료가 갖추어질지 확실하지 않다는 점을 이유로 들 수 있다. 이때 주의할 점은 거래처 거래 건을 11월 28일까지 따로 맡기지 않으면 더 큰 세액의 건을 이의신청할 수 없게 된다는 것이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "통지별 이의신청 대상 처분 판정(항목 1)",
+        "description": "과제 1에서 납세고지서 2건은 과세처분, 경정청구거부통지서는 경정거부처분이라 항목 1을 충족하고, 과세예고통지서는 과세할 예정을 미리 알린 통지라 아직 처분이 아니어서 항목 1을 충족하지 못한다고 판정했는지 본다. 과세예고통지서를 항목 1 충족으로 보면 대부분의 점수를 잃고, 나머지 3건 가운데 하나를 잘못 판정하면 일부 감점한다.",
+        "points": 25,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "법"
+        ]
+      },
+      {
+        "criterion": "청구기간과 자료 준비 판정(항목 2·3)",
+        "description": "과제 1에서 가산세 납세고지서는 청구기간 만료일 2026-10-30이 이메일 날짜 2026-11-13보다 앞서 항목 2를 충족하지 못하고, 거래처 거래 건 납세고지서는 항목 1·2는 충족하지만 거래처 확인서와 송금 내역이 11월 27일쯤 도착할 예정이라 지금은 항목 3을 충족하지 못하며, 경정청구거부통지서는 세 항목을 모두 충족한다고 판정했는지 본다. 가산세 건에 서류가 없어 항목 3도 충족하지 못한다고 함께 적은 것은 맞는 판정으로 본다. 세 건 가운데 틀린 판정이 있으면 건마다 감점한다.",
+        "points": 25,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "먼저 진행할 한 건 추천과 비교 이유",
+        "description": "과제 2에서 항목 1·2를 모두 충족한 두 통지(거래처 거래 건 납세고지서, 경정청구거부통지서) 가운데 하나를 골랐는지, 그리고 이유가 과제 1 결과와 자료의 세액·청구기간 만료일·자료 도착 예정일을 들어 고른 쪽이 다른 후보보다 나은 까닭을 보여 주는지 본다. 특정한 답을 요구하지 않으며, 어느 쪽을 골라도 이유가 그 선택을 뒷받침하면 만점이다. 맞는 사실을 들었더라도 다른 후보와 견주어 왜 이쪽이 나은지 보여 주지 못하면 부분 점수만 준다. 자료상 항목 1이나 2를 충족하지 못하는 통지를 고르면 이 항목 점수를 주지 않는다. 예: 거래처 거래 건은 11월 28일이 지나면 이의신청을 할 수 없지만 경정청구 거부 건은 2027-01-18까지 시간이 있어 나중에 맡겨도 되므로 거래처 거래 건을 먼저 진행한다.",
+        "points": 30,
+        "linked_evidence": [
+          "사람들에게 조언, 상담",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "고른 건의 주의할 점",
+        "description": "과제 2에서 고른 건에 대해 자료가 보여 주는 실제 위험이나 한계를 하나 들었는지 본다. 자료에 근거한 위험이면 어느 것이든 인정하고, 자료에 없는 일반론이나 고른 건과 상관없는 내용은 인정하지 않는다. 예: 거래처 거래 건을 고르면 거래처 확인서가 11월 27일보다 늦어질 경우 청구기간 만료일 11월 28일까지 사실관계 확인 자료 없이 이유서를 내야 할 수 있다.",
+        "points": 20,
+        "linked_evidence": [
+          "사람들에게 조언, 상담"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "납세자의 권익과 재산권을 보호하기 위해 납세신고서를 작성하여 신고하며 부당 납부고지에 대해서는 세무서 등(국세청 및 조세심판원)에 불복청구(이의신청·심사청구·심판청구)를 수행한다.",
+      "source_ref": {
+        "file": "K000007525/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "행정, 관리 업무",
+          "score": 97,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "부하 직원들에게 업무 안내, 지시, 동기부여",
+          "score": 94,
+          "description": "부하 직원들의 업무 기준을 정하여 업무 성과를 관찰하고 업무 방향과 지침을 제공하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 89,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "인사 업무",
+          "score": 85,
+          "description": "조직에서 직원을 모집, 면담, 채용하고 승진시키기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 81,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "재정 관리",
+          "score": 99,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "수리력",
+          "score": 98,
+          "description": "어떤 문제를 해결하기 위해 수학을 사용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상",
+          "score": 96,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "경제와 회계",
+          "score": 97,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 96,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "경영 및 행정",
+          "score": 91,
+          "description": "사업운영, 기획, 자원배분, 인적자원관리, 리더십, 생산기법에 대한 원리 등 경영 및 관리에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이미지/평판/재정에 미치는 강도",
+          "score": 97,
+          "description": "본인의 의사결정이 다른 사람 또는 회사 이미지/평판/재정에 어느 정도의 결과 초래",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "정확성, 정밀성 유지",
+          "score": 96,
+          "description": "업무 수행을 위해 정밀하거나 정확한 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "사람들에게 조언, 상담"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "법"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "법"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.55,
+    "AX2": 0.025,
+    "AX3": 0.025,
+    "AX4": 0.025,
+    "AX5": 0.375
+  }
+}

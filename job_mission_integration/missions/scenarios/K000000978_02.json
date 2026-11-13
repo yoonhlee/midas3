@@ -1,0 +1,523 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000978_normal_001",
+  "job_identity": {
+    "job_cd": "K000000978",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "데이터·네트워크 및 시스템 운영 전문가",
+    "job_smcl_nm": "IT기술지원전문가",
+    "source_ref": {
+      "file": "K000000978/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "설치지시서에 따라 컴퓨터에 소프트웨어를 설치하거나 하드웨어의 가벼운 고장을 수리한다.",
+    "source_ref": {
+      "file": "K000000978/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "하늘빛상사",
+    "domain": "사내 PC 소프트웨어 설치 지원",
+    "period": [
+      "이번 주 회계팀 응용프로그램 설치 작업"
+    ],
+    "trend_pattern": "회계팀 PC 4대의 보안패치 상태와 여유 저장공간이 PC마다 다르다.",
+    "main_issue": "업무용 응용프로그램 새 버전을 설치하기 전에 PC마다 설치지시서 조건을 충족하는지 확인해야 한다.",
+    "feedback_themes": [
+      "보안패치 적용 여부",
+      "여유 저장공간 기준"
+    ],
+    "decision_goal": "설치지시서 조건에 비추어 설치 전에 먼저 조치가 필요한 PC와 그 이유를 가려낸다."
+  },
+  "mission": {
+    "title": "설치 시작 전, PC 상태 확인하기",
+    "task_type": "operation_and_scheduling",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "하늘빛상사 IT 기술지원팀 인턴",
+      "context": "당신은 하늘빛상사 IT 기술지원팀에 새로 들어온 인턴입니다. 이번 주에 회계팀 PC 4대에 업무용 응용프로그램 새 버전을 설치하는 작업이 잡혀 있습니다. 팀장님이 설치지시서를 건네며 \"설치를 시작하기 전에, 지시서 조건대로 바로 설치할 수 없는 PC가 있는지 먼저 확인해 줘요\"라고 부탁했습니다.",
+      "goal": "설치지시서와 회계팀 PC 현황표를 함께 보고, 설치 전에 먼저 손봐야 할 PC와 그 이유를 팀장님께 알려 주세요.",
+      "constraints": [
+        "자료 1과 자료 2에 있는 정보만 사용하세요.",
+        "실제 설치는 하지 않고, 설치 전 확인 결과만 적습니다.",
+        "답은 2~3문장으로 적어 주세요."
+      ],
+      "glossary": [
+        {
+          "term": "설치지시서",
+          "definition": "프로그램을 어떤 PC에, 어떤 조건에서 설치할지 담당자에게 알려 주는 업무 지시 문서입니다."
+        },
+        {
+          "term": "보안패치",
+          "definition": "운영체제나 프로그램의 보안 약점을 고치기 위해 배포되는 수정 파일입니다."
+        },
+        {
+          "term": "단말 운영체제",
+          "definition": "직원이 쓰는 PC 같은 업무용 기기를 움직이는 기본 소프트웨어입니다. 이 미션에서는 회계팀 PC에 깔린 운영체제를 말합니다."
+        },
+        {
+          "term": "여유 저장공간",
+          "definition": "PC 저장장치에서 아직 쓰지 않아 새 파일이나 프로그램을 더 넣을 수 있는 공간입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "installation_instruction",
+        "title": "회계팀 업무용 응용프로그램 설치지시서 (IT 기술지원팀장 작성)",
+        "description": "IT 기술지원팀장이 이번 설치 작업 담당자에게 보낸 설치지시서로, 설치 대상과 설치 조건이 적혀 있다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "설치 대상 PC에 적용할 설치 조건을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "컴퓨터 업무"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "IT 기술지원팀장",
+          "items": [
+            "회계팀 PC 4대(PC-01~PC-04)에 업무용 응용프로그램 새 버전을 설치합니다.",
+            "단말 운영체제의 최신 보안패치가 '적용 완료'인 PC에만 설치합니다. '미적용'인 PC는 보안패치를 먼저 적용한 뒤 설치합니다.",
+            "여유 저장공간이 20GB 이상인 PC에만 설치합니다. 20GB 미만인 PC는 저장공간을 먼저 확보한 뒤 설치합니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "device_status_table",
+        "title": "회계팀 PC 현황표",
+        "description": "설치 대상인 회계팀 PC 4대의 사용자, 보안패치 상태, 여유 저장공간(단위 GB)을 정리한 표이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "설치지시서의 조건을 PC별 상태에 적용해 볼 때 쓴다.",
+        "evidence_source": [
+          "정보 처리",
+          "컴퓨터 업무"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "PC 번호"
+            },
+            {
+              "key": "strength",
+              "label": "사용자"
+            },
+            {
+              "key": "weakness",
+              "label": "보안패치 상태"
+            },
+            {
+              "key": "priority",
+              "label": "여유 저장공간(GB)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "PC-01",
+              "strength": "회계팀 김 대리",
+              "weakness": "적용 완료",
+              "priority": 35
+            },
+            {
+              "option": "PC-02",
+              "strength": "회계팀 이 과장",
+              "weakness": "미적용",
+              "priority": 60
+            },
+            {
+              "option": "PC-03",
+              "strength": "회계팀 박 주임",
+              "weakness": "적용 완료",
+              "priority": 12
+            },
+            {
+              "option": "PC-04",
+              "strength": "회계팀 최 사원",
+              "weakness": "적용 완료",
+              "priority": 20
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "자료 1 설치지시서의 설치 조건을 자료 2 표의 PC마다 대어 보고, 응용프로그램을 설치하기 전에 먼저 조치가 필요한 PC를 모두 찾아 각 PC가 어떤 조건을 충족하지 못했는지 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "설치지시서의 설치 조건을 PC별 상태에 적용해 설치 전에 조치가 필요한 PC를 모두 찾고, 각 PC가 충족하지 못한 조건을 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "조치가 필요한 PC와 충족하지 못한 조건"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "설치 전에 조치가 필요한 PC는 PC-02와 PC-03 두 대다.",
+      "PC-02는 여유 저장공간이 60GB로 넉넉하지만 보안패치가 '미적용'이라 보안패치를 먼저 적용해야 한다.",
+      "PC-03은 보안패치는 '적용 완료'지만 여유 저장공간이 12GB로 20GB에 못 미쳐 저장공간을 먼저 확보해야 한다.",
+      "채점 참고: PC-04는 여유 저장공간이 정확히 20GB로 '20GB 이상' 조건을 충족하므로 조치가 필요 없고, PC-01도 두 조건을 모두 충족한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "조치가 필요한 PC를 빠짐없이 찾기",
+        "description": "설치 전에 조치가 필요한 PC로 PC-02와 PC-03을 모두 적었고, 두 조건을 모두 충족한 PC-01과 PC-04를 조치 대상에 넣지 않았는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "충족하지 못한 조건을 표의 값과 맞게 적기",
+        "description": "찾은 PC마다 설치지시서의 어느 조건을 충족하지 못했는지 표의 값과 맞게 적었는지 본다. PC-02는 보안패치 미적용, PC-03은 여유 저장공간 12GB로 20GB 미만이라는 점이 드러나야 한다.",
+        "points": 50,
+        "linked_evidence": [
+          "컴퓨터 업무"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "설치지시서에 따라 컴퓨터에 소프트웨어를 설치하거나 하드웨어의 가벼운 고장을 수리한다.",
+      "source_ref": {
+        "file": "K000000978/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 96,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "자원 관리",
+          "score": 94,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 91,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 91,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 90,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "가르치기",
+          "score": 96,
+          "description": "다른 사람들에게 일하는 방법에 대해 가르친다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 95,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "고장의 발견.수리",
+          "score": 93,
+          "description": "오작동의 원인이 무엇인가를 확인하고 이를 어떻게 처리할 것인지 결정한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 93,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 88,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 80,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 92,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 88,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "외부 고객 대하기",
+          "score": 87,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "컴퓨터 업무"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 처리",
+          "컴퓨터 업무"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

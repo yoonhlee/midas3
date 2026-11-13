@@ -1,0 +1,480 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007492_easy_001",
+  "job_identity": {
+    "job_cd": "K000007492",
+    "job_lrcl_nm": "보건·의료직",
+    "job_mdcl_nm": "보건·의료 종사자",
+    "job_smcl_nm": "보건의료정보관리사",
+    "source_ref": {
+      "file": "K000007492/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_008",
+    "text": "수집된 정보를 컴퓨터 데이터베이스에 정리한다.",
+    "source_ref": {
+      "file": "K000007492/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 8
+    },
+    "selection_reason": "Pilot config selected exec_008."
+  },
+  "mission_facts": {
+    "org_name": "가람누리병원 의무기록팀",
+    "domain": "입퇴원/외래 진료요약 기록의 DB 정리",
+    "period": [
+      "11월 둘째 주(11-02~11-08)"
+    ],
+    "trend_pattern": "병동과 외래에서 모은 진료요약 기록 3건을 DB에 올리기 전에 한 표로 모아 둔 상태",
+    "main_issue": "DB에 정리하기 전에 각 기록의 재원일수가 팀의 입력 기준과 맞는지 점검해야 함",
+    "feedback_themes": [
+      "재원일수 입력 기준",
+      "DB 정리 전 원 기록 재확인"
+    ],
+    "decision_goal": "입력 기준과 맞지 않아 원 기록을 다시 확인해야 할 건을 DB 정리 전에 가려낸다"
+  },
+  "mission": {
+    "title": "진료요약 기록, DB에 올리기 전에 점검하기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 가람누리병원 의무기록팀에 새로 온 보건의료정보관리 인턴입니다.",
+      "context": "의무기록팀은 매주 병동과 외래에서 모은 진료요약 기록을 병원 DB에 정리합니다. 11월 둘째 주에 모은 기록 3건이 표 하나로 정리되어 있고, 팀장님이 DB에 올리기 전에 입력 기준에 맞는지 한 번 살펴봐 달라고 부탁했습니다.",
+      "goal": "팀장님이 알려 준 입력 기준을 표의 기록에 적용해 보고, DB에 정리하기 전에 원 기록을 다시 확인해야 할 건을 찾아보세요.",
+      "constraints": [
+        "팀장님 요청: 입원 건의 재원일수는 퇴원일에서 입원일을 뺀 날수로, 외래 건은 0으로 입력해요. 이 기준과 맞지 않는 건은 DB에 정리하기 전에 원 기록을 다시 확인해야 해요.",
+        "표에 있는 정보만 사용하세요.",
+        "답에는 찾은 건의 등록번호와 그렇게 본 이유를 함께 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "진료요약",
+          "definition": "환자가 입원하거나 외래로 진료받은 내용을 짧게 정리한 기록입니다."
+        },
+        {
+          "term": "DB",
+          "definition": "데이터베이스의 줄임말로, 기록을 정해진 항목에 맞춰 컴퓨터에 모아 두는 저장소입니다."
+        },
+        {
+          "term": "재원일수",
+          "definition": "입원한 환자가 병원에 머문 날수입니다."
+        },
+        {
+          "term": "외래",
+          "definition": "입원하지 않고 병원에 와서 진료만 받고 돌아가는 방식입니다."
+        },
+        {
+          "term": "등록번호",
+          "definition": "병원이 환자 기록을 구분하려고 붙이는 번호입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "record_table",
+        "title": "11월 둘째 주 입퇴원/외래 진료요약 기록(DB 정리 전)",
+        "description": "병동과 외래에서 모은 진료요약 기록 3건을 DB에 정리하기 전에 한 표로 모은 자료입니다. 진료기간은 월-일로 적었으며, 입원 건은 '입원일~퇴원일', 외래 건은 진료일 하나를 적었습니다. 재원일수의 단위는 일입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "팀장님이 알려 준 입력 기준을 각 기록에 적용해 보는 데 씁니다.",
+        "evidence_source": [
+          "정보 처리",
+          "컴퓨터 업무",
+          "수리력"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "등록번호"
+            },
+            {
+              "key": "strength",
+              "label": "진료구분"
+            },
+            {
+              "key": "weakness",
+              "label": "진료기간"
+            },
+            {
+              "key": "priority",
+              "label": "재원일수(일)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "H-2041",
+              "strength": "입원",
+              "weakness": "11-02~11-06",
+              "priority": 4
+            },
+            {
+              "option": "H-2057",
+              "strength": "외래",
+              "weakness": "11-07",
+              "priority": 0
+            },
+            {
+              "option": "H-2063",
+              "strength": "입원",
+              "weakness": "11-03~11-08",
+              "priority": 7
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장님의 입력 기준으로 표의 기록 3건을 살펴보고, DB에 정리하기 전에 원 기록을 다시 확인해야 할 건이 무엇인지 이유와 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "입력 기준을 각 기록에 적용해 기준과 맞지 않는 건을 고르고, 그 이유를 짧게 설명한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "다시 확인할 건과 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "입력 기준대로 따지면 H-2041은 11-06에서 11-02를 빼 4일로 표의 값과 같고, 외래 건인 H-2057은 0으로 기준에 맞는다.",
+      "H-2063은 진료기간이 11-03~11-08이라 재원일수가 5일이어야 하는데 표에는 7일로 적혀 있으므로, DB에 정리하기 전에 원 기록을 다시 확인해야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "입력 기준 적용",
+        "description": "진료구분에 따라 입원 건은 퇴원일에서 입원일을 뺀 날수로, 외래 건은 0으로 재원일수를 따져 표의 값과 대조했는지 확인한다.",
+        "points": 30,
+        "linked_evidence": [
+          "정보 처리",
+          "수리력"
+        ]
+      },
+      {
+        "criterion": "다시 확인할 건 선택",
+        "description": "기준과 맞지 않는 H-2063을 골랐고, 기준에 맞는 H-2041과 H-2057은 고르지 않았는지 확인한다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보 처리",
+          "컴퓨터 업무"
+        ]
+      },
+      {
+        "criterion": "근거 제시",
+        "description": "진료기간으로 계산한 재원일수(5일)와 표에 입력된 재원일수(7일)가 다르다는 점을 이유로 밝혔는지 확인한다.",
+        "points": 30,
+        "linked_evidence": [
+          "수리력",
+          "정보 처리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_008",
+      "text": "수집된 정보를 컴퓨터 데이터베이스에 정리한다.",
+      "source_ref": {
+        "file": "K000007492/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 8
+      },
+      "selection_reason": "Pilot config selected exec_008."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 작성, 기록",
+          "score": 94,
+          "description": "정보를 전자 또는 서면으로 작성, 기록, 저장, 관리하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007492/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 93,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007492/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 91,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007492/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 89,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007492/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보, 자료 분석",
+          "score": 80,
+          "description": "정보 또는 자료를 분석하여 근본 원리, 이유, 사실을 알아내기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007492/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 95,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007492/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 82,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007492/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "읽고 이해하기",
+          "score": 68,
+          "description": "업무와 관련된 문서를 읽고 이해한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007492/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "의료",
+          "score": 88,
+          "description": "질병이나 치아의 질환 여부를 진단하고 치료하는 것에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007492/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "사무",
+          "score": 62,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007492/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "경영 및 행정",
+          "score": 53,
+          "description": "사업운영, 기획, 자원배분, 인적자원관리, 리더십, 생산기법에 대한 원리 등 경영 및 관리에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007492/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "앉아서 근무",
+          "score": 85,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007492/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들과 직접 접촉",
+          "score": 79,
+          "description": "다른 사람과 전화, 대면, 전자메일 등으로 접촉하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007492/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "질병 혹은 감염 위험 노출",
+          "score": 76,
+          "description": "질병 혹은 병균에 노출되는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007492/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 처리",
+          "컴퓨터 업무",
+          "수리력"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007492/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007492/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007492/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

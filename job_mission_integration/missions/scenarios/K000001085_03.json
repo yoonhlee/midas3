@@ -1,0 +1,700 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001085_hard_001",
+  "job_identity": {
+    "job_cd": "K000001085",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "컴퓨터시스템 전문가",
+    "job_smcl_nm": "정보통신컨설턴트 및 감리원",
+    "source_ref": {
+      "file": "K000001085/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "고객의 사업 비전과 부합되는 최적의 정보시스템을 구축함에 있어서 기술적, 운영적, 관리적 방안을 자문하고 제시한다.",
+    "source_ref": {
+      "file": "K000001085/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "푸른들식품유통",
+    "domain": "식품 유통회사의 소프트웨어 운영 개선 자문",
+    "period": [
+      "최근 3개월",
+      "올해",
+      "향후 2년"
+    ],
+    "trend_pattern": "오전 9~11시에 주문이 몰리면 주문관리 프로그램의 화면 응답이 늦어지고, 최근 3개월 장애 건수는 주문관리 9건, 그룹웨어 4건, 재고관리 2건, 회계 패키지 0건이다.",
+    "main_issue": "온라인 주문 2배 확대와 거래처 주문 당일 출고를 내건 고객사에서 주문관리 프로그램은 유지보수 계약이 없고, 재고관리 프로그램은 주문관리 프로그램과 연결되지 않아 출고 내역을 하루 2회 손으로 입력한다.",
+    "feedback_themes": [
+      "주문이 몰리는 시간대의 화면 응답 지연",
+      "출고 내역 손 입력",
+      "올해 예산 100백만 원 이내와 신규 채용 없음 조건"
+    ],
+    "decision_goal": "고객사의 사업 비전과 경영전략, 예산·인력 조건에 맞는 소프트웨어 개선안 하나를 골라 자문한다."
+  },
+  "mission": {
+    "title": "식품 유통회사에 맞는 소프트웨어 개선안 자문하기",
+    "task_type": "operation_and_scheduling",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "정보기술 컨설팅 회사 모아정보컨설팅의 인턴 컨설턴트",
+      "context": "당신은 정보기술 컨설팅 회사 모아정보컨설팅의 인턴 컨설턴트입니다. 고객사 푸른들식품유통은 소매점과 온라인 고객에게 식품을 공급하는 회사로, 앞으로의 사업 계획에 맞게 소프트웨어 운영을 어떻게 바꾸면 좋을지 자문을 요청했습니다. 선임 컨설턴트가 고객사 기획팀장의 메모, 소프트웨어 현황표, 개선안 후보표를 건네며 이렇게 부탁했습니다. “고객사 전략과 지금 쓰는 프로그램을 맞대어 보고 무엇을 고쳐야 하는지 먼저 정리해 주세요. 그다음 후보 네 가지 가운데 어떤 안을 자문할지 정해 주세요.”",
+      "goal": "고객사의 사업 비전과 경영전략에 비추어 소프트웨어 운영 개선사항을 정리하고, 고객사에 자문할 개선안 하나를 골라 이유와 주의할 점을 함께 제시합니다.",
+      "constraints": [
+        "세 자료에 나온 사실과 숫자만 근거로 쓰세요.",
+        "금액 단위는 백만 원입니다. 100백만 원은 1억 원과 같습니다.",
+        "과제 2에서는 개선안 후보표의 A~D안 가운데 하나만 고르세요.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "경영전략",
+          "definition": "회사가 목표를 이루기 위해 어떤 방향과 원칙으로 일할지 정한 큰 방침입니다."
+        },
+        {
+          "term": "사업 비전",
+          "definition": "회사가 앞으로 몇 년 안에 이루고 싶은 모습이나 목표입니다."
+        },
+        {
+          "term": "기술적, 운영적, 관리적 방안",
+          "definition": "문제를 푸는 방법을 성격에 따라 나눈 말입니다. 기술적 방안은 프로그램이나 장비를 새로 만들거나 바꾸는 방법, 운영적 방안은 일하는 방식이나 외부 계약을 바꾸는 방법, 관리적 방안은 규칙과 절차를 정해 관리하는 방법입니다."
+        },
+        {
+          "term": "정보기술 컨설팅",
+          "definition": "회사의 정보시스템을 살펴보고 사업 목표에 맞게 무엇을 고치거나 새로 갖출지 조언하는 일입니다."
+        },
+        {
+          "term": "소프트웨어 현황",
+          "definition": "회사가 지금 쓰고 있는 프로그램들이 각각 어떤 일을 맡고 어떤 상태로 운용되는지 정리한 것입니다."
+        },
+        {
+          "term": "소프트웨어 개선안",
+          "definition": "프로그램이나 그 운영 방식을 더 낫게 바꾸기 위한 구체적인 계획입니다."
+        },
+        {
+          "term": "유지보수",
+          "definition": "프로그램이 계속 제대로 돌아가도록 오류를 고치고 손보는 일입니다. 보통 개발 업체나 공급사와 계약을 맺어 맡깁니다."
+        },
+        {
+          "term": "장애",
+          "definition": "프로그램이 멈추거나 느려지는 등 정상적으로 쓸 수 없게 된 상황입니다."
+        },
+        {
+          "term": "당일 출고",
+          "definition": "주문을 받은 날 바로 창고에서 물건을 내보내는 것입니다."
+        },
+        {
+          "term": "상용 제품",
+          "definition": "여러 회사에 판매하려고 만든 완성된 프로그램입니다."
+        },
+        {
+          "term": "구독형",
+          "definition": "프로그램을 사서 소유하지 않고 기간마다 이용료를 내고 쓰는 방식입니다."
+        },
+        {
+          "term": "그룹웨어",
+          "definition": "전자결재, 사내 메일처럼 직원들이 함께 쓰는 업무용 프로그램입니다."
+        },
+        {
+          "term": "자료 이관",
+          "definition": "기존 프로그램에 쌓인 자료를 새 프로그램으로 옮기는 일입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "client_strategy_memo",
+        "title": "고객사 사업 비전과 경영전략 요약 (푸른들식품유통 기획팀장 작성)",
+        "description": "푸른들식품유통 기획팀장이 컨설팅 팀에 전달한 메모로, 회사의 사업 비전과 경영전략, 올해 정보시스템 개선 조건을 정리했습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 소프트웨어 현황표와 맞대어 볼 기준으로 쓰고, 과제 2에서 개선안이 지켜야 할 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "목표, 전략 수립",
+          "재정 관리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "푸른들식품유통 기획팀장",
+          "items": [
+            "사업 비전: 2년 안에 온라인 주문 건수를 지금의 2배로 늘립니다.",
+            "경영전략: 거래처(소매점) 주문은 당일 출고를 원칙으로 합니다.",
+            "조건: 올해 정보시스템 개선 예산은 1억 원(100백만 원) 이내이며, 전산 담당 직원 2명으로 운영하고 신규 채용 계획은 없습니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "software_inventory",
+        "title": "푸른들식품유통 소프트웨어 현황 (운용 중인 프로그램)",
+        "description": "고객사가 지금 운용하는 프로그램 네 가지의 담당 업무, 운용 현황, 최근 3개월 장애 건수(단위: 건)를 정리한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 메모의 사업 비전·경영전략 항목과 맞대어 소프트웨어 운영 개선사항을 찾는 데 씁니다.",
+        "evidence_source": [
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "소프트웨어"
+            },
+            {
+              "key": "strength",
+              "label": "담당 업무"
+            },
+            {
+              "key": "weakness",
+              "label": "운용 현황"
+            },
+            {
+              "key": "priority",
+              "label": "최근 3개월 장애 건수(건)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "주문관리 프로그램",
+              "strength": "거래처·온라인 주문 접수",
+              "weakness": "2015년 외부 업체가 개발. 개발 업체 폐업으로 유지보수 계약 없음. 오전 9~11시에 주문이 몰리면 화면 응답이 늦어짐",
+              "priority": 9
+            },
+            {
+              "option": "재고관리 프로그램",
+              "strength": "창고 재고 기록",
+              "weakness": "주문관리 프로그램과 연결되어 있지 않음. 직원이 하루 2회(오전 9시, 오후 4시) 출고 내역을 손으로 입력",
+              "priority": 2
+            },
+            {
+              "option": "회계 패키지",
+              "strength": "매출·매입 처리",
+              "weakness": "상용 제품. 공급사와 유지보수 계약 유지 중",
+              "priority": 0
+            },
+            {
+              "option": "그룹웨어",
+              "strength": "전자결재·사내 메일",
+              "weakness": "구독형 서비스. 메일 접속 지연은 공급사가 처리",
+              "priority": 4
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "improvement_options",
+        "title": "푸른들식품유통 소프트웨어 개선안 후보",
+        "description": "고객사에 제시할 수 있는 소프트웨어 개선안 네 가지를 기술적·운영적·관리적 방안으로 구분하고, 주요 내용과 올해 예상 비용(단위: 백만 원)을 정리한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 과제 1의 결과와 메모의 조건을 적용해 고객사에 자문할 개선안 하나를 고르는 데 씁니다.",
+        "evidence_source": [
+          "재정 관리",
+          "목표, 전략 수립"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "개선안"
+            },
+            {
+              "key": "strength",
+              "label": "방안 구분"
+            },
+            {
+              "key": "weakness",
+              "label": "주요 내용"
+            },
+            {
+              "key": "priority",
+              "label": "올해 예상 비용(백만 원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안",
+              "strength": "기술적",
+              "weakness": "주문·재고 통합 프로그램을 새로 개발. 구축 기간 8개월. 운영하려면 개발자 1명을 추가로 채용해야 함",
+              "priority": 150
+            },
+            {
+              "option": "B안",
+              "strength": "기술적",
+              "weakness": "주문과 재고가 연결된 구독형 패키지로 교체. 구축 기간 4개월. 유지보수는 공급사가 맡음. 기존 주문 자료 이관과 직원 교육이 필요함",
+              "priority": 90
+            },
+            {
+              "option": "C안",
+              "strength": "운영적",
+              "weakness": "새 업체와 주문관리 프로그램 유지보수 계약을 맺음. 거래처 주문 접수 시간을 오전·오후로 나눔. 재고는 지금처럼 손으로 입력",
+              "priority": 30
+            },
+            {
+              "option": "D안",
+              "strength": "관리적",
+              "weakness": "장애 보고 절차와 재고 입력 점검 규칙을 정함. 프로그램은 바꾸지 않음",
+              "priority": 10
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_1",
+        "instruction": "기획팀장 메모의 사업 비전·경영전략 항목과 소프트웨어 현황표를 맞대어 보고, 고객사가 이 전략을 이루는 데 걸림돌이 되는 소프트웨어 운영 개선사항을 정리해 보세요. 개선사항마다 현황표의 어떤 사실에서 찾았는지와 메모의 어느 항목과 관련되는지를 함께 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 전략 항목과 현황표를 대조해 소프트웨어 운영 개선사항을 도출하고, 각 개선사항을 관련 전략 항목과 연결한다."
+      },
+      {
+        "task_id": "task_2",
+        "instruction": "과제 1에서 정리한 개선사항과 메모의 조건을 바탕으로, 소프트웨어 개선안 후보표의 A~D안 가운데 고객사에 자문할 개선안 하나를 정해 보세요. 고른 안, 그 안이 다른 안들보다 나은 이유, 실행할 때 주의할 점 한 가지를 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "과제 1의 결과와 메모의 예산·인력 조건을 후보표에 적용해 개선안 하나를 추천하고, 다른 안과 견준 이유와 실행상 주의점 한 가지를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 소프트웨어 운영 개선사항과 관련 전략 항목",
+        "과제 2: 추천 개선안, 다른 안보다 나은 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1: 현황표에서 전략의 걸림돌이 되는 것은 주문관리 프로그램(개발 업체 폐업으로 유지보수 계약 없음, 오전 9~11시 주문이 몰리면 응답 지연, 최근 3개월 장애 9건)과 재고관리 프로그램(주문관리 프로그램과 연결되지 않아 하루 2회 출고 내역을 손으로 입력)이다.",
+      "주문관리 프로그램의 응답 지연과 유지보수 부재는 사업 비전(2년 안에 온라인 주문 2배)과 경영전략(거래처 주문 당일 출고)에, 재고 손 입력은 경영전략(당일 출고)에 관련된다.",
+      "그룹웨어는 장애가 4건으로 두 번째로 많지만 사업 비전이나 경영전략 어느 항목과도 직접 관련이 없고, 회계 패키지는 장애가 없고 유지보수 계약도 유지 중이다.",
+      "과제 2: 정해진 정답은 없으며, 고른 안이 과제 1의 개선사항과 메모의 조건(올해 예산 100백만 원 이내, 신규 채용 없음)을 다른 안보다 잘 충족한다는 점을 자료로 보여야 한다.",
+      "A안은 주문과 재고 연결을 함께 다루지만 150백만 원으로 예산을 넘고 개발자 1명 추가 채용이 필요해 메모의 조건에 어긋난다. C안은 30백만 원으로 싸고 인력 변화가 없지만 재고 손 입력이 남고 기존 주문관리 프로그램을 그대로 써서 주문 2배에 대비하기 어렵다. D안은 10백만 원으로 가장 싸지만 프로그램을 바꾸지 않아 응답 지연과 재고 손 입력이 그대로 남는다.",
+      "예시: B안을 추천한다. 90백만 원으로 예산 안이고 공급사가 유지보수를 맡아 직원을 더 뽑지 않아도 되며, 주문과 재고가 연결된 패키지로 바꾸므로 주문관리 지연과 재고 손 입력을 함께 다룬다. 주의할 점은 기존 주문 자료 이관 중 누락·오류가 생길 위험, 또는 구축 4개월 동안 직원 교육으로 늘어나는 업무 부담이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "현황표 사실에서 개선사항 도출",
+        "description": "과제 1 답의 개선사항이 소프트웨어 현황표에 적힌 사실에서 나왔는지 본다. 주문관리 프로그램의 문제(유지보수 계약 없음, 오전 9~11시 주문이 몰리면 응답이 늦어짐, 최근 3개월 장애 9건)와 재고관리 프로그램의 문제(주문관리 프로그램과 연결되지 않아 하루 2회 출고 내역을 손으로 입력)를 둘 다 현황표의 사실과 함께 들면 만점, 하나만 들면 부분 점수를 준다. 현황표에 없는 내용을 지어낸 개선사항은 점수로 인정하지 않는다.",
+        "points": 25,
+        "linked_evidence": [
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "criterion": "개선사항과 전략 항목 연결",
+        "description": "과제 1 답에서 각 개선사항에 붙인 관련 항목이 메모 내용과 맞는지 본다. 기대 연결은 주문관리 프로그램의 응답 지연과 유지보수 부재가 사업 비전(온라인 주문 2배)과 경영전략(거래처 주문 당일 출고)에, 재고 손 입력이 경영전략(당일 출고)에 관련되는 것이다. 개선사항마다 메모 항목과 맞게 연결하면 만점, 연결을 빠뜨리거나 관련 없는 항목에 연결하면 부분 점수를 준다.",
+        "points": 20,
+        "linked_evidence": [
+          "목표, 전략 수립"
+        ]
+      },
+      {
+        "criterion": "추천 개선안과 다른 안보다 나은 이유",
+        "description": "과제 2 답에서 고른 안과 그 이유를 본다. 특정 안을 정답으로 요구하지 않는다. 고른 안이 과제 1의 개선사항과 메모의 조건(올해 예산 100백만 원 이내, 신규 채용 없음, 온라인 주문 2배, 당일 출고)에 비추어 후보표의 다른 안들보다 왜 나은지를 자료의 사실로 보이면 만점을 준다. 자료의 참인 사실을 늘어놓기만 하고 다른 안과 견주어 그 선택이 더 나은 이유를 보이지 못하면 부분 점수를 준다. 예: B안을 고르고, 90백만 원으로 예산 안이며 공급사가 유지보수해 채용이 필요 없고 주문과 재고가 연결돼 두 개선사항을 함께 다룬다는 점을 A안(예산 초과, 채용 필요)과 C안·D안(재고 손 입력이 남음)에 견주어 설명한 답.",
+        "points": 35,
+        "linked_evidence": [
+          "재정 관리",
+          "목표, 전략 수립"
+        ]
+      },
+      {
+        "criterion": "실행할 때 주의할 점",
+        "description": "과제 2 답의 주의할 점 한 가지가 고른 안을 실행할 때 자료에 나타난 실제 위험이나 한계인지 본다. 고른 안에 대한 표나 메모의 내용에 근거한 위험이나 한계면 만점, 자료와 관계없는 일반적인 말이면 부분 점수를 준다. 예: B안이라면 기존 주문 자료 이관 중 누락·오류 위험이나 구축 4개월 동안 직원 교육으로 늘어나는 업무 부담, C안이라면 재고 손 입력이 그대로 남는 점.",
+        "points": 20,
+        "linked_evidence": [
+          "정보, 자료 분석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "고객의 사업 비전과 부합되는 최적의 정보시스템을 구축함에 있어서 기술적, 운영적, 관리적 방안을 자문하고 제시한다.",
+      "source_ref": {
+        "file": "K000001085/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 95,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 95,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "절차, 자료, 주변환경 관찰",
+          "score": 93,
+          "description": "문제점을 확인하고 평가하기 위하여 자료, 사건, 주변 환경에서 정보를 관찰하고 검토하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 93,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 92,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "물적자원 관리",
+          "score": 98,
+          "description": "업무를 수행하는데 필요한 장비, 시설, 자재 등을 구매하고 관리한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "조직체계의 분석 및 평가",
+          "score": 98,
+          "description": "환경이나 조건의 변화가 조직의 체계, 구성, 방식에 어떤 영향을 미칠지 분석하고, 시스템의 효율성을 평가한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "인적자원 관리",
+          "score": 98,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 94,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 88,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 85,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "연설, 발표, 회의하기",
+          "score": 90,
+          "description": "사람들 앞에서 공식적으로 연설(발표,회의 등의 상황)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 88,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 87,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "목표, 전략 수립",
+          "재정 관리"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "재정 관리",
+          "목표, 전략 수립"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.45,
+    "AX2": 0.0,
+    "AX3": 0.375,
+    "AX4": 0.175,
+    "AX5": 0.0
+  }
+}
