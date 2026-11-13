@@ -80,6 +80,17 @@ const GenerationRunRequestSchema = z.object({
   difficulty: z.enum(ADMIN_DIFFICULTIES)
 });
 
+// 관리자 화면의 생성 경로는 OpenAI 키와 모델을 전제로 짜여 있다. 미션 생성기의 기본 제공자가 Claude여도
+// 이 경로에서 부르는 Python은 지금처럼 GPT로 돌게 고정한다.
+export function pythonSpawnEnv(base: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv {
+  return {
+    ...base,
+    PYTHONUNBUFFERED: "1",
+    PYTHONIOENCODING: "utf-8",
+    MISSION_LLM_PROVIDER: "openai"
+  };
+}
+
 export function adminGenerationRouter(config: ServerConfig, missionStore: MissionStore) {
   const router = express.Router();
   const __dirname = config.paths.root;
@@ -390,11 +401,7 @@ function runCommandCapture(command: string, args: string[]) {
     };
     const child = spawn(command, args, {
       cwd: __dirname,
-      env: {
-        ...process.env,
-        PYTHONUNBUFFERED: "1",
-        PYTHONIOENCODING: "utf-8"
-      }
+      env: pythonSpawnEnv()
     });
     let output = "";
     child.stdout.on("data", (data) => {
@@ -509,11 +516,7 @@ router.post("/api/admin/mission-generation/runs", requireApiToken, async (req, r
   try {
     const child = spawn(pythonBin, args, {
       cwd: __dirname,
-      env: {
-        ...process.env,
-        PYTHONUNBUFFERED: "1",
-        PYTHONIOENCODING: "utf-8"
-      }
+      env: pythonSpawnEnv()
     });
     run.process = child;
     child.stdout.on("data", (data) => addRunLog(run, "stdout", String(data)));

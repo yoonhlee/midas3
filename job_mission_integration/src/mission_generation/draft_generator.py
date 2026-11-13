@@ -4,10 +4,117 @@ from __future__ import annotations
 
 import copy
 import json
+import re
 from typing import Any
 
+from .blueprint_checker import korean_length_hint, parse_length_range
+from .blueprint_designer import TWO_STAGE_HARD_ANSWER_LENGTH
 from .config import RuntimeConfig
-from .llm_runtime import OpenAIResponsesRuntime
+from .llm_runtime import create_runtime
+
+# 두 단계 생성(설계서 → 미션 작성)에서 미션 작성 프롬프트의 버전. 근거 기록에 남긴다.
+# v2: 맞지 않는 용어는 빼고, 자료 안에 답을 알려 주는 메모를 쓰지 않는다.
+# v3: 과제 지시문과 자료 쓰임이 틀린 칸이나 답이 되는 행을 직접 짚지 않는다.
+# v4: 보통 난이도에 판단 한 단계를 요구한다(BLUEPRINT_NORMAL_REQUIREMENTS).
+# v5: 자료 형태 여덟 가지를 모두 쓴다. 체크리스트 표시와 카드의 세 값이 답을 알려 주지 않게 하고,
+#   화면에 보이지 않는 값(차트 단위, 메모 작성자)을 제목·설명에 적게 한다. 쉬움 난이도 규칙을 더했다.
+# v6: 두 단계 생성에서 카드를 뺐으므로 카드의 세 값 규칙을 지운다.
+# v7: 어려움 난이도의 답 분량을 과제마다 3~5문장으로 늘린다(blueprint-v9와 함께).
+# v8: 채점 기준은 지시문이 쓰라고 한 것만 본다. 분량은 지시문·유의 사항·제출 형식에서 같은 말("N~M문장")로 쓴다.
+#   용어 풀이는 뜻만 적고, 상황·목표 문장에 정답의 이름을 미리 쓰지 않는다. 보통은 3~4문장에 뺀 후보 하나의 이유까지 쓴다
+#   (blueprint-v10과 함께). 검수에서 되풀이된 지적을 막는다.
+# v9: 보통의 "맞아 보이지만 답이 아닌 것 하나를 설명하라" 요구와 3~4문장을 되돌린다(blueprint-v11과 함께).
+#   보통도 그럴듯한 오답은 자료에 두되 채점하지 않고, 답 분량은 2~3문장이다. v8의 나머지 규칙은 그대로다.
+# v10: 어려움 과제 2의 채점은 추천이 과제 1의 결과에서 나오는지, 이유와 주의점이 자료에 묶여 있는지를 본다.
+#   자료가 하나만 허용할 때만 기대 추천을 정하고, 아니면 근거가 맞는 추천은 모두 만점이다(예시는 '예시:'·'예:'로만).
+#   어려움의 분량이 과제마다라는 것을 지시문("3~5문장")과 유의 사항·제출 형식("과제마다 3~5문장")에 밝힌다(blueprint-v12와 함께).
+# v11: 과제 2 문장을 모양을 가리키지 않는 원칙으로 바꾼다(blueprint-v13과 함께). 자료가 답을 하나로 정하지 않는 곳에서는
+#   특정 답을 요구하지 않고, 이유가 학습자 자신의 선택을 자료의 다른 선택지와 견줘 받치는지를 채점한다. 사실만 맞고 선택을 받치지
+#   못하는 이유는 부분 점수다. 지시문이 무엇을 정하라는지 분명히 하라는 뜻만 남기고 모양 예시는 뺐다. 분량 줄은 v10 그대로다.
+WRITER_PROMPT_VERSION = "blueprint-writer-v11"
+
+# 설계서가 있을 때 공통 규칙 뒤에 붙이는 작성 규칙. 설계서가 가리킨 원문(cited_sources)만 근거로 쓰게 한다.
+BLUEPRINT_REQUIREMENTS = (
+    "\nBlueprint requirements:\n"
+    "- mission_blueprint holds the design decisions for this mission. Follow them exactly and do not add new source material.\n"
+    "- cited_sources holds the only source text you may use. It is real job data (KNOW) and a national competency standard for this job.\n"
+    "- The i-th mission material follows mission_blueprint.materials with slot i (type, role, content_plan). The i-th task follows mission_blueprint.tasks with slot i.\n"
+    "- Use each borrowed_terms term of a material exactly as written, inside that material, as the name of something the material really shows. If a term does not fit what the material shows, leave that term out instead of forcing it into a title, label, or description.\n"
+    "- Materials are workplace documents and data, not hints. No material title, description, cell, note, or remark may say which entry is wrong, missing, or different, why a mistake was made, which option is the answer, or what conclusion to draw. Give facts, figures, conditions, definitions, and calculation rules; the learner does the comparing, choosing, and concluding.\n"
+    "- When a table needs a remarks column, fill it with neutral facts such as unit, date, source, or status. material.description says what the material is, not what to notice in it.\n"
+    "- The same holds for the marks and labels the screen shows. A checklist item's status is the tick the form already carries: use checked or unchecked only, never issue, and never set a status to point at the item the learner has to find. importance is \"high\" for an item the document itself stresses and \"normal\" otherwise.\n"
+    "- Write for what the screen shows. A chart shows its values, x labels, and series names but not its axis labels or unit, so put the unit in the chart's title or description. A memo shows its items but not its author, so name the source document or writer in the memo's title or description. An email shows sender, recipient, subject, and body; write the body in the sender's own words. A log lists its entries in time order.\n"
+    "- Task instructions and material.used_for say what to do with the materials. They do not name the entry that is wrong or the row, field, or value that is the answer.\n"
+    "- mission.title, mission.scenario.context, and mission.scenario.goal set up the situation and the request. They do not name the answer before the learner works it out: "
+    "no option, method, entry, or value that turns out to be the right one, even when the target sentence in cited_sources uses that word. Describe the work in general words there and let the materials show the options.\n"
+    "- Add every mission_blueprint.glossary_terms term to mission.scenario.glossary with a short plain-Korean definition. "
+    "A definition says only what the term means. It does not contain this mission's decision rule, threshold, formula, worked example, or answer; "
+    "put a rule or formula the learner needs in a material or in the scenario as a workplace fact. "
+    "When you narrow the meaning to how this mission uses the term, begin that part with '이 미션에서는'.\n"
+    "- Build evaluation.expected_insights and evaluation.rubric from mission_blueprint.evaluation_basis. Fill basis_map.rubric with one entry per rubric item: rubric_index is the item's position from 0, evaluation_basis_index is the position from 0 of the evaluation_basis item it comes from.\n"
+    "- Each evaluation.rubric item grades only a part of the answer that a task instruction explicitly asks the learner to write. "
+    "Do not grade a structure or grouping the instruction does not ask for (for example, explaining software conditions and hardware conditions separately when the task asks only for the choice and its reason), "
+    "an extra observation, or why other options were ruled out unless the instruction asks for it. "
+    "If an evaluation_basis item would grade something the instructions do not ask for, leave it out of the rubric instead of adding a new demand to the task. "
+    "expected_insights may still note why other options are wrong, as background for graders.\n"
+    "- State the answer length the same way everywhere. mission.submission_format.length_hint is the range of system_decisions.difficulty.answer_length_hint written in Korean as 'N~M문장' "
+    "(for example '1-2 short sentences' becomes '1~2문장', '3-5 short sentences per task' becomes '과제마다 3~5문장'), never in English. "
+    "When a task instruction or mission.scenario.constraints mention the length, use the same words as length_hint for the whole answer; do not give a different count such as '한 문장으로', and do not give separate counts for parts of the answer.\n"
+    "- mission.submission_format.estimated_time_minutes is system_decisions.difficulty.estimated_time_minutes.\n"
+    "- Use only the evidence names listed in schema_constraints.material_rules.allowed_evidence_names for evidence_source and linked_evidence.\n"
+    "- schema_constraints and system_decisions always have higher priority. Keep the current difficulty policy exactly, including material count and task count.\n"
+    "- Every task must be answerable from the provided materials.\n"
+    "- Do not expose piece ids, or the words NCS, 능력단위, 수행준거, in learner-facing mission text.\n"
+)
+
+# 쉬움 난이도는 자료가 하나다. 적용할 조건 하나는 상황 글에 두고, 한 번 적용해 나오는 발견이나 선택만 묻는다.
+BLUEPRINT_EASY_REQUIREMENTS = (
+    "\nBlueprint easy-level requirements (these refine the general easy-difficulty rule above; the counts stay the same):\n"
+    "- Keep exactly 1 material, exactly 1 task, and a 1-2 sentence answer.\n"
+    "- The material carries every fact needed. State the one condition, rule, or request the learner applies in mission.scenario (context, goal, or constraints), as a workplace fact or in the requester's words, not as a hint.\n"
+    "- The answer is one finding or one choice that follows from applying that condition to the material once. No chain of steps, and no arithmetic beyond one comparison.\n"
+    "- The task asks for that finding or choice and its reason, and the rubric grades only those. Entries that look like the answer may stay in the material, but no rubric item grades why they were ruled out.\n"
+)
+
+# 보통 난이도에서 공통 규칙의 "단순한 비교 하나"를 구체화한다. 개수(자료 2개, 과제 1개)는 그대로 두고,
+# 값 옮겨 적기나 틀린 칸 하나 찾기로 끝나지 않게 판단 한 단계를 요구한다. 두 단계 생성에서만 쓴다.
+BLUEPRINT_NORMAL_REQUIREMENTS = (
+    "\nBlueprint normal-level requirements (these refine the general normal-difficulty rule above; the counts stay the same):\n"
+    "- Keep exactly 2 materials, exactly 1 task, and a 2-3 sentence answer.\n"
+    "- The task needs one real step of judgment: the learner takes a condition, rule, request, or small calculation from one material and applies it to what the other shows, and needs both materials to reach the answer.\n"
+    "- Keep the tempting wrong answer that mission_blueprint plans (a candidate, entry, or reading that fits some conditions but not all). Do not remove it, mark it, or make the right answer the only one that fits at first glance.\n"
+    "- The task instruction asks for the answer (the choice, the entries found, or the value worked out) and its reason, and the rubric grades only those. "
+    "No rubric item grades why the tempting wrong answer or another option is ruled out. When the instruction asks for a verdict on each entry, those verdicts are part of the answer and may be graded.\n"
+    "- Do not reduce the task to copying values into blanks, reading off one value, or spotting a single mismatched entry.\n"
+    "- Give the facts and domain rules a newcomer cannot know, such as how an amount is defined or which rate applies when. Do not walk the learner through the steps in the task instruction, constraints, or material descriptions.\n"
+    "- The expected answer must be the only one that satisfies every condition in the materials. Check each candidate, entry, or reading against every condition before you finish.\n"
+)
+
+# 어려움의 분량은 과제마다다(blueprint_designer.TWO_STAGE_HARD_ANSWER_LENGTH). 규칙 글의 숫자를 그 값에서 만든다.
+_HARD_LOW, _HARD_HIGH = parse_length_range(TWO_STAGE_HARD_ANSWER_LENGTH)
+_HARD_LENGTH_HINT = korean_length_hint(TWO_STAGE_HARD_ANSWER_LENGTH)  # "과제마다 3~5문장"
+
+# 어려움 난이도에서만 초보자 규칙을 푼다(NCS 모드의 완화와 같은 취지). 근거는 cited_sources에서만 가져온다.
+# v10: 분량이 과제마다라는 것을 세 곳(지시문, 유의 사항, 제출 형식)에 같은 말로 쓰게 하고, 과제 2의 채점을 열어 둔다.
+# v11: 과제 2의 채점 문장을 모양을 가리키지 않는 원칙(이유가 선택을 다른 선택지와 견줘 받치는가)으로 바꿨다.
+BLUEPRINT_HARD_OVERRIDES = (
+    "\nBlueprint hard-level overrides (these replace the general hard-difficulty, one-action, and everyday-words rules above):\n"
+    "- Use exactly 3 materials and exactly 2 tasks, as system_decisions.difficulty says.\n"
+    f"- The answer length is per task: each task's answer is {_HARD_LOW}-{_HARD_HIGH} short sentences, and mission.submission_format.length_hint is '{_HARD_LENGTH_HINT}'. "
+    f"A task instruction that mentions the length says '{_HARD_LOW}~{_HARD_HIGH}문장' for that task, and constraints that mention it say '{_HARD_LENGTH_HINT}'; "
+    "never give one count for both tasks together. The mission must still be solvable by a newcomer who reads the materials and glossary carefully.\n"
+    "- Use the job's real working terms from cited_sources where they fit, and define each one in mission.scenario.glossary.\n"
+    "- Give every criterion, weight, target, and number needed inside the materials, and keep any arithmetic to small sums or simple comparisons.\n"
+    "- For table materials, keep the required option, strength, weakness, priority keys and put criteria or scores inside the cell text when needed.\n"
+    "- The task 2 instruction says plainly what the learner is to decide, as mission_blueprint.tasks says, so learners and graders read it the same way.\n"
+    "- Where the materials do not settle one right answer, the rubric does not require a particular answer. "
+    "It grades whether the learner's reason, drawn from the task 1 result and the materials, actually supports the learner's own choice when set against the other options the materials show. "
+    "A reason that states true facts from the materials but does not show why that choice holds up better than the others earns only part of the points, not full points. "
+    "Name a single expected answer in the rubric only when the materials allow no other. "
+    "A caution earns its points when it is a real risk or limit of the chosen course that the materials show. "
+    "evaluation.expected_insights may describe one answer and caution as an example, beginning with '예시:', and a rubric description may mention it only after '예:'; "
+    "no rubric item treats the example as the only accepted answer.\n"
+)
 
 
 class LLMInputPackageBuilder:
@@ -21,8 +128,14 @@ class LLMInputPackageBuilder:
         job_practice_profile_excerpt: dict[str, Any] | None = None,
         mission_seed: dict[str, Any] | None = None,
         job_practice_sheet_background: dict[str, Any] | None = None,
+        job_ncs_background: dict[str, Any] | None = None,
+        mission_blueprint: dict[str, Any] | None = None,
+        cited_sources: list[dict[str, Any]] | None = None,
     ) -> dict[str, Any]:
-        """미션 생성 LLM이 받는 최종 입력 JSON 패키지를 구성한다."""
+        """미션 생성 LLM이 받는 최종 입력 JSON 패키지를 구성한다.
+
+        mission_blueprint와 cited_sources는 두 단계 생성에서만 준다(설계서와 설계서가 가리킨 원문 조각).
+        """
 
         package = {
             "schema_version": "llm_input_package.v1",
@@ -36,6 +149,12 @@ class LLMInputPackageBuilder:
             package["mission_seed"] = mission_seed
         if job_practice_sheet_background is not None:
             package["job_practice_sheet_background"] = job_practice_sheet_background
+        if job_ncs_background is not None:
+            package["job_ncs_background"] = job_ncs_background
+        if mission_blueprint is not None:
+            package["mission_blueprint"] = mission_blueprint
+        if cited_sources is not None:
+            package["cited_sources"] = cited_sources
         return package
 
 
@@ -44,11 +163,12 @@ class MissionDraftGenerator:
 
     def __init__(
         self,
-        runtime: OpenAIResponsesRuntime | None = None,
+        runtime: Any = None,
         allow_mock_without_key: bool = False,
         force_mock: bool = False,
     ) -> None:
-        self.runtime = runtime or OpenAIResponsesRuntime()
+        # 제공자(Claude 기본, GPT 선택)에 맞는 호출부를 쓴다.
+        self.runtime = runtime or create_runtime()
         self.allow_mock_without_key = allow_mock_without_key
         self.force_mock = force_mock
 
@@ -112,7 +232,17 @@ class PromptBuilder:
         """mission_seed/background 사용 여부에 맞춰 draft 생성 prompt를 만든다."""
 
         practice_requirements = ""
-        if llm_input_package.get("mission_seed"):
+        if llm_input_package.get("mission_blueprint"):
+            # 두 단계 생성: 설계서의 결정과 설계서가 가리킨 원문만으로 미션을 쓴다.
+            practice_requirements = BLUEPRINT_REQUIREMENTS
+            level = llm_input_package["system_decisions"]["difficulty"]["level"]
+            if level == "hard":
+                practice_requirements += BLUEPRINT_HARD_OVERRIDES
+            elif level == "normal":
+                practice_requirements += BLUEPRINT_NORMAL_REQUIREMENTS
+            elif level == "easy":
+                practice_requirements += BLUEPRINT_EASY_REQUIREMENTS
+        elif llm_input_package.get("mission_seed"):
             practice_requirements = (
                 "\nPractice survey requirements:\n"
                 "- Use mission_seed as the main design brief for scenario, materials, tasks, submission format, and evaluation.\n"
@@ -126,6 +256,42 @@ class PromptBuilder:
                 "- Do not expose source_refs to the learner-facing mission text.\n"
                 "- If a table uses a priority column, use it only as a comparison clue, not as a final answer or recommendation.\n"
             )
+        elif llm_input_package.get("job_ncs_background"):
+            # 배경으로만 쓰는 조사시트와 달리, NCS 능력단위는 과제·자료·채점의 설계 근거로 쓴다.
+            practice_requirements = (
+                "\nNCS background requirements:\n"
+                "- job_ncs_background is a real national competency standard (NCS) unit for this job, and system_decisions.mission_design comes from it.\n"
+                "- Build the mission around exactly one performance criterion from job_ncs_background.elements[].performance_criteria that a beginner can try in one short task at this difficulty.\n"
+                "- Turn that criterion into one concrete workplace request inside the scenario. Do not copy the criterion sentence into learner-facing text.\n"
+                "- Make the materials look like the workplace documents listed in job_ncs_background.documents, expressed with system_decisions.allowed_material_types.\n"
+                "- Use job_ncs_background.considerations to choose realistic details such as indicators, criteria, and items to compare, and put every number or fact the learner needs inside the materials.\n"
+                "- Use the job's real terms where they are natural, and add each one with a short plain-Korean definition to mission.scenario.glossary.\n"
+                "- Base evaluation.expected_insights and evaluation.rubric on the chosen performance criterion and job_ncs_background.eval_considerations, simplified to what the materials support.\n"
+                "- schema_constraints and system_decisions always have higher priority than job_ncs_background. Keep the current difficulty policy exactly, including material count and task count.\n"
+                "- Every task must be answerable from the provided materials; do not require outside NCS knowledge.\n"
+                "- Do not expose the words NCS, 능력단위, 수행준거, or any code from job_ncs_background in learner-facing mission text.\n"
+            )
+            if llm_input_package["system_decisions"]["difficulty"]["level"] == "hard":
+                # hard만 초보자 규칙을 풀어 직무 용어와 2단계 과제를 허용한다(실험). easy·normal은 그대로 둔다.
+                practice_requirements += (
+                    "\nNCS hard-level overrides (these replace the general hard-difficulty, one-action, and everyday-words rules above):\n"
+                    "- Use exactly 3 materials and exactly 2 tasks, as system_decisions.difficulty says.\n"
+                    "- Task 1 applies the working method of the chosen performance criterion to the materials, for example scoring candidates against given criteria and weights, or comparing indicators with targets. Give every criterion, weight, target, and number needed inside the materials, and keep any arithmetic to small sums or simple comparisons.\n"
+                    "- Task 2 uses the result of task 1 to make one recommendation or decision for the requester, with one caution or trade-off visible in the materials.\n"
+                    "- Use the job's real working terms and indicators from job_ncs_background.considerations and job_ncs_background.eval_considerations (for example sales, market share, screening criteria, weights, feasibility) where they fit, and define each one in mission.scenario.glossary.\n"
+                    "- Make the materials read like the real documents in job_ncs_background.documents, with document-like titles and realistic figures, not like casual notes.\n"
+                    "- For table materials, keep the required option, strength, weakness, priority keys and put criteria or scores inside the cell text when needed.\n"
+                    "- Each task may ask for 2-4 short sentences. The mission must still be solvable by a newcomer who reads the materials and glossary carefully.\n"
+                )
+            if llm_input_package.get("schema_constraints", {}).get("ncs_basis_required"):
+                # 사용 근거 기록(실험): 미션이 실제로 쓴 수행준거를 남긴다. 켜지 않으면 프롬프트는 그대로다.
+                practice_requirements += (
+                    "\nNCS traceability requirement:\n"
+                    "- Fill ncs_basis. unit_name is job_ncs_background.competency_unit.name.\n"
+                    "- ncs_basis.performance_criteria lists the one or two criteria you actually built the tasks, materials, and rubric around. Copy each text exactly as written in job_ncs_background.elements[].performance_criteria and put that element's name in element_name.\n"
+                    "- ncs_basis.how_used is one Korean sentence on how the chosen criterion shaped the task, materials, and rubric.\n"
+                    "- ncs_basis is for traceability only. Its contents must not appear in learner-facing mission text.\n"
+                )
         elif llm_input_package.get("job_practice_sheet_background"):
             practice_requirements = (
                 "\nPractice sheet background requirements:\n"
@@ -253,6 +419,11 @@ class MockMissionDraftBuilder:
             if item.get("learner_visible_material_type") in decisions["allowed_material_types"]
         ] if seed else []
         material_types = seed_material_types[:material_count] or decisions["allowed_material_types"][:material_count]
+        # 두 단계 생성의 mock: 설계서가 자료마다 정한 형태를 그대로 따른다(개수와 허용 형태가 맞을 때).
+        plan = sorted((llm_input_package.get("mission_blueprint") or {}).get("materials") or [], key=lambda item: item.get("slot") or 0)
+        planned_types = [item.get("type") for item in plan]
+        if len(planned_types) == material_count and all(kind in decisions["allowed_material_types"] for kind in planned_types):
+            material_types = planned_types
         if len(material_types) < material_count:
             for candidate in ("chart", "table", "memo", "email", "schedule", "checklist", "log", "card"):
                 if candidate in decisions["allowed_material_types"] and candidate not in material_types:
@@ -267,6 +438,48 @@ class MockMissionDraftBuilder:
         ]
         tasks = self._tasks(materials, context, difficulty, decisions["difficulty"].get("task_count_range"), seed)
 
+        draft = self._base_draft(profile, decisions, facts, context, materials, tasks, difficulty)
+        ncs = llm_input_package.get("job_ncs_background")
+        if ncs and llm_input_package.get("schema_constraints", {}).get("ncs_basis_required"):
+            # mock에서도 사용 근거 기록 흐름을 확인할 수 있게 첫 수행준거를 그대로 적는다.
+            first = next(((e["name"], c) for e in ncs.get("elements", []) for c in e.get("performance_criteria", [])), ("", ""))
+            draft["ncs_basis"] = {
+                "unit_name": ncs["competency_unit"]["name"],
+                "performance_criteria": [{"element_name": first[0], "text": first[1]}],
+                "how_used": "mock: 첫 수행준거를 과제의 근거로 적었다.",
+            }
+        constraints = llm_input_package.get("schema_constraints", {})
+        if constraints.get("basis_map_required"):
+            # 두 단계 생성의 mock: 프로필이 설계서가 고른 KNOW 항목만 남게 줄어 있으므로 허용된 이름을 그대로 쓰고,
+            # 채점 기준은 모두 설계서의 첫 채점 근거와 짝을 짓는다.
+            names = list(constraints.get("material_rules", {}).get("allowed_evidence_names", []))[:2]
+            for material in draft["mission"]["materials"]:
+                material["evidence_source"] = list(names)
+            for criterion in draft["evaluation"]["rubric"]:
+                criterion["linked_evidence"] = list(names)
+            for item in draft.get("evidence_chain_draft", {}).get("material_evidence_map", []):
+                item["supported_by"] = list(names)
+            draft["basis_map"] = {
+                "rubric": [
+                    {"rubric_index": index, "evaluation_basis_index": 0}
+                    for index in range(len(draft["evaluation"]["rubric"]))
+                ]
+            }
+            # 두 단계 작성 규칙(blueprint-writer-v8)처럼 분량은 한국어 "N~M문장" 하나로, 예상 시간은 난이도 값으로 맞춘다.
+            # 두 단계가 아닌 경로의 mock 초안은 그대로다(프롬프트 지문 기준).
+            level = decisions["difficulty"]
+            hint = korean_length_hint(level.get("answer_length_hint"))
+            submission = draft["mission"]["submission_format"]
+            if hint:
+                submission["length_hint"] = hint
+                range_text = hint.split()[-1]
+                for task in draft["mission"]["tasks"]:
+                    task["instruction"] = re.sub(r"\d+\s*~\s*\d+\s*문장", range_text, task["instruction"])
+            if level.get("estimated_time_minutes") is not None:
+                submission["estimated_time_minutes"] = level["estimated_time_minutes"]
+        return draft
+
+    def _base_draft(self, profile, decisions, facts, context, materials, tasks, difficulty) -> dict[str, Any]:
         return {
             "schema_version": "mission_output.v1",
             "mission_id": "draft",

@@ -10,11 +10,20 @@ from .config import EXCLUDED_MATERIAL_TYPES, MATERIAL_TYPES
 class SchemaConstraintsBuilder:
     """LLM 출력이 따라야 할 mission_output 규칙과 strict JSON schema를 만든다."""
 
-    def build(self, evidence_names: list[str] | None = None) -> dict[str, Any]:
-        """prompt/validator가 공유하는 제약 조건 패키지를 구성한다."""
+    def build(
+        self,
+        evidence_names: list[str] | None = None,
+        include_ncs_basis: bool = False,
+        include_basis_map: bool = False,
+    ) -> dict[str, Any]:
+        """prompt/validator가 공유하는 제약 조건 패키지를 구성한다.
+
+        include_ncs_basis를 켜면 미션이 실제로 쓴 NCS 수행준거를 ncs_basis로 남기게 한다(실험). 끄면 기존과 같다.
+        include_basis_map을 켜면(두 단계 생성) 채점 기준이 설계서의 어느 채점 근거에서 왔는지 basis_map으로 받는다.
+        """
 
         evidence_names = evidence_names or []
-        return {
+        constraints = {
             "schema_version": "schema_constraints.v1",
             "output_schema": "mission_output.v1",
             "material_detail_schema": "material_detail_schema.v1",
@@ -63,6 +72,47 @@ class SchemaConstraintsBuilder:
             },
             "structured_output_schema": self.structured_output_schema(evidence_names=evidence_names),
         }
+        if include_ncs_basis:
+            constraints["required_top_level_fields"].append("ncs_basis")
+            constraints["ncs_basis_required"] = True
+            schema = constraints["structured_output_schema"]
+            schema["required"].append("ncs_basis")
+            schema["properties"]["ncs_basis"] = self._ncs_basis_schema()
+        if include_basis_map:
+            constraints["required_top_level_fields"].append("basis_map")
+            constraints["basis_map_required"] = True
+            schema = constraints["structured_output_schema"]
+            schema["required"].append("basis_map")
+            schema["properties"]["basis_map"] = self._basis_map_schema()
+        return constraints
+
+    def _basis_map_schema(self) -> dict[str, Any]:
+        """채점 기준과 설계서 채점 근거의 짝. 자료와 과제는 순서로 짝을 지으므로 받지 않는다."""
+
+        return self._object(
+            {
+                "rubric": {
+                    "type": "array",
+                    "items": self._object(
+                        {"rubric_index": {"type": "integer"}, "evaluation_basis_index": {"type": "integer"}}
+                    ),
+                }
+            }
+        )
+
+    def _ncs_basis_schema(self) -> dict[str, Any]:
+        """미션이 쓴 NCS 능력단위와 수행준거 원문을 남기는 schema(사용 근거 기록, 실험)."""
+
+        return self._object(
+            {
+                "unit_name": {"type": "string"},
+                "performance_criteria": {
+                    "type": "array",
+                    "items": self._object({"element_name": {"type": "string"}, "text": {"type": "string"}}),
+                },
+                "how_used": {"type": "string"},
+            }
+        )
 
     def structured_output_schema(self, evidence_names: list[str] | None = None) -> dict[str, Any]:
         """OpenAI structured output에 전달할 strict mission_output schema를 반환한다."""
