@@ -294,8 +294,9 @@ pre.mat-log{background:var(--bg);border-radius:6px;padding:10px 12px;font-family
 .email-body{font-size:13px;line-height:1.7;white-space:pre-line;color:var(--t1)}
 /* SCHEDULE */
 .schedule-list{display:flex;flex-direction:column;gap:6px}
-.schedule-item{display:grid;grid-template-columns:56px 1fr;column-gap:10px;padding:8px 10px;background:var(--bg);border-radius:6px;align-items:baseline}
-.sched-period{font-size:11px;font-weight:700;color:var(--a)}
+/* 기간 칸은 긴 기간("11/2(월)~11/13(금)")도 내용과 겹치지 않게 줄 너비의 30%까지 쓰고, 더 길면 줄을 바꾼다(그때 조건 줄이 밀리지 않게 아래 줄까지 차지한다). */
+.schedule-item{display:grid;grid-template-columns:minmax(56px,30%) 1fr;column-gap:10px;padding:8px 10px;background:var(--bg);border-radius:6px;align-items:baseline}
+.sched-period{font-size:11px;font-weight:700;color:var(--a);overflow-wrap:anywhere;grid-row:1/span 3}
 .sched-task{font-size:13px;font-weight:500}
 .sched-constraint{grid-column:2;font-size:11px;color:var(--t3);margin-top:2px}
 /* CHECKLIST */
