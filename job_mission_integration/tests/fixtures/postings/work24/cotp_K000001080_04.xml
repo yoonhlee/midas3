@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 고정 데이터: 회사명·주소·공고번호는 모두 가짜야. -->
+<wantedRoot>
+  <total>1</total><startPage>1</startPage><display>100</display>
+  <wanted>
+    <wantedAuthNo>F1080000000005</wantedAuthNo>
+    <company>가상연구원</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>연구 데이터 분석 연구원</title>
+    <salTpNm>월급</salTpNm>
+    <sal>300만원 ~ 350만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>대전 유성구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-05</regDt>
+    <closeDt>26-11-20</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F1080000000005</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F1080000000005</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>302003000001</strtnmCd>
+    <basicAddr>대전광역시 유성구 모형로 3</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>135200</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+</wantedRoot>

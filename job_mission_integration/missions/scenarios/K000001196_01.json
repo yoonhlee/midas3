@@ -1,0 +1,433 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001196_easy_001",
+  "job_identity": {
+    "job_cd": "K000001196",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "경영지원 사무원",
+    "job_smcl_nm": "인사·교육·훈련사무원",
+    "source_ref": {
+      "file": "K000001196/dtlGb_2.xml",
+      "field": "jobsDo"
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_006",
+    "text": "인사제도, 인사고과의 활용, 복리후생, 안전보건, 인간관계, 사원의 사기 등을 파악하여 타사 및 관계문헌을 조사·비교·분석하여 개선안을 기획·품의한다.",
+    "source_ref": {
+      "file": "K000001196/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 6
+    },
+    "selection_reason": "조사 시트(인사∙교육∙훈련사무원 HR)의 의사결정 사례(온보딩·복리후생)와 맞닿은 수행직무라 사람이 직접 골라 작성함."
+  },
+  "mission_facts": {
+    "org_name": "다온웍스(가상)",
+    "domain": "신규 입사자 온보딩 운영",
+    "period": [
+      "지난 분기",
+      "입사 첫 주"
+    ],
+    "trend_pattern": "지난 분기 입사자 6명 중 4명이 첫 주에 누구에게 물어봐야 할지 몰랐다고 답함",
+    "main_issue": "신규 입사자가 첫 주에 도움을 청할 사람을 찾지 못해 적응이 늦어짐",
+    "decision_goal": "온보딩에서 가장 먼저 고칠 점 1가지를 고른다"
+  },
+  "mission": {
+    "title": "온보딩 설문 메모로 먼저 고칠 점 찾기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "planning_and_proposal"
+    ],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 다온웍스 인사팀 인턴입니다.",
+      "context": "인사팀장이 지난 분기 신규 입사자 설문을 정리한 메모를 넘겨주며 말했어요. “다음 달에 신규 입사자가 또 들어와. 온보딩에서 딱 하나만 먼저 바꾼다면 뭘 바꿀지 메모 보고 알려줘.”",
+      "goal": "메모를 보고 온보딩에서 가장 먼저 고칠 점 1가지와 그 이유를 1~2문장으로 적어 주세요.",
+      "constraints": [
+        "메모에 적힌 내용만 근거로 쓰세요.",
+        "고칠 점은 1가지만 고르세요.",
+        "1~2문장으로 짧게 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "온보딩",
+          "definition": "새로 들어온 직원이 회사와 업무에 빨리 적응하도록 돕는 초기 안내 과정"
+        },
+        {
+          "term": "버디",
+          "definition": "신규 입사자 옆에서 궁금한 것을 알려주는 선배 동료"
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_memo_onboarding_survey_001",
+        "type": "memo",
+        "subtype": "onboarding_survey_summary",
+        "title": "지난 분기 신규 입사자 설문 요약 메모(가상)",
+        "description": "인사팀장이 신규 입사자 6명의 첫 주 설문 결과에서 눈에 띄는 점만 두 줄로 정리한 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "온보딩에서 먼저 고칠 점을 고르는 근거",
+        "evidence_source": [
+          "인사 업무",
+          "사람들을 훈련, 교육",
+          "상사, 동료, 부하직원과 소통"
+        ],
+        "mission_fact_refs": [
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "인사팀장",
+          "items": [
+            "입사자 6명 중 4명: ‘첫 주에 누구에게 물어봐야 할지 몰랐다’고 답함(교육 자료가 부족하다는 답은 1명)",
+            "버디(선배 동료)는 입사 2주 차에 배정되고 있음. 첫날에는 배정된 사람이 없음"
+          ]
+        },
+        "confidence": {
+          "score": 0.84,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001_pick_first_fix",
+        "instruction": "메모를 보고 온보딩에서 ‘가장 먼저’ 고칠 점 1가지를 고르고, 메모의 어떤 내용 때문에 그렇게 판단했는지 1~2문장으로 적어 주세요.",
+        "required_materials": [
+          "mat_memo_onboarding_survey_001"
+        ],
+        "expected_action": "고칠 점 1개 선택 + 메모 근거 1개로 이유 설명"
+      }
+    ],
+    "submission_format": {
+      "type": "text",
+      "estimated_time_minutes": 5,
+      "required_sections": [
+        "먼저 고칠 점",
+        "이유(메모 근거)"
+      ],
+      "length_hint": "1-2 short sentences"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "6명 중 4명이 ‘물어볼 사람을 몰랐다’고 답한 점과 버디가 2주 차에야 배정되는 점을 연결한다.",
+      "버디(도움 줄 사람)를 입사 첫날 배정하는 것처럼, 원인에 맞는 고칠 점 하나를 고른다.",
+      "교육 자료를 늘리는 것보다 사람 연결이 우선이라는 판단이 메모 숫자로 뒷받침된다."
+    ],
+    "rubric": [
+      {
+        "criterion": "메모 근거로 문제 짚기",
+        "description": "‘물어볼 사람을 몰랐다(4명)’와 ‘버디 2주 차 배정’ 중 적어도 하나를 근거로 문제를 짚는다.",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "criterion": "원인에 맞는 고칠 점 1개",
+        "description": "첫날 버디 배정, 첫 주 담당자 안내처럼 사람 연결 문제를 바로 줄이는 개선 하나를 고른다.",
+        "points": 40,
+        "linked_evidence": [
+          "인사 업무",
+          "사람들을 배려, 돌봄"
+        ]
+      },
+      {
+        "criterion": "짧고 분명한 전달",
+        "description": "1~2문장 안에서 고칠 점과 이유가 한 번에 읽힌다.",
+        "points": 20,
+        "linked_evidence": [
+          "상사, 동료, 부하직원과 소통"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    },
+    "authored_by": "human"
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_006",
+      "text": "인사제도, 인사고과의 활용, 복리후생, 안전보건, 인간관계, 사원의 사기 등을 파악하여 타사 및 관계문헌을 조사·비교·분석하여 개선안을 기획·품의한다.",
+      "source_ref": {
+        "file": "K000001196/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 6
+      },
+      "selection_reason": "General keyword score 12."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "인사 업무",
+          "score": 100,
+          "description": "조직에서 직원을 모집, 면담, 채용하고 승진시키기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001196/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들을 훈련, 교육",
+          "score": 96,
+          "description": "교육 요구 사항을 파악하고, 공식적인 교육 또는 훈련 프로그램을 만들며, 교육이나 강의를 제공하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001196/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "부하 직원들에게 업무 안내, 지시, 동기부여",
+          "score": 91,
+          "description": "부하 직원들의 업무 기준을 정하여 업무 성과를 관찰하고 업무 방향과 지침을 제공하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001196/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사물, 서비스, 사람의 질 판단",
+          "score": 90,
+          "description": "사물, 사람의 가치, 중요성, 질을 평가하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001196/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 89,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001196/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "인적자원 관리",
+          "score": 99,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람 파악",
+          "score": 92,
+          "description": "타인의 반응을 파악하고 왜 그렇게 행동하는지 이해한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설득",
+          "score": 89,
+          "description": "다른 사람들의 마음이나 행동을 변화시키기 위해 설득한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "인사",
+          "score": 97,
+          "description": "채용, 훈련, 급여, 노사관계와 같은 인적자원관리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "사무",
+          "score": 84,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "교육 및 훈련",
+          "score": 84,
+          "description": "사람을 가르치고 훈련시키는데 필요한 방법 및 이론에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "다른 사람과의 접촉",
+          "score": 90,
+          "description": "업무 수행하면서 사람들과 접촉(전화, 대면, 메신저 등) 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 89,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 89,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001196/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_memo_onboarding_survey_001",
+        "supported_by": [
+          "인사 업무",
+          "사람들을 훈련, 교육",
+          "상사, 동료, 부하직원과 소통"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_memo_onboarding_survey_001",
+        "mission_fact_refs": [
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001196/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "/home/user/midas3/job_mission_integration/data/api_raw"
+          },
+          {
+            "file": "K000001196/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "/home/user/midas3/job_mission_integration/data/api_raw"
+          },
+          {
+            "file": "K000001196/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "/home/user/midas3/job_mission_integration/data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.2,
+    "AX2": 0.2,
+    "AX3": 0.0,
+    "AX4": 0.2,
+    "AX5": 0.4
+  }
+}

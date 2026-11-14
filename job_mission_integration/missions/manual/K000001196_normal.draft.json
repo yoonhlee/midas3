@@ -1,0 +1,226 @@
+{
+  "_comment": "사람이 직접 작성한 미션 초안(U11). scripts/build_manual_missions.py가 system_decisions의 고정 값을 채우고 validator.v1로 검증한 뒤 missions/scenarios에 저장한다. 출처: data/additional_search/K000001196.md 조사 시트, KNOW 직업정보.",
+  "mission_facts": {
+    "org_name": "한결솔루션(가상)",
+    "domain": "신규 입사자 조기 퇴사 관리",
+    "period": [
+      "최근 4개 분기",
+      "입사 후 3개월"
+    ],
+    "trend_pattern": "버디를 배정하지 않은 팀의 3개월 내 퇴사율이 4개 분기 내내 더 높고, 최근 분기에 차이가 커짐",
+    "main_issue": "입사 3개월 안에 그만두는 신규 입사자가 늘어 채용 비용이 반복해서 듦",
+    "feedback_themes": [
+      "첫 달에 물어볼 사람이 없다",
+      "교육은 많은데 실제 업무와 따로 논다"
+    ],
+    "decision_goal": "다음 분기에 먼저 도입할 온보딩 개선안 1개를 고른다"
+  },
+  "mission": {
+    "title": "조기 퇴사율 차트로 온보딩 개선안 고르기",
+    "scenario": {
+      "role": "당신은 한결솔루션 인사팀 신입 사원입니다.",
+      "context": "인사팀장이 메신저로 요청했어요. “다음 분기 예산 회의 전에 온보딩 개선안을 하나만 올리려고 해. 조기 퇴사율 차트랑 후보 표 보고, 뭘 먼저 할지 이유랑 같이 정리해줘.”",
+      "goal": "차트와 후보 표를 함께 보고, 다음 분기에 먼저 도입할 개선안 1개와 그 이유를 2~3문장으로 적어 주세요.",
+      "constraints": [
+        "반드시 차트와 표에 있는 내용만 근거로 쓰세요.",
+        "개선안은 1개만 고르세요.",
+        "차트의 수치를 1개 이상 이유에 넣으세요."
+      ],
+      "glossary": [
+        {
+          "term": "조기 퇴사율",
+          "definition": "입사 후 3개월 안에 퇴사한 사람의 비율"
+        },
+        {
+          "term": "버디",
+          "definition": "신규 입사자의 적응을 돕도록 짝지어 주는 선배 동료"
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_chart_early_leave_001",
+        "type": "chart",
+        "subtype": "early_leave_rate_by_buddy",
+        "title": "버디 배정 여부별 입사 3개월 내 퇴사율(가상)",
+        "description": "최근 4개 분기 동안 버디를 배정한 팀과 배정하지 않은 팀의 3개월 내 퇴사율을 비교한 막대 차트입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "어떤 조건에서 조기 퇴사가 많은지 확인하기",
+        "evidence_source": [
+          "인사 업무",
+          "기준에 따른 정보 평가",
+          "사람들의 능력 개발, 지도"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "분기",
+            "values": [
+              "1분기",
+              "2분기",
+              "3분기",
+              "4분기"
+            ]
+          },
+          "y_axis": {
+            "label": "3개월 내 퇴사율",
+            "unit": "%"
+          },
+          "series": [
+            {
+              "name": "버디 배정 팀",
+              "values": [
+                8,
+                7,
+                9,
+                8
+              ]
+            },
+            {
+              "name": "버디 미배정 팀",
+              "values": [
+                14,
+                15,
+                18,
+                22
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_table_onboarding_options_001",
+        "type": "table",
+        "subtype": "onboarding_improvement_options",
+        "title": "다음 분기 온보딩 개선안 후보(가상)",
+        "description": "인사팀이 정리한 개선안 후보 3개와 각각의 기대 효과, 주의할 점, 예상 비용입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "차트에서 본 문제에 맞는 개선안 고르기",
+        "evidence_source": [
+          "사람들을 훈련, 교육",
+          "목표, 전략 수립",
+          "사람들의 업무와 활동을 조직, 편성"
+        ],
+        "mission_fact_refs": [
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "개선안"
+            },
+            {
+              "key": "effect",
+              "label": "기대 효과"
+            },
+            {
+              "key": "caution",
+              "label": "주의할 점"
+            },
+            {
+              "key": "cost",
+              "label": "예상 비용(분기)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A: 모든 팀에 입사 첫날 버디 배정",
+              "effect": "첫 달에 물어볼 사람이 생김",
+              "caution": "버디 역할을 맡을 선배의 업무 시간을 조정해야 함",
+              "cost": "120만원"
+            },
+            {
+              "option": "B: 입사 첫 주 집합 교육 2일 추가",
+              "effect": "회사 제도와 시스템을 한 번에 익힘",
+              "caution": "실제 팀 업무와 따로 논다는 의견이 이미 있음",
+              "cost": "300만원"
+            },
+            {
+              "option": "C: 입사 1·2·3개월 차 인사팀 면담",
+              "effect": "퇴사 신호를 일찍 알아챔",
+              "caution": "면담만으로는 팀 안에서 도움 받을 사람이 생기지 않음",
+              "cost": "40만원"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001_choose_onboarding_option",
+        "instruction": "차트와 표를 함께 보고, 다음 분기에 먼저 도입할 개선안 1개를 고르세요. 차트의 수치 1개 이상과 표의 기대 효과·주의할 점을 연결해 이유를 2~3문장으로 적어 주세요.",
+        "required_materials": [
+          "mat_chart_early_leave_001",
+          "mat_table_onboarding_options_001"
+        ],
+        "expected_action": "개선안 1개 선택 + 차트 수치와 표 내용을 연결한 이유"
+      }
+    ],
+    "submission_format": {
+      "type": "text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "고른 개선안",
+        "이유(차트 수치 + 표 근거)"
+      ],
+      "length_hint": "2-3 short sentences"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "버디 미배정 팀의 퇴사율이 4개 분기 모두 높고 4분기에 22%로 벌어진 점을 근거로 든다.",
+      "차트의 문제(도움 받을 사람 부재)에 바로 맞는 A안을 고르거나, 다른 안을 고르면 그 한계를 함께 설명한다.",
+      "버디를 맡을 선배의 업무 시간 조정처럼 실행할 때 주의할 점을 짚는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "차트 수치로 문제 진단",
+        "description": "버디 배정 여부에 따른 퇴사율 차이를 수치로 짚는다(예: 8% 대 22%).",
+        "points": 35,
+        "linked_evidence": [
+          "정보, 자료 분석",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "문제에 맞는 개선안 선택",
+        "description": "진단한 원인에 맞는 개선안 1개를 고르고 표의 기대 효과와 연결한다.",
+        "points": 35,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결",
+          "인사 업무"
+        ]
+      },
+      {
+        "criterion": "실행 시 사람 문제 고려",
+        "description": "버디를 맡는 선배의 부담, 팀 업무 조정 같은 사람 쪽 고려를 함께 적는다.",
+        "points": 30,
+        "linked_evidence": [
+          "사람들의 업무와 활동을 조직, 편성",
+          "사람들을 배려, 돌봄"
+        ]
+      }
+    ]
+  }
+}

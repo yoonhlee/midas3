@@ -1,0 +1,82 @@
+{
+  "schema_version": "occupation_map.v1",
+  "updated_at": "2026-10-26",
+  "jobs": {
+    "K000000872": {
+      "job_name": "광고·홍보·마케팅전문가",
+      "know_keco": "0241 광고·홍보 전문가",
+      "mode": "code",
+      "work24_codes": [
+        { "code": "024101", "name": "광고·홍보 전문가" },
+        { "code": "024102", "name": "마케팅 전문가" }
+      ],
+      "keyword": null,
+      "title_include": [],
+      "title_exclude": [],
+      "relevance_keywords": ["광고", "홍보", "마케팅", "마케터", "브랜드", "AE", "SNS", "PR"],
+      "evidence": "고용24 직종표에서 확인(2026-10, 운영 중인 고용24 수집 코드의 직종표). KNOW 0241(광고·홍보 전문가)에 해당하는 고용24 세분류 2개를 함께 조회함."
+    },
+    "K000000997": {
+      "job_name": "상품기획자",
+      "know_keco": "0243 상품 기획자",
+      "mode": "code",
+      "work24_codes": [
+        { "code": "024301", "name": "상품 기획자" }
+      ],
+      "keyword": null,
+      "title_include": [],
+      "title_exclude": [],
+      "relevance_keywords": ["상품기획", "상품 기획", "기획", "MD", "상품개발"],
+      "evidence": "고용24 직종표에서 확인(2026-10). 같은 0243 아래의 024302(머천다이저)는 다른 직업이라 제외함."
+    },
+    "K000001080": {
+      "job_name": "데이터분석가(빅데이터분석가)",
+      "know_keco": "1341 데이터 전문가",
+      "mode": "code",
+      "work24_codes": [
+        { "code": "135200", "name": "데이터 분석가(빅데이터 분석가)" }
+      ],
+      "keyword": null,
+      "title_include": [],
+      "title_exclude": [],
+      "relevance_keywords": ["데이터", "분석", "BI", "빅데이터"],
+      "evidence": "고용24 직종표에서 확인(2026-10). KNOW 1341과 고용24 1341xx는 다른 직종이라 쓰지 않음(고용24 134100은 네트워크 시스템 개발자)."
+    },
+    "K000001179": {
+      "job_name": "투자분석가",
+      "know_keco": "0311 투자·신용 분석가",
+      "mode": "tbd",
+      "work24_codes": [],
+      "keyword": null,
+      "title_include": [],
+      "title_exclude": [],
+      "relevance_keywords": ["투자", "애널리스트", "신용분석", "리서치", "심사"],
+      "evidence": "미정. 고용24 채용정보 인증키가 없어 직종코드 탐색(npm run postings:discover)을 아직 돌리지 못함.",
+      "discovery_keywords": ["투자분석", "애널리스트", "신용분석"]
+    },
+    "K000007519": {
+      "job_name": "보험상품개발자",
+      "know_keco": "0313 보험·금융상품 개발자",
+      "mode": "tbd",
+      "work24_codes": [],
+      "keyword": null,
+      "title_include": [],
+      "title_exclude": [],
+      "relevance_keywords": ["보험", "상품개발", "상품 개발", "계리", "금융상품"],
+      "evidence": "미정. 고용24 채용정보 인증키가 없어 직종코드 탐색(npm run postings:discover)을 아직 돌리지 못함.",
+      "discovery_keywords": ["보험상품", "상품개발"]
+    },
+    "K000001196": {
+      "job_name": "인사·교육·훈련사무원",
+      "know_keco": "0262 인사·교육·훈련 사무원",
+      "mode": "tbd",
+      "work24_codes": [],
+      "keyword": null,
+      "title_include": [],
+      "title_exclude": [],
+      "relevance_keywords": ["인사", "HR", "채용", "교육", "노무"],
+      "evidence": "미정. 체험 직무로 새로 추가(U11). 고용24 채용정보 인증키가 없어 직종코드 탐색(npm run postings:discover)을 아직 돌리지 못함.",
+      "discovery_keywords": ["인사담당", "HR", "교육담당"]
+    }
+  }
+}

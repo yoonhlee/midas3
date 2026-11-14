@@ -1,3 +1,5 @@
+import { answerCountText } from "../components/missionScreens.js";
+
 const AXES = ["AX1", "AX2", "AX3", "AX4", "AX5"];
 
 function escapeHtml(value) {
@@ -35,7 +37,12 @@ export function bindAppEvents(ctx) {
     render,
     refreshMissionNextButton,
     advanceMissionFlow,
-    resetState
+    resetState,
+    getMissionsByJobCode,
+    ensureAttempt = () => Promise.resolve(null),
+    startMission,
+    onAnswerInput = () => {},
+    onAnswerSubmitted = () => {}
   } = ctx;
 
   document.querySelectorAll(".jc").forEach((element) => element.addEventListener("click", () => {
@@ -59,9 +66,11 @@ export function bindAppEvents(ctx) {
 
   byId("btn-pnext")?.addEventListener("click", () => {
     const jobCode = state.selectedJobs[state.preqIndex];
+    const interest = Number(document.querySelector('input[name="pq-interest"]:checked')?.value) || null;
     state.preqAnswers[jobCode] = {
       q1: byId("pq1")?.value || "",
-      q2: byId("pq2")?.value || ""
+      q2: byId("pq2")?.value || "",
+      ...(interest ? { interest_pre: interest } : {})
     };
     if (state.preqIndex < state.selectedJobs.length - 1) {
       state.preqIndex += 1;
@@ -70,7 +79,10 @@ export function bindAppEvents(ctx) {
     }
     state.screen = "mission-list";
     state.missionJobIndex = 0;
-    state.selectedMissionKey = null;
+    // ?mission=KEY 로 들어와 미리 고른 미션은 유지한다.
+    const presetOk = state.selectedMissionKey
+      && (getMissionsByJobCode?.(state.selectedJobs[0]) || []).some((m) => m.key === state.selectedMissionKey);
+    if (!presetOk) state.selectedMissionKey = null;
     render();
   });
 
@@ -96,6 +108,10 @@ export function bindAppEvents(ctx) {
 
   byId("btn-ml-start")?.addEventListener("click", () => {
     if (!state.selectedMissionKey) return;
+    if (startMission) {
+      startMission();
+      return;
+    }
     state.screen = "mission";
     state.missionStepIndex = 0;
     state.missionAnswer = "";
@@ -106,6 +122,7 @@ export function bindAppEvents(ctx) {
   byId("m-ans")?.addEventListener("input", (event) => {
     state.missionAnswer = event.target.value;
     refreshMissionNextButton();
+    onAnswerInput();
   });
 
   byId("btn-mnext")?.addEventListener("click", () => {
@@ -123,8 +140,11 @@ export function bindAppEvents(ctx) {
     const nextButton = byId("btn-mnext");
     if (nextButton) nextButton.disabled = true;
     if (!state.missionScores[mission.job_code]) state.missionScores[mission.job_code] = [];
+    onAnswerSubmitted(mission);
 
-    const pending = scoreAnswer(answer, mission)
+    // 체험 기록(attempt)이 만들어진 뒤에 채점해야 답변이 기록에 함께 저장된다.
+    const pending = ensureAttempt()
+      .then(() => scoreAnswer(answer, mission))
       .then((scored) => {
         state.missionScores[mission.job_code].push(scored.missionScore);
         saveEvaluationLog({
@@ -180,16 +200,17 @@ export function refreshMissionNextButton(ctx) {
   const enabled = state.missionAnswer.trim().length > 10;
   button.disabled = !enabled;
   const charCt = document.querySelector(".char-ct");
-  if (charCt) charCt.textContent = `${state.missionAnswer.length}자`;
+  if (charCt) charCt.textContent = answerCountText(state.missionAnswer.length);
 }
 
 export function advanceMissionFlow(ctx) {
-  const { appNode, state, fetchResultSummary, render } = ctx;
+  const { appNode, state, fetchResultSummary, render, onResultShown = () => {} } = ctx;
 
   const showResult = async () => {
     await fetchResultSummary();
     state.screen = "result";
     render();
+    onResultShown();
   };
 
   if (state.pendingScores.length > 0) {

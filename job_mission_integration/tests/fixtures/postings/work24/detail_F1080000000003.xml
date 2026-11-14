@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 고정 데이터(가상 공고). 요구역량 분석(U25) 테스트용 직무내용 -->
+<wantedDtl>
+  <wantedAuthNo>F1080000000003</wantedAuthNo>
+  <wantedInfo>
+    <jobsNm>(가상) 커머스 데이터 분석</jobsNm>
+    <wantedTitle>커머스 데이터 분석 담당</wantedTitle>
+    <jobCont>1) 고객 구매 데이터 분석으로 마케팅 전략 수립 지원
+2) 프로모션 성과 지표 분석과 보고서 작성
+3) 고객 설문과 시장조사 결과 정리</jobCont>
+  </wantedInfo>
+</wantedDtl>

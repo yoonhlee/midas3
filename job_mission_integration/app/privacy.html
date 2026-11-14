@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개인정보 처리방침 — JOBSIM</title>
+<link rel="stylesheet" href="/common/site.css">
+</head>
+<body>
+<div id="site-header"></div>
+<main class="page page-narrow legal">
+  <div class="eyebrow">버전 2026-10-30</div>
+  <h1 class="page-h">개인정보 처리방침</h1>
+  <div class="notice notice-warn">이 문서는 졸업작품 서비스용 초안이야. 정식으로 운영하기 전에 검토가 필요해.</div>
+
+  <h2>1. 무엇을 모으고 왜 쓰나</h2>
+  <table>
+    <thead><tr><th>항목</th><th>언제</th><th>왜</th></tr></thead>
+    <tbody>
+      <tr><td>카카오 회원번호, 닉네임</td><td>카카오로 가입할 때</td><td>로그인, 내 기록 구분</td></tr>
+      <tr><td>체험 답변, 채점 결과, 체험 전후 흥미 응답</td><td>미션을 제출할 때</td><td>채점, 결과 화면, 내 기록, 재도전 비교</td></tr>
+      <tr><td>관심 직무와 메모</td><td>직접 저장할 때</td><td>내 기록 화면</td></tr>
+      <tr><td>쓰던 답안(제출 전)</td><td>로그인한 상태에서 답을 쓰면 자동 저장, 제출하면 지움</td><td>이어 쓰기</td></tr>
+      <tr><td>로그인 세션 쿠키, 브라우저 식별 쿠키</td><td>방문할 때</td><td>로그인 유지, 로그인 전 결과를 나중에 옮기기</td></tr>
+    </tbody>
+  </table>
+  <p>이메일, 전화번호, 실명은 받지 않아. 비교 담기·최근 본 직무는 서버가 아니라 내 브라우저에만 저장돼.</p>
+
+  <h2>2. 얼마나 보관하나</h2>
+  <ul>
+    <li>계정과 기록: 탈퇴할 때까지. 탈퇴하면 바로 지워. 기록은 내 기록 화면에서 하나씩 지울 수도 있어.</li>
+    <li>로그인하지 않고 한 체험 결과: 24시간 동안만 서버에 두고, 그 안에 로그인하면 내 기록으로 옮겨. 지나면 지워.</li>
+    <li>채점 품질을 점검하기 위한 채점 기록(답변 포함): 14일 보관 후 지워.</li>
+    <li>로그인 세션: 마지막 사용 후 7일, 최대 30일.</li>
+  </ul>
+
+  <h2>3. 밖으로 보내는 정보(국외 이전 포함)</h2>
+  <table>
+    <thead><tr><th>받는 곳</th><th>보내는 것</th><th>왜</th></tr></thead>
+    <tbody>
+      <tr><td>OpenAI, L.L.C. (미국)</td><td>체험 답변과 미션 내용</td><td>답변 채점. 미션을 제출할 때마다 전송되고, OpenAI의 API 데이터 정책에 따라 처리돼.</td></tr>
+      <tr><td>카카오 (대한민국)</td><td>로그인 요청, 탈퇴 시 연결 끊기 요청</td><td>카카오 로그인</td></tr>
+    </tbody>
+  </table>
+  <p>답변 원문은 결과 카드(이미지)나 공유 기능에 넣지 않아.</p>
+
+  <h2>4. 내 권리</h2>
+  <ul>
+    <li>내 기록 화면에서 저장된 결과와 답변을 볼 수 있어.</li>
+    <li>기록 하나씩 지우기, 닉네임 바꾸기, 탈퇴(전부 지우기)를 직접 할 수 있어.</li>
+  </ul>
+
+  <h2>5. 만 14세 미만</h2>
+  <p>만 14세 미만은 가입할 수 없어. 가입하지 않은 체험은 위의 24시간 임시 보관 규칙을 따라.</p>
+
+  <h2>6. 문의</h2>
+  <p>개인정보 담당: [배포 전에 팀 대표 이름과 이메일로 바꿔야 해]</p>
+</main>
+<div id="site-footer"></div>
+<script type="module">
+import { renderFooter, renderHeader } from "/common/site.js";
+renderHeader("");
+renderFooter();
+</script>
+</body>
+</html>

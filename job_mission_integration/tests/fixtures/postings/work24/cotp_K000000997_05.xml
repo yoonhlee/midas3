@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- 고정 데이터: 회사명·주소·공고번호는 모두 가짜야. -->
+<wantedRoot>
+  <total>1</total><startPage>1</startPage><display>100</display>
+  <wanted>
+    <wantedAuthNo>F0997000000003</wantedAuthNo>
+    <company>테스트전자</company>
+    <busino></busino>
+    <indTpNm></indTpNm>
+    <title>가전 상품기획</title>
+    <salTpNm>연봉</salTpNm>
+    <sal>3000만원 ~ 4000만원</sal>
+    <minSal></minSal>
+    <maxSal></maxSal>
+    <region>경기 수원시 영통구</region>
+    <holidayTpNm></holidayTpNm>
+    <minEdubg></minEdubg>
+    <maxEdubg></maxEdubg>
+    <career>관계없음</career>
+    <regDt>26-10-20</regDt>
+    <closeDt>26-11-12</closeDt>
+    <infoSvc>VALIDATION</infoSvc>
+    <wantedInfoUrl>https://www.work24.go.kr/fixture/wanted/F0997000000003</wantedInfoUrl>
+    <wantedMobileInfoUrl>https://m.work24.go.kr/fixture/wanted/F0997000000003</wantedMobileInfoUrl>
+    <zipCd></zipCd>
+    <strtnmCd>411173000002</strtnmCd>
+    <basicAddr>경기도 수원시 영통구 예시로 12</basicAddr>
+    <detailAddr>3층 301호</detailAddr>
+    <empTpCd>10</empTpCd>
+    <jobsCd>024301</jobsCd>
+    <smodifyDtm></smodifyDtm>
+  </wanted>
+</wantedRoot>

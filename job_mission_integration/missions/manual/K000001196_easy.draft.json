@@ -1,0 +1,126 @@
+{
+  "_comment": "사람이 직접 작성한 미션 초안(U11). scripts/build_manual_missions.py가 system_decisions의 고정 값을 채우고 validator.v1로 검증한 뒤 missions/scenarios에 저장한다. 출처: data/additional_search/K000001196.md 조사 시트, KNOW 직업정보.",
+  "mission_facts": {
+    "org_name": "다온웍스(가상)",
+    "domain": "신규 입사자 온보딩 운영",
+    "period": [
+      "지난 분기",
+      "입사 첫 주"
+    ],
+    "trend_pattern": "지난 분기 입사자 6명 중 4명이 첫 주에 누구에게 물어봐야 할지 몰랐다고 답함",
+    "main_issue": "신규 입사자가 첫 주에 도움을 청할 사람을 찾지 못해 적응이 늦어짐",
+    "decision_goal": "온보딩에서 가장 먼저 고칠 점 1가지를 고른다"
+  },
+  "mission": {
+    "title": "온보딩 설문 메모로 먼저 고칠 점 찾기",
+    "scenario": {
+      "role": "당신은 다온웍스 인사팀 인턴입니다.",
+      "context": "인사팀장이 지난 분기 신규 입사자 설문을 정리한 메모를 넘겨주며 말했어요. “다음 달에 신규 입사자가 또 들어와. 온보딩에서 딱 하나만 먼저 바꾼다면 뭘 바꿀지 메모 보고 알려줘.”",
+      "goal": "메모를 보고 온보딩에서 가장 먼저 고칠 점 1가지와 그 이유를 1~2문장으로 적어 주세요.",
+      "constraints": [
+        "메모에 적힌 내용만 근거로 쓰세요.",
+        "고칠 점은 1가지만 고르세요.",
+        "1~2문장으로 짧게 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "온보딩",
+          "definition": "새로 들어온 직원이 회사와 업무에 빨리 적응하도록 돕는 초기 안내 과정"
+        },
+        {
+          "term": "버디",
+          "definition": "신규 입사자 옆에서 궁금한 것을 알려주는 선배 동료"
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_memo_onboarding_survey_001",
+        "type": "memo",
+        "subtype": "onboarding_survey_summary",
+        "title": "지난 분기 신규 입사자 설문 요약 메모(가상)",
+        "description": "인사팀장이 신규 입사자 6명의 첫 주 설문 결과에서 눈에 띄는 점만 두 줄로 정리한 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "온보딩에서 먼저 고칠 점을 고르는 근거",
+        "evidence_source": [
+          "인사 업무",
+          "사람들을 훈련, 교육",
+          "상사, 동료, 부하직원과 소통"
+        ],
+        "mission_fact_refs": [
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "인사팀장",
+          "items": [
+            "입사자 6명 중 4명: ‘첫 주에 누구에게 물어봐야 할지 몰랐다’고 답함(교육 자료가 부족하다는 답은 1명)",
+            "버디(선배 동료)는 입사 2주 차에 배정되고 있음. 첫날에는 배정된 사람이 없음"
+          ]
+        },
+        "confidence": {
+          "score": 0.84,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001_pick_first_fix",
+        "instruction": "메모를 보고 온보딩에서 ‘가장 먼저’ 고칠 점 1가지를 고르고, 메모의 어떤 내용 때문에 그렇게 판단했는지 1~2문장으로 적어 주세요.",
+        "required_materials": [
+          "mat_memo_onboarding_survey_001"
+        ],
+        "expected_action": "고칠 점 1개 선택 + 메모 근거 1개로 이유 설명"
+      }
+    ],
+    "submission_format": {
+      "type": "text",
+      "estimated_time_minutes": 5,
+      "required_sections": [
+        "먼저 고칠 점",
+        "이유(메모 근거)"
+      ],
+      "length_hint": "1-2 short sentences"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "6명 중 4명이 ‘물어볼 사람을 몰랐다’고 답한 점과 버디가 2주 차에야 배정되는 점을 연결한다.",
+      "버디(도움 줄 사람)를 입사 첫날 배정하는 것처럼, 원인에 맞는 고칠 점 하나를 고른다.",
+      "교육 자료를 늘리는 것보다 사람 연결이 우선이라는 판단이 메모 숫자로 뒷받침된다."
+    ],
+    "rubric": [
+      {
+        "criterion": "메모 근거로 문제 짚기",
+        "description": "‘물어볼 사람을 몰랐다(4명)’와 ‘버디 2주 차 배정’ 중 적어도 하나를 근거로 문제를 짚는다.",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "criterion": "원인에 맞는 고칠 점 1개",
+        "description": "첫날 버디 배정, 첫 주 담당자 안내처럼 사람 연결 문제를 바로 줄이는 개선 하나를 고른다.",
+        "points": 40,
+        "linked_evidence": [
+          "인사 업무",
+          "사람들을 배려, 돌봄"
+        ]
+      },
+      {
+        "criterion": "짧고 분명한 전달",
+        "description": "1~2문장 안에서 고칠 점과 이유가 한 번에 읽힌다.",
+        "points": 20,
+        "linked_evidence": [
+          "상사, 동료, 부하직원과 소통"
+        ]
+      }
+    ]
+  }
+}

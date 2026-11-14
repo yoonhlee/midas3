@@ -1,0 +1,8 @@
+# JOBSIM HTTPS 리버스 프록시. JOBSIM_DOMAIN(.env.server)으로 인증서를 자동 발급한다.
+{$JOBSIM_DOMAIN} {
+	encode gzip
+	header {
+		Strict-Transport-Security "max-age=31536000"
+	}
+	reverse_proxy jobsim:8080
+}
