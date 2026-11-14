@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { Client, startTestServer } from "./helpers/testServer.js";
 import { checkIdTokenPayload, KakaoAuthError } from "../../src/lib/auth/kakao.js";
 import { hashToken, safeReturnTo } from "../../src/lib/auth/session.js";
-import { pythonSpawnEnv } from "../../src/server/routes/adminGeneration.js";
+import { pythonSpawnEnv } from "../../src/lib/adminGeneration/commands.js";
 
 const MISSION_KEY = "jobsim_service_v1__mission_K000001080_easy_001";
 const GOOD_ANSWER = "3월을 색으로 강조해야 합니다. 2월 49,000명에서 3월 41,000명으로 8,000명 줄어 전월 대비 감소폭이 가장 크니, 차트의 수치부터 다시 확인하겠습니다.";
@@ -55,7 +55,7 @@ test("관리자 API: 암호가 없으면 열리지 않고, 시연 잠금 해제�
   try {
     const c = new Client(demo.base);
     assert.equal((await c.get("/api/admin/mission-generation/jobs")).status, 200);
-    const gen = await c.post("/api/admin/mission-generation/runs", { jobCode: "K000001080", difficulty: "easy" });
+    const gen = await c.post("/api/admin/mission-generation/runs", { jobCode: "K000001080", execJobId: "exec_001", unitKey: "20010107:03", difficulty: "easy", review: true });
     assert.equal(gen.status, 401);
     assert.equal((await c.get("/api/admin/postings/status")).status, 401);
     assert.equal((await c.request("GET", "/api/admin/postings/status", undefined, { "x-api-token": "pw" })).status, 200);
@@ -357,9 +357,9 @@ test("결과 요약: 추천 계산 대상이 아닌 직업(정보보안전문가
   }
 });
 
-test("관리자 생성 경로는 Python을 GPT로 고정해 부른다", () => {
-  const env = pythonSpawnEnv({ MISSION_LLM_PROVIDER: "anthropic", PATH: "x" });
-  assert.equal(env.MISSION_LLM_PROVIDER, "openai");
+test("관리자 생성 경로는 Python을 Claude로 고정해 부른다", () => {
+  const env = pythonSpawnEnv({ MISSION_LLM_PROVIDER: "openai", PATH: "x" });
+  assert.equal(env.MISSION_LLM_PROVIDER, "anthropic");
   assert.equal(env.PYTHONIOENCODING, "utf-8");
   assert.equal(env.PYTHONUNBUFFERED, "1");
   assert.equal(env.PATH, "x");

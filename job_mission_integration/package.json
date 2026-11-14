@@ -16,7 +16,7 @@
     "test:e2e:features": "playwright test --config playwright.features.config.ts",
     "typecheck": "tsc --noEmit",
     "check:frontend": "node scripts/check-frontend.mjs",
-    "test:unit": "tsx --test tests/unit/postings.test.ts tests/unit/regions.test.ts tests/unit/evaluator.test.ts tests/unit/server.test.ts tests/unit/features.test.ts",
+    "test:unit": "tsx --test tests/unit/postings.test.ts tests/unit/regions.test.ts tests/unit/evaluator.test.ts tests/unit/server.test.ts tests/unit/features.test.ts tests/unit/adminGeneration.test.ts tests/unit/adminGenerationService.test.ts",
     "pipeline:check": "python3 -m py_compile pipeline/*.py",
     "jobs:build": "tsx scripts/build-jobs-catalog.ts",
     "postings:discover": "tsx scripts/postings-discover.ts",

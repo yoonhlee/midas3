@@ -1,0 +1,118 @@
+{
+  "schema_version": "fixture",
+  "job_cd": "K900000001",
+  "job_name": "시범 직업 가",
+  "units": [
+    {
+      "unit_key": "90000001:01",
+      "exec_job_id": "exec_001",
+      "exec_job_text": "문장 하나",
+      "unit_name": "시범 능력단위 하나",
+      "scope": {
+        "documents": [
+          "서류 1",
+          "서류 2",
+          "서류 3"
+        ],
+        "considerations": []
+      },
+      "link": {
+        "match": "직접",
+        "indirect_kind": "",
+        "reason": "문장 하나와 시범 능력단위 하나의 연결 이유(고정 데이터).",
+        "criteria_refs": [
+          "1.1",
+          "1.2"
+        ]
+      }
+    },
+    {
+      "unit_key": "90000001:02",
+      "exec_job_id": "exec_001",
+      "exec_job_text": "문장 하나",
+      "unit_name": "시범 능력단위 둘",
+      "scope": {
+        "documents": [
+          "서류 1",
+          "서류 2",
+          "서류 3",
+          "서류 4",
+          "서류 5"
+        ],
+        "considerations": []
+      },
+      "link": {
+        "match": "간접",
+        "indirect_kind": "분야 한정",
+        "reason": "문장 하나와 시범 능력단위 둘의 연결 이유(고정 데이터).",
+        "criteria_refs": [
+          "1.1",
+          "1.2",
+          "1.3"
+        ]
+      }
+    },
+    {
+      "unit_key": "90000001:03",
+      "exec_job_id": "exec_002",
+      "exec_job_text": "문장 둘",
+      "unit_name": "시범 능력단위 셋",
+      "scope": {
+        "documents": [
+          "서류 1",
+          "서류 2"
+        ],
+        "considerations": []
+      },
+      "link": {
+        "match": "간접",
+        "indirect_kind": "분야 한정",
+        "reason": "문장 둘와 시범 능력단위 셋의 연결 이유(고정 데이터).",
+        "criteria_refs": [
+          "1.1"
+        ]
+      }
+    },
+    {
+      "unit_key": "90000001:05",
+      "exec_job_id": "exec_002",
+      "exec_job_text": "문장 둘",
+      "unit_name": "시범 능력단위 다섯",
+      "scope": {
+        "documents": [
+          "서류 1"
+        ],
+        "considerations": []
+      },
+      "link": {
+        "match": "간접",
+        "indirect_kind": "분야 한정",
+        "reason": "문장 둘와 시범 능력단위 다섯의 연결 이유(고정 데이터).",
+        "criteria_refs": [
+          "1.1",
+          "1.2"
+        ]
+      }
+    },
+    {
+      "unit_key": "90000001:04",
+      "exec_job_id": "exec_003",
+      "exec_job_text": "문장 셋",
+      "unit_name": "시범 능력단위 넷",
+      "scope": {
+        "documents": [
+          "서류 1"
+        ],
+        "considerations": []
+      },
+      "link": {
+        "match": "간접",
+        "indirect_kind": "범위 넓음",
+        "reason": "문장 셋와 시범 능력단위 넷의 연결 이유(고정 데이터).",
+        "criteria_refs": [
+          "1.1"
+        ]
+      }
+    }
+  ]
+}

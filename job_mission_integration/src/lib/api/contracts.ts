@@ -286,3 +286,60 @@ export const JobPostingsResponseSchema = z.object({
 export const AdminPostingsRefreshRequestSchema = z.object({
   jobCode: z.string().regex(/^K\d{9}$/).optional()
 });
+
+// ── 관리자 미션 생성(새 방식) ───────────────────────────
+// 생성 시작 요청. 모르는 칸(자료 형태 등)이 오면 거절한다. 자료 형태는 서버가 규칙으로 정한다.
+export const AdminGenerationStartRequestSchema = z.object({
+  jobCode: z.string().regex(/^K\d+$/),
+  execJobId: z.string().regex(/^exec_\d{3}$/),
+  unitKey: z.string().regex(/^\d{8}:\d{2}$/),
+  difficulty: z.enum(["easy", "normal", "hard"]),
+  review: z.boolean().default(true)
+}).strict();
+
+export const AdminMaterialTypesQuerySchema = AdminGenerationStartRequestSchema.omit({ review: true });
+
+export const AdminGenerationRunsQuerySchema = z.object({
+  limit: z.coerce.number().int().min(1).max(200).default(50)
+}).strict();
+
+const AdminGenerationStageViewSchema = z.object({
+  id: z.enum(["blueprint", "blueprint_check", "writing", "mission_check", "review", "approval"]),
+  state: z.enum(["pending", "active", "done", "skipped", "failed"]),
+  rewritten: z.boolean()
+});
+
+export const AdminGenerationRunListItemSchema = z.object({
+  runId: z.string().uuid(),
+  status: z.enum(["running", "ready", "added", "failed", "interrupted"]),
+  stage: z.enum(["queued", "blueprint", "blueprint_check", "writing", "mission_check", "review", "done"]),
+  selection: z.object({
+    jobCode: z.string(),
+    jobName: z.string(),
+    execJobId: z.string(),
+    execJobText: z.string(),
+    unitKey: z.string(),
+    unitName: z.string(),
+    linkKind: z.string(),
+    difficulty: z.enum(["easy", "normal", "hard"]),
+    review: z.boolean(),
+    allowedMaterialTypes: z.array(z.string()).nullable()
+  }),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+  finishedAt: z.string().nullable(),
+  missionId: z.string().nullable(),
+  missionTitle: z.string().nullable(),
+  reviewVerdict: z.enum(["pass", "doubt", "fail", "review_failed"]).nullable(),
+  catalog: z.object({ key: z.string().nullable(), canAdd: z.boolean(), canReview: z.boolean() }),
+  error: z.object({ code: z.string(), message: z.string() }).nullable()
+});
+
+// 실행 하나의 응답. mission, basis, reviewRecord는 파일 모양 그대로다(관리자 경로에서만 준다).
+export const AdminGenerationRunViewSchema = AdminGenerationRunListItemSchema.extend({
+  stages: z.array(AdminGenerationStageViewSchema).length(6),
+  mission: z.unknown(),
+  basis: z.unknown(),
+  reviewRecord: z.unknown(),
+  logs: z.array(z.object({ at: z.string(), stream: z.enum(["system", "stdout"]), message: z.string() }))
+});

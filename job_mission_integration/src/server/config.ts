@@ -32,10 +32,19 @@ export interface ServerConfig {
     additionalSearch: string;
     app: string;
     jobsData: string;
+    ncsJobs: string;
   };
   dbPath: string;
   openai: { evalModel: string; generationModel: string; preflightTimeoutMs: number };
   admin: { password: string; demoUnlock: boolean };
+  adminGeneration: {
+    mode: "live" | "fake";
+    dailyLimit: number;
+    narrow: boolean;
+    pythonBin: string;
+    generateTimeoutMs: number;
+    reviewTimeoutMs: number;
+  };
   compatibilityGamma: number;
   evaluateRateLimit: { windowMs: number; max: number };
   evaluationLogRetentionDays: number;
@@ -72,7 +81,8 @@ export function loadServerConfig(env: NodeJS.ProcessEnv = process.env): ServerCo
       apiRaw: path.join(ROOT_DIR, "data/api_raw"),
       additionalSearch: path.join(ROOT_DIR, "data/additional_search"),
       app: path.join(ROOT_DIR, "app"),
-      jobsData: path.join(ROOT_DIR, "data/jobs")
+      jobsData: path.join(ROOT_DIR, "data/jobs"),
+      ncsJobs: path.join(ROOT_DIR, "data/ncs/jobs")
     },
     // DB 파일은 쓰기 가능한 reports 볼륨 아래에 둔다(Docker 배포 기준).
     dbPath: dbPathRaw === ":memory:" ? ":memory:" : path.resolve(ROOT_DIR, dbPathRaw || path.join(reports, "jobsim.sqlite")),
@@ -84,6 +94,16 @@ export function loadServerConfig(env: NodeJS.ProcessEnv = process.env): ServerCo
     admin: {
       password: (env.ADMIN_PASSWORD ?? "").trim(),
       demoUnlock: envFlag(env.ADMIN_DEMO_UNLOCK)
+    },
+    adminGeneration: {
+      // 가짜 모드(생성·검수 없이 고정 결과를 복사)는 운영(APP_ENV=production)에서는 설정과 상관없이 꺼진다.
+      mode: (env.ADMIN_GENERATION_MODE ?? "").trim().toLowerCase() === "fake" && appEnv !== "production" ? "fake" : "live",
+      // 빈 값(.env.example 그대로)은 기본값으로 읽는다. Number("")가 0이라 그대로 넘기면 한도가 1이 된다.
+      dailyLimit: positiveIntFromEnv(env.ADMIN_GENERATION_DAILY_LIMIT?.trim() || undefined, 20),
+      narrow: envFlag(env.ADMIN_GENERATION_NARROW, true),
+      pythonBin: (env.PYTHON_BIN ?? "").trim() || (process.platform === "win32" ? "python" : "python3"),
+      generateTimeoutMs: 15 * 60 * 1000,
+      reviewTimeoutMs: 10 * 60 * 1000
     },
     compatibilityGamma: Number(env.COMPATIBILITY_SCORE_GAMMA ?? 1.5),
     evaluateRateLimit: {

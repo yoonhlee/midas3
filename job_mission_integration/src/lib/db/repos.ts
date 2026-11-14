@@ -323,3 +323,111 @@ export function getDraft(db: Db, userId: string, missionKey: string): DraftRow |
 export function deleteDraft(db: Db, userId: string, missionKey: string) {
   db.prepare("DELETE FROM drafts WHERE user_id = ? AND mission_key = ?").run(userId, missionKey);
 }
+
+// ── 관리자 미션 생성 기록 ───────────────────────────────
+export type GenerationRunStatus = "running" | "ready" | "added" | "failed" | "interrupted";
+
+export interface GenerationRunRow {
+  id: string;
+  status: GenerationRunStatus;
+  stage: string; // queued | blueprint | blueprint_check | writing | mission_check | review | done
+  job_code: string;
+  job_name: string;
+  exec_job_id: string;
+  exec_job_text: string;
+  unit_key: string;
+  unit_name: string;
+  link_kind: string;
+  difficulty: string;
+  review_requested: number;
+  allowed_material_types: string | null; // JSON 배열, 좁히지 않았으면 null
+  run_folder: string | null; // outputs/pilot/v1/runs 아래의 폴더 이름
+  mission_id: string | null;
+  mission_title: string | null;
+  review_verdict: string | null; // pass | doubt | fail | review_failed, 검수하지 않았으면 null
+  rewrites: string; // JSON {"blueprint": n, "mission": n}
+  catalog_key: string | null;
+  error_code: string | null;
+  error_message: string | null;
+  created_at: string;
+  updated_at: string;
+  finished_at: string | null;
+}
+
+const GENERATION_RUN_COLUMNS = [
+  "id", "status", "stage", "job_code", "job_name", "exec_job_id", "exec_job_text", "unit_key", "unit_name", "link_kind",
+  "difficulty", "review_requested", "allowed_material_types", "run_folder", "mission_id", "mission_title", "review_verdict",
+  "rewrites", "catalog_key", "error_code", "error_message", "created_at", "updated_at", "finished_at"
+] as const;
+// 고칠 수 있는 칸. 칸 이름이 SQL에 들어가므로 이 목록에 있는 것만 받는다.
+const GENERATION_RUN_UPDATABLE = new Set<string>(GENERATION_RUN_COLUMNS.filter((name) => name !== "id" && name !== "created_at"));
+
+export function insertGenerationRun(db: Db, row: Omit<GenerationRunRow, "created_at" | "updated_at" | "finished_at">): GenerationRunRow {
+  const at = nowIso();
+  const full: GenerationRunRow = { ...row, created_at: at, updated_at: at, finished_at: null };
+  const placeholders = GENERATION_RUN_COLUMNS.map(() => "?").join(", ");
+  db.prepare(`INSERT INTO admin_generation_runs (${GENERATION_RUN_COLUMNS.join(", ")}) VALUES (${placeholders})`).run(
+    ...GENERATION_RUN_COLUMNS.map((name) => full[name])
+  );
+  return getGenerationRun(db, row.id) as GenerationRunRow;
+}
+
+export function getGenerationRun(db: Db, id: string): GenerationRunRow | null {
+  return (db.prepare("SELECT * FROM admin_generation_runs WHERE id = ?").get(id) as GenerationRunRow | undefined) ?? null;
+}
+
+export function listGenerationRuns(db: Db, limit: number): GenerationRunRow[] {
+  return db.prepare("SELECT * FROM admin_generation_runs ORDER BY created_at DESC, rowid DESC LIMIT ?").all(Math.max(1, Math.floor(limit))) as unknown as GenerationRunRow[];
+}
+
+export function updateGenerationRun(
+  db: Db,
+  id: string,
+  patch: Partial<Omit<GenerationRunRow, "id" | "created_at">>
+): GenerationRunRow | null {
+  const entries = Object.entries(patch).filter(([name]) => name !== "updated_at");
+  for (const [name] of entries) {
+    if (!GENERATION_RUN_UPDATABLE.has(name)) throw new Error(`Unknown generation run column: ${name}`);
+  }
+  const sets = [...entries.map(([name]) => `${name} = ?`), "updated_at = ?"];
+  const values = [...entries.map(([, value]) => (value === undefined ? null : value) as string | number | null), nowIso()];
+  db.prepare(`UPDATE admin_generation_runs SET ${sets.join(", ")} WHERE id = ?`).run(...values, id);
+  return getGenerationRun(db, id);
+}
+
+export function deleteGenerationRun(db: Db, id: string): boolean {
+  return Number(db.prepare("DELETE FROM admin_generation_runs WHERE id = ?").run(id).changes) > 0;
+}
+
+export function findGenerationRunByCatalogKey(db: Db, key: string): GenerationRunRow | null {
+  return (db.prepare("SELECT * FROM admin_generation_runs WHERE catalog_key = ? ORDER BY created_at DESC LIMIT 1").get(key) as GenerationRunRow | undefined) ?? null;
+}
+
+// 서버를 다시 켤 때: 돌던 실행은 끝을 알 수 없으므로 중단됨으로 바꾼다.
+export function interruptRunningGenerationRuns(db: Db): number {
+  const at = nowIso();
+  return Number(
+    db.prepare("UPDATE admin_generation_runs SET status = 'interrupted', updated_at = ?, finished_at = ? WHERE status = 'running'").run(at, at).changes
+  );
+}
+
+// 하루 시작 건수. 생성 기록을 지워도 줄지 않도록 따로 센다.
+export function getGenerationStartCount(db: Db, day: string): number {
+  const row = db.prepare("SELECT started FROM admin_generation_daily WHERE day = ?").get(day) as { started: number } | undefined;
+  return Number(row?.started ?? 0);
+}
+
+export function addGenerationStart(db: Db, day: string): number {
+  db.prepare("INSERT INTO admin_generation_daily (day, started) VALUES (?, 1) ON CONFLICT(day) DO UPDATE SET started = started + 1").run(day);
+  return getGenerationStartCount(db, day);
+}
+
+// 서버를 다시 켤 때: 미션을 저장하고 검수하던 실행은 미션이 남아 있으므로 검토 대기(검수 실패)로 돌린다.
+// interruptRunningGenerationRuns보다 먼저 부른다. 바꾼 수를 돌려준다.
+export function recoverSavedReviewRuns(db: Db): number {
+  const at = nowIso();
+  return Number(
+    db.prepare(`UPDATE admin_generation_runs SET status = 'ready', stage = 'done', review_verdict = 'review_failed', updated_at = ?, finished_at = ?
+      WHERE status = 'running' AND stage = 'review' AND mission_id IS NOT NULL`).run(at, at).changes
+  );
+}

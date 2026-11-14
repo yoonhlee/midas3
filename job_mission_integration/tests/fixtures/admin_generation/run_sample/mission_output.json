@@ -1,0 +1,491 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001080_normal_001",
+  "job_identity": {
+    "job_cd": "K000001080",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "데이터·네트워크 및 시스템 운영 전문가",
+    "job_smcl_nm": "데이터분석가(빅데이터분석가)",
+    "source_ref": {
+      "file": "K000001080/dtlGb_2.xml",
+      "field": "jobsDo"
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "프로그램을 사용하여 분석 결과를 시각화한다.",
+    "source_ref": {
+      "file": "K000001080/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "D서비스팀",
+    "domain": "서비스 이용 데이터",
+    "period": [
+      "1월",
+      "2월",
+      "3월",
+      "4월"
+    ],
+    "trend_pattern": "중반까지 개선되다가 최근 두 기간에서 하락 또는 정체가 나타남",
+    "main_issue": "핵심 지표가 최근 약해지고 부정 의견이 늘어남",
+    "feedback_themes": [
+      "가격 대비 만족도 약화",
+      "대안 비교 필요",
+      "실행 전 제약 확인 필요"
+    ],
+    "decision_goal": "서비스 이용 데이터에 대해 다음 실행 방향 1가지를 근거와 함께 제안한다."
+  },
+  "mission": {
+    "title": "서비스 이용 데이터 자료 검토 미션",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "데이터분석 담당자",
+      "context": "온라인 서비스 운영팀에서 최근 이용 지표 변화와 고객 행동 로그를 검토하고 있다.",
+      "goal": "서비스 이용 데이터에 대해 다음 실행 방향 1가지를 근거와 함께 제안한다.",
+      "constraints": [
+        "제공된 자료만 사용한다.",
+        "최소 2개 이상의 자료를 근거로 연결한다.",
+        "외부 검색이나 전문 법률·투자·보험 지식 없이 판단한다."
+      ],
+      "glossary": []
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "feedback_summary",
+        "title": "D서비스팀 고객 반응 요약 메모",
+        "description": "서비스 이용 데이터 판단에 필요한 memo 자료다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "핵심 문제와 실행 방향 판단",
+        "evidence_source": [
+          "수리력"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "고객지원 담당자",
+          "items": [
+            "최근 두 기간에서 만족도 관련 부정 의견이 늘었다.",
+            "가격 대비 효용을 더 명확히 보여달라는 의견이 반복되었다.",
+            "기존 방식은 안정적이지만 새로움이 부족하다는 평가가 있었다."
+          ]
+        },
+        "confidence": {
+          "score": 0.86,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "chart",
+        "subtype": "monthly_trend",
+        "title": "D서비스팀 월별 핵심 지표 추이",
+        "description": "서비스 이용 데이터 판단에 필요한 chart 자료다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "핵심 문제와 실행 방향 판단",
+        "evidence_source": [
+          "수리력"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "chart_type": "line",
+          "x_axis": {
+            "label": "기간",
+            "values": [
+              "1월",
+              "2월",
+              "3월",
+              "4월"
+            ]
+          },
+          "y_axis": {
+            "label": "핵심 지표",
+            "unit": "점"
+          },
+          "series": [
+            {
+              "name": "핵심 지표",
+              "values": [
+                72,
+                76,
+                81,
+                84
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.86,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "자료에서 최근 흐름상 가장 큰 문제 1가지와 그 근거를 2~3문장으로 작성하세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "analyze_issue"
+      }
+    ],
+    "submission_format": {
+      "type": "guided_short_report",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "핵심 발견 1가지",
+        "근거 자료 2개",
+        "제안 1가지"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "수치 흐름과 정성 의견을 함께 연결해야 한다.",
+      "제안은 제공 자료에서 확인되는 문제와 직접 연결되어야 한다.",
+      "실행 전 제약이나 리스크를 함께 고려해야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "자료 해석",
+        "description": "제공 자료에서 핵심 흐름과 문제를 정확히 찾았는가",
+        "points": 30,
+        "linked_evidence": [
+          "수리력"
+        ]
+      },
+      {
+        "criterion": "근거 기반 판단",
+        "description": "선택한 방향이 2개 이상의 자료 근거와 연결되는가",
+        "points": 40,
+        "linked_evidence": [
+          "수리력"
+        ]
+      },
+      {
+        "criterion": "실행 가능성",
+        "description": "제안과 주의점이 시간 안에 수행 가능한 형식으로 정리되었는가",
+        "points": 30,
+        "linked_evidence": [
+          "수리력"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "프로그램을 사용하여 분석 결과를 시각화한다.",
+      "source_ref": {
+        "file": "K000001080/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 수집",
+          "score": 97,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 95,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 95,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 95,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "의사 결정, 문제점 해결",
+          "score": 93,
+          "description": "가장 좋은 해결책을 선택하기 위해 정보를 분석하고 문제점을 해결하기 위해 결과를 평가하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001080/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "수리력",
+          "score": 96,
+          "description": "어떤 문제를 해결하기 위해 수학을 사용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "전산",
+          "score": 95,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "논리적 분석",
+          "score": 92,
+          "description": "문제를 해결하기 위해(혹은 의사결정을 하기 위해) 체계적으로 이치에 맞는 생각을 해낸다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "산수와 수학",
+          "score": 93,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 87,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 75,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 91,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "연설, 발표, 회의하기",
+          "score": 84,
+          "description": "사람들 앞에서 공식적으로 연설(발표,회의 등의 상황)",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "수리력"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "수리력"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001080/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

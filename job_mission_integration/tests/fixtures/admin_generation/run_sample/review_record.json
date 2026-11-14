@@ -1,0 +1,28 @@
+{
+  "schema_version": "mission_review.v1",
+  "mission_id": "mission_K000001080_normal_001",
+  "job_cd": "K000001080",
+  "job_name": "데이터분석가(빅데이터분석가)",
+  "difficulty": "normal",
+  "title": "서비스 이용 데이터 자료 검토 미션",
+  "verdict": "pass",
+  "verdict_label": "통과",
+  "reasons": [],
+  "error_count": 0,
+  "warning_count": 0,
+  "note_count": 0,
+  "judgement": {
+    "verdict": "pass",
+    "summary": "고정 데이터용 검수 기록.",
+    "expected_answer_check": "correct",
+    "agreement": "same",
+    "answer_unique": "yes",
+    "issues": [],
+    "fact_doubts": []
+  },
+  "solver_result": {
+    "solvable": "yes",
+    "answers": [],
+    "issues": []
+  }
+}
