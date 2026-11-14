@@ -701,12 +701,44 @@
 - Python 테스트(`python -X utf8 -m unittest discover -s tests/python`, API를 부르지 않음): 385개 통과. Windows에서는 `python3`가 아니라 `python`을 쓴다
 - typecheck 통과, check:frontend 26/26, test:unit 66/66(새 테스트 1개), test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9
 
+### 2026-11-14 — 관리자 미션 생성 서버 경로를 새 방식으로: 생성 · 검수 · 생성 기록 · 카탈로그 추가와 삭제
+왜:
+- 관리자 페이지의 미션 생성을 새 방식으로 바꾸는 일의 둘째 부분. 화면 없이 서버 경로만으로 "직업 · 하는 일 문장 · 능력단위 · 난이도" 한 건을 만들고, 검수하고, 생성 기록에 남기고, 서비스 카탈로그에 넣고 뺄 수 있게 했다.
+
+바뀐 것:
+- 경로(모두 `/api/admin/mission-generation` 아래, `requireAdmin(allowDemoRead)`. 읽기는 조회 전용 열기에서도 열리고 바꾸기는 늘 암호가 필요하다):
+  - `GET /status`(모드, 시작 전 확인 결과(60초 다시 씀), 오늘 건수와 한도, 형태 좁히기 여부, 도는 실행, 예상 시간과 비용), `GET /jobs`, `GET /jobs/:jobCode/sentences`, `GET /material-types?jobCode=&execJobId=&unitKey=&difficulty=`
+  - `POST /runs`(본문 `{ jobCode, execJobId, unitKey, difficulty, review }`, 모르는 칸은 400), `GET /runs`, `GET /runs/:runId`, `POST /runs/:runId/review`(검수만 다시), `POST /runs/:runId/catalog`(카탈로그에 추가), `DELETE /runs/:runId`(기록과 실행 폴더를 지우고, 추가돼 있으면 서비스에서도 뺌)
+  - `GET /catalog`, `DELETE /catalog/:missionKey`(관리자 페이지에서 추가한 미션만 서비스에서 뺌, 기록은 검토 대기로)
+  - 오류는 `{ error: { code, message, details? } }`. 코드 목록은 `src/lib/adminGeneration/service.ts`와 `src/server/routes/adminGeneration.ts`에 있다
+- 일은 `src/lib/adminGeneration/`이 맡는다: `commands.ts`(Python을 부르는 자리 하나. 제공자를 `MISSION_LLM_PROVIDER=anthropic`으로 못박음, 진행 줄을 바이트 경계와 상관없이 줄로 나눔, 시간 제한), `ncsCatalog.ts`(고를 수 있는 연결 = 직접, 간접 가운데 분야 한정), `progress.ts`(진행 메시지 → 단계), `runFiles.ts`, `fakeCommands.ts`, `catalogFile.ts`, `service.ts`(한 번에 하나, 하루 한도, 추가 · 삭제는 차례로)
+- 실행 폴더는 생성기가 처음 찍는 `run started - run_id=…` 줄에서 읽는다(예전의 "가장 최근에 바뀐 폴더" 찾기를 없앰)
+- 새 표 둘(마이그레이션 버전 2): `admin_generation_runs`(생성 기록), `admin_generation_daily`(한국 시간 날짜별 시작 건수. 기록을 지워도 줄지 않음)
+- 서버를 다시 켜면 돌던 실행은 "중단됨"이 된다. 다만 미션을 저장하고 검수하던 실행은 "검토 대기 + 검수 실패"로 돌아와 카탈로그 추가와 검수 다시 돌리기가 된다
+- 카탈로그 추가 · 삭제가 기다리거나 도는 실행, 이미 도는 실행에는 검수 다시 돌리기를 받지 않는다(409 `GENERATION_STILL_RUNNING`)
+- 조회 전용 열기(암호 없이 읽기)로 `GET /runs/:runId`를 보면 미션의 기대 답 · 채점 기준(`evaluation`)과 검수에서 풀어 본 답을 빼고 준다. 암호가 있으면 그대로 준다
+- 관리자 페이지로 추가한 미션의 키: `jobsim_admin_v1__mission_<직업코드>_<난이도>_<번호>`(날짜 없음). 이름이 고정된 폴더 `outputs/admin_export/runs/jobsim_admin_v1/…`에 미션 하나만 두고 `scripts/export_missions.py --outputs … --missions-dir …`를 부른다. 같은 미션 번호가 이미 있으면 끝 번호가 올라간다. 키가 `jobsim_admin_v1__`로 시작하는 미션만 지울 수 있다
+- 추가가 중간에 실패하면(내보내기 실패, 키가 예상과 다름, 검증 실패) `missions/`의 색인과 파일을 되돌린다. 바꾸기 전 모습을 읽지 못하면 카탈로그를 건드리지 않고 500 `CATALOG_UPDATE_FAILED`를 준다. 카탈로그에서 뺄 때 색인은 숫자 글자(1.0 등)를 그대로 두고 다시 쓴다
+- 새 설정 넷(`.env.example`): `ADMIN_GENERATION_DAILY_LIMIT`(기본 20), `ADMIN_GENERATION_NARROW`(기본 좁힘), `ADMIN_GENERATION_MODE`(`fake`면 생성 · 검수 없이 `tests/fixtures/admin_generation/run_sample`을 고른 직업 · 난이도에 맞춰 복사. 운영(`APP_ENV=production`)에서는 켜지지 않음. 카탈로그 추가는 가짜 모드에서도 실제 `missions/`를 바꾼다), `PYTHON_BIN`
+- 옛 관리자 생성 코드(OpenAI 시작 전 확인, 조사 자료 기준 직업 목록, `findLatestRunDir`, 미리보기 만들기)를 지웠다
+
+수정 파일:
+- 새 파일: `src/lib/adminGeneration/`(`commands.ts`, `ncsCatalog.ts`, `progress.ts`, `runFiles.ts`, `fakeCommands.ts`, `catalogFile.ts`, `service.ts`), `tests/unit/adminGeneration.test.ts`, `tests/unit/adminGenerationService.test.ts`, `tests/unit/helpers/adminGenerationFixture.ts`, `tests/fixtures/admin_generation/`(직업 NCS 고정 데이터 2개, 고정 실행 결과 4개), `tests/python/test_export_staging_key.py`
+- 고친 파일: `src/server/routes/adminGeneration.ts`(다시 씀), `src/server/app.ts`, `src/server/config.ts`, `src/lib/db/database.ts`, `src/lib/db/repos.ts`, `src/lib/api/contracts.ts`, `tests/unit/helpers/testServer.ts`, `tests/unit/server.test.ts`(기존 테스트 둘을 새 계약에 맞춤), `package.json`(`test:unit`에 새 테스트 파일 둘), `.env.example`
+
+검증:
+- typecheck 통과, check:frontend 26/26, test:unit 92/92(새 테스트 26개, 외부 API를 부르지 않음), test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9
+- Python 테스트 386개 통과(패키지가 있는 Python과 없는 Python 둘 다, 새 테스트 1개)
+- 가짜 모드(`ADMIN_GENERATION_MODE=fake`)로 띄운 서버에서 경로만으로 직업 목록(74개) → 문장 목록 → 생성 → 카탈로그에 추가 → 카탈로그에서 삭제 → 생성 기록에서 삭제를 확인했다. 추가한 미션의 키는 `jobsim_admin_v1__mission_K000000832_easy_002`(미리 넣은 `_001`이 있어 번호가 올라감)였고, 끝난 뒤 `missions/`에 변화가 없었다. 서버를 다시 켜도 지우지 않은 생성 기록이 남았다
+- 실제 Python으로 `GET /status`(시작 전 확인 통과)와 `GET /material-types`(데이터분석가 문장 5, 보통 → 메모 · 차트)를 확인했다(비용 없음)
+- 실제 호출 한 건(정보보안전문가 문장 7, 분야 한정 능력단위, 쉬움, 검수 포함, 사용자 승인): 경로로 시작해 설계(27초) → 설계 검사 → 미션 작성(33초) → 미션 검사 → 내용 검수(22초) 순서로 넘어갔고, 생성과 검수에 1분 22초, 다시 쓴 횟수 0, 판정 통과. 자료 형태는 규칙대로 기록(log) 하나였다. 카탈로그에 넣었다가 빼고 생성 기록에서 지웠다
+
 ---
 
 ## Open Items (Next)
 
 0000. 관리자 미션 생성 후속(2026-11-14)
-- 관리자 화면과 서버 경로는 아직 예전 방식이다. 위의 명령을 부르는 서버 경로, 생성 기록 저장, 화면, 배포 이미지(Python 패키지 설치)가 남았다
+- 관리자 화면(`app/admin.js`)은 아직 옛 계약을 쓴다. 화면을 바꿀 때까지 미션 생성 칸이 돌지 않는다
 - Python 테스트는 CI에 걸려 있지 않다
 - `pilot_runner`의 `--ncs-targets` 도움말이 이 브랜치에 없는 모듈(`target_planner`)을 가리킨다
 - 문장 ↔ 능력단위 연결은 사람이 확인하지 않았다(판단 기준은 자료에 적혀 있다)
