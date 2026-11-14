@@ -76,7 +76,7 @@ export function loadServerConfig(env: NodeJS.ProcessEnv = process.env): ServerCo
     paths: {
       root: ROOT_DIR,
       reports,
-      missions: path.join(ROOT_DIR, "missions"),
+      missions: path.resolve(ROOT_DIR, (env.MISSIONS_DIR ?? "").trim() || "missions"),
       outputs: path.join(ROOT_DIR, "outputs"),
       apiRaw: path.join(ROOT_DIR, "data/api_raw"),
       additionalSearch: path.join(ROOT_DIR, "data/additional_search"),

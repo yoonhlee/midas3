@@ -6,7 +6,7 @@ export function answerCountText(length) {
   return `${near ? "⚠ " : ""}${length.toLocaleString("ko-KR")} / ${ANSWER_MAX.toLocaleString("ko-KR")}자${length >= ANSWER_MAX ? " (한도에 닿았어)" : ""}`;
 }
 
-function renderMaterial(material, esc) {
+export function renderMaterial(material, esc) {
   const title = `<div class="mat-title">${esc(material.title || material.subtype || material.material_id)}</div>`;
   const description = material.description ? `<div class="mat-desc">${esc(material.description)}</div>` : "";
   const usage = material.used_for ? `<div class="mat-use">📝 ${esc(material.used_for)}</div>` : "";
