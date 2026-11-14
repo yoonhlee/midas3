@@ -1,0 +1,620 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007499_hard_001",
+  "job_identity": {
+    "job_cd": "K000007499",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "데이터·네트워크 및 시스템 운영 전문가",
+    "job_smcl_nm": "네트워크관리자",
+    "source_ref": {
+      "file": "K000007499/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_006",
+    "text": "네트워크시스템의 고장 및 운영상에 이상이 발견되면 문제점을 파악하여 복구한다.",
+    "source_ref": {
+      "file": "K000007499/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 6
+    },
+    "selection_reason": "Pilot config selected exec_006."
+  },
+  "mission_facts": {
+    "org_name": "누리별상사",
+    "domain": "사내 네트워크 운영(층별 스위치와 인터넷 연결 관리)",
+    "period": [
+      "오늘 08:50~09:45 오전 기록",
+      "오늘 12:00~13:00 점심시간",
+      "오늘 14:00~15:00 고객사 화상회의"
+    ],
+    "trend_pattern": "오늘 오전 영업팀에서 인터넷 끊김 신고가 두 번 들어왔고, 같은 시간대에 모니터링 시스템이 스위치 이벤트를 남겼다.",
+    "main_issue": "영업팀 PC의 인터넷이 1~2분씩 끊겼다가 다시 연결되는 일이 이어지고 있어, 장애가 난 장비(구간)와 유형을 파악하고 복구 계획을 세워야 한다.",
+    "feedback_themes": [
+      "14:00~15:00 고객사 화상회의 중에는 인터넷 끊김 불가",
+      "오전(12:00까지)에는 한 번에 5분 넘는 끊김 곤란",
+      "12:00~13:00 점심시간에는 끊김 허용"
+    ],
+    "decision_goal": "장애가 난 장비(구간)와 유형을 판단하고, 어떤 복구 조치를 언제 시행할지 하나를 정해 추천한다."
+  },
+  "mission": {
+    "title": "인터넷 끊김 신고, 기록으로 원인 찾고 복구 계획 세우기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "누리별상사 네트워크운영팀 인턴",
+      "context": "당신은 누리별상사 네트워크운영팀 인턴입니다. 오늘 아침 영업팀에서 인터넷이 자꾸 끊긴다는 신고가 들어왔고, 지금 시각은 09:45입니다. 팀장님이 이렇게 부탁했습니다. '업무 매뉴얼 기준을 오늘 오전 기록에 대어 보고, 어느 장비(구간)에서 어떤 유형의 장애가 났는지 먼저 판단해 줘요. 그다음 영업팀장님 요청을 보고 어떤 복구 조치를 언제 하면 좋을지 하나 추천해 줘요.'",
+      "goal": "아래 자료 세 가지를 보고 장애가 난 장비(구간)와 유형을 판단한 뒤, 복구 조치와 시행 시점을 하나 골라 이유와 주의할 점을 함께 추천해 보세요.",
+      "constraints": [
+        "자료에 적힌 기록과 기준만 근거로 쓰세요. 외부 지식이나 검색은 필요하지 않습니다.",
+        "현재 시각은 09:45로 보고 판단하세요.",
+        "장비를 직접 다루는 작업은 하지 않습니다. 기록으로 판단하고 복구 계획을 정하는 데까지만 합니다.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "장애 유발 통신기기",
+          "definition": "네트워크 장애를 일으킨 원인이 되는 통신 장비입니다. 이 미션에서는 장비 자체와 그 장비에 연결된 케이블·포트 구간까지 포함합니다."
+        },
+        {
+          "term": "스위치",
+          "definition": "여러 PC와 장비를 케이블로 묶어 서로, 그리고 위쪽 네트워크로 데이터를 전달해 주는 통신 장비입니다. 이 미션에서는 층마다 놓인 층 스위치(SW-2F, SW-3F 등)를 가리킵니다."
+        },
+        {
+          "term": "코어 스위치",
+          "definition": "각 층 스위치가 모두 연결되는 건물 중심의 스위치로, 인터넷 회선과 이어져 있습니다."
+        },
+        {
+          "term": "업링크",
+          "definition": "층 스위치에서 더 위쪽 장비인 코어 스위치로 이어지는 연결입니다. 그 층 PC들의 인터넷 통신은 이 연결을 거쳐 밖으로 나갑니다."
+        },
+        {
+          "term": "링크",
+          "definition": "두 장비의 포트가 케이블로 이어져 신호가 오가는 상태입니다. '링크 끊김'은 이 연결이 잠시 끊긴 것을 뜻합니다."
+        },
+        {
+          "term": "예비 포트",
+          "definition": "포트는 장비에 케이블을 꽂는 연결 구멍이고, 예비 포트는 평소 비워 두었다가 쓰던 포트 대신 사용하는 포트입니다."
+        },
+        {
+          "term": "모니터링",
+          "definition": "네트워크 장비의 상태를 시스템이 계속 지켜보면서 링크 끊김이나 장비 재시작 같은 일을 시각과 함께 자동으로 기록하는 일입니다."
+        },
+        {
+          "term": "가동 ○일째",
+          "definition": "장비가 마지막으로 다시 켜진 뒤 한 번도 멈추지 않고 계속 켜져 있던 날 수입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "manual_excerpt",
+        "title": "업무 매뉴얼(지침서) 중 장애 처리 부분 발췌",
+        "description": "네트워크운영팀이 관리하는 업무 매뉴얼(지침서)에서 장애 처리 부분만 옮겨 적은 문서입니다. 장애 유발 통신기기를 찾는 기준, 장애 유형을 나누는 기준, 유형별 장애 해결방안이 들어 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 기록에 적용할 장비 후보 기준과 유형 분류 기준을, 과제 2에서 고를 수 있는 복구 방법과 방법별 끊김 시간, 시행 전 협의 규칙을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "고장의 발견.수리",
+          "전자장비 유지 보수"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue"
+        ],
+        "data": {
+          "author": "네트워크운영팀",
+          "items": [
+            "① 장애 유발 통신기기 찾기: 증상이 한 층에서만 나타나면 그 층 스위치와 그 스위치에서 코어 스위치로 이어지는 구간(업링크)을 후보로 본다. 증상이 여러 층에서 함께 나타나면 코어 스위치와 인터넷 회선을 후보로 본다.",
+            "② 장애 유형 분류: 장비 재시작 없이 링크가 끊겼다 다시 붙기를 반복하면 '케이블·포트 불량'으로 분류한다. 장비 재시작이 계획 없이 반복되면 '장비 불량'으로 분류한다.",
+            "③ 장애 해결방안: 케이블·포트 불량은 예비 포트로 옮기기(인터넷 끊김 약 2분) 또는 케이블 교체(끊김 약 10분)로 복구한다. 모니터링 기록만으로는 케이블 쪽 문제인지 포트 쪽 문제인지 구분되지 않으며, 예비 포트로 옮기면 포트 쪽 문제만, 케이블을 교체하면 케이블 쪽 문제만 해결된다. 장비 불량은 예비 장비로 교체(끊김 약 30분)한다. 업무시간(09:00~18:00) 중에 끊김이 생기는 조치는 해당 부서와 시간을 협의한 뒤 시행한다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "incident_event_log",
+        "title": "오늘 오전 장애 신고·모니터링 이벤트 기록 (08:50~09:40)",
+        "description": "헬프데스크에 들어온 장애 신고와 모니터링 시스템이 남긴 장비 이벤트를 시각 순으로 모은 기록입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 각 기록의 시각, 층, 장비 재시작 여부를 매뉴얼 기준과 맞춰 보는 데 씁니다.",
+        "evidence_source": [
+          "고장의 발견.수리",
+          "통신"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "08:50",
+              "actor": "네트워크운영팀 박OO",
+              "event": "SW-2F(2층 스위치) 점검 후 장비 재시작",
+              "note": "사전 공지한 계획 작업, 3분 뒤 정상"
+            },
+            {
+              "time": "09:12",
+              "actor": "영업팀(3층) 김OO",
+              "event": "3층 PC 여러 대 인터넷 끊김 신고",
+              "note": "1~2분 뒤 저절로 다시 연결됨"
+            },
+            {
+              "time": "09:13",
+              "actor": "모니터링 시스템",
+              "event": "SW-3F(3층 스위치) 업링크 포트 링크 끊김 후 재연결",
+              "note": "오늘 4번째, 장비 재시작 없음(가동 41일째)"
+            },
+            {
+              "time": "09:40",
+              "actor": "영업팀(3층) 김OO",
+              "event": "같은 증상 다시 신고",
+              "note": "2층·4층 신고 없음"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "memo",
+        "subtype": "request_memo",
+        "title": "3층 인터넷 장애 복구 작업 시간 요청",
+        "description": "영업팀장 이OO가 네트워크운영팀에 보낸 복구 작업 시간 요청 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 복구 조치를 시행할 시간을 정할 때 지켜야 할 영업팀의 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "전자장비 유지 보수"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "영업팀장 이OO",
+          "items": [
+            "오늘 14:00~15:00에는 고객사와 화상회의가 있어서, 이 시간에는 3층 인터넷이 끊기면 안 됩니다.",
+            "오전(12:00까지)에는 견적 입력이 몰려 있어서 한 번에 5분 넘게 끊기면 곤란합니다.",
+            "12:00~13:00 점심시간에는 끊겨도 괜찮습니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "업무 매뉴얼 발췌(자료 1)의 기준을 오늘 오전 기록(자료 2)에 적용해 보세요. 장애를 일으킨 장비(구간)와 장애 유형을 판단하고, 그렇게 판단한 근거가 된 기록을 함께 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "자료 1의 장비 후보 기준과 유형 분류 기준을 자료 2의 시각, 층, 장비 재시작 여부와 대조해 장애 장비(구간)와 유형을 판단하고, 근거가 된 기록을 기준과 연결해 쓴다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 판단과 매뉴얼의 장애 해결방안(자료 1), 영업팀장의 요청(자료 3)을 함께 보고, 어떤 복구 조치를 언제 시행할지 하나를 정해 팀장님께 추천해 보세요. 추천 이유에는 다른 조치나 시점보다 이 선택이 나은 까닭이 드러나게 쓰고, 그 조치에서 주의할 점 하나를 포함해 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "과제 1의 유형 판단에 맞는 복구 방법 가운데 끊김 시간과 영업팀의 시간 조건을 함께 따져 조치와 시점을 하나 정하고, 다른 선택지보다 나은 이유와 그 조치의 위험이나 한계 하나를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 장애 장비(구간)와 유형 판단, 근거 기록",
+        "과제 2: 복구 조치와 시점 추천, 추천 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1: 끊김 신고는 3층 영업팀에서만 들어왔고 2층·4층 신고는 없으므로, 매뉴얼 기준 ①에 따라 3층 스위치(SW-3F)와 그 업링크 구간이 장애 유발 통신기기 후보가 된다.",
+      "과제 1: SW-3F 업링크 포트가 장비 재시작 없이(가동 41일째) 오늘 4번째 끊겼다 다시 연결되었으므로, 기준 ②에 따라 유형은 케이블·포트 불량이다. 기대 답은 SW-3F 업링크 구간, 케이블·포트 불량이다.",
+      "과제 1 배경: 08:50 SW-2F 재시작은 사전 공지한 계획 작업이고 3분 뒤 정상이 되었으며, 첫 신고(09:12)보다 앞서고 2층 신고도 없으므로 원인으로 보기 어렵다.",
+      "과제 2 배경: 기록만으로는 포트 쪽 문제인지 케이블 쪽 문제인지 가려지지 않아 정답이 하나로 정해지지 않는다. 지금 예비 포트로 옮기기(약 2분, 오전 5분 조건 안), 점심시간 케이블 교체(약 10분, 그때까지 끊김 반복), 점심시간에 둘 다 하기(약 12분), 지금 포트를 옮기고 점심시간에 케이블까지 교체하기, 회의가 끝난 뒤로 미루기(회의 중 재발 위험) 등을 비교할 수 있다. 오전 중 케이블 교체(약 10분)는 5분 조건을 넘고, 예비 장비 교체(약 30분)는 판단한 유형에 맞지 않는다.",
+      "예시: 지금 예비 포트로 옮기면 오전 5분 조건 안에서 끊김 반복을 바로 멈출 수 있고, 14:00 회의 전에 효과를 확인할 시간이 남는다. 주의할 점으로는 케이블 쪽 문제라면 회의 중 다시 끊길 수 있으니 회의 전까지 재발 여부를 지켜봐야 하고, 업무시간 중 조치이므로 영업팀과 시간을 먼저 협의해야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "장애 장비(구간)와 유형 판단",
+        "description": "과제 1에서 장애를 일으킨 장비(구간)와 장애 유형을 적었는지 본다. 자료가 하나로 정하므로 기대 답은 SW-3F(3층 스위치)의 업링크 구간, 유형은 케이블·포트 불량이다. 장비(구간)만 맞고 유형이 틀리거나, 유형만 맞고 장비(구간)가 틀리면 일부 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "고장의 발견.수리"
+        ]
+      },
+      {
+        "criterion": "판단 근거 기록 제시",
+        "description": "과제 1에서 판단 근거로 3층에서만 신고가 있었다는 기록(2층·4층 신고 없음)과 SW-3F 업링크 포트가 장비 재시작 없이 끊김과 재연결을 반복했다는 기록을 매뉴얼의 장비 후보 기준과 유형 분류 기준에 연결해 제시했는지 본다. 두 기록을 각각 해당 기준과 연결하면 만점, 하나만 연결하거나 기록을 나열만 하고 기준과 잇지 않으면 일부 점수를 준다.",
+        "points": 20,
+        "linked_evidence": [
+          "고장의 발견.수리",
+          "통신"
+        ]
+      },
+      {
+        "criterion": "복구 조치·시점 추천과 이유",
+        "description": "과제 2에서 추천한 복구 조치와 시점, 그 이유를 본다. 특정 답을 요구하지 않는다. 이유가 과제 1의 유형 판단, 자료 1의 조치별 끊김 시간, 자료 3의 시간 조건에서 나와, 학습자가 고른 선택이 자료로 생각할 수 있는 다른 선택지(지금 예비 포트로 옮기기, 점심시간 케이블 교체, 점심시간에 둘 다 하기, 지금 포트를 옮기고 점심시간에 케이블까지 교체하기, 회의 뒤로 미루기 등)보다 왜 나은지 보여 주면 만점이다. 자료의 사실은 맞게 들었지만 다른 선택지보다 나은 까닭을 보이지 못하면 일부 점수를 준다. 판단한 유형에 맞지 않는 조치를 고르거나 자료 3의 시간 조건을 어기는 시점을 고르고 그 문제를 다루지 않으면 낮은 점수를 준다. 예: 지금 예비 포트로 옮기면 오전 5분 조건 안에서 끊김 반복을 바로 멈출 수 있고 회의 전에 효과를 확인할 시간이 남는다.",
+        "points": 35,
+        "linked_evidence": [
+          "고장의 발견.수리",
+          "전자장비 유지 보수"
+        ]
+      },
+      {
+        "criterion": "주의할 점",
+        "description": "과제 2에서 쓴 주의할 점 하나가 학습자가 고른 조치에 실제로 따르는 위험이나 한계로서 자료에 드러난 것인지 본다. 고른 조치와 관계없는 일반적인 주의나 자료에 없는 위험이면 점수를 주지 않는다. 예: 포트만 옮기면 케이블 쪽 문제일 경우 14:00 회의 중 다시 끊길 수 있으므로 회의 전까지 재발 여부를 지켜봐야 한다. 업무시간 중 조치라면 매뉴얼에 따라 영업팀과 시간을 먼저 협의해야 한다는 점도 인정한다.",
+        "points": 20,
+        "linked_evidence": [
+          "전자장비 유지 보수"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_006",
+      "text": "네트워크시스템의 고장 및 운영상에 이상이 발견되면 문제점을 파악하여 복구한다.",
+      "source_ref": {
+        "file": "K000007499/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 6
+      },
+      "selection_reason": "Pilot config selected exec_006."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "전자장비 유지 보수",
+          "score": 98,
+          "description": "기계가 아닌 전자적 원리에 의해 작동되는 장비, 부품, 장치, 기계를 정비, 수리, 조절, 시험하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007499/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 98,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007499/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 95,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007499/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 94,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007499/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 93,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007499/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 96,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "조작 및 통제",
+          "score": 96,
+          "description": "장비 혹은 시스템을 조작하고 통제한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "모니터링(Monitoring)",
+          "score": 95,
+          "description": "타인 혹은 조직의 성과를 점검하고 평가한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 93,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 86,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "안전과 보안",
+          "score": 70,
+          "description": "사람들과 재산을 보호하기 위해 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 93,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "자동화 정도",
+          "score": 90,
+          "description": "업무의 자동화 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 89,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "고장의 발견.수리",
+          "전자장비 유지 보수"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "고장의 발견.수리",
+          "통신"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "전자장비 유지 보수"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007499/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007499/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007499/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.2,
+    "AX2": 0.2,
+    "AX3": 0.2,
+    "AX4": 0.2,
+    "AX5": 0.2
+  }
+}

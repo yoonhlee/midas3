@@ -1,0 +1,479 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007500_easy_001",
+  "job_identity": {
+    "job_cd": "K000007500",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "회계·세무·감정 전문가",
+    "job_smcl_nm": "관세사",
+    "source_ref": {
+      "file": "K000007500/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "관세 환급에 필요한 서류를 작성하고 신청한다.",
+    "source_ref": {
+      "file": "K000007500/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "새온장신구",
+    "domain": "수출용원재료 관세 환급(개별환급) 신청서 작성",
+    "period": [
+      "원재료 수입 시",
+      "수출 완료 후 환급 신청 준비"
+    ],
+    "trend_pattern": "진주를 수입할 때 관세, 개별소비세, 부가가치세 세 가지 세금을 냈다",
+    "main_issue": "개별환급 신청서의 환급 대상 세액 칸에 적을 금액을 정해야 한다",
+    "feedback_themes": [
+      "세목별 납부 금액 확인",
+      "개별환급 기준 적용"
+    ],
+    "decision_goal": "개별환급 기준에 맞는 세목의 납부세액 합계를 신청서에 적을 금액으로 정한다"
+  },
+  "mission": {
+    "title": "진주 수출 뒤 개별환급 신청서의 환급 대상 세액 정하기",
+    "task_type": "communication_and_reporting",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 누리관세사무소에서 관세 환급 서류 작성을 돕는 인턴입니다.",
+      "context": "누리관세사무소는 장신구 제조업체 새온장신구의 통관 업무를 맡고 있습니다. 새온장신구는 해외에서 수입한 장신구용 진주로 반지를 만들어 수출을 마쳤고, 진주를 수입할 때 낸 세금을 개별환급 방식으로 돌려받으려 합니다. 선임 관세사가 환급 신청서 초안 작성을 맡기면서 진주 수입 때의 세금 납부 내역표를 보내 주었습니다.",
+      "goal": "납부 내역표를 보고 개별환급 신청서의 '환급 대상 세액' 칸에 적을 금액을 정해 선임 관세사에게 알려 주세요.",
+      "constraints": [
+        "선임 관세사 안내: 개별환급은 수출용원재료를 수입할 때 낸 세금 가운데 부가가치세를 뺀 관세, 개별소비세, 주세, 교육세를 돌려받는 방식이에요.",
+        "표에 적힌 납부 내역만 사용하고, 표에 없는 금액은 더하지 않습니다.",
+        "이번에는 신청서에 적을 금액을 정하는 단계까지만 하고, 세관 제출은 선임 관세사가 맡습니다."
+      ],
+      "glossary": [
+        {
+          "term": "관세환급",
+          "definition": "세관에 이미 낸 관세 등의 세금을 정해진 사유가 있을 때 다시 돌려받는 것"
+        },
+        {
+          "term": "개별환급",
+          "definition": "수출용원재료를 수입해 제품을 만들어 수출한 뒤, 원재료를 수입할 때 실제로 낸 세금을 납부 내역에 따라 계산해 돌려받는 환급 방식"
+        },
+        {
+          "term": "수출용원재료",
+          "definition": "수출할 물품을 만드는 데 쓰려고 수입한 원료나 재료"
+        },
+        {
+          "term": "세목",
+          "definition": "세금의 종류를 나눈 이름(예: 관세, 부가가치세)"
+        },
+        {
+          "term": "개별소비세",
+          "definition": "정해진 일부 물품에만 따로 붙는 세금"
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "tax_payment_record",
+        "title": "새온장신구 수출용원재료 수입 시 세목별 납부 내역",
+        "description": "새온장신구가 장신구용 진주를 수입할 때 세관에 낸 세금을 세목별로 정리한 표입니다. 계산을 쉽게 하려고 교육세는 표에서 뺐습니다. 금액 단위는 원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "개별환급 신청서에 적을 환급 대상 세액을 정할 때 세목별 납부 금액을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "정보 처리",
+          "수리력",
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "수출용원재료"
+            },
+            {
+              "key": "strength",
+              "label": "납부 시점"
+            },
+            {
+              "key": "weakness",
+              "label": "세목"
+            },
+            {
+              "key": "priority",
+              "label": "납부세액(원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "장신구용 진주",
+              "strength": "원재료 수입 시",
+              "weakness": "관세",
+              "priority": 1800000
+            },
+            {
+              "option": "장신구용 진주",
+              "strength": "원재료 수입 시",
+              "weakness": "개별소비세",
+              "priority": 600000
+            },
+            {
+              "option": "장신구용 진주",
+              "strength": "원재료 수입 시",
+              "weakness": "부가가치세",
+              "priority": 2640000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 납부 내역표에 선임 관세사가 알려 준 개별환급 기준을 적용해 보세요. 환급 신청서의 '환급 대상 세액' 칸에 적을 합계 금액을, 합계에 넣은 세목과 함께 한두 문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "표의 세목 가운데 개별환급 기준에 해당하는 세목의 납부세액만 더해 환급 대상 세액 합계를 구하고, 그 금액과 포함한 세목을 신청서에 적을 값으로 제시한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "환급 대상 세액 합계와 포함한 세목"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "개별환급 기준에 따라 부가가치세는 환급 대상 세액에서 빠진다.",
+      "관세 1,800,000원과 개별소비세 600,000원을 더한 2,400,000원이 신청서에 적을 환급 대상 세액이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "환급 대상 세목 선별",
+        "description": "개별환급 기준에 맞게 관세와 개별소비세만 합계에 넣고 부가가치세는 넣지 않았는가",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "합계 계산의 정확성",
+        "description": "고른 세목의 납부세액을 바르게 더해 2,400,000원을 구했는가",
+        "points": 40,
+        "linked_evidence": [
+          "수리력",
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "신청서 기재값 제시",
+        "description": "구한 금액을 신청서의 환급 대상 세액 칸에 적을 값으로 분명히 밝히고, 합계에 넣은 세목을 함께 적었는가",
+        "points": 20,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "관세 환급에 필요한 서류를 작성하고 신청한다.",
+      "source_ref": {
+        "file": "K000007500/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "행정, 관리 업무",
+          "score": 96,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 95,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 94,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 91,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보의 의미 해석",
+          "score": 91,
+          "description": "정보가 뜻하는 바와 그것이 어떻게 사용되는지 번역하거나 설명하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "재정 관리",
+          "score": 96,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "인적자원 관리",
+          "score": 96,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 95,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "법",
+          "score": 94,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "운송",
+          "score": 84,
+          "description": "비행기, 철도, 선박 그리고 자동차를 통해 사람들과 물품을 움직이는 원리와 방법에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 83,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "실수의 심각성",
+          "score": 99,
+          "description": "실수 결과의 심각성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이미지/평판/재정에 미치는 강도",
+          "score": 98,
+          "description": "본인의 의사결정이 다른 사람 또는 회사 이미지/평판/재정에 어느 정도의 결과 초래",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "결과에 대한 책임",
+          "score": 98,
+          "description": "함께 근무하는 사람의 근무 결과에 대한 책임",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 처리",
+          "수리력",
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

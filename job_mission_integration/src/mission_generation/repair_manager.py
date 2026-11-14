@@ -6,7 +6,7 @@ import copy
 import json
 from typing import Any
 
-from .llm_runtime import OpenAIResponsesRuntime
+from .llm_runtime import create_runtime
 
 
 class RepairPromptBuilder:
@@ -27,10 +27,16 @@ class RepairPromptBuilder:
         mission_output_draft: dict[str, Any],
         validator_result: dict[str, Any],
         allowed_evidence_names: list[str] | None = None,
+        mission_blueprint: dict[str, Any] | None = None,
+        cited_sources: list[dict[str, Any]] | None = None,
     ) -> dict[str, Any]:
-        """validator가 지적한 항목만 고치도록 제한한 repair_request를 만든다."""
+        """validator가 지적한 항목만 고치도록 제한한 repair_request를 만든다.
 
-        return {
+        두 단계 생성에서는 mission_blueprint와 cited_sources를 함께 준다. 수정 호출도 설계서를 보고 고쳐야
+        고친 미션의 근거 기록이 사실과 맞는다.
+        """
+
+        request = {
             "schema_version": "repair_request.v1",
             "attempt": 1,
             "locked_fields": self.locked_fields,
@@ -61,6 +67,16 @@ class RepairPromptBuilder:
                 "validator_errors와 validator_warnings에 해당하는 부분만 수정한다.",
             ],
         }
+        if mission_blueprint is not None:
+            request["mission_blueprint"] = mission_blueprint
+            request["cited_sources"] = cited_sources or []
+            request["repair_rules"] = request["repair_rules"] + [
+                "This mission was written from mission_blueprint. Keep following it: material i follows mission_blueprint.materials slot i and task i follows mission_blueprint.tasks slot i.",
+                "Use only cited_sources as source text, and keep every borrowed_terms term exactly as written inside its material.",
+                "basis_map.rubric must have exactly one entry per rubric item; evaluation_basis_index is the position from 0 of the mission_blueprint.evaluation_basis item that the rubric item comes from.",
+                "Keep the material count and task count of system_decisions.difficulty exactly; this overrides the fixed difficulty counts stated above.",
+            ]
+        return request
 
 
 class RepairManager:
@@ -68,11 +84,11 @@ class RepairManager:
 
     def __init__(
         self,
-        runtime: OpenAIResponsesRuntime | None = None,
+        runtime: Any = None,
         allow_mock_without_key: bool = False,
         force_mock: bool = False,
     ) -> None:
-        self.runtime = runtime or OpenAIResponsesRuntime()
+        self.runtime = runtime or create_runtime()
         self.allow_mock_without_key = allow_mock_without_key
         self.force_mock = force_mock
 

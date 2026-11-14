@@ -1,0 +1,480 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007514_easy_001",
+  "job_identity": {
+    "job_cd": "K000007514",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "회계·세무·감정 전문가",
+    "job_smcl_nm": "감정평가사",
+    "source_ref": {
+      "file": "K000007514/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "현장조사와 각종 손익계산서, 대차대조표 등의 자료를 검토하고 법인내 동료 감정평가사의 의견을 수렴하여 최종적으로 가격을 결정한 후 감정서를 작성한다.",
+    "source_ref": {
+      "file": "K000007514/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "누리별 감정평가법인",
+    "domain": "상가 건물 감정평가",
+    "period": [
+      "2023년 4월",
+      "2025년 9월",
+      "2026년 8월",
+      "2026년 11월"
+    ],
+    "trend_pattern": "사례자료별 시산가액은 48500만원부터 55000만원까지이고, 거래시점은 2023년 4월부터 2026년 8월까지 서로 다르다.",
+    "main_issue": "사례자료마다 거래시점이 달라서, 기준시점 2026년 11월로부터 1년 이내라는 조건으로 반영할 시산가액을 가려야 한다.",
+    "feedback_themes": [
+      "거래시점 조건 적용",
+      "최종 감정평가액 결정"
+    ],
+    "decision_goal": "거래시점이 기준시점으로부터 1년 이내인 사례자료의 시산가액으로 최종 감정평가액을 정한다."
+  },
+  "mission": {
+    "title": "시산가액 중에서 최종 감정평가액 정하기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "decision_making",
+      "communication_and_reporting"
+    ],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 누리별 감정평가법인에 새로 들어온 감정평가 보조 인턴입니다.",
+      "context": "법인이 가온시에 있는 2층 상가 건물의 감정평가를 맡았습니다. 이번 평가의 기준시점은 2026년 11월입니다. 팀원들이 사례자료별로 시산가액을 구해 표 하나로 정리해 두었고, 이제 최종 감정평가액만 정하면 됩니다.",
+      "goal": "팀장님이 정한 거래시점 조건을 표에 적용해, 이 건물의 최종 감정평가액을 정해 보세요.",
+      "constraints": [
+        "팀장님 요청: \"기준시점인 2026년 11월로부터 거래시점이 1년 이내인 사례자료로 구한 시산가액만 반영해서 최종 감정평가액을 정해 주세요.\"",
+        "표에 적힌 정보만 사용합니다.",
+        "정한 금액과 이유를 함께 1~2문장으로 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "시산가액",
+          "definition": "감정평가 방법 하나로 먼저 계산해 본 예비 가격입니다. 이 값들을 바탕으로 최종 가격을 정합니다."
+        },
+        {
+          "term": "감정평가액",
+          "definition": "감정평가사가 최종적으로 정해 감정서에 적는 대상 물건의 가격입니다."
+        },
+        {
+          "term": "사례자료",
+          "definition": "가격을 구할 때 참고하는 비교 자료입니다. 매매사례는 비슷한 부동산이 팔린 사례, 건설사례는 비슷한 건물을 지은 비용 사례, 수익사례는 비슷한 부동산이 임대 등으로 벌어들인 수익 사례입니다."
+        },
+        {
+          "term": "거래시점",
+          "definition": "사례자료의 거래나 가격이 실제로 정해진 때입니다."
+        },
+        {
+          "term": "기준시점",
+          "definition": "가격을 판단하는 기준이 되는 날짜입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "comparison_table",
+        "title": "가온시 2층 상가 건물 사례자료별 시산가액 (단위: 만원)",
+        "description": "팀원들이 사례자료별로 구한 시산가액을 거래시점, 확인 경로와 함께 정리한 표입니다. 시산가액 단위는 만원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "팀장님의 거래시점 조건을 적용해 최종 감정평가액으로 반영할 시산가액을 고르는 데 씁니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "판단과 의사결정"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "사례자료"
+            },
+            {
+              "key": "strength",
+              "label": "거래시점"
+            },
+            {
+              "key": "weakness",
+              "label": "확인 경로"
+            },
+            {
+              "key": "priority",
+              "label": "시산가액(만원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "매매사례",
+              "strength": "2026년 8월",
+              "weakness": "현장조사",
+              "priority": 48500
+            },
+            {
+              "option": "건설사례",
+              "strength": "2023년 4월",
+              "weakness": "동료 감정평가사 제공",
+              "priority": 51200
+            },
+            {
+              "option": "수익사례",
+              "strength": "2025년 9월",
+              "weakness": "현장조사",
+              "priority": 55000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 표에 팀장님의 거래시점 조건을 적용해 보고, 최종 감정평가액으로 정할 금액과 그렇게 정한 이유를 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "거래시점 조건을 표에 한 번 적용해 반영할 시산가액을 고르고, 그 금액을 최종 감정평가액으로 정한 이유와 함께 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "최종 감정평가액과 그 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "기준시점 2026년 11월로부터 1년 이내인 거래시점은 매매사례의 2026년 8월뿐이다.",
+      "건설사례(2023년 4월)와 수익사례(2025년 9월)는 거래시점이 기준시점에서 1년을 넘어 반영하지 않는다.",
+      "최종 감정평가액은 매매사례의 시산가액 48500만원(4억 8,500만원)으로 정한다.",
+      "가장 큰 값인 수익사례의 55000만원을 그대로 고르지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "거래시점 조건 적용",
+        "description": "기준시점에서 1년을 넘는 거래시점의 시산가액(건설사례, 수익사례)을 반영 대상에서 뺐는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "최종 감정평가액 결정",
+        "description": "조건에 맞는 매매사례의 시산가액 48500만원을 최종 감정평가액으로 정했는지, 가장 큰 값 55000만원을 그대로 고르지 않았는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "판단과 의사결정"
+        ]
+      },
+      {
+        "criterion": "결정 이유 설명",
+        "description": "정한 금액과 함께 거래시점이 기준시점으로부터 1년 이내라는 이유를 1~2문장으로 분명히 적었는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "판단과 의사결정",
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "현장조사와 각종 손익계산서, 대차대조표 등의 자료를 검토하고 법인내 동료 감정평가사의 의견을 수렴하여 최종적으로 가격을 결정한 후 감정서를 작성한다.",
+      "source_ref": {
+        "file": "K000007514/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 수집",
+          "score": 97,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 95,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 94,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "절차, 자료, 주변환경 관찰",
+          "score": 94,
+          "description": "문제점을 확인하고 평가하기 위하여 자료, 사건, 주변 환경에서 정보를 관찰하고 검토하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 94,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "공간지각력",
+          "score": 98,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "판단과 의사결정",
+          "score": 95,
+          "description": "이득과 손실을 평가해서 결정을 내린다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "시간 관리",
+          "score": 94,
+          "description": "자신의 시간과 다른 사람의 시간을 관리한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "법",
+          "score": 95,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "경제와 회계",
+          "score": 94,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "지리",
+          "score": 93,
+          "description": "육지, 바다 그리고 하늘의 특성 및 상호관계에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "움직이는 기계",
+          "score": 99,
+          "description": "움직이는 기계(자동차, 트랙터 등)에서 근무 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "치열한 경쟁",
+          "score": 98,
+          "description": "동료 혹은 다른 사람들과의 경쟁 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 95,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "판단과 의사결정"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007514/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007514/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.5,
+    "AX2": 0.0,
+    "AX3": 0.5,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

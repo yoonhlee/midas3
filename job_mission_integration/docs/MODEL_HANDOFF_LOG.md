@@ -636,16 +636,163 @@
 - typecheck 통과, check:frontend 26/26, test:unit 60/60, test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 8/8(회귀 테스트 2개 추가)
 - DSD 6장의 적합도 식(코사인 유사도 → γ=1.5)은 이번 변경으로 달라짐. 문서를 다시 낼 일이 있으면 반영 필요
 
+### 2026-11-14 — 미션 카탈로그 교체(직업 50개 · 미션 150개)와 새 미션에 필요한 수정
+왜:
+- KNOW 직업의 수행직무 문장과 NCS 능력단위에 연결해 만든 미션 가운데 검수를 거쳐 고른 직업 50개(직업마다 쉬움·보통·어려움 하나씩, 150개)를 서비스에 넣음. 예전 미션 18개(직업 6개)는 뺌.
+- 새 미션을 화면에서 돌려 보며 찾은 문제 가운데 미션이 돌아가는 데 필요한 세 가지를 함께 고침.
+
+바뀐 것:
+- 카탈로그: `missions/scenarios/` 150개, `missions/index.json`(직업 50개, 직업코드 순, 직업마다 쉬움 → 보통 → 어려움). 키는 `jobsim_service_v1__mission_<직업코드>_<난이도>_001`. 예전 직업 6개 가운데 광고·홍보·마케팅전문가, 데이터분석가, 보험상품개발자, 인사·교육·훈련사무원은 새 미션으로 바뀌고, 상품기획자·투자분석가는 카탈로그에서 빠짐. `missions/manual/`의 초안은 그대로 둠.
+- 넣은 방법: `scripts/export_missions.py --outputs <미션 폴더>`를 미션마다 한 번씩 실행함. 한 번에 여러 미션을 넘기면 `index.json`의 `jobs[].mission_keys`에 같은 키가 겹쳐 들어가고 직업 안의 순서가 쉬움·어려움·보통이 됨. `--rebuild-index`는 키를 바꾸므로 쓰지 않음.
+- 기준 답안: `data/eval/reference_answers.json` 25개를 새 쉬움 미션 5개(광고·홍보·마케팅전문가, 데이터분석가, 보험상품개발자, 인사·교육·훈련사무원, 정보보안전문가)에 맞춰 다시 씀. `human_scores`는 비어 있음.
+- 기록 자료 스타일: `app/index.html`의 `.mat-log` → `pre.mat-log`. 기록 자료의 바깥 상자에도 같은 클래스가 붙어 자료 전체가 고정폭 글꼴로 나오던 것을 막음.
+- 꺾은선 차트: 점마다 값을 숫자로 적음(`missionScreens.js`). 꺾은선 차트를 쓰는 미션 4개는 값을 읽어야 풀리는데 세로축의 가장 큰 값만 보였음. 계열이 둘 이상이면 같은 자리의 가장 작은 값은 점 아래에 적어 숫자가 겹치지 않게 함.
+- 적합도: `job_weights.json`에서 `is_simulation_target`이 거짓인 직업도 체험한 직업 자신의 적합도는 계산함(`engine.ts`의 `buildJobWeightCatalog`가 5축 비중이 있는 직업을 모두 담고 `simulationTarget`으로 표시). 카탈로그 50개 가운데 8개(정보보안전문가, 정보시스템운영자, 정보통신컨설턴트 및 감리원, 네트워크관리자, 3D프린팅모델러, 건축구조기술자, 조사전문가, 사서)가 여기에 들고, 고치기 전에는 결과 화면에 "0점 · 분석 기준 데이터 없음"으로 나왔음. 비슷한 직업 추천의 후보는 지금처럼 `is_simulation_target`이 참인 직업뿐이라 이 8개 직업에는 추천 직업이 나오지 않음.
+- 저장된 결과 다시 보기: 결과의 직무가 지금 카탈로그에 없어도(미션이 빠진 직무) 이름과 기본 아이콘으로 결과 화면을 그림(`resultExtras.js`의 `jobDefsForResult`, `main.js`). 고치기 전에는 "미션을 불러오는 중…"에서 멈췄음.
+
+수정 파일:
+- `missions/index.json`, `missions/scenarios/*.json`(새 미션 150개, 예전 18개는 교체·삭제), `data/eval/reference_answers.json`
+- `app/index.html`, `app/main.js`, `app/components/{missionScreens,resultExtras}.js`
+- `src/lib/recommendation/engine.ts`
+- `tests/unit/{server,features}.test.ts`, `tests/e2e-features/features.spec.ts`
+
+검증:
+- typecheck 통과, check:frontend 26/26, test:unit 65/65(새 테스트 5개), test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9(회귀 테스트 1개 추가), `build_manual_missions.py K000001196 --check` 통과
+- 카탈로그 검증(`MissionStore.validateAndRefresh`) 통과: 직업 50개, 미션 150개
+- 가짜 채점으로 표본 미션(일곱 자료 형태, 과제가 2개인 어려움 미션 포함)을 화면에서 결과까지 확인. 실제 채점으로는 아직 확인하지 않음
+
+### 2026-11-14 — 일정표 자료의 기간 겹침 수정
+왜:
+- 미션 150개를 화면에서 전부 돌려 보다가, 일정표 자료에서 긴 기간이 내용 글자와 겹치는 것을 찾아 고침.
+
+바뀐 것:
+- 일정표 자료(`app/index.html`의 `.schedule-item`, `.sched-period`): 기간 칸이 56px로 고정돼 있어 "11/2(월)~11/13(금)" 같은 긴 기간이 옆의 내용 글자 위에 겹쳐 찍혔음(어려움 미션 8개, 19곳). 기간 칸이 줄 너비의 30%까지 쓰고 더 길면 줄을 바꾸게 함.
+
+수정 파일:
+- `app/index.html`
+
+검증:
+- 미션 150개를 브라우저로 하나씩 열어 미션 파일과 견줌(가짜 채점, 저장소 밖의 검사 스크립트): 모두 통과. 글자가 칸을 넘치는 자료가 고치기 전 미션 8개 → 고친 뒤 0개. 데스크톱과 휴대폰 너비에서 캡처로 확인
+- typecheck 통과, check:frontend 26/26, test:unit 65/65, test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9
+
+### 2026-11-14 — 미션 생성기 추가: 두 단계 생성, 내용 검수, 한 건 생성용 명령
+왜:
+- 관리자 페이지의 미션 생성을 새 방식(하는 일 문장 ↔ NCS 능력단위 연결 → 설계서 → 미션, 근거 기록, 내용 검수)으로 바꾸는 일의 첫 부분. 이 항목은 명령줄에서 한 건을 만들고 검수할 수 있게 하는 데까지다. 관리자 화면과 서버 경로는 아직 예전 방식 그대로 돈다.
+
+바뀐 것:
+- 두 단계 생성(`pilot_runner --ncs-background --two-stage-basis --ncs-targets <대상 파일> --ncs-root data/ncs/jobs`): 근거 자료 묶음 → 설계서 → 코드 검사(걸리면 한 번 다시) → 미션 작성 → 검증·근거 검사(걸리면 한 번 고침) → 근거 기록(`generation_basis.json`)과 근거 카드(`basis_cards/`). 실행 폴더는 `outputs/` 아래에 생긴다.
+- 미션 내용 검수(`mission_reviewer --run-dir <실행 폴더>`): 기대 답을 가리고 풀어 보기 → 판정. 통과·의심·문제·검수 실패 가운데 하나를 `review/`에 남긴다. 미션은 고치지 않는다.
+- 생성 준비 확인(`python -m src.mission_generation.preflight`): 패키지 → key → 모델 조회 순서로 보고 실패한 데서 멈춘다. 글을 만들지 않는다. JSON 한 줄, 준비가 됐으면 종료 코드 0, 아니면 1. 설정 값이 틀려도 같은 모양으로 알린다.
+- 한 건짜리 대상 파일(`python -m src.mission_generation.admin_target --job … --exec … --unit … --difficulty … (--out <파일> | --print)`): 직접 또는 간접(분야 한정) 연결만 받고, 그 밖의 연결이나 없는 연결은 오류 코드를 내며 파일을 쓰지 않는다. 자료 형태는 낱말 규칙(`material_planner`)이 좁혀서 붙인다. `--no-narrow`면 붙이지 않는다(일곱 형태를 모두 연다).
+- 빠른 모드 설정: 켜면 요청에 속도 값을 넣고, 요청 한도에 걸리면 보통 속도로 한 번 내려온 뒤 보통의 재시도 규칙을 따른다. 호출 결과에 실제로 쓴 속도를 남긴다.
+- LLM 제공자와 모델은 설정으로 고른다. 설정 이름과 기본값은 `.env.example` 참고. 관리자 화면의 생성 경로(`adminGeneration.ts`의 `pythonSpawnEnv`)는 예전 제공자로 고정해 두어 전처럼 돈다.
+- 자료: `data/ncs/jobs/`에 직업별 NCS 파일 76개(문장 ↔ 능력단위 연결과 그 능력단위의 상세). 연결 811개 가운데 고를 수 있는 것은 직접 361개와 분야 한정 187개(직업 74개, 문장 399개)다. `data/ncs/ncs_keco_link_20230407.csv`는 NCS–KECO 연계표다.
+- 근거 기록 3단계(문장 → 능력단위)의 "정한 주체"는 "연결 판단 · 기준 …"으로 채운다.
+- Python 패키지는 `requirements.txt`에 있다. 실제 호출 때만 필요하고, mock 실행과 테스트는 표준 라이브러리만으로 돈다. 가상환경 `.venv/`는 Git에서 뺐다.
+
+수정 파일:
+- `src/mission_generation/` 새 파일: `admin_target.py`, `preflight.py`, `basis_card_exporter.py`, `basis_source_pack.py`, `blueprint_checker.py`, `blueprint_designer.py`, `generation_basis.py`, `material_planner.py`, `mission_reviewer.py`, `ncs_background_loader.py`
+- `src/mission_generation/` 고친 파일: `config.py`, `llm_runtime.py`, `pilot_runner.py`, `draft_generator.py`, `repair_manager.py`, `decision_selector.py`, `schema_constraints_builder.py`, `ui_exporter.py`
+- `src/server/routes/adminGeneration.ts`, `tests/unit/server.test.ts`
+- `tests/python/`(새 폴더, 파일 23개), `requirements.txt`, `.env.example`, `.gitignore`
+- `data/ncs/jobs/*.json`(76개), `data/ncs/ncs_keco_link_20230407.csv`
+
+검증:
+- Python 테스트(`python -X utf8 -m unittest discover -s tests/python`, API를 부르지 않음): 385개 통과. Windows에서는 `python3`가 아니라 `python`을 쓴다
+- typecheck 통과, check:frontend 26/26, test:unit 66/66(새 테스트 1개), test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9
+
+### 2026-11-14 — 관리자 미션 생성 서버 경로를 새 방식으로: 생성 · 검수 · 생성 기록 · 카탈로그 추가와 삭제
+왜:
+- 관리자 페이지의 미션 생성을 새 방식으로 바꾸는 일의 둘째 부분. 화면 없이 서버 경로만으로 "직업 · 하는 일 문장 · 능력단위 · 난이도" 한 건을 만들고, 검수하고, 생성 기록에 남기고, 서비스 카탈로그에 넣고 뺄 수 있게 했다.
+
+바뀐 것:
+- 경로(모두 `/api/admin/mission-generation` 아래, `requireAdmin(allowDemoRead)`. 읽기는 조회 전용 열기에서도 열리고 바꾸기는 늘 암호가 필요하다):
+  - `GET /status`(모드, 시작 전 확인 결과(60초 다시 씀), 오늘 건수와 한도, 형태 좁히기 여부, 도는 실행, 예상 시간과 비용), `GET /jobs`, `GET /jobs/:jobCode/sentences`, `GET /material-types?jobCode=&execJobId=&unitKey=&difficulty=`
+  - `POST /runs`(본문 `{ jobCode, execJobId, unitKey, difficulty, review }`, 모르는 칸은 400), `GET /runs`, `GET /runs/:runId`, `POST /runs/:runId/review`(검수만 다시), `POST /runs/:runId/catalog`(카탈로그에 추가), `DELETE /runs/:runId`(기록과 실행 폴더를 지우고, 추가돼 있으면 서비스에서도 뺌)
+  - `GET /catalog`, `DELETE /catalog/:missionKey`(관리자 페이지에서 추가한 미션만 서비스에서 뺌, 기록은 검토 대기로)
+  - 오류는 `{ error: { code, message, details? } }`. 코드 목록은 `src/lib/adminGeneration/service.ts`와 `src/server/routes/adminGeneration.ts`에 있다
+- 일은 `src/lib/adminGeneration/`이 맡는다: `commands.ts`(Python을 부르는 자리 하나. 제공자를 `MISSION_LLM_PROVIDER=anthropic`으로 못박음, 진행 줄을 바이트 경계와 상관없이 줄로 나눔, 시간 제한), `ncsCatalog.ts`(고를 수 있는 연결 = 직접, 간접 가운데 분야 한정), `progress.ts`(진행 메시지 → 단계), `runFiles.ts`, `fakeCommands.ts`, `catalogFile.ts`, `service.ts`(한 번에 하나, 하루 한도, 추가 · 삭제는 차례로)
+- 실행 폴더는 생성기가 처음 찍는 `run started - run_id=…` 줄에서 읽는다(예전의 "가장 최근에 바뀐 폴더" 찾기를 없앰)
+- 새 표 둘(마이그레이션 버전 2): `admin_generation_runs`(생성 기록), `admin_generation_daily`(한국 시간 날짜별 시작 건수. 기록을 지워도 줄지 않음)
+- 서버를 다시 켜면 돌던 실행은 "중단됨"이 된다. 다만 미션을 저장하고 검수하던 실행은 "검토 대기 + 검수 실패"로 돌아와 카탈로그 추가와 검수 다시 돌리기가 된다
+- 카탈로그 추가 · 삭제가 기다리거나 도는 실행, 이미 도는 실행에는 검수 다시 돌리기를 받지 않는다(409 `GENERATION_STILL_RUNNING`)
+- 조회 전용 열기(암호 없이 읽기)로 `GET /runs/:runId`를 보면 미션의 기대 답 · 채점 기준(`evaluation`)과 검수에서 풀어 본 답을 빼고 준다. 암호가 있으면 그대로 준다
+- 관리자 페이지로 추가한 미션의 키: `jobsim_admin_v1__mission_<직업코드>_<난이도>_<번호>`(날짜 없음). 이름이 고정된 폴더 `outputs/admin_export/runs/jobsim_admin_v1/…`에 미션 하나만 두고 `scripts/export_missions.py --outputs … --missions-dir …`를 부른다. 같은 미션 번호가 이미 있으면 끝 번호가 올라간다. 키가 `jobsim_admin_v1__`로 시작하는 미션만 지울 수 있다
+- 추가가 중간에 실패하면(내보내기 실패, 키가 예상과 다름, 검증 실패) `missions/`의 색인과 파일을 되돌린다. 바꾸기 전 모습을 읽지 못하면 카탈로그를 건드리지 않고 500 `CATALOG_UPDATE_FAILED`를 준다. 카탈로그에서 뺄 때 색인은 숫자 글자(1.0 등)를 그대로 두고 다시 쓴다
+- 새 설정 넷(`.env.example`): `ADMIN_GENERATION_DAILY_LIMIT`(기본 20), `ADMIN_GENERATION_NARROW`(기본 좁힘), `ADMIN_GENERATION_MODE`(`fake`면 생성 · 검수 없이 `tests/fixtures/admin_generation/run_sample`을 고른 직업 · 난이도에 맞춰 복사. 운영(`APP_ENV=production`)에서는 켜지지 않음. 카탈로그 추가는 가짜 모드에서도 실제 `missions/`를 바꾼다), `PYTHON_BIN`
+- 옛 관리자 생성 코드(OpenAI 시작 전 확인, 조사 자료 기준 직업 목록, `findLatestRunDir`, 미리보기 만들기)를 지웠다
+
+수정 파일:
+- 새 파일: `src/lib/adminGeneration/`(`commands.ts`, `ncsCatalog.ts`, `progress.ts`, `runFiles.ts`, `fakeCommands.ts`, `catalogFile.ts`, `service.ts`), `tests/unit/adminGeneration.test.ts`, `tests/unit/adminGenerationService.test.ts`, `tests/unit/helpers/adminGenerationFixture.ts`, `tests/fixtures/admin_generation/`(직업 NCS 고정 데이터 2개, 고정 실행 결과 4개), `tests/python/test_export_staging_key.py`
+- 고친 파일: `src/server/routes/adminGeneration.ts`(다시 씀), `src/server/app.ts`, `src/server/config.ts`, `src/lib/db/database.ts`, `src/lib/db/repos.ts`, `src/lib/api/contracts.ts`, `tests/unit/helpers/testServer.ts`, `tests/unit/server.test.ts`(기존 테스트 둘을 새 계약에 맞춤), `package.json`(`test:unit`에 새 테스트 파일 둘), `.env.example`
+
+검증:
+- typecheck 통과, check:frontend 26/26, test:unit 92/92(새 테스트 26개, 외부 API를 부르지 않음), test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9
+- Python 테스트 386개 통과(패키지가 있는 Python과 없는 Python 둘 다, 새 테스트 1개)
+- 가짜 모드(`ADMIN_GENERATION_MODE=fake`)로 띄운 서버에서 경로만으로 직업 목록(74개) → 문장 목록 → 생성 → 카탈로그에 추가 → 카탈로그에서 삭제 → 생성 기록에서 삭제를 확인했다. 추가한 미션의 키는 `jobsim_admin_v1__mission_K000000832_easy_002`(미리 넣은 `_001`이 있어 번호가 올라감)였고, 끝난 뒤 `missions/`에 변화가 없었다. 서버를 다시 켜도 지우지 않은 생성 기록이 남았다
+- 실제 Python으로 `GET /status`(시작 전 확인 통과)와 `GET /material-types`(데이터분석가 문장 5, 보통 → 메모 · 차트)를 확인했다(비용 없음)
+- 실제 호출 한 건(정보보안전문가 문장 7, 분야 한정 능력단위, 쉬움, 검수 포함, 사용자 승인): 경로로 시작해 설계(27초) → 설계 검사 → 미션 작성(33초) → 미션 검사 → 내용 검수(22초) 순서로 넘어갔고, 생성과 검수에 1분 22초, 다시 쓴 횟수 0, 판정 통과. 자료 형태는 규칙대로 기록(log) 하나였다. 카탈로그에 넣었다가 빼고 생성 기록에서 지웠다
+
+---
+
+### 2026-11-14 — 관리자 화면을 새 미션 만들기 · 생성 기록 · 미션 카탈로그로, README를 새 흐름에 맞춤
+왜:
+- 관리자 페이지의 미션 생성을 새 방식으로 바꾸는 일의 셋째 · 넷째 부분. 앞에서 만든 서버 경로를 브라우저에서 쓸 수 있게 관리자 화면을 새로 만들고, README의 관리자 미션 생성 설명을 새 흐름에 맞췄다
+
+바뀐 것:
+- `app/admin.html`은 틀만 남기고 화면은 `app/admin/`의 모듈이 그린다. 주소의 `#/…`로 화면을 바꾼다: `#/new`(새 미션 만들기), `#/runs`(생성 기록), `#/runs/<실행 번호>`(실행 하나: 생성 중 → 결과와 근거 · 검수), `#/catalog`(미션 카탈로그). 서버와는 `/api/admin/mission-generation` 아래의 경로 열둘로만 이야기한다
+- 모듈: `main.js`(시작, 주소 따라 화면 바꾸기), `api.js`(암호 보관, 요청), `shell.js`(사이드바, 위 띠, 용어 안내, 암호 화면, 확인 창, 알림, 여러 화면이 같이 쓰는 표시), `labels.js`(화면의 말), `basis.js`(미리보기의 한 부분 → 근거 기록에서 보여 줄 것), `screenNew.js`, `screenRun.js`, `screenHistory.js`, `screenCatalog.js`, `admin.css`
+- 새 미션 만들기: 직업(이름 검색) → 하는 일 문장(고를 수 없는 문장은 접어 두고 까닭을 보인다) → 생성 설정(능력단위, 난이도, 자료 형태(자동), 내용 검수 포함, 예상 소요와 비용) → `미션 생성`. 도는 실행이 있으면 버튼 자리에 "지금 만들고 있는 미션 보기"가 보인다
+- 실행 화면: 도는 중에는 서버가 주는 단계 여섯을 1.5초마다 다시 받아 그대로 그린다. 끝나면 탭 둘(`미리보기와 근거`, `검수`). 미리보기의 과제 · 자료 · 채점 기준과 "하는 일 문장 → 능력단위 → 수행준거 → 미션" 네 칸을 누르면 근거 기록의 글을 그대로 보여 준다(글 안의 조각 번호만 "수행준거 2.2" 같은 이름으로 바꾼다). 근거 기록에 없는 부분은 "이 부분의 근거 기록이 없습니다."를 보인다. 버튼은 `카탈로그에 추가`, `삭제`, 검수 탭의 `검수 돌리기` · `검수 다시 돌리기`
+- 검수 판정: 통과 · 문제 · 검수 실패 · 검수 안 함은 표시로, 의심은 작은 글 "확인할 점 N건"으로 보인다. 문제면 카탈로그에 추가할 수 없다
+- 생성 기록: 줄을 누르면 그 실행으로 간다. 줄마다 `삭제`가 있고, 서비스에 추가된 미션이면 서비스에서도 빠진다고 알리고 묻는다. 미션 카탈로그: 직업별 난이도 개수, 펼치면 미션과 `열기`(사용자 화면에서 그 미션을 연다), 관리자 페이지에서 추가한 미션에만 `삭제`(서비스에서만 뺀다)
+- 조회 전용 열기(`ADMIN_DEMO_UNLOCK=true`)에서는 둘러볼 수 있고 생성 · 추가 · 삭제 버튼은 눌리지 않는다. 암호를 넣는 버튼이 위 띠 아래와 사이드바에 있다. 이때는 GET이 암호와 상관없이 열리므로, 넣은 암호가 맞는지는 `POST /runs/-/review`(없는 실행)의 응답으로 확인한다
+- 좁은 창: 1180px 아래에서 사이드바가 아이콘만 남는다. 생성 기록의 표는 560px보다 좁아지면 칸 안에서 옆으로 움직이고 삭제 칸이 오른쪽에 붙는다. "삭제", 난이도, 상태 같은 짧은 칸은 줄이 바뀌지 않는다
+- 관리자 화면의 채용공고 칸을 없앴다(`app/admin.js` 삭제). 서버의 관리자용 채용공고 경로(`/api/admin/postings/*`)와 사용자 쪽 채용공고 기능은 그대로다
+- 자료(표, 체크리스트 등)의 스타일을 `app/index.html`에서 `app/styles/materials.css`로 떼어 사용자 화면과 관리자 미리보기가 같이 쓴다. `renderMaterial`을 내보낸다(`app/components/missionScreens.js`)
+- 새 설정 `MISSIONS_DIR`(`.env.example`, `src/server/config.ts`): 미션 폴더를 바꾼다(비우면 `missions`). 관리자 화면 E2E가 복사한 미션 폴더(`test-results/admin-missions`)를 쓰는 데 쓴다
+- 새 E2E `npm run test:e2e:admin`(`playwright.admin.config.ts`, 포트 8093, 가짜 생성 모드, `scripts/prepare-admin-e2e.mjs`가 미션 폴더를 복사한다): 고르기 → 생성 → 근거 → 카탈로그에 추가 → 삭제로 이어지는 흐름 하나와, 암호가 틀리면 들어가지 못하는 것. CI(`.github/workflows/ci.yml`)에 단계를 더했다
+- README: 맨 위 소개, 준비물(Python 패키지 `anthropic`, `data/ncs/jobs/`), 환경 설정 표(Claude 설정, 하루 한도, 형태 좁히기, 가짜 모드, `MISSIONS_DIR`), "관리자 미션 생성 방법", "고를 수 있는 직업과 문장", "생성 결과가 저장되는 위치", "CLI로 미션 생성하기"(새 방식의 명령 셋과 예전 방식), 검증 명령, 문제 해결을 새 흐름에 맞췄다
+
+수정 파일:
+- 새 파일: `app/admin/`(`main.js`, `api.js`, `shell.js`, `labels.js`, `basis.js`, `screenNew.js`, `screenRun.js`, `screenHistory.js`, `screenCatalog.js`, `admin.css`), `app/styles/materials.css`, `scripts/prepare-admin-e2e.mjs`, `playwright.admin.config.ts`, `tests/e2e-admin/admin.spec.ts`, `tests/unit/adminScreens.test.ts`
+- 고친 파일: `app/admin.html`(다시 씀), `app/index.html`, `app/components/missionScreens.js`, `src/server/config.ts`, `package.json`, `.env.example`, `README.md`, `AGENTS.md`, `.github/workflows/ci.yml`
+- 지운 파일: `app/admin.js`
+
+검증:
+- typecheck 통과, check:frontend 34/34, test:unit 95/95(새 테스트 3개), test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9, test:e2e:admin 2/2, Python 테스트 386개 통과
+- 자료 스타일을 떼어 내기 전과 뒤에, 사용자 화면의 미션 수행 화면에서 자료 칸 안 모든 요소의 계산된 스타일과 크기를 견주었다(이메일 · 기록 · 체크리스트 · 표 · 메모 · 차트 · 일정표 자료가 든 미션 셋, 375px과 1280px). 모두 같았다
+- 가짜 모드(`ADMIN_GENERATION_MODE=fake`, 복사한 미션 폴더)로 띄운 서버에서 브라우저로 여섯 화면을 확인했다: 암호(틀린 값, 맞는 값), 메뉴와 새로고침, 용어 안내 여닫기, 직업 74개와 검색, 문장 · 능력단위 · 난이도 · 검수 스위치에 따라 바뀌는 생성 설정, 생성 → 결과 → 근거 칸 → 검수 탭 → 카탈로그에 추가 → 사용자 화면에서 열기 → 카탈로그에서 삭제(생성 기록의 상태가 검토 대기로 돌아옴), 생성 기록의 삭제 확인 창 두 가지, 검수 없이 만든 실행의 `검수 돌리기`, 없는 실행 번호, 조회 전용 열기. 730px과 490px에서 "삭제"가 한 줄로 보였다
+- 도는 중 · 실패 · 중단 화면은 응답을 바꿔 끼워 그려서 확인했다(가짜 모드의 생성은 1초쯤에 끝난다)
+- 실제 Python과 Claude 설정으로 띄운 서버에서 사이드바의 "Claude API 연결됨"과 자료 형태 줄(정보보안전문가의 분야 한정 문장, 보통 → 메모 · 기록)을 확인했다(비용 없음)
+- 검사 뒤 `git status --short -- missions` 변화 없음
+
 ---
 
 ## Open Items (Next)
+
+0000. 관리자 미션 생성 후속(2026-11-14)
+- Python 테스트는 CI에 걸려 있지 않다
+- `pilot_runner`의 `--ncs-targets` 도움말이 이 브랜치에 없는 모듈(`target_planner`)을 가리킨다
+- 문장 ↔ 능력단위 연결은 사람이 확인하지 않았다(판단 기준은 자료에 적혀 있다)
+
+000. 미션 카탈로그 교체 후속(2026-11-14)
+- 실제 채점으로 새 미션 확인(특히 과제가 2개인 어려움 미션에서 두 과제를 모두 보는지). 가짜 채점으로만 돌려 봤음
+- `/api/bootstrap` 응답이 268KB → 2.44MB로 커졌고 응답 압축이 없음. 배포 환경에서 첫 화면 시간을 재 볼 것
+- 직무 선택 화면: 카드 50장이 3열 17줄로 나옴. 카드 설명은 모두 "미션 기반 탐색", 아이콘은 48장이 💼, "직무당 약 15분 소요"는 고정 문구(미션은 10·15·20분). 검색이나 분야 묶음이 없음
+- 추천 계산 대상이 아닌 직업 8개는 결과 화면에 비슷한 직업 추천이 나오지 않음
+- 업무 요청서의 "받는 사람" 칸에 문장이 들어가는 미션이 78개, "요청자"는 항상 "○○ 팀장"으로 나옴(배경에 팀장이 나오지 않는 미션 62개)
+- 메모 자료의 작성자(`author`)가 화면에 나오지 않음
+- 내 기록의 쓰던 답안에서 없어진 미션은 제목 대신 미션 키가 나옴
+- E2E의 답 문장(`features.spec.ts`의 `ANSWER` 등)은 예전 미션 내용 그대로임(가짜 채점이라 통과에는 영향 없음)
+- 따로 쓴 소개 문구가 없는 직업이 48개(`missionBootstrap.ts`의 `JOB_SUMMARY_BY_CODE`), 대표 그림이 없는 직업이 46개(`jobImages.js`의 `JOB_ART`)
 
 00. 기능 지도 후속(2026-10-30)
 - 카카오 로그인: 카카오 개발자 앱 생성·OIDC 활성화·Redirect URI 등록 후 `KAKAO_LOGIN_CLIENT_ID/SECRET`, `KAKAO_ADMIN_KEY`, `PUBLIC_BASE_URL`(HTTPS 도메인) 설정. 실제 카카오 계정으로 가입·탈퇴(연결 끊기) 확인 필요
 - `app/terms.html`, `app/privacy.html`의 `[배포 전에 …]` 자리(팀 대표 연락처 등)를 채우고 팀 검토
 - 고용24 상세 응답의 직무내용 필드명이 `jobCont`인지 실제 키로 확인(아니면 `parseDetailXml` 수정). 확인 전에는 요구역량이 공고 제목 위주로 계산됨
 - `data/eval/reference_answers.json`의 `human_scores`를 팀원이 채운 뒤 실제 AI 채점으로 `npm run eval:quality -- --runs=3 --fail`
-- 인사·교육·훈련사무원 미션 3개 사람 검토(`reliability.human_review_required=true`), 고용24 직종코드 탐색(현재 tbd)
+- 인사·교육·훈련사무원 미션 3개 사람 검토(`reliability.human_review_required=true`), 고용24 직종코드 탐색(현재 tbd). 2026-11-14: 카탈로그의 인사·교육·훈련사무원 미션은 새 미션으로 바뀜(사람이 쓴 초안은 `missions/manual/`에 있음)
 - 공유 링크(U03 2단계)는 공개 범위·개인정보 설계 뒤로 미룸(기능 지도 3주차 이후)
 
 0. 채용공고 지도 후속
@@ -678,6 +825,7 @@ npm run test:unit
 npm run test:e2e
 npm run test:e2e:postings
 npm run test:e2e:features
+npm run test:e2e:admin
 npm run eval:quality -- --runs=1
 python3 scripts/build_manual_missions.py K000001196 --check
 ```

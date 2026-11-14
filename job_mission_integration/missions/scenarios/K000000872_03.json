@@ -1,6 +1,6 @@
 {
   "schema_version": "mission_output.v1",
-  "mission_id": "mission_K000000872_normal_001",
+  "mission_id": "mission_K000000872_hard_001",
   "job_identity": {
     "job_cd": "K000000872",
     "job_lrcl_nm": "경영·사무·금융·보험직",
@@ -20,96 +20,140 @@
       "field": "jobsDo.execJob",
       "index": 4
     },
-    "selection_reason": "광고대행계약 및 광고기획서 작성까지 포함해 자료 조사·분석 후 문서로 제안하는 과업이 핵심이며, 정상 난이도에서 2개 자료(memo, table)로 기획 내용을 구성하기 적합함."
+    "selection_reason": "Pilot config selected exec_004."
   },
   "mission_facts": {
-    "org_name": "플럭스유니온 마케팅팀(가상)",
-    "domain": "광고·홍보·마케팅",
+    "org_name": "누리결애드",
+    "domain": "광고대행사가 주방세제 브랜드 '초록담'의 광고대행계약을 따내기 위해 경쟁 프레젠테이션을 준비하는 일",
     "period": [
-      "이번 분기(4~6월)"
+      "최근 3년"
     ],
-    "trend_pattern": "고객은 ‘할인’보다 ‘바로 쓰기 쉬운 이유(사용 팁, 상황별 안내)’를 함께 확인할 때 재주문을 더 편하게 결정하는 흐름",
-    "main_issue": "신제품 ‘제로라임’의 재구매가 이전 달보다 떨어져, 다음 주 광고 방향을 빨리 정해야 함",
+    "trend_pattern": "초록담 매출은 최근 3년 동안 제자리이다.",
+    "main_issue": "광고주는 이번 광고로 20~30대 1인 가구 고객을 새로 얻고 싶어 하면서도 50대 이상 기존 고객이 떠나지 않기를 바라고, 광고 총비용은 6,000만원을 넘을 수 없다.",
     "feedback_themes": [
-      "댓글/문의에서 ‘가격’보다 ‘언제/어떻게 쓰는지’ 질문이 더 많음",
-      "쿠폰 소식은 보이지만, 사용 팁이 없어서 망설였다는 반응이 일부 있음",
-      "배송·도착 타이밍을 기대하는 반응이 눈에 띄게 증가"
+      "순하다",
+      "세척력이 약하다",
+      "기름때가 잘 빠진다",
+      "향이 강하다",
+      "값이 싸다",
+      "용기 디자인이 세련됐다"
     ],
-    "decision_goal": "재구매를 늘리기 위한 광고 문구 방향(옵션) 1개를 선택하고, 한 가지 근거로 이유를 설명"
+    "decision_goal": "경쟁 프레젠테이션에서 광고주에게 내세울 제안안을 A·B·C안 중 하나로 정한다."
   },
   "mission": {
-    "title": "재구매를 끌어올릴 광고 문구 방향 고르기",
-    "task_type": "planning_and_proposal",
+    "title": "경쟁 프레젠테이션 준비: 광고주 상황을 읽고 내세울 제안안 정하기",
+    "task_type": "research_and_analysis",
     "secondary_task_types": [
-      "research_and_analysis",
+      "planning_and_proposal",
       "communication_and_reporting"
     ],
     "difficulty": {
-      "level": "normal",
-      "label": "보통",
-      "estimated_time_minutes": 15,
-      "material_bundle_style": "light_work_material_bundle",
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
       "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
         2,
         2
       ],
-      "task_count_range": [
-        1,
-        1
-      ],
-      "answer_length_hint": "2-3 short sentences",
+      "answer_length_hint": "3-5 short sentences per task",
       "requires_cross_material_reasoning": true,
-      "requires_tradeoff_judgment": false,
+      "requires_tradeoff_judgment": true,
       "requires_domain_expertise": false
     },
     "scenario": {
-      "role": "당신은 플럭스유니온 마케팅팀의 신입 인턴입니다.",
-      "context": "팀장님이 다음 주 집행할 재구매 캠페인 광고 방향을 정해달라고 급하게 요청했습니다. 이번 주에는 고객 댓글과 내부 검토 메모가 이미 정리돼 있고, 광고 문구 후보도 A/B로 좁혀진 상태예요. 당신은 아래 자료를 보고 ‘둘 중 무엇을 선택할지’만 골라서, 이유를 짧게 적어 회의 전에 전달하면 됩니다.",
-      "goal": "두 광고 문구 후보(A/B) 중 하나를 선택하고, 자료에 나온 근거를 한 가지 들어 이유를 2-3문장으로 설명하세요.",
+      "role": "광고대행사 누리결애드 광고기획팀 인턴",
+      "context": "당신은 광고대행사 누리결애드 광고기획팀의 인턴입니다. 주방세제 브랜드 '초록담'이 다음 광고를 맡길 대행사를 고르려고 경쟁 프레젠테이션을 열었고, 우리 회사도 참가 요청 메일을 받았습니다. 광고 수주를 하려면 먼저 광고주의 상황을 정확히 읽고, 우리 크리에이티브팀이 만든 제안안 가운데 발표에서 내세울 안을 정해야 합니다. 팀장님이 '광고주 메일과 분석 자료로 초록담 상황부터 정리하고, 어떤 안을 들고 갈지 의견을 달라'고 부탁했습니다.",
+      "goal": "광고주 이메일과 표 두 개를 읽고 초록담의 상황을 분석한 뒤, 그 분석을 근거로 경쟁 프레젠테이션에서 내세울 제안안을 하나 추천해 보세요.",
       "constraints": [
-        "반드시 제공된 자료 내용만 사용하세요.",
-        "선택한 옵션 이름과 이유(한 가지 근거)를 함께 적어주세요.",
-        "근본 원인 분석, 복잡한 비교표 작성은 필요 없습니다."
+        "주어진 자료 3개에 나온 사실만 근거로 쓰세요.",
+        "제안안은 A·B·C안 중 하나만 고르세요.",
+        "답은 과제마다 3~5문장으로 쓰세요."
       ],
       "glossary": [
         {
-          "term": "광고 문구(카피)",
-          "definition": "광고에서 고객에게 보이는 ‘문장/표현’이에요."
+          "term": "경쟁 프레젠테이션",
+          "definition": "광고주가 여러 광고대행사의 제안을 발표로 듣고, 그중 함께 일할 대행사를 고르는 자리입니다."
         },
         {
-          "term": "재구매",
-          "definition": "처음 산 뒤에 다시 같은 제품을 사는 것을 말해요."
+          "term": "광고 수주",
+          "definition": "광고주에게서 광고 일을 맡아 달라는 주문(발주)을 받는 것입니다."
+        },
+        {
+          "term": "광고대행계약",
+          "definition": "광고주가 광고대행사에 광고를 기획하고 만드는 일을 맡기기로 맺는 계약입니다."
+        },
+        {
+          "term": "크리에이티브",
+          "definition": "광고에서 창의적인 아이디어를 떠올리고, 그 아이디어를 어떻게 보여 줄지 정하는 표현 전략을 말합니다. 이 미션에서는 크리에이티브팀이 만든 제안안의 광고 방향과 표현 전략을 가리킵니다."
+        },
+        {
+          "term": "브랜드",
+          "definition": "소비자가 떠올리는 제품의 이미지와 그 제품을 만든 회사의 이미지를 함께 이르는 말입니다."
+        },
+        {
+          "term": "광고주",
+          "definition": "광고대행사에 광고를 맡기고 그 비용을 내는 회사입니다."
+        },
+        {
+          "term": "경쟁사 및 자사 분석 자료",
+          "definition": "광고주 브랜드와 경쟁 브랜드의 상황을 나란히 정리한 자료입니다. 이 미션에서는 자사가 광고주인 초록담을 뜻합니다."
+        },
+        {
+          "term": "시장 점유율",
+          "definition": "전체 시장에서 한 브랜드가 차지하는 판매 비중을 퍼센트(%)로 나타낸 것입니다."
+        },
+        {
+          "term": "주력 소비자층",
+          "definition": "한 브랜드의 제품을 가장 많이 사는 소비자 무리입니다."
+        },
+        {
+          "term": "광고 방향",
+          "definition": "광고가 소비자에게 무엇을 전하려는지 정한 큰 방향입니다."
+        },
+        {
+          "term": "표현 전략",
+          "definition": "광고 방향을 실제로 어떤 장면이나 형식으로 보여 줄지 정한 방법입니다."
         }
       ]
     },
     "materials": [
       {
-        "material_id": "memo_client_feedback_001",
-        "type": "memo",
-        "subtype": "review_note",
-        "title": "제로라임 재구매 관련 고객 피드백 요약 메모",
-        "description": "고객 댓글/문의와 간단한 내부 관찰을 정리해, 광고 문구에서 강조해야 할 포인트를 한눈에 보이게 만든 메모.",
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "client_request_email",
+        "title": "광고주 이메일: 경쟁 프레젠테이션 참가 요청",
+        "description": "주방세제 브랜드 초록담의 마케팅팀장이 우리 대행사 광고기획팀에 보낸 경쟁 프레젠테이션 참가 요청 메일입니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "옵션 A/B 중 어떤 방향이 고객 반응과 더 맞는지 근거로 사용",
+        "used_for": "광고주의 목표와 조건을 확인해 과제 1의 분석에 쓰고, 과제 2에서 제안안을 견줄 기준으로 삼는다.",
         "evidence_source": [
           "정보 수집",
-          "글쓰기"
+          "영업과 마케팅"
         ],
         "mission_fact_refs": [
-          "feedback_themes",
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
           "main_issue",
           "decision_goal"
         ],
         "data": {
-          "author": "마케팅 인턴(작성 예시, 가상)",
-          "items": [
-            "최근 2주 고객 댓글 30개를 훑어보니, ‘가격이 좋아서’보다는 ‘언제/어떻게 마시면 좋은지(상황별 팁)’를 묻는 문장이 더 자주 나왔습니다.",
-            "쿠폰 안내만 있는 경우에는 ‘좋아 보이는데, 내가 어떻게 먹어야 하는지 모르겠어’처럼 사용 맥락이 부족하다는 반응이 섞여 있었습니다.",
-            "반대로 ‘배송이 언제 오는지’에 대해 기대를 말한 댓글이 늘었고, 도착 시점에 맞춰 자연스럽게 떠올릴 표현이 먹힐 가능성이 있습니다."
+          "thread": [
+            {
+              "from": "초록담 마케팅팀장",
+              "to": "누리결애드 광고기획팀 담당자",
+              "subject": "[초록담] 경쟁 프레젠테이션 참가 요청드립니다",
+              "body": "안녕하세요, 초록담 마케팅팀장입니다. 저희 주방세제 브랜드 초록담의 다음 광고를 맡아 주실 대행사를 정하려고 경쟁 프레젠테이션을 열게 되어 참가를 요청드립니다. 먼저 저희 상황을 말씀드리면, 초록담 매출은 최근 3년 동안 제자리입니다. 이번 광고로는 20~30대 1인 가구 고객을 새로 얻고 싶습니다. 다만 지금 저희 제품을 주로 쓰시는 50대 이상 고객이 떠나서는 안 됩니다. 광고 총비용은 6,000만원을 넘을 수 없습니다. 이번 경쟁 프레젠테이션에는 대행사 3곳이 참가하며, 발표 결과에 따라 1곳과 광고대행계약을 맺을 예정입니다. 준비하신 제안안을 들려주시기 바랍니다. 감사합니다."
+            }
           ]
         },
         "confidence": {
-          "score": 0.78,
+          "score": 0.85,
           "checks": {
             "synthetic_material": true
           },
@@ -117,56 +161,133 @@
         }
       },
       {
-        "material_id": "table_ad_angle_options_001",
+        "material_id": "mat_002",
         "type": "table",
-        "subtype": "options_matrix",
-        "title": "재구매 광고 문구 후보 A/B 검토(요약표)",
-        "description": "두 후보의 강점/약점을 짧게 적어, 다음 주 광고 문구 방향을 빠르게 고르기 위한 비교표.",
+        "subtype": "competitor_brand_comparison",
+        "title": "경쟁사 및 자사 분석 자료: 주방세제 주요 브랜드 비교",
+        "description": "주방세제 시장의 주요 브랜드 4개를 소비자 인식, 주력 소비자층, 시장 점유율로 나란히 정리한 표입니다. 시장 점유율 단위는 %이며, 네 브랜드를 뺀 나머지는 그 밖의 여러 브랜드가 차지합니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "옵션 A/B의 강점/약점을 확인하고, 메모 근거와 함께 최종 선택",
+        "used_for": "초록담과 경쟁 브랜드의 소비자 인식, 주력 소비자층, 시장 점유율을 견주어 과제 1에서 초록담의 상황을 분석한다.",
         "evidence_source": [
-          "읽고 이해하기"
+          "정보 수집",
+          "사물, 행동, 사건 파악"
         ],
         "mission_fact_refs": [
-          "decision_goal",
-          "main_issue"
+          "domain",
+          "feedback_themes"
         ],
         "data": {
           "columns": [
             {
               "key": "option",
-              "label": "옵션"
+              "label": "브랜드"
             },
             {
               "key": "strength",
-              "label": "강점"
+              "label": "소비자 인식"
             },
             {
               "key": "weakness",
-              "label": "약점"
+              "label": "주력 소비자층"
             },
             {
               "key": "priority",
-              "label": "추천 우선순위"
+              "label": "시장 점유율(%)"
             }
           ],
           "rows": [
             {
-              "option": "A. ‘재구매 쿠폰 드려요’ 중심 카피",
-              "strength": "고객이 ‘할인’ 메시지를 가장 먼저 알아채기 쉬움(시선 유도 빠름).",
-              "weakness": "쿠폰은 보이지만 사용 맥락(언제/어떻게)이 부족하다는 피드백과 겹칠 수 있음.",
-              "priority": 2
+              "option": "초록담(광고주)",
+              "strength": "순하다, 세척력이 약하다",
+              "weakness": "50대 이상",
+              "priority": 12
             },
             {
-              "option": "B. ‘배송 타이밍 + 상황별 사용 팁’ 카피",
-              "strength": "고객이 묻는 ‘언제/어떻게’ 질문을 카피에서 바로 채워줄 수 있음.",
-              "weakness": "할인만큼 즉각적인 ‘가격 매력’ 자극은 약할 수 있음.",
-              "priority": 1
+              "option": "경쟁사 가",
+              "strength": "기름때가 잘 빠진다, 향이 강하다",
+              "weakness": "30~40대 자녀 가구",
+              "priority": 38
+            },
+            {
+              "option": "경쟁사 나",
+              "strength": "값이 싸다",
+              "weakness": "20대 1인 가구",
+              "priority": 25
+            },
+            {
+              "option": "경쟁사 다",
+              "strength": "용기 디자인이 세련됐다",
+              "weakness": "20~30대 1인 가구",
+              "priority": 15
             }
           ]
         },
         "confidence": {
-          "score": 0.81,
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "creative_option_comparison",
+        "title": "크리에이티브팀 제안안 후보 3개",
+        "description": "우리 대행사 크리에이티브팀이 이번 경쟁 프레젠테이션용으로 만든 제안안 후보 3개의 광고 방향, 표현 전략, 예상 비용을 정리한 표입니다. 예상 비용은 광고 총비용 기준이며 단위는 만원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "세 제안안의 광고 방향, 표현 전략, 예상 비용을 광고주 이메일의 조건과 과제 1의 분석에 비추어 견주고, 과제 2에서 하나를 골라 추천한다.",
+        "evidence_source": [
+          "목표, 전략 수립",
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "제안안"
+            },
+            {
+              "key": "strength",
+              "label": "광고 방향"
+            },
+            {
+              "key": "weakness",
+              "label": "표현 전략"
+            },
+            {
+              "key": "priority",
+              "label": "예상 비용(만원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안",
+              "strength": "세척력이 약하다는 인식을 바로잡는다",
+              "weakness": "기름때 제거 비교 실험 영상",
+              "priority": 4500
+            },
+            {
+              "option": "B안",
+              "strength": "20~30대 1인 가구의 세련된 생활 이미지를 만든다",
+              "weakness": "자취방 일상을 담은 짧은 웹드라마",
+              "priority": 5800
+            },
+            {
+              "option": "C안",
+              "strength": "순한 성분을 가족이 함께 쓰는 안심으로 내세운다",
+              "weakness": "50대 어머니와 20대 딸이 함께 설거지하는 장면",
+              "priority": 3800
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
           "checks": {
             "synthetic_material": true
           },
@@ -176,55 +297,76 @@
     ],
     "tasks": [
       {
-        "task_id": "task_001_select_ad_angle",
-        "instruction": "아래 자료를 보고 광고 문구 후보 A/B 중 하나를 선택해 주세요. 선택한 옵션 이름을 먼저 쓰고, 왜 그 옵션이 재구매에 더 맞는지 ‘자료에 나온 근거’ 한 가지를 들어 2-3문장으로 적어주세요.",
+        "task_id": "task_001",
+        "instruction": "광고주 이메일과 '경쟁사 및 자사 분석 자료'를 함께 보고 초록담의 상황을 분석해 적어 보세요. 초록담이 소비자에게 어떻게 인식되고 있는지, 시장 점유율과 주력 소비자층으로 본 시장에서의 위치가 어떤지, 그리고 광고주가 새로 얻고 싶은 소비자층을 지금 어느 브랜드가 어떤 인식으로 차지하고 있는지를 3~5문장으로 쓰세요.",
         "required_materials": [
-          "memo_client_feedback_001",
-          "table_ad_angle_options_001"
+          "mat_001",
+          "mat_002"
         ],
-        "expected_action": "옵션 1개 선택 + 근거 1개 포함해 짧게 이유 설명"
+        "expected_action": "이메일의 목표 소비자층과 분석 자료 표를 견주어 초록담의 소비자 인식, 시장에서의 위치, 목표 소비자층을 차지한 브랜드와 그 인식을 정리해 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 분석을 근거로, 경쟁 프레젠테이션에서 광고주에게 내세울 제안안을 A·B·C안 중 하나 골라 추천하세요. 고른 안이 다른 두 안보다 나은 이유와, 그 안을 택할 때 조심해야 할 점 하나를 함께 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "과제 1의 분석과 이메일 조건, 제안안 표를 견주어 제안안 하나를 고르고, 다른 두 안보다 나은 이유와 그 안의 주의점 하나를 적는다."
       }
     ],
     "submission_format": {
-      "type": "short_text",
-      "estimated_time_minutes": 5,
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
       "required_sections": [
-        "선택한 옵션( A 또는 B )",
-        "근거 1개를 포함한 이유(2-3문장)"
+        "과제 1: 초록담 상황 분석",
+        "과제 2: 추천 제안안, 다른 안보다 나은 이유, 주의점"
       ],
-      "length_hint": "2-3 short sentences"
+      "length_hint": "과제마다 3~5문장"
     }
   },
   "evaluation": {
     "expected_insights": [
-      "고객 피드백(사용 맥락/배송 기대)이 광고 문구의 강조점과 연결된다는 점을 읽어냄",
-      "A/B의 강점/약점을 메모의 실제 반응과 맞춰 최종 선택을 제시함",
-      "할인만 강조할 때 생길 수 있는 ‘사용 맥락 부족’ 약점을 짧게 의식함"
+      "과제 1: 초록담은 '순하다'는 강점과 '세척력이 약하다'는 약점으로 인식되고, 시장 점유율 12%로 경쟁사 가(38%)·나(25%)·다(15%)보다 낮으며 주력 소비자층은 50대 이상이다.",
+      "과제 1: 광고주가 새로 얻고 싶은 20~30대 1인 가구는 경쟁사 나('값이 싸다', 20대 1인 가구)와 경쟁사 다('용기 디자인이 세련됐다', 20~30대 1인 가구)가 차지하고 있다. '순하다'는 인식은 어느 경쟁사도 갖고 있지 않은 초록담만의 강점이다.",
+      "과제 2 배경: 세 안 모두 6,000만원 이하라 비용만으로는 갈리지 않고, 각 안에 장단점이 있어 하나의 정답이 정해지지 않는다. A안은 약점을 직접 다루지만 세척력은 점유율 1위 경쟁사 가의 인식과 겹치고 1인 가구가 고르는 이유인 값·디자인과 거리가 있다. B안은 20~30대 1인 가구를 바로 겨냥하지만 '세련됨'이 경쟁사 다의 인식과 겹치고 50대 이상 기존 고객과 멀며 비용 상한까지 200만원만 남는다. C안은 경쟁사에 없는 '순함'을 살리고 기존 고객을 지키지만 '세척력이 약하다'는 인식이 남고 1인 가구의 생활 장면이 아니다.",
+      "예시: C안을 추천한다. 어느 경쟁사도 갖지 않은 '순하다'는 인식을 내세워 차별화하고, 50대 어머니로 기존 고객을 지키면서 20대 딸의 등장으로 젊은 층에 닿을 수 있다. 반면 A안은 경쟁사 가, B안은 경쟁사 다의 인식과 겹쳐 차별화가 약하다. 주의점은 '세척력이 약하다'는 인식이 그대로 남고, 어머니와 딸이 함께 쓰는 장면이라 20~30대 1인 가구의 생활과는 거리가 있을 수 있다는 점이다."
     ],
     "rubric": [
       {
-        "criterion": "선택한 옵션이 자료 근거(메모의 반응 + 표의 강점/약점)와 일관됨",
-        "description": "선택이 단순 취향이 아니라 제공된 피드백/비교표 내용과 맞게 연결돼 있는지 확인합니다.",
+        "criterion": "초록담의 소비자 인식과 시장 위치 읽기",
+        "description": "과제 1에서 초록담이 '순하다'와 '세척력이 약하다'로 인식된다는 점, 시장 점유율이 12%로 경쟁사 가(38%)·나(25%)·다(15%)보다 낮고 주력 소비자층이 50대 이상이라는 점을 자료와 맞게 적었는지 본다. 이 가운데 빠진 것이 있거나 자료와 다르게 읽은 것이 있으면 감점한다.",
+        "points": 20,
+        "linked_evidence": [
+          "정보 수집",
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "criterion": "목표 소비자층을 차지한 브랜드와 그 인식 파악",
+        "description": "과제 1에서 광고주가 새로 얻고 싶은 20~30대 1인 가구를 경쟁사 나('값이 싸다')와 경쟁사 다('용기 디자인이 세련됐다')가 차지하고 있다는 점을 브랜드와 인식을 함께 들어 적었는지 본다. 한 브랜드만 적었거나 인식을 빠뜨렸거나 자료와 다르게 읽었으면 부분 점수만 준다.",
+        "points": 15,
+        "linked_evidence": [
+          "정보 수집",
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "criterion": "추천안과 다른 두 안보다 나은 이유",
+        "description": "특정 안을 정답으로 요구하지 않는다. 추천 이유가 과제 1의 분석과 이메일 조건(20~30대 1인 가구 확보, 50대 이상 기존 고객 유지, 광고 총비용 6,000만원 이하)에 근거해 고른 안이 나머지 두 안보다 왜 나은지를 보여 주면 높은 점수를 준다. 자료와 맞는 사실을 적었더라도 다른 두 안과 견주어 왜 더 나은지가 드러나지 않으면 부분 점수만 준다. 예: C안을 골라 어느 경쟁사도 갖지 않은 '순하다'는 인식을 살리고 50대 이상 고객을 지킨다고 하면서, A안은 경쟁사 가, B안은 경쟁사 다의 인식과 겹친다고 견준 답. A안이나 B안을 골라도 같은 기준으로 근거가 자료와 맞으면 인정한다.",
         "points": 40,
         "linked_evidence": [
-          "읽고 이해하기",
-          "정보 수집"
+          "목표, 전략 수립",
+          "영업과 마케팅"
         ]
       },
       {
-        "criterion": "이유 설명이 짧고 명확하며, ‘한 가지 근거’가 드러남",
-        "description": "2-3문장 안에 선택 이유가 한 가지 근거 중심으로 정리돼 있는지 봅니다.",
-        "points": 35,
-        "linked_evidence": [
-          "글쓰기"
-        ]
-      },
-      {
-        "criterion": "간단한 주의점(약점/겹침)을 최소 1번 언급함",
-        "description": "선택한 옵션의 약점이 왜 문제될 수 있는지, 혹은 어떤 피드백과 겹치는지 한 줄로 의식했는지 확인합니다.",
+        "criterion": "고른 안의 주의점",
+        "description": "과제 2에서 고른 안의 실제 위험이나 한계로서 자료에 드러난 것을 하나 적었으면 인정한다. 고른 안과 관계없는 위험이나 자료에 없는 위험은 인정하지 않는다. 예: C안이면 '세척력이 약하다'는 인식이 그대로 남거나 1인 가구의 생활 장면이 아니라는 점, A안이면 세척력이 경쟁사 가의 인식과 겹친다는 점, B안이면 경쟁사 다의 인식과 겹치거나 50대 이상 고객과 멀어지거나 비용 상한까지 200만원만 남는다는 점.",
         "points": 25,
         "linked_evidence": [
-          "사람들에게 영향력 행사"
+          "사물, 행동, 사건 파악"
         ]
       }
     ]
@@ -275,7 +417,7 @@
         "field": "jobsDo.execJob",
         "index": 4
       },
-      "selection_reason": "광고대행계약 및 광고기획서 작성까지 포함해 자료 조사·분석 후 문서로 제안하는 과업이 핵심이며, 정상 난이도에서 2개 자료(memo, table)로 기획 내용을 구성하기 적합함."
+      "selection_reason": "Pilot config selected exec_004."
     },
     "linked_evidence": {
       "activities": [
@@ -443,25 +585,36 @@
     },
     "material_evidence_map": [
       {
-        "material_id": "memo_client_feedback_001",
+        "material_id": "mat_001",
         "supported_by": [
           "정보 수집",
-          "글쓰기"
+          "영업과 마케팅"
         ]
       },
       {
-        "material_id": "table_ad_angle_options_001",
+        "material_id": "mat_002",
         "supported_by": [
-          "읽고 이해하기"
+          "정보 수집",
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "목표, 전략 수립",
+          "영업과 마케팅"
         ]
       }
     ],
     "items": [
       {
         "target_type": "material",
-        "target_id": "memo_client_feedback_001",
+        "target_id": "mat_001",
         "mission_fact_refs": [
-          "feedback_themes",
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
           "main_issue",
           "decision_goal"
         ],
@@ -474,8 +627,8 @@
           },
           {
             "file": "K000000872/dtlGb_5.xml",
-            "field": "ablKnwEnv.jobAbil",
-            "index": 2,
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
             "source_root": "data/api_raw"
           }
         ],
@@ -484,16 +637,46 @@
       },
       {
         "target_type": "material",
-        "target_id": "table_ad_angle_options_001",
+        "target_id": "mat_002",
         "mission_fact_refs": [
-          "decision_goal",
-          "main_issue"
+          "domain",
+          "feedback_themes"
         ],
         "source_refs": [
           {
-            "file": "K000000872/dtlGb_5.xml",
-            "field": "ablKnwEnv.jobAbil",
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
             "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
             "source_root": "data/api_raw"
           }
         ],
@@ -503,10 +686,10 @@
     ]
   },
   "axis_signals_derived": {
-    "AX1": 0.47,
-    "AX2": 0.07,
-    "AX3": 0.07,
-    "AX4": 0.07,
-    "AX5": 0.32
+    "AX1": 0.215,
+    "AX2": 0.465,
+    "AX3": 0.24,
+    "AX4": 0.04,
+    "AX5": 0.04
   }
 }

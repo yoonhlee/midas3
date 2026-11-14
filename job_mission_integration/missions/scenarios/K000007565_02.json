@@ -1,0 +1,535 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007565_normal_001",
+  "job_identity": {
+    "job_cd": "K000007565",
+    "job_lrcl_nm": "교육·법률·사회복지·경찰·소방직 및 군인",
+    "job_mdcl_nm": "사회복지사 및 상담사",
+    "job_smcl_nm": "직업상담사",
+    "source_ref": {
+      "file": "K000007565/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "노동시장에서 발생되는 직업과 관련된 일반상담과 구인구직상담, 창업상담, 경력개발상담, 직업적응상담, 직업전환상담, 은퇴 후 상담 등 각종 상담업무를 수행한다.",
+    "source_ref": {
+      "file": "K000007565/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "새길고용상담센터",
+    "domain": "재직자 직업적응상담",
+    "period": [
+      "10/30 1회기",
+      "11/06 2회기"
+    ],
+    "trend_pattern": "입사 8개월 차 사무직 내담자가 두 회기 동안 보수, 자리 소음, 직장 팀장과의 관계에 대해 이야기했고, 그중 일부는 2회기에 다시 언급됨",
+    "main_issue": "3회기를 앞두고 상담기록지의 여러 진술 가운데 이 내담자의 주 호소문제를 정해야 함",
+    "feedback_themes": [
+      "동기보다 적은 보수",
+      "출입문 옆 자리의 소음",
+      "직장 팀장과의 관계"
+    ],
+    "decision_goal": "팀장 메모의 기준에 따라 주 호소문제와 그 영역(욕구·작업환경·인간관계)을 정해 3회기 준비에 쓴다"
+  },
+  "mission": {
+    "title": "상담기록지에서 주 호소문제 가려내기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "새길고용상담센터 직업적응상담 인턴",
+      "context": "당신은 새길고용상담센터에서 직업적응상담을 돕는 인턴입니다. 입사 8개월 차 사무직 재직자 한 명이 10월 30일과 11월 6일에 두 차례 상담을 받았고, 다음 주에 3회기 상담이 잡혀 있습니다. 센터 팀장님이 \"3회기 준비를 하려고 해요. 상담기록지를 보고 이분의 주 호소문제가 어느 영역인지 정리해 줄래요?\"라고 부탁했습니다.",
+      "goal": "팀장 메모의 기준을 상담기록지에 적용해 이 내담자의 주 호소문제가 욕구·작업환경·인간관계 중 어느 영역인지 판단하고, 그 근거가 된 기록을 함께 적어보세요.",
+      "constraints": [
+        "팀장 메모와 상담기록지에 적힌 내용만 근거로 판단하세요.",
+        "해결 방법이나 다음 상담 계획까지 쓸 필요는 없습니다.",
+        "답은 2~3문장으로 짧게 적어보세요."
+      ],
+      "glossary": [
+        {
+          "term": "내담자",
+          "definition": "상담을 받으러 온 사람입니다."
+        },
+        {
+          "term": "주 호소문제",
+          "definition": "내담자가 털어놓은 여러 고민 가운데 상담에서 중심으로 다룰 고민입니다."
+        },
+        {
+          "term": "상담기록지",
+          "definition": "상담 중에 내담자가 한 말과 상담자가 본 내용을 회기별로 적어 두는 기록 문서입니다."
+        },
+        {
+          "term": "외적 환경",
+          "definition": "내담자 본인이 아니라 회사의 자리 배치, 근무 조건, 함께 일하는 사람처럼 바깥에 있는 조건입니다."
+        },
+        {
+          "term": "회기",
+          "definition": "상담을 한 번 진행하는 단위입니다. 1회기는 첫 번째 상담, 2회기는 두 번째 상담입니다."
+        },
+        {
+          "term": "직업적응상담",
+          "definition": "직장에 다니는 사람이 일과 직장에 잘 적응하도록 돕는 상담입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "internal_guideline",
+        "title": "주 호소문제 판단 기준 메모 (새길고용상담센터 직업적응상담 담당 팀장 작성)",
+        "description": "센터의 직업적응상담 담당 팀장이 상담기록지를 검토할 때 쓰도록 정리한 내부 기준 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "상담기록지의 기록에 적용할 주 호소문제 판단 조건과 영역 분류 기준을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "상담"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "새길고용상담센터 직업적응상담 담당 팀장",
+          "items": [
+            "주 호소문제 판단 기준: 두 회기 이상에 걸쳐 반복해서 말했고, 그 문제 때문에 업무 수행에 지장이 생겼다고 내담자가 직접 말한 문제를 주 호소문제로 정합니다. 두 조건을 모두 만족해야 합니다.",
+            "영역 분류: 주 호소문제는 욕구(더 나은 보수 등을 바라는 것), 작업환경(근무 공간, 자리 등), 인간관계(직장 상사·동료와의 관계) 중 하나로 분류합니다.",
+            "주 호소문제가 작업환경이나 인간관계에 해당하면, 다음 회기에서 외적 환경이 개선될 수 있는지 확인하고 내담자가 다니는 회사와 이야기를 나눌지 검토합니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "counseling_record",
+        "title": "상담기록지 - 입사 8개월 차 사무직 내담자 (1~2회기)",
+        "description": "새길고용상담센터 상담자가 1회기(10/30)와 2회기(11/06)에 내담자가 한 말을 시간 순서대로 적은 상담기록지입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 기준을 적용해 볼 내담자의 회기별 진술을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "사람 파악",
+          "상담"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes",
+          "main_issue"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "10/30 1회기 14:05",
+              "actor": "내담자",
+              "event": "같은 시기에 입사한 동기보다 보수가 적어 아쉽다고 말함. 그래도 일하는 데 지장은 없다고 덧붙임.",
+              "note": "1회기 시작 직후"
+            },
+            {
+              "time": "10/30 1회기 14:20",
+              "actor": "내담자",
+              "event": "자리가 출입문 옆이라 오가는 사람 때문에 시끄럽다고 말함. 이어폰을 끼면 일하는 데 문제없다고 함.",
+              "note": "이어폰 사용 중"
+            },
+            {
+              "time": "10/30 1회기 14:40",
+              "actor": "내담자",
+              "event": "회의 자리에서 직장 팀장에게 공개적으로 지적받은 뒤로 팀장에게 보고하기를 자꾸 미루게 되었고, 그래서 보고서 제출이 두 차례 늦어졌다고 말함.",
+              "note": "제출 지연 2회"
+            },
+            {
+              "time": "11/06 2회기 14:25",
+              "actor": "내담자",
+              "event": "자리가 시끄럽다는 이야기를 다시 꺼냄. 이어서 직장 팀장과 마주치지 않으려고 모르는 업무를 묻지 않다 보니 입력 실수가 늘었다고 말함.",
+              "note": "2회기 중반"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장 메모의 주 호소문제 판단 기준을 상담기록지에 적용해서, 이 내담자의 주 호소문제가 욕구·작업환경·인간관계 중 어느 영역에 해당하는지 판단하고, 그렇게 본 근거가 된 기록과 함께 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 기준을 상담기록지에 적용해 주 호소문제의 영역을 정하고, 근거가 된 기록을 들어 짧게 설명한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "주 호소문제의 영역",
+        "근거가 된 기록"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "이 내담자의 주 호소문제는 직장 팀장과의 관계로, 인간관계 영역에 해당한다.",
+      "팀장과의 관계는 1회기(10/30)와 2회기(11/06)에 모두 나왔고, 보고서 제출이 두 차례 늦어지고 입력 실수가 늘었다고 내담자가 직접 말해 두 조건을 모두 만족한다.",
+      "자리 소음(작업환경)은 두 회기에 반복되었지만 이어폰을 끼면 일하는 데 문제없다고 해 업무 지장 조건을 만족하지 않는다.",
+      "보수(욕구)는 가장 먼저 나왔지만 1회기에 한 번만 나왔고 일하는 데 지장이 없다고 해 두 조건 모두 만족하지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "두 조건을 모두 확인해 주 호소문제 가려내기",
+        "description": "회기 반복과 업무 지장이라는 두 조건을 모두 확인해 직장 팀장과의 관계를 주 호소문제로 가려냈는지 본다.",
+        "points": 35,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "그럴듯한 진술에 끌려가지 않기",
+        "description": "반복만 되고 업무 지장이 없는 자리 소음이나, 가장 먼저 나왔지만 한 번뿐인 보수 이야기를 주 호소문제로 고르지 않았는지 본다.",
+        "points": 25,
+        "linked_evidence": [
+          "사람 파악",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "영역 분류와 근거 기록 제시",
+        "description": "가려낸 주 호소문제를 인간관계 영역으로 분류하고, 상담기록지의 해당 기록(보고서 제출 지연 2회, 입력 실수 증가, 두 회기 언급)을 근거로 들었는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "상담"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "노동시장에서 발생되는 직업과 관련된 일반상담과 구인구직상담, 창업상담, 경력개발상담, 직업적응상담, 직업전환상담, 은퇴 후 상담 등 각종 상담업무를 수행한다.",
+      "source_ref": {
+        "file": "K000007565/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 99,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 92,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들을 훈련, 교육",
+          "score": 89,
+          "description": "교육 요구 사항을 파악하고, 공식적인 교육 또는 훈련 프로그램을 만들며, 교육이나 강의를 제공하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 89,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 88,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "말하기",
+          "score": 88,
+          "description": "자기가 알고 있는 것을 다른 사람에게 조리있게 말한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람 파악",
+          "score": 86,
+          "description": "타인의 반응을 파악하고 왜 그렇게 행동하는지 이해한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "듣고 이해하기",
+          "score": 81,
+          "description": "다른 사람들이 말하는 것을 집중해서 듣고 상대방이 말하려는 요점을 이해하거나 적절한 질문을 한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "상담",
+          "score": 96,
+          "description": "개인의 신상 및 경력 혹은 정신적 어려움에 관한 상담을 하는 절차나 방법 혹은 원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "심리",
+          "score": 94,
+          "description": "사람들의 행동, 성격, 흥미, 동기 등에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "인사",
+          "score": 94,
+          "description": "채용, 훈련, 급여, 노사관계와 같은 인적자원관리에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "공문, 문서 주고받기",
+          "score": 89,
+          "description": "업무 수행하면서 공문이나 문서를 주고받는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "외부 고객 대하기",
+          "score": 88,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 85,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "상담"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "사람 파악",
+          "상담"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 8,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.58,
+    "AX2": 0.105,
+    "AX3": 0.105,
+    "AX4": 0.105,
+    "AX5": 0.105
+  }
+}

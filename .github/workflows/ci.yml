@@ -43,6 +43,8 @@ jobs:
         run: npm run test:e2e:postings
       - name: E2E (탐색·로그인·기록·재도전)
         run: npm run test:e2e:features
+      - name: E2E (관리자 미션 생성)
+        run: npm run test:e2e:admin
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

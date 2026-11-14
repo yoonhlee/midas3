@@ -1,25 +1,175 @@
 {
   "schema_version": "missions-index.v1",
-  "generated_at": "2026-10-30",
+  "generated_at": "2026-11-14",
   "jobs": [
+    {
+      "job_cd": "K000000832",
+      "job_name": "정보보안전문가",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000832_easy_001",
+        "jobsim_service_v1__mission_K000000832_normal_001",
+        "jobsim_service_v1__mission_K000000832_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000000853",
+      "job_name": "시스템소프트웨어개발자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000853_easy_001",
+        "jobsim_service_v1__mission_K000000853_normal_001",
+        "jobsim_service_v1__mission_K000000853_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000000856",
+      "job_name": "컴퓨터시스템설계 및 분석가",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000856_easy_001",
+        "jobsim_service_v1__mission_K000000856_normal_001",
+        "jobsim_service_v1__mission_K000000856_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000000857",
+      "job_name": "사회복지사",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000857_easy_001",
+        "jobsim_service_v1__mission_K000000857_normal_001",
+        "jobsim_service_v1__mission_K000000857_hard_001"
+      ]
+    },
     {
       "job_cd": "K000000872",
       "job_name": "광고·홍보·마케팅전문가",
       "icon": "💼",
       "mission_keys": [
-        "pilot_v1_20260601_173827__mission_K000000872_easy_001",
-        "pilot_v1_20260601_173827__mission_K000000872_hard_001",
-        "pilot_v1_20260601_173827__mission_K000000872_normal_001"
+        "jobsim_service_v1__mission_K000000872_easy_001",
+        "jobsim_service_v1__mission_K000000872_normal_001",
+        "jobsim_service_v1__mission_K000000872_hard_001"
       ]
     },
     {
-      "job_cd": "K000000997",
-      "job_name": "상품기획자",
-      "icon": "📦",
+      "job_cd": "K000000875",
+      "job_name": "인적자원전문가",
+      "icon": "💼",
       "mission_keys": [
-        "pilot_v1_20260601_173827__mission_K000000997_easy_001",
-        "pilot_v1_20260601_173827__mission_K000000997_hard_001",
-        "pilot_v1_20260601_173827__mission_K000000997_normal_001"
+        "jobsim_service_v1__mission_K000000875_easy_001",
+        "jobsim_service_v1__mission_K000000875_normal_001",
+        "jobsim_service_v1__mission_K000000875_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000000878",
+      "job_name": "도시계획·설계가",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000878_easy_001",
+        "jobsim_service_v1__mission_K000000878_normal_001",
+        "jobsim_service_v1__mission_K000000878_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000000890",
+      "job_name": "UX·UI디자이너",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000890_easy_001",
+        "jobsim_service_v1__mission_K000000890_normal_001",
+        "jobsim_service_v1__mission_K000000890_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000000918",
+      "job_name": "무역사무원",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000918_easy_001",
+        "jobsim_service_v1__mission_K000000918_normal_001",
+        "jobsim_service_v1__mission_K000000918_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000000936",
+      "job_name": "통신기술개발자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000936_easy_001",
+        "jobsim_service_v1__mission_K000000936_normal_001",
+        "jobsim_service_v1__mission_K000000936_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000000956",
+      "job_name": "건축구조기술자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000956_easy_001",
+        "jobsim_service_v1__mission_K000000956_normal_001",
+        "jobsim_service_v1__mission_K000000956_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000000968",
+      "job_name": "네트워크시스템개발자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000968_easy_001",
+        "jobsim_service_v1__mission_K000000968_normal_001",
+        "jobsim_service_v1__mission_K000000968_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000000978",
+      "job_name": "IT기술지원전문가",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000000978_easy_001",
+        "jobsim_service_v1__mission_K000000978_normal_001",
+        "jobsim_service_v1__mission_K000000978_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001000",
+      "job_name": "제품디자이너",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001000_easy_001",
+        "jobsim_service_v1__mission_K000001000_normal_001",
+        "jobsim_service_v1__mission_K000001000_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001042",
+      "job_name": "모바일앱개발자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001042_easy_001",
+        "jobsim_service_v1__mission_K000001042_normal_001",
+        "jobsim_service_v1__mission_K000001042_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001060",
+      "job_name": "시각디자이너",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001060_easy_001",
+        "jobsim_service_v1__mission_K000001060_normal_001",
+        "jobsim_service_v1__mission_K000001060_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001069",
+      "job_name": "광고·홍보·마케팅사무원",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001069_easy_001",
+        "jobsim_service_v1__mission_K000001069_normal_001",
+        "jobsim_service_v1__mission_K000001069_hard_001"
       ]
     },
     {
@@ -27,19 +177,229 @@
       "job_name": "데이터분석가(빅데이터분석가)",
       "icon": "📊",
       "mission_keys": [
-        "pilot_v1_20260601_173827__mission_K000001080_easy_001",
-        "pilot_v1_20260601_173827__mission_K000001080_hard_001",
-        "pilot_v1_20260601_173827__mission_K000001080_normal_001"
+        "jobsim_service_v1__mission_K000001080_easy_001",
+        "jobsim_service_v1__mission_K000001080_normal_001",
+        "jobsim_service_v1__mission_K000001080_hard_001"
       ]
     },
     {
-      "job_cd": "K000001179",
-      "job_name": "투자분석가",
-      "icon": "💹",
+      "job_cd": "K000001085",
+      "job_name": "정보통신컨설턴트 및 감리원",
+      "icon": "💼",
       "mission_keys": [
-        "pilot_v1_20260601_173827__mission_K000001179_easy_001",
-        "pilot_v1_20260601_173827__mission_K000001179_hard_001",
-        "pilot_v1_20260601_173827__mission_K000001179_normal_001"
+        "jobsim_service_v1__mission_K000001085_easy_001",
+        "jobsim_service_v1__mission_K000001085_normal_001",
+        "jobsim_service_v1__mission_K000001085_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001097",
+      "job_name": "환경시험원",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001097_easy_001",
+        "jobsim_service_v1__mission_K000001097_normal_001",
+        "jobsim_service_v1__mission_K000001097_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001106",
+      "job_name": "웹개발자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001106_easy_001",
+        "jobsim_service_v1__mission_K000001106_normal_001",
+        "jobsim_service_v1__mission_K000001106_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001132",
+      "job_name": "정보시스템운영자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001132_easy_001",
+        "jobsim_service_v1__mission_K000001132_normal_001",
+        "jobsim_service_v1__mission_K000001132_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001134",
+      "job_name": "데이터베이스운영·관리자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001134_easy_001",
+        "jobsim_service_v1__mission_K000001134_normal_001",
+        "jobsim_service_v1__mission_K000001134_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001136",
+      "job_name": "은행사무원",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001136_easy_001",
+        "jobsim_service_v1__mission_K000001136_normal_001",
+        "jobsim_service_v1__mission_K000001136_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001138",
+      "job_name": "방송연출가",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001138_easy_001",
+        "jobsim_service_v1__mission_K000001138_normal_001",
+        "jobsim_service_v1__mission_K000001138_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001139",
+      "job_name": "조사전문가",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001139_easy_001",
+        "jobsim_service_v1__mission_K000001139_normal_001",
+        "jobsim_service_v1__mission_K000001139_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001154",
+      "job_name": "온라인판매원",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001154_easy_001",
+        "jobsim_service_v1__mission_K000001154_normal_001",
+        "jobsim_service_v1__mission_K000001154_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001176",
+      "job_name": "응용소프트웨어개발자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001176_easy_001",
+        "jobsim_service_v1__mission_K000001176_normal_001",
+        "jobsim_service_v1__mission_K000001176_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001187",
+      "job_name": "여행사무원",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001187_easy_001",
+        "jobsim_service_v1__mission_K000001187_normal_001",
+        "jobsim_service_v1__mission_K000001187_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001196",
+      "job_name": "인사·교육·훈련사무원",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001196_easy_001",
+        "jobsim_service_v1__mission_K000001196_normal_001",
+        "jobsim_service_v1__mission_K000001196_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001198",
+      "job_name": "출판물기획자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001198_easy_001",
+        "jobsim_service_v1__mission_K000001198_normal_001",
+        "jobsim_service_v1__mission_K000001198_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000001215",
+      "job_name": "신용분석가",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000001215_easy_001",
+        "jobsim_service_v1__mission_K000001215_normal_001",
+        "jobsim_service_v1__mission_K000001215_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007449",
+      "job_name": "회계사",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007449_easy_001",
+        "jobsim_service_v1__mission_K000007449_normal_001",
+        "jobsim_service_v1__mission_K000007449_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007452",
+      "job_name": "가상현실전문가",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007452_easy_001",
+        "jobsim_service_v1__mission_K000007452_normal_001",
+        "jobsim_service_v1__mission_K000007452_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007454",
+      "job_name": "의상디자이너",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007454_easy_001",
+        "jobsim_service_v1__mission_K000007454_normal_001",
+        "jobsim_service_v1__mission_K000007454_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007492",
+      "job_name": "보건의료정보관리사",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007492_easy_001",
+        "jobsim_service_v1__mission_K000007492_normal_001",
+        "jobsim_service_v1__mission_K000007492_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007499",
+      "job_name": "네트워크관리자",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007499_easy_001",
+        "jobsim_service_v1__mission_K000007499_normal_001",
+        "jobsim_service_v1__mission_K000007499_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007500",
+      "job_name": "관세사",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007500_easy_001",
+        "jobsim_service_v1__mission_K000007500_normal_001",
+        "jobsim_service_v1__mission_K000007500_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007514",
+      "job_name": "감정평가사",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007514_easy_001",
+        "jobsim_service_v1__mission_K000007514_normal_001",
+        "jobsim_service_v1__mission_K000007514_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007517",
+      "job_name": "총무사무원",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007517_easy_001",
+        "jobsim_service_v1__mission_K000007517_normal_001",
+        "jobsim_service_v1__mission_K000007517_hard_001"
       ]
     },
     {
@@ -47,248 +407,562 @@
       "job_name": "보험상품개발자",
       "icon": "🛡️",
       "mission_keys": [
-        "pilot_v1_20260601_173827__mission_K000007519_easy_001",
-        "pilot_v1_20260601_173827__mission_K000007519_hard_001",
-        "pilot_v1_20260601_173827__mission_K000007519_normal_001"
+        "jobsim_service_v1__mission_K000007519_easy_001",
+        "jobsim_service_v1__mission_K000007519_normal_001",
+        "jobsim_service_v1__mission_K000007519_hard_001"
       ]
     },
     {
-      "job_cd": "K000001196",
-      "job_name": "인사·교육·훈련사무원",
-      "icon": "🤝",
+      "job_cd": "K000007525",
+      "job_name": "세무사",
+      "icon": "💼",
       "mission_keys": [
-        "manual_v1_20261030__mission_K000001196_easy_001",
-        "manual_v1_20261030__mission_K000001196_hard_001",
-        "manual_v1_20261030__mission_K000001196_normal_001"
+        "jobsim_service_v1__mission_K000007525_easy_001",
+        "jobsim_service_v1__mission_K000007525_normal_001",
+        "jobsim_service_v1__mission_K000007525_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007526",
+      "job_name": "청소년지도사",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007526_easy_001",
+        "jobsim_service_v1__mission_K000007526_normal_001",
+        "jobsim_service_v1__mission_K000007526_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007532",
+      "job_name": "사서",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007532_easy_001",
+        "jobsim_service_v1__mission_K000007532_normal_001",
+        "jobsim_service_v1__mission_K000007532_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007536",
+      "job_name": "부동산중개인",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007536_easy_001",
+        "jobsim_service_v1__mission_K000007536_normal_001",
+        "jobsim_service_v1__mission_K000007536_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007560",
+      "job_name": "해외영업원",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007560_easy_001",
+        "jobsim_service_v1__mission_K000007560_normal_001",
+        "jobsim_service_v1__mission_K000007560_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007565",
+      "job_name": "직업상담사",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007565_easy_001",
+        "jobsim_service_v1__mission_K000007565_normal_001",
+        "jobsim_service_v1__mission_K000007565_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007580",
+      "job_name": "게임프로그래머",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007580_easy_001",
+        "jobsim_service_v1__mission_K000007580_normal_001",
+        "jobsim_service_v1__mission_K000007580_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007581",
+      "job_name": "3D프린팅모델러",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007581_easy_001",
+        "jobsim_service_v1__mission_K000007581_normal_001",
+        "jobsim_service_v1__mission_K000007581_hard_001"
+      ]
+    },
+    {
+      "job_cd": "K000007582",
+      "job_name": "환경영향평가원",
+      "icon": "💼",
+      "mission_keys": [
+        "jobsim_service_v1__mission_K000007582_easy_001",
+        "jobsim_service_v1__mission_K000007582_normal_001",
+        "jobsim_service_v1__mission_K000007582_hard_001"
       ]
     }
   ],
   "missions": [
     {
-      "key": "pilot_v1_20260601_173827__mission_K000000872_easy_001",
-      "path": "scenarios/K000000872_01.json",
-      "mission_id": "mission_K000000872_easy_001",
-      "job_cd": "K000000872",
-      "job_name": "광고·홍보·마케팅전문가",
+      "key": "jobsim_service_v1__mission_K000000832_easy_001",
+      "path": "scenarios/K000000832_01.json",
+      "mission_id": "mission_K000000832_easy_001",
+      "job_cd": "K000000832",
+      "job_name": "정보보안전문가",
       "difficulty": "easy",
-      "title": "광고 클릭률 차트로 ‘첫 점검 포인트’ 찾기",
-      "task_type": "diagnosis_and_improvement",
-      "estimated_time_minutes": 15,
+      "title": "감사일지로 퇴사자 계정 삭제 기한 점검하기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 10,
       "axis_signals": {
-        "AX1": 0.72,
-        "AX2": 0.07,
-        "AX3": 0.07,
-        "AX4": 0.07,
-        "AX5": 0.07
-      }
-    },
-    {
-      "key": "pilot_v1_20260601_173827__mission_K000000872_hard_001",
-      "path": "scenarios/K000000872_02.json",
-      "mission_id": "mission_K000000872_hard_001",
-      "job_cd": "K000000872",
-      "job_name": "광고·홍보·마케팅전문가",
-      "difficulty": "hard",
-      "title": "제약조건에 맞는 광고 콘셉트 1개 고르기(제출 전 체크 포함)",
-      "task_type": "planning_and_proposal",
-      "estimated_time_minutes": 15,
-      "axis_signals": {
-        "AX1": 0.34,
-        "AX2": 0.165,
-        "AX3": 0.165,
-        "AX4": 0.165,
-        "AX5": 0.165
-      }
-    },
-    {
-      "key": "pilot_v1_20260601_173827__mission_K000000872_normal_001",
-      "path": "scenarios/K000000872_03.json",
-      "mission_id": "mission_K000000872_normal_001",
-      "job_cd": "K000000872",
-      "job_name": "광고·홍보·마케팅전문가",
-      "difficulty": "normal",
-      "title": "재구매를 끌어올릴 광고 문구 방향 고르기",
-      "task_type": "planning_and_proposal",
-      "estimated_time_minutes": 15,
-      "axis_signals": {
-        "AX1": 0.47,
-        "AX2": 0.07,
-        "AX3": 0.07,
-        "AX4": 0.07,
-        "AX5": 0.32
-      }
-    },
-    {
-      "key": "pilot_v1_20260601_173827__mission_K000000997_easy_001",
-      "path": "scenarios/K000000997_01.json",
-      "mission_id": "mission_K000000997_easy_001",
-      "job_cd": "K000000997",
-      "job_name": "상품기획자",
-      "difficulty": "easy",
-      "title": "초보 인턴의 구매 패턴 해석 한 줄 정리",
-      "task_type": "research_and_analysis",
-      "estimated_time_minutes": 15,
-      "axis_signals": {
-        "AX1": 0.06,
-        "AX2": 0.76,
-        "AX3": 0.06,
-        "AX4": 0.06,
-        "AX5": 0.06
-      }
-    },
-    {
-      "key": "pilot_v1_20260601_173827__mission_K000000997_hard_001",
-      "path": "scenarios/K000000997_02.json",
-      "mission_id": "mission_K000000997_hard_001",
-      "job_cd": "K000000997",
-      "job_name": "상품기획자",
-      "difficulty": "hard",
-      "title": "미니케어 세트, 고객 반응 기반 개선 1순위 고르기",
-      "task_type": "planning_and_proposal",
-      "estimated_time_minutes": 15,
-      "axis_signals": {
-        "AX1": 0.18,
-        "AX2": 0.28,
-        "AX3": 0.48,
-        "AX4": 0.03,
-        "AX5": 0.03
-      }
-    },
-    {
-      "key": "pilot_v1_20260601_173827__mission_K000000997_normal_001",
-      "path": "scenarios/K000000997_03.json",
-      "mission_id": "mission_K000000997_normal_001",
-      "job_cd": "K000000997",
-      "job_name": "상품기획자",
-      "difficulty": "normal",
-      "title": "리뷰와 판매 흐름으로 ‘상세 설명’ 개선 우선순위 고르기",
-      "task_type": "research_and_analysis",
-      "estimated_time_minutes": 15,
-      "axis_signals": {
-        "AX1": 0.38,
-        "AX2": 0.38,
-        "AX3": 0.18,
-        "AX4": 0.03,
-        "AX5": 0.03
-      }
-    },
-    {
-      "key": "pilot_v1_20260601_173827__mission_K000001080_easy_001",
-      "path": "scenarios/K000001080_01.json",
-      "mission_id": "mission_K000001080_easy_001",
-      "job_cd": "K000001080",
-      "job_name": "데이터분석가(빅데이터분석가)",
-      "difficulty": "easy",
-      "title": "체크리스트로 초안 점검하기",
-      "task_type": "planning_and_proposal",
-      "estimated_time_minutes": 15,
-      "axis_signals": {
-        "AX1": 0.5,
-        "AX2": 0.5,
+        "AX1": 1.0,
+        "AX2": 0.0,
         "AX3": 0.0,
         "AX4": 0.0,
         "AX5": 0.0
       }
     },
     {
-      "key": "pilot_v1_20260601_173827__mission_K000001080_hard_001",
-      "path": "scenarios/K000001080_02.json",
-      "mission_id": "mission_K000001080_hard_001",
-      "job_cd": "K000001080",
-      "job_name": "데이터분석가(빅데이터분석가)",
-      "difficulty": "hard",
-      "title": "체크아웃 전환 급락, 원인 후보 1개 고르기",
-      "task_type": "research_and_analysis",
-      "estimated_time_minutes": 15,
-      "axis_signals": {
-        "AX1": 0.45,
-        "AX2": 0.275,
-        "AX3": 0.275,
-        "AX4": 0.0,
-        "AX5": 0.0
-      }
-    },
-    {
-      "key": "pilot_v1_20260601_173827__mission_K000001080_normal_001",
-      "path": "scenarios/K000001080_03.json",
-      "mission_id": "mission_K000001080_normal_001",
-      "job_cd": "K000001080",
-      "job_name": "데이터분석가(빅데이터분석가)",
+      "key": "jobsim_service_v1__mission_K000000832_normal_001",
+      "path": "scenarios/K000000832_02.json",
+      "mission_id": "mission_K000000832_normal_001",
+      "job_cd": "K000000832",
+      "job_name": "정보보안전문가",
       "difficulty": "normal",
-      "title": "주문완료율 하락, 대시보드 KPI 1개만 고르기",
-      "task_type": "planning_and_proposal",
-      "estimated_time_minutes": 15,
-      "axis_signals": {
-        "AX1": 0.625,
-        "AX2": 0.15,
-        "AX3": 0.225,
-        "AX4": 0.0,
-        "AX5": 0.0
-      }
-    },
-    {
-      "key": "pilot_v1_20260601_173827__mission_K000001179_easy_001",
-      "path": "scenarios/K000001179_01.json",
-      "mission_id": "mission_K000001179_easy_001",
-      "job_cd": "K000001179",
-      "job_name": "투자분석가",
-      "difficulty": "easy",
-      "title": "표 한 장으로 기업 A/B 간단 비교하기(초급)",
-      "task_type": "research_and_analysis",
-      "estimated_time_minutes": 15,
-      "axis_signals": {
-        "AX1": 0.9,
-        "AX2": 0.0,
-        "AX3": 0.1,
-        "AX4": 0.0,
-        "AX5": 0.0
-      }
-    },
-    {
-      "key": "pilot_v1_20260601_173827__mission_K000001179_hard_001",
-      "path": "scenarios/K000001179_02.json",
-      "mission_id": "mission_K000001179_hard_001",
-      "job_cd": "K000001179",
-      "job_name": "투자분석가",
-      "difficulty": "hard",
-      "title": "저평가 기업, 어떤 평가방법을 먼저 써야 할까요?",
+      "title": "제휴 연결 구현계획, 규칙에 맞는지 점검하기",
       "task_type": "decision_making",
       "estimated_time_minutes": 15,
       "axis_signals": {
-        "AX1": 0.45,
-        "AX2": 0.3,
-        "AX3": 0.175,
-        "AX4": 0.0,
-        "AX5": 0.075
+        "AX1": 0.76,
+        "AX2": 0.06,
+        "AX3": 0.06,
+        "AX4": 0.06,
+        "AX5": 0.06
       }
     },
     {
-      "key": "pilot_v1_20260601_173827__mission_K000001179_normal_001",
-      "path": "scenarios/K000001179_03.json",
-      "mission_id": "mission_K000001179_normal_001",
-      "job_cd": "K000001179",
-      "job_name": "투자분석가",
+      "key": "jobsim_service_v1__mission_K000000832_hard_001",
+      "path": "scenarios/K000000832_03.json",
+      "mission_id": "mission_K000000832_hard_001",
+      "job_cd": "K000000832",
+      "job_name": "정보보안전문가",
+      "difficulty": "hard",
+      "title": "내부 보안 감사: 세 부서의 지침 이행 점검하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.52,
+        "AX2": 0.27,
+        "AX3": 0.07,
+        "AX4": 0.07,
+        "AX5": 0.07
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000853_easy_001",
+      "path": "scenarios/K000000853_01.json",
+      "mission_id": "mission_K000000853_easy_001",
+      "job_cd": "K000000853",
+      "job_name": "시스템소프트웨어개발자",
+      "difficulty": "easy",
+      "title": "사용자 교육계획 초안 점검하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.6,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.4,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000853_normal_001",
+      "path": "scenarios/K000000853_02.json",
+      "mission_id": "mission_K000000853_normal_001",
+      "job_cd": "K000000853",
+      "job_name": "시스템소프트웨어개발자",
       "difficulty": "normal",
-      "title": "두 기업 중 ‘우선 검토’는 어디로?",
+      "title": "부팅 시험 기록에서 통과 보드 가려내기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.58,
+        "AX2": 0.105,
+        "AX3": 0.105,
+        "AX4": 0.105,
+        "AX5": 0.105
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000853_hard_001",
+      "path": "scenarios/K000000853_03.json",
+      "mission_id": "mission_K000000853_hard_001",
+      "job_cd": "K000000853",
+      "job_name": "시스템소프트웨어개발자",
+      "difficulty": "hard",
+      "title": "센서 드라이버의 수신 버퍼 방식 정하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.64,
+        "AX2": 0.09,
+        "AX3": 0.09,
+        "AX4": 0.09,
+        "AX5": 0.09
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000856_easy_001",
+      "path": "scenarios/K000000856_01.json",
+      "mission_id": "mission_K000000856_easy_001",
+      "job_cd": "K000000856",
+      "job_name": "컴퓨터시스템설계 및 분석가",
+      "difficulty": "easy",
+      "title": "진료 예약 시스템 기능요구사항 정의서 초안 점검하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000856_normal_001",
+      "path": "scenarios/K000000856_02.json",
+      "mission_id": "mission_K000000856_normal_001",
+      "job_cd": "K000000856",
+      "job_name": "컴퓨터시스템설계 및 분석가",
+      "difficulty": "normal",
+      "title": "업무 시스템 설계안, 어떤 구조로 올릴까?",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.76,
+        "AX2": 0.06,
+        "AX3": 0.06,
+        "AX4": 0.06,
+        "AX5": 0.06
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000856_hard_001",
+      "path": "scenarios/K000000856_03.json",
+      "mission_id": "mission_K000000856_hard_001",
+      "job_cd": "K000000856",
+      "job_name": "컴퓨터시스템설계 및 분석가",
+      "difficulty": "hard",
+      "title": "주문관리 시스템 구축 일정 점검하고 대응안 추천하기",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.305,
+        "AX2": 0.08,
+        "AX3": 0.08,
+        "AX4": 0.08,
+        "AX5": 0.455
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000857_easy_001",
+      "path": "scenarios/K000000857_01.json",
+      "mission_id": "mission_K000000857_easy_001",
+      "job_cd": "K000000857",
+      "job_name": "사회복지사",
+      "difficulty": "easy",
+      "title": "어르신 욕구조사 결과로 새 프로그램 정하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.0,
+        "AX2": 1.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000857_normal_001",
+      "path": "scenarios/K000000857_02.json",
+      "mission_id": "mission_K000000857_normal_001",
+      "job_cd": "K000000857",
+      "job_name": "사회복지사",
+      "difficulty": "normal",
+      "title": "혼자 사는 어르신의 외부자원 목록 점검하기",
+      "task_type": "diagnosis_and_improvement",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.48,
+        "AX2": 0.13,
+        "AX3": 0.13,
+        "AX4": 0.13,
+        "AX5": 0.13
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000857_hard_001",
+      "path": "scenarios/K000000857_03.json",
+      "mission_id": "mission_K000000857_hard_001",
+      "job_cd": "K000000857",
+      "job_name": "사회복지사",
+      "difficulty": "hard",
+      "title": "노인 마음건강 프로그램 결과 평가하고 다음 기수 개선책 고르기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.075,
+        "AX2": 0.35,
+        "AX3": 0.075,
+        "AX4": 0.075,
+        "AX5": 0.425
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000872_easy_001",
+      "path": "scenarios/K000000872_01.json",
+      "mission_id": "mission_K000000872_easy_001",
+      "job_cd": "K000000872",
+      "job_name": "광고·홍보·마케팅전문가",
+      "difficulty": "easy",
+      "title": "신제품 음료 광고, 어떤 콘셉트로 만들까?",
+      "task_type": "diagnosis_and_improvement",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.33,
+        "AX2": 0.43,
+        "AX3": 0.08,
+        "AX4": 0.08,
+        "AX5": 0.08
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000872_normal_001",
+      "path": "scenarios/K000000872_02.json",
+      "mission_id": "mission_K000000872_normal_001",
+      "job_cd": "K000000872",
+      "job_name": "광고·홍보·마케팅전문가",
+      "difficulty": "normal",
+      "title": "지하철 포스터 헤드라인 시안 고르기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.41,
+        "AX2": 0.41,
+        "AX3": 0.06,
+        "AX4": 0.06,
+        "AX5": 0.06
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000872_hard_001",
+      "path": "scenarios/K000000872_03.json",
+      "mission_id": "mission_K000000872_hard_001",
+      "job_cd": "K000000872",
+      "job_name": "광고·홍보·마케팅전문가",
+      "difficulty": "hard",
+      "title": "경쟁 프레젠테이션 준비: 광고주 상황을 읽고 내세울 제안안 정하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.215,
+        "AX2": 0.465,
+        "AX3": 0.24,
+        "AX4": 0.04,
+        "AX5": 0.04
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000875_easy_001",
+      "path": "scenarios/K000000875_01.json",
+      "mission_id": "mission_K000000875_easy_001",
+      "job_cd": "K000000875",
+      "job_name": "인적자원전문가",
+      "difficulty": "easy",
+      "title": "신임 관리자 과정 설계안의 학습단계 배치 점검하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.06,
+        "AX2": 0.06,
+        "AX3": 0.06,
+        "AX4": 0.06,
+        "AX5": 0.76
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000875_normal_001",
+      "path": "scenarios/K000000875_02.json",
+      "mission_id": "mission_K000000875_normal_001",
+      "job_cd": "K000000875",
+      "job_name": "인적자원전문가",
+      "difficulty": "normal",
+      "title": "우수 상담원 행동 사례를 역량사전과 맞춰 보기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.1,
+        "AX2": 0.6,
+        "AX3": 0.1,
+        "AX4": 0.1,
+        "AX5": 0.1
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000875_hard_001",
+      "path": "scenarios/K000000875_03.json",
+      "mission_id": "mission_K000000875_hard_001",
+      "job_cd": "K000000875",
+      "job_name": "인적자원전문가",
+      "difficulty": "hard",
+      "title": "교육 담당 직무모형의 과업 후보 정리하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.06,
+        "AX2": 0.41,
+        "AX3": 0.06,
+        "AX4": 0.06,
+        "AX5": 0.41
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000878_easy_001",
+      "path": "scenarios/K000000878_01.json",
+      "mission_id": "mission_K000000878_easy_001",
+      "job_cd": "K000000878",
+      "job_name": "도시계획·설계가",
+      "difficulty": "easy",
+      "title": "공원·녹지 면적 약속에 맞춰 협의 의견 반영여부 정하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.8,
+        "AX2": 0.0,
+        "AX3": 0.2,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000878_normal_001",
+      "path": "scenarios/K000000878_02.json",
+      "mission_id": "mission_K000000878_normal_001",
+      "job_cd": "K000000878",
+      "job_name": "도시계획·설계가",
+      "difficulty": "normal",
+      "title": "시설 보완 검토 구역 골라내기",
       "task_type": "research_and_analysis",
       "estimated_time_minutes": 15,
       "axis_signals": {
-        "AX1": 0.485,
-        "AX2": 0.185,
-        "AX3": 0.31,
-        "AX4": 0.01,
-        "AX5": 0.01
+        "AX1": 0.76,
+        "AX2": 0.06,
+        "AX3": 0.06,
+        "AX4": 0.06,
+        "AX5": 0.06
       }
     },
     {
-      "key": "pilot_v1_20260601_173827__mission_K000007519_easy_001",
-      "path": "scenarios/K000007519_01.json",
-      "mission_id": "mission_K000007519_easy_001",
-      "job_cd": "K000007519",
-      "job_name": "보험상품개발자",
+      "key": "jobsim_service_v1__mission_K000000878_hard_001",
+      "path": "scenarios/K000000878_03.json",
+      "mission_id": "mission_K000000878_hard_001",
+      "job_cd": "K000000878",
+      "job_name": "도시계획·설계가",
+      "difficulty": "hard",
+      "title": "새벌지구 초등학교 용지 배치안 정하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.65,
+        "AX2": 0.0,
+        "AX3": 0.35,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000890_easy_001",
+      "path": "scenarios/K000000890_01.json",
+      "mission_id": "mission_K000000890_easy_001",
+      "job_cd": "K000000890",
+      "job_name": "UX·UI디자이너",
       "difficulty": "easy",
-      "title": "조사 요약 문서 체크리스트 한 가지 점검",
+      "title": "미술관 앱 관찰 기록에서 숨겨진 니즈 읽어 내기",
       "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.68,
+        "AX2": 0.08,
+        "AX3": 0.08,
+        "AX4": 0.08,
+        "AX5": 0.08
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000890_normal_001",
+      "path": "scenarios/K000000890_02.json",
+      "mission_id": "mission_K000000890_normal_001",
+      "job_cd": "K000000890",
+      "job_name": "UX·UI디자이너",
+      "difficulty": "normal",
+      "title": "도서관 좌석 예약 앱, 하단 탭 남은 두 칸 채우기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.6,
+        "AX2": 0.1,
+        "AX3": 0.1,
+        "AX4": 0.1,
+        "AX5": 0.1
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000890_hard_001",
+      "path": "scenarios/K000000890_03.json",
+      "mission_id": "mission_K000000890_hard_001",
+      "job_cd": "K000000890",
+      "job_name": "UX·UI디자이너",
+      "difficulty": "hard",
+      "title": "도서관 앱 메뉴 설계안 점검하고 하나 추천하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.68,
+        "AX2": 0.08,
+        "AX3": 0.08,
+        "AX4": 0.08,
+        "AX5": 0.08
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000918_easy_001",
+      "path": "scenarios/K000000918_01.json",
+      "mission_id": "mission_K000000918_easy_001",
+      "job_cd": "K000000918",
+      "job_name": "무역사무원",
+      "difficulty": "easy",
+      "title": "약식계약서 초안의 거래조건 바로잡기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000918_normal_001",
+      "path": "scenarios/K000000918_02.json",
+      "mission_id": "mission_K000000918_normal_001",
+      "job_cd": "K000000918",
+      "job_name": "무역사무원",
+      "difficulty": "normal",
+      "title": "인수 확인을 요청할 추심 건 고르기",
+      "task_type": "communication_and_reporting",
       "estimated_time_minutes": 15,
       "axis_signals": {
         "AX1": 1.0,
@@ -299,31 +973,643 @@
       }
     },
     {
-      "key": "pilot_v1_20260601_173827__mission_K000007519_hard_001",
-      "path": "scenarios/K000007519_02.json",
-      "mission_id": "mission_K000007519_hard_001",
-      "job_cd": "K000007519",
-      "job_name": "보험상품개발자",
+      "key": "jobsim_service_v1__mission_K000000918_hard_001",
+      "path": "scenarios/K000000918_03.json",
+      "mission_id": "mission_K000000918_hard_001",
+      "job_cd": "K000000918",
+      "job_name": "무역사무원",
       "difficulty": "hard",
-      "title": "입원비 특약 가격안, A/B 중 하나 고르기",
-      "task_type": "planning_and_proposal",
-      "estimated_time_minutes": 15,
+      "title": "수출신고서 초안 점검하고 오늘 신고할 건 정하기",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 20,
       "axis_signals": {
-        "AX1": 0.4167,
-        "AX2": 0.025,
-        "AX3": 0.425,
-        "AX4": 0.1083,
-        "AX5": 0.025
+        "AX1": 0.725,
+        "AX2": 0.0,
+        "AX3": 0.275,
+        "AX4": 0.0,
+        "AX5": 0.0
       }
     },
     {
-      "key": "pilot_v1_20260601_173827__mission_K000007519_normal_001",
-      "path": "scenarios/K000007519_03.json",
-      "mission_id": "mission_K000007519_normal_001",
-      "job_cd": "K000007519",
-      "job_name": "보험상품개발자",
+      "key": "jobsim_service_v1__mission_K000000936_easy_001",
+      "path": "scenarios/K000000936_01.json",
+      "mission_id": "mission_K000000936_easy_001",
+      "job_cd": "K000000936",
+      "job_name": "통신기술개발자",
+      "difficulty": "easy",
+      "title": "차세대 전송망 1단계 구축, 18주 안에 끝날까?",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.8,
+        "AX2": 0.0,
+        "AX3": 0.2,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000936_normal_001",
+      "path": "scenarios/K000000936_02.json",
+      "mission_id": "mission_K000000936_normal_001",
+      "job_cd": "K000000936",
+      "job_name": "통신기술개발자",
       "difficulty": "normal",
-      "title": "초보 인턴 미션: 체크리스트에 맞는 건강 특약 1개 고르기",
+      "title": "운용관리계획 초안, 고객 요구사항에 맞게 고치기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.13,
+        "AX2": 0.48,
+        "AX3": 0.13,
+        "AX4": 0.13,
+        "AX5": 0.13
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000936_hard_001",
+      "path": "scenarios/K000000936_03.json",
+      "mission_id": "mission_K000000936_hard_001",
+      "job_cd": "K000000936",
+      "job_name": "통신기술개발자",
+      "difficulty": "hard",
+      "title": "시내외 무선망 3개년 증설 계획, 1차년도 연도계획안 세우기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.5,
+        "AX2": 0.0,
+        "AX3": 0.5,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000956_easy_001",
+      "path": "scenarios/K000000956_01.json",
+      "mission_id": "mission_K000000956_easy_001",
+      "job_cd": "K000000956",
+      "job_name": "건축구조기술자",
+      "difficulty": "easy",
+      "title": "구조해석 결과표로 층간변위 기준 확인하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.76,
+        "AX2": 0.06,
+        "AX3": 0.06,
+        "AX4": 0.06,
+        "AX5": 0.06
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000956_normal_001",
+      "path": "scenarios/K000000956_02.json",
+      "mission_id": "mission_K000000956_normal_001",
+      "job_cd": "K000000956",
+      "job_name": "건축구조기술자",
+      "difficulty": "normal",
+      "title": "구조계산서 초안의 실별 활하중 검토하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.8,
+        "AX2": 0.05,
+        "AX3": 0.05,
+        "AX4": 0.05,
+        "AX5": 0.05
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000956_hard_001",
+      "path": "scenarios/K000000956_03.json",
+      "mission_id": "mission_K000000956_hard_001",
+      "job_cd": "K000000956",
+      "job_name": "건축구조기술자",
+      "difficulty": "hard",
+      "title": "임대 오피스 구조시스템, 어떤 안을 제안할까?",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.46,
+        "AX2": 0.06,
+        "AX3": 0.06,
+        "AX4": 0.06,
+        "AX5": 0.36
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000968_easy_001",
+      "path": "scenarios/K000000968_01.json",
+      "mission_id": "mission_K000000968_easy_001",
+      "job_cd": "K000000968",
+      "job_name": "네트워크시스템개발자",
+      "difficulty": "easy",
+      "title": "단위시험 결과표로 장비 처리량 적합여부 판단하기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.5,
+        "AX2": 0.35,
+        "AX3": 0.05,
+        "AX4": 0.05,
+        "AX5": 0.05
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000968_normal_001",
+      "path": "scenarios/K000000968_02.json",
+      "mission_id": "mission_K000000968_normal_001",
+      "job_cd": "K000000968",
+      "job_name": "네트워크시스템개발자",
+      "difficulty": "normal",
+      "title": "본관 네트워크, 어떤 연결 설계안이 맞을까?",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.56,
+        "AX2": 0.11,
+        "AX3": 0.11,
+        "AX4": 0.11,
+        "AX5": 0.11
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000968_hard_001",
+      "path": "scenarios/K000000968_03.json",
+      "mission_id": "mission_K000000968_hard_001",
+      "job_cd": "K000000968",
+      "job_name": "네트워크시스템개발자",
+      "difficulty": "hard",
+      "title": "평가 검증 기록으로 본관 업링크 실시설계 정하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.52,
+        "AX2": 0.12,
+        "AX3": 0.12,
+        "AX4": 0.12,
+        "AX5": 0.12
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000978_easy_001",
+      "path": "scenarios/K000000978_01.json",
+      "mission_id": "mission_K000000978_easy_001",
+      "job_cd": "K000000978",
+      "job_name": "IT기술지원전문가",
+      "difficulty": "easy",
+      "title": "점검 로그에서 사전 조치 대상 고르기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.4,
+        "AX2": 0.15,
+        "AX3": 0.15,
+        "AX4": 0.15,
+        "AX5": 0.15
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000978_normal_001",
+      "path": "scenarios/K000000978_02.json",
+      "mission_id": "mission_K000000978_normal_001",
+      "job_cd": "K000000978",
+      "job_name": "IT기술지원전문가",
+      "difficulty": "normal",
+      "title": "설치 시작 전, PC 상태 확인하기",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000000978_hard_001",
+      "path": "scenarios/K000000978_03.json",
+      "mission_id": "mission_K000000978_hard_001",
+      "job_cd": "K000000978",
+      "job_name": "IT기술지원전문가",
+      "difficulty": "hard",
+      "title": "업데이트 후 멈춘 회계 프로그램, 원인 진단하고 조치 협의안 만들기",
+      "task_type": "coordination_and_negotiation",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.28,
+        "AX2": 0.18,
+        "AX3": 0.18,
+        "AX4": 0.18,
+        "AX5": 0.18
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001000_easy_001",
+      "path": "scenarios/K000001000_01.json",
+      "mission_id": "mission_K000001000_easy_001",
+      "job_cd": "K000001000",
+      "job_name": "제품디자이너",
+      "difficulty": "easy",
+      "title": "가습기 스케치 시안, 보고용으로 하나 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.1,
+        "AX2": 0.6,
+        "AX3": 0.1,
+        "AX4": 0.1,
+        "AX5": 0.1
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001000_normal_001",
+      "path": "scenarios/K000001000_02.json",
+      "mission_id": "mission_K000001000_normal_001",
+      "job_cd": "K000001000",
+      "job_name": "제품디자이너",
+      "difficulty": "normal",
+      "title": "소형 가습기 디자인 자료, 쓸 것과 뺄 것 가려내기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.25,
+        "AX2": 0.75,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001000_hard_001",
+      "path": "scenarios/K000001000_03.json",
+      "mission_id": "mission_K000001000_hard_001",
+      "job_cd": "K000001000",
+      "job_name": "제품디자이너",
+      "difficulty": "hard",
+      "title": "무선 탁상 스탠드 아이디어 세 안 검토하고 1안 추천하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.065,
+        "AX2": 0.465,
+        "AX3": 0.34,
+        "AX4": 0.065,
+        "AX5": 0.065
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001042_easy_001",
+      "path": "scenarios/K000001042_01.json",
+      "mission_id": "mission_K000001042_easy_001",
+      "job_cd": "K000001042",
+      "job_name": "모바일앱개발자",
+      "difficulty": "easy",
+      "title": "개선 전 테스트 결과표에서 문제 기능단위 찾기",
+      "task_type": "diagnosis_and_improvement",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.58,
+        "AX2": 0.105,
+        "AX3": 0.105,
+        "AX4": 0.105,
+        "AX5": 0.105
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001042_normal_001",
+      "path": "scenarios/K000001042_02.json",
+      "mission_id": "mission_K000001042_normal_001",
+      "job_cd": "K000001042",
+      "job_name": "모바일앱개발자",
+      "difficulty": "normal",
+      "title": "첫 화면이 늦게 뜨는 앱, 어떤 호출을 뒤로 미룰까?",
+      "task_type": "diagnosis_and_improvement",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.8,
+        "AX2": 0.05,
+        "AX3": 0.05,
+        "AX4": 0.05,
+        "AX5": 0.05
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001042_hard_001",
+      "path": "scenarios/K000001042_03.json",
+      "mission_id": "mission_K000001042_hard_001",
+      "job_cd": "K000001042",
+      "job_name": "모바일앱개발자",
+      "difficulty": "hard",
+      "title": "주문 앱 개선 요구 검토하고 이번 릴리스에 착수할 1건 추천하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.575,
+        "AX2": 0.0,
+        "AX3": 0.425,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001060_easy_001",
+      "path": "scenarios/K000001060_01.json",
+      "mission_id": "mission_K000001060_easy_001",
+      "job_cd": "K000001060",
+      "job_name": "시각디자이너",
+      "difficulty": "easy",
+      "title": "출근길 손님을 위한 빵집 포스터, 콘셉트 키워드 고르기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.2,
+        "AX2": 0.2,
+        "AX3": 0.2,
+        "AX4": 0.2,
+        "AX5": 0.2
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001060_normal_001",
+      "path": "scenarios/K000001060_02.json",
+      "mission_id": "mission_K000001060_normal_001",
+      "job_cd": "K000001060",
+      "job_name": "시각디자이너",
+      "difficulty": "normal",
+      "title": "잡지 광고 이미지, 어떻게 처리할까?",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.095,
+        "AX2": 0.62,
+        "AX3": 0.095,
+        "AX4": 0.095,
+        "AX5": 0.095
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001060_hard_001",
+      "path": "scenarios/K000001060_03.json",
+      "mission_id": "mission_K000001060_hard_001",
+      "job_cd": "K000001060",
+      "job_name": "시각디자이너",
+      "difficulty": "hard",
+      "title": "전통시장 특집 면, 대표 사진과 배치 크기 정하기",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.075,
+        "AX2": 0.7,
+        "AX3": 0.075,
+        "AX4": 0.075,
+        "AX5": 0.075
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001069_easy_001",
+      "path": "scenarios/K000001069_01.json",
+      "mission_id": "mission_K000001069_easy_001",
+      "job_cd": "K000001069",
+      "job_name": "광고·홍보·마케팅사무원",
+      "difficulty": "easy",
+      "title": "보도자료, 어느 기자에게 먼저 보낼까?",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.08,
+        "AX2": 0.08,
+        "AX3": 0.08,
+        "AX4": 0.08,
+        "AX5": 0.68
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001069_normal_001",
+      "path": "scenarios/K000001069_02.json",
+      "mission_id": "mission_K000001069_normal_001",
+      "job_cd": "K000001069",
+      "job_name": "광고·홍보·마케팅사무원",
+      "difficulty": "normal",
+      "title": "신제품 광고, 어느 지면에 실을까?",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.15,
+        "AX2": 0.15,
+        "AX3": 0.4,
+        "AX4": 0.15,
+        "AX5": 0.15
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001069_hard_001",
+      "path": "scenarios/K000001069_03.json",
+      "mission_id": "mission_K000001069_hard_001",
+      "job_cd": "K000001069",
+      "job_name": "광고·홍보·마케팅사무원",
+      "difficulty": "hard",
+      "title": "신제품 출시 3개월 홍보계획, 매체 결합안 정하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.15,
+        "AX2": 0.15,
+        "AX3": 0.4,
+        "AX4": 0.15,
+        "AX5": 0.15
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001080_easy_001",
+      "path": "scenarios/K000001080_01.json",
+      "mission_id": "mission_K000001080_easy_001",
+      "job_cd": "K000001080",
+      "job_name": "데이터분석가(빅데이터분석가)",
+      "difficulty": "easy",
+      "title": "보고 화면 차트에서 색으로 강조할 달 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.4,
+        "AX2": 0.6,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001080_normal_001",
+      "path": "scenarios/K000001080_02.json",
+      "mission_id": "mission_K000001080_normal_001",
+      "job_cd": "K000001080",
+      "job_name": "데이터분석가(빅데이터분석가)",
+      "difficulty": "normal",
+      "title": "어떤 요청에 클러스터 분석을 쓸까?",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.5,
+        "AX2": 0.2,
+        "AX3": 0.3,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001080_hard_001",
+      "path": "scenarios/K000001080_03.json",
+      "mission_id": "mission_K000001080_hard_001",
+      "job_cd": "K000001080",
+      "job_name": "데이터분석가(빅데이터분석가)",
+      "difficulty": "hard",
+      "title": "다음 달 해지 예상 회원, 어떤 분석 방법으로 고를까?",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.825,
+        "AX2": 0.0,
+        "AX3": 0.175,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001085_easy_001",
+      "path": "scenarios/K000001085_01.json",
+      "mission_id": "mission_K000001085_easy_001",
+      "job_cd": "K000001085",
+      "job_name": "정보통신컨설턴트 및 감리원",
+      "difficulty": "easy",
+      "title": "물류 창고 IoT 센서, 통신방식 배정 확인하기",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.04,
+        "AX2": 0.84,
+        "AX3": 0.04,
+        "AX4": 0.04,
+        "AX5": 0.04
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001085_normal_001",
+      "path": "scenarios/K000001085_02.json",
+      "mission_id": "mission_K000001085_normal_001",
+      "job_cd": "K000001085",
+      "job_name": "정보통신컨설턴트 및 감리원",
+      "difficulty": "normal",
+      "title": "이 검사기준서로 합격/불합격을 가를 수 있을까?",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.675,
+        "AX2": 0.325,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001085_hard_001",
+      "path": "scenarios/K000001085_03.json",
+      "mission_id": "mission_K000001085_hard_001",
+      "job_cd": "K000001085",
+      "job_name": "정보통신컨설턴트 및 감리원",
+      "difficulty": "hard",
+      "title": "식품 유통회사에 맞는 소프트웨어 개선안 자문하기",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.45,
+        "AX2": 0.0,
+        "AX3": 0.375,
+        "AX4": 0.175,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001097_easy_001",
+      "path": "scenarios/K000001097_01.json",
+      "mission_id": "mission_K000001097_easy_001",
+      "job_cd": "K000001097",
+      "job_name": "환경시험원",
+      "difficulty": "easy",
+      "title": "작업장 소음, 기준을 넘는 발생원은 어디일까?",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.84,
+        "AX2": 0.04,
+        "AX3": 0.04,
+        "AX4": 0.04,
+        "AX5": 0.04
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001097_normal_001",
+      "path": "scenarios/K000001097_02.json",
+      "mission_id": "mission_K000001097_normal_001",
+      "job_cd": "K000001097",
+      "job_name": "환경시험원",
+      "difficulty": "normal",
+      "title": "매립지 주변 토양 시료, 어떤 분석방법으로 시험할까?",
+      "task_type": "diagnosis_and_improvement",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001097_hard_001",
+      "path": "scenarios/K000001097_03.json",
+      "mission_id": "mission_K000001097_hard_001",
+      "job_cd": "K000001097",
+      "job_name": "환경시험원",
+      "difficulty": "hard",
+      "title": "폐수처리장 부유물질 시험 결과 정리와 점검 구간 의견 내기",
+      "task_type": "diagnosis_and_improvement",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001106_easy_001",
+      "path": "scenarios/K000001106_01.json",
+      "mission_id": "mission_K000001106_easy_001",
+      "job_cd": "K000001106",
+      "job_name": "웹개발자",
+      "difficulty": "easy",
+      "title": "웹 자료실 개편 요구 나눠 보기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001106_normal_001",
+      "path": "scenarios/K000001106_02.json",
+      "mission_id": "mission_K000001106_normal_001",
+      "job_cd": "K000001106",
+      "job_name": "웹개발자",
+      "difficulty": "normal",
+      "title": "오늘 들어온 요청 중 가장 먼저 고칠 건 고르기",
       "task_type": "planning_and_proposal",
       "estimated_time_minutes": 15,
       "axis_signals": {
@@ -335,57 +1621,1587 @@
       }
     },
     {
-      "key": "manual_v1_20261030__mission_K000001196_easy_001",
+      "key": "jobsim_service_v1__mission_K000001106_hard_001",
+      "path": "scenarios/K000001106_03.json",
+      "mission_id": "mission_K000001106_hard_001",
+      "job_cd": "K000001106",
+      "job_name": "웹개발자",
+      "difficulty": "hard",
+      "title": "주문 내역 내려받기 기능, 어떤 라이브러리로 코딩할까",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.65,
+        "AX2": 0.0,
+        "AX3": 0.35,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001132_easy_001",
+      "path": "scenarios/K000001132_01.json",
+      "mission_id": "mission_K000001132_easy_001",
+      "job_cd": "K000001132",
+      "job_name": "정보시스템운영자",
+      "difficulty": "easy",
+      "title": "서버 점검 로그에서 기준에 걸리는 기록 찾기",
+      "task_type": "diagnosis_and_improvement",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001132_normal_001",
+      "path": "scenarios/K000001132_02.json",
+      "mission_id": "mission_K000001132_normal_001",
+      "job_cd": "K000001132",
+      "job_name": "정보시스템운영자",
+      "difficulty": "normal",
+      "title": "멈춘 웹 서비스, 어떤 조치로 살릴까?",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.8,
+        "AX2": 0.05,
+        "AX3": 0.05,
+        "AX4": 0.05,
+        "AX5": 0.05
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001132_hard_001",
+      "path": "scenarios/K000001132_03.json",
+      "mission_id": "mission_K000001132_hard_001",
+      "job_cd": "K000001132",
+      "job_name": "정보시스템운영자",
+      "difficulty": "hard",
+      "title": "고객관리 DB 계정 권한 점검하고 먼저 적용할 보안 조치 고르기",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.5,
+        "AX2": 0.125,
+        "AX3": 0.125,
+        "AX4": 0.125,
+        "AX5": 0.125
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001134_easy_001",
+      "path": "scenarios/K000001134_01.json",
+      "mission_id": "mission_K000001134_easy_001",
+      "job_cd": "K000001134",
+      "job_name": "데이터베이스운영·관리자",
+      "difficulty": "easy",
+      "title": "주간 성능 모니터링 결과에서 개선 항목 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001134_normal_001",
+      "path": "scenarios/K000001134_02.json",
+      "mission_id": "mission_K000001134_normal_001",
+      "job_cd": "K000001134",
+      "job_name": "데이터베이스운영·관리자",
+      "difficulty": "normal",
+      "title": "고객정보 테이블, 누구에게 어디까지 열어 줄까?",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001134_hard_001",
+      "path": "scenarios/K000001134_03.json",
+      "mission_id": "mission_K000001134_hard_001",
+      "job_cd": "K000001134",
+      "job_name": "데이터베이스운영·관리자",
+      "difficulty": "hard",
+      "title": "할인 행사 전, 느려진 주문 조회의 원인을 찾고 튜닝 방안 추천하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.825,
+        "AX2": 0.0,
+        "AX3": 0.175,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001136_easy_001",
+      "path": "scenarios/K000001136_01.json",
+      "mission_id": "mission_K000001136_easy_001",
+      "job_cd": "K000001136",
+      "job_name": "은행사무원",
+      "difficulty": "easy",
+      "title": "신용약정체결 전 필요서류 확인하기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.6,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.4,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001136_normal_001",
+      "path": "scenarios/K000001136_02.json",
+      "mission_id": "mission_K000001136_normal_001",
+      "job_cd": "K000001136",
+      "job_name": "은행사무원",
+      "difficulty": "normal",
+      "title": "해외 송금 전, 서류가 다 갖춰졌을까?",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.48,
+        "AX2": 0.08,
+        "AX3": 0.28,
+        "AX4": 0.08,
+        "AX5": 0.08
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001136_hard_001",
+      "path": "scenarios/K000001136_03.json",
+      "mission_id": "mission_K000001136_hard_001",
+      "job_cd": "K000001136",
+      "job_name": "은행사무원",
+      "difficulty": "hard",
+      "title": "차용신청 담보 후보 두 건 검토하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.65,
+        "AX2": 0.0,
+        "AX3": 0.35,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001138_easy_001",
+      "path": "scenarios/K000001138_01.json",
+      "mission_id": "mission_K000001138_easy_001",
+      "job_cd": "K000001138",
+      "job_name": "방송연출가",
+      "difficulty": "easy",
+      "title": "혼자 사는 사람들의 한 끼, 어느 자료부터 전문가에게 물어볼까?",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.675,
+        "AX2": 0.0,
+        "AX3": 0.325,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001138_normal_001",
+      "path": "scenarios/K000001138_02.json",
+      "mission_id": "mission_K000001138_normal_001",
+      "job_cd": "K000001138",
+      "job_name": "방송연출가",
+      "difficulty": "normal",
+      "title": "새 시사 프로그램 구성안 고르기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.11,
+        "AX2": 0.11,
+        "AX3": 0.56,
+        "AX4": 0.11,
+        "AX5": 0.11
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001138_hard_001",
+      "path": "scenarios/K000001138_03.json",
+      "mission_id": "mission_K000001138_hard_001",
+      "job_cd": "K000001138",
+      "job_name": "방송연출가",
+      "difficulty": "hard",
+      "title": "신규 예능 1회분 제작비 예산안 다시 짜기",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.4,
+        "AX2": 0.0,
+        "AX3": 0.6,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001139_easy_001",
+      "path": "scenarios/K000001139_01.json",
+      "mission_id": "mission_K000001139_easy_001",
+      "job_cd": "K000001139",
+      "job_name": "조사전문가",
+      "difficulty": "easy",
+      "title": "도서관 설문 결과로 보고서 첫 문장 쓰기",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.62,
+        "AX2": 0.095,
+        "AX3": 0.095,
+        "AX4": 0.095,
+        "AX5": 0.095
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001139_normal_001",
+      "path": "scenarios/K000001139_02.json",
+      "mission_id": "mission_K000001139_normal_001",
+      "job_cd": "K000001139",
+      "job_name": "조사전문가",
+      "difficulty": "normal",
+      "title": "실사 중간 점검: 독려가 필요한 팀 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.25,
+        "AX2": 0.25,
+        "AX3": 0.0,
+        "AX4": 0.5,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001139_hard_001",
+      "path": "scenarios/K000001139_03.json",
+      "mission_id": "mission_K000001139_hard_001",
+      "job_cd": "K000001139",
+      "job_name": "조사전문가",
+      "difficulty": "hard",
+      "title": "어르신 디지털 이용 실태조사, 어떤 방식으로 자료를 모을까",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.6,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.4
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001154_easy_001",
+      "path": "scenarios/K000001154_01.json",
+      "mission_id": "mission_K000001154_easy_001",
+      "job_cd": "K000001154",
+      "job_name": "온라인판매원",
+      "difficulty": "easy",
+      "title": "등록된 상품정보 점검하고 고칠 곳 찾기",
+      "task_type": "diagnosis_and_improvement",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001154_normal_001",
+      "path": "scenarios/K000001154_02.json",
+      "mission_id": "mission_K000001154_normal_001",
+      "job_cd": "K000001154",
+      "job_name": "온라인판매원",
+      "difficulty": "normal",
+      "title": "입점 사이트 등록 스펙에 맞춰 상품 이미지 점검하기",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.6,
+        "AX2": 0.1,
+        "AX3": 0.1,
+        "AX4": 0.1,
+        "AX5": 0.1
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001154_hard_001",
+      "path": "scenarios/K000001154_03.json",
+      "mission_id": "mission_K000001154_hard_001",
+      "job_cd": "K000001154",
+      "job_name": "온라인판매원",
+      "difficulty": "hard",
+      "title": "반품 3건, 처리 확정과 교환 안내 정하기",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.305,
+        "AX2": 0.08,
+        "AX3": 0.455,
+        "AX4": 0.08,
+        "AX5": 0.08
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001176_easy_001",
+      "path": "scenarios/K000001176_01.json",
+      "mission_id": "mission_K000001176_easy_001",
+      "job_cd": "K000001176",
+      "job_name": "응용소프트웨어개발자",
+      "difficulty": "easy",
+      "title": "배송비 기능 테스트 결과 확인하기",
+      "task_type": "diagnosis_and_improvement",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.5,
+        "AX2": 0.5,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001176_normal_001",
+      "path": "scenarios/K000001176_02.json",
+      "mission_id": "mission_K000001176_normal_001",
+      "job_cd": "K000001176",
+      "job_name": "응용소프트웨어개발자",
+      "difficulty": "normal",
+      "title": "여러 시스템이 함께 쓸 공통 모듈 골라내기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.0,
+        "AX2": 0.6,
+        "AX3": 0.4,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001176_hard_001",
+      "path": "scenarios/K000001176_03.json",
+      "mission_id": "mission_K000001176_hard_001",
+      "job_cd": "K000001176",
+      "job_name": "응용소프트웨어개발자",
+      "difficulty": "hard",
+      "title": "결합 전에 단위 프로그램을 상세 설계와 맞춰 보기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.05,
+        "AX2": 0.45,
+        "AX3": 0.4,
+        "AX4": 0.05,
+        "AX5": 0.05
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001187_easy_001",
+      "path": "scenarios/K000001187_01.json",
+      "mission_id": "mission_K000001187_easy_001",
+      "job_cd": "K000001187",
+      "job_name": "여행사무원",
+      "difficulty": "easy",
+      "title": "고객 요청에 맞는 4박 5일 상품안 고르기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.09,
+        "AX2": 0.09,
+        "AX3": 0.64,
+        "AX4": 0.09,
+        "AX5": 0.09
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001187_normal_001",
+      "path": "scenarios/K000001187_02.json",
+      "mission_id": "mission_K000001187_normal_001",
+      "job_cd": "K000001187",
+      "job_name": "여행사무원",
+      "difficulty": "normal",
+      "title": "부모님 여행, 어떤 상품을 추천할까?",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.115,
+        "AX2": 0.115,
+        "AX3": 0.54,
+        "AX4": 0.115,
+        "AX5": 0.115
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001187_hard_001",
+      "path": "scenarios/K000001187_03.json",
+      "mission_id": "mission_K000001187_hard_001",
+      "job_cd": "K000001187",
+      "job_name": "여행사무원",
+      "difficulty": "hard",
+      "title": "가족 고객 3박 4일 여행, 숙박시설 수배 확정하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.235,
+        "AX2": 0.035,
+        "AX3": 0.66,
+        "AX4": 0.035,
+        "AX5": 0.035
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001196_easy_001",
       "path": "scenarios/K000001196_01.json",
       "mission_id": "mission_K000001196_easy_001",
       "job_cd": "K000001196",
       "job_name": "인사·교육·훈련사무원",
       "difficulty": "easy",
-      "title": "온보딩 설문 메모로 먼저 고칠 점 찾기",
-      "task_type": "research_and_analysis",
-      "estimated_time_minutes": 15,
+      "title": "접수된 원서로 서류 합격자 골라내기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 10,
       "axis_signals": {
-        "AX1": 0.2,
-        "AX2": 0.2,
-        "AX3": 0.0,
-        "AX4": 0.2,
-        "AX5": 0.4
+        "AX1": 0.54,
+        "AX2": 0.04,
+        "AX3": 0.04,
+        "AX4": 0.34,
+        "AX5": 0.04
       }
     },
     {
-      "key": "manual_v1_20261030__mission_K000001196_normal_001",
+      "key": "jobsim_service_v1__mission_K000001196_normal_001",
       "path": "scenarios/K000001196_02.json",
       "mission_id": "mission_K000001196_normal_001",
       "job_cd": "K000001196",
       "job_name": "인사·교육·훈련사무원",
       "difficulty": "normal",
-      "title": "조기 퇴사율 차트로 온보딩 개선안 고르기",
+      "title": "복리후생 개선안에 올릴 1순위 항목 고르기",
       "task_type": "research_and_analysis",
       "estimated_time_minutes": 15,
       "axis_signals": {
-        "AX1": 0.35,
-        "AX2": 0.0,
-        "AX3": 0.175,
-        "AX4": 0.325,
-        "AX5": 0.15
+        "AX1": 0.6,
+        "AX2": 0.1,
+        "AX3": 0.1,
+        "AX4": 0.1,
+        "AX5": 0.1
       }
     },
     {
-      "key": "manual_v1_20261030__mission_K000001196_hard_001",
+      "key": "jobsim_service_v1__mission_K000001196_hard_001",
       "path": "scenarios/K000001196_03.json",
       "mission_id": "mission_K000001196_hard_001",
       "job_cd": "K000001196",
       "job_name": "인사·교육·훈련사무원",
       "difficulty": "hard",
-      "title": "만족도 설문과 예산 메모로 복리후생 개편안 품의하기",
+      "title": "부서별 충원요청 검토하고 인력 조달안 정하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.38,
+        "AX2": 0.155,
+        "AX3": 0.155,
+        "AX4": 0.155,
+        "AX5": 0.155
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001198_easy_001",
+      "path": "scenarios/K000001198_01.json",
+      "mission_id": "mission_K000001198_easy_001",
+      "job_cd": "K000001198",
+      "job_name": "출판물기획자",
+      "difficulty": "easy",
+      "title": "서점 판매자료로 다음 책 분야 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.8,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.2
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001198_normal_001",
+      "path": "scenarios/K000001198_02.json",
+      "mission_id": "mission_K000001198_normal_001",
+      "job_cd": "K000001198",
+      "job_name": "출판물기획자",
+      "difficulty": "normal",
+      "title": "조건에 맞는 필자 골라 섭외 추천하기",
       "task_type": "research_and_analysis",
       "estimated_time_minutes": 15,
       "axis_signals": {
-        "AX1": 0.125,
-        "AX2": 0.125,
-        "AX3": 0.3,
+        "AX1": 0.36,
+        "AX2": 0.16,
+        "AX3": 0.16,
+        "AX4": 0.16,
+        "AX5": 0.16
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001198_hard_001",
+      "path": "scenarios/K000001198_03.json",
+      "mission_id": "mission_K000001198_hard_001",
+      "job_cd": "K000001198",
+      "job_name": "출판물기획자",
+      "difficulty": "hard",
+      "title": "실용 분야 신간, 어느 세부 분야로 기획할까",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.54,
+        "AX2": 0.115,
+        "AX3": 0.115,
+        "AX4": 0.115,
+        "AX5": 0.115
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001215_easy_001",
+      "path": "scenarios/K000001215_01.json",
+      "mission_id": "mission_K000001215_easy_001",
+      "job_cd": "K000001215",
+      "job_name": "신용분석가",
+      "difficulty": "easy",
+      "title": "조사내용 정리표의 위험 구분 확인하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001215_normal_001",
+      "path": "scenarios/K000001215_02.json",
+      "mission_id": "mission_K000001215_normal_001",
+      "job_cd": "K000001215",
+      "job_name": "신용분석가",
+      "difficulty": "normal",
+      "title": "오늘 신용조사에 들어갈 수 있는 기업 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000001215_hard_001",
+      "path": "scenarios/K000001215_03.json",
+      "mission_id": "mission_K000001215_hard_001",
+      "job_cd": "K000001215",
+      "job_name": "신용분석가",
+      "difficulty": "hard",
+      "title": "A사 설비 증설 대출, 재무상태표로 먼저 따져 보기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.75,
+        "AX2": 0.0,
+        "AX3": 0.25,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007449_easy_001",
+      "path": "scenarios/K000007449_01.json",
+      "mission_id": "mission_K000007449_easy_001",
+      "job_cd": "K000007449",
+      "job_name": "회계사",
+      "difficulty": "easy",
+      "title": "먼저 신청할 절세요소 하나 골라 권하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.6,
+        "AX2": 0.0,
+        "AX3": 0.4,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007449_normal_001",
+      "path": "scenarios/K000007449_02.json",
+      "mission_id": "mission_K000007449_normal_001",
+      "job_cd": "K000007449",
+      "job_name": "회계사",
+      "difficulty": "normal",
+      "title": "장부 비용을 세법 한도에 맞춰 조정하기",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007449_hard_001",
+      "path": "scenarios/K000007449_03.json",
+      "mission_id": "mission_K000007449_hard_001",
+      "job_cd": "K000007449",
+      "job_name": "회계사",
+      "difficulty": "hard",
+      "title": "은행 제출용 손익계산서 정리와 주석 사항 추천",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.6,
+        "AX2": 0.0,
+        "AX3": 0.4,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007452_easy_001",
+      "path": "scenarios/K000007452_01.json",
+      "mission_id": "mission_K000007452_easy_001",
+      "job_cd": "K000007452",
+      "job_name": "가상현실전문가",
+      "difficulty": "easy",
+      "title": "소화기 훈련 VR, 먼저 고칠 오류 하나 고르기",
+      "task_type": "diagnosis_and_improvement",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.4,
+        "AX2": 0.0,
+        "AX3": 0.6,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007452_normal_001",
+      "path": "scenarios/K000007452_02.json",
+      "mission_id": "mission_K000007452_normal_001",
+      "job_cd": "K000007452",
+      "job_name": "가상현실전문가",
+      "difficulty": "normal",
+      "title": "화재 대피 가상훈련, 개발범위 정하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.6,
+        "AX2": 0.1,
+        "AX3": 0.1,
+        "AX4": 0.1,
+        "AX5": 0.1
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007452_hard_001",
+      "path": "scenarios/K000007452_03.json",
+      "mission_id": "mission_K000007452_hard_001",
+      "job_cd": "K000007452",
+      "job_name": "가상현실전문가",
+      "difficulty": "hard",
+      "title": "가상 전시관 중앙 전시실의 그래픽 설정안 정하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.86,
+        "AX2": 0.035,
+        "AX3": 0.035,
+        "AX4": 0.035,
+        "AX5": 0.035
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007454_easy_001",
+      "path": "scenarios/K000007454_01.json",
+      "mission_id": "mission_K000007454_easy_001",
+      "job_cd": "K000007454",
+      "job_name": "의상디자이너",
+      "difficulty": "easy",
+      "title": "가을 재킷 원단, 조건에 맞게 골라 발주하기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.05,
+        "AX2": 0.05,
+        "AX3": 0.8,
+        "AX4": 0.05,
+        "AX5": 0.05
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007454_normal_001",
+      "path": "scenarios/K000007454_02.json",
+      "mission_id": "mission_K000007454_normal_001",
+      "job_cd": "K000007454",
+      "job_name": "의상디자이너",
+      "difficulty": "normal",
+      "title": "시즌 기획에 맞는 아이디어 스케치 고르기",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.07,
+        "AX2": 0.72,
+        "AX3": 0.07,
+        "AX4": 0.07,
+        "AX5": 0.07
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007454_hard_001",
+      "path": "scenarios/K000007454_03.json",
+      "mission_id": "mission_K000007454_hard_001",
+      "job_cd": "K000007454",
+      "job_name": "의상디자이너",
+      "difficulty": "hard",
+      "title": "국내외 트렌드와 판매 기록으로 신제품 블라우스 소재·색상 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.2,
+        "AX2": 0.2,
+        "AX3": 0.6,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007492_easy_001",
+      "path": "scenarios/K000007492_01.json",
+      "mission_id": "mission_K000007492_easy_001",
+      "job_cd": "K000007492",
+      "job_name": "보건의료정보관리사",
+      "difficulty": "easy",
+      "title": "진료요약 기록, DB에 올리기 전에 점검하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007492_normal_001",
+      "path": "scenarios/K000007492_02.json",
+      "mission_id": "mission_K000007492_normal_001",
+      "job_cd": "K000007492",
+      "job_name": "보건의료정보관리사",
+      "difficulty": "normal",
+      "title": "사망진단서의 원사인 코드 정하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.76,
+        "AX2": 0.06,
+        "AX3": 0.06,
+        "AX4": 0.06,
+        "AX5": 0.06
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007492_hard_001",
+      "path": "scenarios/K000007492_03.json",
+      "mission_id": "mission_K000007492_hard_001",
+      "job_cd": "K000007492",
+      "job_name": "보건의료정보관리사",
+      "difficulty": "hard",
+      "title": "퇴원 의무기록 다시 점검하고 보완 요청 순서 정하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.8,
+        "AX2": 0.2,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007499_easy_001",
+      "path": "scenarios/K000007499_01.json",
+      "mission_id": "mission_K000007499_easy_001",
+      "job_cd": "K000007499",
+      "job_name": "네트워크관리자",
+      "difficulty": "easy",
+      "title": "방송사 사옥 스위치 연결 상태 확인하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.6,
+        "AX2": 0.1,
+        "AX3": 0.1,
+        "AX4": 0.1,
+        "AX5": 0.1
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007499_normal_001",
+      "path": "scenarios/K000007499_02.json",
+      "mission_id": "mission_K000007499_normal_001",
+      "job_cd": "K000007499",
+      "job_name": "네트워크관리자",
+      "difficulty": "normal",
+      "title": "통신방식별 응답시간 기준으로 IoT 장비 성능 점검하기",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.2,
+        "AX2": 0.2,
+        "AX3": 0.2,
         "AX4": 0.2,
+        "AX5": 0.2
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007499_hard_001",
+      "path": "scenarios/K000007499_03.json",
+      "mission_id": "mission_K000007499_hard_001",
+      "job_cd": "K000007499",
+      "job_name": "네트워크관리자",
+      "difficulty": "hard",
+      "title": "인터넷 끊김 신고, 기록으로 원인 찾고 복구 계획 세우기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.2,
+        "AX2": 0.2,
+        "AX3": 0.2,
+        "AX4": 0.2,
+        "AX5": 0.2
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007500_easy_001",
+      "path": "scenarios/K000007500_01.json",
+      "mission_id": "mission_K000007500_easy_001",
+      "job_cd": "K000007500",
+      "job_name": "관세사",
+      "difficulty": "easy",
+      "title": "진주 수출 뒤 개별환급 신청서의 환급 대상 세액 정하기",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007500_normal_001",
+      "path": "scenarios/K000007500_02.json",
+      "mission_id": "mission_K000007500_normal_001",
+      "job_cd": "K000007500",
+      "job_name": "관세사",
+      "difficulty": "normal",
+      "title": "인보이스를 보고 수출신고가격 칸 채우기",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007500_hard_001",
+      "path": "scenarios/K000007500_03.json",
+      "mission_id": "mission_K000007500_hard_001",
+      "job_cd": "K000007500",
+      "job_name": "관세사",
+      "difficulty": "hard",
+      "title": "보세창고 화물의 관세 계산과 수입신고 시점 정하기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.25,
+        "AX2": 0.05,
+        "AX3": 0.425,
+        "AX4": 0.225,
+        "AX5": 0.05
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007514_easy_001",
+      "path": "scenarios/K000007514_01.json",
+      "mission_id": "mission_K000007514_easy_001",
+      "job_cd": "K000007514",
+      "job_name": "감정평가사",
+      "difficulty": "easy",
+      "title": "시산가액 중에서 최종 감정평가액 정하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.5,
+        "AX2": 0.0,
+        "AX3": 0.5,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007514_normal_001",
+      "path": "scenarios/K000007514_02.json",
+      "mission_id": "mission_K000007514_normal_001",
+      "job_cd": "K000007514",
+      "job_name": "감정평가사",
+      "difficulty": "normal",
+      "title": "건축물대장과 현장조사 결과로 건물의 개별요인 정리하기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.7,
+        "AX2": 0.3,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007514_hard_001",
+      "path": "scenarios/K000007514_03.json",
+      "mission_id": "mission_K000007514_hard_001",
+      "job_cd": "K000007514",
+      "job_name": "감정평가사",
+      "difficulty": "hard",
+      "title": "공장 담보 감정평가: 대상물건 가리기와 실지조사 일정 잡기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.45,
+        "AX2": 0.05,
+        "AX3": 0.4,
+        "AX4": 0.05,
+        "AX5": 0.05
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007517_easy_001",
+      "path": "scenarios/K000007517_01.json",
+      "mission_id": "mission_K000007517_easy_001",
+      "job_cd": "K000007517",
+      "job_name": "총무사무원",
+      "difficulty": "easy",
+      "title": "내년 간접부문 예산, 한도 안에 들어올까?",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.3,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.7,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007517_normal_001",
+      "path": "scenarios/K000007517_02.json",
+      "mission_id": "mission_K000007517_normal_001",
+      "job_cd": "K000007517",
+      "job_name": "총무사무원",
+      "difficulty": "normal",
+      "title": "신입 사원의 우편물·행낭 처리 기록 점검하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.65,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.35,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007517_hard_001",
+      "path": "scenarios/K000007517_03.json",
+      "mission_id": "mission_K000007517_hard_001",
+      "job_cd": "K000007517",
+      "job_name": "총무사무원",
+      "difficulty": "hard",
+      "title": "올해 복리후생 예산, 한도에 맞춰 짜 보기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.1,
+        "AX2": 0.0,
+        "AX3": 0.375,
+        "AX4": 0.525,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007519_easy_001",
+      "path": "scenarios/K000007519_01.json",
+      "mission_id": "mission_K000007519_easy_001",
+      "job_cd": "K000007519",
+      "job_name": "보험상품개발자",
+      "difficulty": "easy",
+      "title": "상품 A 3분기 집계표로 비율 구하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007519_normal_001",
+      "path": "scenarios/K000007519_02.json",
+      "mission_id": "mission_K000007519_normal_001",
+      "job_cd": "K000007519",
+      "job_name": "보험상품개발자",
+      "difficulty": "normal",
+      "title": "협의에 올릴 보험상품 설계안 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.6,
+        "AX2": 0.0,
+        "AX3": 0.4,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007519_hard_001",
+      "path": "scenarios/K000007519_03.json",
+      "mission_id": "mission_K000007519_hard_001",
+      "job_cd": "K000007519",
+      "job_name": "보험상품개발자",
+      "difficulty": "hard",
+      "title": "책임준비금 샘플테스트 결과 검토와 재산출 순서 정하기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.825,
+        "AX2": 0.0,
+        "AX3": 0.175,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007525_easy_001",
+      "path": "scenarios/K000007525_01.json",
+      "mission_id": "mission_K000007525_easy_001",
+      "job_cd": "K000007525",
+      "job_name": "세무사",
+      "difficulty": "easy",
+      "title": "가산세 걱정 없는 지출 증빙 조언하기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.48,
+        "AX2": 0.08,
+        "AX3": 0.08,
+        "AX4": 0.08,
+        "AX5": 0.28
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007525_normal_001",
+      "path": "scenarios/K000007525_02.json",
+      "mission_id": "mission_K000007525_normal_001",
+      "job_cd": "K000007525",
+      "job_name": "세무사",
+      "difficulty": "normal",
+      "title": "10월분 외상매입금 보조장부, 마감해도 될까?",
+      "task_type": "coordination_and_negotiation",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 1.0,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007525_hard_001",
+      "path": "scenarios/K000007525_03.json",
+      "mission_id": "mission_K000007525_hard_001",
+      "job_cd": "K000007525",
+      "job_name": "세무사",
+      "difficulty": "hard",
+      "title": "세무 통지 4건, 무엇부터 이의신청할까?",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.55,
+        "AX2": 0.025,
+        "AX3": 0.025,
+        "AX4": 0.025,
+        "AX5": 0.375
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007526_easy_001",
+      "path": "scenarios/K000007526_01.json",
+      "mission_id": "mission_K000007526_easy_001",
+      "job_cd": "K000007526",
+      "job_name": "청소년지도사",
+      "difficulty": "easy",
+      "title": "별빛 탐험 캠프 인증 계획서 점검하기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.0,
+        "AX2": 0.0,
+        "AX3": 0.45,
+        "AX4": 0.0,
+        "AX5": 0.55
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007526_normal_001",
+      "path": "scenarios/K000007526_02.json",
+      "mission_id": "mission_K000007526_normal_001",
+      "job_cd": "K000007526",
+      "job_name": "청소년지도사",
+      "difficulty": "normal",
+      "title": "종결 4주 뒤, 추수상담이 필요한 청소년은 누구일까?",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.2,
+        "AX2": 0.2,
+        "AX3": 0.2,
+        "AX4": 0.2,
+        "AX5": 0.2
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007526_hard_001",
+      "path": "scenarios/K000007526_03.json",
+      "mission_id": "mission_K000007526_hard_001",
+      "job_cd": "K000007526",
+      "job_name": "청소년지도사",
+      "difficulty": "hard",
+      "title": "청소년수련관 세 부서의 올해 예산 산출과 배정 조정안",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.0,
+        "AX2": 0.0,
+        "AX3": 0.8,
+        "AX4": 0.0,
+        "AX5": 0.2
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007532_easy_001",
+      "path": "scenarios/K000007532_01.json",
+      "mission_id": "mission_K000007532_easy_001",
+      "job_cd": "K000007532",
+      "job_name": "사서",
+      "difficulty": "easy",
+      "title": "자료형태별 이용률로 추가 구입 검토 대상 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.16,
+        "AX2": 0.16,
+        "AX3": 0.16,
+        "AX4": 0.36,
+        "AX5": 0.16
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007532_normal_001",
+      "path": "scenarios/K000007532_02.json",
+      "mission_id": "mission_K000007532_normal_001",
+      "job_cd": "K000007532",
+      "job_name": "사서",
+      "difficulty": "normal",
+      "title": "독서모임이 신청한 책, 어디서 살까?",
+      "task_type": "coordination_and_negotiation",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.08,
+        "AX2": 0.08,
+        "AX3": 0.08,
+        "AX4": 0.68,
+        "AX5": 0.08
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007532_hard_001",
+      "path": "scenarios/K000007532_03.json",
+      "mission_id": "mission_K000007532_hard_001",
+      "job_cd": "K000007532",
+      "job_name": "사서",
+      "difficulty": "hard",
+      "title": "신착도서 목록 기록 점검하고 오늘 고칠 1건 정하기",
+      "task_type": "coordination_and_negotiation",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.275,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.425,
+        "AX5": 0.3
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007536_easy_001",
+      "path": "scenarios/K000007536_01.json",
+      "mission_id": "mission_K000007536_easy_001",
+      "job_cd": "K000007536",
+      "job_name": "부동산중개인",
+      "difficulty": "easy",
+      "title": "하루치 정보 수집 기록에서 수집 경로 가려내기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.75,
+        "AX2": 0.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
         "AX5": 0.25
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007536_normal_001",
+      "path": "scenarios/K000007536_02.json",
+      "mission_id": "mission_K000007536_normal_001",
+      "job_cd": "K000007536",
+      "job_name": "부동산중개인",
+      "difficulty": "normal",
+      "title": "매수인 조건으로 조정 거래가격 정하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.48,
+        "AX2": 0.08,
+        "AX3": 0.08,
+        "AX4": 0.08,
+        "AX5": 0.28
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007536_hard_001",
+      "path": "scenarios/K000007536_03.json",
+      "mission_id": "mission_K000007536_hard_001",
+      "job_cd": "K000007536",
+      "job_name": "부동산중개인",
+      "difficulty": "hard",
+      "title": "흩어진 상담 기록을 모아 매수 고객에게 맞는 매물 추천하기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.325,
+        "AX2": 0.5,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.175
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007560_easy_001",
+      "path": "scenarios/K000007560_01.json",
+      "mission_id": "mission_K000007560_easy_001",
+      "job_cd": "K000007560",
+      "job_name": "해외영업원",
+      "difficulty": "easy",
+      "title": "경쟁 전략, 어느 경쟁사부터 대응할까?",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.1,
+        "AX2": 0.1,
+        "AX3": 0.6,
+        "AX4": 0.1,
+        "AX5": 0.1
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007560_normal_001",
+      "path": "scenarios/K000007560_02.json",
+      "mission_id": "mission_K000007560_normal_001",
+      "job_cd": "K000007560",
+      "job_name": "해외영업원",
+      "difficulty": "normal",
+      "title": "이번 해외시장 조사에 넣을 시장 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.16,
+        "AX2": 0.16,
+        "AX3": 0.36,
+        "AX4": 0.16,
+        "AX5": 0.16
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007560_hard_001",
+      "path": "scenarios/K000007560_03.json",
+      "mission_id": "mission_K000007560_hard_001",
+      "job_cd": "K000007560",
+      "job_name": "해외영업원",
+      "difficulty": "hard",
+      "title": "수출용 공기청정기 가격안 사업성 검토",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.485,
+        "AX2": 0.085,
+        "AX3": 0.26,
+        "AX4": 0.085,
+        "AX5": 0.085
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007565_easy_001",
+      "path": "scenarios/K000007565_01.json",
+      "mission_id": "mission_K000007565_easy_001",
+      "job_cd": "K000007565",
+      "job_name": "직업상담사",
+      "difficulty": "easy",
+      "title": "직업심리검사 일지 확인하기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.3,
+        "AX2": 0.1,
+        "AX3": 0.1,
+        "AX4": 0.4,
+        "AX5": 0.1
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007565_normal_001",
+      "path": "scenarios/K000007565_02.json",
+      "mission_id": "mission_K000007565_normal_001",
+      "job_cd": "K000007565",
+      "job_name": "직업상담사",
+      "difficulty": "normal",
+      "title": "상담기록지에서 주 호소문제 가려내기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.58,
+        "AX2": 0.105,
+        "AX3": 0.105,
+        "AX4": 0.105,
+        "AX5": 0.105
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007565_hard_001",
+      "path": "scenarios/K000007565_03.json",
+      "mission_id": "mission_K000007565_hard_001",
+      "job_cd": "K000007565",
+      "job_name": "직업상담사",
+      "difficulty": "hard",
+      "title": "회계·경리 구직자에게 알선할 구인업체 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.435,
+        "AX2": 0.035,
+        "AX3": 0.035,
+        "AX4": 0.035,
+        "AX5": 0.46
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007580_easy_001",
+      "path": "scenarios/K000007580_01.json",
+      "mission_id": "mission_K000007580_easy_001",
+      "job_cd": "K000007580",
+      "job_name": "게임프로그래머",
+      "difficulty": "easy",
+      "title": "빌드 전 그래픽·사운드 파일 점검하기",
+      "task_type": "communication_and_reporting",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.0,
+        "AX2": 1.0,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007580_normal_001",
+      "path": "scenarios/K000007580_02.json",
+      "mission_id": "mission_K000007580_normal_001",
+      "job_cd": "K000007580",
+      "job_name": "게임프로그래머",
+      "difficulty": "normal",
+      "title": "넘겨받을 자료에 맞는 전투 화면 구조안 고르기",
+      "task_type": "planning_and_proposal",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.3,
+        "AX2": 0.4,
+        "AX3": 0.3,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007580_hard_001",
+      "path": "scenarios/K000007580_03.json",
+      "mission_id": "mission_K000007580_hard_001",
+      "job_cd": "K000007580",
+      "job_name": "게임프로그래머",
+      "difficulty": "hard",
+      "title": "'서리 방패' 스킬 이펙트, 어떤 방식으로 만들까?",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.8,
+        "AX2": 0.2,
+        "AX3": 0.0,
+        "AX4": 0.0,
+        "AX5": 0.0
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007581_easy_001",
+      "path": "scenarios/K000007581_01.json",
+      "mission_id": "mission_K000007581_easy_001",
+      "job_cd": "K000007581",
+      "job_name": "3D프린팅모델러",
+      "difficulty": "easy",
+      "title": "투명 미니어처를 출력할 장비와 소재 고르기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.52,
+        "AX2": 0.12,
+        "AX3": 0.12,
+        "AX4": 0.12,
+        "AX5": 0.12
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007581_normal_001",
+      "path": "scenarios/K000007581_02.json",
+      "mission_id": "mission_K000007581_normal_001",
+      "job_cd": "K000007581",
+      "job_name": "3D프린팅모델러",
+      "difficulty": "normal",
+      "title": "시제품 출력, 설정요건대로 되고 있을까?",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.72,
+        "AX2": 0.07,
+        "AX3": 0.07,
+        "AX4": 0.07,
+        "AX5": 0.07
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007581_hard_001",
+      "path": "scenarios/K000007581_03.json",
+      "mission_id": "mission_K000007581_hard_001",
+      "job_cd": "K000007581",
+      "job_name": "3D프린팅모델러",
+      "difficulty": "hard",
+      "title": "카페 테이블 번호 거치대, 정밀 스케치로 발전시킬 안 고르기",
+      "task_type": "operation_and_scheduling",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.2,
+        "AX2": 0.2,
+        "AX3": 0.2,
+        "AX4": 0.2,
+        "AX5": 0.2
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007582_easy_001",
+      "path": "scenarios/K000007582_01.json",
+      "mission_id": "mission_K000007582_easy_001",
+      "job_cd": "K000007582",
+      "job_name": "환경영향평가원",
+      "difficulty": "easy",
+      "title": "도로 소음 대안 중 최적안 고르기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 10,
+      "axis_signals": {
+        "AX1": 0.08,
+        "AX2": 0.08,
+        "AX3": 0.68,
+        "AX4": 0.08,
+        "AX5": 0.08
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007582_normal_001",
+      "path": "scenarios/K000007582_02.json",
+      "mission_id": "mission_K000007582_normal_001",
+      "job_cd": "K000007582",
+      "job_name": "환경영향평가원",
+      "difficulty": "normal",
+      "title": "환경현황 종합보고서에 넣을 자료 가려내기",
+      "task_type": "research_and_analysis",
+      "estimated_time_minutes": 15,
+      "axis_signals": {
+        "AX1": 0.64,
+        "AX2": 0.09,
+        "AX3": 0.09,
+        "AX4": 0.09,
+        "AX5": 0.09
+      }
+    },
+    {
+      "key": "jobsim_service_v1__mission_K000007582_hard_001",
+      "path": "scenarios/K000007582_03.json",
+      "mission_id": "mission_K000007582_hard_001",
+      "job_cd": "K000007582",
+      "job_name": "환경영향평가원",
+      "difficulty": "hard",
+      "title": "○○ 우회도로 신설사업, 먼저 정밀조사할 중점 평가요인 정하기",
+      "task_type": "decision_making",
+      "estimated_time_minutes": 20,
+      "axis_signals": {
+        "AX1": 0.4,
+        "AX2": 0.05,
+        "AX3": 0.45,
+        "AX4": 0.05,
+        "AX5": 0.05
       }
     }
   ]

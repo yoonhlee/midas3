@@ -7,12 +7,21 @@ import { loadJobsCatalog } from "../../../src/lib/jobs/catalog.js";
 import { loadPostingsConfig } from "../../../src/lib/postings/config.js";
 import { PostingsService } from "../../../src/lib/postings/service.js";
 import { buildJobWeightCatalog } from "../../../src/lib/recommendation/engine.js";
+import type { GenerationCommands } from "../../../src/lib/adminGeneration/commands.js";
+import type { NcsCatalog } from "../../../src/lib/adminGeneration/ncsCatalog.js";
 import { createApp } from "../../../src/server/app.js";
 import { loadServerConfig, ROOT_DIR, type ServerConfig } from "../../../src/server/config.js";
 import { MissionStore } from "../../../src/server/missionStore.js";
 
 // 테스트용 서버: 메모리 DB, 고정 데이터 공고, 가짜 외부 호출(fetchImpl)을 쓴다.
-export async function startTestServer(options: { env?: Record<string, string>; fetchImpl?: typeof fetch; configure?: (c: ServerConfig) => void } = {}) {
+export async function startTestServer(
+  options: {
+    env?: Record<string, string>;
+    fetchImpl?: typeof fetch;
+    configure?: (c: ServerConfig) => void;
+    generationCommands?: (config: ServerConfig, ncs: NcsCatalog) => GenerationCommands;
+  } = {}
+) {
   process.env.EVAL_MODE = "fake";
   const env = { ...process.env, DATABASE_PATH: ":memory:", AUTH_DEV_LOGIN: "true", APP_ENV: "test", ...options.env } as NodeJS.ProcessEnv;
   const config = loadServerConfig(env);
@@ -28,7 +37,8 @@ export async function startTestServer(options: { env?: Record<string, string>; f
     jobsCatalog: loadJobsCatalog(config.paths.jobsData),
     postingsConfig,
     postingsService: new PostingsService(postingsConfig),
-    fetchImpl: options.fetchImpl
+    fetchImpl: options.fetchImpl,
+    generationCommands: options.generationCommands
   });
   const server = app.listen(0);
   await new Promise<void>((resolve) => server.once("listening", () => resolve()));

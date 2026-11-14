@@ -1,0 +1,457 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007565_easy_001",
+  "job_identity": {
+    "job_cd": "K000007565",
+    "job_lrcl_nm": "교육·법률·사회복지·경찰·소방직 및 군인",
+    "job_mdcl_nm": "사회복지사 및 상담사",
+    "job_smcl_nm": "직업상담사",
+    "source_ref": {
+      "file": "K000007565/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "구직자를 위한 각종 심리검사를 실시하며 취업 및 직업선택, 직업훈련, 고용보험에 관련된 상담을 한다.",
+    "source_ref": {
+      "file": "K000007565/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "새솔고용상담센터",
+    "domain": "구직자 직업심리검사 실시 기록 확인",
+    "period": [
+      "11월 13일 14:00~14:55"
+    ],
+    "trend_pattern": "검사 전 설명, 검사 시작, 검사 종료 순서로 일지에 세 번 기록됨",
+    "main_issue": "일지를 정리하기 전에 매뉴얼이 정한 수검태도 관찰 항목이 모두 기록되었는지 확인해야 함",
+    "feedback_themes": [
+      "검사 동기",
+      "소요시간",
+      "성실성"
+    ],
+    "decision_goal": "일지에 기록되지 않은 수검태도 관찰 항목 하나를 찾아 팀장에게 알린다"
+  },
+  "mission": {
+    "title": "직업심리검사 일지 확인하기",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 새솔고용상담센터 직업상담팀의 인턴입니다.",
+      "context": "오늘 오후 한 구직자가 센터에서 직업심리검사를 받았고, 담당 직업상담사가 검사 진행 내용을 직업심리검사 일지에 남겼습니다. 센터는 표준화된 직업심리검사도구 매뉴얼에 따라, 검사 중 내담자의 수검태도를 검사 동기, 소요시간, 성실성 세 가지로 관찰해 일지에 기록하도록 정해 두었습니다. 팀장님이 \"일지를 정리하기 전에 관찰 항목 세 가지가 다 적혀 있는지 한번 봐 주세요\"라고 부탁했습니다.",
+      "goal": "일지의 기록을 수검태도 관찰 항목 세 가지와 맞춰 보고, 일지에 기록되지 않은 항목 하나를 팀장님께 알려 주세요.",
+      "constraints": [
+        "수검태도 관찰 항목은 검사 동기(검사를 받으러 온 이유나 마음), 소요시간(검사를 시작해서 마칠 때까지 걸린 시간), 성실성(문항을 성의 있게 읽고 답하는 태도) 세 가지입니다.",
+        "제공된 일지에 적힌 내용만 보고 판단합니다.",
+        "답은 1~2문장으로, 기록되지 않은 항목과 그렇게 본 이유를 함께 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "수검태도",
+          "definition": "검사를 받는 사람이 검사에 임하는 모습입니다. 검사를 받으러 온 이유, 걸린 시간, 문항에 답하는 성의 등을 살핍니다."
+        },
+        {
+          "term": "라포",
+          "definition": "상담하는 사람과 내담자 사이에 생기는 편안한 믿음 관계입니다."
+        },
+        {
+          "term": "표준화된 직업심리검사도구 매뉴얼",
+          "definition": "각 검사도구가 믿을 만한지, 재려는 것을 제대로 재는지 밝혀 두고 검사를 어떻게 활용할지 정리한 지침서입니다."
+        },
+        {
+          "term": "내담자",
+          "definition": "상담이나 검사를 받으러 센터에 온 사람입니다."
+        },
+        {
+          "term": "지필도구",
+          "definition": "종이 검사지에 연필로 답을 적는 방식의 검사 도구입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "log",
+        "subtype": "직업심리검사 일지",
+        "title": "직업심리검사 일지 (11월 13일 오후 회기)",
+        "description": "새솔고용상담센터 담당 직업상담사가 구직자 한 명의 직업심리검사 한 회기를 진행하며 시간 순서대로 남긴 직업심리검사 일지입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "일지의 각 기록을 수검태도 관찰 항목 세 가지와 하나씩 맞춰 보는 데 씁니다.",
+        "evidence_source": [
+          "행정, 관리 업무",
+          "읽고 이해하기",
+          "심리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "14:00",
+              "actor": "직업상담사",
+              "event": "내담자와 라포를 형성하고 검사 목적, 검사 절차, 유의사항을 설명함.",
+              "note": "내담자 발언: '센터에서 권해서 왔지만, 제 적성이 뭔지 궁금하기도 해요.'"
+            },
+            {
+              "time": "14:10",
+              "actor": "직업상담사",
+              "event": "내담자가 지필도구로 검사를 시작함.",
+              "note": "검사장 조명과 의자 점검 완료."
+            },
+            {
+              "time": "14:55",
+              "actor": "직업상담사",
+              "event": "내담자가 검사를 마침. 다음 상담 일정을 안내함.",
+              "note": "소요시간 45분."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "직업심리검사 일지의 기록을 수검태도 관찰 항목 세 가지(검사 동기, 소요시간, 성실성)와 하나씩 맞춰 보고, 일지에 기록되지 않은 항목이 무엇인지 이유와 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "일지의 세 기록을 관찰 항목 세 가지와 대조해 기록되지 않은 항목 하나를 고르고, 일지 내용을 근거로 이유를 짧게 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "기록되지 않은 관찰 항목과 판단 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "14:00 기록의 내담자 발언('센터에서 권해서 왔지만 적성이 궁금하다')은 검사 동기에, 14:55 기록의 '소요시간 45분'은 소요시간에 해당하므로 두 항목은 이미 기록되어 있다.",
+      "세 기록 어디에도 내담자가 문항을 성의 있게 읽고 답했는지에 대한 관찰이 없으므로, 일지에 기록되지 않은 관찰 항목은 성실성이다.",
+      "검사장 조명과 의자 점검은 검사 환경에 대한 기록이며 내담자의 수검태도 관찰이 아니다."
+    ],
+    "rubric": [
+      {
+        "criterion": "기록되지 않은 관찰 항목 짚기",
+        "description": "일지에 기록되지 않은 수검태도 관찰 항목으로 성실성을 정확히 짚었다. 이미 기록된 검사 동기나 소요시간을 빠졌다고 답하면 점수를 주지 않는다.",
+        "points": 60,
+        "linked_evidence": [
+          "행정, 관리 업무",
+          "심리"
+        ]
+      },
+      {
+        "criterion": "일지 기록을 근거로 한 이유",
+        "description": "일지의 기록을 바르게 읽고 이유를 들었다. 예를 들어 세 기록 어디에도 문항에 답하는 태도에 대한 관찰이 없다는 점, 또는 내담자 발언과 '소요시간 45분'이 각각 검사 동기와 소요시간을 담고 있다는 점을 근거로 썼다.",
+        "points": 40,
+        "linked_evidence": [
+          "읽고 이해하기",
+          "심리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "구직자를 위한 각종 심리검사를 실시하며 취업 및 직업선택, 직업훈련, 고용보험에 관련된 상담을 한다.",
+      "source_ref": {
+        "file": "K000007565/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 99,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 92,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들을 훈련, 교육",
+          "score": 89,
+          "description": "교육 요구 사항을 파악하고, 공식적인 교육 또는 훈련 프로그램을 만들며, 교육이나 강의를 제공하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 89,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 88,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "말하기",
+          "score": 88,
+          "description": "자기가 알고 있는 것을 다른 사람에게 조리있게 말한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람 파악",
+          "score": 86,
+          "description": "타인의 반응을 파악하고 왜 그렇게 행동하는지 이해한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "듣고 이해하기",
+          "score": 81,
+          "description": "다른 사람들이 말하는 것을 집중해서 듣고 상대방이 말하려는 요점을 이해하거나 적절한 질문을 한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "상담",
+          "score": 96,
+          "description": "개인의 신상 및 경력 혹은 정신적 어려움에 관한 상담을 하는 절차나 방법 혹은 원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "심리",
+          "score": 94,
+          "description": "사람들의 행동, 성격, 흥미, 동기 등에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "인사",
+          "score": 94,
+          "description": "채용, 훈련, 급여, 노사관계와 같은 인적자원관리에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "공문, 문서 주고받기",
+          "score": 89,
+          "description": "업무 수행하면서 공문이나 문서를 주고받는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "외부 고객 대하기",
+          "score": 88,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 85,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "행정, 관리 업무",
+          "읽고 이해하기",
+          "심리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007565/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007565/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.3,
+    "AX2": 0.1,
+    "AX3": 0.1,
+    "AX4": 0.4,
+    "AX5": 0.1
+  }
+}

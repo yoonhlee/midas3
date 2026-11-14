@@ -1,0 +1,490 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000878_easy_001",
+  "job_identity": {
+    "job_cd": "K000000878",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "건축·토목공학 기술자 및 시험원",
+    "job_smcl_nm": "도시계획·설계가",
+    "source_ref": {
+      "file": "K000000878/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "관련 서류와 도면을 작성하여 발주자에게 제시하고, 전체 계획에 대해 협의를 한다.",
+    "source_ref": {
+      "file": "K000000878/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "새봄도시설계 사무소",
+    "domain": "주거단지 도시설계(안) 관련분야 협의",
+    "period": [
+      "2026년 11월 협의 의견 회신 기간"
+    ],
+    "trend_pattern": "관련실과와 유관기관이 낸 의견마다 반영했을 때의 공원·녹지 면적이 서로 다르다.",
+    "main_issue": "발주자와 협의한 전체 계획 조건(공원·녹지 면적 12,000㎡ 이상)에 비추어 관련실과·유관기관 의견의 반영여부를 정해야 한다.",
+    "feedback_themes": [
+      "교통",
+      "환경",
+      "경관"
+    ],
+    "decision_goal": "공원·녹지 면적 12,000㎡ 이상 조건을 지키지 못하는 의견을 가려 이번에 반영하지 않을 의견을 정한다."
+  },
+  "mission": {
+    "title": "공원·녹지 면적 약속에 맞춰 협의 의견 반영여부 정하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [
+      "communication_and_reporting"
+    ],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 새봄도시설계 사무소 도시계획팀의 인턴입니다.",
+      "context": "새봄도시설계 사무소는 발주자인 하늘시와 함께 ‘푸른들 주거단지’ 도시설계(안)을 만들고 있습니다. 설계(안)을 하늘시청의 관련실과와 시청 밖 유관기관에 보내 의견을 받았고, 세 곳에서 의견이 돌아왔습니다. 팀장님이 이렇게 부탁했습니다. “하늘시와 전체 계획을 협의하면서 단지 안 공원·녹지 면적은 12,000㎡ 이상으로 유지하기로 했어요. 받은 의견 중 이 약속을 지킬 수 없는 의견은 이번에 반영하지 않으려고 해요. 정리표를 보고 골라 줄래요?”",
+      "goal": "공원·녹지 면적 조건에 비추어 협의 의견의 반영여부를 정하고, 이번에 반영하지 않을 의견과 그 이유를 팀장님께 짧게 전합니다.",
+      "constraints": [
+        "발주자와 협의한 전체 계획 조건: 단지 안 공원·녹지 면적은 12,000㎡ 이상으로 유지합니다.",
+        "이번 판단은 공원·녹지 면적 조건만 기준으로 하고, 정리표에 있는 내용만 사용합니다.",
+        "답은 1~2문장으로 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "관련실과",
+          "definition": "도시설계(안)을 만드는 과정에서 협의가 필요한 시청(지자체) 안의 담당 부서입니다."
+        },
+        {
+          "term": "유관기관",
+          "definition": "시청 밖에서 이 사업과 관련된 일을 맡고 있어 의견을 내는 기관입니다."
+        },
+        {
+          "term": "반영여부",
+          "definition": "받은 의견을 계획에 넣을지(반영할지) 넣지 않을지를 정한 결과입니다."
+        },
+        {
+          "term": "발주자",
+          "definition": "설계 일을 맡기고 전체 계획을 함께 협의하는 의뢰처입니다. 이 미션에서는 하늘시입니다."
+        },
+        {
+          "term": "도시설계(안)",
+          "definition": "단지의 도로, 건물, 공원 배치 등을 정리한 도시설계 계획의 초안입니다."
+        },
+        {
+          "term": "완충 녹지",
+          "definition": "하천이나 도로와 생활 공간 사이에 띠처럼 두는 나무와 풀밭 공간입니다."
+        },
+        {
+          "term": "스카이라인",
+          "definition": "멀리서 볼 때 건물 꼭대기들이 이어져 만드는 윤곽선입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "협의 의견 정리표",
+        "title": "푸른들 주거단지 도시설계(안) 협의 의견 정리표",
+        "description": "관련실과와 유관기관이 보내온 의견을 한 줄씩 정리하고, 각 의견을 반영했을 때의 단지 안 공원·녹지 면적(㎡)을 함께 적은 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "각 의견을 반영했을 때의 공원·녹지 면적을 발주자와 협의한 조건과 비교해 이번에 반영하지 않을 의견을 고를 때 사용합니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "의사 결정, 문제점 해결"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "의견 제시 부서·기관"
+            },
+            {
+              "key": "strength",
+              "label": "분야"
+            },
+            {
+              "key": "weakness",
+              "label": "제시 의견"
+            },
+            {
+              "key": "priority",
+              "label": "의견 반영 시 공원·녹지 면적(㎡)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "하늘시청 교통과(관련실과)",
+              "strength": "교통",
+              "weakness": "단지 진입도로 폭을 넓혀 주세요.",
+              "priority": 11400
+            },
+            {
+              "option": "하늘천 환경관리센터(유관기관)",
+              "strength": "환경",
+              "weakness": "하천변에 완충 녹지를 추가해 주세요.",
+              "priority": 12600
+            },
+            {
+              "option": "하늘시청 경관디자인과(관련실과)",
+              "strength": "경관",
+              "weakness": "건물 배치를 조정해 스카이라인을 낮춰 주세요.",
+              "priority": 12000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "정리표에 적힌 의견별 공원·녹지 면적을 팀장님이 말한 조건(12,000㎡ 이상)과 비교해, 이번에 반영하지 않을 의견과 그 이유를 숫자를 들어 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "각 의견의 반영 시 공원·녹지 면적을 12,000㎡ 이상 조건과 한 번씩 비교해, 조건에 미치지 못하는 의견을 반영하지 않을 의견으로 고르고 면적 수치 비교를 근거로 1-2문장으로 설명한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "반영하지 않을 의견과 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "교통과(관련실과)의 진입도로 확장 의견은 반영하면 공원·녹지 면적이 11,400㎡가 되어 12,000㎡ 이상 조건에 미치지 못하므로 이번에 반영하지 않는다.",
+      "경관 의견은 반영해도 12,000㎡로 조건과 같아 ‘이상’을 충족하고, 환경 의견은 12,600㎡로 조건을 넘으므로 공원·녹지 면적 조건만으로는 두 의견을 빼야 할 이유가 없다.",
+      "분야별 요청을 발주자와 협의한 전체 계획(도시설계(안))의 조건에 맞춰 보고, 그 조건과 충돌하는 분야 의견만 가려낸다."
+    ],
+    "rubric": [
+      {
+        "criterion": "반영하지 않을 의견 선택",
+        "description": "반영 시 공원·녹지 면적이 12,000㎡에 미치지 못하는(11,400㎡) 교통과(관련실과)의 진입도로 확장 의견을 반영하지 않을 의견으로 골랐다.",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "의사 결정, 문제점 해결"
+        ]
+      },
+      {
+        "criterion": "‘이상’ 조건의 경계 판단",
+        "description": "반영 시 공원·녹지 면적이 12,000㎡로 조건과 같은 경관 의견을 미달로 잘못 보고 함께 제외하지 않았다.",
+        "points": 20,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "수치 비교가 담긴 이유",
+        "description": "이유에 11,400㎡와 12,000㎡처럼 고른 의견의 면적과 조건 수치를 비교한 내용이 들어 있다.",
+        "points": 15,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "전체 계획과 분야별 의견 맞춰 보기",
+        "description": "분야별 의견을 발주자와 협의한 전체 계획 조건에 맞춰 보는 관점으로 답했고, 조건과 충돌하지 않는 환경·경관 의견까지 이유 없이 빼지 않았다.",
+        "points": 25,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "관련 서류와 도면을 작성하여 발주자에게 제시하고, 전체 계획에 대해 협의를 한다.",
+      "source_ref": {
+        "file": "K000000878/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 수집",
+          "score": 94,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 92,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 88,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 88,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 87,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "공간지각력",
+          "score": 99,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 98,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "논리적 분석",
+          "score": 92,
+          "description": "문제를 해결하기 위해(혹은 의사결정을 하기 위해) 체계적으로 이치에 맞는 생각을 해낸다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "건축 및 설계",
+          "score": 97,
+          "description": "집, 빌딩, 혹은 도로를 만들고 수리하기 위해 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 92,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "지리",
+          "score": 91,
+          "description": "육지, 바다 그리고 하늘의 특성 및 상호관계에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 92,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 90,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 89,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "의사 결정, 문제점 해결"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.8,
+    "AX2": 0.0,
+    "AX3": 0.2,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

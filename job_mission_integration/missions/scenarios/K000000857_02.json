@@ -1,0 +1,545 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000857_normal_001",
+  "job_identity": {
+    "job_cd": "K000000857",
+    "job_lrcl_nm": "교육·법률·사회복지·경찰·소방직 및 군인",
+    "job_mdcl_nm": "사회복지사 및 상담사",
+    "job_smcl_nm": "사회복지사",
+    "source_ref": {
+      "file": "K000000857/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "상담을 통해 사회복지 대상자의 욕구, 개선점, 보유 자원과 대상자 가족의 지원, 재정적인 문제 등에 대해 사정한다.",
+    "source_ref": {
+      "file": "K000000857/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "새솔종합사회복지관",
+    "domain": "지역사회 노인 사례관리",
+    "period": [
+      "2026년 11월"
+    ],
+    "trend_pattern": "혼자 사는 어르신이 받는 도움은 가족, 동네 교회 모임, 보건소, 봉사단체 네 곳에서 한 달에 2~8회씩 이어지고 있다.",
+    "main_issue": "동료 신입 사회복지사가 만든 외부자원 목록 초안의 공식적 자원·비공식적 자원 분류가 팀 기준과 맞는지 아직 확인되지 않았다.",
+    "feedback_themes": [
+      "따로 사는 딸의 주 1회 방문과 병원 동행",
+      "동네 교회 모임의 반찬 전달",
+      "보건소 방문간호사의 혈압·복약 확인",
+      "봉사단체 자원봉사자의 안부 확인 방문"
+    ],
+    "decision_goal": "사정도구 양식에 옮기기 전에 외부자원 목록의 분류를 팀 기준에 맞게 바로잡는다."
+  },
+  "mission": {
+    "title": "혼자 사는 어르신의 외부자원 목록 점검하기",
+    "task_type": "diagnosis_and_improvement",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 새솔종합사회복지관 사례관리팀의 신입 사회복지사 인턴입니다.",
+      "context": "늘봄구에 혼자 사는 78세 A 어르신의 첫 상담이 끝났습니다. 동료 신입 사회복지사가 초기면접기록지에 적힌 상담 내용을 바탕으로, 어르신이 지금 도움을 받고 있는 외부자원 목록 초안을 만들었습니다. 사례관리팀장님은 이 목록을 사정도구 양식에 옮겨 적기 전에 팀 기준에 맞게 분류되었는지 한 번 더 점검해 달라고 부탁했습니다.",
+      "goal": "팀장님 메모의 분류 기준으로 외부자원 목록 초안을 점검하고, 고쳐야 할 분류를 팀장님께 알려 주세요.",
+      "constraints": [
+        "메모와 표에 적힌 내용만 근거로 판단하세요.",
+        "외부자원 이름은 표에 적힌 그대로 쓰세요.",
+        "답은 2~3문장으로 적어 주세요."
+      ],
+      "glossary": [
+        {
+          "term": "사정",
+          "definition": "상담 등으로 모은 정보를 정리하고 살펴서 대상자의 상황과 필요한 도움을 파악하는 일입니다."
+        },
+        {
+          "term": "사례관리",
+          "definition": "도움이 필요한 한 사람의 상황을 살피고, 필요한 도움을 연결하며 꾸준히 챙기는 일입니다."
+        },
+        {
+          "term": "외부자원",
+          "definition": "대상자 본인 바깥에서 도움을 주는 사람, 모임, 기관 등을 말합니다."
+        },
+        {
+          "term": "공식적 자원",
+          "definition": "외부자원 가운데 기관, 전문가, 제도처럼 공식적인 체계에 속한 도움입니다. 정확한 범위는 팀장님 메모의 기준을 따릅니다."
+        },
+        {
+          "term": "비공식적 자원",
+          "definition": "외부자원 가운데 가족, 이웃처럼 개인적인 관계나 자발적인 참여로 이어진 도움입니다. 정확한 범위는 팀장님 메모의 기준을 따릅니다."
+        },
+        {
+          "term": "초기면접기록지",
+          "definition": "대상자를 처음 상담할 때 들은 내용을 정해진 칸에 적어 두는 기록지입니다."
+        },
+        {
+          "term": "사정도구 양식",
+          "definition": "대상자의 상황과 도움받는 자원을 정리해 적는 복지관의 정해진 서식입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "자원 분류 기준 메모",
+        "title": "사례관리팀장 메모: 사정도구 양식 외부자원 칸 기재 기준",
+        "description": "사례관리팀장이 사정도구 양식의 외부자원 칸을 채울 때 따르는 분류 기준을 지침에서 옮겨 적은 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "외부자원 목록의 각 항목을 어느 분류로 적어야 하는지 판단하는 기준으로 사용합니다.",
+        "evidence_source": [
+          "정보 작성, 기록"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "새솔종합사회복지관 사례관리팀장",
+          "items": [
+            "공식적 자원은 기관, 조직체, 전문가, 정책이나 규칙 등을 포함한다.",
+            "비공식적 자원은 가족, 친척, 친구, 이웃, 자원봉사자, 종교, 사회단체 등을 포함한다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "외부자원 목록 초안",
+        "title": "A 어르신(78세, 혼자 거주) 외부자원 목록 초안",
+        "description": "동료 신입 사회복지사가 2026년 11월 초기면접기록지의 상담 내용을 바탕으로 정리한 외부자원 목록 초안입니다. 작성자 분류 열은 작성자가 직접 적은 값이고, 월 지원 횟수의 단위는 회입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "어르신이 지금 도움을 받는 외부자원과 작성자가 붙인 분류를 확인하는 데 사용합니다.",
+        "evidence_source": [
+          "정보 작성, 기록",
+          "모니터링(Monitoring)"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "외부자원"
+            },
+            {
+              "key": "strength",
+              "label": "제공 내용"
+            },
+            {
+              "key": "weakness",
+              "label": "작성자 분류"
+            },
+            {
+              "key": "priority",
+              "label": "월 지원 횟수(회)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "따로 사는 딸",
+              "strength": "주 1회 방문해 병원에 동행",
+              "weakness": "비공식적 자원",
+              "priority": 4
+            },
+            {
+              "option": "동네 교회 반찬 나눔 모임",
+              "strength": "반찬 전달",
+              "weakness": "공식적 자원",
+              "priority": 4
+            },
+            {
+              "option": "늘봄구 보건소 방문간호사",
+              "strength": "집으로 찾아와 혈압과 복약 확인",
+              "weakness": "비공식적 자원",
+              "priority": 2
+            },
+            {
+              "option": "지역 봉사단체 자원봉사자",
+              "strength": "안부 확인 방문",
+              "weakness": "비공식적 자원",
+              "priority": 8
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장님이 사정도구 양식에 옮기기 전에 목록 초안을 점검해 달라고 했습니다. 팀장님 메모의 기준에 비추어 작성자 분류가 기준과 맞지 않는 외부자원을 모두 찾아, 바른 분류와 그렇게 본 근거를 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 공식적 자원·비공식적 자원 기준을 표의 외부자원 각각에 적용해, 분류가 기준과 맞지 않는 항목과 바른 분류, 근거가 된 기준을 짧은 글로 제시한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "점검 결과: 고칠 외부자원, 바른 분류, 근거가 된 메모 기준"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "동네 교회 반찬 나눔 모임은 종교에 해당하므로 메모 항목 2에 따라 공식적 자원이 아니라 비공식적 자원으로 고쳐야 한다.",
+      "늘봄구 보건소 방문간호사는 기관(보건소)에 속한 전문가이므로 메모 항목 1에 따라 비공식적 자원이 아니라 공식적 자원으로 고쳐야 한다.",
+      "지역 봉사단체 자원봉사자는 단체에서 나오지만 메모 항목 2가 자원봉사자와 사회단체를 비공식적 자원에 넣으므로 지금 분류가 맞고, 따로 사는 딸도 가족이므로 비공식적 자원이 맞다."
+    ],
+    "rubric": [
+      {
+        "criterion": "기준과 맞지 않는 분류 모두 찾기",
+        "description": "동네 교회 반찬 나눔 모임과 늘봄구 보건소 방문간호사 두 곳을 모두 분류가 잘못된 항목으로 찾았는지 확인한다. 한 곳만 찾으면 절반만 준다.",
+        "points": 40,
+        "linked_evidence": [
+          "모니터링(Monitoring)"
+        ]
+      },
+      {
+        "criterion": "바르게 분류된 항목을 잘못 지적하지 않기",
+        "description": "지역 봉사단체 자원봉사자(그리고 따로 사는 딸)를 오분류로 잘못 지적하지 않았는지 확인한다. 봉사단체를 조직체로 보아 공식적 자원으로 고치라고 하면 점수를 주지 않는다.",
+        "points": 25,
+        "linked_evidence": [
+          "모니터링(Monitoring)"
+        ]
+      },
+      {
+        "criterion": "바른 분류와 메모 기준 근거 제시",
+        "description": "교회 모임은 종교라서 비공식적 자원, 방문간호사는 기관 소속 전문가라서 공식적 자원이라고 바른 분류를 적고, 각 판단의 근거로 메모의 해당 기준 항목을 들었는지 확인한다.",
+        "points": 35,
+        "linked_evidence": [
+          "정보 작성, 기록"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "상담을 통해 사회복지 대상자의 욕구, 개선점, 보유 자원과 대상자 가족의 지원, 재정적인 문제 등에 대해 사정한다.",
+      "source_ref": {
+        "file": "K000000857/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들을 배려, 돌봄",
+          "score": 95,
+          "description": "동료, 고객, 환자를 치료하고, 정서적으로 지지하고 돌보기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 95,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 93,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사물, 서비스, 사람의 질 판단",
+          "score": 92,
+          "description": "사물, 사람의 가치, 중요성, 질을 평가하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 91,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "설득",
+          "score": 87,
+          "description": "다른 사람들의 마음이나 행동을 변화시키기 위해 설득한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "모니터링(Monitoring)",
+          "score": 83,
+          "description": "타인 혹은 조직의 성과를 점검하고 평가한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람 파악",
+          "score": 82,
+          "description": "타인의 반응을 파악하고 왜 그렇게 행동하는지 이해한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "상담",
+          "score": 94,
+          "description": "개인의 신상 및 경력 혹은 정신적 어려움에 관한 상담을 하는 절차나 방법 혹은 원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "사회와 인류",
+          "score": 94,
+          "description": "집단행동, 사회적 영향, 인류의 기원 및 이동, 인종, 문화에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "심리",
+          "score": 90,
+          "description": "사람들의 행동, 성격, 흥미, 동기 등에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "다른 사람과 신체적 접촉",
+          "score": 85,
+          "description": "업무 수행 시 다른 사람들과 신체적으로 거리 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "공문, 문서 주고받기",
+          "score": 80,
+          "description": "업무 수행하면서 공문이나 문서를 주고받는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 접촉",
+          "score": 78,
+          "description": "업무 수행하면서 사람들과 접촉(전화, 대면, 메신저 등) 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 작성, 기록"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 작성, 기록",
+          "모니터링(Monitoring)"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.48,
+    "AX2": 0.13,
+    "AX3": 0.13,
+    "AX4": 0.13,
+    "AX5": 0.13
+  }
+}

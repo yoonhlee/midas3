@@ -1,0 +1,531 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000956_normal_001",
+  "job_identity": {
+    "job_cd": "K000000956",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "건축·토목공학 기술자 및 시험원",
+    "job_smcl_nm": "건축구조기술자",
+    "source_ref": {
+      "file": "K000000956/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "지질조사 내용을 분석하고 건물의 특성과 하중 조건, 안정성, 시공성, 경제성을 검토한다.",
+    "source_ref": {
+      "file": "K000000956/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "솔마루구조설계",
+    "domain": "건축 구조설계 - 4층 업무용 건물 구조계산서 초안 검토",
+    "period": [
+      "11월 3주차 구조계산서 초안 검토"
+    ],
+    "trend_pattern": "구조계산서 초안에 실마다 적용 활하중이 250~500kgf/m² 사이에서 따로 입력되어 있다.",
+    "main_issue": "실별로 적용한 활하중이 바닥용도별 기준 값을 충족하는지 확인해야 한다.",
+    "feedback_themes": [
+      "바닥용도별 기준 값 확인",
+      "적용 값과 기준 값 비교"
+    ],
+    "decision_goal": "적용 활하중을 수정해야 하는 실을 찾아 그 이유와 함께 책임기술자에게 알린다."
+  },
+  "mission": {
+    "title": "구조계산서 초안의 실별 활하중 검토하기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "솔마루구조설계 구조설계팀 인턴",
+      "context": "당신은 솔마루구조설계 구조설계팀의 인턴입니다. 팀은 4층 업무용 건물의 구조계산서 초안을 마무리하고 있습니다. 구조계산서에는 실마다 바닥 위에 실리는 사람과 물건의 무게를 얼마로 잡았는지가 적혀 있습니다. 책임기술자가 \"초안에 들어간 실별 활하중이 제가 정리한 기준 메모에 맞는지 봐 주세요. 고쳐야 할 실이 있으면 알려 주세요.\"라고 부탁했습니다.",
+      "goal": "기준 메모와 실별 활하중 적용표를 보고, 적용 활하중을 고쳐야 하는 실과 그 이유를 책임기술자에게 짧게 알려 주세요.",
+      "constraints": [
+        "제공된 메모와 표에 있는 값만 사용하세요.",
+        "답은 2~3문장으로 적어보세요."
+      ],
+      "glossary": [
+        {
+          "term": "활하중",
+          "definition": "사람, 가구, 서류, 장비처럼 바닥 위에 놓이거나 오가는 것들의 무게를 구조 설계에서 바닥이 견뎌야 할 힘으로 잡은 값입니다. 이 미션에서는 바닥 1제곱미터당 무게를 뜻하는 kgf/m² 단위로 나타냅니다."
+        },
+        {
+          "term": "바닥용도",
+          "definition": "설계도면에서 그 바닥 공간을 어떤 일에 쓰도록 정해 둔 구분입니다. 예를 들어 사무실, 기계실 같은 이름으로 적습니다."
+        },
+        {
+          "term": "건축구조기준",
+          "definition": "건물이 안전하게 서 있도록 구조를 설계할 때 따라야 하는 하중 값과 설계 방법을 정해 둔 기준입니다. 이 미션에서는 그중 일부를 과제용으로 단순화해 메모로 보여 줍니다."
+        },
+        {
+          "term": "구조계산서",
+          "definition": "건물의 각 부분이 어떤 하중을 견디도록 설계했는지 값과 계산 과정을 정리한 설계 문서입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "기준 발췌 메모",
+        "title": "구조설계팀 책임기술자 메모: 건축구조기준 바닥용도별 활하중 (과제용 발췌)",
+        "description": "구조설계팀 책임기술자가 이번 구조계산서 검토에 쓸 바닥용도별 최소 활하중 값과 판정 방법을 건축구조기준에서 골라 정리한 메모입니다. 값은 과제용으로 단순화했습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "실마다 어떤 기준 값을 고르고 적합 여부를 어떻게 판정하는지 확인하는 데 쓴다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "건축 및 설계"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "구조설계팀 책임기술자",
+          "items": [
+            "바닥용도별 최소 활하중(과제용 단순화 값, 단위 kgf/m²): 사무실 250, 문서보관실 500, 기계실 500",
+            "기준 값은 실 이름이 아니라 설계도면에 적힌 바닥용도로 고릅니다.",
+            "적용 활하중이 기준 값 이상이면 적합, 기준 값보다 작으면 수정 대상입니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "구조계산서 실별 활하중 적용표",
+        "title": "구조계산서 초안(11월 3주차 검토본) 실별 활하중 적용표 (단위 kgf/m²)",
+        "description": "구조계산서 초안에 실마다 입력된 층, 바닥용도, 적용 활하중을 옮겨 적은 표입니다. 바닥용도 열은 설계도면에 적힌 값입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "각 실의 바닥용도와 적용 활하중을 메모의 기준과 맞대어 보는 데 쓴다.",
+        "evidence_source": [
+          "건축 및 설계",
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "실 이름"
+            },
+            {
+              "key": "strength",
+              "label": "층"
+            },
+            {
+              "key": "weakness",
+              "label": "바닥용도(설계도면)"
+            },
+            {
+              "key": "priority",
+              "label": "적용 활하중(kgf/m²)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "301호 사무실",
+              "strength": "3층",
+              "weakness": "사무실",
+              "priority": 300
+            },
+            {
+              "option": "302호 사무실",
+              "strength": "3층",
+              "weakness": "문서보관실",
+              "priority": 250
+            },
+            {
+              "option": "옥탑 기계실",
+              "strength": "옥탑층",
+              "weakness": "기계실",
+              "priority": 500
+            },
+            {
+              "option": "402호 문서고",
+              "strength": "4층",
+              "weakness": "문서보관실",
+              "priority": 400
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "책임기술자의 기준 메모를 실별 활하중 적용표에 적용해, 적용 활하중을 수정해야 하는 실을 모두 찾고 그 이유를 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모에서 각 실의 바닥용도에 맞는 기준 값을 골라 표의 적용 활하중과 비교한 뒤, 수정해야 하는 실과 그 이유를 짧게 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "서술형 답변",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "수정해야 하는 실과 그 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "적용 활하중을 수정해야 하는 실은 302호 사무실과 402호 문서고 두 곳이다.",
+      "두 실의 바닥용도는 모두 문서보관실이므로 기준 값은 500kgf/m²이고, 적용 값 250과 400은 기준 값보다 작다.",
+      "302호는 실 이름이 사무실이라 사무실 기준 250과 같아 적합해 보이지만, 메모에 따라 실 이름이 아니라 바닥용도로 기준을 골라야 하므로 문서보관실 기준 500에 못 미친다.",
+      "301호는 적용 값 300이 사무실 기준 250과 달라 틀린 것처럼 보이지만 기준 이상이라 적합하고, 옥탑 기계실은 기계실 기준 500과 같아 적합하다."
+    ],
+    "rubric": [
+      {
+        "criterion": "수정 대상 실을 빠짐없이 찾음",
+        "description": "수정해야 하는 실로 적은 답이 바닥용도 기준 값보다 작은 활하중이 적용된 302호 사무실과 402호 문서고 두 곳과 빠짐없이, 정확히 일치하는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "건축 및 설계"
+        ]
+      },
+      {
+        "criterion": "바닥용도 기준 값과 적용 값을 비교한 이유",
+        "description": "이유에서 두 실의 바닥용도인 문서보관실의 기준 값 500kgf/m²와 적용 값(250, 400)을 비교해 기준 값보다 작다는 점을 썼는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "지질조사 내용을 분석하고 건물의 특성과 하중 조건, 안정성, 시공성, 경제성을 검토한다.",
+      "source_ref": {
+        "file": "K000000956/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 99,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 97,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 96,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 96,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 95,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "공간지각력",
+          "score": 99,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "기술 설계",
+          "score": 99,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설치",
+          "score": 98,
+          "description": "작업 지시서에 따라 장비, 도구, 배선, 프로그램을 설치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "건축 및 설계",
+          "score": 99,
+          "description": "집, 빌딩, 혹은 도로를 만들고 수리하기 위해 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "물리",
+          "score": 96,
+          "description": "공기, 물, 빛, 열, 전기이론 및 자연현상에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 94,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 97,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 87,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "공문, 문서 주고받기",
+          "score": 86,
+          "description": "업무 수행하면서 공문이나 문서를 주고받는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "건축 및 설계"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "건축 및 설계",
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.8,
+    "AX2": 0.05,
+    "AX3": 0.05,
+    "AX4": 0.05,
+    "AX5": 0.05
+  }
+}

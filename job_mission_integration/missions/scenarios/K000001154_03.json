@@ -1,0 +1,641 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001154_hard_001",
+  "job_identity": {
+    "job_cd": "K000001154",
+    "job_lrcl_nm": "영업·판매·운전·운송직",
+    "job_mdcl_nm": "판매 종사자",
+    "job_smcl_nm": "온라인판매원",
+    "source_ref": {
+      "file": "K000001154/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_008",
+    "text": "불량이거나 반송된 상품을 환불·교환해준다.",
+    "source_ref": {
+      "file": "K000001154/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 8
+    },
+    "selection_reason": "Pilot config selected exec_008."
+  },
+  "mission_facts": {
+    "org_name": "하늘결 마켓",
+    "domain": "온라인 쇼핑몰 고객서비스(교환·반품 처리)",
+    "period": [
+      "11월 10일(교환·반품 접수)",
+      "11월 11일(입고 검수와 재고 확인)"
+    ],
+    "trend_pattern": "11월 10일 하루에 교환·반품 접수 3건, 11월 11일에 입고 검수 3건과 이어폰 재고 확인 1건이 기록됨",
+    "main_issue": "반품 3건의 교환/반품처리 확정 여부를 매뉴얼 기준에 맞게 정하고, 교환을 원한 고객에게 알맞은 처리를 안내해야 함",
+    "feedback_themes": [
+      "이어폰 한쪽 소리 안 남",
+      "의류 얼룩(오염) 주장",
+      "단순 변심 환불 요청",
+      "출장 전 수령 희망"
+    ],
+    "decision_goal": "반품 3건의 확정 여부 판정과 교환을 원한 고객에게 안내할 처리 권고"
+  },
+  "mission": {
+    "title": "반품 3건, 처리 확정과 교환 안내 정하기",
+    "task_type": "operation_and_scheduling",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "온라인 쇼핑몰 '하늘결 마켓' CS팀의 신입 온라인판매원",
+      "context": "당신은 생활용품과 의류를 파는 온라인 쇼핑몰 '하늘결 마켓' CS팀에 막 들어온 신입 온라인판매원입니다. 11월 10일에 고객 세 명이 교환·반품을 접수했고, 11월 11일에 물류팀이 돌아온 상품의 검수를 마쳤습니다. CS팀장이 운영자 매뉴얼의 기준을 메일로 보내며 이 3건을 어떻게 처리할지 정리해 달라고 요청했습니다.",
+      "goal": "아래 자료를 보고 반품 3건마다 처리를 확정할 수 있는지 판정한 뒤, 교환을 원한 고객에게 어떤 처리를 안내할지 권고해 보세요.",
+      "constraints": [
+        "판정과 권고의 근거는 팀장 메일, 고객 상담 접수 이력, 반품 입고·검수 및 재고 이력에서만 찾습니다.",
+        "자료의 날짜는 모두 같은 해 11월이고, 오늘은 11월 11일입니다.",
+        "답은 과제마다 3~5문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "하자",
+          "definition": "상품이 처음부터 망가져 있거나 흠이 있어 제대로 쓸 수 없는 상태입니다. 흔히 불량이라고도 합니다."
+        },
+        {
+          "term": "교환/반품처리",
+          "definition": "고객이 돌려보낸 상품을 교환이나 환불로 처리하는 일입니다. 이 미션에서는 그 처리를 진행해도 된다고 정하는 것을 '확정'이라고 부릅니다."
+        },
+        {
+          "term": "교환/반품 사유",
+          "definition": "고객이 상품을 바꾸거나 돌려보내려는 이유입니다."
+        },
+        {
+          "term": "단순 변심",
+          "definition": "상품에는 문제가 없는데 고객의 마음이 바뀌어 교환이나 반품을 원하는 경우입니다."
+        },
+        {
+          "term": "검수",
+          "definition": "돌아온 상품을 직접 열어 보고 상태를 확인하는 일입니다."
+        },
+        {
+          "term": "재고현황",
+          "definition": "지금 창고에 상품이 옵션별로 몇 개 남아 있는지 정리한 정보입니다."
+        },
+        {
+          "term": "옵션",
+          "definition": "같은 상품 안에서 색상이나 크기처럼 고를 수 있는 선택 사항입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "업무 지시 메일",
+        "title": "CS팀장 메일: 오늘 입고된 반품 3건 처리 확정 요청",
+        "description": "CS팀장이 운영자 매뉴얼의 교환/반품처리 기준을 옮겨 적고, 반품 3건의 처리 의견을 요청한 메일입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "반품 3건의 확정 여부를 판정할 기준과, 교환 안내 방법을 고를 때 따를 원칙을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "고객서비스",
+          "서비스 지향"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "CS팀장",
+              "to": "신입 온라인판매원(나)",
+              "subject": "오늘 입고된 반품 3건 처리 확정 요청",
+              "body": "안녕하세요, CS팀장입니다. 오늘(11/11) 반품 3건(주문 1021, 1034, 1047)의 입고 검수와 이어폰 재고 확인이 끝났습니다. 운영자 매뉴얼에 있는 교환/반품처리 기준을 아래에 옮겨 둡니다.\n\n1) 고객이 접수한 사유가 검수 결과로 확인될 때만 교환/반품처리를 확정합니다. 확인되지 않으면 확정하지 않고 보류한 뒤 고객에게 다시 연락합니다.\n2) 하자 반품은 왕복 배송비를 판매자가 부담하고, 고객이 원하는 대로 환불이나 교환을 해 드립니다. 단순 변심 반품은 상품 수령 후 7일 이내에 접수되었고, 미사용(택이 그대로 있고 사용·착용 흔적이 없음)이며 구성품이 모두 있을 때만 환불합니다. 이때 배송비는 고객이 부담합니다.\n3) 교환은 같은 옵션 재고가 있으면 바로 다시 보냅니다. 다시 보낸 상품은 출고 후 1~2일 안에 도착합니다. 같은 옵션 재고가 없으면 환불, 입고 후 교환, 다른 옵션으로 교환 가운데 하나를 고객과 정합니다.\n\n첨부한 상담 접수 이력과 입고·검수 이력을 보고 3건이 각각 확정 가능한지 정리해 주세요. 그리고 교환을 원하신 고객 건은 어떻게 안내하면 좋을지 의견도 함께 부탁합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "고객 상담 접수 이력",
+        "title": "고객 상담 접수 이력 (11/10)",
+        "description": "고객이 밝힌 교환/반품 사유와 희망 처리, 상품 수령일을 접수 순서대로 남긴 상담 기록입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "건마다 고객이 밝힌 사유와 희망 처리, 수령일을 확인해 확정 여부 판정과 교환 안내에 씁니다.",
+        "evidence_source": [
+          "정보, 자료 분석",
+          "고객서비스"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "feedback_themes",
+          "main_issue"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "11/10 09:12",
+              "actor": "고객 A (주문 1021, 블루투스 이어폰 블랙)",
+              "event": "교환/반품 사유: 왼쪽 이어폰에서 소리가 나지 않음. 희망 처리: 같은 블랙 색상으로 교환.",
+              "note": "수령 11/8. 11/16 출장 전에 받기를 원함."
+            },
+            {
+              "time": "11/10 11:40",
+              "actor": "고객 B (주문 1034, 니트 스웨터)",
+              "event": "교환/반품 사유: 받은 옷에 얼룩(오염)이 있음. 희망 처리: 환불.",
+              "note": "수령 11/7."
+            },
+            {
+              "time": "11/10 15:05",
+              "actor": "고객 C (주문 1047, 텀블러)",
+              "event": "교환/반품 사유: 받아 보니 마음이 바뀜(단순 변심). 희망 처리: 환불.",
+              "note": "수령 11/1."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "log",
+        "subtype": "반품 입고·검수 및 재고 이력",
+        "title": "반품 입고·검수 및 재고 이력 (11/11)",
+        "description": "물류 담당이 돌아온 상품을 확인한 검수 결과와, 재고 담당이 확인한 이어폰 재고현황을 시간순으로 남긴 기록입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "고객이 밝힌 사유가 실제 상품에서 확인되는지, 교환에 쓸 수 있는 재고가 있는지 확인하는 데 씁니다.",
+        "evidence_source": [
+          "정보, 자료 분석",
+          "의사 결정, 문제점 해결"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "11/11 10:00",
+              "actor": "물류 담당",
+              "event": "주문 1021 블루투스 이어폰(블랙) 입고 검수. 왼쪽 이어폰 무음이 재현됨.",
+              "note": "검수 사진 등록"
+            },
+            {
+              "time": "11/11 10:30",
+              "actor": "물류 담당",
+              "event": "주문 1034 니트 스웨터 입고 검수. 얼룩·오염은 확인되지 않음. 택이 제거되어 있고 착용 흔적이 있음.",
+              "note": "검수 사진 등록"
+            },
+            {
+              "time": "11/11 11:10",
+              "actor": "물류 담당",
+              "event": "주문 1047 텀블러 입고 검수. 미개봉 상태, 구성품 모두 있음.",
+              "note": "포장 비닐 그대로"
+            },
+            {
+              "time": "11/11 13:20",
+              "actor": "재고 담당",
+              "event": "블루투스 이어폰 재고현황 확인: 블랙 0개, 화이트 5개.",
+              "note": "블랙 11/20 입고 예정"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장 메일의 처리 기준과 두 이력을 함께 보고, 반품 3건(주문 1021, 1034, 1047)이 각각 교환/반품처리를 확정할 수 있는 건인지 판정해 보세요. 건마다 판정과 함께, 고객이 밝힌 사유와 검수에서 확인된 내용 가운데 무엇을 근거로 삼았는지 적어 주세요. 3~5문장으로 씁니다.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "3건마다 확정 가능 여부를 판정하고, 메일의 기준과 접수·검수 이력에서 찾은 근거를 함께 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 판정 결과를 바탕으로, 교환을 원한 고객 건에 환불, 입고 후 교환, 다른 옵션으로 교환 가운데 어떤 처리를 안내할지 하나를 골라 권고해 보세요. 그 처리를 고른 이유를 자료 속 날짜와 재고를 들어 다른 두 처리와 견주어 적고, 그 처리를 할 때 주의할 점 하나도 덧붙여 주세요. 3~5문장으로 씁니다.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "교환을 원한 고객 건에 안내할 처리 하나를 고르고, 다른 두 처리와 견준 이유와 그 처리의 주의점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "서술형 답안",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 반품 3건의 확정 여부 판정과 근거",
+        "과제 2: 교환 안내 처리 권고, 이유, 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "주문 1021 이어폰은 접수 사유인 왼쪽 이어폰 무음이 검수에서 재현되어 하자 반품으로 교환/반품처리를 확정할 수 있다.",
+      "주문 1034 스웨터는 접수 사유인 얼룩·오염이 검수에서 확인되지 않았고 택 제거와 착용 흔적이 있어, 하자로도 단순 변심(미사용 조건)으로도 확정할 수 없다. 메일 기준대로 보류하고 고객에게 다시 확인해야 한다.",
+      "주문 1047 텀블러는 미개봉·구성품 완비이지만 수령 11/1, 접수 11/10으로 단순 변심 접수 기한인 수령 후 7일을 넘겨 확정할 수 없다.",
+      "과제 2에는 정해진 정답이 없다. 블랙 재고 0개와 11/20 입고 예정, 화이트 재고 5개, 고객의 11/16 출장 전 수령 희망, 다시 보낸 상품의 1~2일 도착이라는 사실로 고른 처리가 다른 두 처리보다 나은 까닭을 보여야 한다. 입고 후 교환은 11/20 입고 뒤에 발송되어 출장 전에 받기 어렵고, 환불은 고객이 원한 교환이 아니며, 다른 옵션 교환은 고객이 원한 색상이 아니다.",
+      "예시: 화이트 옵션으로 바로 교환 발송을 권고한다. 다시 보내면 1~2일 안에 도착해 11/16 전에 받을 수 있지만, 블랙은 11/20에 들어와 출장에 늦기 때문이다. 주의점은 고객이 블랙을 원했으므로 화이트로 바꾸기 전에 먼저 동의를 받아야 한다는 것이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "반품 3건 판정의 정확성",
+        "description": "과제 1에서 주문 1021은 확정 가능(접수 사유인 왼쪽 이어폰 무음이 검수에서 재현됨), 주문 1034는 확정 불가·보류(오염이 검수에서 확인되지 않고 택 제거·착용 흔적이 있음), 주문 1047은 확정 불가(수령 11/1에서 접수 11/10까지 단순 변심 기한 7일을 넘김)로 판정했는지 본다. 자료상 답은 하나이며, 3건 모두 맞으면 만점, 일부만 맞으면 맞은 건수에 비례해 준다.",
+        "points": 30,
+        "linked_evidence": [
+          "정보, 자료 분석",
+          "고객서비스"
+        ]
+      },
+      {
+        "criterion": "판정 근거의 정확성",
+        "description": "과제 1의 각 판정에 메일의 기준(사유가 검수로 확인될 때만 확정, 단순 변심은 수령 후 7일 이내·미사용·구성품 완비)과 두 이력의 내용(고객이 밝힌 사유, 검수 결과, 수령일과 접수일)을 맞게 짝지어 근거로 들었는지 본다. 판정만 쓰고 근거가 없거나 자료와 다른 근거를 든 건은 점수를 주지 않는다.",
+        "points": 15,
+        "linked_evidence": [
+          "정보, 자료 분석",
+          "고객서비스"
+        ]
+      },
+      {
+        "criterion": "교환 안내 권고와 이유",
+        "description": "과제 2에서 교환을 원한 고객 건(과제 1에서 하자로 확정되는 이어폰)에 환불, 입고 후 교환, 다른 옵션 교환 가운데 하나를 권고하고, 그 이유가 과제 1 결과와 자료의 사실(블랙 재고 0개·11/20 입고 예정, 화이트 재고 5개, 고객의 11/16 출장 전 수령 희망, 다시 보낸 상품 1~2일 도착)을 들어 다른 두 처리보다 나은 까닭을 보여 주는지 본다. 어느 처리를 골라도 이유가 자기 선택을 다른 선택지와 견주어 뒷받침하면 만점을 준다. 맞는 사실만 늘어놓고 다른 처리와 견주지 않으면 부분 점수만 준다. 예: 화이트로 바로 교환하면 1~2일 안에 도착해 11/16 전에 받을 수 있지만, 블랙 입고 후 교환은 11/20 이후라 출장에 늦는다.",
+        "points": 35,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결",
+          "서비스 지향"
+        ]
+      },
+      {
+        "criterion": "고른 처리의 주의점",
+        "description": "과제 2에서 학습자가 고른 처리에 대해 자료가 보여 주는 실제 위험이나 한계를 하나 들었는지 본다. 입고 후 교환이면 11/20 입고라 출장 전에 받기 어렵다는 점, 환불이면 고객이 원한 교환이 아니라는 점, 다른 옵션 교환이면 고객이 원한 색상이 아니므로 먼저 동의를 받아야 한다는 점 등이 해당한다. 고른 처리와 관계없는 일반적인 주의는 인정하지 않는다. 예: 화이트 교환을 고르면 고객이 블랙을 원했으므로 먼저 동의를 받아야 한다.",
+        "points": 20,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_008",
+      "text": "불량이거나 반송된 상품을 환불·교환해준다.",
+      "source_ref": {
+        "file": "K000001154/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 8
+      },
+      "selection_reason": "Pilot config selected exec_008."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "조직 외부인과 소통",
+          "score": 87,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 86,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무상 사람들을 직접 응대",
+          "score": 84,
+          "description": "식당, 상점에서 일반 손님을 접대하거나, 거래처 고객 또는 손님을 접대하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 84,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "자원 관리",
+          "score": 77,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "서비스 지향",
+          "score": 91,
+          "description": "다른 사람들을 돕기 위해 적극적으로 노력한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "전산",
+          "score": 86,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설득",
+          "score": 83,
+          "description": "다른 사람들의 마음이나 행동을 변화시키기 위해 설득한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영업과 마케팅",
+          "score": 93,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "경제와 회계",
+          "score": 85,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "운송",
+          "score": 81,
+          "description": "비행기, 철도, 선박 그리고 자동차를 통해 사람들과 물품을 움직이는 원리와 방법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "불쾌하거나 무례한 사람 상대",
+          "score": 88,
+          "description": "불쾌하거나, 화나거나, 혹은 무례한 사람을 대하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "고객서비스",
+          "서비스 지향"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보, 자료 분석",
+          "고객서비스"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "정보, 자료 분석",
+          "의사 결정, 문제점 해결"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "period",
+          "feedback_themes",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 8,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.305,
+    "AX2": 0.08,
+    "AX3": 0.455,
+    "AX4": 0.08,
+    "AX5": 0.08
+  }
+}

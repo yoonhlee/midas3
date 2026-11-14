@@ -85,6 +85,43 @@ CREATE TABLE drafts (
   PRIMARY KEY (user_id, mission_key)
 );
 `
+  },
+  {
+    // 관리자 페이지의 미션 생성 기록과 하루 시작 건수(한국 시간 날짜별).
+    version: 2,
+    sql: `
+CREATE TABLE admin_generation_runs (
+  id TEXT PRIMARY KEY,
+  status TEXT NOT NULL,
+  stage TEXT NOT NULL,
+  job_code TEXT NOT NULL,
+  job_name TEXT NOT NULL,
+  exec_job_id TEXT NOT NULL,
+  exec_job_text TEXT NOT NULL,
+  unit_key TEXT NOT NULL,
+  unit_name TEXT NOT NULL,
+  link_kind TEXT NOT NULL,
+  difficulty TEXT NOT NULL,
+  review_requested INTEGER NOT NULL,
+  allowed_material_types TEXT,
+  run_folder TEXT,
+  mission_id TEXT,
+  mission_title TEXT,
+  review_verdict TEXT,
+  rewrites TEXT NOT NULL DEFAULT '{"blueprint":0,"mission":0}',
+  catalog_key TEXT,
+  error_code TEXT,
+  error_message TEXT,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  finished_at TEXT
+);
+CREATE INDEX admin_generation_runs_created ON admin_generation_runs(created_at);
+CREATE TABLE admin_generation_daily (
+  day TEXT PRIMARY KEY,
+  started INTEGER NOT NULL
+);
+`
   }
 ];
 

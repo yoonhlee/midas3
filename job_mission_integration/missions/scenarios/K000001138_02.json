@@ -1,0 +1,568 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001138_normal_001",
+  "job_identity": {
+    "job_cd": "K000001138",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "연극·영화·방송 전문가",
+    "job_smcl_nm": "방송연출가",
+    "source_ref": {
+      "file": "K000001138/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "프로그램의 제작방식을 정하고 기본 구성요소(토론, 인터뷰, 방청객 여부, 스튜디오, 생방송, 녹화방송, 제작소요시간 등)를 기획한다.",
+    "source_ref": {
+      "file": "K000001138/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "온빛방송 시사교양팀",
+    "domain": "청년 주거 문제를 다루는 새 시사 프로그램 '집 구하는 청년들'의 구성 기획",
+    "period": [
+      "오늘부터 첫 방송까지 제작 기간 10일"
+    ],
+    "trend_pattern": "구성안 후보 네 개가 진행 형식, 방송 방식·방청객 여부, 제작소요시간에서 서로 다르다.",
+    "main_issue": "최종기획서의 기획의도·제작방향과 제작 기간에 맞춰 채택할 구성안을 아직 정하지 못했다.",
+    "feedback_themes": [
+      "입장이 다른 출연자들이 의견을 직접 주고받는 모습",
+      "방청객의 현장 질문",
+      "시청자 문자 의견을 방송 도중 바로 소개",
+      "제작에 쓸 수 있는 기간 10일"
+    ],
+    "decision_goal": "구성안 후보 네 개 가운데 이 프로그램에 채택할 구성안 하나를 고른다."
+  },
+  "mission": {
+    "title": "새 시사 프로그램 구성안 고르기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 온빛방송 시사교양팀의 방송연출 인턴입니다.",
+      "context": "시사교양팀은 청년 주거 문제를 다루는 새 시사 프로그램 '집 구하는 청년들'을 준비하고 있습니다. 최종기획서는 확정되었고, 이제 프로그램을 어떤 형식과 방식으로 진행할지 정할 차례입니다. 팀에서 구성안 후보 네 개를 만들어 두었고, 담당 PD가 \"기획서 조건에 맞는 안을 하나 골라서 이유와 함께 알려 줄래요?\"라고 부탁했습니다.",
+      "goal": "담당 PD의 메모와 구성안 후보 표를 보고, 이 프로그램에 채택할 구성안 하나를 골라 이유를 적어보세요.",
+      "constraints": [
+        "제공된 메모와 표에 있는 내용만 근거로 판단합니다.",
+        "표에 있는 후보안 네 개 가운데 하나만 고릅니다.",
+        "답은 2~3문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "최종기획서",
+          "definition": "다룰 아이템을 고르고 자료를 조사하는 과정을 거치며 고치고 보완한 마지막 프로그램 기획서입니다."
+        },
+        {
+          "term": "기획의도",
+          "definition": "이 프로그램을 왜 만드는지, 시청자에게 무엇을 보여 주려는지를 적은 부분입니다."
+        },
+        {
+          "term": "제작방향",
+          "definition": "프로그램을 어떤 방식으로 만들고 진행할지를 정한 부분입니다."
+        },
+        {
+          "term": "생방송",
+          "definition": "스튜디오에서 진행하는 모습을 그 순간 바로 시청자에게 내보내는 방송입니다."
+        },
+        {
+          "term": "녹화방송",
+          "definition": "미리 촬영해 둔 영상을 나중에 내보내는 방송입니다. 방송이 나가는 시간에는 촬영이 이미 끝나 있습니다."
+        },
+        {
+          "term": "방청객",
+          "definition": "스튜디오에 직접 와서 방송 진행을 지켜보는 일반 관객입니다."
+        },
+        {
+          "term": "제작소요시간",
+          "definition": "준비를 시작한 날부터 첫 방송을 내보낼 수 있을 때까지 걸리는 기간입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "기획서 발췌 메모",
+        "title": "최종기획서 구성 조건 발췌 (시사교양팀 담당 PD 작성)",
+        "description": "담당 PD가 '집 구하는 청년들' 최종기획서에서 구성안이 따라야 할 조건만 옮겨 적은 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "구성안을 고를 때 지켜야 할 기획의도, 제작방향, 제작 기간 조건을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "업무 계획, 우선순위 결정",
+          "시간 관리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "시사교양팀 담당 PD",
+          "items": [
+            "기획의도: 청년 주거 문제를 두고 입장이 서로 다른 출연자들이 한자리에서 의견을 직접 주고받는 모습을 보여 준다.",
+            "제작방향: 스튜디오에 방청객을 모셔 현장에서 질문을 받고, 시청자가 보낸 문자 의견은 방송이 나가는 도중에 바로 소개한다.",
+            "제작 기간: 오늘부터 첫 방송까지 제작에 쓸 수 있는 기간은 10일이다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "구성안 후보 비교표",
+        "title": "'집 구하는 청년들' 구성안 후보 비교 (제작소요시간 단위: 일)",
+        "description": "팀이 만든 구성안 후보 네 개를 진행 형식, 방송 방식·방청객 여부, 제작소요시간으로 나란히 정리한 표입니다. 제작소요시간은 준비를 시작한 날부터 첫 방송을 내보낼 수 있을 때까지 걸리는 날수입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 조건을 후보안 네 개의 진행 형식, 방송 방식·방청객 여부, 제작소요시간에 대어 보는 데 쓴다.",
+        "evidence_source": [
+          "의사소통과 미디어",
+          "시간 관리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "후보안"
+            },
+            {
+              "key": "strength",
+              "label": "진행 형식"
+            },
+            {
+              "key": "weakness",
+              "label": "방송 방식·방청객 여부"
+            },
+            {
+              "key": "priority",
+              "label": "제작소요시간(일)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안",
+              "strength": "스튜디오 토론",
+              "weakness": "생방송·방청객 있음",
+              "priority": 14
+            },
+            {
+              "option": "B안",
+              "strength": "스튜디오 인터뷰",
+              "weakness": "생방송·방청객 있음",
+              "priority": 6
+            },
+            {
+              "option": "C안",
+              "strength": "스튜디오 토론",
+              "weakness": "녹화방송·방청객 없음",
+              "priority": 7
+            },
+            {
+              "option": "D안",
+              "strength": "스튜디오 토론",
+              "weakness": "생방송·방청객 있음",
+              "priority": 9
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "메모에 적힌 기획서 조건을 표의 후보안 네 개와 비교해서, 이 프로그램에 채택할 구성안 하나를 고르고 그 이유를 표의 값과 연결해 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 기획의도·제작방향·제작 기간 조건을 표의 진행 형식, 방송 방식·방청객 여부, 제작소요시간에 대어 보고, 모든 조건을 만족하는 구성안 하나를 골라 근거와 함께 짧게 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "채택할 구성안과 그 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "기획의도의 '입장이 다른 출연자들이 의견을 직접 주고받는 모습'은 토론 형식이 필요하다는 뜻이다.",
+      "제작방향의 방청객 현장 질문과 문자 의견 바로 소개는 방청객이 있는 생방송이어야 한다는 뜻이다.",
+      "D안은 스튜디오 토론, 생방송·방청객 있음, 제작소요시간 9일로 토론·방청객 있음·생방송·10일 이내라는 네 조건을 모두 만족하는 유일한 후보안이다.",
+      "A안은 진행 형식과 방송 방식은 맞지만 제작소요시간 14일이 제작 기간 10일을 넘고, B안은 6일로 가장 빠르지만 인터뷰 형식이라 출연자끼리 의견을 주고받는 기획의도에 맞지 않는다.",
+      "C안은 토론 형식이지만 녹화방송이라 문자 의견을 방송 도중 바로 소개할 수 없고 방청객도 없다."
+    ],
+    "rubric": [
+      {
+        "criterion": "기획서 조건 읽어 내기",
+        "description": "메모의 기획의도를 출연자끼리 의견을 주고받는 토론 형식으로, 제작방향을 방청객이 있는 생방송 조건으로 바르게 읽어 냈는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "의사소통과 미디어",
+          "업무 계획, 우선순위 결정"
+        ]
+      },
+      {
+        "criterion": "조건을 모두 만족하는 구성안 선택",
+        "description": "토론, 방청객 있음, 생방송, 제작 기간 10일 이내라는 네 조건을 모두 만족하는 D안을 골랐는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정"
+        ]
+      },
+      {
+        "criterion": "그럴듯한 오답 걸러 내기",
+        "description": "진행 형식과 방송 방식은 맞지만 제작소요시간 14일로 기간 10일을 넘는 A안과, 가장 빠르지만 인터뷰 형식이라 기획의도에 맞지 않는 B안을 고르지 않았는지 본다.",
+        "points": 25,
+        "linked_evidence": [
+          "시간 관리",
+          "의사소통과 미디어"
+        ]
+      },
+      {
+        "criterion": "표의 값으로 근거 제시",
+        "description": "이유를 쓸 때 표의 구체적인 값(진행 형식, 방송 방식·방청객 여부, 제작소요시간 일수)을 근거로 들었는지 본다.",
+        "points": 15,
+        "linked_evidence": [
+          "시간 관리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "프로그램의 제작방식을 정하고 기본 구성요소(토론, 인터뷰, 방청객 여부, 스튜디오, 생방송, 녹화방송, 제작소요시간 등)를 기획한다.",
+      "source_ref": {
+        "file": "K000001138/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 91,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001138/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 90,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001138/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 85,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001138/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 83,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001138/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 81,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001138/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "인적자원 관리",
+          "score": 100,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "창의력",
+          "score": 99,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "시간 관리",
+          "score": 99,
+          "description": "자신의 시간과 다른 사람의 시간을 관리한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "예술",
+          "score": 97,
+          "description": "음악, 무용, 미술, 드라마에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "국어",
+          "score": 91,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "디자인",
+          "score": 89,
+          "description": "밑그림, 제도와 같이 디자인에 필요한 기법 및 도구에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "다른 사람들을 조율하거나 이끌기",
+          "score": 97,
+          "description": "업무 특성상 다른 사람들을 조율하거나 이끄는 것의 중요성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 95,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 93,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "업무 계획, 우선순위 결정",
+          "시간 관리"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "의사소통과 미디어",
+          "시간 관리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001138/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001138/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.11,
+    "AX2": 0.11,
+    "AX3": 0.56,
+    "AX4": 0.11,
+    "AX5": 0.11
+  }
+}

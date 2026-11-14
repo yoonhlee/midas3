@@ -1,0 +1,555 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001097_normal_001",
+  "job_identity": {
+    "job_cd": "K000001097",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "에너지·환경공학 기술자 및 시험원",
+    "job_smcl_nm": "환경시험원",
+    "source_ref": {
+      "file": "K000001097/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "폐기물, 매립지 안전 진단 및 안전 대책 마련을 위해 토양 환경문제를 시험한다.",
+    "source_ref": {
+      "file": "K000001097/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "푸른터환경연구소",
+    "domain": "폐기물 매립지 주변 토양 시험·분석",
+    "period": [
+      "의뢰일(오늘)",
+      "의뢰일로부터 5일 이내"
+    ],
+    "trend_pattern": "후보 분석방법 4개는 적용 매체, 간섭영향 주의 조건, 소요 일수가 서로 다르다.",
+    "main_issue": "오늘 접수된 매립지 주변 토양 시료(유기물이 많고 염분·수분은 특이사항 없음)를 어떤 분석방법으로 분석할지 아직 정하지 못했다.",
+    "feedback_themes": [
+      "적용 매체",
+      "간섭영향",
+      "결과 기한"
+    ],
+    "decision_goal": "시료의 매체와 특성, 결과 기한을 모두 충족하는 분석방법 하나를 골라 책임연구원에게 회신한다."
+  },
+  "mission": {
+    "title": "매립지 주변 토양 시료, 어떤 분석방법으로 시험할까?",
+    "task_type": "diagnosis_and_improvement",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 푸른터환경연구소 토양분석실에 새로 온 환경시험원 인턴입니다.",
+      "context": "연구소는 폐기물 매립지의 안전 진단을 위해 매립지 주변 토양을 시험하고 있습니다. 오늘 매립지 주변에서 채취한 토양 시료가 접수되었고, 책임연구원이 이 시료를 어떤 분석방법으로 분석할지 골라 달라는 메일과 후보 분석방법 비교표를 보내왔습니다.",
+      "goal": "메일에 적힌 시료 정보와 요청 조건에 맞는 분석방법 하나를 골라 책임연구원에게 짧게 회신해 보세요.",
+      "constraints": [
+        "메일과 비교표에 있는 정보만 사용하세요.",
+        "분석방법은 비교표에 있는 네 가지 중 하나만 고르세요.",
+        "답변은 2~3문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "매립지",
+          "definition": "폐기물을 땅에 묻어 처리하는 장소입니다."
+        },
+        {
+          "term": "안전 진단",
+          "definition": "어떤 장소나 시설에 위험한 문제가 없는지 조사해서 확인하는 일입니다."
+        },
+        {
+          "term": "시료",
+          "definition": "분석하려고 현장에서 조금 떠 온 흙이나 물입니다."
+        },
+        {
+          "term": "매체",
+          "definition": "시료가 어떤 물질인지를 나타내는 말입니다. 이 미션에서는 토양(흙)과 지하수(땅속에 있는 물)를 가리킵니다."
+        },
+        {
+          "term": "간섭영향",
+          "definition": "시료 속에 섞인 다른 성분 때문에 분석 결과가 실제보다 높거나 낮게 나오는 현상입니다."
+        },
+        {
+          "term": "유기물",
+          "definition": "낙엽이나 동식물이 썩어서 생긴 것처럼 생물에서 나온 성분입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "request_email",
+        "title": "책임연구원의 분석방법 선정 요청 메일",
+        "description": "환경공학팀 책임연구원이 토양분석실 환경시험원에게 보낸 시험 의뢰 메일입니다. 조사목적, 시료 정보, 결과 기한이 적혀 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "이번 시료에 적용해야 할 조건과 책임연구원의 요청 내용을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "읽고 이해하기",
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "책임연구원 (푸른터환경연구소 환경공학팀)",
+              "to": "환경시험원 (토양분석실)",
+              "subject": "매립지 주변 토양 시료 분석방법 선정 요청",
+              "body": "안녕하세요, 환경공학팀 책임연구원입니다. 오늘 접수된 토양 시료 건으로 연락드립니다.\n\n- 조사목적: 폐기물 매립지 안전 진단\n- 시료: 매립지 주변에서 채취한 토양 시료 (오늘 접수)\n- 현장 기록: 유기물이 많은 편이고, 염분과 수분은 특이사항 없음\n\n의뢰한 오염항목 1개를 분석할 분석방법을 첨부한 비교표에서 하나 골라 주세요. 시료 특성에 따라 간섭영향이 생길 수 있으니 그 점도 고려해 주시기 바랍니다.\n안전 진단 회의 일정 때문에 결과는 의뢰일인 오늘로부터 5일 이내에 나와야 합니다.\n고른 방법과 이유를 짧게 회신 부탁드립니다. 감사합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "option_comparison",
+        "title": "후보 분석방법 비교표",
+        "description": "같은 오염항목에 쓸 수 있는 후보 분석방법 4개를 정리한 표입니다. '간섭영향 주의 조건'은 그 방법이 간섭영향을 받아 결과가 정확하지 않을 수 있는 시료 특성이고, '소요 일수'는 시료 접수일부터 결과가 나오기까지 걸리는 일수(일)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "후보 분석방법 네 가지를 메일의 조건과 견주어 하나를 고르는 데 씁니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "추리력"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "분석방법"
+            },
+            {
+              "key": "strength",
+              "label": "적용 매체"
+            },
+            {
+              "key": "weakness",
+              "label": "간섭영향 주의 조건"
+            },
+            {
+              "key": "priority",
+              "label": "소요 일수(일)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "방법 가",
+              "strength": "토양·지하수",
+              "weakness": "유기물이 많은 시료",
+              "priority": 3
+            },
+            {
+              "option": "방법 나",
+              "strength": "지하수",
+              "weakness": "염분이 많은 시료",
+              "priority": 2
+            },
+            {
+              "option": "방법 다",
+              "strength": "토양",
+              "weakness": "염분이 많은 시료",
+              "priority": 4
+            },
+            {
+              "option": "방법 라",
+              "strength": "토양",
+              "weakness": "수분이 많은 시료",
+              "priority": 7
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "책임연구원의 메일에 적힌 시료 정보와 결과 기한을 후보 분석방법 비교표에 대어 보고, 이번 토양 시료에 적용할 분석방법 하나를 골라 보세요. 고른 이유와 나머지 세 방법을 고르지 않은 이유를 함께 담아 2~3문장으로 회신을 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메일의 조건(토양 시료, 유기물이 많은 시료 특성, 5일 이내 결과)을 비교표의 네 방법에 적용해 세 조건을 모두 충족하는 방법 다를 고르고, 방법 가는 유기물이 많은 시료에서 간섭영향을 받을 수 있어서, 방법 나는 지하수에만 쓸 수 있어서, 방법 라는 7일이 걸려 기한을 넘어서 제외했다고 2~3문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "선택한 분석방법",
+        "선택 근거와 나머지 방법을 제외한 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "토양에 쓸 수 있고, 유기물이 많은 시료에서 간섭영향 주의가 없으며, 5일 안에 결과가 나오는 세 조건을 모두 충족하는 방법은 방법 다뿐이다.",
+      "방법 가는 토양에 쓸 수 있고 3일이면 끝나지만, 유기물이 많은 시료에서 간섭영향을 받을 수 있어 이번 시료에는 맞지 않는다.",
+      "방법 나는 2일로 가장 빠르지만 적용 매체가 지하수뿐이라 토양 시료에 쓸 수 없다.",
+      "방법 라는 토양에 쓸 수 있고 간섭영향 주의 조건(수분이 많은 시료)도 이번 시료와 겹치지 않지만, 7일이 걸려 5일 기한을 넘는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "세 조건을 모두 충족하는 분석방법 선택",
+        "description": "적용 매체(토양), 간섭영향(유기물이 많은 시료), 결과 기한(5일 이내)을 모두 충족하는 방법 다를 골랐는지 확인한다.",
+        "points": 40,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "나머지 방법을 제외한 이유 설명",
+        "description": "방법 가(유기물 간섭영향), 방법 나(지하수 전용), 방법 라(7일 소요로 기한 초과)를 각각 어느 조건 때문에 제외했는지 설명했는지 확인한다.",
+        "points": 35,
+        "linked_evidence": [
+          "추리력",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "메일과 비교표 내용에 근거한 설명",
+        "description": "메일의 시료 정보·기한과 비교표의 적용 매체·간섭영향 주의 조건·소요 일수를 정확히 읽고, 두 자료의 내용을 근거로 들어 설명했는지 확인한다.",
+        "points": 25,
+        "linked_evidence": [
+          "읽고 이해하기"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "폐기물, 매립지 안전 진단 및 안전 대책 마련을 위해 토양 환경문제를 시험한다.",
+      "source_ref": {
+        "file": "K000001097/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 처리",
+          "score": 91,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 작성, 기록",
+          "score": 90,
+          "description": "정보를 전자 또는 서면으로 작성, 기록, 저장, 관리하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "자원 관리",
+          "score": 87,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 87,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보의 의미 해석",
+          "score": 84,
+          "description": "정보가 뜻하는 바와 그것이 어떻게 사용되는지 번역하거나 설명하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "선택적 집중력",
+          "score": 99,
+          "description": "주의를 산만하게 하는 자극에도 불구하고 원하는 일에 집중한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "읽고 이해하기",
+          "score": 95,
+          "description": "업무와 관련된 문서를 읽고 이해한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 95,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "화학",
+          "score": 85,
+          "description": "물질의 구성, 구조, 특성, 화학적 변환과정에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "물리",
+          "score": 83,
+          "description": "공기, 물, 빛, 열, 전기이론 및 자연현상에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "생물",
+          "score": 78,
+          "description": "동.식물 또는 생명현상에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "질병 혹은 감염 위험 노출",
+          "score": 95,
+          "description": "질병 혹은 병균에 노출되는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "정확성, 정밀성 유지",
+          "score": 93,
+          "description": "업무 수행을 위해 정밀하거나 정확한 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "오염물질 노출",
+          "score": 91,
+          "description": "오염물질(가스, 먼지, 악취 등)에 노출되는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "읽고 이해하기",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "추리력"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001097/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001097/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

@@ -795,7 +795,8 @@ function renderTable(d) {{
 }}
 
 function renderMemo(d) {{
-  const items = d.items || [];
+  // 현재 생성 스키마의 memo items는 문자열이다. 이전 객체 형식도 그대로 보여 준다.
+  const items = (d.items || []).map(it => typeof it === 'string' ? {{ label: 'memo', text: it }} : it);
   return `<div class="card-list">${{items.map(it => `<div class="info-card"><b>${{esc(it.label || it.period || 'memo')}}</b><div>${{esc(it.text || it.task)}}</div>${{it.constraint ? `<div class="muted">제약: ${{esc(it.constraint)}}</div>` : ''}}</div>`).join('') || '<div class="empty">메모 없음</div>'}}</div>`;
 }}
 
@@ -1144,7 +1145,8 @@ function renderTable(data) {{
 }}
 
 function renderMemo(data) {{
-  const items = data.items || [];
+  // 현재 생성 스키마의 memo items는 문자열이다. 이전 객체 형식도 그대로 보여 준다.
+  const items = (data.items || []).map(item => typeof item === 'string' ? {{ label: '메모', text: item }} : item);
   return `<div class="card-list">${{items.map(item => `<div class="info-card"><b>${{esc(item.label || item.period || '메모')}}</b><div>${{esc(item.text || item.task)}}</div></div>`).join('') || '<div class="empty">메모가 없습니다.</div>'}}</div>`;
 }}
 

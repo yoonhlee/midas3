@@ -1,0 +1,664 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007580_hard_001",
+  "job_identity": {
+    "job_cd": "K000007580",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "게임프로그래머",
+    "source_ref": {
+      "file": "K000007580/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "그래픽 특수효과를 제작한다.",
+    "source_ref": {
+      "file": "K000007580/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "모래시계 스튜디오",
+    "domain": "온라인 액션 게임 개발 중 신규 스킬 이펙트 제작",
+    "period": [
+      "다음 업데이트 빌드까지 작업 기간 5일 이내"
+    ],
+    "trend_pattern": "제작 방식 후보 4개는 예상 제작 일수가 2~5일, 파티클 입자 수가 0~160개로 서로 다르며, 파티클을 쓰는 안은 LOD 작업 1일이 더해지고 메쉬를 쓰는 안은 아트팀 3D 모델 제작 대기 2일을 포함한다.",
+    "main_issue": "신규 스킬 '서리 방패' 이펙트를 작업 기간 5일 이내, 파티클 입자 120개 이하라는 필수 조건 안에서 어떤 제작 방식으로 만들지 정해야 한다.",
+    "feedback_themes": [
+      "관전 모드에서 얼음 결정 옆면이 보이는 입체감 희망",
+      "전투 중 여러 캐릭터의 동시 시전을 고려한 파티클 입자 수 상한",
+      "아트팀 3D 모델 제작 대기에 따른 일정 지연 가능성"
+    ],
+    "decision_goal": "제작 방식 후보 4개를 조건에 대어 판정하고, 하나를 골라 이유와 주의점을 붙여 추천한다."
+  },
+  "mission": {
+    "title": "'서리 방패' 스킬 이펙트, 어떤 방식으로 만들까?",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "모래시계 스튜디오 이펙트 파트의 신입 게임프로그래머",
+      "context": "당신은 게임 개발사 모래시계 스튜디오의 이펙트 파트에 새로 들어온 게임프로그래머입니다. 기획팀이 신규 스킬 '서리 방패'의 이펙트를 다음 업데이트 빌드에 넣어 달라고 요청했고, 개발팀은 같은 이펙트에 적용할 게임 엔진 조건을 메일로 보내왔습니다. 이펙트 파트 선배는 제작 방식 후보 4개를 비교표로 정리해 두고, 조건에 맞춰 후보를 따져 본 뒤 하나를 추천해 달라고 부탁했습니다.",
+      "goal": "두 이메일의 조건을 비교표의 후보에 하나씩 대어 판정하고, '서리 방패' 이펙트를 어느 후보 안으로 만들지 이유와 주의점을 붙여 추천해 보세요.",
+      "constraints": [
+        "두 이메일과 비교표에 나온 조건과 숫자만 근거로 쓰세요.",
+        "필수 조건은 반드시 지켜야 하는 조건이고, 희망 사항은 지키면 좋은 조건입니다.",
+        "답은 과제마다 3~5문장으로 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "이펙트",
+          "definition": "게임 화면에서 빛, 불꽃, 얼음 같은 효과를 보여주는 그래픽 특수효과."
+        },
+        {
+          "term": "캐릭터 이펙트",
+          "definition": "캐릭터의 스킬이나 동작에 붙는 이펙트. 이펙트 분류(캐릭터 이펙트, 배경 이펙트, UI 이펙트) 가운데 하나다."
+        },
+        {
+          "term": "빌보드",
+          "definition": "이펙트 이미지를 2D 평면 판(두께가 없는 납작한 판)에 붙이고, 그 판이 카메라의 시점을 따라 돌아가도록 만드는 이펙트 제작 방식."
+        },
+        {
+          "term": "메쉬",
+          "definition": "3D 모델링으로 만든 입체 모양에 텍스쳐를 입혀 이펙트를 만드는 방식."
+        },
+        {
+          "term": "3D 모델링",
+          "definition": "컴퓨터 안에서 앞, 옆, 뒤가 있는 입체 모양을 만드는 작업."
+        },
+        {
+          "term": "텍스쳐",
+          "definition": "3D 모델이나 판의 겉면에 입히는 그림이나 무늬."
+        },
+        {
+          "term": "파티클",
+          "definition": "게임 엔진의 입자 시뮬레이션 기능으로 작은 입자를 많이 띄워 움직이게 해서 이펙트를 만드는 방식. 이 미션에서는 이메일과 비교표의 '입자 수'가 파티클로 띄우는 입자의 개수를 말한다."
+        },
+        {
+          "term": "파티클 리소스",
+          "definition": "파티클 이펙트를 만들 때 쓰는 이미지와 설정 같은 재료."
+        },
+        {
+          "term": "LOD",
+          "definition": "Level Of Detail의 줄임말. 카메라에서 떨어진 거리에 따라 리소스를 단계별로 다르게 준비해 게임이 무거워지지 않게 하는 최적화 작업."
+        },
+        {
+          "term": "시야 거리 단계",
+          "definition": "카메라에서 대상까지의 거리를 가까움, 중간, 멂처럼 몇 단계로 나눈 것."
+        },
+        {
+          "term": "관전 모드",
+          "definition": "직접 플레이하지 않고 다른 플레이어의 경기를 지켜보는 화면 모드."
+        },
+        {
+          "term": "업데이트 빌드",
+          "definition": "다음 업데이트 때 내보내려고 실행할 수 있게 하나로 묶어 내는 게임 버전."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "request_email",
+        "title": "기획팀 이메일: '서리 방패' 이펙트 제작 요청",
+        "description": "기획팀 스킬 기획 담당이 이펙트 기획서에 따라 이펙트 파트에 보낸 신규 스킬 이펙트 제작 요청 메일이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 후보에 대어 볼 필수 조건과 희망 사항을 확인하고, 과제 2에서 추천 이유를 세울 때 쓴다.",
+        "evidence_source": [
+          "절차, 자료, 주변환경 관찰"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "feedback_themes"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "기획팀 스킬 기획 담당",
+              "to": "이펙트 파트 게임프로그래머",
+              "subject": "신규 스킬 '서리 방패' 이펙트 제작 요청",
+              "body": "안녕하세요, 기획팀 스킬 기획 담당입니다.\n이펙트 기획서에 따라 신규 스킬 '서리 방패'의 이펙트 제작을 요청드립니다.\n\n- 이펙트 분류: 캐릭터 이펙트\n- 연출: 스킬을 사용하면 캐릭터 둘레에 얼음 결정 6개가 3초 동안 돌면서 방패 모양을 이룹니다.\n- 필수 조건: 다음 업데이트 빌드에 넣어야 해서 작업 기간은 5일 이내여야 합니다.\n- 희망 사항: 관전 모드에서는 카메라가 캐릭터 주위를 360도 돌 수 있습니다. 이때도 얼음 결정의 옆면이 보여서 입체감이 느껴지면 좋겠습니다.\n\n제작 방식은 이펙트 파트에서 정리한 후보 비교표를 보고 정해 주세요.\n감사합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "email",
+        "subtype": "condition_email",
+        "title": "개발팀 이메일: '서리 방패' 이펙트 엔진 조건 공유",
+        "description": "개발팀 프로그래머가 게임 엔진 특성과 리소스 최적화를 위해 이펙트 파트에 보낸 조건 공유 메일이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 입자 수 상한과 일정 관련 조건을 각 후보에 적용하고, 과제 2에서 추천 이유와 주의점을 정리할 때 쓴다.",
+        "evidence_source": [
+          "기술 분석",
+          "산수와 수학"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "개발팀 프로그래머",
+              "to": "이펙트 파트 게임프로그래머",
+              "subject": "'서리 방패' 이펙트 엔진 조건 공유",
+              "body": "안녕하세요, 개발팀 프로그래머입니다.\n'서리 방패' 이펙트를 만들 때 지켜야 할 게임 엔진 쪽 조건을 공유드립니다.\n\n① 전투 중에는 여러 캐릭터가 동시에 스킬을 쓰는 일이 많습니다. 그래서 이 스킬 이펙트 하나에 쓰는 파티클 입자 수는 120개 이하로 맞춰 주셔야 합니다(필수).\n② 파티클 리소스는 시야 거리 단계 3단계로 나눠 LOD 작업을 해야 합니다. 파티클을 쓰는 안은 LOD 작업 1일을 더해서 일정을 잡아 주세요. 이펙트 파트 비교표의 예상 제작 일수에는 이 LOD 작업이 빠져 있습니다.\n③ 메쉬를 쓰는 안의 예상 제작 일수에는 아트팀의 3D 모델 제작 대기 2일이 들어 있습니다. 이 대기는 아트팀 일정에 따라 늦어질 수 있습니다.\n\n궁금한 점이 있으면 언제든 말씀해 주세요."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "option_comparison",
+        "title": "이펙트 파트 제작 방식 후보 비교표 (예상 제작 일수 단위: 일)",
+        "description": "이펙트 파트가 정리한 '서리 방패' 이펙트 제작 방식 후보 4개의 제작 방식, 구성, 예상 제작 일수를 나란히 적은 표다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 후보별 제작 방식, 구성, 예상 제작 일수를 두 이메일의 조건에 대어 보고, 과제 2에서 추천할 안을 고를 때 쓴다.",
+        "evidence_source": [
+          "기술 분석",
+          "산수와 수학",
+          "논리적 분석"
+        ],
+        "mission_fact_refs": [
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "후보 안"
+            },
+            {
+              "key": "strength",
+              "label": "제작 방식"
+            },
+            {
+              "key": "weakness",
+              "label": "구성"
+            },
+            {
+              "key": "priority",
+              "label": "예상 제작 일수(일)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안",
+              "strength": "빌보드",
+              "weakness": "얼음 결정 이미지 6장을 2D 평면 판에 적용하고, 카메라의 시점을 따라가는 방식으로 캐릭터 둘레를 회전",
+              "priority": 2
+            },
+            {
+              "option": "B안",
+              "strength": "메쉬",
+              "weakness": "얼음 결정 3D 모델링 6개에 텍스쳐를 적용해 캐릭터 둘레를 회전",
+              "priority": 4
+            },
+            {
+              "option": "C안",
+              "strength": "파티클",
+              "weakness": "입자 시뮬레이션으로 얼음 조각 입자 160개를 방패 모양으로 회전",
+              "priority": 3
+            },
+            {
+              "option": "D안",
+              "strength": "메쉬+파티클",
+              "weakness": "얼음 결정 3D 모델링 6개에 텍스쳐를 적용하고, 주변에 서리 입자 60개를 추가",
+              "priority": 5
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "비교표의 제작 방식 후보 4개(A~D안)를 두 이메일의 필수 조건(작업 기간, 파티클 입자 수 상한)과 희망 사항(관전 모드 입체감)에 하나씩 대어 보세요. 개발팀 이메일의 LOD 작업 일수를 반영한 실제 제작 일수를 후보마다 함께 적고, 각 후보가 어떤 조건을 충족하고 어떤 조건을 충족하지 못하는지 판정해 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "후보 4개마다 이메일의 일정 조건을 반영한 실제 제작 일수를 적고, 필수 조건 두 가지와 희망 사항 하나에 대해 충족 여부를 판정한다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 판정 결과를 바탕으로 '서리 방패' 이펙트를 어느 후보 안으로 만들지 하나를 정해 추천해 보세요. 그 안을 고른 이유(다른 후보와 견주어 더 나은 점)와 그 안을 택했을 때 조심해야 할 주의점 하나를 함께 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "판정 결과를 바탕으로 후보 하나를 추천하고, 다른 후보와 견준 이유와 그 안을 택했을 때의 주의점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 후보별 실제 제작 일수와 조건 판정",
+        "과제 2: 추천 안, 이유, 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "파티클을 쓰는 C안과 D안은 LOD 작업 1일을 더해야 하므로 실제 제작 일수는 A안 2일, B안 4일, C안 4일, D안 6일이다.",
+      "C안은 4일로 기한 안이지만 입자 160개로 상한 120개를 넘고, D안은 입자 60개로 상한 안이지만 6일로 5일 기한을 넘어 두 안 모두 필수 조건을 어긴다.",
+      "A안은 필수 조건을 모두 지키고 기한까지 3일 여유가 있지만, 2D 평면 판이 카메라의 시점을 따라가므로 관전 모드에서 얼음 결정 옆면이 보이지 않아 입체감 희망 사항을 채우지 못한다.",
+      "B안은 필수 조건을 모두 지키고 3D 모델이라 입체감 희망 사항도 채우지만, 기한까지 여유가 1일뿐이고 아트팀의 3D 모델 제작 대기 2일에 기댄다.",
+      "추천은 일정 안정성을 앞세운 A안이나 완성도를 앞세운 B안 중 하나가 될 수 있으며, 어느 쪽이든 다른 후보와 견준 이유와 그 안에 실제로 따르는 위험을 적어야 한다.",
+      "예시: B안을 추천한다. 두 필수 조건을 지키면서 A안이 채우지 못하는 관전 모드 입체감까지 채워 이펙트 완성도가 더 높다. 다만 아트팀의 3D 모델 제작 대기 2일이 하루 넘게 늦어지면 5일 기한을 넘길 수 있으므로 아트팀 일정을 먼저 확인해야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "실제 제작 일수 계산",
+        "description": "C안과 D안처럼 파티클을 쓰는 안에 LOD 작업 1일을 더해 후보마다 실제 제작 일수를 적었는지 본다. 맞는 값은 A안 2일, B안 4일, C안 4일(3+1), D안 6일(5+1)이다. 파티클 안 두 개 중 하나만 맞게 더했거나 일부 후보의 일수를 빠뜨리면 부분 점수를 준다.",
+        "points": 20,
+        "linked_evidence": [
+          "산수와 수학"
+        ]
+      },
+      {
+        "criterion": "후보별 조건 판정",
+        "description": "후보마다 필수 조건(작업 기간 5일 이내, 입자 120개 이하)과 희망 사항(관전 모드 입체감)의 충족 여부를 자료에 맞게 판정했는지 본다. A안은 2일이고 입자를 쓰지 않아 필수 조건을 지키지만, 카메라의 시점을 따라가는 2D 평면 판이라 옆면이 보이지 않아 입체감 희망 사항을 채우지 못한다. B안은 4일이고 입자를 쓰지 않아 필수 조건을 지키며 3D 모델이라 입체감도 채운다. C안은 4일로 기한 안이지만 입자 160개로 상한을 넘는다. D안은 입자 60개로 상한 안이지만 6일로 기한을 넘는다. C안의 입체감 여부는 자료로 정해지지 않으므로 채점하지 않는다. 네 후보의 판정이 모두 맞으면 만점이고, 잘못된 판정이 있을 때마다 점수를 줄인다.",
+        "points": 30,
+        "linked_evidence": [
+          "기술 분석",
+          "산수와 수학"
+        ]
+      },
+      {
+        "criterion": "추천 안과 이유",
+        "description": "추천 안과 이유가 과제 1 판정과 자료(5일 기한, 입자 120개 상한, LOD 작업 1일, 아트팀 3D 모델 제작 대기, 관전 모드 입체감 희망)에서 나왔고, 자료에 나온 다른 후보와 견주어 그 선택이 왜 더 나은지 보여주는지 본다. 특정 안을 정답으로 요구하지 않으며, 필수 조건을 모두 지키는 A안과 B안 중 어느 쪽이든 이유가 선택을 실제로 뒷받침하면 만점을 줄 수 있다. 자료의 사실을 맞게 적었지만 다른 후보보다 나은 점을 보이지 못하면 부분 점수만 준다. 필수 조건을 어기는 C안이나 D안을 추천하면 이유가 성립하지 않으므로 점수를 주지 않는다. 예: B안 추천 — 필수 조건을 모두 지키면서 A안이 채우지 못하는 관전 모드 입체감까지 채워 이펙트 완성도가 더 높다.",
+        "points": 30,
+        "linked_evidence": [
+          "논리적 분석"
+        ]
+      },
+      {
+        "criterion": "선택한 안의 주의점",
+        "description": "학습자가 고른 안에 실제로 따르는 위험이나 한계로서 자료에 나온 것을 주의점으로 적었는지 본다. 고른 안과 관계없는 위험이나 자료에 없는 위험은 점수를 주지 않는다. 예: B안이라면 아트팀의 3D 모델 제작 대기 2일이 하루 넘게 늦어지면 5일 기한을 넘길 수 있다. A안이라면 관전 모드에서 얼음 결정 옆면이 보이지 않아 기획팀의 입체감 희망 사항을 채우지 못한다.",
+        "points": 20,
+        "linked_evidence": [
+          "절차, 자료, 주변환경 관찰"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "그래픽 특수효과를 제작한다.",
+      "source_ref": {
+        "file": "K000007580/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 99,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 98,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "절차, 자료, 주변환경 관찰",
+          "score": 85,
+          "description": "문제점을 확인하고 평가하기 위하여 자료, 사건, 주변 환경에서 정보를 관찰하고 검토하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 84,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 76,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 99,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "창의력",
+          "score": 98,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "선택적 집중력",
+          "score": 97,
+          "description": "주의를 산만하게 하는 자극에도 불구하고 원하는 일에 집중한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 95,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 91,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 78,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사결정 권한",
+          "score": 98,
+          "description": "해야 할 일, 일의 우선순위, 목표를 정할 수 있는 재량 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 90,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "기술 분석",
+          "산수와 수학"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "기술 분석",
+          "산수와 수학",
+          "논리적 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007580/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "trend_pattern",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007580/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.8,
+    "AX2": 0.2,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

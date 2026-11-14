@@ -1,0 +1,648 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007526_hard_001",
+  "job_identity": {
+    "job_cd": "K000007526",
+    "job_lrcl_nm": "교육·법률·사회복지·경찰·소방직 및 군인",
+    "job_mdcl_nm": "사회복지사 및 상담사",
+    "job_smcl_nm": "청소년지도사",
+    "source_ref": {
+      "file": "K000007526/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_010",
+    "text": "청소년활동시설의 운영에 필요한 제반 행정업무를 수행하고 지원한다.",
+    "source_ref": {
+      "file": "K000007526/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 10
+    },
+    "selection_reason": "Pilot config selected exec_010."
+  },
+  "mission_facts": {
+    "org_name": "푸른숲청소년수련관",
+    "domain": "청소년수련시설 행정지원(부서별 올해 예산 산출과 배정)",
+    "period": [
+      "전년도 결산 기록(12월)",
+      "올해 사업 기간(3~10월)"
+    ],
+    "trend_pattern": "올해 세 부서가 모두 사업을 늘리거나 다시 운영하기로 해 부서별 필요 예산이 전년도 집행액보다 커진다.",
+    "main_issue": "부서별로 산출한 올해 예산의 합계가 세 부서 배정 총액 3,100만원을 넘으면 배정 조정안을 마련해야 한다.",
+    "feedback_themes": [
+      "여름캠프 대기 신청 인원",
+      "전년도에 운영하지 못한 집단상담 과정",
+      "발권 전까지 바뀔 수 있는 항공료"
+    ],
+    "decision_goal": "배정 총액 안에 맞추는 부서별 배정 조정안 하나를 관장에게 추천한다."
+  },
+  "mission": {
+    "title": "청소년수련관 세 부서의 올해 예산 산출과 배정 조정안",
+    "task_type": "operation_and_scheduling",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "푸른숲청소년수련관 행정지원팀 인턴",
+      "context": "당신은 푸른숲청소년수련관 행정지원팀 인턴입니다. 수련관은 해마다 초에 전년도 기록을 바탕으로 청소년활동부, 상담복지부, 문화교류부의 올해 예산을 정해 나눕니다. 행정지원팀장이 예산 기준과 올해 지시를 적은 메모, 전년도 기록 장부 발췌, 올해 사업계획서 발췌를 건네며 '세 부서 올해 예산을 기준대로 계산해 보고, 관장님께 올릴 배정 조정안도 하나 정리해 줘요'라고 부탁했습니다.",
+      "goal": "아래 세 자료를 맞춰 보며 부서별 올해 필요 예산을 계산하고, 배정 총액 안에 맞추는 조정안 하나를 정해 관장에게 추천해 보세요.",
+      "constraints": [
+        "메모, 기록 장부, 사업계획서 세 자료와 용어 설명에 있는 내용만 사용하세요.",
+        "금액은 모두 만원 단위로 적으세요.",
+        "조정안은 하나만 골라 추천하세요.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "당해 연도",
+          "definition": "바로 그 해를 뜻하는 말입니다. 이 미션에서는 예산을 새로 정하는 올해를 말합니다."
+        },
+        {
+          "term": "결산",
+          "definition": "한 해 동안 실제로 쓰고 들어온 돈을 정리해 금액을 확정하는 일입니다."
+        },
+        {
+          "term": "집행",
+          "definition": "예산으로 잡아 둔 돈을 실제로 쓰는 일입니다. 이 미션에서는 실제로 쓴 금액을 집행액이라고 부릅니다."
+        },
+        {
+          "term": "배정",
+          "definition": "전체 예산을 부서나 사업별로 얼마씩 쓸 수 있는지 나누어 정해 주는 일입니다."
+        },
+        {
+          "term": "재무관리운영집",
+          "definition": "기관이 돈을 계획하고, 쓰고, 기록하는 방법을 정해 둔 내부 규정 모음입니다."
+        },
+        {
+          "term": "재무, 회계 관련 기록 장부",
+          "definition": "기관의 돈이 언제, 어느 부서에서, 무엇에, 얼마나 쓰였는지 차례로 적어 두는 장부입니다."
+        },
+        {
+          "term": "연간 사업계획서",
+          "definition": "한 해 동안 운영할 사업의 기간, 내용, 예상 비용을 정리한 계획 문서입니다."
+        },
+        {
+          "term": "정산",
+          "definition": "미리 잡아 둔 비용과 실제로 든 비용을 맞춰 보고 최종 금액을 확정하는 일입니다."
+        },
+        {
+          "term": "발권",
+          "definition": "항공권 같은 표를 실제로 구입해 발급받는 일입니다."
+        },
+        {
+          "term": "집단상담",
+          "definition": "여러 청소년이 한 모임에 함께 참여해 이야기를 나누는 상담 프로그램입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "guideline_and_instruction",
+        "title": "재무관리운영집 발췌와 올해 예산 배정 지시(행정지원팀장 작성)",
+        "description": "행정지원팀장이 재무관리운영집의 예산 산출 기준을 옮겨 적고 올해 배정 지시를 덧붙인 메모입니다. 금액 단위는 만원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "부서별 올해 예산을 산출하는 기준, 세 부서 배정 총액, 조정안을 올리라는 지시를 확인하는 데 씁니다.",
+        "evidence_source": [
+          "업무 계획, 우선순위 결정",
+          "사람들에게 조언, 상담"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "행정지원팀장",
+          "items": [
+            "[재무관리운영집 발췌] 부서별 당해 연도 예산은 '전년도 집행액 + 연간 사업계획서에서 올해 늘리거나 다시 운영하는 사업의 예상 비용'으로 산출한다.",
+            "[재무관리운영집 발췌] 전년도 집행액은 배정액이 아니라, 재무, 회계 관련 기록 장부에 그 부서로 기록된 집행 금액을 모두 합한 값이다.",
+            "[올해 배정 지시] 올해 청소년활동부·상담복지부·문화교류부 세 부서의 배정 총액은 3,100만원입니다. 산출액 합계가 총액을 넘으면 부서별 배정 조정안 하나를 관장님께 올려 주세요."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "ledger_excerpt",
+        "title": "재무, 회계 관련 기록 장부(전년도 결산 기록 발췌)",
+        "description": "회계 담당이 기록 장부에서 전년도 부서별 결산 기록을 날짜 순서대로 옮긴 자료입니다. 금액 단위는 만원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "부서별 전년도 집행 금액과 전년도 사업 운영 상황을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "업무 계획, 우선순위 결정"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "feedback_themes"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "전년 12월 20일",
+              "actor": "회계 담당",
+              "event": "청소년활동부 연간 집행 1,150만원 집계",
+              "note": "배정 1,200만원, 여름캠프 대기 신청 25명"
+            },
+            {
+              "time": "전년 12월 20일",
+              "actor": "회계 담당",
+              "event": "상담복지부 연간 집행 520만원 집계",
+              "note": "배정 800만원, 하반기 집단상담 1개 과정 미운영"
+            },
+            {
+              "time": "전년 12월 20일",
+              "actor": "회계 담당",
+              "event": "문화교류부 연간 집행 900만원 집계",
+              "note": "배정 900만원"
+            },
+            {
+              "time": "전년 12월 28일",
+              "actor": "회계 담당",
+              "event": "문화교류부 국제교류 항공료 정산분 50만원 추가 집행 기록",
+              "note": "정산서 첨부"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "schedule",
+        "subtype": "annual_plan_excerpt",
+        "title": "올해 연간 사업계획서 중 예산 증가 사업(발췌)",
+        "description": "올해 늘리거나 다시 운영하는 사업의 기간, 예상 비용, 일정 조건을 정리한 계획 자료입니다. 금액 단위는 만원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "부서별로 올해 더해지는 사업 비용을 확인하고, 조정안을 정할 때 사업별 일정 조건을 따져 보는 데 씁니다.",
+        "evidence_source": [
+          "업무, 활동에 대한 일정관리",
+          "업무 계획, 우선순위 결정"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "items": [
+            {
+              "period": "3~5월",
+              "task": "상담복지부 집단상담 과정 재개(전년도 미운영 과정), 예상 비용 280만원",
+              "constraint": "외부 강사 계약을 3월 전에 맺어야 함"
+            },
+            {
+              "period": "7~8월",
+              "task": "청소년활동부 여름캠프 정원을 40명에서 70명으로 확대, 1인당 추가 비용 10만원(총 300만원)",
+              "constraint": "참가자 모집 6월 말 마감"
+            },
+            {
+              "period": "10월",
+              "task": "문화교류부 국제교류 항공료 인상분 반영, 예상 추가 비용 100만원",
+              "constraint": "항공권 발권 8월, 발권 전까지 금액 변동 가능"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_1",
+        "instruction": "메모의 산출 기준에 따라 기록 장부의 전년도 집행 기록과 연간 사업계획서의 올해 사업 비용을 맞춰, 청소년활동부·상담복지부·문화교류부의 올해 필요 예산을 각각 계산해 보세요. 그리고 세 부서 합계를 메모의 배정 총액과 비교해 차이가 얼마인지 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "메모의 기준대로 부서별 전년도 집행액에 올해 추가 사업 비용을 더해 세 부서의 필요 예산을 계산하고, 그 합계와 배정 총액의 차이를 쓴다."
+      },
+      {
+        "task_id": "task_2",
+        "instruction": "과제 1의 계산 결과를 바탕으로, 배정 총액 안에 맞추려면 어느 부서의 어떤 사업 예산을 얼마나 줄일지 조정안 하나를 정해 관장에게 추천해 보세요. 자료에 보이는 다른 조정 방법보다 이 안이 나은 이유를 쓰고, 이 조정안을 따를 때 주의할 점 하나를 덧붙여 3~5문장으로 써보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "초과액을 메우는 부서·사업·금액 조정안 하나를 고르고, 다른 조정 방법보다 나은 이유와 그 안의 주의할 점 하나를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 부서별 올해 필요 예산과 배정 총액 대비 차이",
+        "과제 2: 추천 조정안과 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1: 메모 기준대로 배정액이 아닌 전년도 집행액에 올해 추가 비용을 더한다. 청소년활동부는 1,150+300=1,450만원, 상담복지부는 520+280=800만원이다.",
+      "문화교류부의 전년도 집행액은 12월 20일 집계 900만원과 12월 28일 항공료 정산분 50만원을 합한 950만원이며, 여기에 올해 항공료 인상분 100만원을 더해 1,050만원이다.",
+      "세 부서 합계는 3,300만원으로 배정 총액 3,100만원보다 200만원 많다. 배정액(1,200·800·900만원)으로 계산하거나 12월 28일 추가 집행 기록을 빠뜨리면 다른 값이 나온다.",
+      "과제 2는 정답이 하나로 정해지지 않는다. 여름캠프 확대 폭 축소, 집단상담 과정 재개 연기, 항공료 추가분 미반영, 또는 이들의 조합이 가능하며 각각 대기 신청자 수용, 2년 연속 미운영과 3월 전 강사 계약, 8월 발권 전 금액 변동이라는 서로 다른 위험이 있다.",
+      "항공료 추가분 100만원만 빼면 200만원을 다 메우지 못해 다른 조정과 함께 써야 하고, 집단상담 과정 280만원을 통째로 미루면 초과액보다 80만원 더 줄어든다.",
+      "예시: 여름캠프 확대 정원을 70명에서 50명으로 줄여 200만원을 맞춘다. 전년도에 운영하지 못한 집단상담 과정을 또 미루지 않고, 발권 전까지 금액이 바뀔 수 있는 항공료 예산도 그대로 둘 수 있기 때문이다. 주의할 점은 정원 50명으로는 전년도 대기 신청 25명 가운데 15명을 여전히 받지 못할 수 있다는 것이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "부서별 올해 필요 예산 산출",
+        "description": "청소년활동부 1,450만원, 상담복지부 800만원, 문화교류부 1,050만원을 계산했는지 본다. 배정액이 아닌 기록 장부의 전년도 집행액을 써야 하며, 문화교류부는 두 집행 기록(900만원+50만원)을 모두 합한 950만원에 올해 추가 비용 100만원을 더해야 한다. 기준이 메모에 정해져 있어 다른 값은 인정하지 않으며, 부서마다 10점씩 준다.",
+        "points": 30,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정"
+        ]
+      },
+      {
+        "criterion": "배정 총액과의 차이",
+        "description": "세 부서 합계 3,300만원을 배정 총액 3,100만원과 비교해 200만원을 넘는다고 썼는지 본다. 앞의 부서별 값에 오류가 있더라도 학습자 자신의 합계와 배정 총액을 바르게 비교해 차이를 썼으면 일부 점수를 준다.",
+        "points": 10,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정"
+        ]
+      },
+      {
+        "criterion": "조정안이 초과액을 메우는지",
+        "description": "어느 부서의 어떤 사업을 얼마나 줄이는지 밝힌 조정안 하나를 제시했고, 그 조정으로 줄어드는 금액이 과제 1에서 계산한 초과액을 실제로 메우는지 본다. 특정 조정안을 요구하지 않으며, 여러 사업을 묶은 하나의 조정안도 합계가 초과액을 메우면 인정한다.",
+        "points": 15,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정",
+          "사람들에게 조언, 상담"
+        ]
+      },
+      {
+        "criterion": "추천 이유의 근거",
+        "description": "특정 조정안을 정답으로 요구하지 않는다. 이유가 과제 1 결과와 자료(여름캠프 대기 신청 인원, 집단상담 과정의 전년도 미운영, 3월 전 강사 계약, 6월 말 모집 마감, 발권 전 항공료 변동 가능성 등)를 근거로, 자료에 보이는 다른 조정 방법보다 이 안이 왜 나은지를 보여 주면 만점을 준다. 자료의 맞는 사실을 적었더라도 다른 방법보다 나은 까닭을 보이지 못하면 부분 점수만 준다. 예: 캠프 확대 정원을 50명으로 줄이면 2년 연속 상담 과정 미운영을 피하고 금액이 바뀔 수 있는 항공료 예산도 남겨 둘 수 있다.",
+        "points": 25,
+        "linked_evidence": [
+          "사람들에게 조언, 상담",
+          "업무 계획, 우선순위 결정"
+        ]
+      },
+      {
+        "criterion": "조정안의 주의할 점",
+        "description": "학습자가 고른 조정안에 실제로 따르는 위험이나 한계로서 자료에 보이는 것을 하나 썼는지 본다. 고른 안과 관계없는 일반론은 인정하지 않는다. 예: 캠프 정원을 50명으로 줄이면 전년도 대기 신청 25명 가운데 15명은 여전히 받지 못할 수 있다. 집단상담 과정 연기를 고른 경우의 2년 연속 미운영과 3월 전 강사 계약 문제, 항공료 추가분 미반영을 고른 경우의 8월 발권 전 금액 변동도 같은 기준으로 인정한다.",
+        "points": 20,
+        "linked_evidence": [
+          "업무, 활동에 대한 일정관리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_010",
+      "text": "청소년활동시설의 운영에 필요한 제반 행정업무를 수행하고 지원한다.",
+      "source_ref": {
+        "file": "K000007526/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 10
+      },
+      "selection_reason": "Pilot config selected exec_010."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들을 훈련, 교육",
+          "score": 100,
+          "description": "교육 요구 사항을 파악하고, 공식적인 교육 또는 훈련 프로그램을 만들며, 교육이나 강의를 제공하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 99,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들을 배려, 돌봄",
+          "score": 98,
+          "description": "동료, 고객, 환자를 치료하고, 정서적으로 지지하고 돌보기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 97,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 96,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "가르치기",
+          "score": 97,
+          "description": "다른 사람들에게 일하는 방법에 대해 가르친다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "학습전략",
+          "score": 95,
+          "description": "새로운 것을 배우거나 가르칠 때 적절한 방법을 활용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 78,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "상담",
+          "score": 90,
+          "description": "개인의 신상 및 경력 혹은 정신적 어려움에 관한 상담을 하는 절차나 방법 혹은 원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "심리",
+          "score": 84,
+          "description": "사람들의 행동, 성격, 흥미, 동기 등에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "철학과 신학",
+          "score": 78,
+          "description": "생활에 영향을 미치는 다양한 철학과 종교에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "건강 및 안전에 대한 책임",
+          "score": 83,
+          "description": "함께 근무하는 사람의 건강 및 안전에 대한 책임",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "연설, 발표, 회의하기",
+          "score": 79,
+          "description": "사람들 앞에서 공식적으로 연설(발표,회의 등의 상황)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람들을 조율하거나 이끌기",
+          "score": 76,
+          "description": "업무 특성상 다른 사람들을 조율하거나 이끄는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007526/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "업무 계획, 우선순위 결정",
+          "사람들에게 조언, 상담"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "업무 계획, 우선순위 결정"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "업무, 활동에 대한 일정관리",
+          "업무 계획, 우선순위 결정"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007526/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.0,
+    "AX2": 0.0,
+    "AX3": 0.8,
+    "AX4": 0.0,
+    "AX5": 0.2
+  }
+}

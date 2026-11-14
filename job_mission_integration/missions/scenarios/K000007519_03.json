@@ -1,6 +1,6 @@
 {
   "schema_version": "mission_output.v1",
-  "mission_id": "mission_K000007519_normal_001",
+  "mission_id": "mission_K000007519_hard_001",
   "job_identity": {
     "job_cd": "K000007519",
     "job_lrcl_nm": "경영·사무·금융·보험직",
@@ -13,107 +13,139 @@
     }
   },
   "target_exec_job": {
-    "exec_job_id": "exec_002",
-    "text": "분석결과를 토대로 국내 사회환경과 경제실정에 맞는 보험상품을 개발한다.",
+    "exec_job_id": "exec_003",
+    "text": "수학, 통계학, 재무이론, 확률 등의 지식을 적용해 적절한 보험료와 책임준비금을 산출한다.",
     "source_ref": {
       "file": "K000007519/dtlGb_2.xml",
       "field": "jobsDo.execJob",
-      "index": 2
+      "index": 3
     },
-    "selection_reason": "보험상품 개발(국내 사회환경·경제 실정 반영)에는 정보 기반의 대안 설계와 제안이 핵심이므로 exec_002가 적합하고, 2종 자료로 체크리스트-표 기반 산출을 구성하기 좋다."
+    "selection_reason": "Pilot config selected exec_003."
   },
   "mission_facts": {
-    "org_name": "세움보험상품연구소",
-    "domain": "보험상품 개발(특약/담보 설계)",
+    "org_name": "새봄생명",
+    "domain": "생명보험 책임준비금 검증과 분기 결산",
     "period": [
-      "최근 6개월"
+      "직전 분기 말",
+      "이번 분기 말(감독회계 분기 결산 대상)"
     ],
-    "trend_pattern": "중저소득 가계의 보험료 부담이 커지고, 야간·교대 근무 관련 건강 불안이 늘어나는 흐름",
-    "main_issue": "신규 건강 특약을 준비 중인데, 고객이 체감하는 ‘월 보험료’와 회사가 지킬 ‘보장 조건(기간/제외)’을 동시에 맞춰야 함",
+    "trend_pattern": "보험종목별 전체 책임준비금은 직전 분기 말과 비교해 종목마다 늘거나 줄었고, 변화 폭도 종목마다 다르다.",
+    "main_issue": "샘플테스트에서 일부 보험종목의 산출프로그램 값이 재계산 값과 허용 범위를 넘게 차이 나지만, 결산 마감 전 재산출은 1개 보험종목만 할 수 있다.",
     "feedback_themes": [
-      "자료의 조건을 먼저 체크하고, 옵션을 그 기준으로만 비교하기",
-      "선택한 이유를 ‘조건 충족 근거’로 짧게 설명하기"
+      "샘플테스트 판정 기준 적용",
+      "차이율 계산",
+      "결산 일정 제약 아래 재산출 순서"
     ],
-    "decision_goal": "3가지 특약 설계안 중에서 체크리스트 조건을 가장 잘 만족하는 1개를 골라 매니저에게 추천하기"
+    "decision_goal": "결산 마감 전에 먼저 재산출할 보험종목 1개를 정한다."
   },
   "mission": {
-    "title": "초보 인턴 미션: 체크리스트에 맞는 건강 특약 1개 고르기",
-    "task_type": "planning_and_proposal",
-    "secondary_task_types": [
-      "research_and_analysis"
-    ],
+    "title": "책임준비금 샘플테스트 결과 검토와 재산출 순서 정하기",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
     "difficulty": {
-      "level": "normal",
-      "label": "보통",
-      "estimated_time_minutes": 15,
-      "material_bundle_style": "light_work_material_bundle",
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
       "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
         2,
         2
       ],
-      "task_count_range": [
-        1,
-        1
-      ],
-      "answer_length_hint": "2-3 short sentences",
+      "answer_length_hint": "3-5 short sentences per task",
       "requires_cross_material_reasoning": true,
-      "requires_tradeoff_judgment": false,
+      "requires_tradeoff_judgment": true,
       "requires_domain_expertise": false
     },
     "scenario": {
-      "role": "당신은 세움보험상품연구소 상품기획팀의 신입 인턴입니다.",
-      "context": "매니저가 말했습니다. “최근 고객 설문과 내부 손익 가정(간단 버전) 결과를 바탕으로, 새 건강 특약(담보) 설계안 3개 중에서 조건에 맞는 1개를 골라서 오늘 회의에 가져가자.”\n당신은 아래 체크리스트(필수 조건)를 먼저 확인한 뒤, 특약 옵션 비교표를 체크리스트 기준으로만 빠르게 매칭해 보면 됩니다.",
-      "goal": "특약 옵션 3개 중에서 체크리스트 조건을 가장 잘 만족하는 1개를 추천하세요.",
+      "role": "새봄생명 계리팀 인턴",
+      "context": "당신은 새봄생명 계리팀의 인턴입니다. 이번 분기 결산을 앞두고 산출프로그램으로 보험종목별 책임준비금을 계산해 두었습니다. 계리팀장은 이 값이 맞는지 샘플테스트 결과로 확인해 달라고 요청했습니다. 결산 마감까지 시간이 빠듯해서 다시 계산할 수 있는 보험종목 수에도 제한이 있습니다.",
+      "goal": "아래 자료를 보고 샘플테스트 결과를 기준에 맞춰 검토한 뒤, 결산 마감 전에 먼저 재산출할 보험종목 1개를 이유와 주의할 점과 함께 정해 보세요.",
       "constraints": [
-        "답은 1개 옵션만 고르기",
-        "선택 이유는 체크리스트의 ‘필수 조건’이 그 옵션에서 어떻게 충족되는지 1~2개만 짚기",
-        "아직 세부 계산은 하지 않아도 됨(표의 문장만 활용)"
+        "자료 1~3에 나온 기준과 수치만 사용하세요.",
+        "결산 마감 전까지 재산출은 1개 보험종목만 할 수 있습니다.",
+        "차이율은 % 단위로 적고, 필요하면 소수점 둘째 자리까지 적으세요.",
+        "답은 과제마다 3~5문장으로 적어 주세요."
       ],
       "glossary": [
         {
-          "term": "담보",
-          "definition": "보험에서 실제로 보장해 주는 항목(예: 특정 치료/진료를 보장하는 부분)"
+          "term": "책임준비금",
+          "definition": "보험회사가 앞으로 고객에게 보험금 등을 지급하기 위해 미리 계산해 쌓아 두는 돈입니다."
+        },
+        {
+          "term": "샘플테스트",
+          "definition": "계산 결과가 맞는지 확인하려고 일부 계약을 골라 따로 다시 계산한 뒤, 원래 결과와 맞춰 보는 검증 방법입니다."
+        },
+        {
+          "term": "감독회계",
+          "definition": "보험회사를 감독하는 기관에 보고하기 위해 정해진 기준에 따라 작성하는 회계입니다."
+        },
+        {
+          "term": "산출목적",
+          "definition": "책임준비금을 어떤 회계(감독회계 또는 일반회계)에 쓰려고 계산하는지를 밝힌 것입니다."
+        },
+        {
+          "term": "보험종목",
+          "definition": "종신보험, 암보험처럼 보장 내용에 따라 나눈 보험의 종류입니다."
+        },
+        {
+          "term": "부채평가",
+          "definition": "보험회사가 앞으로 고객에게 지급해야 할 돈(부채)의 크기를 계산해 평가하는 일입니다."
+        },
+        {
+          "term": "산출프로그램",
+          "definition": "이 미션에서는 회사가 책임준비금을 자동으로 계산할 때 쓰는 내부 프로그램을 말합니다."
+        },
+        {
+          "term": "재산출",
+          "definition": "이미 계산한 값을 원인을 확인해 다시 계산하는 일입니다."
+        },
+        {
+          "term": "차이율",
+          "definition": "두 값의 차이가 기준이 되는 값에 비해 몇 퍼센트인지 나타낸 것입니다."
+        },
+        {
+          "term": "분기 결산",
+          "definition": "3개월마다 회사의 실적과 재산·부채를 정리해 장부를 마감하는 일입니다."
+        },
+        {
+          "term": "계리팀",
+          "definition": "보험료와 책임준비금처럼 보험에 필요한 숫자를 계산하고 검증하는 부서입니다."
         }
       ]
     },
     "materials": [
       {
-        "material_id": "mat_check_001",
-        "type": "checklist",
-        "subtype": "product_constraints_checklist",
-        "title": "신규 건강 특약 설계 체크리스트(필수 조건)",
-        "description": "매니저가 정한 ‘오늘 회의용 필수 조건’입니다. 아래 3가지를 모두 만족하는 옵션이 1순위입니다.",
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "manager_instruction_with_manual_excerpt",
+        "title": "계리팀장 메모: 이번 분기 책임준비금 검증 기준과 재산출 일정",
+        "description": "계리팀장이 이번 산출목적, 부채평가 산출기준 및 매뉴얼의 샘플테스트 기준 발췌, 재산출 일정 제약을 정리한 메모입니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "옵션 비교표에서 각 설계안이 필수 조건을 충족하는지 빠르게 확인하기",
+        "used_for": "과제 1에서 차이율을 계산하고 허용 범위를 판정하는 기준으로, 과제 2에서 재산출 일정 제약을 확인하는 데 씁니다.",
         "evidence_source": [
-          "기준에 따른 정보 평가"
+          "기준에 따른 정보 평가",
+          "수리력"
         ],
         "mission_fact_refs": [
+          "org_name",
+          "domain",
           "main_issue",
-          "decision_goal",
-          "feedback_themes"
+          "decision_goal"
         ],
         "data": {
+          "author": "계리팀장",
           "items": [
-            {
-              "label": "월 보험료: 3만원 이하(고객 부담 고려)",
-              "status": "unchecked",
-              "importance": "high"
-            },
-            {
-              "label": "보장 기간: 최소 1년(고객이 체감할 기간)",
-              "status": "unchecked",
-              "importance": "high"
-            },
-            {
-              "label": "보장 제외: 건강검진/미용 목적 진료는 제외(민원 줄이기)",
-              "status": "unchecked",
-              "importance": "high"
-            }
+            "이번 책임준비금 산출목적은 감독회계 분기 결산입니다.",
+            "부채평가 산출기준 및 매뉴얼(샘플테스트 기준 발췌): 보험종목별 샘플 계약 100건의 책임준비금을 따로 재계산해 산출프로그램 값과 비교합니다. 차이율(%) = (산출프로그램 값 − 재계산 값) ÷ 재계산 값 × 100 이고, 차이율이 ±1.0% 이내(−1.0% 이상 +1.0% 이하)이면 적합, 이 범위를 벗어나면 재산출 대상입니다.",
+            "결산 마감 전까지 재산출은 1개 보험종목만 할 수 있습니다. 나머지 재산출 대상은 다음 분기 결산에서 보정합니다."
           ]
         },
         "confidence": {
-          "score": 0.77,
+          "score": 0.85,
           "checks": {
             "synthetic_material": true
           },
@@ -121,64 +153,129 @@
         }
       },
       {
-        "material_id": "mat_table_001",
-        "type": "table",
-        "subtype": "rider_options_comparison_table",
-        "title": "신규 건강 특약 옵션 3가지 비교표",
-        "description": "각 옵션은 ‘체크리스트의 문장’에 바로 대응되도록 핵심만 정리했습니다. (단, 다른 이유는 필요 없고, 필수 조건 충족 여부로만 고르면 됩니다.)",
+        "material_id": "mat_002",
+        "type": "chart",
+        "subtype": "grouped_bar_comparison",
+        "title": "보험종목별 책임준비금 샘플테스트 결과 (샘플 계약 100건 합계, 단위: 백만 원)",
+        "description": "보험종목마다 샘플 계약 100건의 책임준비금을 따로 재계산한 값과 산출프로그램 값을 나란히 보여 주는 막대 차트입니다. 단위는 백만 원입니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "체크리스트(필수 조건) 기준으로 3개 옵션을 비교해 추천 옵션 1개 고르기",
+        "used_for": "과제 1에서 보험종목별 차이율을 계산하는 데 씁니다.",
         "evidence_source": [
-          "의사 결정, 문제점 해결",
-          "정보, 자료 분석"
+          "수리력",
+          "기준에 따른 정보 평가"
         ],
         "mission_fact_refs": [
-          "trend_pattern",
-          "decision_goal",
-          "domain"
+          "org_name",
+          "domain",
+          "main_issue"
         ],
         "data": {
-          "columns": [
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "보험종목",
+            "values": [
+              "종신보험",
+              "정기보험",
+              "연금보험",
+              "암보험",
+              "저축보험"
+            ]
+          },
+          "y_axis": {
+            "label": "책임준비금(샘플 계약 100건 합계)",
+            "unit": "백만 원"
+          },
+          "series": [
             {
-              "key": "option",
-              "label": "옵션"
+              "name": "재계산 값",
+              "values": [
+                3000,
+                400,
+                2000,
+                800,
+                1500
+              ]
             },
             {
-              "key": "strength",
-              "label": "강점(체크리스트 대응 포인트)"
-            },
-            {
-              "key": "weakness",
-              "label": "약점(체크리스트 관점에서 어긋날 수 있는 부분)"
-            },
-            {
-              "key": "priority",
-              "label": "회사용 우선순위(참고)"
-            }
-          ],
-          "rows": [
-            {
-              "option": "옵션 A: 기본형 건강보장",
-              "strength": "월 보험료 2.9만원, 보장 기간 1년, 건강검진/미용 목적 진료 보장 제외",
-              "weakness": "입원 보장 범위는 ‘기본 진료 항목 위주’로 단순함",
-              "priority": 1
-            },
-            {
-              "option": "옵션 B: 입원 확대형 건강보장",
-              "strength": "보장 범위가 넓어 고객 만족 가능(표준 진료 기준)",
-              "weakness": "월 보험료 3.4만원(체크리스트 상한 3만원 초과), 보장 제외는 동일",
-              "priority": 3
-            },
-            {
-              "option": "옵션 C: 저가 단기형 건강보장",
-              "strength": "월 보험료 2.3만원(가장 저렴)",
-              "weakness": "보장 기간 6개월(체크리스트 최소 1년 미달), 건강검진/미용 제외는 동일",
-              "priority": 2
+              "name": "산출프로그램 값",
+              "values": [
+                3024,
+                397,
+                2030,
+                824,
+                1494
+              ]
             }
           ]
         },
         "confidence": {
-          "score": 0.81,
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "chart",
+        "subtype": "grouped_bar_period_comparison",
+        "title": "보험종목별 전체 책임준비금 (산출프로그램 기준, 단위: 억 원)",
+        "description": "보험종목마다 직전 분기 말과 이번 분기 말의 전체 책임준비금을 산출프로그램 기준으로 보여 주는 막대 차트입니다. 단위는 억 원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 재산출 대상 보험종목의 전체 규모와 분기 사이 변화를 비교하는 데 씁니다.",
+        "evidence_source": [
+          "의사 결정, 문제점 해결",
+          "논리적 분석",
+          "수리력"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "보험종목",
+            "values": [
+              "종신보험",
+              "정기보험",
+              "연금보험",
+              "암보험",
+              "저축보험"
+            ]
+          },
+          "y_axis": {
+            "label": "전체 책임준비금",
+            "unit": "억 원"
+          },
+          "series": [
+            {
+              "name": "직전 분기 말",
+              "values": [
+                8800,
+                620,
+                8100,
+                900,
+                4200
+              ]
+            },
+            {
+              "name": "이번 분기 말",
+              "values": [
+                9000,
+                600,
+                8000,
+                1200,
+                4000
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
           "checks": {
             "synthetic_material": true
           },
@@ -189,54 +286,68 @@
     "tasks": [
       {
         "task_id": "task_001",
-        "instruction": "아래 체크리스트의 3가지 필수 조건을 기준으로, 특약 옵션 A/B/C 중 하나를 추천하세요. 한 문장으로 ‘선택한 옵션’과 ‘체크리스트에 어떻게 맞는지(1~2개 조건만)’를 함께 적어주세요.",
+        "instruction": "자료 1의 샘플테스트 기준에 따라 자료 2에 나온 보험종목별 차이율을 계산해 보세요. 그리고 허용 범위를 벗어나 재산출 대상이 되는 보험종목과 그 차이율을 3~5문장으로 적어 보세요.",
         "required_materials": [
-          "mat_check_001",
-          "mat_table_001"
+          "mat_001",
+          "mat_002"
         ],
-        "expected_action": "선택한 옵션과 체크리스트 충족 근거를 포함한 1문장 추천하기"
+        "expected_action": "자료 1의 식으로 다섯 보험종목의 차이율을 계산해 ±1.0% 기준과 비교하고, 범위를 벗어난 보험종목과 차이율을 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1에서 찾은 재산출 대상 가운데 결산 마감 전에 먼저 재산출할 보험종목 1개를 정해 보세요. 자료 3을 근거로 그 보험종목을 다른 재산출 대상보다 먼저 해야 하는 이유와, 그렇게 했을 때 주의할 점 1가지를 함께 3~5문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "재산출 대상 중 1개를 골라 과제 1의 차이율과 자료 3의 전체 규모·분기 사이 변화로 다른 대상보다 먼저인 이유를 설명하고, 그 선택이 남기는 위험 1가지를 적는다."
       }
     ],
     "submission_format": {
-      "type": "text",
-      "estimated_time_minutes": 5,
+      "type": "short_written_answer",
+      "estimated_time_minutes": 20,
       "required_sections": [
-        "선택한 옵션",
-        "선택 이유(체크리스트 조건 1~2개 근거)"
+        "과제 1: 재산출 대상 보험종목과 차이율",
+        "과제 2: 먼저 재산출할 보험종목, 이유, 주의할 점"
       ],
-      "length_hint": "2-3 short sentences(총 2~3문장 내)"
+      "length_hint": "과제마다 3~5문장"
     }
   },
   "evaluation": {
     "expected_insights": [
-      "답이 1개 옵션(A/B/C)으로 명확히 제시됨",
-      "선택 이유가 체크리스트의 ‘월 보험료/보장 기간/보장 제외’ 중 1~2개 조건에 직접 연결되어 있음",
-      "근거 문장이 표의 문장(월 보험료 수치, 보장 기간, 제외 항목)을 기반으로 작성됨"
+      "자료 1의 식으로 계산한 차이율은 종신보험 +0.8%, 정기보험 −0.75%, 연금보험 +1.5%, 암보험 +3.0%, 저축보험 −0.4%이며, ±1.0% 이내를 벗어나는 재산출 대상은 연금보험(+1.5%)과 암보험(+3.0%)이다.",
+      "종신보험은 차이 금액(24백만 원)이 암보험과 같지만 차이율이 +0.8%로 허용 범위 안이고, 정기보험은 산출프로그램 값이 더 작게 나왔지만 −0.75%로 범위 안이어서 둘 다 재산출 대상이 아니다.",
+      "예시: 연금보험을 먼저 재산출한다. 이번 분기 말 책임준비금 8,000억 원에 차이율 1.5%를 적용하면 차이가 약 120억 원으로, 암보험(1,200억 원 × 3.0% = 약 36억 원)보다 이번 결산에 주는 영향이 크다.",
+      "암보험을 고른 경우에도 차이율이 가장 크고 한 분기 만에 900억 원에서 1,200억 원으로 늘어 다음 분기로 미루면 차이가 더 커질 수 있다는 점을 근거로 연금보험보다 먼저인 까닭을 보이면 같은 기준으로 인정한다.",
+      "예시 주의할 점: 연금보험을 먼저 재산출하면 차이율이 가장 큰 암보험은 이번 감독회계 결산에서 보정되지 않은 채 남고, 규모가 늘고 있어 다음 분기에 보정할 차이가 더 커질 수 있다. 암보험을 먼저 하면 금액으로 더 큰 연금보험의 약 120억 원 차이가 이번 결산에 그대로 남는다."
     ],
     "rubric": [
       {
-        "criterion": "옵션 1개를 올바르게 선택함",
-        "description": "체크리스트 3가지 중 충족도가 가장 높은 옵션을 선택했는지 평가",
-        "points": 45,
+        "criterion": "재산출 대상 판정과 차이율 계산",
+        "description": "과제 1에서 자료 1의 식과 ±1.0% 기준을 적용해 재산출 대상으로 연금보험(+1.5%)과 암보험(+3.0%)을 차이율과 함께 적었는지 본다. 자료로 답이 하나로 정해진다. 허용 범위 안인 종신보험(+0.8%)이나 정기보험(−0.75%)을 대상에 넣었거나, 대상 중 하나를 빠뜨렸거나, 차이율 계산이 틀리면 감점한다.",
+        "points": 40,
         "linked_evidence": [
-          "의사 결정, 문제점 해결"
+          "수리력",
+          "기준에 따른 정보 평가"
         ]
       },
       {
-        "criterion": "선택 이유가 체크리스트 조건에 직접 연결됨",
-        "description": "선택한 옵션이 ‘월 보험료/보장 기간/보장 제외’ 중 1~2개를 어떻게 만족하는지 표의 정보를 사용해 설명했는지 평가",
+        "criterion": "먼저 재산출할 보험종목 선택과 이유",
+        "description": "과제 2에서 과제 1의 재산출 대상 중 1개를 고르고, 그 이유가 과제 1의 차이율과 자료 3의 전체 규모·분기 사이 변화에서 나왔으며 다른 재산출 대상보다 먼저 해야 하는 까닭을 보여 주는지 본다. 특정 답을 요구하지 않는다. 자료에 맞는 사실만 나열하고 다른 대상보다 나은 까닭을 보이지 못하면 부분 점수만 준다. 예: 연금보험 — 8,000억 원 × 1.5% ≈ 120억 원으로 암보험(약 36억 원)보다 이번 결산 영향이 크다. 암보험을 골라도 차이율과 증가 추세를 근거로 연금보험보다 먼저인 까닭을 보이면 같은 기준으로 인정한다.",
         "points": 35,
         "linked_evidence": [
-          "기준에 따른 정보 평가",
-          "읽고 이해하기"
+          "의사 결정, 문제점 해결",
+          "논리적 분석"
         ]
       },
       {
-        "criterion": "문장이 짧고 회의 공유용으로 명확함",
-        "description": "2~3문장 내에서 초보 인턴 답변처럼 부담 없이 이해 가능한 문장 구조인지 평가",
-        "points": 20,
+        "criterion": "선택한 방안의 주의할 점",
+        "description": "과제 2에서 적은 주의할 점 1가지가 고른 보험종목을 먼저 재산출할 때 생기는 실제 위험이나 한계로서 자료 1의 일정 제약이나 자료 3의 수치에 드러난 것인지 본다. 자료와 관계없는 일반론이면 점수를 주지 않는다. 예: 연금보험을 먼저 하면 차이율이 가장 큰 암보험은 이번 감독회계 결산에서 보정되지 않고, 규모가 늘고 있어 다음 분기에 보정할 차이가 더 커질 수 있다.",
+        "points": 25,
         "linked_evidence": [
-          "정보의 의미 해석"
+          "논리적 분석",
+          "기준에 따른 정보 평가"
         ]
       }
     ]
@@ -280,14 +391,14 @@
   "evidence_chain": {
     "created_by": "validator.v1",
     "source_exec_job": {
-      "exec_job_id": "exec_002",
-      "text": "분석결과를 토대로 국내 사회환경과 경제실정에 맞는 보험상품을 개발한다.",
+      "exec_job_id": "exec_003",
+      "text": "수학, 통계학, 재무이론, 확률 등의 지식을 적용해 적절한 보험료와 책임준비금을 산출한다.",
       "source_ref": {
         "file": "K000007519/dtlGb_2.xml",
         "field": "jobsDo.execJob",
-        "index": 2
+        "index": 3
       },
-      "selection_reason": "보험상품 개발(국내 사회환경·경제 실정 반영)에는 정보 기반의 대안 설계와 제안이 핵심이므로 exec_002가 적합하고, 2종 자료로 체크리스트-표 기반 산출을 구성하기 좋다."
+      "selection_reason": "Pilot config selected exec_003."
     },
     "linked_evidence": {
       "activities": [
@@ -455,29 +566,70 @@
     },
     "material_evidence_map": [
       {
-        "material_id": "mat_check_001",
+        "material_id": "mat_001",
         "supported_by": [
+          "기준에 따른 정보 평가",
+          "수리력"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "수리력",
           "기준에 따른 정보 평가"
         ]
       },
       {
-        "material_id": "mat_table_001",
+        "material_id": "mat_003",
         "supported_by": [
           "의사 결정, 문제점 해결",
-          "정보, 자료 분석"
+          "논리적 분석",
+          "수리력"
         ]
       }
     ],
     "items": [
       {
         "target_type": "material",
-        "target_id": "mat_check_001",
+        "target_id": "mat_001",
         "mission_fact_refs": [
+          "org_name",
+          "domain",
           "main_issue",
-          "decision_goal",
-          "feedback_themes"
+          "decision_goal"
         ],
         "source_refs": [
+          {
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
           {
             "file": "K000007519/dtlGb_7.xml",
             "field": "jobActv.jobActvImprtnc",
@@ -490,11 +642,12 @@
       },
       {
         "target_type": "material",
-        "target_id": "mat_table_001",
+        "target_id": "mat_003",
         "mission_fact_refs": [
+          "org_name",
+          "period",
           "trend_pattern",
-          "decision_goal",
-          "domain"
+          "decision_goal"
         ],
         "source_refs": [
           {
@@ -504,9 +657,15 @@
             "source_root": "data/api_raw"
           },
           {
-            "file": "K000007519/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 4,
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
             "source_root": "data/api_raw"
           }
         ],
@@ -516,9 +675,9 @@
     ]
   },
   "axis_signals_derived": {
-    "AX1": 0.55,
+    "AX1": 0.825,
     "AX2": 0.0,
-    "AX3": 0.45,
+    "AX3": 0.175,
     "AX4": 0.0,
     "AX5": 0.0
   }

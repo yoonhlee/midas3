@@ -1,0 +1,653 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007517_hard_001",
+  "job_identity": {
+    "job_cd": "K000007517",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "경영지원 사무원",
+    "job_smcl_nm": "총무사무원",
+    "source_ref": {
+      "file": "K000007517/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "후생복지, 재배치, 장비, 소요물품, 서식, 유지 및 보안 서비스 등 사무 관련 업무를 조정, 계획한다.",
+    "source_ref": {
+      "file": "K000007517/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "푸른결테크",
+    "domain": "중소 제조기업 총무팀의 연간 복리후생계획 소요예산 편성",
+    "period": [
+      "당해 연도 2월(소요예산 편성 시점)",
+      "3월~10월(항목별 시행 기간)"
+    ],
+    "trend_pattern": "개정된 복리후생 관리규정에서 일부 항목의 1인당 지원 기준이 달라졌고, 당해 연도 경영전략으로 복리후생 총 소요예산 한도가 정해졌다.",
+    "main_issue": "연간 복리후생계획(안)에 개정 기준을 적용해 편성한 소요예산이 총액 한도와 맞는지 확인하고, 한도를 넘으면 계획을 조정해야 한다.",
+    "feedback_themes": [
+      "건강 검진은 축소하지 않는다는 당해 연도 경영전략",
+      "항목별 계약 완료, 변경 통보 기한, 발주 기한"
+    ],
+    "decision_goal": "총 소요예산 2,800만 원 이내에 드는 연간 복리후생계획 조정안 하나를 이유와 함께 추천한다."
+  },
+  "mission": {
+    "title": "올해 복리후생 예산, 한도에 맞춰 짜 보기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "푸른결테크 총무팀 인턴",
+      "context": "당신은 푸른결테크 총무팀 인턴입니다. 지금은 2월이고, 총무팀은 당해 연도 연간 복리후생계획의 소요예산을 편성하고 있습니다. 올해 복리후생 관리규정 일부가 개정되었고, 경영전략에서 복리후생 총액 한도도 정해졌습니다. 총무팀에서는 항목별 소요예산을 ‘1인당 지원 금액 × 대상 인원’으로 계산합니다. 총무팀장님이 이렇게 요청했습니다. “내 메모의 기준을 계획(안)에 적용해서 예산을 다시 계산해 보고, 한도를 넘으면 무엇을 어떻게 조정하면 좋을지 하나만 추천해 줘요.”",
+      "goal": "개정된 기준으로 올해 복리후생 소요예산을 계산하고, 총액 한도에 맞출 조정안 하나를 이유와 함께 총무팀장님께 추천하세요.",
+      "constraints": [
+        "자료에 나온 금액, 인원, 조건만 사용하세요.",
+        "대상 인원은 계획(안) 표의 숫자를 그대로 사용하세요.",
+        "금액은 만 원 단위로 계산해도 됩니다.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "복리후생 항목",
+          "definition": "회사가 급여와 별도로 직원의 생활과 복지를 돕기 위해 제공하는 지원의 종류입니다. 이 미션에서는 계획(안) 표에 나온 네 가지 지원을 말합니다."
+        },
+        {
+          "term": "복리후생 관리규정",
+          "definition": "회사가 어떤 복리후생을 누구에게 얼마만큼 지원할지 정해 둔 사내 규칙입니다."
+        },
+        {
+          "term": "당해 연도",
+          "definition": "지금 다루고 있는 바로 그 해를 말합니다. 이 미션에서는 올해를 뜻합니다."
+        },
+        {
+          "term": "소요예산",
+          "definition": "어떤 일을 하는 데 들 것으로 예상해 미리 잡아 두는 돈입니다."
+        },
+        {
+          "term": "편성",
+          "definition": "예산을 항목별로 나누어 얼마씩 쓸지 짜는 일입니다."
+        },
+        {
+          "term": "경영전략",
+          "definition": "회사가 한 해 동안 무엇에 힘을 쏟고 돈을 어떻게 쓸지 정한 큰 방향입니다."
+        },
+        {
+          "term": "발주",
+          "definition": "필요한 물건이나 서비스를 업체에 주문하는 일입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "regulation_excerpt",
+        "title": "총무팀장 메모: 올해 복리후생 기준 정리",
+        "description": "총무팀장이 개정된 복리후생 관리규정과 당해 연도 경영전략 가운데 소요예산 편성에 필요한 내용을 정리한 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 계획(안)에 적용할 기준과 총액 한도를 확인하고, 과제 2에서 조정안이 규정과 경영전략에 맞는지 확인하는 데 씁니다.",
+        "evidence_source": [
+          "재정 관리",
+          "자원 관리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "총무팀장",
+          "items": [
+            "개정 복리후생 관리규정: 기념일 선물은 1인당 8만 원 이내로 지급한다.",
+            "개정 복리후생 관리규정: 동호회 지원은 가입자 1인당 연 16만 원을 지급한다.",
+            "당해 연도 경영전략: 복리후생 총 소요예산은 2,800만 원 이내로 하며, 건강 검진은 축소하지 않는다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "budget_basis_table",
+        "title": "당해 연도 연간 복리후생계획(안) 산정표",
+        "description": "총무팀이 작성해 둔 연간 복리후생계획(안)의 복리후생 항목별 대상, 1인당 지원 기준, 대상 인원(단위: 명)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 항목별 대상 인원과 계획(안)의 지원 기준을 확인해 소요예산을 계산하는 데 씁니다.",
+        "evidence_source": [
+          "재정 관리",
+          "수리력"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "복리후생 항목"
+            },
+            {
+              "key": "strength",
+              "label": "대상"
+            },
+            {
+              "key": "weakness",
+              "label": "1인당 지원 기준"
+            },
+            {
+              "key": "priority",
+              "label": "대상 인원(명)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "건강 검진",
+              "strength": "전 직원",
+              "weakness": "1인당 30만 원",
+              "priority": 40
+            },
+            {
+              "option": "기념일 선물",
+              "strength": "전 직원",
+              "weakness": "1인당 10만 원",
+              "priority": 40
+            },
+            {
+              "option": "야유회 및 워크숍 지원",
+              "strength": "전 직원",
+              "weakness": "1인당 25만 원(1박 2일)",
+              "priority": 40
+            },
+            {
+              "option": "동호회 지원",
+              "strength": "동호회 가입자",
+              "weakness": "1인당 연 12만 원",
+              "priority": 25
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "schedule",
+        "subtype": "annual_plan_schedule",
+        "title": "연간 복리후생계획(안) 주요 시행 일정",
+        "description": "계획(안) 항목의 시행 시기와 항목별 계약, 변경, 발주 조건을 정리한 총무팀 일정표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 각 항목을 바꿀 수 있는 조건과 기한을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "업무 계획, 우선순위 결정",
+          "자원 관리"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "items": [
+            {
+              "period": "3월",
+              "task": "건강 검진 시행",
+              "constraint": "검진기관과 1인당 30만 원으로 계약 체결 완료"
+            },
+            {
+              "period": "5월",
+              "task": "야유회 및 워크숍 지원(1박 2일)",
+              "constraint": "3월 31일까지 업체에 통보하면 당일 행사(1인당 20만 원)로 변경 가능"
+            },
+            {
+              "period": "10월",
+              "task": "기념일 선물 지급(창립기념일)",
+              "constraint": "9월 15일까지 1인당 금액과 품목을 확정해 발주"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "총무팀장 메모의 기준을 계획(안) 표의 복리후생 항목마다 적용해 항목별 당해 연도 소요예산과 합계를 계산하고, 합계가 메모의 총액 한도보다 얼마나 많거나 적은지 써 보세요. 계산한 금액과 차액을 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 개정 기준을 표의 각 항목에 적용해 항목별 소요예산과 합계를 계산하고, 합계를 총액 한도와 비교한 차액을 쓴다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 결과를 바탕으로, 소요예산이 총액 한도 안에 들도록 연간 복리후생계획에서 어느 항목을 어떻게 조정할지 하나를 정해 총무팀장님께 추천해 보세요. 추천과 함께 그 조정이 자료에 나온 다른 조정 방법보다 나은 이유, 그리고 주의할 점 한 가지를 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "과제 1 결과와 메모, 일정표의 조건을 견주어 조정할 항목과 방법 하나를 추천하고, 다른 조정보다 나은 이유와 주의할 점 한 가지를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 항목별 소요예산, 합계, 총액 한도와의 차액",
+        "과제 2: 조정 추천, 다른 조정보다 나은 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1: 개정 기준을 적용하면 건강 검진 1,200만 원(30만 원×40명), 기념일 선물 320만 원(8만 원×40명), 야유회 및 워크숍 지원 1,000만 원(25만 원×40명), 동호회 지원 400만 원(16만 원×25명)이다. 표의 금액을 그대로 쓰면 기념일 선물 400만 원, 동호회 지원 300만 원이 되어 개정 기준이 빠진다.",
+      "과제 1: 합계는 2,920만 원으로 총액 한도 2,800만 원보다 120만 원 많다. 표의 금액을 그대로 곱하면 2,900만 원이 나오는데, 이는 개정 기준을 반영하지 않은 값이다.",
+      "과제 2 배경: 건강 검진은 경영전략상 축소하지 않으며 검진기관과 계약도 끝났고, 동호회 지원은 개정 규정에 지급액이 정해져 있어 줄이기 어렵다. 자료에 보이는 조정 후보는 야유회 및 워크숍 지원을 당일 행사로 바꾸는 것(40명 기준 200만 원 감소)과 기념일 선물 1인당 금액을 8만 원보다 낮추는 것(5만 원이면 120만 원 감소)이다.",
+      "예시: 야유회 및 워크숍 지원을 당일 행사(1인당 20만 원)로 바꾸면 200만 원이 줄어 합계 2,720만 원으로 한도 안에 들고 80만 원의 여유도 남는다. 기념일 선물을 5만 원으로 낮추는 방법은 합계가 정확히 2,800만 원이 되어 여유가 없다.",
+      "예시 주의할 점: 당일 행사로 바꾸려면 3월 31일까지 업체에 통보해야 하므로 그 전에 결정해야 한다. 기념일 선물을 낮추는 경우라면 합계가 한도와 같아져 여유가 없다는 점이나 9월 15일까지 금액을 확정해야 한다는 점이 주의할 점이 될 수 있다."
+    ],
+    "rubric": [
+      {
+        "criterion": "개정 기준을 적용한 항목별 소요예산",
+        "description": "과제 1에서 쓴 항목별 소요예산이 메모의 개정 기준을 적용한 금액인지 본다. 기대 값: 건강 검진 1,200만 원(30만 원×40명), 기념일 선물 320만 원(8만 원×40명), 야유회 및 워크숍 지원 1,000만 원(25만 원×40명), 동호회 지원 400만 원(16만 원×25명). 표의 금액을 그대로 쓴 항목(기념일 선물 400만 원, 동호회 지원 300만 원)은 인정하지 않으며, 맞게 쓴 항목 수에 따라 부분 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "재정 관리"
+        ]
+      },
+      {
+        "criterion": "합계와 총액 한도 비교",
+        "description": "과제 1에서 쓴 합계와 총액 한도와의 차액을 본다. 기대 값: 합계 2,920만 원, 총액 한도 2,800만 원보다 120만 원 초과. 앞 단계 항목 금액이 틀렸더라도 자신이 구한 금액을 바르게 더하고 한도와 비교해 차액을 썼다면 계산 과정은 부분 점수를 준다.",
+        "points": 20,
+        "linked_evidence": [
+          "수리력",
+          "재정 관리"
+        ]
+      },
+      {
+        "criterion": "조정 추천과 그 이유",
+        "description": "과제 2에서 추천한 조정과 이유를 본다. 특정 항목을 정답으로 요구하지 않는다. 추천한 조정으로 과제 1의 초과액이 해소되어 합계가 2,800만 원 이내가 되는지, 그리고 이유가 과제 1 결과와 메모, 일정표의 조건에 비추어 그 선택이 자료에 나온 다른 조정보다 왜 나은지를 보여 주는지 본다. 사실은 맞지만 다른 조정과 견주어 왜 나은지를 보여 주지 못하면 부분 점수만 준다. 건강 검진을 줄이거나 동호회 지원을 개정 기준보다 낮추는 것처럼 메모의 규정이나 경영전략과 어긋나는 조정은 이유가 선택을 뒷받침하지 못한 것으로 본다. 예: 야유회 및 워크숍 지원을 당일 행사로 바꾸면 200만 원이 줄어 합계 2,720만 원으로 한도 안에 들고 여유도 남는다.",
+        "points": 35,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정",
+          "자원 관리"
+        ]
+      },
+      {
+        "criterion": "추천한 조정의 주의할 점",
+        "description": "과제 2에서 쓴 주의할 점 한 가지를 본다. 추천한 조정에 실제로 따르는 위험이나 한계로서 자료에 드러난 것이면 인정한다. 추천한 조정과 관계없는 일반적인 걱정이나 자료에 없는 내용은 인정하지 않는다. 예: 당일 행사로 바꾸려면 3월 31일까지 통보해야 하므로 그 전에 결정해야 한다.",
+        "points": 20,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "후생복지, 재배치, 장비, 소요물품, 서식, 유지 및 보안 서비스 등 사무 관련 업무를 조정, 계획한다.",
+      "source_ref": {
+        "file": "K000007517/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "자원 관리",
+          "score": 93,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 83,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 70,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보 작성, 기록",
+          "score": 63,
+          "description": "정보를 전자 또는 서면으로 작성, 기록, 저장, 관리하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "상사, 동료, 부하직원과 소통",
+          "score": 62,
+          "description": "상사, 동료, 부하직원에게 정보를 서면, 이메일 또는 직접 전달하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "재정 관리",
+          "score": 99,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "물적자원 관리",
+          "score": 99,
+          "description": "업무를 수행하는데 필요한 장비, 시설, 자재 등을 구매하고 관리한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "전산",
+          "score": 93,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "인사",
+          "score": 83,
+          "description": "채용, 훈련, 급여, 노사관계와 같은 인적자원관리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "경제와 회계",
+          "score": 81,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 81,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "불쾌하거나 무례한 사람 상대",
+          "score": 91,
+          "description": "불쾌하거나, 화나거나, 혹은 무례한 사람을 대하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 88,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 86,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "재정 관리",
+          "자원 관리"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "재정 관리",
+          "수리력"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "업무 계획, 우선순위 결정",
+          "자원 관리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.1,
+    "AX2": 0.0,
+    "AX3": 0.375,
+    "AX4": 0.525,
+    "AX5": 0.0
+  }
+}

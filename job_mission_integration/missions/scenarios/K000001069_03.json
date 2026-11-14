@@ -1,0 +1,672 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001069_hard_001",
+  "job_identity": {
+    "job_cd": "K000001069",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "경영지원 사무원",
+    "job_smcl_nm": "광고·홍보·마케팅사무원",
+    "source_ref": {
+      "file": "K000001069/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "기업의 비전, 목표 등을 고려하여 홍보계획을 수립한다. -정기간행물이나 홍보자료 등을 발간한다.",
+    "source_ref": {
+      "file": "K000001069/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "푸른결생활",
+    "domain": "생활용품을 만들어 파는 회사의 홍보팀",
+    "period": [
+      "지난해 매체별 1개월 집행 실적",
+      "신제품 출시 후 3개월 홍보 기간"
+    ],
+    "trend_pattern": "지난해 매체마다 20대와 40대 이상에게 닿은 인원이 서로 다르고, 매체별 1개월 집행 비용도 300만원에서 1,500만원까지 차이가 난다.",
+    "main_issue": "가용예산 2,000만원 안에서 신제품 출시 후 3개월 동안 어느 매체를 몇 개월 집행할지 정해야 한다.",
+    "feedback_themes": [
+      "PR 목표 우선순위: 1순위 20대 신규 고객의 신제품 인지도 높이기, 2순위 40대 이상 기존 고객의 신뢰 유지",
+      "가용예산 3개월 합계 2,000만원, 초과 불가",
+      "매체는 1개월 단위로 집행하고 한 매체는 최대 3개월, 같은 달에 여러 매체 집행 가능"
+    ],
+    "decision_goal": "신제품 출시 3개월 홍보계획의 매체 결합안과 매체별 예산을 정해 홍보팀장에게 추천한다."
+  },
+  "mission": {
+    "title": "신제품 출시 3개월 홍보계획, 매체 결합안 정하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "푸른결생활 홍보팀에 새로 들어온 홍보 담당 사무원",
+      "context": "당신은 푸른결생활 홍보팀에 새로 들어온 홍보 담당 사무원입니다. 회사는 다음 달 신제품 보온 텀블러를 출시하고, 홍보팀은 출시 후 3개월 동안의 홍보계획을 세우고 있습니다. 이번 PR 대상자는 20대 신규 고객과 40대 이상 기존 고객 두 집단입니다. 홍보팀장이 어떤 PR 매체를 몇 개월 쓰고 예산을 어떻게 나눌지 결합안을 만들어 달라는 이메일을 보냈고, 지난해 매체별 도달 실적 차트와 매체별 집행 비용 차트를 함께 보냈습니다.",
+      "goal": "지난해 매체 실적과 비용을 대상별로 따져 본 뒤, 가용예산 안에서 3개월 매체 결합안 하나를 정해 이유와 주의점을 함께 팀장에게 제안해 보세요.",
+      "constraints": [
+        "자료에 있는 수치와 조건만 사용하고, 외부 자료는 찾아보지 않아도 됩니다.",
+        "계산 결과는 소수 둘째 자리까지 반올림해 적어도 됩니다.",
+        "답은 과제마다 3~5문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "PR",
+          "definition": "조직이 좋은 이미지를 얻도록 계획을 세우고, 여러 매체로 사람들에게 알리고, 그 효과를 살피는 일입니다. 홍보와 거의 같은 뜻으로 씁니다."
+        },
+        {
+          "term": "PR 매체",
+          "definition": "홍보 내용을 사람들에게 전하는 통로입니다. 신문, 방송, 잡지, 정기간행물, 소셜 미디어 등이 있습니다."
+        },
+        {
+          "term": "정기간행물",
+          "definition": "회사 소식지나 월간지처럼 정해진 주기마다 꾸준히 펴내는 인쇄물입니다."
+        },
+        {
+          "term": "소셜 미디어",
+          "definition": "사람들이 글, 사진, 영상을 올리고 서로 나누는 온라인 서비스입니다."
+        },
+        {
+          "term": "가용예산",
+          "definition": "어떤 일에 실제로 쓸 수 있도록 정해 둔 돈의 한도입니다."
+        },
+        {
+          "term": "PR 대상자",
+          "definition": "홍보 내용을 전하려는 사람들의 무리입니다. 이 미션에서는 20대 신규 고객과 40대 이상 기존 고객 두 집단을 말합니다."
+        },
+        {
+          "term": "도달 인원",
+          "definition": "홍보 내용을 한 번 이상 보거나 들은 사람의 수입니다."
+        },
+        {
+          "term": "비전",
+          "definition": "회사가 앞으로 이루고 싶은 모습을 짧게 나타낸 말입니다."
+        },
+        {
+          "term": "인지도",
+          "definition": "사람들이 어떤 제품이나 브랜드를 알고 있는 정도입니다."
+        },
+        {
+          "term": "결합안",
+          "definition": "여러 매체를 몇 개월씩 함께 쓸지 하나로 묶어 정리한 계획입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "request_email",
+        "title": "홍보팀장 이메일 - 신제품 출시 3개월 홍보계획 매체 결합안 요청",
+        "description": "홍보팀장이 홍보 담당 사무원에게 보낸 업무 요청 이메일입니다. 회사 비전, PR 목표와 우선순위, 가용예산, 매체 집행 조건이 담겨 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 결합안이 따라야 할 PR 목표 우선순위, 가용예산, 집행 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "목표, 전략 수립",
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "홍보팀장",
+              "to": "홍보 담당 사무원",
+              "subject": "신제품 출시 3개월 홍보계획 매체 결합안 요청",
+              "body": "안녕하세요, 홍보팀장입니다.\n다음 달 신제품 보온 텀블러 출시에 맞춰 출시 후 3개월 동안의 홍보계획을 세우려고 합니다. 이번에는 그중에서 어떤 매체를 몇 개월 쓰고 예산을 어떻게 나눌지부터 정하려고 하니, 결합안을 하나 만들어 주세요.\n\n먼저 우리 회사의 비전은 '고객이 믿고 찾는 브랜드'입니다. 이번 홍보도 이 방향에서 벗어나지 않아야 합니다.\n\n이번 PR 목표는 두 가지이고, 우선순위는 다음과 같습니다.\n- 1순위: 20대 신규 고객에게 신제품 인지도를 높이는 것\n- 2순위: 40대 이상 기존 고객의 신뢰를 유지하는 것\n\n가용예산은 3개월 합계 2,000만원이고, 이 금액을 넘을 수는 없습니다.\n\n집행 조건도 확인해 주세요.\n- 매체는 1개월 단위로 집행합니다.\n- 한 매체는 최대 3개월까지 집행할 수 있습니다.\n- 같은 달에 여러 매체를 함께 집행할 수 있습니다.\n- 도달 인원은 지난해 1개월 실적이 매달 똑같이 나온다고 가정하고 계산해 주세요. 같은 매체를 2개월 집행하면 비용과 도달 인원 모두 1개월 수치의 2배로 보고, 여러 매체의 도달 인원은 겹치는 사람을 따지지 않고 더해서 계산합니다.\n\n첨부한 차트 두 개(지난해 매체별 대상별 도달 인원, 매체별 1개월 집행 비용)를 보고, 어느 매체를 몇 개월 집행할지와 매체별 예산을 담은 결합안 하나를 제안해 주세요. 그 안을 고른 이유와 함께 주의할 점도 하나 알려 주면 좋겠습니다.\n\n홍보팀장 드림"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "chart",
+        "subtype": "grouped_bar",
+        "title": "기존 PR 전략 실적 자료 - 지난해 매체별 1개월 집행 시 대상별 도달 인원(단위: 천 명)",
+        "description": "지난해 각 매체를 1개월 집행했을 때 20대와 40대 이상에게 홍보 내용이 닿은 인원을 매체별로 나란히 보여 주는 막대 차트입니다. 단위는 천 명입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 매체별·대상별 1개월 도달 인원을 읽어 비용 대비 도달을 계산하고, 과제 2에서 결합안의 대상별 도달 인원을 따져 보는 데 씁니다.",
+        "evidence_source": [
+          "모니터링(Monitoring)",
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "매체",
+            "values": [
+              "신문",
+              "방송",
+              "잡지",
+              "정기간행물",
+              "소셜 미디어"
+            ]
+          },
+          "y_axis": {
+            "label": "1개월 도달 인원",
+            "unit": "천 명"
+          },
+          "series": [
+            {
+              "name": "20대",
+              "values": [
+                10,
+                50,
+                20,
+                5,
+                80
+              ]
+            },
+            {
+              "name": "40대 이상",
+              "values": [
+                60,
+                90,
+                15,
+                30,
+                10
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "chart",
+        "subtype": "bar",
+        "title": "매체별 1개월 집행 비용(단위: 만원)",
+        "description": "다섯 매체를 각각 1개월 집행할 때 드는 비용을 보여 주는 막대 차트입니다. 매체 순서는 도달 인원 차트와 같고, 단위는 만원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 비용 대비 도달을 계산하고, 과제 2에서 결합안의 매체별 예산과 합계를 맞추는 데 씁니다.",
+        "evidence_source": [
+          "모니터링(Monitoring)",
+          "목표, 전략 수립"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "매체",
+            "values": [
+              "신문",
+              "방송",
+              "잡지",
+              "정기간행물",
+              "소셜 미디어"
+            ]
+          },
+          "y_axis": {
+            "label": "1개월 집행 비용",
+            "unit": "만원"
+          },
+          "series": [
+            {
+              "name": "1개월 집행 비용",
+              "values": [
+                600,
+                1500,
+                400,
+                300,
+                500
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "2번 차트(도달 인원)와 3번 차트(집행 비용)의 수치로 매체별 100만원당 도달 인원을 20대와 40대 이상으로 나누어 계산해 보세요. 100만원당 도달 인원은 '1개월 도달 인원(천 명) ÷ 1개월 집행 비용(만원) × 100'으로 구하며, 단위는 천 명입니다. 계산한 뒤 20대와 40대 이상 각각에서 100만원당 도달 인원이 가장 큰 매체를 그 수치와 함께 3~5문장으로 써 보세요.",
+        "required_materials": [
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "매체별·대상별 100만원당 도달 인원을 계산하고, 대상별로 그 값이 가장 큰 매체와 수치를 쓴다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1 결과와 1번 이메일의 PR 목표 우선순위, 가용예산 2,000만원, 집행 조건을 바탕으로 3개월 동안 집행할 매체 결합안 하나를 정해 팀장에게 추천해 보세요. 답에는 매체별 집행 개월 수와 예산, 자료로 만들 수 있는 다른 결합안보다 이 안이 나은 이유, 이 결합안의 주의점 하나를 담아 3~5문장으로 써 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "가용예산과 집행 조건 안에서 매체별 집행 개월 수와 예산을 정한 결합안 하나를 추천하고, 다른 결합안과 비교한 이유와 이 안의 주의점 하나를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 대상별로 100만원당 도달 인원이 가장 큰 매체와 그 수치",
+        "과제 2: 추천 결합안(매체별 집행 개월 수와 예산), 다른 결합안보다 나은 이유, 주의점 하나"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1: 100만원당 도달 인원은 20대가 신문 약 1.67, 방송 약 3.33, 잡지 5, 정기간행물 약 1.67, 소셜 미디어 16(천 명)이고, 40대 이상이 신문 10, 방송 6, 잡지 3.75, 정기간행물 10, 소셜 미디어 2(천 명)다. 따라서 20대는 소셜 미디어(16천 명), 40대 이상은 신문과 정기간행물(각 10천 명으로 같음)이 비용 대비 도달이 가장 크다.",
+      "방송은 두 대상 모두 1개월 도달 인원이 가장 크지만 1개월 비용이 1,500만원으로 높아 100만원당 도달은 20대 약 3.33천 명, 40대 이상 6천 명에 그친다. 도달 인원만 보고 방송을 고르면 비용을 반영하지 않은 판단이다.",
+      "과제 2: 2,000만원 안에서 성립하는 결합안이 여러 가지라 정답이 하나로 정해지지 않는다. 예: 소셜 미디어 3개월+정기간행물 1개월(1,800만원, 20대 245천 명·40대 이상 60천 명), 소셜 미디어 3개월+잡지 1개월(1,900만원, 260천 명·45천 명), 소셜 미디어 2개월+정기간행물 3개월(1,900만원, 175천 명·110천 명), 소셜 미디어 2개월+신문 1개월+정기간행물 1개월(1,900만원, 175천 명·110천 명). 1순위인 20대 도달을 최대로 할지, 2순위인 40대 이상과 균형을 맞출지에 따라 선택이 갈린다. 방송 1개월+소셜 미디어 1개월(2,000만원, 130천 명·100천 명)은 예산은 맞지만 소셜 미디어 2개월+정기간행물 3개월 안보다 두 대상 도달이 모두 낮다.",
+      "예시: 소셜 미디어 3개월(1,500만원)과 정기간행물 1개월(300만원)을 결합하면 1,800만원으로 가용예산 안에 들고, 1순위인 20대에게 245천 명, 40대 이상에게 60천 명이 닿는다. 방송 1개월과 소셜 미디어 1개월을 결합한 안(20대 130천 명)보다 1순위 도달이 훨씬 크고, 소셜 미디어 3개월과 잡지 1개월 안(20대 260천 명, 40대 이상 45천 명)과 비교하면 20대 도달은 15천 명 적지만 40대 이상 도달이 15천 명 많고 100만원이 덜 든다.",
+      "예시 주의점: 이 안은 40대 이상 도달이 60천 명으로 방송을 넣은 안(100천 명)이나 정기간행물을 3개월 넣은 안(110천 명)보다 적어 2순위인 기존 고객 신뢰 유지가 약해질 수 있다. 이 밖에 지난해 1개월 실적이 매달 같다는 가정에 기댄 추정이라는 점, 쓰지 않고 남는 예산이 있다는 점처럼 추천안 자체에 해당하고 자료로 확인되는 한계도 주의점으로 인정할 수 있다."
+    ],
+    "rubric": [
+      {
+        "criterion": "대상별 비용 대비 도달이 가장 큰 매체 찾기",
+        "description": "과제 1에서 20대는 소셜 미디어(100만원당 16천 명), 40대 이상은 신문과 정기간행물(각 100만원당 10천 명으로 같음)을 수치와 함께 쓰면 만점(30점). 계산이 자료로 하나로 정해지므로 이 답을 기대 답으로 둔다. 40대 이상에서 신문과 정기간행물 중 하나만 써도 수치가 맞으면 인정해 25점을 주고, 두 매체가 같다는 점까지 밝히면 만점이다. 한 대상만 맞으면 15점. 절대 도달 인원만 보고 방송을 고른 답은 비용을 반영하지 않았으므로 그 대상에 대해 점수를 주지 않는다.",
+        "points": 30,
+        "linked_evidence": [
+          "모니터링(Monitoring)"
+        ]
+      },
+      {
+        "criterion": "결합안의 매체별 개월 수·예산과 조건 준수",
+        "description": "과제 2의 추천 결합안에 매체별 집행 개월 수와 예산이 적혀 있고, 3개월 합계가 가용예산 2,000만원 이하이며 한 매체 최대 3개월 같은 이메일의 집행 조건을 지키면 만점(20점). 특정 결합안을 요구하지 않는다. 개월 수나 예산 중 하나가 빠졌거나 합계 계산이 일부 틀리면 부분 점수(10점), 2,000만원을 넘거나 집행 조건을 어기면 점수를 주지 않는다.",
+        "points": 20,
+        "linked_evidence": [
+          "목표, 전략 수립",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "criterion": "다른 결합안과 비교한 추천 이유",
+        "description": "특정 결합안을 정답으로 요구하지 않는다. 이유가 과제 1 결과와 이메일의 PR 목표 우선순위(1순위 20대 신규 고객 인지도, 2순위 40대 이상 기존 고객 신뢰 유지)에 근거해, 자료로 만들 수 있는 다른 결합안(예: 방송을 넣은 안, 소셜 미디어 개월 수를 달리한 안)보다 학습자가 고른 안이 왜 나은지를 수치나 조건으로 보이면 만점(30점). 자료의 맞는 사실을 늘어놓았지만 다른 안과 비교해 이 선택이 더 나은 이유를 보이지 못하면 부분 점수(15점 이하). 이유가 자료와 맞지 않거나 우선순위와 어긋나는데 설명이 없으면 5점 이하. 예: 소셜 미디어 3개월+정기간행물 1개월 안을 방송을 넣은 안보다 1순위인 20대 도달이 훨씬 크고 잡지를 넣은 안보다 40대 이상 도달이 많다는 점으로 뒷받침하는 답.",
+        "points": 30,
+        "linked_evidence": [
+          "목표, 전략 수립",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "criterion": "추천 결합안의 주의점",
+        "description": "학습자가 추천한 결합안 자체의 위험이나 한계로서 자료에서 확인되는 것을 하나 쓰면 만점(20점). 인정 범위: 2순위 대상 도달이 적음, 지난해 1개월 실적이 매달 같다는 가정에 기댄 추정임, 쓰지 않고 남는 예산이 있음 등. 추천안과 관계없는 일반적인 주의는 점수를 주지 않고, 추천안과 관련은 있으나 자료로 확인되지 않는 막연한 걱정은 부분 점수(10점). 예: 소셜 미디어 비중이 커서 40대 이상 기존 고객 도달이 60천 명에 그쳐 2순위인 신뢰 유지가 약해질 수 있다는 답.",
+        "points": 20,
+        "linked_evidence": [
+          "모니터링(Monitoring)"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "기업의 비전, 목표 등을 고려하여 홍보계획을 수립한다. -정기간행물이나 홍보자료 등을 발간한다.",
+      "source_ref": {
+        "file": "K000001069/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 90,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 85,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 81,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 81,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 81,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 95,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "협상",
+          "score": 91,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "전산",
+          "score": 90,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영업과 마케팅",
+          "score": 87,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사소통과 미디어",
+          "score": 84,
+          "description": "말, 글, 그림 등을 이메일이나 방송매체를 통해 전달하는 것에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "국어",
+          "score": 83,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "이메일 이용하기",
+          "score": 91,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 89,
+          "description": "재택근무 가능성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 88,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "목표, 전략 수립",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "모니터링(Monitoring)",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "모니터링(Monitoring)",
+          "목표, 전략 수립"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.15,
+    "AX2": 0.15,
+    "AX3": 0.4,
+    "AX4": 0.15,
+    "AX5": 0.15
+  }
+}

@@ -1,0 +1,555 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007452_normal_001",
+  "job_identity": {
+    "job_cd": "K000007452",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "가상현실전문가",
+    "source_ref": {
+      "file": "K000007452/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "사용자가 원하는 가상세계가 무엇인지 파악하고 개발하고자 하는 시스템을 분석하여 개발 방향을 설정한다.",
+    "source_ref": {
+      "file": "K000007452/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "온새미VR",
+    "domain": "화재 대피 가상훈련시스템 개발",
+    "period": [
+      "개발요구사항 접수 주간"
+    ],
+    "trend_pattern": "구성요소 후보마다 설치 방식, 기능, 예상 비용이 서로 다르다",
+    "main_issue": "고객사 청람물산의 개발요구사항에 맞는 구성요소 조합으로 개발범위를 정해야 한다",
+    "feedback_themes": [
+      "설치 조건",
+      "필수 기능",
+      "총예산"
+    ],
+    "decision_goal": "이번 개발범위에 넣을 구성요소 조합을 정한다"
+  },
+  "mission": {
+    "title": "화재 대피 가상훈련, 개발범위 정하기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "planning_and_proposal"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 가상현실 개발 회사 온새미VR 개발팀의 신입 인턴입니다.",
+      "context": "고객사 청람물산 안전관리팀이 신입 사원용 화재 대피 가상훈련시스템을 만들어 달라는 이메일을 보냈습니다. 팀장님이 개발팀에서 정리한 구성요소 후보 표를 함께 건네며 \"고객이 보낸 조건에 맞춰 이번에 무엇을 만들고 갖출지부터 정해 보자\"고 부탁했습니다.",
+      "goal": "고객사의 개발요구사항을 모두 지키는 구성요소 조합을 골라 이번 개발범위로 제안합니다.",
+      "constraints": [
+        "이메일과 표에 있는 정보만 사용하세요.",
+        "표에 있는 구성요소 후보 안에서만 고르세요.",
+        "답은 2~3문장으로 적어 주세요."
+      ],
+      "glossary": [
+        {
+          "term": "가상훈련시스템",
+          "definition": "실제 상황을 컴퓨터 속 가상 공간으로 만들어 그 안에서 미리 연습해 볼 수 있게 하는 장비와 프로그램 묶음입니다."
+        },
+        {
+          "term": "개발범위",
+          "definition": "이번 개발에서 실제로 만들거나 갖추기로 정한 항목들의 목록입니다."
+        },
+        {
+          "term": "HW",
+          "definition": "하드웨어. 헤드셋처럼 손으로 만질 수 있는 장비를 말합니다."
+        },
+        {
+          "term": "SW",
+          "definition": "소프트웨어. 가상 공간이나 기록 기능처럼 컴퓨터에서 돌아가는 프로그램을 말합니다."
+        },
+        {
+          "term": "구성요소",
+          "definition": "시스템을 이루는 하나하나의 장비나 프로그램입니다."
+        },
+        {
+          "term": "VR 헤드셋",
+          "definition": "머리에 쓰면 눈앞에 가상 공간이 펼쳐져 보이는 안경 모양의 장비입니다."
+        },
+        {
+          "term": "3D 공간",
+          "definition": "가로, 세로, 높이가 있어 실제 건물처럼 둘러보고 걸어 다닐 수 있게 만든 컴퓨터 속 공간입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "client_request",
+        "title": "청람물산 안전관리팀의 개발요구사항 메일",
+        "description": "고객사 청람물산 안전관리팀이 온새미VR 개발팀에 보낸 화재 대피 가상훈련 요청 이메일입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "고객이 요청한 조건을 확인해 구성요소 후보에 적용할 때 사용합니다.",
+        "evidence_source": [
+          "기술 설계",
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "청람물산 안전관리팀 담당자",
+              "to": "온새미VR 가상현실 개발팀",
+              "subject": "화재 대피 가상훈련 개발요구사항 전달드립니다",
+              "body": "안녕하세요. 청람물산 안전관리팀입니다.\n신입 사원 대상 화재 대피 가상훈련을 준비하면서 저희 쪽 개발요구사항을 아래와 같이 정리했습니다.\n\n1. 신입 사원이 VR 헤드셋을 쓰고, 사옥 3층 사무실에서 비상구까지 가는 대피 경로를 실제와 같은 가상 공간에서 직접 걸어 보며 익힐 수 있어야 합니다.\n2. 훈련은 기존 회의실에서 진행합니다. 회의실은 평소 회의에도 쓰는 곳이라 벽이나 천장에 고정하는 장비는 설치할 수 없습니다.\n3. 훈련자마다 대피에 걸린 시간이 기록으로 남아야 합니다.\n4. 총예산은 2,500만 원이며, 이 금액을 넘을 수 없습니다.\n\n위 내용을 바탕으로 개발범위를 정리해 회신 부탁드립니다. 감사합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "component_candidates",
+        "title": "화재 대피 가상훈련시스템 구성요소 후보와 예상 비용",
+        "description": "개발팀이 정리한 HW·SW 구성요소 후보별 기능 및 성능과 예상 비용(단위: 만 원) 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "이메일의 조건을 각 구성요소 후보에 대어 보고 고른 조합의 합계 비용을 계산할 때 사용합니다.",
+        "evidence_source": [
+          "기술 설계",
+          "정보, 자료 분석",
+          "산수와 수학"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "구성요소"
+            },
+            {
+              "key": "strength",
+              "label": "구분(HW·SW)"
+            },
+            {
+              "key": "weakness",
+              "label": "기능 및 성능"
+            },
+            {
+              "key": "priority",
+              "label": "예상 비용(만 원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "무선 VR 헤드셋 10대",
+              "strength": "HW",
+              "weakness": "케이블 없이 회의실 안을 걸어 다니며 사용, 별도 설치 작업 없음",
+              "priority": 1400
+            },
+            {
+              "option": "유선 VR 헤드셋 10대",
+              "strength": "HW",
+              "weakness": "무선 헤드셋보다 그래픽 화질이 높음, PC 연결 케이블을 천장 거치대에 고정 설치해야 함",
+              "priority": 900
+            },
+            {
+              "option": "사옥 3층 대피 경로 3D 공간",
+              "strength": "SW",
+              "weakness": "실제 3층 복도·계단·비상구 위치를 그대로 재현",
+              "priority": 800
+            },
+            {
+              "option": "대피 시간 기록 기능",
+              "strength": "SW",
+              "weakness": "훈련자별로 출발부터 비상구 도착까지 걸린 시간을 자동 저장",
+              "priority": 300
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "이메일의 개발요구사항을 표의 구성요소 후보에 적용해, 이번 개발범위에 넣을 구성요소 조합을 골라 보세요. 고른 조합이 고객의 조건을 어떻게 지키는지와 합계 비용을 근거로 2~3문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "무선 VR 헤드셋 10대, 사옥 3층 대피 경로 3D 공간, 대피 시간 기록 기능을 개발범위로 고르고, 유선 VR 헤드셋은 더 싸고 화질이 높아도 천장 거치대 고정 설치가 필요해 회의실 조건에 맞지 않아 제외하며, 합계 1,400+800+300=2,500만 원이 총예산 2,500만 원을 넘지 않음을 밝힌다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "고른 구성요소 조합과 그 근거"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "회의실 벽이나 천장에 고정하는 장비를 설치할 수 없으므로, 비용이 낮고 화질이 높은 유선 VR 헤드셋 대신 별도 설치가 필요 없는 무선 VR 헤드셋을 HW 개발범위로 정한다.",
+      "대피 경로 재현과 대피 시간 기록 요구에 맞춰 사옥 3층 대피 경로 3D 공간과 대피 시간 기록 기능을 SW 개발범위에 넣고, 고른 조합의 합계 1,400+800+300=2,500만 원이 총예산 2,500만 원을 넘지 않음을 확인한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "설치 조건에 맞는 HW 선택",
+        "description": "무선 VR 헤드셋을 고르고, 유선 VR 헤드셋은 비용이 낮고 화질이 높아도 천장 거치대 고정 설치가 필요해 회의실 조건에 맞지 않는다는 근거로 제외했는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "기술 설계"
+        ]
+      },
+      {
+        "criterion": "필수 기능 포함과 예산 확인",
+        "description": "대피 경로 3D 공간과 대피 시간 기록 기능을 개발범위에 넣고, 고른 조합의 합계(1,400+800+300=2,500만 원)가 총예산 2,500만 원 이내임을 계산으로 밝혔는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "정보, 자료 분석",
+          "산수와 수학"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "사용자가 원하는 가상세계가 무엇인지 파악하고 개발하고자 하는 시스템을 분석하여 개발 방향을 설정한다.",
+      "source_ref": {
+        "file": "K000007452/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 98,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 98,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 94,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 87,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 98,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "공간지각력",
+          "score": 98,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 98,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 94,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 85,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 77,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 99,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 88,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기술 설계",
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "기술 설계",
+          "정보, 자료 분석",
+          "산수와 수학"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007452/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007452/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.6,
+    "AX2": 0.1,
+    "AX3": 0.1,
+    "AX4": 0.1,
+    "AX5": 0.1
+  }
+}

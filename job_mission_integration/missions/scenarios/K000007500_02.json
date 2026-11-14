@@ -1,0 +1,539 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007500_normal_001",
+  "job_identity": {
+    "job_cd": "K000007500",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "회계·세무·감정 전문가",
+    "job_smcl_nm": "관세사",
+    "source_ref": {
+      "file": "K000007500/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "수출에 필요한 서류(인보이스, 물품명세서 등)를 작성한다.",
+    "source_ref": {
+      "file": "K000007500/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "가람관세사무소",
+    "domain": "수출통관 서류 작성",
+    "period": [
+      "이번 선적",
+      "다음 달 선적"
+    ],
+    "trend_pattern": "인보이스 4개 품목 가운데 산업용 센서 모듈 B형 1개 품목이 생산 지연으로 다음 달 선적으로 넘어가고, 나머지 3개 품목만 이번에 선적된다.",
+    "main_issue": "인보이스에 적힌 전체 품목과 이번에 실제로 선적하는 품목이 달라, 수출신고서의 수출신고가격 칸에 적을 금액을 정해야 한다.",
+    "feedback_themes": [
+      "화주의 선적 변경 연락",
+      "수출신고가격 작성 기준",
+      "보험료 별도 기재 기준"
+    ],
+    "decision_goal": "이번 수출신고서의 수출신고가격 칸에 적을 금액(달러)과 그 근거를 정리한다."
+  },
+  "mission": {
+    "title": "인보이스를 보고 수출신고가격 칸 채우기",
+    "task_type": "communication_and_reporting",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "가람관세사무소 수출통관팀 인턴",
+      "context": "당신은 가람관세사무소 수출통관팀 인턴입니다. 산업용 센서를 만드는 화주 미르센서가 해외 거래처로 보낼 물건의 인보이스를 보내왔고, 사무소는 이를 바탕으로 수출신고서를 작성하고 있습니다. 선임 관세사가 이번 건의 작성 기준을 메모로 남기면서 \"수출신고가격 칸에 들어갈 금액을 먼저 정리해 주세요\"라고 부탁했습니다.",
+      "goal": "선임 관세사의 메모와 인보이스 품목 내역을 함께 보고, 이번 수출신고서의 수출신고가격 칸에 적을 금액과 그 근거를 정리해 보세요.",
+      "constraints": [
+        "주어진 메모와 인보이스 품목 내역에 있는 정보만 사용하세요.",
+        "금액은 달러 단위로 적으세요.",
+        "답은 2~3문장으로 짧게 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "인보이스",
+          "definition": "물건을 파는 쪽이 사는 쪽에 보내는 대금 청구서입니다. 품목, 수량, 금액이 적혀 있습니다."
+        },
+        {
+          "term": "수출신고서",
+          "definition": "물건을 해외로 보내기 전에 세관에 무엇을 얼마만큼, 얼마어치 보내는지 알리는 서류입니다."
+        },
+        {
+          "term": "수출신고가격",
+          "definition": "수출신고서에 적는 칸 가운데 하나로, 이번에 수출하는 물품의 값을 적는 곳입니다."
+        },
+        {
+          "term": "화주",
+          "definition": "물건의 주인으로, 이번 수출 업무를 관세사무소에 맡긴 회사입니다."
+        },
+        {
+          "term": "선적",
+          "definition": "수출할 물건을 배에 싣는 일입니다. '이번 선적'은 이번에 배에 실어 보내는 물건을 말합니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "작성 기준 메모",
+        "title": "선임 관세사 메모: 미르센서 건 수출신고서 작성 기준",
+        "description": "가람관세사무소 선임 관세사가 미르센서 수출 건의 수출신고서 작성 기준과 화주 연락 내용을 정리해 남긴 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "이번 선적에 실리는 품목과 수출신고가격·보험료를 적는 기준을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "author": "가람관세사무소 선임 관세사",
+          "items": [
+            "화주 연락(오늘 오전): 인보이스 품목 가운데 산업용 센서 모듈 B형은 생산이 늦어져 다음 달 선적으로 넘어갑니다. 이번 선적에는 나머지 품목만 실립니다.",
+            "이번 수출신고서의 수출신고가격 칸에는 이번에 선적하는 품목의 인보이스 금액 합계(달러)를 적습니다.",
+            "화주가 따로 부담하는 보험료 150달러는 수출신고서의 보험료 항목에 별도로 적습니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "인보이스 품목 내역",
+        "title": "미르센서 인보이스 품목 내역 (금액 단위: 달러)",
+        "description": "화주 미르센서가 보내온 인보이스에 적힌 품목별 품목번호, 품명, 수량, 금액입니다. 합계 행은 따로 없습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 기준을 적용할 품목과 품목별 금액을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "정보 처리",
+          "수리력"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "품목번호"
+            },
+            {
+              "key": "strength",
+              "label": "품명"
+            },
+            {
+              "key": "weakness",
+              "label": "수량"
+            },
+            {
+              "key": "priority",
+              "label": "금액(달러)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "P-01",
+              "strength": "산업용 센서 모듈 A형",
+              "weakness": "300개",
+              "priority": 4500
+            },
+            {
+              "option": "P-02",
+              "strength": "산업용 센서 모듈 B형",
+              "weakness": "200개",
+              "priority": 3600
+            },
+            {
+              "option": "P-03",
+              "strength": "연결 케이블",
+              "weakness": "500개",
+              "priority": 1000
+            },
+            {
+              "option": "P-04",
+              "strength": "고정 브래킷",
+              "weakness": "400개",
+              "priority": 800
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "선임 관세사 메모의 기준을 인보이스 품목 내역에 적용해 보세요. 이번 수출신고서의 수출신고가격 칸에 적을 금액을, 어떤 품목을 넣고 어떤 품목을 뺐는지 근거와 함께 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 선적 조건과 작성 기준을 인보이스 품목에 적용해 이번 선적 품목의 금액을 더하고, 수출신고가격 금액과 넣고 뺀 품목의 근거를 짧은 글로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "수출신고가격 칸에 적을 금액",
+        "넣은 품목과 뺀 품목의 근거"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "산업용 센서 모듈 B형(P-02, 3600달러)은 생산 지연으로 다음 달 선적으로 넘어갔으므로 이번 수출신고가격에서 뺀다.",
+      "이번에 선적하는 P-01 산업용 센서 모듈 A형(4500달러), P-03 연결 케이블(1000달러), P-04 고정 브래킷(800달러)을 더해 수출신고가격은 6300달러다.",
+      "보험료 150달러는 수출신고서의 보험료 항목에 따로 적으므로 수출신고가격에 더하지 않는다. 6450달러는 맞지 않다.",
+      "인보이스 전체 합계 9900달러나, 이름이 비슷한 A형을 뺀 5400달러는 메모의 기준에 맞지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "수출신고가격 금액",
+        "description": "이번에 선적하는 품목의 인보이스 금액만 더해 수출신고가격을 6300달러로 정했는지 본다. 전체 합계 9900달러나 A형을 뺀 5400달러는 인정하지 않는다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보 처리",
+          "수리력"
+        ]
+      },
+      {
+        "criterion": "넣고 뺀 품목의 근거",
+        "description": "다음 달 선적으로 넘어간 산업용 센서 모듈 B형을 빼고 A형, 연결 케이블, 고정 브래킷을 넣었다는 근거를 메모의 화주 연락 내용과 연결해 설명했는지 본다.",
+        "points": 35,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "보험료 구분",
+        "description": "보험료 150달러를 수출신고가격에 더하지 않았는지(6450달러로 적지 않았는지) 본다. 보험료는 보험료 항목에 따로 적는다고 밝히면 더 분명한 답으로 본다.",
+        "points": 25,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "수출에 필요한 서류(인보이스, 물품명세서 등)를 작성한다.",
+      "source_ref": {
+        "file": "K000007500/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "행정, 관리 업무",
+          "score": 96,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 95,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 94,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 91,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보의 의미 해석",
+          "score": 91,
+          "description": "정보가 뜻하는 바와 그것이 어떻게 사용되는지 번역하거나 설명하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "재정 관리",
+          "score": 96,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "인적자원 관리",
+          "score": 96,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 95,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "법",
+          "score": 94,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "운송",
+          "score": 84,
+          "description": "비행기, 철도, 선박 그리고 자동차를 통해 사람들과 물품을 움직이는 원리와 방법에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 83,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "실수의 심각성",
+          "score": 99,
+          "description": "실수 결과의 심각성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이미지/평판/재정에 미치는 강도",
+          "score": 98,
+          "description": "본인의 의사결정이 다른 사람 또는 회사 이미지/평판/재정에 어느 정도의 결과 초래",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "결과에 대한 책임",
+          "score": 98,
+          "description": "함께 근무하는 사람의 근무 결과에 대한 책임",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 처리",
+          "수리력"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007500/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007500/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

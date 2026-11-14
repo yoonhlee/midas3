@@ -1,0 +1,538 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001198_normal_001",
+  "job_identity": {
+    "job_cd": "K000001198",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "작가·통번역가",
+    "job_smcl_nm": "출판물기획자",
+    "source_ref": {
+      "file": "K000001198/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "적합한 작가를 섭외하고 집필된 원고를 검토한다.",
+    "source_ref": {
+      "file": "K000001198/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "솔빛나래 출판사",
+    "domain": "교양서 출판 기획 - 사회초년생 경제 입문 교양서 필자 섭외",
+    "period": [
+      "2026년 11월 섭외 검토",
+      "2027년 4월 말 탈고 기한"
+    ],
+    "trend_pattern": "후보 필자 4명은 집필 방향, 예상 탈고시기, 희망 인세율이 서로 다르다.",
+    "main_issue": "편집장이 정한 기획 조건에 맞춰 섭외할 필자 한 명을 골라야 한다.",
+    "feedback_themes": [
+      "생활 사례 중심의 쉬운 설명",
+      "2027년 4월 말까지 탈고",
+      "필자 인세율 10% 이내 협의"
+    ],
+    "decision_goal": "편집장 메모의 조건을 모두 충족하는 필자 한 명을 골라 이유와 함께 섭외 대상으로 추천한다."
+  },
+  "mission": {
+    "title": "조건에 맞는 필자 골라 섭외 추천하기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 솔빛나래 출판사 교양서팀의 출판 기획 인턴입니다.",
+      "context": "교양서팀은 사회초년생을 위한 경제 입문 교양서를 새로 준비하고 있습니다. 원고를 맡길 후보 필자 4명과 사전 상담을 마쳤고, 편집장이 섭외 조건을 메모로 남겼습니다. 편집장은 \"조건에 맞는 필자 한 분을 골라서 왜 그분인지 알려 주세요\"라고 부탁했습니다.",
+      "goal": "편집장 메모와 후보 필자 정리표를 보고, 이번 책에 섭외할 필자 한 명을 이유와 함께 추천해 보세요.",
+      "constraints": [
+        "메모와 표에 적힌 정보만 사용하세요.",
+        "추천하는 필자는 한 명만 고르세요.",
+        "답은 2~3문장으로 적어 보세요."
+      ],
+      "glossary": [
+        {
+          "term": "필자",
+          "definition": "책에 실릴 원고를 쓰는 사람입니다. 작가나 저자와 비슷한 뜻입니다."
+        },
+        {
+          "term": "탈고시기",
+          "definition": "필자가 원고 쓰기를 모두 끝내고 출판사에 넘기는 때입니다."
+        },
+        {
+          "term": "인세율",
+          "definition": "책이 한 권 팔릴 때마다 정가의 몇 %를 필자에게 줄지 정한 비율입니다. 예를 들어 인세율이 10%이면 정가 1만 원짜리 책 한 권당 1천 원을 필자가 받습니다."
+        },
+        {
+          "term": "기획목표",
+          "definition": "이 책을 누구를 위해 어떤 내용과 방식으로 만들지 미리 정해 둔 목표입니다."
+        },
+        {
+          "term": "섭외",
+          "definition": "어떤 일을 맡아 달라고 사람에게 부탁하고 조건을 맞추는 일입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "editor_request_memo",
+        "title": "편집장 메모 - 경제 입문 교양서 필자 섭외 조건",
+        "description": "편집장이 경제 입문 교양서의 필자 섭외에 앞서 기획 인턴에게 전달한 섭외 조건 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "섭외할 필자가 맞춰야 하는 기획 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "정보 수집"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "교양서팀 편집장",
+          "items": [
+            "출판 예정도서의 기획목표: 사회초년생을 위한 경제 입문 교양서입니다. 집필 방향은 생활 사례 중심의 쉬운 설명으로 정했습니다.",
+            "탈고시기: 편집 일정에 맞추려면 원고는 2027년 4월 말까지 탈고되어야 합니다.",
+            "출판사의 방침: 이 시리즈의 필자 인세율은 10% 이내에서 협의합니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "candidate_comparison",
+        "title": "후보 필자 사전 상담 정리표",
+        "description": "섭외 후보로 추린 필자 4명이 사전 상담에서 밝힌 집필 방향, 예상 탈고시기, 희망 인세율을 정리한 표입니다. 희망 인세율의 단위는 %입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "후보 필자별 집필 방향, 탈고시기, 희망 인세율을 메모의 조건과 대조하는 데 씁니다.",
+        "evidence_source": [
+          "범주화",
+          "정보 수집"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "후보 필자"
+            },
+            {
+              "key": "strength",
+              "label": "집필 방향"
+            },
+            {
+              "key": "weakness",
+              "label": "예상 탈고시기"
+            },
+            {
+              "key": "priority",
+              "label": "희망 인세율(%)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "필자 A",
+              "strength": "생활 사례 중심 경제 입문",
+              "weakness": "2027년 3월",
+              "priority": 9
+            },
+            {
+              "option": "필자 B",
+              "strength": "생활 사례 중심 경제 입문",
+              "weakness": "2027년 4월",
+              "priority": 12
+            },
+            {
+              "option": "필자 C",
+              "strength": "생활 사례 중심 경제 입문",
+              "weakness": "2027년 9월",
+              "priority": 7
+            },
+            {
+              "option": "필자 D",
+              "strength": "수식 중심 경제학 이론",
+              "weakness": "2027년 2월",
+              "priority": 8
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "편집장 메모와 후보 필자 정리표를 보고, 이번 책에 섭외할 필자 한 명을 골라 편집장에게 추천하는 글을 2~3문장으로 써 보세요. 그 필자를 고른 이유가 다른 후보와 비교해 드러나도록 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 집필 방향, 탈고시기, 인세율 방침을 표의 후보 4명에게 각각 적용해 모든 조건을 충족하는 필자 한 명을 고르고, 다른 후보가 맞지 않는 조건을 근거로 2-3문장 추천을 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "추천 필자와 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "집필 방향과 탈고시기를 대조하면 필자 D는 수식 중심 경제학 이론이라 생활 사례 중심의 쉬운 설명이라는 기획목표와 맞지 않고, 필자 C는 예상 탈고시기 2027년 9월이 4월 말 기한을 넘긴다.",
+      "희망 인세율까지 비교하면 필자 B는 12%로 출판사의 방침인 10% 이내를 넘으므로, 세 조건(생활 사례 중심, 2027년 3월 탈고, 희망 인세율 9%)을 모두 충족하는 필자 A를 섭외 대상으로 추천해야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "집필 방향과 탈고시기 조건 적용",
+        "description": "메모의 기획목표에 맞는 집필 방향과 2027년 4월 말 탈고 기한을 표의 각 후보에 대조해, 집필 방향이 다른 후보와 기한을 넘기는 후보를 걸러냈는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보 수집",
+          "범주화"
+        ]
+      },
+      {
+        "criterion": "인세율 방침 반영과 필자 선택",
+        "description": "희망 인세율을 출판사의 방침(10% 이내)과 비교한 결과까지 반영해 모든 조건을 충족하는 필자 한 명을 골랐는지 본다.",
+        "points": 35,
+        "linked_evidence": [
+          "범주화"
+        ]
+      },
+      {
+        "criterion": "선택 근거 설명",
+        "description": "고른 필자가 조건을 충족하는 이유와 다른 후보가 어떤 조건에서 맞지 않는지를 2-3문장 안에 분명하게 설명했는지 본다.",
+        "points": 25,
+        "linked_evidence": [
+          "글쓰기"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "적합한 작가를 섭외하고 집필된 원고를 검토한다.",
+      "source_ref": {
+        "file": "K000001198/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "상사, 동료, 부하직원과 소통",
+          "score": 96,
+          "description": "상사, 동료, 부하직원에게 정보를 서면, 이메일 또는 직접 전달하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 95,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 92,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 91,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들을 훈련, 교육",
+          "score": 91,
+          "description": "교육 요구 사항을 파악하고, 공식적인 교육 또는 훈련 프로그램을 만들며, 교육이나 강의를 제공하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "글쓰기",
+          "score": 99,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 95,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 94,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "국어",
+          "score": 98,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "예술",
+          "score": 91,
+          "description": "음악, 무용, 미술, 드라마에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "역사",
+          "score": 88,
+          "description": "역사적 사건과 원인 그리고 유적에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 91,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 수집"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "범주화",
+          "정보 수집"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001198/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001198/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.36,
+    "AX2": 0.16,
+    "AX3": 0.16,
+    "AX4": 0.16,
+    "AX5": 0.16
+  }
+}

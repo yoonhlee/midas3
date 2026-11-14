@@ -1,5 +1,8 @@
 import express from "express";
 import path from "node:path";
+import { createCommands, type GenerationCommands } from "../lib/adminGeneration/commands.js";
+import { NcsCatalog } from "../lib/adminGeneration/ncsCatalog.js";
+import { AdminGenerationService } from "../lib/adminGeneration/service.js";
 import type { Db } from "../lib/db/database.js";
 import type { PostingsConfig } from "../lib/postings/config.js";
 import type { PostingsService } from "../lib/postings/service.js";
@@ -26,6 +29,8 @@ export interface AppContext {
   postingsConfig: PostingsConfig;
   postingsService: PostingsService;
   fetchImpl?: typeof fetch;
+  // 관리자 미션 생성이 부르는 명령을 만드는 함수. 없으면 설정(ADMIN_GENERATION_MODE)에 따라 Python 또는 가짜를 쓴다.
+  generationCommands?: (config: ServerConfig, ncs: NcsCatalog) => GenerationCommands;
 }
 
 // 라우트 연결만 한다. 기능 코드는 routes/와 src/lib/ 아래에 둔다.
@@ -58,7 +63,15 @@ export function createApp(ctx: AppContext) {
   app.use(jobsRouter({ jobsCatalog: ctx.jobsCatalog, missionStore: ctx.missionStore, jobWeightCatalog: ctx.jobWeightCatalog, postingsService: ctx.postingsService }));
   app.use(postingsRouter(config, ctx.postingsConfig, ctx.postingsService));
   app.use(missionsRouter({ config, db: ctx.db, missionStore: ctx.missionStore, jobWeightCatalog: ctx.jobWeightCatalog }));
-  app.use(adminGenerationRouter(config, ctx.missionStore));
+  const ncs = new NcsCatalog(config.paths.ncsJobs, (code) => ctx.jobsCatalog.get(code)?.duties ?? null);
+  const generationService = new AdminGenerationService({
+    config,
+    db: ctx.db,
+    missionStore: ctx.missionStore,
+    ncs,
+    commands: (ctx.generationCommands ?? createCommands)(config, ncs)
+  });
+  app.use(adminGenerationRouter({ config, service: generationService, ncs, missionStore: ctx.missionStore }));
 
   app.use("/api", apiNotFound());
   app.use(apiErrorHandler());

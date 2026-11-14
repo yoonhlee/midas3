@@ -1,0 +1,542 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001136_normal_001",
+  "job_identity": {
+    "job_cd": "K000001136",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "금융·보험 사무원",
+    "job_smcl_nm": "은행사무원",
+    "source_ref": {
+      "file": "K000001136/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_020",
+    "text": "외환거래의 법적 적정성 여부를 판단한다. 외환거래 관련 서류를 심사 및 작성한다.",
+    "source_ref": {
+      "file": "K000001136/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 20
+    },
+    "selection_reason": "Pilot config selected exec_020."
+  },
+  "mission_facts": {
+    "org_name": "새솔은행 도담지점",
+    "domain": "은행 외환 창구의 해외 송금 전 서류 확인",
+    "period": [
+      "오늘 오전 접수분"
+    ],
+    "trend_pattern": "오늘 오전 접수된 해외 송금 요청 4건은 경상거래 3건과 자본거래 1건이며, 금액은 2,000달러에서 12,000달러까지 섞여 있다.",
+    "main_issue": "송금을 진행하기 전에 지점의 거래 구분별 서류 기준에 따라 고객이 낸 서류가 갖춰졌는지 확인해야 한다.",
+    "feedback_themes": [
+      "거래 구분별 필요 서류",
+      "5,000달러 내부 기준 금액",
+      "빠진 서류 보완 안내"
+    ],
+    "decision_goal": "송금 전에 서류 보완이 필요한 건과 빠진 서류를 가려 외환 창구 과장에게 보고한다."
+  },
+  "mission": {
+    "title": "해외 송금 전, 서류가 다 갖춰졌을까?",
+    "task_type": "decision_making",
+    "secondary_task_types": [
+      "communication_and_reporting"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "새솔은행 도담지점 외환 창구 인턴",
+      "context": "당신은 새솔은행 도담지점 외환 창구에서 일하는 인턴입니다. 오늘 오전, 외국환거래 가운데 하나인 해외 송금 요청이 4건 들어왔습니다. 외환 창구 과장님이 \"송금을 진행하기 전에 서류가 기준대로 다 들어왔는지 먼저 봐 주세요. 보완이 필요한 건은 고객에게 안내해야 하니 정리해서 알려 주세요.\"라고 부탁했습니다.",
+      "goal": "지점의 서류 기준에 따라 송금 전에 서류 보완이 필요한 건과 그 건에 빠진 서류를 과장님께 짧게 보고해 보세요.",
+      "constraints": [
+        "제공된 메모와 표에 있는 기준과 정보만 사용하세요.",
+        "실제 법령이나 외부 자료는 찾아보지 않아도 됩니다.",
+        "답변은 2~3문장으로 짧게 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "외국환거래",
+          "definition": "달러 같은 외국 돈으로 하거나 외국과 돈을 주고받는 거래예요. 해외로 돈을 보내는 해외 송금도 여기에 들어가요."
+        },
+        {
+          "term": "경상거래",
+          "definition": "물건이나 서비스를 사고팔면서 그 대금을 주고받는 것처럼, 일상적인 거래의 대가를 해외와 주고받는 거래예요."
+        },
+        {
+          "term": "자본거래",
+          "definition": "예금, 대출, 투자처럼 돈이나 재산 자체를 해외로 옮기거나 맡기는 거래예요."
+        },
+        {
+          "term": "사전 신고",
+          "definition": "거래를 실행하기 전에 거래 내용을 미리 신고하는 절차예요. 이때 내는 서류를 사전 신고서라고 불러요. 실제 제도에는 금액이 작으면 사전 신고를 하지 않아도 되는 기준이 있어요. 이 미션에서는 과장님 메모대로 금액과 관계없이 필요한 것으로 봐요."
+        },
+        {
+          "term": "송장",
+          "definition": "물건이나 서비스를 판 쪽이 품목과 금액을 적어 보내는 청구 서류예요."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "branch_document_guideline",
+        "title": "외환 창구 과장 메모: 해외 송금 전 서류 확인 기준",
+        "description": "외환 창구 책임자(과장)가 거래 구분별로 송금을 진행하기 전에 받아야 할 서류를 지점 내부 확인 기준으로 정리한 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "거래 구분과 금액에 따라 송금 전에 어떤 서류를 받아야 하는지 확인하는 데 씁니다.",
+        "evidence_source": [
+          "법",
+          "판단과 의사결정"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "외환 창구 책임자(과장)",
+          "items": [
+            "경상거래 송금: 건당 금액이 5,000달러 이하이면 송금 신청서만 받고 진행합니다. 5,000달러를 넘으면 송금 신청서와 함께 거래 증빙 서류(송장 또는 계약서)를 받아야 진행합니다.",
+            "자본거래 송금: 금액과 관계없이 사전 신고 항목에 해당합니다. 송금 신청서, 거래 계약서, 사전 신고서를 모두 받아야 진행합니다.",
+            "위 기준에 맞는 서류가 빠진 건은 송금을 진행하지 않고, 고객에게 보완할 서류를 안내합니다. 5,000달러는 우리 지점이 창구 확인용으로 정한 내부 기준 금액입니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "remittance_intake_status",
+        "title": "오늘 오전 해외 송금 접수 현황 (금액 단위: 달러)",
+        "description": "오늘 오전 외환 창구에 접수된 해외 송금 요청 4건의 고객, 거래 구분, 제출 서류, 금액을 접수 순서대로 정리한 표입니다. 금액 단위는 달러입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "접수된 각 건의 거래 구분, 제출 서류, 금액을 메모의 기준과 맞춰 보는 데 씁니다.",
+        "evidence_source": [
+          "정보 처리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "고객"
+            },
+            {
+              "key": "strength",
+              "label": "거래 구분"
+            },
+            {
+              "key": "weakness",
+              "label": "제출 서류"
+            },
+            {
+              "key": "priority",
+              "label": "금액(달러)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "고객 A",
+              "strength": "경상거래",
+              "weakness": "송금 신청서, 송장",
+              "priority": 8000
+            },
+            {
+              "option": "고객 B",
+              "strength": "경상거래",
+              "weakness": "송금 신청서",
+              "priority": 3000
+            },
+            {
+              "option": "고객 C",
+              "strength": "자본거래",
+              "weakness": "송금 신청서, 거래 계약서",
+              "priority": 2000
+            },
+            {
+              "option": "고객 D",
+              "strength": "경상거래",
+              "weakness": "송금 신청서",
+              "priority": 12000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "메모의 서류 기준을 표의 접수 4건에 적용해 보고, 송금을 진행하기 전에 서류 보완이 필요한 건과 그 건에 빠진 서류를 근거와 함께 2~3문장으로 과장님께 보고해 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 거래 구분별·금액별 서류 기준을 표의 각 건에 맞춰 보고, 서류 보완이 필요한 건마다 빠진 서류와 그 근거를 2-3문장 보고로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "보완이 필요한 건과 빠진 서류, 그 근거"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "고객 C는 금액이 2,000달러로 가장 작고 거래 계약서도 냈지만 자본거래라서 금액과 관계없이 사전 신고서가 필요하며, 사전 신고서가 빠져 보완이 필요하다.",
+      "고객 D는 12,000달러로 5,000달러를 넘는 경상거래인데 송금 신청서만 내서 거래 증빙 서류(송장 또는 계약서)가 빠져 보완이 필요하다.",
+      "고객 A는 5,000달러를 넘지만 송장을 함께 냈고, 고객 B는 5,000달러 이하 경상거래라 송금 신청서만으로 충분하므로 두 건은 보완 대상이 아니다.",
+      "보완이 필요한 고객 C와 고객 D 건은 송금을 진행하지 않고, 빠진 서류를 고객에게 안내해야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "보완이 필요한 두 건 찾기",
+        "description": "거래 구분별 기준을 각 건에 적용해 사전 신고서가 빠진 자본거래 건(고객 C)과 거래 증빙 서류가 없는 5,000달러 초과 경상거래 건(고객 D)을 모두 찾았는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "법",
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "통과 건을 잘못 고르지 않기",
+        "description": "금액은 5,000달러를 넘지만 송장을 낸 고객 A나, 5,000달러 이하 경상거래인 고객 B를 보완 대상으로 잘못 고르지 않았는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "빠진 서류를 근거로 한 진행 여부 판단",
+        "description": "보완이 필요한 건마다 빠진 서류(고객 C는 사전 신고서, 고객 D는 송장 또는 계약서)를 근거로 들어 송금을 진행하지 않고 보완을 안내해야 한다고 판단했는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "판단과 의사결정",
+          "법"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_020",
+      "text": "외환거래의 법적 적정성 여부를 판단한다. 외환거래 관련 서류를 심사 및 작성한다.",
+      "source_ref": {
+        "file": "K000001136/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 20
+      },
+      "selection_reason": "Pilot config selected exec_020."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "행정, 관리 업무",
+          "score": 97,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 94,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무상 사람들을 직접 응대",
+          "score": 94,
+          "description": "식당, 상점에서 일반 손님을 접대하거나, 거래처 고객 또는 손님을 접대하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "부하 직원들에게 업무 안내, 지시, 동기부여",
+          "score": 90,
+          "description": "부하 직원들의 업무 기준을 정하여 업무 성과를 관찰하고 업무 방향과 지침을 제공하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보, 자료 분석",
+          "score": 90,
+          "description": "정보 또는 자료를 분석하여 근본 원리, 이유, 사실을 알아내기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "재정 관리",
+          "score": 92,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "협상",
+          "score": 91,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "판단과 의사결정",
+          "score": 87,
+          "description": "이득과 손실을 평가해서 결정을 내린다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "경제와 회계",
+          "score": 92,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 87,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 84,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "불쾌하거나 무례한 사람 상대",
+          "score": 95,
+          "description": "불쾌하거나, 화나거나, 혹은 무례한 사람을 대하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "외부 고객 대하기",
+          "score": 95,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 91,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "법",
+          "판단과 의사결정"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 처리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.48,
+    "AX2": 0.08,
+    "AX3": 0.28,
+    "AX4": 0.08,
+    "AX5": 0.08
+  }
+}

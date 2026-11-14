@@ -1,0 +1,601 @@
+{
+  "schema_version": "generation_basis.v1",
+  "mode": "two_stage",
+  "mission_id": "mission_K000001080_normal_001",
+  "job_cd": "K000001080",
+  "difficulty": "normal",
+  "generated_at": "2026-01-01T00:00:00+09:00",
+  "chain": [
+    {
+      "step": 1,
+      "title": "직업 → 하는 일 문장",
+      "kind": "data",
+      "decided_by": "실행 대상 지정",
+      "sources": [
+        {
+          "id": "K.exec.5",
+          "kind": "know_exec",
+          "text": "프로그램을 사용하여 분석 결과를 시각화한다.",
+          "locator": {
+            "file": "K000001080/dtlGb_2.xml",
+            "field": "jobsDo.execJob",
+            "index": 5
+          }
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "title": "직업 → NCS 직무",
+      "kind": "data",
+      "decided_by": "코드 조회",
+      "sources": [
+        {
+          "id": "K.keco",
+          "kind": "know_keco",
+          "text": "1341 데이터 전문가",
+          "locator": {
+            "file": "K000001080/dtlGb_3.xml",
+            "field": "kecoCd"
+          }
+        },
+        {
+          "id": "L.1",
+          "kind": "link_row",
+          "text": "1341 데이터 전문가 ↔ 20010105 빅데이터분석",
+          "locator": {
+            "file": "data/ncs/ncs_keco_link_20230407.csv",
+            "keco_cd": "1341",
+            "duty_cd": "20010105"
+          }
+        }
+      ],
+      "link_table": {
+        "file": "data/ncs/ncs_keco_link_20230407.csv",
+        "label": "NCS–KECO 연계표(ncs.go.kr 일반자료실 2023-04-10 게시, 2022-11-28 NCS 개정고시 기준)"
+      }
+    },
+    {
+      "step": 3,
+      "title": "문장 → 능력단위",
+      "kind": "link_decision",
+      "decided_by": "연결 판단 · 기준 v0.5",
+      "match": "직접",
+      "reason": "프로그램으로 분석 결과를 시각화하는 일이, 분석 도구의 시각화 라이브러리·패키지로 분석 결과를 시각적으로 표현하는 빅데이터 분석 결과 시각화와 대상과 동작이 같다.",
+      "criteria": "v0.5",
+      "sources": [
+        {
+          "id": "M.1",
+          "kind": "sentence_unit_link",
+          "text": "프로그램으로 분석 결과를 시각화하는 일이, 분석 도구의 시각화 라이브러리·패키지로 분석 결과를 시각적으로 표현하는 빅데이터 분석 결과 시각화와 대상과 동작이 같다.",
+          "locator": {
+            "unit_key": "20010105:09",
+            "exec_job_id": "exec_005"
+          }
+        },
+        {
+          "id": "N.unit",
+          "kind": "ncs_unit",
+          "text": "빅데이터 분석 결과 시각화",
+          "locator": {
+            "unit_key": "20010105:09",
+            "ncs_cl_cd": "2001010509_21v4"
+          }
+        }
+      ],
+      "phrase": "프로그램을 사용하여 분석 결과를 시각화한다",
+      "verdict": "확정",
+      "verdict_reason": "2.3이 시각화 도구·라이브러리·패키지로 데이터 분석 결과를 시각화하는 일을 말해 구절의 대상(분석 결과)과 동작(프로그램을 사용한 시각화)을 그대로 다루고, 3.1이 구현으로 시각화하는 일을 더한다.",
+      "criteria_refs": [
+        {
+          "number": "2.3",
+          "ref": "N.c.2.3",
+          "text": "데이터 시각화 도구, 라이브러리 및 패키지에서 제공하는 시각화 표현 요소를 이용하여 데이터 분석 결과의 핵심 내용을 반영할 수 있도록 구조화하여 시각화할 수 있다.",
+          "element_name": "분석 결과 시각화 설계하기"
+        },
+        {
+          "number": "3.1",
+          "ref": "N.c.3.1",
+          "text": "데이터 시각화 설계에 정의된 UI 및 GUI를 구현하여 데이터 분석 결과를 성공적으로 시각화할 수 있다.",
+          "element_name": "분석 결과 시각화 구현하기"
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "title": "능력단위 → 수행준거",
+      "kind": "ai_decision",
+      "decided_by": "mock (API 호출 없음)",
+      "items": [
+        {
+          "ref": "N.c.2.3",
+          "text": "데이터 시각화 도구, 라이브러리 및 패키지에서 제공하는 시각화 표현 요소를 이용하여 데이터 분석 결과의 핵심 내용을 반영할 수 있도록 구조화하여 시각화할 수 있다.",
+          "element_name": "분석 결과 시각화 설계하기",
+          "reason": "mock: 첫 수행준거를 고른다.",
+          "in_link_basis": true
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "title": "수행준거·서류 → 자료·과제",
+      "kind": "ai_decision",
+      "decided_by": "mock (API 호출 없음)",
+      "focus": {
+        "exec_ref": "K.exec.5",
+        "focus_phrase": "프로그램을 사용하여 분석 결과를 시각화한다.",
+        "coverage": "full",
+        "uncovered_note": "",
+        "reason": "mock: 대상 문장 전체를 과제의 중심으로 둔다."
+      },
+      "materials": [
+        {
+          "slot": 1,
+          "material_id": "mat_001",
+          "material_title": "D서비스팀 고객 반응 요약 메모",
+          "type": "memo",
+          "role": "mock 자료 1",
+          "content_plan": "mock: 수행준거의 낱말을 항목으로 둔다.",
+          "refs": [
+            {
+              "id": "N.c.2.3",
+              "kind": "ncs_criterion",
+              "text": "데이터 시각화 도구, 라이브러리 및 패키지에서 제공하는 시각화 표현 요소를 이용하여 데이터 분석 결과의 핵심 내용을 반영할 수 있도록 구조화하여 시각화할 수 있다.",
+              "locator": {
+                "unit_key": "20010105:09",
+                "ncs_cl_cd": "2001010509_21v4",
+                "element_no": 2,
+                "criterion_no": 3
+              }
+            }
+          ],
+          "borrowed_terms": [
+            {
+              "term": "데이터",
+              "ref": "N.c.2.3",
+              "in_source": true,
+              "in_mission": true
+            },
+            {
+              "term": "시각화",
+              "ref": "N.c.2.3",
+              "in_source": true,
+              "in_mission": false
+            }
+          ],
+          "type_reason": "mock: 허용된 형태를 차례로 쓴다."
+        },
+        {
+          "slot": 2,
+          "material_id": "mat_002",
+          "material_title": "D서비스팀 월별 핵심 지표 추이",
+          "type": "chart",
+          "role": "mock 자료 2",
+          "content_plan": "mock: 수행준거의 낱말을 항목으로 둔다.",
+          "refs": [
+            {
+              "id": "N.c.2.3",
+              "kind": "ncs_criterion",
+              "text": "데이터 시각화 도구, 라이브러리 및 패키지에서 제공하는 시각화 표현 요소를 이용하여 데이터 분석 결과의 핵심 내용을 반영할 수 있도록 구조화하여 시각화할 수 있다.",
+              "locator": {
+                "unit_key": "20010105:09",
+                "ncs_cl_cd": "2001010509_21v4",
+                "element_no": 2,
+                "criterion_no": 3
+              }
+            }
+          ],
+          "borrowed_terms": [],
+          "type_reason": "mock: 허용된 형태를 차례로 쓴다."
+        }
+      ],
+      "tasks": [
+        {
+          "slot": 1,
+          "task_id": "task_001",
+          "action": "자료를 보고 한 가지를 판단해 전달한다",
+          "reason": "mock: 과제 하나에 행동 하나.",
+          "refs": [
+            {
+              "id": "N.c.2.3",
+              "kind": "ncs_criterion",
+              "text": "데이터 시각화 도구, 라이브러리 및 패키지에서 제공하는 시각화 표현 요소를 이용하여 데이터 분석 결과의 핵심 내용을 반영할 수 있도록 구조화하여 시각화할 수 있다.",
+              "locator": {
+                "unit_key": "20010105:09",
+                "ncs_cl_cd": "2001010509_21v4",
+                "element_no": 2,
+                "criterion_no": 3
+              }
+            }
+          ]
+        }
+      ],
+      "glossary": []
+    },
+    {
+      "step": 6,
+      "title": "평가 지침·KNOW 항목 → 채점 기준",
+      "kind": "ai_decision",
+      "decided_by": "mock (API 호출 없음) · mock (API 호출 없음)",
+      "items": [
+        {
+          "rubric_index": 0,
+          "criterion": "자료 해석",
+          "points": 30,
+          "evaluation_basis_index": 0,
+          "what_to_check": "자료에서 근거를 찾아 판단했는가",
+          "reason": "mock: 첫 평가 지침과 첫 KNOW 항목을 고른다.",
+          "refs": [
+            {
+              "id": "N.eval.1",
+              "kind": "ncs_eval",
+              "text": "데이터 시각화 기획 능력",
+              "locator": {
+                "unit_key": "20010105:09",
+                "ncs_cl_cd": "2001010509_21v4",
+                "section": "eval_considerations",
+                "index": 1
+              }
+            }
+          ],
+          "know_refs": [
+            {
+              "id": "K.abil.1",
+              "kind": "know_ability",
+              "text": "수리력",
+              "locator": {
+                "file": "K000001080/dtlGb_5.xml",
+                "field": "ablKnwEnv.jobAbil",
+                "index": 1
+              }
+            }
+          ]
+        },
+        {
+          "rubric_index": 1,
+          "criterion": "근거 기반 판단",
+          "points": 40,
+          "evaluation_basis_index": 0,
+          "what_to_check": "자료에서 근거를 찾아 판단했는가",
+          "reason": "mock: 첫 평가 지침과 첫 KNOW 항목을 고른다.",
+          "refs": [
+            {
+              "id": "N.eval.1",
+              "kind": "ncs_eval",
+              "text": "데이터 시각화 기획 능력",
+              "locator": {
+                "unit_key": "20010105:09",
+                "ncs_cl_cd": "2001010509_21v4",
+                "section": "eval_considerations",
+                "index": 1
+              }
+            }
+          ],
+          "know_refs": [
+            {
+              "id": "K.abil.1",
+              "kind": "know_ability",
+              "text": "수리력",
+              "locator": {
+                "file": "K000001080/dtlGb_5.xml",
+                "field": "ablKnwEnv.jobAbil",
+                "index": 1
+              }
+            }
+          ]
+        },
+        {
+          "rubric_index": 2,
+          "criterion": "실행 가능성",
+          "points": 30,
+          "evaluation_basis_index": 0,
+          "what_to_check": "자료에서 근거를 찾아 판단했는가",
+          "reason": "mock: 첫 평가 지침과 첫 KNOW 항목을 고른다.",
+          "refs": [
+            {
+              "id": "N.eval.1",
+              "kind": "ncs_eval",
+              "text": "데이터 시각화 기획 능력",
+              "locator": {
+                "unit_key": "20010105:09",
+                "ncs_cl_cd": "2001010509_21v4",
+                "section": "eval_considerations",
+                "index": 1
+              }
+            }
+          ],
+          "know_refs": [
+            {
+              "id": "K.abil.1",
+              "kind": "know_ability",
+              "text": "수리력",
+              "locator": {
+                "file": "K000001080/dtlGb_5.xml",
+                "field": "ablKnwEnv.jobAbil",
+                "index": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "title": "난이도 규칙",
+      "kind": "rule",
+      "decided_by": "시스템 결정",
+      "values": {
+        "level": "normal",
+        "material_count_range": [
+          2,
+          2
+        ],
+        "task_count_range": [
+          1,
+          1
+        ],
+        "answer_length_hint": "2-3 short sentences",
+        "allowed_material_types": [
+          "memo",
+          "chart"
+        ]
+      },
+      "material_mix": {
+        "decided_by": "코드 (자료 형태 배정, 모델 호출 없음)",
+        "rule_version": "mix-v1",
+        "allowed_material_types": [
+          "memo",
+          "chart"
+        ],
+        "lead_data_type": "chart",
+        "standard_type": "memo",
+        "spare_types": [],
+        "shared_types": [],
+        "job_types": {
+          "normal": [
+            "memo",
+            "chart"
+          ]
+        },
+        "reason": "메모(기준·요청: 늘 쓸 수 있음 · N.doc.1 '방법론', N.c.1.1 '절차', N.c.1.4 '규칙') / 차트(데이터: 뚜렷함 · N.doc.1 '시각화', N.doc.2 '시각화', N.doc.3 '시각화')",
+        "why": [
+          {
+            "type": "memo",
+            "fit": "늘 쓸 수 있음",
+            "score": 3.75,
+            "evidence": [
+              {
+                "id": "N.doc.1",
+                "word": "방법론",
+                "text": "데이터 시각화 기술, 특성, 도구, 기법 및 방법론"
+              },
+              {
+                "id": "N.c.1.1",
+                "word": "절차",
+                "text": "다양한 형태의 데이터 분석 결과를 사용자가 쉽고 명확하게 이해할 수 있도록, 데이터 시각화의 목표, 범위 및 개발 절차를 포함하는 시각화 전략을 수립할 수 있다."
+              },
+              {
+                "id": "N.c.1.4",
+                "word": "규칙",
+                "text": "정의된 사용자 요구사항을 만족하기 위하여 데이터 분석 결과를 시각화 표현의 형태, 규칙, 패턴 및 상호작용을 포함하는 데이터 시각화 명세서를 작성할 수 있다."
+              },
+              {
+                "id": "N.con.1",
+                "word": "방법론",
+                "text": "이 능력 단위는 빅데이터 분석 결과를 시각적으로 표현하여, 해당 분석 결과를 사용자들이 이해하는데 필요한 정보를 효율적이고 명확하게 전달할 수 있도록, 데이터 시각화 기획, 설계 및 구현 작업을 수행하기 위하여, 데이터 시각화 방법론을 적용하는 업무에 적용한다."
+              },
+              {
+                "id": "N.con.2",
+                "word": "절차",
+                "text": "시각화 전략 수립 능력이란 데이터 시각화 목적 및 활용 의도를 고려하여 데이터 시각화의 목표, 범위 및 개발 절차를 포함하는 전략 수립을 할 수 있는 능력을 의미한다."
+              },
+              {
+                "id": "N.con.5",
+                "word": "규칙",
+                "text": "데이터 시각화 UI/UX 기획 방법이란 데이터 시각화 표현 형태, 규칙, 패턴 및 상호작용을 포함하는 UI/UX 기획 방법을 의미한다."
+              },
+              {
+                "id": "N.con.7",
+                "word": "규칙",
+                "text": "데이터 시각화 표현 방안 개발 능력이란 데이터 시각화 표현의 형태, 규칙, 패턴 및 상호작용을 포함하는 데이터 시각화 표현 방안을 개발하는 능력을 의미한다."
+              }
+            ]
+          },
+          {
+            "type": "chart",
+            "fit": "뚜렷함",
+            "score": 25.5,
+            "evidence": [
+              {
+                "id": "N.doc.1",
+                "word": "시각화",
+                "text": "데이터 시각화 기술, 특성, 도구, 기법 및 방법론"
+              },
+              {
+                "id": "N.doc.2",
+                "word": "시각화",
+                "text": "데이터 시각화 요구사항 정의서"
+              },
+              {
+                "id": "N.doc.3",
+                "word": "시각화",
+                "text": "데이터 시각화 명세서"
+              },
+              {
+                "id": "N.doc.4",
+                "word": "시각화",
+                "text": "데이터 시각화 설계도"
+              },
+              {
+                "id": "N.doc.5",
+                "word": "시각화",
+                "text": "시각화 기술 논문, 학술지 및 도서"
+              },
+              {
+                "id": "N.c.2.3",
+                "word": "시각화",
+                "text": "데이터 시각화 도구, 라이브러리 및 패키지에서 제공하는 시각화 표현 요소를 이용하여 데이터 분석 결과의 핵심 내용을 반영할 수 있도록 구조화하여 시각화할 수 있다."
+              },
+              {
+                "id": "N.c.3.1",
+                "word": "시각화",
+                "text": "데이터 시각화 설계에 정의된 UI 및 GUI를 구현하여 데이터 분석 결과를 성공적으로 시각화할 수 있다."
+              },
+              {
+                "id": "phrase",
+                "word": "시각화",
+                "text": "프로그램을 사용하여 분석 결과를 시각화한다"
+              },
+              {
+                "id": "N.c.1.1",
+                "word": "시각화",
+                "text": "다양한 형태의 데이터 분석 결과를 사용자가 쉽고 명확하게 이해할 수 있도록, 데이터 시각화의 목표, 범위 및 개발 절차를 포함하는 시각화 전략을 수립할 수 있다."
+              },
+              {
+                "id": "N.c.1.2",
+                "word": "시각화",
+                "text": "사용자 분석과 사용자 니즈 조사를 통하여 사용자 페르소나 및 시나리오를 포함하는 데이터 시각화 요구사항을 도출하고 정의할 수 있다."
+              },
+              {
+                "id": "N.c.1.3",
+                "word": "시각화",
+                "text": "데이터 분석 결과를 명확히 전달하기 위한 시각화 개념을 설명하는 스토리보드를 개발하여 표현할 수 있다."
+              },
+              {
+                "id": "N.c.1.4",
+                "word": "시각화",
+                "text": "정의된 사용자 요구사항을 만족하기 위하여 데이터 분석 결과를 시각화 표현의 형태, 규칙, 패턴 및 상호작용을 포함하는 데이터 시각화 명세서를 작성할 수 있다."
+              },
+              {
+                "id": "N.c.2.1",
+                "word": "시각화",
+                "text": "데이터 시각화 명세서를 기반으로 데이터 시각화 및 SW 설계 작업을 수행할 수 있다."
+              },
+              {
+                "id": "N.c.2.2",
+                "word": "시각화",
+                "text": "데이터 시각화 명세서를 기반으로 데이터 시각화 UI 설계 및 GUI 화면 설계 작업을 수행할 수 있다."
+              },
+              {
+                "id": "N.c.3.2",
+                "word": "시각화",
+                "text": "데이터 시각화 기능 구현 및 품질 향상을 위해 시각 디자인 및 정보 디자인 원리를 적용할 수 있다."
+              },
+              {
+                "id": "N.c.3.3",
+                "word": "시각화",
+                "text": "데이터 시각화 결과를 사용자가 활용하는 과정에서, 사용성 제고를 위해 UI/UX 구현 원리를 적용할 수 있다."
+              },
+              {
+                "id": "N.c.3.4",
+                "word": "시각화",
+                "text": "데이터 시각화 결과가 사용자의 요구사항을 충족시킬 수 있도록 적절하게 구현되었는지 확인할 수 있다."
+              },
+              {
+                "id": "N.con.1",
+                "word": "시각화",
+                "text": "이 능력 단위는 빅데이터 분석 결과를 시각적으로 표현하여, 해당 분석 결과를 사용자들이 이해하는데 필요한 정보를 효율적이고 명확하게 전달할 수 있도록, 데이터 시각화 기획, 설계 및 구현 작업을 수행하기 위하여, 데이터 시각화 방법론을 적용하는 업무에 적용한다."
+              },
+              {
+                "id": "N.con.2",
+                "word": "시각화",
+                "text": "시각화 전략 수립 능력이란 데이터 시각화 목적 및 활용 의도를 고려하여 데이터 시각화의 목표, 범위 및 개발 절차를 포함하는 전략 수립을 할 수 있는 능력을 의미한다."
+              },
+              {
+                "id": "N.con.3",
+                "word": "시각화",
+                "text": "시각화 요구사항 개발 능력이란 사용자 분석 및 사용자 니즈 조사를 통하여 데이터 시각화 사용자들이 목적 달성을 위하여 사용하는 데이터 시각화 결과물에 요구되는 기능 및 비기능 요구사항들을 도출하는 능력을 의미한다."
+              },
+              {
+                "id": "N.con.4",
+                "word": "시각화",
+                "text": "스토리보드 작성 및 활용 능력이란 사용자들의 시각화 활용 모델을 스토리텔링과 시각화 기법을 활용하여 작성하고 표현하여, 시각화 이해당사자들 사이의 소통을 지원하는 능력을 의미한다."
+              },
+              {
+                "id": "N.con.5",
+                "word": "시각화",
+                "text": "데이터 시각화 UI/UX 기획 방법이란 데이터 시각화 표현 형태, 규칙, 패턴 및 상호작용을 포함하는 UI/UX 기획 방법을 의미한다."
+              },
+              {
+                "id": "N.con.6",
+                "word": "그래프",
+                "text": "데이터 분석 결과 특성을 고려한 시각화 표현 방안 설계 능력은 그래프와 같은 기본적인 시각화 설계 능력은 물론 시계열 데이터, 공간 데이터, 시사 데이터 및 관계 데이터 시각화 표현 방안 설계 능력을 포함한다."
+              },
+              {
+                "id": "N.con.7",
+                "word": "시각화",
+                "text": "데이터 시각화 표현 방안 개발 능력이란 데이터 시각화 표현의 형태, 규칙, 패턴 및 상호작용을 포함하는 데이터 시각화 표현 방안을 개발하는 능력을 의미한다."
+              },
+              {
+                "id": "N.con.8",
+                "word": "시각화",
+                "text": "정보의 시각화 표현을 위한 그래픽 요소는 위치 변화, 크기, 모양, 색, 명도, 기울기, 질감, 등을 포함하며, 해당 요소를 사용하여 정보를 시각적으로 표현한다."
+              },
+              {
+                "id": "N.con.9",
+                "word": "만족도",
+                "text": "데이터 시각화 방식의 사용성(Usability)은 효과성(Effectiveness), 효율성(Efficiency) 및 만족도(Satisfaction), 3대 기본 요소를 사용하여 정의된다. (ISO 9241-11)"
+              },
+              {
+                "id": "N.con.12",
+                "word": "만족도",
+                "text": "UI/UX 구현 원리는 사용자들에게 제공되는 사용자 인터페이스(UI)를 개발하는 과정에서, UI가 배우기 쉽고 사용하기 편하며, UI 사용 과정에서 사용자들의 경험(UX)에 대한 만족도를 극대화하기 위하여 추구하는 원리를 의미한다."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "process": {
+    "blueprint_attempt": 0,
+    "blueprint_rewritten": false,
+    "repair_count": 0,
+    "mission_repaired": false
+  },
+  "models": {
+    "blueprint": {
+      "provider": "fixture",
+      "requested_model": "fixture",
+      "served_model": "fixture",
+      "reasoning_effort": null,
+      "fallback_used": false,
+      "structured_output": null
+    },
+    "writer": {
+      "provider": "fixture",
+      "requested_model": "fixture",
+      "served_model": "fixture",
+      "reasoning_effort": null,
+      "fallback_used": false,
+      "structured_output": null
+    }
+  },
+  "versions": {
+    "blueprint_prompt": "blueprint-v13",
+    "writer_prompt": "blueprint-writer-v11",
+    "ncs_cl_cd": "2001010509_21v4",
+    "link_table_file": "data/ncs/ncs_keco_link_20230407.csv",
+    "know_source_root": "data/api_raw"
+  },
+  "checks": {
+    "error_count": 0,
+    "warning_count": 1,
+    "items": [
+      {
+        "path": "mission.materials[0]",
+        "severity": "warning",
+        "code": "BM_TERM_NOT_IN_MISSION",
+        "message": "Planned term '시각화' does not appear in material 1.",
+        "required_fix": "No fix needed.",
+        "repairable": true
+      }
+    ]
+  },
+  "artifacts": {
+    "source_pack": "source_pack.json",
+    "blueprint": "mission_blueprint_attempt_0.json",
+    "mission": "mission_output.json",
+    "material_mix": "material_mix.json"
+  }
+}

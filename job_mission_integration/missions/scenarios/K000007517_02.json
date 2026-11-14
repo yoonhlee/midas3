@@ -1,0 +1,530 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007517_normal_001",
+  "job_identity": {
+    "job_cd": "K000007517",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "경영지원 사무원",
+    "job_smcl_nm": "총무사무원",
+    "source_ref": {
+      "file": "K000007517/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "문서의 수발·관리, 4대 사회보험관리, 급여관리, 비품 및 차량의 관리, 각종 사내 행사를 계획·준비·집행하는데 관련된 업무를 수행한다.",
+    "source_ref": {
+      "file": "K000007517/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "새봄산업 본사 총무팀",
+    "domain": "우편물과 행낭의 문서 수발 처리",
+    "period": [
+      "오늘 오전 9시~오후 5시"
+    ],
+    "trend_pattern": "오늘 하루 동안 일반우편물 수신 1건, 지사 행낭 수신 2건, 지사로 행낭 발신 1건이 처리되었다.",
+    "main_issue": "입사 일주일 된 신입 사원이 혼자 처리한 우편물·행낭 기록이 문서관리규정의 문서 수발 조항대로 되었는지 확인이 필요하다.",
+    "feedback_themes": [
+      "행낭 수·발신 대장 기록 여부",
+      "우편물 종류와 수신·발신 방향에 따른 처리 방법 차이"
+    ],
+    "decision_goal": "규칙대로 처리되지 않은 건과 각 건에서 빠진 절차를 찾아 총무팀장에게 알린다."
+  },
+  "mission": {
+    "title": "신입 사원의 우편물·행낭 처리 기록 점검하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "새봄산업 본사 총무팀 인턴",
+      "context": "당신은 새봄산업 본사 총무팀 인턴입니다. 총무팀은 회사로 들어오는 우편물과 지사와 주고받는 행낭을 받아 각 부서로 나누고, 지사로 보낼 서류를 내보내는 일을 맡고 있습니다. 오늘은 입사한 지 일주일 된 신입 사원이 우편물 처리를 혼자 맡았고, 퇴근 전에 총무팀장이 그 처리 기록을 함께 점검해 달라고 부탁했습니다.",
+      "goal": "팀장이 공유한 문서 수발 규칙에 맞지 않게 처리된 건을 찾아, 어떤 절차가 빠졌는지 팀장에게 짧게 알려주세요.",
+      "constraints": [
+        "제공된 메모와 처리 기록만 보고 판단하세요.",
+        "문서의 보관이나 폐기 같은 다른 문서 관리 업무는 이번 점검 범위가 아닙니다.",
+        "답변은 2~3문장으로 짧게 적어주세요."
+      ],
+      "glossary": [
+        {
+          "term": "행낭",
+          "definition": "본사와 지사처럼 떨어진 회사 사무실끼리 서류를 담아 주고받는 전용 가방, 또는 그 가방으로 서류를 주고받는 방식입니다."
+        },
+        {
+          "term": "행낭 수·발신 대장",
+          "definition": "행낭으로 받거나 보낸 서류를 언제, 어디와, 무엇을 주고받았는지 한 건씩 적어 두는 기록부입니다."
+        },
+        {
+          "term": "문서관리규정",
+          "definition": "회사 문서를 만들고, 주고받고, 보관하는 방법을 정해 둔 회사 내부 규칙입니다."
+        },
+        {
+          "term": "문서 수발",
+          "definition": "문서를 받는 일(수신)과 보내는 일(발신)을 함께 이르는 말입니다."
+        },
+        {
+          "term": "일반우편물",
+          "definition": "행낭이 아니라 보통 우편으로 회사에 배달되는 편지나 봉투입니다."
+        },
+        {
+          "term": "부서별 우편함",
+          "definition": "총무팀이 받은 우편물을 부서마다 나누어 넣어 두는 칸으로, 각 부서 담당자가 와서 가져갑니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "regulation_excerpt",
+        "title": "문서관리규정 발췌: 문서 수발 조항",
+        "description": "총무팀장이 문서관리규정 가운데 문서 수발 조항을 발췌해 팀원들에게 공유한 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "처리 기록의 각 건이 따라야 하는 처리 절차를 확인하는 기준으로 사용합니다.",
+        "evidence_source": [
+          "사무",
+          "행정, 관리 업무"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "총무팀장",
+          "items": [
+            "일반우편물을 수신하면 각 부서별 우편함에 분류한다.",
+            "행낭으로 수신하거나 발신하는 문서는 먼저 행낭 수·발신 대장에 기록한다. 수신 문서는 대장에 기록한 뒤 부서별 우편함에 분류한다."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "mail_handling_log",
+        "title": "오늘의 우편물·행낭 처리 기록 (총무팀 신입 사원 작성)",
+        "description": "총무팀 신입 사원이 오늘 받고 보낸 일반우편물과 행낭을 시간 순서대로 적은 처리 기록입니다. 메모 칸에는 건마다 행낭 수·발신 대장 기록 여부를 같은 형식으로 적었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 규칙에 비춰 각 건이 어떻게 처리되었는지 확인하는 대상 자료로 사용합니다.",
+        "evidence_source": [
+          "정보 작성, 기록",
+          "행정, 관리 업무"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "09:10",
+              "actor": "총무팀 신입 사원",
+              "event": "일반우편물 3통 수신, 영업부·인사부 우편함에 분류",
+              "note": "대장 기록 없음"
+            },
+            {
+              "time": "10:30",
+              "actor": "총무팀 신입 사원",
+              "event": "지사에서 온 행낭 수신(서류 봉투 2개), 재무부 우편함에 분류",
+              "note": "대장 기록 없음"
+            },
+            {
+              "time": "14:00",
+              "actor": "총무팀 신입 사원",
+              "event": "지사에서 온 행낭 수신(서류 봉투 1개), 행낭 수·발신 대장에 기록한 뒤 인사부 우편함에 분류",
+              "note": "대장 기록 있음"
+            },
+            {
+              "time": "16:20",
+              "actor": "총무팀 신입 사원",
+              "event": "영업부 계약 서류를 행낭으로 지사에 발신",
+              "note": "대장 기록 없음"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "총무팀장이 '신입 사원이 오늘 처리한 우편물 기록이 규정대로인지 확인해 줄래요?'라고 부탁했습니다. 메모의 문서 수발 규칙을 처리 기록의 각 건에 적용해 보고, 규칙대로 처리되지 않은 건을 모두 골라 건마다 빠진 절차를 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 규칙을 처리 기록 4건에 각각 적용해, 규칙대로 처리되지 않은 건을 시각으로 짚고 각 건에서 빠진 절차를 짧게 설명한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "규칙대로 처리되지 않은 건과 각 건에서 빠진 절차"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "10:30 행낭 수신 건은 행낭 수·발신 대장에 먼저 기록하지 않고 재무부 우편함에 분류했으므로, 대장 기록 절차가 빠졌다.",
+      "16:20 행낭 발신 건도 행낭으로 보내는 문서이므로 대장 기록 대상인데 기록 없이 지사로 보냈으므로, 대장 기록 절차가 빠졌다.",
+      "09:10 일반우편물 건은 대장 기록이 없지만 일반우편물은 부서별 우편함에 분류만 하면 되므로 규칙에 맞게 처리되었다."
+    ],
+    "rubric": [
+      {
+        "criterion": "행낭 수신 위반 건 찾기",
+        "description": "10:30 행낭 수신 건을 규칙대로 처리되지 않은 건으로 고르고, 부서별 우편함에 분류하기 전에 행낭 수·발신 대장 기록이 먼저 필요했다는 점을 밝혔는지 본다.",
+        "points": 35,
+        "linked_evidence": [
+          "행정, 관리 업무",
+          "사무"
+        ]
+      },
+      {
+        "criterion": "행낭 발신 위반 건 찾기",
+        "description": "16:20 행낭 발신 건도 대장 기록 대상임을 알고, 대장 기록 없이 발신한 건으로 빠짐없이 골랐는지 본다.",
+        "points": 35,
+        "linked_evidence": [
+          "행정, 관리 업무",
+          "정보 작성, 기록"
+        ]
+      },
+      {
+        "criterion": "일반우편물 건 구분하기",
+        "description": "09:10 일반우편물 건은 대장 기록 없이 부서별 우편함에 분류해도 규칙에 맞는다고 보고 위반으로 고르지 않았는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "정보 작성, 기록",
+          "사무"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "문서의 수발·관리, 4대 사회보험관리, 급여관리, 비품 및 차량의 관리, 각종 사내 행사를 계획·준비·집행하는데 관련된 업무를 수행한다.",
+      "source_ref": {
+        "file": "K000007517/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "자원 관리",
+          "score": 93,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 83,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 70,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보 작성, 기록",
+          "score": 63,
+          "description": "정보를 전자 또는 서면으로 작성, 기록, 저장, 관리하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "상사, 동료, 부하직원과 소통",
+          "score": 62,
+          "description": "상사, 동료, 부하직원에게 정보를 서면, 이메일 또는 직접 전달하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "재정 관리",
+          "score": 99,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "물적자원 관리",
+          "score": 99,
+          "description": "업무를 수행하는데 필요한 장비, 시설, 자재 등을 구매하고 관리한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "전산",
+          "score": 93,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "인사",
+          "score": 83,
+          "description": "채용, 훈련, 급여, 노사관계와 같은 인적자원관리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "경제와 회계",
+          "score": 81,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 81,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "불쾌하거나 무례한 사람 상대",
+          "score": 91,
+          "description": "불쾌하거나, 화나거나, 혹은 무례한 사람을 대하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 88,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 86,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "사무",
+          "행정, 관리 업무"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 작성, 기록",
+          "행정, 관리 업무"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007517/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007517/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.65,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.35,
+    "AX5": 0.0
+  }
+}

@@ -352,3 +352,39 @@ test("관심 직무: 비교할 직무를 고르고, 메모가 비교 담기 뒤�
   await expect(memoRow).toContainText("공모전");
   await expect(memoRow).toContainText("관심 저장 후 메모 가능");
 });
+
+// ── 미션 카탈로그 교체 뒤 회귀 테스트 ─────────────────────────
+test("미션이 빠진 직무로 저장된 결과도 다시 열린다", async ({ page }) => {
+  await stubExternal(page);
+  const errors = trackErrors(page);
+  // 데이터분석가 미션으로 결과를 내고, 저장된 결과(스냅샷)를 읽는다.
+  await page.goto(`/index.html?job=${JOB}`);
+  await page.locator("#btn-pnext").click();
+  await page.locator(".mc").first().click();
+  await page.locator("#btn-ml-start").click();
+  await page.locator("#m-ans").fill(ANSWER);
+  const completed = page.waitForResponse((res) => /\/api\/attempts\/[^/]+\/complete$/.test(new URL(res.url()).pathname) && res.ok());
+  await page.locator("#btn-mnext").click();
+  const attemptId = new URL((await completed).url()).pathname.split("/")[3];
+  await expect(page.locator("#btn-restart")).toBeVisible({ timeout: 30_000 });
+  const saved = await (await page.request.get(`/api/attempts/${attemptId}`)).json();
+
+  // 같은 결과를, 지금 카탈로그에 미션이 없는 직무(상품기획자)의 것으로 저장한다.
+  const GONE = "K000000997";
+  const boot = await (await page.request.get("/api/bootstrap")).json();
+  expect(boot.jobDefs.some((job: { job_code: string }) => job.job_code === GONE)).toBe(false);
+  const created = await page.request.post("/api/attempts", { data: { job_codes: [GONE] } });
+  const goneId = (await created.json()).attempt.id;
+  const snapshot = JSON.parse(JSON.stringify(saved.attempt.result_snapshot).split(JOB).join(GONE));
+  expect((await page.request.post(`/api/attempts/${goneId}/complete`, { data: { snapshot } })).status()).toBe(200);
+
+  await page.goto(`/index.html?attempt=${goneId}#simulation`);
+  await expect(page.locator("#btn-restart")).toBeVisible({ timeout: 30_000 });
+  await expect(page.locator("#result-status")).toContainText("저장된 결과를 다시 보는 중");
+  await expect(page.locator(".compat-row")).toHaveCount(1);
+  // 빠진 직무가 직무 선택 화면에 다시 나오지는 않는다
+  await page.locator("#btn-restart").click();
+  await expect(page.locator(".jc").first()).toBeVisible();
+  await expect(page.locator(`.jc[data-jc="${GONE}"]`)).toHaveCount(0);
+  expect(errors).toEqual([]);
+});

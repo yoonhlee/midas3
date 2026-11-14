@@ -1,0 +1,538 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000878_normal_001",
+  "job_identity": {
+    "job_cd": "K000000878",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "건축·토목공학 기술자 및 시험원",
+    "job_smcl_nm": "도시계획·설계가",
+    "source_ref": {
+      "file": "K000000878/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "도시와 지역의 기상·지형·지세·토지 이용 현황 및 각종 시설에 대하여 조사하고, 지역특성과 경제·사회적 자료 등을 분석하여 토지이용계획을 수립한다.",
+    "source_ref": {
+      "file": "K000000878/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "한별시 도시계획팀",
+    "domain": "도시계획 현황분석",
+    "period": [
+      "2026년 10월 기준"
+    ],
+    "trend_pattern": "북쪽 4개 구역은 토지 이용 현황, 초등학교·공원 개수, 인구가 구역마다 서로 다르다.",
+    "main_issue": "공원 같은 주민 생활시설을 보완할지 검토할 구역을 팀장이 정한 기준에 맞춰 골라야 한다.",
+    "feedback_themes": [
+      "토지 이용 현황",
+      "인구 규모",
+      "공원 유무"
+    ],
+    "decision_goal": "팀장 메모의 세 기준을 모두 충족하는 시설 보완 검토 구역을 고른다."
+  },
+  "mission": {
+    "title": "시설 보완 검토 구역 골라내기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "planning_and_proposal"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 한별시 도시계획팀 인턴입니다.",
+      "context": "한별시 도시계획팀은 내년 토지이용계획을 세우기 전에 북쪽 4개 구역의 현황분석을 하고 있습니다. 팀장님이 이 가운데 공원 같은 주민 생활시설을 보완할지 검토할 구역을 먼저 골라 달라며 기준을 적은 메모를 보내 주셨습니다. 구역별 현황표는 시 통계연보와 행정자료를 바탕으로 이미 정리되어 있습니다.",
+      "goal": "아래 팀장 메모와 구역별 현황표를 보고, 시설 보완 검토 구역에 해당하는 구역을 골라 그 이유를 적어 보세요.",
+      "constraints": [
+        "팀장 메모와 구역별 현황표에 있는 내용만 근거로 삼으세요.",
+        "현황표에 없는 시설이나 수치는 추측하지 마세요.",
+        "답은 2~3문장으로 짧게 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "현황분석",
+          "definition": "어떤 지역이 지금 어떤 상태인지(땅을 무엇에 쓰는지, 사람이 얼마나 사는지, 어떤 시설이 있는지)를 자료로 살펴보는 일입니다."
+        },
+        {
+          "term": "토지 이용 현황",
+          "definition": "지금 그 땅이 주로 무엇에 쓰이고 있는지를 정리한 것입니다. '주거 중심'은 주로 집이 모여 있다는 뜻이고, '상업 중심'은 주로 가게나 사무실이 모여 있다는 뜻입니다."
+        },
+        {
+          "term": "토지이용계획",
+          "definition": "앞으로 도시의 각 땅을 어떤 용도로 쓸지 정하는 계획입니다."
+        },
+        {
+          "term": "통계연보",
+          "definition": "시나 군이 해마다 인구, 시설 수 같은 통계를 모아 펴내는 자료집입니다."
+        },
+        {
+          "term": "시설 보완 검토 구역",
+          "definition": "공원 같은 주민 생활시설을 더 마련할지 따져 보기 위해 검토 대상으로 올리는 구역입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "instruction_memo",
+        "title": "도시계획팀 팀장 메모: 이번 현황분석의 시설 보완 검토 구역 선정 기준",
+        "description": "도시계획팀 팀장이 이번 현황분석을 앞두고 인턴에게 보낸 메모로, 시설 보완 검토 구역을 고르는 기준을 담고 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "현황표의 구역을 걸러 낼 선정 기준을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "범주화"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "도시계획팀 팀장",
+          "items": [
+            "주민 생활시설을 보는 현황분석이므로, 토지 이용 현황이 주거 중심인 구역 가운데서만 고릅니다.",
+            "그중 인구가 12,000명 이상인 구역만 포함합니다.",
+            "각종 시설 가운데 공원이 0곳인 구역을 시설 보완 검토 구역으로 정리합니다. 위 세 기준을 모두 충족해야 검토 구역에 올릴 수 있습니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "zone_status_table",
+        "title": "북쪽 4개 구역 현황표 (2026년 10월 기준)",
+        "description": "시 통계연보의 인구와 행정자료로 확인한 토지 이용 현황, 각종 시설(초등학교·공원 개수)을 구역별로 정리한 현황표입니다. 인구 단위는 명입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "각 구역의 토지 이용 현황, 시설 개수, 인구를 메모의 기준과 맞춰 보는 데 씁니다.",
+        "evidence_source": [
+          "정보, 자료 분석",
+          "범주화"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "구역"
+            },
+            {
+              "key": "strength",
+              "label": "토지 이용 현황"
+            },
+            {
+              "key": "weakness",
+              "label": "각종 시설"
+            },
+            {
+              "key": "priority",
+              "label": "인구(명)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "가 구역",
+              "strength": "주거 중심",
+              "weakness": "초등학교 1곳 · 공원 1곳",
+              "priority": 18400
+            },
+            {
+              "option": "나 구역",
+              "strength": "주거 중심",
+              "weakness": "초등학교 1곳 · 공원 0곳",
+              "priority": 15200
+            },
+            {
+              "option": "다 구역",
+              "strength": "상업 중심",
+              "weakness": "초등학교 0곳 · 공원 0곳",
+              "priority": 13500
+            },
+            {
+              "option": "라 구역",
+              "strength": "주거 중심",
+              "weakness": "초등학교 1곳 · 공원 0곳",
+              "priority": 6800
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장 메모의 기준으로 현황표의 4개 구역을 살펴보고, 시설 보완 검토 구역에 해당하는 구역을 골라 보세요. 고른 이유와 나머지 구역이 빠지는 이유를 기준에 비추어 2~3문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 세 기준(토지 이용 현황 주거 중심, 인구 12,000명 이상, 공원 0곳)을 네 구역에 모두 적용해 나 구역을 고르고, 가 구역은 공원이 1곳 있어서, 다 구역은 상업 중심이어서, 라 구역은 인구가 6,800명으로 기준에 못 미쳐서 빠진다는 점을 2~3문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "선정 구역과 기준에 비춘 이유"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "토지 이용 현황이 주거 중심이고, 인구가 12,000명 이상이며, 공원이 0곳이라는 세 기준을 모두 충족하는 구역은 나 구역 하나뿐이다.",
+      "다 구역은 공원이 없고 인구도 기준 이상이지만 상업 중심이므로, 일부 기준만 맞는 구역은 검토 구역에 넣지 않는다.",
+      "가 구역은 공원이 1곳 있어서, 다 구역은 토지 이용 현황이 상업 중심이어서, 라 구역은 인구가 6,800명으로 12,000명에 못 미쳐서 빠진다."
+    ],
+    "rubric": [
+      {
+        "criterion": "세 기준을 모두 적용한 구역 선정",
+        "description": "토지 이용 현황, 인구, 공원 개수라는 세 기준을 빠짐없이 적용해 나 구역만 골랐는지, 일부 기준만 맞는 가·다·라 구역을 함께 고르지 않았는지 확인한다.",
+        "points": 60,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "범주화"
+        ]
+      },
+      {
+        "criterion": "제외 구역의 이유 설명",
+        "description": "빠진 구역마다 어느 기준에 맞지 않는지(가 구역 공원 1곳, 다 구역 상업 중심, 라 구역 인구 6,800명)를 표의 항목이나 수치와 연결해 짧고 분명하게 썼는지 확인한다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보, 자료 분석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "도시와 지역의 기상·지형·지세·토지 이용 현황 및 각종 시설에 대하여 조사하고, 지역특성과 경제·사회적 자료 등을 분석하여 토지이용계획을 수립한다.",
+      "source_ref": {
+        "file": "K000000878/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "정보 수집",
+          "score": 94,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 92,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 88,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 88,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 87,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "공간지각력",
+          "score": 99,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 98,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "논리적 분석",
+          "score": 92,
+          "description": "문제를 해결하기 위해(혹은 의사결정을 하기 위해) 체계적으로 이치에 맞는 생각을 해낸다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "건축 및 설계",
+          "score": 97,
+          "description": "집, 빌딩, 혹은 도로를 만들고 수리하기 위해 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 92,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "지리",
+          "score": 91,
+          "description": "육지, 바다 그리고 하늘의 특성 및 상호관계에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 92,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 90,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 89,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "범주화"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보, 자료 분석",
+          "범주화"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000878/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000878/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.76,
+    "AX2": 0.06,
+    "AX3": 0.06,
+    "AX4": 0.06,
+    "AX5": 0.06
+  }
+}

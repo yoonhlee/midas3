@@ -1,0 +1,682 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007454_hard_001",
+  "job_identity": {
+    "job_cd": "K000007454",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "디자이너",
+    "job_smcl_nm": "의상디자이너",
+    "source_ref": {
+      "file": "K000007454/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "신제품을 개발하기 위하여 각종 국내외 패션 관련 자료를 통해 소재, 색상 등의 시장 경향을 분석·파악한다.",
+    "source_ref": {
+      "file": "K000007454/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "온새미 여성복",
+    "domain": "여성복 신제품 기획을 위한 소재·색상 시장 경향 분석",
+    "period": [
+      "2025 봄·여름",
+      "2026 봄·여름",
+      "2027 봄·여름"
+    ],
+    "trend_pattern": "2027 봄·여름 국내 트렌드 정보지와 해외 컬렉션 자료에 소개된 셔츠형 블라우스 후보 소재·색상 조합 4개의 내용과, 지난 두 시즌 셔츠형 블라우스의 소재·색상별 판매 수량",
+    "main_issue": "후보 조합마다 국내 자료, 해외 자료, 과거 판매 기록에 나타나는 모습이 서로 달라 신제품 조합을 하나로 정해야 한다",
+    "feedback_themes": [
+      "국내 트렌드 정보지의 소개 내용",
+      "해외 컬렉션 자료의 소개 내용과 등장 브랜드 수",
+      "같은 소재·색상의 과거 판매 수량",
+      "지난 시즌 판매 조합을 그대로 내지 않는다는 조건"
+    ],
+    "decision_goal": "2027 봄·여름 신제품 셔츠형 블라우스에 쓸 소재·색상 조합 1개를 정한다"
+  },
+  "mission": {
+    "title": "국내외 트렌드와 판매 기록으로 신제품 블라우스 소재·색상 고르기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "planning_and_proposal"
+    ],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "온새미 여성복 디자인팀 인턴",
+      "context": "당신은 여성복 브랜드 '온새미' 디자인팀의 인턴입니다. 팀은 2027 봄·여름 시즌에 새로 낼 셔츠형 블라우스를 기획하고 있습니다. 디자인 실장님이 국내 트렌드 정보지, 해외 컬렉션 자료, 과거 판매 자료를 함께 살펴보고 블라우스에 쓸 소재와 색상 조합을 정리해 달라고 요청했습니다.",
+      "goal": "아래 자료 3개를 서로 대조해 후보 소재·색상 조합마다 시장 경향과 판매 반응을 분석하고, 그 결과로 신제품에 쓸 조합 1개를 이유와 주의점과 함께 추천해 보세요.",
+      "constraints": [
+        "자료 1~3에 적힌 내용만 근거로 쓰세요. 외부 검색이나 전문 지식은 필요하지 않습니다.",
+        "디자인 실장 메모(자료 1)의 조건을 지켜 판단하세요.",
+        "판매 수량과 브랜드 수는 표에 적힌 숫자를 그대로 비교하면 됩니다.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "트렌드 정보지",
+          "definition": "패션정보회사 등이 시즌마다 유행할 색상, 소재, 스타일 같은 패션 흐름을 조사해 정리한 자료입니다. 이 미션에서는 국내 시장의 흐름을 소개한 정보지를 말합니다."
+        },
+        {
+          "term": "컬렉션 자료",
+          "definition": "디자이너나 브랜드가 패션쇼 등에서 새 시즌 옷을 한꺼번에 선보인 것(컬렉션)을 사진과 설명으로 정리한 자료입니다. 이 미션에서는 해외 브랜드들이 선보인 컬렉션을 정리한 자료를 말합니다."
+        },
+        {
+          "term": "편집숍",
+          "definition": "한 브랜드가 아니라 여러 브랜드의 상품을 운영자가 골라 한곳에 모아 파는 가게입니다."
+        },
+        {
+          "term": "시장 경향",
+          "definition": "시장에서 어떤 소재, 색상, 스타일이 많이 소개되고 쓰이는지 보여 주는 흐름입니다."
+        },
+        {
+          "term": "셔츠형 블라우스",
+          "definition": "셔츠처럼 칼라와 앞단추가 있는 여성용 블라우스입니다."
+        },
+        {
+          "term": "린넨 혼방",
+          "definition": "린넨(아마 식물의 섬유로 짠 천)에 다른 섬유를 섞어 만든 소재입니다."
+        },
+        {
+          "term": "시폰",
+          "definition": "얇고 가벼우며 살짝 비치는 천입니다."
+        },
+        {
+          "term": "리사이클 폴리에스터",
+          "definition": "버려진 페트병이나 헌 옷감 등을 재활용해 만든 폴리에스터(합성섬유) 소재입니다."
+        },
+        {
+          "term": "코튼 포플린",
+          "definition": "면실을 촘촘하게 짜서 표면이 매끈하고 탄탄한 면 소재입니다."
+        },
+        {
+          "term": "뉴트럴 색상",
+          "definition": "흰색, 아이보리, 베이지, 회색처럼 강하지 않고 차분해 다른 색과 두루 어울리는 색상입니다."
+        },
+        {
+          "term": "오프화이트",
+          "definition": "순백색보다 살짝 노르스름하거나 회색빛이 도는 흰색입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "design_request_memo",
+        "title": "디자인 실장 메모: 2027 봄·여름 신제품 소재·색상 조합 선정 요청",
+        "description": "온새미 여성복 디자인 실장이 디자인팀에 보낸, 신제품 셔츠형 블라우스의 소재·색상 조합을 정할 때 지킬 조건을 적은 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "후보 조합을 분석하고 하나를 고를 때 적용할 조건을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "의사 결정, 문제점 해결"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "온새미 여성복 디자인 실장",
+          "items": [
+            "2027 봄·여름 신제품 셔츠형 블라우스에 쓸 소재·색상 조합 1개를 정해 주세요.",
+            "국내 트렌드 정보지와 해외 컬렉션 자료에 함께 나타나는 시장 경향을 우선하고, 과거 판매 자료로 같은 소재·색상에 대한 소비자 반응을 확인해 주세요.",
+            "지난 시즌(2026 봄·여름)에 판매한 소재·색상 조합을 그대로 신제품으로 내지는 않습니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "trend_comparison_table",
+        "title": "2027 봄·여름 국내외 트렌드 정보: 셔츠형 블라우스 후보 소재·색상 조합",
+        "description": "국내 트렌드 정보지와 해외 컬렉션 자료에서 셔츠형 블라우스 후보 조합 4개에 관한 내용을 옮겨 적은 표입니다. 마지막 열은 해외 컬렉션에서 해당 조합을 선보인 브랜드 수(개)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "후보마다 국내 자료와 해외 자료에 경향이 함께 나타나는지 비교하는 데 쓴다.",
+        "evidence_source": [
+          "정보 수집",
+          "사물, 행동, 사건 파악"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "후보 조합(소재·색상)"
+            },
+            {
+              "key": "strength",
+              "label": "국내 트렌드 정보지"
+            },
+            {
+              "key": "weakness",
+              "label": "해외 컬렉션 자료"
+            },
+            {
+              "key": "priority",
+              "label": "해외 컬렉션 등장 브랜드 수(개)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "린넨 혼방·오프화이트",
+              "strength": "자연스러운 질감의 소재와 밝은 뉴트럴 색상을 주요 경향으로 소개",
+              "weakness": "셔츠·블라우스에 자주 사용",
+              "priority": 14
+            },
+            {
+              "option": "시폰·민트",
+              "strength": "편집숍 상품 중심으로 일부 소개",
+              "weakness": "비치는 소재와 파스텔 색상이 핵심 경향",
+              "priority": 18
+            },
+            {
+              "option": "리사이클 폴리에스터·버터 옐로",
+              "strength": "친환경 이슈와 함께 신규 색상으로 소개",
+              "weakness": "일부 브랜드에서 사용",
+              "priority": 7
+            },
+            {
+              "option": "코튼 포플린·스카이 블루",
+              "strength": "기본 소재·색상으로 꾸준히 소개",
+              "weakness": "언급 적음",
+              "priority": 4
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "past_sales_record",
+        "title": "과거 판매 자료(셔츠형 블라우스)",
+        "description": "지난 두 시즌(2025·2026 봄·여름)에 판매한 셔츠형 블라우스 전체를 시즌, 소재, 색상별 판매 수량(장)으로 정리한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "후보 조합과 같은 소재·색상의 판매 수량을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "정보 수집",
+          "사물, 행동, 사건 파악"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "시즌"
+            },
+            {
+              "key": "strength",
+              "label": "소재"
+            },
+            {
+              "key": "weakness",
+              "label": "색상"
+            },
+            {
+              "key": "priority",
+              "label": "판매 수량(장)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "2025 봄·여름",
+              "strength": "린넨 혼방",
+              "weakness": "베이지",
+              "priority": 1100
+            },
+            {
+              "option": "2026 봄·여름",
+              "strength": "린넨 혼방",
+              "weakness": "베이지",
+              "priority": 700
+            },
+            {
+              "option": "2026 봄·여름",
+              "strength": "코튼 포플린",
+              "weakness": "스카이 블루",
+              "priority": 1300
+            },
+            {
+              "option": "2026 봄·여름",
+              "strength": "시폰",
+              "weakness": "라벤더",
+              "priority": 380
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "자료 1의 조건에 맞춰, 자료 2의 후보 조합 4개를 자료 3의 판매 기록과 대조해 보세요. 후보마다 국내 트렌드 정보지와 해외 컬렉션 자료에 경향이 함께 나타나는지, 같은 소재나 색상의 판매 반응은 어떤지를 분석해 3~5문장으로 써 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "후보 4개 각각에 대해 국내·해외 자료의 경향이 함께 나타나는지와 같은 소재·색상의 판매 반응을 자료에서 찾아 분석한다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 분석 결과를 바탕으로 신제품 셔츠형 블라우스에 쓸 소재·색상 조합 1개를 추천하세요. 다른 후보보다 그 조합이 나은 이유와, 그 조합을 택할 때 조심해야 할 점 1가지를 함께 3~5문장으로 써 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "과제 1의 결과와 자료 1의 조건을 근거로 조합 1개를 고르고, 다른 후보와 견준 이유와 그 조합에 남는 주의점 1가지를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 후보별 시장 경향과 판매 반응 분석",
+        "과제 2: 추천 조합과 이유, 주의점 1가지"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "린넨 혼방·오프화이트는 국내 트렌드 정보지와 해외 컬렉션 자료 양쪽에서 주요 경향으로 나타나고 해외 등장 브랜드 수가 14이지만, 같은 소재인 린넨 혼방 블라우스 판매는 2025 봄·여름 1100장에서 2026 봄·여름 700장으로 줄었다.",
+      "시폰·민트는 해외 등장 브랜드 수가 18로 가장 많지만 국내에서는 편집숍 상품 중심으로 일부만 소개되었고, 같은 소재인 시폰 블라우스 판매는 380장으로 적었다.",
+      "리사이클 폴리에스터·버터 옐로는 국내에서 친환경 이슈와 함께 신규 색상으로 소개되었지만 해외에서는 일부 브랜드(7)만 썼고, 같은 소재·색상의 판매 기록이 없어 소비자 반응을 확인할 수 없다.",
+      "코튼 포플린·스카이 블루는 판매가 1300장으로 가장 많지만 해외 컬렉션 언급이 적고(4), 2026 봄·여름에 판매한 조합과 같아 자료 1 항목 3에 따라 신제품으로 그대로 낼 수 없다.",
+      "예시: 린넨 혼방·오프화이트를 추천하고, 국내 트렌드 정보지와 해외 컬렉션 자료가 함께 주요 경향으로 다루며 해외 등장 브랜드 수도 14로 많아 자료 1 항목 2에 가장 잘 맞는다는 이유를 든다. 주의점으로는 같은 소재인 린넨 혼방 블라우스 판매가 1100장에서 700장으로 줄어 소비자 반응이 약해지고 있을 수 있다는 점을 쓴다.",
+      "시폰·민트나 리사이클 폴리에스터·버터 옐로를 고른 답도 다른 후보와 견준 이유가 자료로 뒷받침되고 그 조합에 해당하는 위험을 자료에서 들면 인정한다. 코튼 포플린·스카이 블루는 자료 1 항목 3에 어긋나 추천 이유가 성립하지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "후보별 시장 경향과 판매 반응 분석",
+        "description": "과제 1에서 네 후보 각각에 대해 국내 트렌드 정보지와 해외 컬렉션 자료에 경향이 함께 나타나는지, 같은 소재·색상의 판매 반응이 어떤지를 자료와 맞게 썼는지 본다. 린넨 혼방·오프화이트는 국내외 모두 주요 경향이지만 같은 소재 판매가 1100장에서 700장으로 줄었고, 시폰·민트는 해외 등장 브랜드 수가 18로 가장 많지만 국내 소개가 편집숍 중심이며 같은 소재 판매가 380장이고, 리사이클 폴리에스터·버터 옐로는 국내에서 신규 색상으로 주목받고 해외는 일부(7)이며 판매 기록이 없고, 코튼 포플린·스카이 블루는 판매가 1300장으로 가장 많지만 해외 언급이 적고 그 판매가 지난 시즌에 판 같은 조합의 기록이다. 네 후보 모두에 대해 국내외 일치 여부와 판매 반응을 맞게 다루면 만점, 일부 후보나 한쪽 측면이 빠지거나 잘못 읽으면 빠진 정도에 따라 부분 점수를 준다.",
+        "points": 40,
+        "linked_evidence": [
+          "사물, 행동, 사건 파악",
+          "정보 수집"
+        ]
+      },
+      {
+        "criterion": "추천 조합과 다른 후보에 견준 이유",
+        "description": "과제 2에서 추천한 조합 1개와 그 이유를 본다. 특정 조합을 정답으로 요구하지 않는다. 이유가 과제 1의 결과와 자료에 근거해, 자료가 보여 주는 다른 후보들보다 그 조합이 나은 까닭을 보여 주면 만점을 준다. 자료의 맞는 사실을 적었더라도 다른 후보와 견주어 왜 더 나은지 보이지 못하면 부분 점수만 준다. 코튼 포플린·스카이 블루는 자료 1 항목 3(지난 시즌 조합을 그대로 내지 않음)에 어긋나므로 이를 고른 답은 이유가 성립하지 않는 것으로 본다. 예: 린넨 혼방·오프화이트를 고르고, 국내외 자료 양쪽에서 주요 경향으로 소개되고 해외 등장 브랜드 수도 14로 많아 자료 1 항목 2에 가장 잘 맞는다고 쓴 답.",
+        "points": 35,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결"
+        ]
+      },
+      {
+        "criterion": "추천 조합의 주의점",
+        "description": "과제 2에서 쓴 주의점 1가지가 추천한 조합에 대해 자료가 보여 주는 실제 위험이나 한계이면 점수를 준다. 예: 린넨 혼방·오프화이트를 고른 경우 같은 소재인 린넨 혼방 블라우스 판매가 1100장에서 700장으로 줄어 소비자 반응이 약해지고 있을 수 있다는 점. 리사이클 폴리에스터·버터 옐로를 고른 경우 판매 기록이 없어 소비자 반응을 확인할 수 없다는 점, 시폰·민트를 고른 경우 국내 소개가 편집숍 중심이고 같은 소재 판매가 380장으로 적다는 점처럼 고른 조합에 해당하는 위험도 인정한다. 자료에 없는 위험이나 고른 조합과 무관한 내용은 점수를 주지 않는다.",
+        "points": 25,
+        "linked_evidence": [
+          "의사 결정, 문제점 해결"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "신제품을 개발하기 위하여 각종 국내외 패션 관련 자료를 통해 소재, 색상 등의 시장 경향을 분석·파악한다.",
+      "source_ref": {
+        "file": "K000007454/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 100,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007454/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사 결정, 문제점 해결",
+          "score": 94,
+          "description": "가장 좋은 해결책을 선택하기 위해 정보를 분석하고 문제점을 해결하기 위해 결과를 평가하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007454/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 93,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007454/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사물, 서비스, 사람의 질 판단",
+          "score": 92,
+          "description": "사물, 사람의 가치, 중요성, 질을 평가하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007454/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 91,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007454/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 97,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007454/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "시력",
+          "score": 82,
+          "description": "먼 곳이나 가까운 것을 보기 위해 눈을 사용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007454/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상",
+          "score": 81,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007454/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "예술",
+          "score": 98,
+          "description": "음악, 무용, 미술, 드라마에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007454/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "디자인",
+          "score": 98,
+          "description": "밑그림, 제도와 같이 디자인에 필요한 기법 및 도구에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007454/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "상품 제조 및 공정",
+          "score": 86,
+          "description": "상품의 제조 및 유통을 효율적으로 하기 위해 필요한 원자재, 제조공정, 품질관리, 비용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007454/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 89,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007454/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 88,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007454/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 88,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007454/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "의사 결정, 문제점 해결"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 수집",
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "정보 수집",
+          "사물, 행동, 사건 파악"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007454/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007454/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007454/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007454/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007454/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.2,
+    "AX2": 0.2,
+    "AX3": 0.6,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

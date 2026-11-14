@@ -28,8 +28,9 @@ npm run test:unit
 npm run test:e2e            # 기존 smoke
 npm run test:e2e:postings   # 채용공고 지도
 npm run test:e2e:features   # 탐색·로그인·기록·재도전
+npm run test:e2e:admin      # 관리자 미션 생성 화면
 ```
-- 외부 API 없이 돌리려면 `EVAL_MODE=fake`(가짜 채점), `POSTINGS_FIXTURE=1`(가짜 공고), `AUTH_DEV_LOGIN=true`(개발용 로그인)를 쓴다. 셋 다 운영(APP_ENV=production)에서는 쓰지 않는다.
+- 외부 API 없이 돌리려면 `EVAL_MODE=fake`(가짜 채점), `POSTINGS_FIXTURE=1`(가짜 공고), `AUTH_DEV_LOGIN=true`(개발용 로그인), `ADMIN_GENERATION_MODE=fake`(가짜 생성)를 쓴다. 넷 다 운영(APP_ENV=production)에서는 쓰지 않는다.
 - 같은 검사가 GitHub Actions(`.github/workflows/ci.yml`)에서도 돈다.
 
 ## 5. 커밋·문서

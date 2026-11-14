@@ -1,0 +1,645 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000956_hard_001",
+  "job_identity": {
+    "job_cd": "K000000956",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "건축·토목공학 기술자 및 시험원",
+    "job_smcl_nm": "건축구조기술자",
+    "source_ref": {
+      "file": "K000000956/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "건물의 용도와 공간 형태를 고려하여 경제적이고 안전하며 공간 이용 효율성이 높은 구조시스템을 선정한다.",
+    "source_ref": {
+      "file": "K000000956/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "바른틀구조설계",
+    "domain": "건축 구조설계 - 지상 5층 신축 임대 업무시설의 구조시스템 선정",
+    "period": [
+      "2027년 3월~2028년 2월 공사",
+      "2028년 3월 입주"
+    ],
+    "trend_pattern": "후보 3안의 골조 공사비는 26억~35억 원, 골조공사 기간은 4~7개월로 서로 다르다.",
+    "main_issue": "건축주가 정한 용도·공간 형태·존치 기간·골조 공사비 예산·입주일 조건과 공정계획의 골조공사 가능 기간에 맞춰 후보 3안 가운데 구조시스템 한 가지를 골라야 한다.",
+    "feedback_themes": [
+      "입주사가 바뀔 때마다 칸막이를 다시 배치하는 개방형 사무공간",
+      "골조 공사비 예산 32억 원과 초과 시 이사회 추가 예산 승인",
+      "바꿀 수 없는 2028년 3월 입주일"
+    ],
+    "decision_goal": "건축주 측에 제안할 구조시스템 한 가지와 그 이유, 주의점 한 가지를 정리한다."
+  },
+  "mission": {
+    "title": "임대 오피스 구조시스템, 어떤 안을 제안할까?",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "바른틀구조설계 구조설계팀에 새로 합류한 구조설계 담당자",
+      "context": "당신은 바른틀구조설계 구조설계팀에 새로 합류한 구조설계 담당자입니다. 팀이 맡은 지상 5층 신축 임대 업무시설의 구조시스템을 정해야 합니다. 건축주 측 사업 담당자가 조건을 이메일로 보내왔고, 구조팀 선임은 후보 3안의 1차 검토 결과를 정리해 보냈습니다. 공정계획표에는 골조공사를 할 수 있는 기간이 나와 있습니다. 팀장은 “세 자료를 맞춰 보고 건축주 측에 어떤 안을 제안할지 정리해 줘요.”라고 요청했습니다.",
+      "goal": "아래 자료를 보고 후보 3안이 건축주 조건과 공정계획을 얼마나 충족하는지 확인한 뒤, 건축주 측에 제안할 구조시스템 한 가지와 그 이유, 주의점을 적어 보세요.",
+      "constraints": [
+        "자료에 나온 조건과 숫자만 사용하세요. 계산은 금액 빼기와 개월 수 세기 정도면 충분합니다.",
+        "세 후보의 구조 안전성(바람과 지진에 대한 검토)은 선임의 1차 검토에서 확인되었으므로 다시 따지지 않습니다.",
+        "답은 과제마다 3~5문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "구조시스템",
+          "definition": "건물의 무게와 바람, 지진 같은 힘을 받아 땅으로 전달하는 뼈대의 짜임 전체. 이 미션에서는 구조재료와 골조방식을 함께 묶어 부르는 말이다."
+        },
+        {
+          "term": "구조재료",
+          "definition": "건물 뼈대를 만드는 주된 재료. 이 미션에서는 철근콘크리트조와 강구조가 나온다."
+        },
+        {
+          "term": "골조방식",
+          "definition": "건물 뼈대(골조)를 어떤 형식으로 짜서 힘을 버티게 할지 정한 방식. 이 미션에서는 라멘구조와 전단벽식 구조가 나온다."
+        },
+        {
+          "term": "철근콘크리트조",
+          "definition": "철근을 넣은 틀에 콘크리트를 부어 굳혀서 기둥, 보, 바닥, 벽 같은 뼈대를 만드는 구조."
+        },
+        {
+          "term": "강구조",
+          "definition": "강철로 만든 기둥과 보(철골)를 이어서 건물 뼈대를 만드는 구조."
+        },
+        {
+          "term": "라멘구조",
+          "definition": "기둥과 보를 단단하게 이어 붙여 만든 뼈대가 건물의 무게와 옆으로 미는 힘을 함께 버티는 골조방식."
+        },
+        {
+          "term": "전단벽식 구조",
+          "definition": "건물 안에 세운 튼튼한 벽(전단벽)이 바람이나 지진처럼 옆으로 미는 힘을 주로 버티는 골조방식."
+        },
+        {
+          "term": "수평하중",
+          "definition": "바람(풍하중)이나 지진(지진하중)처럼 건물을 옆으로 미는 힘."
+        },
+        {
+          "term": "건축구조기준",
+          "definition": "건물이 자기 무게와 바람, 지진 같은 힘을 안전하게 견디도록 구조를 설계할 때 따르는 기준."
+        },
+        {
+          "term": "건축물의 존치 기간",
+          "definition": "건물을 헐지 않고 계속 쓸 것으로 계획한 기간."
+        },
+        {
+          "term": "개방형 사무공간",
+          "definition": "한 층을 넓게 트인 공간으로 두고, 필요한 만큼 칸막이를 세워 나눠 쓰는 사무실."
+        },
+        {
+          "term": "골조공사",
+          "definition": "기둥, 보, 바닥, 벽 같은 건물 뼈대를 세우는 공사."
+        },
+        {
+          "term": "콘크리트 타설",
+          "definition": "틀(거푸집) 안에 콘크리트를 부어 넣는 작업."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "client_request",
+        "title": "건축주 조건 이메일: 신축 업무시설 구조시스템 선정 조건 전달",
+        "description": "건축주 측 사업 담당자가 구조설계 담당자에게 보낸 이메일로, 구조시스템을 고를 때 반영해야 할 건물 조건이 적혀 있다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 후보마다 골조 공사비 예산과 칸막이 재배치 조건을 확인하고, 과제 2에서 제안의 기준으로 삼는다.",
+        "evidence_source": [
+          "건축 및 설계",
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "건축주 측 사업 담당자",
+              "to": "바른틀구조설계 구조설계 담당자",
+              "subject": "신축 업무시설 구조시스템 선정 조건 전달",
+              "body": "안녕하세요, 건축주 측 사업 담당자입니다.\n이번 신축 건물의 구조시스템을 정하실 때 아래 조건을 반영해 주시기 바랍니다.\n① 건축물의 용도는 지상 5층 임대 업무시설(사무실)입니다.\n② 입주사가 바뀔 때마다 각 층의 칸막이 위치를 다시 배치할 수 있는 개방형 사무공간이어야 합니다.\n③ 건축물의 존치 기간은 40년 이상으로 계획하고 있습니다.\n④ 골조 공사비 예산은 32억 원입니다. 이 금액을 넘으면 이사회의 추가 예산 승인을 받아야 합니다.\n⑤ 2028년 3월 입주일은 바꿀 수 없습니다.\n검토하신 뒤 제안 주시면 감사하겠습니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "email",
+        "subtype": "internal_review_result",
+        "title": "후보 검토 이메일: 구조시스템 후보 3안 1차 검토 결과",
+        "description": "구조팀 선임이 구조설계 담당자에게 보낸 이메일로, 후보 3안의 구조재료, 골조방식, 골조 공사비, 골조공사 기간, 내부 평면 특성이 적혀 있다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 후보마다 공사비, 공사 기간, 칸막이 변경 가능 여부를 조건과 맞춰 보고, 과제 2에서 후보끼리 견주는 데 쓴다.",
+        "evidence_source": [
+          "건축 및 설계",
+          "산수와 수학"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "구조팀 선임",
+              "to": "바른틀구조설계 구조설계 담당자",
+              "subject": "구조시스템 후보 3안 1차 검토 결과",
+              "body": "후보 3안을 1차로 검토한 결과를 공유합니다.\n세 안 모두 건축구조기준에 따른 수평하중(풍하중, 지진하중) 검토를 만족했습니다.\n- A안: 구조재료 철근콘크리트조, 골조방식 라멘구조 / 골조 공사비 30억 원 / 골조공사 기간 7개월 / 내부 벽 없이 기둥과 보로 구성되어 칸막이 위치 변경 가능\n- B안: 구조재료 철근콘크리트조, 골조방식 전단벽식 구조 / 골조 공사비 26억 원 / 골조공사 기간 6개월 / 각 층 내부에 전단벽이 고정 배치되어 칸막이 위치 변경이 제한됨\n- C안: 구조재료 강구조, 골조방식 라멘구조 / 골조 공사비 35억 원 / 골조공사 기간 4개월 / 기둥과 보로 구성되어 칸막이 위치 변경 가능\n건축주 조건과 공정계획에 맞춰 보는 일은 담당자님께 부탁드립니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "schedule",
+        "subtype": "construction_schedule",
+        "title": "신축 업무시설 공정계획표(전체 공사기간 2027년 3월~2028년 2월)",
+        "description": "이 건물의 2027~2028년 공정계획으로, 기간마다 진행할 작업과 지켜야 할 제약이 적혀 있다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 후보마다 골조공사 기간이 골조공사 가능 기간 안에 들어가는지 개월 수로 맞춰 보고, 과제 2에서 일정 위험을 따지는 데 쓴다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "산수와 수학"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "main_issue"
+        ],
+        "data": {
+          "items": [
+            {
+              "period": "2027년 3월~4월",
+              "task": "기초공사",
+              "constraint": "기초공사가 끝난 뒤에만 골조공사를 시작할 수 있음"
+            },
+            {
+              "period": "2027년 5월~11월",
+              "task": "골조공사 가능 기간",
+              "constraint": "12월~2월 동절기에는 콘크리트 타설을 할 수 없음"
+            },
+            {
+              "period": "2027년 12월~2028년 2월",
+              "task": "마감·설비공사",
+              "constraint": "2028년 3월 입주일은 변경 불가"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_1",
+        "instruction": "후보 검토 이메일(자료 2)의 A·B·C안 각각이 건축주 조건 이메일(자료 1)의 골조 공사비 예산과 칸막이 재배치 요구, 공정계획표(자료 3)의 골조공사 가능 기간을 충족하는지 조건별로 확인해 보세요. 예산과 기간은 남거나 모자라는 정도(억 원, 개월)도 함께 적어 3~5문장으로 정리하세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "세 후보를 예산, 칸막이 재배치, 골조공사 가능 기간 조건에 하나씩 맞춰 보고 충족 여부와 남거나 모자라는 정도를 적는다."
+      },
+      {
+        "task_id": "task_2",
+        "instruction": "과제 1의 결과를 바탕으로 건축주 측에 제안할 구조시스템 한 가지를 A·B·C안 중에서 정해 보세요. 그 안이 다른 안보다 나은 이유와, 그 안을 택할 때의 주의점 한 가지를 함께 3~5문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "제안할 안 한 가지를 정하고, 다른 안과 견준 이유와 그 안의 주의점 한 가지를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 후보별 조건 확인",
+        "과제 2: 제안안과 이유, 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1의 판정은 자료로 하나로 정해진다. A안은 골조 공사비 30억 원으로 예산 안(2억 원 여유)이고 칸막이 위치 변경이 가능하며, 골조공사 7개월이 골조공사 가능 기간 7개월(5월~11월)에 여유 없이 맞는다.",
+      "B안은 골조 공사비 26억 원(6억 원 여유)과 골조공사 6개월(1개월 여유)은 충족하지만, 각 층 내부에 전단벽이 고정되어 있어 입주사가 바뀔 때마다 칸막이를 다시 배치해야 한다는 요구를 충족하지 못한다. 공사비가 가장 낮아 끌리기 쉬운 안이다.",
+      "C안은 칸막이 위치 변경이 가능하고 골조공사 4개월로 가능 기간에 3개월 여유가 있지만, 골조 공사비 35억 원으로 예산을 3억 원 넘어 이사회의 추가 예산 승인이 필요하다.",
+      "A안과 C안 사이에는 예산 여유와 공사기간 여유를 맞바꾸는 판단이 남아 있으므로 과제 2는 하나의 정답을 정하지 않는다. 구조 안전성은 세 안 모두 1차 검토를 만족했으므로 비교 대상이 아니다.",
+      "예시: A안을 제안한다. 추가 예산 승인 없이 예산, 칸막이 재배치, 골조공사 가능 기간 조건을 모두 충족하고, B안과 달리 칸막이를 다시 배치할 수 있으며 C안과 달리 예산 안에 든다. 주의점은 골조공사 7개월이 가능 기간을 여유 없이 채워, 공사가 늦어지면 12월~2월 동절기에는 콘크리트 타설을 할 수 없어 마감·설비공사와 2028년 3월 입주일이 위협받는다는 점이다.",
+      "예시: C안을 제안하는 경우, 칸막이 재배치가 가능하고 공사기간에 3개월 여유가 있어 바꿀 수 없는 입주일을 지키기 쉬우므로 3억 원 추가 예산을 감수할 만하다는 이유를 들 수 있다. 주의점은 예산을 3억 원 넘어 이사회의 추가 예산 승인을 받아야 한다는 점이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "후보별 조건 충족 판정",
+        "description": "과제 1에서 A·B·C안마다 골조 공사비 예산, 칸막이 재배치, 골조공사 가능 기간 세 조건의 충족 여부를 자료대로 판정했는지 본다. 자료로 정해지는 판정: A안은 세 조건 모두 충족(기간은 여유 없이 맞음), B안은 예산과 기간은 충족하지만 내부 전단벽 때문에 칸막이 재배치 요구를 충족하지 못함, C안은 칸막이와 기간은 충족하지만 예산을 넘음. 세 후보의 판정이 모두 맞으면 만점, 일부만 맞으면 맞은 만큼 부분 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "건축 및 설계"
+        ]
+      },
+      {
+        "criterion": "남거나 모자라는 정도",
+        "description": "과제 1에서 예산과 기간에 대해 남거나 모자라는 정도를 금액과 개월로 맞게 적었는지 본다. 기준: 예산 32억 원 대비 A안 2억 원 여유, B안 6억 원 여유, C안 3억 원 초과 / 골조공사 가능 기간 7개월(5월~11월) 대비 A안 여유 없음, B안 1개월 여유, C안 3개월 여유. 모두 맞으면 만점, 일부가 틀리거나 빠지면 부분 점수를 준다.",
+        "points": 15,
+        "linked_evidence": [
+          "산수와 수학",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "제안안과 비교 이유",
+        "description": "과제 2에서 고른 안의 이유가 과제 1 결과와 자료에 근거해, 자료에 나온 다른 안과 견주어 그 안이 왜 더 나은지를 보여 주는지 본다. 특정 안을 정답으로 요구하지 않는다. 자료의 참인 사실을 적었더라도 다른 안보다 나은 까닭을 보여 주지 못하면 부분 점수만 준다. B안을 고른 경우에는 칸막이 재배치 요구를 충족하지 못하는 점을 넘어설 근거를 자료에서 제시했는지 본다. 예: A안을 골라 추가 예산 승인 없이 세 조건을 모두 충족하고, B안과 달리 칸막이 재배치가 가능하며 C안과 달리 예산 안에 든다는 점을 든 답.",
+        "points": 35,
+        "linked_evidence": [
+          "사람들에게 조언, 상담",
+          "건축 및 설계"
+        ]
+      },
+      {
+        "criterion": "선택안의 주의점",
+        "description": "과제 2에서 적은 주의점 한 가지가 자료에 드러난, 고른 안의 실제 위험이나 한계인지 본다. 고른 안과 관계없는 위험이나 자료에 없는 위험은 인정하지 않는다. 예: A안이면 골조공사 7개월이 가능 기간을 여유 없이 채워, 공사가 늦어지면 12월~2월 동절기 콘크리트 타설 불가 때문에 마감·설비공사와 2028년 3월 입주일이 위협받는다는 점. C안이면 예산을 3억 원 넘어 이사회의 추가 예산 승인을 받아야 한다는 점.",
+        "points": 25,
+        "linked_evidence": [
+          "사람들에게 조언, 상담",
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "건물의 용도와 공간 형태를 고려하여 경제적이고 안전하며 공간 이용 효율성이 높은 구조시스템을 선정한다.",
+      "source_ref": {
+        "file": "K000000956/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 99,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 97,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 96,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 96,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 95,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "공간지각력",
+          "score": 99,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "기술 설계",
+          "score": 99,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설치",
+          "score": 98,
+          "description": "작업 지시서에 따라 장비, 도구, 배선, 프로그램을 설치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "건축 및 설계",
+          "score": 99,
+          "description": "집, 빌딩, 혹은 도로를 만들고 수리하기 위해 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "물리",
+          "score": 96,
+          "description": "공기, 물, 빛, 열, 전기이론 및 자연현상에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 94,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 97,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 87,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "공문, 문서 주고받기",
+          "score": 86,
+          "description": "업무 수행하면서 공문이나 문서를 주고받는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "건축 및 설계",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "건축 및 설계",
+          "산수와 수학"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "산수와 수학"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000956/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000956/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.46,
+    "AX2": 0.06,
+    "AX3": 0.06,
+    "AX4": 0.06,
+    "AX5": 0.36
+  }
+}

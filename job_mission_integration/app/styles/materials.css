@@ -1,0 +1,92 @@
+/* 미션 자료(표 · 차트 · 기록 · 메모 · 이메일 · 일정표 · 체크리스트 · 선택지 카드) 스타일. index.html에서 떼어 냈고, 관리자 화면의 미리보기도 같이 쓴다. */
+/* 색 변수(--bg, --bg3, --b0, --t1, --a 등)는 이 파일을 거는 페이지가 정한다. */
+
+/* MATERIALS */
+.materials{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
+.mat-hdr{font-size:12px;font-weight:600;color:var(--a);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.material{background:var(--bg3);border:1px solid var(--b0);border-radius:8px;padding:14px 16px}
+.mat-title{font-size:13px;font-weight:700;color:var(--t1);margin-bottom:4px}
+.mat-desc{font-size:12px;color:var(--t3);margin-bottom:8px;line-height:1.6}
+.mat-use{font-size:11px;color:var(--t3);font-style:italic;margin-bottom:10px;opacity:.7}
+.mat-body{margin-top:8px}
+.mat-empty{font-size:12px;color:var(--t4);padding:6px 0}
+.chart-svg{width:100%;max-width:100%;height:auto;display:block;background:var(--bg);border-radius:6px;padding:6px}
+.chart-legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;justify-content:center;font-size:11px;color:var(--t3)}
+.leg-item{display:flex;align-items:center;gap:5px}
+.leg-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.mat-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.mat-table th,.mat-table td{border:1px solid var(--b0);padding:7px 10px;text-align:left}
+.mat-table th{background:var(--bg);color:var(--a);font-weight:600}
+.mat-table tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+.mat-items{margin:0;padding-left:20px;font-size:13px;line-height:1.7;color:var(--t1)}
+.mat-entries,.mat-cards{display:flex;flex-direction:column;gap:8px;font-size:13px}
+.mat-entry,.mat-card-item{background:var(--bg);padding:8px 12px;border-radius:6px}
+.mat-thread{display:flex;flex-direction:column;gap:6px;font-size:13px}
+.mat-msg{padding:6px 10px;background:var(--bg);border-radius:6px}
+pre.mat-log{background:var(--bg);border-radius:6px;padding:10px 12px;font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:11.5px;color:var(--t3);overflow-x:auto;line-height:1.5;white-space:pre-wrap}
+.mat-fallback pre{background:var(--bg);padding:10px;border-radius:6px;font-size:11px;overflow-x:auto;color:var(--t3)}
+.mat-author{font-size:12px;color:var(--t3);text-align:right}
+/* EMAIL */
+.email-thread{display:flex;flex-direction:column;gap:10px}
+.email-msg{border:1px solid var(--b0);border-radius:8px;padding:12px}
+.email-meta{display:flex;flex-wrap:wrap;gap:5px 14px;font-size:12px;color:var(--t3);margin-bottom:8px}
+.email-field{display:flex;gap:4px;align-items:center}
+.email-field-lbl{font-weight:600;color:var(--a)}
+.email-subject{width:100%;font-weight:600;font-size:13px;color:var(--t1)}
+.email-body{font-size:13px;line-height:1.7;white-space:pre-line;color:var(--t1)}
+/* SCHEDULE */
+.schedule-list{display:flex;flex-direction:column;gap:6px}
+/* 기간 칸은 긴 기간("11/2(월)~11/13(금)")도 내용과 겹치지 않게 줄 너비의 30%까지 쓰고, 더 길면 줄을 바꾼다(그때 조건 줄이 밀리지 않게 아래 줄까지 차지한다). */
+.schedule-item{display:grid;grid-template-columns:minmax(56px,30%) 1fr;column-gap:10px;padding:8px 10px;background:var(--bg);border-radius:6px;align-items:baseline}
+.sched-period{font-size:11px;font-weight:700;color:var(--a);overflow-wrap:anywhere;grid-row:1/span 3}
+.sched-task{font-size:13px;font-weight:500}
+.sched-constraint{grid-column:2;font-size:11px;color:var(--t3);margin-top:2px}
+/* CHECKLIST */
+.checklist-legend{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px;font-size:11px;color:var(--t3)}
+.ck-legend-item{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--b0);background:var(--bg);border-radius:999px;padding:3px 8px;line-height:1.3}
+.ck-legend-icon{display:inline-flex;align-items:center;justify-content:center;min-width:14px;font-weight:800}
+.ck-legend-checked .ck-legend-icon{color:var(--success,#4caf50)}
+.ck-legend-unchecked .ck-legend-icon{color:var(--t1)}
+.ck-legend-issue .ck-legend-icon{color:var(--warn,#ff8c00)}
+.ck-legend-warn .ck-legend-icon{color:var(--danger,#e33)}
+.checklist{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.ck-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;font-size:13px;background:var(--bg)}
+.ck-checked{opacity:.65}
+.ck-issue{background:rgba(255,160,0,.08)}
+.ck-warn{background:rgba(220,50,50,.07)}
+.ck-icon{font-size:13px;min-width:16px;text-align:center;font-weight:700}
+.ck-checked .ck-icon{color:var(--success,#4caf50)}
+.ck-issue .ck-icon{color:var(--warn,#ff8c00)}
+.ck-warn .ck-icon{color:var(--danger,#e33)}
+.ck-label{flex:1}
+.ck-imp{font-size:10px;background:var(--danger,#e33);color:#fff;padding:1px 5px;border-radius:4px;flex-shrink:0}
+/* OPTION CARDS */
+.opt-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.opt-card{border:1px solid var(--b0);border-radius:8px;padding:12px}
+.opt-card-title{font-weight:700;font-size:14px;margin-bottom:8px;color:var(--t1)}
+.opt-card-body{font-size:12px;color:var(--t3);margin-bottom:8px}
+.opt-attrs{display:flex;flex-direction:column;gap:4px}
+.opt-attr{display:flex;gap:6px;font-size:12px}
+.opt-attr-key{color:var(--t3);flex-shrink:0}
+.opt-attr-val{font-weight:500;color:var(--t1)}
+
+/* LOG ENTRIES */
+.log-entries{display:flex;flex-direction:column;gap:6px}
+.log-entry{border-left:2px solid var(--b1);padding:3px 0 3px 10px}
+.log-entry-head{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.log-time{font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:11px;color:var(--a);flex-shrink:0}
+.log-actor{font-weight:500;color:var(--t2);font-size:12px}
+.log-event{color:var(--t1);font-size:12.5px}
+.log-note-text{font-size:11.5px;color:var(--t3);margin-top:2px}
+.log-items{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.log-item{display:flex;align-items:baseline;gap:6px;font-size:13px;line-height:1.6}
+.log-status{font-weight:700;width:14px;flex-shrink:0;font-family:ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:12px}
+.log-item-checked .log-status{color:var(--success)}
+.log-item-issue .log-status{color:var(--dng)}
+.log-label{font-size:11px;padding:1px 6px;border-radius:3px;background:var(--bg4);color:var(--t3);flex-shrink:0}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .mat-table{font-size:11.5px}
+  .mat-table th,.mat-table td{padding:5px 7px}
+}

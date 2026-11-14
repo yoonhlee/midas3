@@ -1,0 +1,480 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001042_easy_001",
+  "job_identity": {
+    "job_cd": "K000001042",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "모바일앱개발자",
+    "source_ref": {
+      "file": "K000001042/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_006",
+    "text": "새로운 어플리케이션 시스템 개발이나 기존 어플리케이션 시스템의 개선을 위해 문제점을 찾고 개선한다.",
+    "source_ref": {
+      "file": "K000001042/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 6
+    },
+    "selection_reason": "Pilot config selected exec_006."
+  },
+  "mission_facts": {
+    "org_name": "별빛장터 모바일 앱개발팀",
+    "domain": "모바일 쇼핑 앱 유지·개선",
+    "period": [
+      "다음 달 앱 개선 작업 전 점검 주간"
+    ],
+    "trend_pattern": "세 기능단위의 확인 내용은 모두 정상 동작으로 적혀 있고, 응답시간은 기능단위마다 1200ms, 1900ms, 3400ms로 다르다.",
+    "main_issue": "개선 작업 전에 요구사항(정상 동작, 응답시간 2초 이내)을 충족하지 못한 기능단위를 찾아 개선 대상으로 알려야 한다.",
+    "feedback_themes": [
+      "정상 동작 여부",
+      "응답시간 2초(2000ms) 이내"
+    ],
+    "decision_goal": "요구사항을 충족하지 못한 기능단위 하나와 그렇게 판단한 근거 값을 팀장에게 알린다."
+  },
+  "mission": {
+    "title": "개선 전 테스트 결과표에서 문제 기능단위 찾기",
+    "task_type": "diagnosis_and_improvement",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 별빛장터 모바일 앱개발팀에 새로 들어온 인턴입니다.",
+      "context": "별빛장터는 모바일 쇼핑 앱을 운영하고 있고, 다음 달에 기존 앱을 개선하는 작업을 시작합니다. 개선을 앞두고 팀은 테스트 계획에 따라 화면, 서버, 외부 결제 연동 같은 기능단위별로 테스트를 마쳤습니다. 팀장님이 결과표를 건네며 말합니다. \"이번 개선 전 점검의 요구사항은 모든 기능단위가 정상 동작하고, 응답시간이 2초(2000ms) 이내여야 한다는 거예요. 응답시간 같은 비기능적 요구사항도 요구사항에 들어가니까 같이 봐 주세요.\"",
+      "goal": "테스트 결과표를 보고 요구사항을 충족하지 못한 기능단위를 찾아, 그렇게 판단한 근거 값과 함께 팀장님께 알려 주세요.",
+      "constraints": [
+        "요구사항: 모든 기능단위가 정상 동작하고, 응답시간이 2초(2000ms) 이내여야 합니다.",
+        "제공된 테스트 결과표에 적힌 내용만 근거로 판단합니다.",
+        "답변은 1~2문장으로 짧게 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "기능단위",
+          "definition": "앱을 화면, 서버, 외부 연동처럼 맡은 일에 따라 나눈 부분입니다. 테스트는 이 단위별로 합니다."
+        },
+        {
+          "term": "화면모듈",
+          "definition": "사용자가 앱에서 직접 보는 화면을 보여 주는 부분입니다."
+        },
+        {
+          "term": "서버모듈",
+          "definition": "앱 뒤에서 주문 내역 조회 같은 요청을 처리하고 결과를 돌려주는 부분입니다."
+        },
+        {
+          "term": "인터페이스",
+          "definition": "앱이 결제 서비스 같은 다른 시스템과 정보를 주고받도록 이어 주는 연결 부분입니다."
+        },
+        {
+          "term": "비기능적 요구사항",
+          "definition": "기능이 되는지 여부 말고, 얼마나 빠른지나 얼마나 안정적인지처럼 품질에 대한 요구사항입니다. 응답시간이 그 예입니다."
+        },
+        {
+          "term": "응답시간",
+          "definition": "요청을 보낸 뒤 결과를 받을 때까지 걸린 시간입니다."
+        },
+        {
+          "term": "ms(밀리초)",
+          "definition": "1000분의 1초를 뜻하는 시간 단위입니다. 1000ms가 1초입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "test_result_table",
+        "title": "기능단위별 테스트 수행 결과표 (응답시간 단위: ms)",
+        "description": "기존 모바일 쇼핑 앱 개선을 앞두고 테스트 계획에 따라 기능단위별로 수행한 테스트 결과입니다. 확인 내용은 테스트 담당자가 기록한 동작 결과이고, 응답시간은 ms 단위로 적었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "각 기능단위의 확인 내용과 응답시간을 팀장님이 말한 요구사항에 하나씩 대어 보고, 요구사항을 충족하지 못한 기능단위를 찾는 데 씁니다.",
+        "evidence_source": [
+          "고장의 발견.수리",
+          "정보 처리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "기능단위"
+            },
+            {
+              "key": "strength",
+              "label": "테스트 항목"
+            },
+            {
+              "key": "weakness",
+              "label": "확인 내용"
+            },
+            {
+              "key": "priority",
+              "label": "응답시간(ms)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "화면모듈",
+              "strength": "상품 목록 화면 표시",
+              "weakness": "상품 20개가 목록에 모두 표시됨",
+              "priority": 1200
+            },
+            {
+              "option": "서버모듈",
+              "strength": "주문 내역 조회 처리",
+              "weakness": "최근 주문 내역이 정상 반환됨",
+              "priority": 1900
+            },
+            {
+              "option": "인터페이스",
+              "strength": "외부 결제 서비스 연동",
+              "weakness": "결제 승인 응답을 받음",
+              "priority": 3400
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장님이 말한 요구사항(정상 동작, 응답시간 2초 이내)을 테스트 결과표의 각 기능단위에 적용해 보고, 요구사항을 충족하지 못한 기능단위와 그렇게 판단한 근거 값을 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "결과표의 확인 내용과 응답시간을 요구사항과 같은 단위로 비교해, 요구사항을 충족하지 못한 기능단위 하나와 근거 값을 1-2문장으로 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "요구사항을 충족하지 못한 기능단위와 판단 근거 값"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "세 기능단위의 확인 내용은 모두 정상 동작이므로, 이번 점검에서 요구사항 충족 여부는 응답시간에서 갈린다.",
+      "인터페이스(외부 결제 서비스 연동)의 응답시간 3400ms는 3.4초로, 요구사항인 2초(2000ms)를 넘으므로 요구사항을 충족하지 못한 기능단위다.",
+      "서버모듈의 1900ms는 2000ms에 가깝지만 기준 안에 있으므로 문제점으로 고르지 않는다.",
+      "기준은 초 단위, 결과표는 ms 단위이므로 2초를 2000ms로 맞춰 비교해야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "문제 기능단위 식별",
+        "description": "요구사항을 충족하지 못한 기능단위로 인터페이스(외부 결제 서비스 연동)를 정확히 하나 골랐는가.",
+        "points": 40,
+        "linked_evidence": [
+          "고장의 발견.수리"
+        ]
+      },
+      {
+        "criterion": "단위를 맞춘 근거 제시",
+        "description": "측정값 3400ms와 기준 2초(2000ms)를 같은 단위로 비교한 근거를 1-2문장 안에 제시했는가.",
+        "points": 35,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "기준 근처 값 구분",
+        "description": "서버모듈(1900ms)처럼 기준에 가깝지만 기준 안에 있는 기능단위를 문제점으로 잘못 고르지 않았는가.",
+        "points": 25,
+        "linked_evidence": [
+          "정보 처리",
+          "고장의 발견.수리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_006",
+      "text": "새로운 어플리케이션 시스템 개발이나 기존 어플리케이션 시스템의 개선을 위해 문제점을 찾고 개선한다.",
+      "source_ref": {
+        "file": "K000001042/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 6
+      },
+      "selection_reason": "Pilot config selected exec_006."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 98,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 90,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 90,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 82,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 96,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "창의력",
+          "score": 90,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "고장의 발견.수리",
+          "score": 74,
+          "description": "오작동의 원인이 무엇인가를 확인하고 이를 어떻게 처리할 것인지 결정한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 95,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 89,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 85,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 90,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "실내 근무",
+          "score": 77,
+          "description": "실내에서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "고장의 발견.수리",
+          "정보 처리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001042/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001042/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.58,
+    "AX2": 0.105,
+    "AX3": 0.105,
+    "AX4": 0.105,
+    "AX5": 0.105
+  }
+}

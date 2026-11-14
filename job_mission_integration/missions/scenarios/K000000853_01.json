@@ -1,0 +1,467 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000853_easy_001",
+  "job_identity": {
+    "job_cd": "K000000853",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "시스템소프트웨어개발자",
+    "source_ref": {
+      "file": "K000000853/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_010",
+    "text": "개발된 시스템소프트웨어에 대한 단계별 과정을 기록하고, 사용자의 교육과 기술 자문에 응한다.",
+    "source_ref": {
+      "file": "K000000853/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 10
+    },
+    "selection_reason": "Pilot config selected exec_010."
+  },
+  "mission_facts": {
+    "org_name": "누리솔시스템 개발팀",
+    "domain": "서버 관리용 시스템소프트웨어 사용자 교육 준비",
+    "period": [
+      "12월 첫째 주 사용자 교육 예정"
+    ],
+    "trend_pattern": "교육계획 초안은 3개 회차로 되어 있고, 회차마다 교육 대상자, 교육내용, 교육방법, 교육 시간을 같은 항목으로 적었다.",
+    "main_issue": "교육계획 초안을 넘기기 전에 교육내용이 팀장이 요청한 네 가지 내용을 모두 다루는지 확인해야 한다.",
+    "feedback_themes": [
+      "교육내용 구성 점검",
+      "사용자 교육 준비"
+    ],
+    "decision_goal": "교육계획 초안의 교육내용을 팀장의 요청 조건과 대조하고 보완할 점을 제안한다."
+  },
+  "mission": {
+    "title": "사용자 교육계획 초안 점검하기",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "누리솔시스템 시스템소프트웨어 개발팀 인턴",
+      "context": "당신은 누리솔시스템 개발팀의 인턴입니다. 팀은 서버의 메모리와 네트워크 설정을 관리하는 시스템SW '누리솔 매니저'를 새로 개발했고, 12월 첫째 주에 이 프로그램을 쓸 사람들을 대상으로 사용자 교육을 엽니다. 선배 개발자가 회차별 교육계획 초안을 표로 정리해 두었고, 팀장이 이렇게 부탁했습니다. \"사용자 교육내용은 시스템SW의 기능, 사용법, 환경 최적화, 문제해결 네 가지를 모두 다뤄야 해요. 초안을 넘기기 전에 이 네 가지가 다 들어 있는지 한번 봐 주세요.\"",
+      "goal": "교육계획 초안의 교육내용이 팀장이 말한 네 가지를 모두 다루는지 확인하고, 보완할 점을 한두 문장으로 제안해 보세요.",
+      "constraints": [
+        "교육내용 전체가 시스템SW의 기능, 사용법, 환경 최적화, 문제해결 네 가지를 모두 다뤄야 합니다(팀장 요청).",
+        "표에 적힌 교육내용만 보고 판단하세요. 교육방법과 교육 시간은 이번 점검 대상이 아닙니다.",
+        "답은 한두 문장으로 짧게 적어 주세요."
+      ],
+      "glossary": [
+        {
+          "term": "시스템SW(시스템소프트웨어)",
+          "definition": "컴퓨터의 동작, 제어, 관리를 맡는 바탕 소프트웨어입니다. 운영체제나 서버 관리 프로그램이 여기에 속합니다."
+        },
+        {
+          "term": "환경 최적화",
+          "definition": "프로그램이 설치된 컴퓨터 상태에 맞게 설정 값을 조정해서 더 빠르고 안정적으로 돌아가게 하는 일입니다."
+        },
+        {
+          "term": "시스템 메모리",
+          "definition": "컴퓨터가 프로그램을 실행하는 동안 필요한 데이터를 잠시 올려 두는 작업 공간입니다."
+        },
+        {
+          "term": "네트워크 버퍼",
+          "definition": "네트워크로 주고받는 데이터를 잠깐 담아 두는 저장 공간입니다. 크기를 조정해 통신이 끊기지 않고 원활하게 이어지도록 맞춥니다."
+        },
+        {
+          "term": "응용프로그램 개발자",
+          "definition": "시스템SW 위에서 돌아가는 업무용 프로그램이나 앱을 만드는 개발자입니다."
+        },
+        {
+          "term": "문제해결",
+          "definition": "프로그램을 쓰다가 오류나 장애가 생겼을 때 원인을 찾고 대처하는 방법입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "education_plan_draft",
+        "title": "누리솔 매니저 사용자 교육계획 초안(회차별)",
+        "description": "선배 개발자가 작성한 시스템SW 사용자 교육계획 초안입니다. 1회차부터 3회차까지 순서대로 교육 대상자, 교육내용, 교육방법, 교육 시간(분)을 적었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "표의 교육내용을 팀장이 요청한 네 가지 교육 내용과 하나씩 맞춰 보는 데 씁니다.",
+        "evidence_source": [
+          "사람들의 능력 개발, 지도",
+          "정보 처리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "교육 대상자"
+            },
+            {
+              "key": "strength",
+              "label": "교육내용"
+            },
+            {
+              "key": "weakness",
+              "label": "교육방법"
+            },
+            {
+              "key": "priority",
+              "label": "교육 시간(분)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "시스템SW 사용자(운영 담당자)",
+              "strength": "시스템SW의 주요 기능 소개",
+              "weakness": "강의",
+              "priority": 60
+            },
+            {
+              "option": "응용프로그램 개발자",
+              "strength": "시스템SW 설정 방법과 명령 사용법",
+              "weakness": "실습",
+              "priority": 90
+            },
+            {
+              "option": "시스템SW 사용자(운영 담당자)",
+              "strength": "환경 최적화: 시스템 메모리와 네트워크 버퍼 설정 값 조정",
+              "weakness": "실습",
+              "priority": 60
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 교육계획 초안 표의 교육내용을 팀장이 말한 네 가지 내용(기능, 사용법, 환경 최적화, 문제해결)과 하나씩 맞춰 보고, 초안에서 보완할 점을 한두 문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "교육내용 세 행을 네 가지 조건과 하나씩 대조해 다뤄지지 않은 내용이 있는지 확인하고, 그 내용을 다루도록 교육계획을 어떻게 보완할지 한두 문장으로 제안한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "점검 결과와 보완할 점"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "교육내용 세 행은 각각 기능(1회차), 사용법(2회차), 환경 최적화(3회차)를 다루지만, 오류나 장애에 대처하는 문제해결을 다루는 회차는 없다.",
+      "문제해결 내용을 다루는 회차를 새로 넣거나 기존 회차의 교육내용에 오류·장애 대처 방법을 추가해 네 가지를 모두 채워야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "빠진 교육내용 짚기",
+        "description": "교육내용 세 행을 기능, 사용법, 환경 최적화, 문제해결과 대조해 문제해결(오류·장애 대처)이 다뤄지지 않았다는 점을 정확히 짚었는지 본다.",
+        "points": 60,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "보완 방향 제시",
+        "description": "문제해결을 다루는 회차를 추가하거나 기존 회차에 그 내용을 넣는 등, 사용자 교육이 네 가지를 모두 다루도록 교육계획을 보완하는 방향을 제시했는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "사람들의 능력 개발, 지도"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_010",
+      "text": "개발된 시스템소프트웨어에 대한 단계별 과정을 기록하고, 사용자의 교육과 기술 자문에 응한다.",
+      "source_ref": {
+        "file": "K000000853/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 10
+      },
+      "selection_reason": "Pilot config selected exec_010."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 98,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 95,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 84,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "상사, 동료, 부하직원과 소통",
+          "score": 83,
+          "description": "상사, 동료, 부하직원에게 정보를 서면, 이메일 또는 직접 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 79,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 100,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "전산",
+          "score": 100,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설치",
+          "score": 99,
+          "description": "작업 지시서에 따라 장비, 도구, 배선, 프로그램을 설치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 96,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 90,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "산수와 수학",
+          "score": 89,
+          "description": "연산, 대수학, 통계, 기하학의 계산 및 응용에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 88,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "자동화 정도",
+          "score": 85,
+          "description": "업무의 자동화 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 84,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000853/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "사람들의 능력 개발, 지도",
+          "정보 처리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000853/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 8,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.6,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.4,
+    "AX5": 0.0
+  }
+}

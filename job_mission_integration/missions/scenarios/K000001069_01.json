@@ -1,0 +1,469 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001069_easy_001",
+  "job_identity": {
+    "job_cd": "K000001069",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "경영지원 사무원",
+    "job_smcl_nm": "광고·홍보·마케팅사무원",
+    "source_ref": {
+      "file": "K000001069/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "신문, 방송 등 대외기관을 대상으로 사업성과에 대한 보도자료나 해명자료를 작성하고 배포한다.",
+    "source_ref": {
+      "file": "K000001069/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "다온청년일자리재단",
+    "domain": "청년 일자리 지원 사업 홍보",
+    "period": [
+      "올해 상반기",
+      "최근 1년"
+    ],
+    "trend_pattern": "배포 후보 기자 3명의 최근 1년 재단 기사 보도 건수는 누리방송 이하은 기자 8건, 한빛일보 김서준 기자 6건, 새길방송 박도윤 기자 3건이다.",
+    "main_issue": "상반기 사업성과 보도자료를 방송 매체의 경제 분야 담당 기자에게 먼저 배포해야 한다.",
+    "feedback_themes": [
+      "매체 구분(신문·방송)",
+      "담당 분야(경제·문화)",
+      "최근 1년 보도 건수"
+    ],
+    "decision_goal": "배포 조건에 맞는 기자 한 명을 골라 보도자료를 가장 먼저 보낸다."
+  },
+  "mission": {
+    "title": "보도자료, 어느 기자에게 먼저 보낼까?",
+    "task_type": "communication_and_reporting",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "다온청년일자리재단 홍보팀 인턴",
+      "context": "당신은 다온청년일자리재단 홍보팀 인턴입니다. 재단은 올해 상반기 청년 일자리 사업으로 거둔 성과를 정리한 보도자료를 완성했고, 이제 언론사에 보낼 차례입니다. 홍보팀장님이 \"이번 상반기 사업성과 보도자료는 방송 매체의 경제 분야 담당 기자에게 먼저 보내 주세요\"라고 요청했습니다.",
+      "goal": "홍보팀의 기자별 리스트를 보고, 팀장님 요청에 맞춰 보도자료를 가장 먼저 보낼 기자 한 명을 정해보세요.",
+      "constraints": [
+        "팀장님 요청: 상반기 사업성과 보도자료는 방송 매체의 경제 분야 담당 기자에게 먼저 배포한다.",
+        "기자별 리스트에 적힌 정보만 보고 판단한다.",
+        "고른 기자와 그 이유를 1~2문장으로 적는다."
+      ],
+      "glossary": [
+        {
+          "term": "보도자료",
+          "definition": "기관이 알리고 싶은 소식을 기자가 기사로 쓸 수 있도록 정리해 언론사에 보내는 글"
+        },
+        {
+          "term": "기자별 리스트",
+          "definition": "홍보팀이 연락하는 기자들의 소속 언론사, 매체, 담당 분야 등을 한눈에 볼 수 있게 정리한 명단"
+        },
+        {
+          "term": "매체 구분",
+          "definition": "기자가 일하는 곳이 신문인지 방송인지를 나눠 적은 것"
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "media_contact_list",
+        "title": "홍보팀 기자별 리스트: 상반기 사업성과 보도자료 배포 후보",
+        "description": "홍보팀이 관리하는 기자별 리스트에서 이번 보도자료 배포 후보로 뽑아 둔 기자 3명의 언론사, 매체 구분, 담당 분야, 최근 1년간 우리 재단 기사를 보도한 건수(단위: 건)를 정리한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "팀장님의 배포 조건을 적용해 보도자료를 가장 먼저 보낼 기자를 고르는 데 쓴다.",
+        "evidence_source": [
+          "조직 외부인과 소통",
+          "의사소통과 미디어"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "언론사·기자"
+            },
+            {
+              "key": "strength",
+              "label": "매체 구분"
+            },
+            {
+              "key": "weakness",
+              "label": "담당 분야"
+            },
+            {
+              "key": "priority",
+              "label": "최근 1년 우리 재단 기사 보도 건수(건)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "한빛일보 김서준 기자",
+              "strength": "신문",
+              "weakness": "경제",
+              "priority": 6
+            },
+            {
+              "option": "누리방송 이하은 기자",
+              "strength": "방송",
+              "weakness": "문화",
+              "priority": 8
+            },
+            {
+              "option": "새길방송 박도윤 기자",
+              "strength": "방송",
+              "weakness": "경제",
+              "priority": 3
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장님의 배포 조건을 기자별 리스트에 적용해 보도자료를 가장 먼저 보낼 기자 한 명을 고르고, 그 기자를 고른 이유와 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "매체 구분과 담당 분야를 함께 확인해 조건에 맞는 기자 한 명을 고르고, 고른 이유를 짧은 문장으로 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "고른 기자와 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "매체 구분이 방송이면서 담당 분야가 경제인 기자는 새길방송 박도윤 기자 한 명이므로, 이 기자에게 보도자료를 먼저 보낸다.",
+      "누리방송 이하은 기자는 보도 건수가 가장 많지만 담당 분야가 문화이고, 한빛일보 김서준 기자는 경제 담당이지만 매체가 신문이라 이번 조건에 맞지 않는다.",
+      "보도 건수나 조건 하나만 보고 고르지 않고, 매체 구분과 담당 분야 두 가지를 모두 확인해야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "조건에 맞는 기자 선택",
+        "description": "방송 매체이면서 경제 분야를 담당하는 기자 한 명을 정확히 골랐는지 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "조직 외부인과 소통"
+        ]
+      },
+      {
+        "criterion": "두 조건을 함께 확인",
+        "description": "보도 건수나 한 가지 조건만 보고 고르지 않고, 매체 구분과 담당 분야를 모두 확인했는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "의사소통과 미디어"
+        ]
+      },
+      {
+        "criterion": "선택 이유 설명",
+        "description": "고른 기자가 왜 조건에 맞는지 한두 문장으로 분명하게 밝혔는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "조직 외부인과 소통",
+          "의사소통과 미디어"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "신문, 방송 등 대외기관을 대상으로 사업성과에 대한 보도자료나 해명자료를 작성하고 배포한다.",
+      "source_ref": {
+        "file": "K000001069/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 90,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 85,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 81,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 81,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 81,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 95,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "협상",
+          "score": 91,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "전산",
+          "score": 90,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영업과 마케팅",
+          "score": 87,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "의사소통과 미디어",
+          "score": 84,
+          "description": "말, 글, 그림 등을 이메일이나 방송매체를 통해 전달하는 것에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "국어",
+          "score": 83,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "이메일 이용하기",
+          "score": 91,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 89,
+          "description": "재택근무 가능성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 88,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "조직 외부인과 소통",
+          "의사소통과 미디어"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001069/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001069/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.08,
+    "AX2": 0.08,
+    "AX3": 0.08,
+    "AX4": 0.08,
+    "AX5": 0.68
+  }
+}

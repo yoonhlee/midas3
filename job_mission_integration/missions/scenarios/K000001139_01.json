@@ -1,0 +1,470 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001139_easy_001",
+  "job_identity": {
+    "job_cd": "K000001139",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "광고·조사·상품기획·행사기획 전문가",
+    "job_smcl_nm": "조사전문가",
+    "source_ref": {
+      "file": "K000001139/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "결과보고서를 작성하며, 의뢰인에게 발표하기도 한다.",
+    "source_ref": {
+      "file": "K000001139/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "다솜리서치",
+    "domain": "구립도서관 이용자 설문조사",
+    "period": [
+      "10월 설문조사"
+    ],
+    "trend_pattern": "문항별로 가장 많이 선택된 응답의 응답자 수는 Q1 84명, Q2 92명, Q3 118명이다.",
+    "main_issue": "결과보고서의 결과 요약 첫 문장에 조사 목적과 직접 관련된 결과를 작성기준대로 적어야 한다.",
+    "feedback_themes": [
+      "도서관 이용 빈도",
+      "희망하는 운영시간 변경",
+      "이용 시 불편 사항"
+    ],
+    "decision_goal": "도서관 운영시간 조정 여부 판단"
+  },
+  "mission": {
+    "title": "도서관 설문 결과로 보고서 첫 문장 쓰기",
+    "task_type": "communication_and_reporting",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 조사 회사 다솜리서치의 조사팀 인턴입니다.",
+      "context": "다솜리서치는 가온구청의 의뢰로 10월에 가온구립도서관 이용자 200명에게 설문조사를 했고, 통계분석까지 마쳤습니다. 이제 구청에 낼 결과보고서를 쓸 차례입니다. 팀장님이 메신저로 이렇게 부탁했습니다. “구청이 이번 조사를 맡긴 건 도서관 운영시간을 조정할지 판단하려는 거예요. 우리 팀 작성기준에 맞춰서 결과 요약 첫 문장 초안을 써 줄래요?”",
+      "goal": "통계표를 보고, 작성기준에 맞는 결과보고서의 결과 요약 첫 문장을 써 보세요.",
+      "constraints": [
+        "조사 목적(의뢰인 가온구청): 도서관 운영시간 조정 여부 판단",
+        "팀 작성기준: 결과 요약 첫 문장에는 조사 목적과 직접 관련된 문항에서 가장 많이 선택된 응답을 응답자 수와 함께 쓴다.",
+        "통계표에 나온 응답과 숫자만 사용합니다."
+      ],
+      "glossary": [
+        {
+          "term": "결과보고서",
+          "definition": "조사를 마친 뒤 알아낸 내용을 정리해 조사를 맡긴 곳(의뢰인)에 전달하는 문서입니다."
+        },
+        {
+          "term": "작성기준",
+          "definition": "보고서에 무엇을 어떤 형식으로 쓸지 팀이 미리 정해 둔 규칙입니다."
+        },
+        {
+          "term": "통계표",
+          "definition": "설문 응답을 문항별로 세어 숫자로 정리한 표입니다."
+        },
+        {
+          "term": "결과 요약",
+          "definition": "보고서 앞부분에서 조사로 알게 된 핵심 결과를 짧게 정리한 부분입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "survey_statistics_table",
+        "title": "설문 통계 자료(통계표) - 가온구립도서관 이용자 설문(10월, 응답자 200명)",
+        "description": "통계분석이 끝난 이용자 설문 결과를 문항별로 정리한 통계표입니다. 응답자 수의 단위는 명입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "문항별 설문 결과를 확인하고 결과 요약 첫 문장에 넣을 내용을 고르는 데 씁니다.",
+        "evidence_source": [
+          "정보, 자료 분석",
+          "글쓰기"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "문항 번호"
+            },
+            {
+              "key": "strength",
+              "label": "문항"
+            },
+            {
+              "key": "weakness",
+              "label": "가장 많이 선택된 응답"
+            },
+            {
+              "key": "priority",
+              "label": "응답자 수(명)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "Q1",
+              "strength": "도서관 이용 빈도",
+              "weakness": "월 1~2회",
+              "priority": 84
+            },
+            {
+              "option": "Q2",
+              "strength": "희망하는 운영시간 변경",
+              "weakness": "평일 밤 9시까지 연장",
+              "priority": 92
+            },
+            {
+              "option": "Q3",
+              "strength": "이용 시 불편 사항",
+              "weakness": "열람 좌석 부족",
+              "priority": 118
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀 작성기준에 따라 통계표의 결과 가운데 조사 목적과 직접 관련된 결과를 골라, 결과보고서의 결과 요약 첫 문장을 1~2문장으로 써 보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "조사 목적에 맞는 문항의 결과를 골라, 가장 많이 선택된 응답과 응답자 수를 함께 넣은 결과 요약 첫 문장을 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "결과 요약 첫 문장"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "조사 목적인 도서관 운영시간 조정 여부 판단과 직접 관련된 문항은 Q2(희망하는 운영시간 변경)이다.",
+      "작성기준에 따라 Q2에서 가장 많이 선택된 응답인 ‘평일 밤 9시까지 연장’을 응답자 수 92명과 함께 적어야 한다.",
+      "응답자 수가 가장 많은 Q3(열람 좌석 부족, 118명)는 조사 목적과 직접 관련이 없으므로 결과 요약 첫 문장에 쓰지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "조사 목적에 맞는 결과 선택",
+        "description": "조사 목적(운영시간 조정 여부 판단)과 직접 관련된 Q2(희망하는 운영시간 변경)의 결과를 골랐는지 확인한다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "criterion": "작성기준에 맞는 문장 작성",
+        "description": "작성기준대로 가장 많이 선택된 응답(평일 밤 9시까지 연장)과 응답자 수(92명)를 함께 정확히 적었는지 확인한다.",
+        "points": 35,
+        "linked_evidence": [
+          "글쓰기"
+        ]
+      },
+      {
+        "criterion": "목적과 무관한 결과 배제",
+        "description": "응답자 수는 가장 크지만 조사 목적과 무관한 Q3(열람 좌석 부족, 118명) 결과를 첫 문장에 쓰지 않았는지 확인한다.",
+        "points": 25,
+        "linked_evidence": [
+          "정보, 자료 분석",
+          "글쓰기"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "결과보고서를 작성하며, 의뢰인에게 발표하기도 한다.",
+      "source_ref": {
+        "file": "K000001139/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 99,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 99,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무 계획, 우선순위 결정",
+          "score": 99,
+          "description": "업무의 우선순위를 결정, 배치하고 완수하기 위해 구체적인 목표와 계획 세우기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 99,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 99,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "가르치기",
+          "score": 89,
+          "description": "다른 사람들에게 일하는 방법에 대해 가르친다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "공간지각력",
+          "score": 79,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 79,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "사무",
+          "score": 82,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 82,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "국어",
+          "score": 78,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 99,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 92,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보, 자료 분석",
+          "글쓰기"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.62,
+    "AX2": 0.095,
+    "AX3": 0.095,
+    "AX4": 0.095,
+    "AX5": 0.095
+  }
+}

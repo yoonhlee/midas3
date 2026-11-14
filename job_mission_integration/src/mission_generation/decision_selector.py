@@ -6,7 +6,7 @@ import json
 from typing import Any
 
 from .config import EXCLUDED_MATERIAL_TYPES, MATERIAL_TYPES, RuntimeConfig, TASK_TYPES
-from .llm_runtime import OpenAIResponsesRuntime
+from .llm_runtime import create_runtime
 from .system_decision_builder import MISSION_DESIGN_TYPES
 
 
@@ -95,10 +95,10 @@ class MissionDecisionSelector:
 
     def __init__(
         self,
-        runtime: OpenAIResponsesRuntime | None = None,
+        runtime: Any = None,
         force_mock: bool = False,
     ) -> None:
-        self.runtime = runtime or OpenAIResponsesRuntime()
+        self.runtime = runtime or create_runtime()
         self.force_mock = force_mock
 
     def select(self, selector_input: dict[str, Any]) -> dict[str, Any]:
@@ -107,7 +107,11 @@ class MissionDecisionSelector:
         if self.force_mock:
             return self._skipped("DECISION_SELECTOR_MOCK_MODE", "Decision selector is disabled in mock mode.")
         if not self.runtime.api_key_available():
-            return self._skipped("OPENAI_API_KEY_MISSING", "OPENAI_API_KEY is not set.")
+            config = self.runtime.config
+            # GPT 쪽 코드는 예전 글자를 그대로 둔다(이 글자에 기대는 곳이 있다). 다른 제공자는 공통 코드를 쓴다.
+            if config.provider == "openai":
+                return self._skipped("OPENAI_API_KEY_MISSING", "OPENAI_API_KEY is not set.")
+            return self._skipped("LLM_API_KEY_MISSING", f"{config.api_key_env} is not set.")
 
         prompts = DecisionSelectorPromptBuilder().prompts(selector_input)
         config = self.runtime.config

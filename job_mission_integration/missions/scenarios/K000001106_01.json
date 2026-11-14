@@ -1,0 +1,457 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001106_easy_001",
+  "job_identity": {
+    "job_cd": "K000001106",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "소프트웨어 개발자",
+    "job_smcl_nm": "웹개발자",
+    "source_ref": {
+      "file": "K000001106/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "웹상에 올릴 자료의 성격과 형태에 대한 요구를 파악하고 분석한다.",
+    "source_ref": {
+      "file": "K000001106/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "온새미전자",
+    "domain": "회사 웹사이트 자료실 개편",
+    "period": [
+      "자료실 개편 준비 1주차"
+    ],
+    "trend_pattern": "세 부서가 각각 성격이 다른 자료(사진, 설명서 파일, 영상)를 자료실에 올려 달라고 요구했다.",
+    "main_issue": "받은 요구 3건이 한 표에 섞여 있고, 아직 기능적 요구사항과 비기능적 요구사항으로 나누지 않았다.",
+    "feedback_themes": [
+      "행사 사진 보여 주기",
+      "제품 설명서 내려받기",
+      "제품 소개 영상 페이지 열기"
+    ],
+    "decision_goal": "팀장이 알려 준 분류 기준에 따라 요구 3건 중 비기능적 요구사항 하나를 골라 이유를 설명한다."
+  },
+  "mission": {
+    "title": "웹 자료실 개편 요구 나눠 보기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 온새미전자 웹개발팀의 인턴입니다.",
+      "context": "회사 웹사이트 자료실을 새로 고치기 전에, 홍보팀·고객지원팀·영업팀에서 받은 요구를 표 하나로 정리해 두었습니다. 팀장님은 개발을 시작하기 전에 요구를 종류별로 나눠 보자며 이렇게 말했습니다. “기능적 요구사항은 방문자가 웹에서 직접 하는 동작(보기, 넘기기, 내려받기 등)을 정한 요구예요. 비기능적 요구사항은 속도·보안·호환처럼 그 동작이 얼마나 잘 되어야 하는지를 정한 조건이고요.”",
+      "goal": "팀장님이 말한 기준으로 표의 요구 3건을 살펴보고, 비기능적 요구사항에 해당하는 요구 하나를 골라 이유와 함께 알려 주세요.",
+      "constraints": [
+        "표에 적힌 요구 3건과 팀장님이 말한 분류 기준만 보고 판단합니다.",
+        "답은 고른 요구와 그 이유를 담아 1~2문장으로 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "기능적 요구사항",
+          "definition": "방문자가 웹사이트에서 직접 하는 동작(보기, 넘기기, 내려받기 등)을 정한 요구입니다."
+        },
+        {
+          "term": "비기능적 요구사항",
+          "definition": "속도·보안·호환처럼 그 동작이 얼마나 잘 되어야 하는지를 정한 조건입니다."
+        },
+        {
+          "term": "출처",
+          "definition": "그 요구를 낸 곳입니다. 이 표에서는 요구를 보낸 부서를 말합니다."
+        },
+        {
+          "term": "호환",
+          "definition": "휴대전화나 컴퓨터처럼 서로 다른 기기에서도 문제없이 작동하는 것입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "requirement_record",
+        "title": "자료실 개편 요구 기록표",
+        "description": "웹 자료실 개편을 위해 세 부서에서 받은 요구를 출처, 올릴 자료, 요구 내용, 자료 건수(단위: 건)별로 기록한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "팀장님이 말한 분류 기준을 표의 요구 내용에 한 줄씩 대어 보는 데 사용합니다.",
+        "evidence_source": [
+          "정보 처리",
+          "정보의 의미 해석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "출처"
+            },
+            {
+              "key": "strength",
+              "label": "올릴 자료"
+            },
+            {
+              "key": "weakness",
+              "label": "요구 내용"
+            },
+            {
+              "key": "priority",
+              "label": "자료 건수"
+            }
+          ],
+          "rows": [
+            {
+              "option": "홍보팀",
+              "strength": "행사 사진",
+              "weakness": "사진을 한 장씩 넘겨 볼 수 있게 보여 줘야 함",
+              "priority": 40
+            },
+            {
+              "option": "고객지원팀",
+              "strength": "제품 설명서 PDF",
+              "weakness": "방문자가 파일을 내려받을 수 있어야 함",
+              "priority": 12
+            },
+            {
+              "option": "영업팀",
+              "strength": "제품 소개 영상",
+              "weakness": "영상이 있는 페이지가 3초 안에 열려야 함",
+              "priority": 5
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장님이 말한 분류 기준에 비추어 표의 요구 3건을 살펴보고, 비기능적 요구사항에 해당하는 요구 하나를 골라 그렇게 본 이유와 함께 한 문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "분류 기준을 표의 요구 내용에 대어 보고, 비기능적 요구사항에 해당하는 요구 하나를 골라 이유와 함께 한 문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "고른 요구와 그 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "영업팀의 ‘영상이 있는 페이지가 3초 안에 열려야 함’은 방문자가 하는 동작이 아니라 페이지가 얼마나 빨리 열려야 하는지(속도)를 정한 조건이므로 비기능적 요구사항이다.",
+      "홍보팀의 사진 넘겨 보기와 고객지원팀의 설명서 내려받기는 방문자가 웹에서 직접 하는 동작을 정한 요구이므로 기능적 요구사항이며, 비기능적 요구사항으로 고를 대상이 아니다."
+    ],
+    "rubric": [
+      {
+        "criterion": "비기능적 요구사항 고르기",
+        "description": "표의 요구 3건 중 방문자의 동작이 아니라 동작이 얼마나 잘 되어야 하는지를 정한 조건, 곧 영업팀의 ‘영상이 있는 페이지가 3초 안에 열려야 함’을 골랐는지 확인한다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "분류 기준에 맞는 이유",
+        "description": "고른 요구가 보기·넘기기·내려받기 같은 방문자의 동작이 아니라 페이지가 열리는 속도에 대한 조건이라는 점을 팀장님의 분류 기준에 맞게 설명했는지 확인한다.",
+        "points": 60,
+        "linked_evidence": [
+          "정보의 의미 해석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "웹상에 올릴 자료의 성격과 형태에 대한 요구를 파악하고 분석한다.",
+      "source_ref": {
+        "file": "K000001106/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001106/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 92,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001106/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 92,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001106/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "목표, 전략 수립",
+          "score": 88,
+          "description": "장기 목표를 세우고 그 목표를 달성하기 위한 전략과 실행할 목록을 명시하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001106/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 86,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001106/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 96,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001106/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "기술 설계",
+          "score": 91,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001106/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 87,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001106/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 94,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001106/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 86,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001106/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 83,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001106/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "앉아서 근무",
+          "score": 90,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001106/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 88,
+          "description": "재택근무 가능성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001106/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 80,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001106/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 처리",
+          "정보의 의미 해석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001106/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001106/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

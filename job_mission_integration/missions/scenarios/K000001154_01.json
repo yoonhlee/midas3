@@ -1,0 +1,452 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001154_easy_001",
+  "job_identity": {
+    "job_cd": "K000001154",
+    "job_lrcl_nm": "영업·판매·운전·운송직",
+    "job_mdcl_nm": "판매 종사자",
+    "job_smcl_nm": "온라인판매원",
+    "source_ref": {
+      "file": "K000001154/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "등록된 상품정보를 수시로 점검·수정한다.",
+    "source_ref": {
+      "file": "K000001154/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "포근눈 상점",
+    "domain": "겨울 소품 온라인 쇼핑몰 상품운영",
+    "period": [
+      "점검일 오전, 관리 화면에서 내려받은 시점"
+    ],
+    "trend_pattern": "등록된 상품 3개의 재고 수량이 각각 12개, 0개, 0개로 등록되어 있다.",
+    "main_issue": "재고 수량과 판매상태 필드값이 운영 규칙에 맞게 등록되어 있는지 점검이 필요하다.",
+    "feedback_themes": [
+      "재고가 0개인 상품의 판매상태 등록 규칙",
+      "등록된 상품정보의 필드값 점검"
+    ],
+    "decision_goal": "운영 규칙에 어긋나게 등록된 상품과 고쳐야 할 필드값을 찾아 수정 내용을 정한다."
+  },
+  "mission": {
+    "title": "등록된 상품정보 점검하고 고칠 곳 찾기",
+    "task_type": "diagnosis_and_improvement",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 겨울 소품 온라인 쇼핑몰 '포근눈 상점'의 상품운영 인턴입니다.",
+      "context": "포근눈 상점은 머플러, 장갑, 양말 같은 겨울 소품을 인터넷으로 판매합니다. 오늘 오전 상품운영 팀장이 쇼핑몰 관리 화면에서 등록된 상품정보를 내려받아 건네주며 \"등록된 내용이 우리 운영 규칙에 맞는지 한번 점검해 줄래요?\"라고 부탁했습니다.",
+      "goal": "등록된 상품정보를 운영 규칙과 대조해 보고, 고쳐야 할 상품과 고칠 내용을 팀장에게 알려 주세요.",
+      "constraints": [
+        "포근눈 상점 운영 규칙: 재고 수량이 0개인 상품은 고객이 주문할 수 없도록 판매상태를 '품절'로 등록해 두어야 합니다.",
+        "표에 있는 상품정보와 위 운영 규칙만 보고 판단합니다."
+      ],
+      "glossary": [
+        {
+          "term": "필드값",
+          "definition": "상품정보에서 상품코드, 판매상태, 재고 수량처럼 항목별로 입력된 하나하나의 값입니다."
+        },
+        {
+          "term": "판매상태",
+          "definition": "고객이 그 상품을 지금 주문할 수 있는지 보여 주는 표시입니다. '판매중'이면 주문할 수 있고, '품절'이면 주문할 수 없습니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "product_registration_list",
+        "title": "포근눈 상점 등록된 상품정보 목록",
+        "description": "오늘 오전 쇼핑몰 관리 화면에서 내려받은 겨울 소품 3개의 등록된 상품정보입니다. 재고 수량의 단위는 개입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "운영 규칙과 하나씩 대조하며 등록된 상품정보를 점검하는 데 사용합니다.",
+        "evidence_source": [
+          "컴퓨터 업무",
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "상품코드"
+            },
+            {
+              "key": "strength",
+              "label": "상품명"
+            },
+            {
+              "key": "weakness",
+              "label": "판매상태"
+            },
+            {
+              "key": "priority",
+              "label": "재고 수량(개)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "WS-101",
+              "strength": "니트 머플러",
+              "weakness": "판매중",
+              "priority": 12
+            },
+            {
+              "option": "WS-102",
+              "strength": "털 장갑",
+              "weakness": "품절",
+              "priority": 0
+            },
+            {
+              "option": "WS-103",
+              "strength": "수면 양말 세트",
+              "weakness": "판매중",
+              "priority": 0
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 상품정보 표를 운영 규칙과 하나씩 대조해 보세요. 수정이 필요한 상품이 무엇이고, 그 상품의 어떤 필드값을 무엇으로 고쳐야 하는지 한두 문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "운영 규칙을 표의 각 상품에 한 번씩 적용해 규칙에 어긋나게 등록된 상품을 찾고, 고쳐야 할 필드값과 바꿀 값을 한두 문장으로 제시한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "수정이 필요한 상품과 고칠 내용"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "WS-103 수면 양말 세트는 재고 수량이 0개인데 판매상태가 '판매중'으로 등록되어 있어 운영 규칙에 어긋난다.",
+      "WS-103 수면 양말 세트의 판매상태 필드값을 '판매중'에서 '품절'로 고쳐야 한다.",
+      "WS-102 털 장갑은 재고 수량 0개에 판매상태 '품절'로, WS-101 니트 머플러는 재고 12개에 '판매중'으로 규칙에 맞게 등록되어 있어 고칠 필요가 없다."
+    ],
+    "rubric": [
+      {
+        "criterion": "규칙에 어긋난 상품 찾기",
+        "description": "재고 수량과 판매상태 필드값을 운영 규칙에 비추어, 재고가 0개인데 판매중으로 등록된 WS-103 수면 양말 세트를 정확히 짚었는지 확인한다. 규칙에 맞게 등록된 다른 상품을 잘못 고르지 않았는지도 본다.",
+        "points": 50,
+        "linked_evidence": [
+          "정보, 자료 분석"
+        ]
+      },
+      {
+        "criterion": "고칠 필드값과 수정 내용 제시",
+        "description": "고쳐야 할 필드가 판매상태이며, 그 값을 '판매중'에서 '품절'로 바꿔야 한다는 수정 내용을 맞게 적었는지 확인한다.",
+        "points": 50,
+        "linked_evidence": [
+          "컴퓨터 업무",
+          "정보, 자료 분석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "등록된 상품정보를 수시로 점검·수정한다.",
+      "source_ref": {
+        "file": "K000001154/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "조직 외부인과 소통",
+          "score": 87,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 86,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무상 사람들을 직접 응대",
+          "score": 84,
+          "description": "식당, 상점에서 일반 손님을 접대하거나, 거래처 고객 또는 손님을 접대하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 84,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "자원 관리",
+          "score": 77,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "서비스 지향",
+          "score": 91,
+          "description": "다른 사람들을 돕기 위해 적극적으로 노력한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "전산",
+          "score": 86,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설득",
+          "score": 83,
+          "description": "다른 사람들의 마음이나 행동을 변화시키기 위해 설득한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영업과 마케팅",
+          "score": 93,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "경제와 회계",
+          "score": 85,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "운송",
+          "score": 81,
+          "description": "비행기, 철도, 선박 그리고 자동차를 통해 사람들과 물품을 움직이는 원리와 방법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "불쾌하거나 무례한 사람 상대",
+          "score": 88,
+          "description": "불쾌하거나, 화나거나, 혹은 무례한 사람을 대하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 88,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001154/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "컴퓨터 업무",
+          "정보, 자료 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001154/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

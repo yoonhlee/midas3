@@ -1,0 +1,641 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000857_hard_001",
+  "job_identity": {
+    "job_cd": "K000000857",
+    "job_lrcl_nm": "교육·법률·사회복지·경찰·소방직 및 군인",
+    "job_mdcl_nm": "사회복지사 및 상담사",
+    "job_smcl_nm": "사회복지사",
+    "source_ref": {
+      "file": "K000000857/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_006",
+    "text": "프로그램 및 각종 사회복지 활동 이후 그 결과에 대해 평가하고 개선책을 모색한다.",
+    "source_ref": {
+      "file": "K000000857/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 6
+    },
+    "selection_reason": "Pilot config selected exec_006."
+  },
+  "mission_facts": {
+    "org_name": "다온누리종합사회복지관",
+    "domain": "노인 대상 집단 프로그램의 결과 평가와 다음 기수 개선",
+    "period": [
+      "2026년 하반기",
+      "2027년 상반기"
+    ],
+    "trend_pattern": "전체 참가자 36명 중 개선 참가자는 26명이지만, 반별 개선 참가자 수는 7명 중 4명부터 9명 중 8명까지 차이가 난다.",
+    "main_issue": "전체 결과와 각 반의 결과를 계획서의 같은 성과목표 기준으로 평가해야 한다.",
+    "feedback_themes": [
+      "반별 참가자 수와 개선 참가자 수의 차이",
+      "개선책 후보마다 다른 제약(정원 감소, 종료 지연, 상담 횟수 한도)"
+    ],
+    "decision_goal": "2027년 상반기 기수 계획에 반영할 개선책 1개 선택"
+  },
+  "mission": {
+    "title": "노인 마음건강 프로그램 결과 평가하고 다음 기수 개선책 고르기",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "다온누리종합사회복지관 사업팀 인턴",
+      "context": "당신은 다온누리종합사회복지관 사업팀 인턴입니다. 복지관은 2026년 하반기에 노인 마음건강 집단 프로그램을 8회기, 4개 반으로 운영했고, 지금은 결과보고서를 쓰는 단계입니다. 사업 담당 사회복지사는 이번 총괄평가에서 계획서 목표의 달성률과 참가자의 개별-집단 변화정도를 함께 보려고 합니다. 담당 사회복지사가 이렇게 부탁했습니다. '계획서 목표에 비춰 이번 결과를 평가해 주고, 그 결과를 보고 2027년 상반기 기수에 넣을 개선책을 하나 추천해 줄래요?'",
+      "goal": "세 자료를 함께 보고 이번 기수 결과를 계획서 목표 기준으로 평가한 뒤, 그 평가를 근거로 다음 기수에 반영할 개선책 1개를 추천합니다.",
+      "constraints": [
+        "주어진 세 자료와 용어 설명에 나온 정보만 사용합니다.",
+        "비율은 %로 쓰고, 소수점 아래는 반올림해도 됩니다.",
+        "개선책은 일정안에 있는 세 후보 중에서 1개만 고릅니다.",
+        "답은 과제마다 3~5문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "총괄평가",
+          "definition": "프로그램이 모두 끝난 뒤, 처음 세운 목표를 이루었는지 결과를 종합해 따져 보는 평가입니다."
+        },
+        {
+          "term": "달성률",
+          "definition": "처음 세운 목표에 비해 실제 결과가 얼마나 이루어졌는지를 나타내는 정도입니다."
+        },
+        {
+          "term": "개별-집단 변화정도",
+          "definition": "프로그램 전후로 참가자 한 사람 한 사람이 얼마나 달라졌는지와, 참가자를 묶은 집단이 얼마나 달라졌는지를 함께 보는 것입니다."
+        },
+        {
+          "term": "성과목표",
+          "definition": "프로그램이 끝났을 때 참가자에게 나타나기를 바라는 변화를 미리 정해 둔 목표입니다."
+        },
+        {
+          "term": "프로그램 평가지",
+          "definition": "참가자가 프로그램과 관련해 답하는 평가 설문지입니다. 이 미션에서는 참가자의 마음건강 상태를 점수로 적는 설문지를 말합니다."
+        },
+        {
+          "term": "회기",
+          "definition": "프로그램을 나누어 진행할 때의 한 번 한 번의 모임입니다. 8회기는 모임을 8번 한다는 뜻입니다."
+        },
+        {
+          "term": "기수",
+          "definition": "같은 프로그램을 기간 단위로 되풀이해 운영할 때의 한 차례 운영분입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "program_plan_excerpt",
+        "title": "프로그램 계획서 목표 부분 발췌(사업 담당 사회복지사 작성)",
+        "description": "사업 담당 사회복지사가 작성한 2026년 하반기 노인 마음건강 집단 프로그램 계획서 중 목표 부분을 발췌한 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 결과에 적용할 성과목표 기준과 비율 계산 방법을 확인하고, 과제 2에서 참가 목표와 개선책 반영 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "모니터링(Monitoring)",
+          "사물, 서비스, 사람의 질 판단"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "사업 담당 사회복지사",
+          "items": [
+            "성과목표: 1회기와 8회기에 같은 프로그램 평가지로 마음건강 점수를 재어, 8회기 점수가 1회기보다 오른 참가자를 '개선 참가자'로 본다. 개선 참가자 비율(개선 참가자 수 ÷ 참가자 수) 70% 이상을 목표로 하며, 전체와 각 반에 같은 기준을 적용한다.",
+            "참가 목표: 4개 반(복지관 오전반, 복지관 오후반, 경로당 방문반, 아파트 방문반)을 운영하며 반별 정원은 10명, 총 40명 참가를 목표로 한다.",
+            "평가 후 처리: 총괄평가에서 성과목표에 못 미친 반이 있으면 2027년 상반기 기수 계획에 개선책 1개를 반영한다."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "chart",
+        "subtype": "grouped_bar",
+        "title": "2026년 하반기 반별 참가자 수와 개선 참가자 수(단위: 명)",
+        "description": "프로그램 결과보고서에 넣을 2026년 하반기 반별 실적 수치입니다(단위: 명). 반마다 참가자 수와 개선 참가자 수를 나란히 보여 줍니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 전체와 각 반의 개선 참가자 비율을 계산하고, 과제 2에서 개선책 후보가 다루는 반의 결과를 확인하는 데 씁니다.",
+        "evidence_source": [
+          "모니터링(Monitoring)",
+          "사물, 서비스, 사람의 질 판단"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "반",
+            "values": [
+              "복지관 오전반",
+              "복지관 오후반",
+              "경로당 방문반",
+              "아파트 방문반"
+            ]
+          },
+          "y_axis": {
+            "label": "인원",
+            "unit": "명"
+          },
+          "series": [
+            {
+              "name": "참가자 수",
+              "values": [
+                10,
+                10,
+                9,
+                7
+              ]
+            },
+            {
+              "name": "개선 참가자 수",
+              "values": [
+                8,
+                6,
+                8,
+                4
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "schedule",
+        "subtype": "improvement_plan_draft",
+        "title": "2027년 상반기 기수 개선책 일정안(초안)",
+        "description": "다음 기수 계획서에 넣기 위해 사업 담당 사회복지사가 정리한 개선책 후보 3개의 일정안 초안입니다. 후보마다 기간, 할 일, 제약을 적었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 2에서 개선책 후보 세 개의 내용과 제약을 서로 견주는 데 씁니다.",
+        "evidence_source": [
+          "사람들에게 조언, 상담",
+          "사물, 서비스, 사람의 질 판단"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "items": [
+            {
+              "period": "3월 1주~4월 4주",
+              "task": "복지관 오후반을 오전 시간대로 옮겨 운영",
+              "constraint": "오전 프로그램실을 다른 프로그램과 나눠 써서 이 반 정원이 10명에서 8명으로 줄어듦"
+            },
+            {
+              "period": "3월 1주~5월 4주",
+              "task": "아파트 방문반을 8회기에서 12회기로 늘려 운영",
+              "constraint": "방문 강사를 주 1회만 섭외할 수 있어 다른 반(4월 4주 종료)보다 4주 늦게 끝남"
+            },
+            {
+              "period": "3월 4주~4월 4주",
+              "task": "4개 반 모두에서 4회기 프로그램 평가지 점수가 1회기보다 오르지 않은 참가자에게 담당 사회복지사 개별 상담 추가",
+              "constraint": "이 기간 동안 담당 사회복지사 1명이 개별 상담을 최대 6회까지만 할 수 있음"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "메모의 성과목표 기준을 차트의 반별 결과에 적용해 보세요. 전체와 네 반 각각의 개선 참가자 비율을 계산하고, 성과목표를 달성했는지 판정해 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 비율 계산 방법과 성과목표 기준을 차트 수치에 적용해 전체와 반별 개선 참가자 비율을 구하고, 성과목표 달성 여부를 판정한다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 결과를 근거로, 개선책 일정안의 세 후보 중 2027년 상반기 기수에 반영할 개선책 1개를 골라 추천해 보세요. 고른 개선책이 다른 두 후보보다 나은 이유와, 그 개선책을 택할 때의 주의점 1가지를 함께 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "과제 1의 반별 결과와 일정안의 제약을 견주어 개선책 1개를 고르고, 다른 두 후보와 비교한 이유와 고른 개선책의 주의점 1가지를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 계획서 목표 기준으로 본 결과 평가",
+        "과제 2: 다음 기수 개선책 추천과 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "전체 개선 참가자 비율은 26/36, 약 72%로 성과목표 70%를 넘는다. 그러나 메모는 각 반에도 같은 기준을 적용하라고 하므로 반별로 보면 복지관 오전반 8/10 = 80%, 경로당 방문반 8/9 약 89%는 달성했고, 복지관 오후반 6/10 = 60%, 아파트 방문반 4/7 약 57%는 성과목표에 못 미친다.",
+      "전체 비율만 보면 목표를 모두 이룬 것처럼 보이므로, 각 반에 같은 기준을 적용했는지가 과제 1 평가의 핵심이다. 비율의 분모는 정원(10명)이 아니라 차트의 참가자 수다.",
+      "개선책 세 후보는 다루는 반과 제약이 달라 하나의 정답이 없다. 오전 이전안은 복지관 오후반(60%)만 다루며 그 반 정원이 8명으로 줄어 총 40명 참가 목표를 채울 수 없다. 회기 확대안은 비율이 가장 낮은 아파트 방문반(약 57%)만 다루며 다른 반보다 4주 늦게 끝난다. 개별 상담안은 네 반 모두를 다루지만 상담이 최대 6회로 묶여, 이번 기수처럼 점수가 오르지 않은 참가자가 10명가량 나오면 모두 상담하기 어렵다.",
+      "아파트 방문반은 참가자 수도 7명으로 정원보다 적어, 회기만 늘리는 것으로는 참가 인원 문제가 풀리지 않는다는 점도 주의점이 될 수 있다.",
+      "예시: 아파트 방문반 회기 확대를 추천한다. 네 반 중 비율이 가장 낮은(약 57%) 반을 직접 다루면서, 오전 이전안처럼 정원을 줄이지 않고 개별 상담안처럼 6회 한도에 묶이지 않기 때문이다. 주의점은 이 반이 다른 반보다 4주 늦게 끝나 전체 결과를 모아 평가하는 시점이 늦어진다는 것이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "전체와 반별 개선 참가자 비율 계산",
+        "description": "과제 1에서 전체와 네 반의 개선 참가자 비율을 차트 수치로 맞게 계산했는지 본다. 기대값: 전체 26/36 약 72%, 복지관 오전반 8/10 = 80%, 복지관 오후반 6/10 = 60%, 경로당 방문반 8/9 약 89%, 아파트 방문반 4/7 약 57%. 반올림 차이는 인정한다. 정원(10명)을 분모로 쓴 값은 맞지 않은 것으로 보며, 일부만 맞게 계산하면 맞힌 만큼 부분 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "모니터링(Monitoring)"
+        ]
+      },
+      {
+        "criterion": "성과목표 달성 여부 판정",
+        "description": "과제 1의 성과목표 달성 판정을 본다. 기대 판정: 전체는 70% 이상이라 달성했지만, 메모가 각 반에도 같은 기준을 적용하라고 했으므로 복지관 오후반(60%)과 아파트 방문반(약 57%)은 성과목표에 못 미친다. 전체 비율만 보고 '모두 달성'이라고 판정하면 이 항목 점수를 주지 않는다.",
+        "points": 25,
+        "linked_evidence": [
+          "모니터링(Monitoring)",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      },
+      {
+        "criterion": "개선책 선택과 다른 후보 대비 이유",
+        "description": "과제 2에서 고른 개선책과, 그것이 다른 두 후보보다 나은 이유를 본다. 정해진 정답은 없다. 이유가 과제 1 결과(목표에 못 미친 반과 그 비율이나 인원)와 일정안의 제약을 근거로, 고른 개선책이 나머지 두 후보보다 왜 나은지를 보여 주면 만점이다. 자료의 사실은 맞지만 다른 후보와 견주어 왜 더 나은지 보이지 않으면 부분 점수만 준다. 일정안에 없는 개선책을 고르면 점수를 주지 않는다. 예: 아파트 방문반 회기 확대를 고르고, 비율이 가장 낮은 반을 직접 다루면서 정원을 줄이지 않고 상담 6회 한도에도 묶이지 않는다고 쓴 답.",
+        "points": 30,
+        "linked_evidence": [
+          "사람들에게 조언, 상담",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      },
+      {
+        "criterion": "고른 개선책의 주의점",
+        "description": "과제 2에서 쓴 주의점 1가지를 본다. 고른 개선책 자체의 위험이나 한계로 자료에 나타난 것(정원 감소, 종료 시기 지연, 상담 횟수 한도, 참가 목표, 이번 기수 결과 등)이면 어느 것이든 인정한다. 고른 개선책과 관계없는 일반적인 걱정이면 점수를 주지 않는다. 예: 회기 확대안은 다른 반보다 4주 늦게 끝나 전체 결과를 모아 평가하는 시점이 늦어진다.",
+        "points": 20,
+        "linked_evidence": [
+          "사람들에게 조언, 상담"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_006",
+      "text": "프로그램 및 각종 사회복지 활동 이후 그 결과에 대해 평가하고 개선책을 모색한다.",
+      "source_ref": {
+        "file": "K000000857/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 6
+      },
+      "selection_reason": "Pilot config selected exec_006."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들을 배려, 돌봄",
+          "score": 95,
+          "description": "동료, 고객, 환자를 치료하고, 정서적으로 지지하고 돌보기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 95,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 93,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사물, 서비스, 사람의 질 판단",
+          "score": 92,
+          "description": "사물, 사람의 가치, 중요성, 질을 평가하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "조직 외부인과 소통",
+          "score": 91,
+          "description": "조직 외부인에게 회사를 대표해서 직접 이야기하거나, 전화, 서면, 이메일로 정보를 전달하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "설득",
+          "score": 87,
+          "description": "다른 사람들의 마음이나 행동을 변화시키기 위해 설득한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "모니터링(Monitoring)",
+          "score": 83,
+          "description": "타인 혹은 조직의 성과를 점검하고 평가한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람 파악",
+          "score": 82,
+          "description": "타인의 반응을 파악하고 왜 그렇게 행동하는지 이해한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "상담",
+          "score": 94,
+          "description": "개인의 신상 및 경력 혹은 정신적 어려움에 관한 상담을 하는 절차나 방법 혹은 원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "사회와 인류",
+          "score": 94,
+          "description": "집단행동, 사회적 영향, 인류의 기원 및 이동, 인종, 문화에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "심리",
+          "score": 90,
+          "description": "사람들의 행동, 성격, 흥미, 동기 등에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "다른 사람과 신체적 접촉",
+          "score": 85,
+          "description": "업무 수행 시 다른 사람들과 신체적으로 거리 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "공문, 문서 주고받기",
+          "score": 80,
+          "description": "업무 수행하면서 공문이나 문서를 주고받는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 접촉",
+          "score": 78,
+          "description": "업무 수행하면서 사람들과 접촉(전화, 대면, 메신저 등) 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "모니터링(Monitoring)",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "모니터링(Monitoring)",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "사람들에게 조언, 상담",
+          "사물, 서비스, 사람의 질 판단"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000857/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000857/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.075,
+    "AX2": 0.35,
+    "AX3": 0.075,
+    "AX4": 0.075,
+    "AX5": 0.425
+  }
+}

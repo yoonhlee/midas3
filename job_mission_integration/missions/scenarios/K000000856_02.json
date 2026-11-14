@@ -1,0 +1,558 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000856_normal_001",
+  "job_identity": {
+    "job_cd": "K000000856",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "컴퓨터시스템 전문가",
+    "job_smcl_nm": "컴퓨터시스템설계 및 분석가",
+    "source_ref": {
+      "file": "K000000856/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "분석내용을 바탕으로 구축해야 할 하드웨어 및 소프트웨어, 소요기간 등을 산정하고 시스템 설계안을 기획한다.",
+    "source_ref": {
+      "file": "K000000856/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "모아누리상사 정보시스템팀",
+    "domain": "사내 업무 시스템 재구축 설계",
+    "period": [
+      "설계안 작성 단계",
+      "구축 소요기간 12주 이내"
+    ],
+    "trend_pattern": "후보 대안 4개가 기능 추가 방식, 서버 구성, 소요기간에서 서로 다르다.",
+    "main_issue": "분석 메모의 품질속성 시나리오 두 가지와 소요기간 제약사항을 모두 만족하는 대안을 골라야 한다.",
+    "feedback_themes": [
+      "새 기능을 붙일 때 기존 모듈을 고치는지 여부",
+      "서버 1대가 멈췄을 때 서비스가 이어지는지 여부",
+      "구축 소요기간 12주 제한"
+    ],
+    "decision_goal": "설계안으로 올릴 아키텍처 접근법 하나를 근거와 함께 선정한다."
+  },
+  "mission": {
+    "title": "업무 시스템 설계안, 어떤 구조로 올릴까?",
+    "task_type": "planning_and_proposal",
+    "secondary_task_types": [
+      "research_and_analysis"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 모아누리상사 정보시스템팀에서 시스템 설계를 돕는 인턴입니다.",
+      "context": "회사는 오래된 사내 업무 시스템을 새로 구축하려고 합니다. 시스템 분석 담당이 요구 분석 결과를 메모로 정리했고, 설계팀은 후보가 될 아키텍처 접근법 대안 4개를 표로 정리해 두었습니다. 팀장님이 \"분석 메모를 보고 설계안으로 올릴 대안 하나를 정리해 줄래요?\"라고 부탁했습니다.",
+      "goal": "설계안으로 올릴 아키텍처 접근법 하나를 정하고, 왜 그 대안인지 짧게 설명해 보세요.",
+      "constraints": [
+        "메모와 표에 적힌 내용만 근거로 삼으세요.",
+        "답은 2~3문장으로 적어 주세요.",
+        "표에 없는 비용, 인력, 기술 선호 같은 사실은 끌어오지 마세요."
+      ],
+      "glossary": [
+        {
+          "term": "품질속성 시나리오",
+          "definition": "시스템이 어떤 상황에서 어떻게 동작해야 하는지를 구체적인 장면으로 적은 요구사항입니다."
+        },
+        {
+          "term": "아키텍처 접근법",
+          "definition": "시스템을 어떤 부품으로 나누고 서로 어떻게 연결할지 정하는 큰 틀의 설계 방식입니다."
+        },
+        {
+          "term": "변경용이성",
+          "definition": "나중에 기능을 고치거나 더할 때 얼마나 손쉽게 바꿀 수 있는지를 뜻합니다."
+        },
+        {
+          "term": "가용성",
+          "definition": "고장이 나도 서비스를 멈추지 않고 계속 쓸 수 있는 정도를 뜻합니다."
+        },
+        {
+          "term": "제약사항",
+          "definition": "설계할 때 반드시 지켜야 하는 제한 조건입니다."
+        },
+        {
+          "term": "Layered",
+          "definition": "화면, 업무 처리, 데이터처럼 역할별 층을 차례로 쌓아 만드는 구조입니다."
+        },
+        {
+          "term": "Microkernel",
+          "definition": "작은 핵심 모듈을 두고 필요한 기능을 플러그인처럼 끼워 넣는 구조입니다."
+        },
+        {
+          "term": "Publish Subscribe",
+          "definition": "한 모듈이 알림을 내보내면 그 알림을 받기로 한 모듈들이 받아서 처리하는 구조입니다."
+        },
+        {
+          "term": "Broker",
+          "definition": "중간 연결 담당이 요청을 받아 알맞은 서비스로 전달해 주는 구조입니다."
+        },
+        {
+          "term": "플러그인",
+          "definition": "본체를 고치지 않고 끼워 넣어 기능을 더하는 추가 부품입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "requirement_analysis_memo",
+        "title": "업무 시스템 재구축 분석 결과 요약 (시스템 분석 담당 작성)",
+        "description": "시스템 분석 담당이 사내 업무 시스템 재구축을 앞두고 정리한 요구 분석 결과 요약 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "설계안을 고를 때 지켜야 할 조건을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "기술 설계"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "시스템 분석 담당",
+          "items": [
+            "품질속성 시나리오(변경용이성): 내년에 새 기능을 추가할 때 기존 모듈을 수정하지 않고 붙일 수 있어야 합니다.",
+            "품질속성 시나리오(가용성): 서버 1대가 멈춰도 서비스가 중단되지 않아야 합니다.",
+            "제약사항: 구축 소요기간은 12주 이내여야 합니다. 위 세 조건을 모두 만족하는 대안을 설계안으로 올려 주세요."
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "architecture_option_comparison",
+        "title": "아키텍처 접근법 대안 비교표",
+        "description": "설계팀이 재구축 후보로 정리한 아키텍처 접근법 대안 4개의 기능 추가 방식, 서버 구성, 소요기간(단위: 주)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 조건에 비추어 볼 후보 대안들의 정보를 확인하는 데 쓴다.",
+        "evidence_source": [
+          "기술 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "period"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "대안"
+            },
+            {
+              "key": "strength",
+              "label": "기능 추가 방식"
+            },
+            {
+              "key": "weakness",
+              "label": "서버 구성"
+            },
+            {
+              "key": "priority",
+              "label": "소요기간(주)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안 (Layered)",
+              "strength": "새 기능을 넣을 때 화면·업무·데이터 계층을 모두 수정",
+              "weakness": "서버 2대, 한 대가 멈추면 다른 서버가 처리",
+              "priority": 10
+            },
+            {
+              "option": "B안 (Microkernel)",
+              "strength": "새 기능을 플러그인으로 추가, 기존 핵심 모듈 수정 없음",
+              "weakness": "서버 1대",
+              "priority": 9
+            },
+            {
+              "option": "C안 (Publish Subscribe)",
+              "strength": "새 기능을 구독 모듈로 추가, 기존 모듈 수정 없음",
+              "weakness": "서버 2대, 한 대가 멈추면 다른 서버가 처리",
+              "priority": 11
+            },
+            {
+              "option": "D안 (Broker)",
+              "strength": "새 기능을 서비스로 등록해 추가, 기존 모듈 수정 없음",
+              "weakness": "서버 2대, 한 대가 멈추면 다른 서버가 처리",
+              "priority": 15
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "분석 메모와 대안 비교표를 보고, 설계안으로 올릴 아키텍처 접근법 하나를 골라 보세요. 고른 대안과 함께 나머지 대안이 각각 메모의 어떤 조건 때문에 빠지는지 2~3문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 품질속성 시나리오 두 가지와 소요기간 제약사항을 표의 네 대안에 각각 대어 보고, 세 조건을 모두 만족하는 대안 하나를 고른 뒤 다른 대안이 빠지는 조건을 근거로 드는 짧은 설명을 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "선정한 대안과 근거"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "C안(Publish Subscribe)만 새 기능을 기존 모듈 수정 없이 붙일 수 있고, 서버 2대라 한 대가 멈춰도 서비스가 이어지며, 소요기간 11주로 12주 안에 들어 세 조건을 모두 만족한다.",
+      "B안(Microkernel)은 기능 추가가 쉽고 소요기간이 9주로 가장 짧지만 서버가 1대뿐이라 그 서버가 멈추면 서비스가 끊겨 가용성 시나리오를 만족하지 못한다.",
+      "D안(Broker)은 두 품질속성 시나리오를 모두 만족하지만 소요기간 15주가 12주 제약사항을 넘는다.",
+      "A안(Layered)은 서버 구성과 소요기간은 맞지만 새 기능을 넣을 때 기존 계층을 모두 고쳐야 해 변경용이성 시나리오를 만족하지 못한다.",
+      "선정 근거는 메모의 세 조건과 표에 적힌 값에만 기대야 하며, 표에 없는 사실을 끌어오지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "세 조건을 모두 만족하는 대안 선정",
+        "description": "메모의 변경용이성, 가용성 시나리오와 12주 소요기간 제약사항을 모두 만족하는 C안(Publish Subscribe)을 고른다.",
+        "points": 40,
+        "linked_evidence": [
+          "기술 분석"
+        ]
+      },
+      {
+        "criterion": "일부 조건만 맞는 대안의 제외 근거",
+        "description": "소요기간이 가장 짧지만 서버 1대인 B안은 가용성 때문에, 품질속성은 모두 맞지만 15주인 D안은 소요기간 때문에 빠진다는 점을 각각 밝힌다. A안이 변경용이성 때문에 빠진다는 점까지 밝히면 충분하다.",
+        "points": 30,
+        "linked_evidence": [
+          "기술 분석"
+        ]
+      },
+      {
+        "criterion": "근거와 메모 조건의 연결",
+        "description": "선정과 제외의 근거가 메모의 품질속성 시나리오(변경용이성, 가용성)와 제약사항(소요기간)에 각각 연결되어 있고, 표에 없는 사실을 근거로 들지 않는다.",
+        "points": 30,
+        "linked_evidence": [
+          "기술 설계"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "분석내용을 바탕으로 구축해야 할 하드웨어 및 소프트웨어, 소요기간 등을 산정하고 시스템 설계안을 기획한다.",
+      "source_ref": {
+        "file": "K000000856/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 91,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 90,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "전자장비 유지 보수",
+          "score": 83,
+          "description": "기계가 아닌 전자적 원리에 의해 작동되는 장비, 부품, 장치, 기계를 정비, 수리, 조절, 시험하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 81,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 78,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000856/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 99,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 95,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "설치",
+          "score": 89,
+          "description": "작업 지시서에 따라 장비, 도구, 배선, 프로그램을 설치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 94,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 85,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 82,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 89,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 89,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람들을 조율하거나 이끌기",
+          "score": 86,
+          "description": "업무 특성상 다른 사람들을 조율하거나 이끄는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기술 설계"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "기술 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "trend_pattern",
+          "period"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000856/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.76,
+    "AX2": 0.06,
+    "AX3": 0.06,
+    "AX4": 0.06,
+    "AX5": 0.06
+  }
+}

@@ -1,0 +1,463 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007582_easy_001",
+  "job_identity": {
+    "job_cd": "K000007582",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "에너지·환경공학 기술자 및 시험원",
+    "job_smcl_nm": "환경영향평가원",
+    "source_ref": {
+      "file": "K000007582/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_006",
+    "text": "설정된 대안에 대하여 비용편익분석, 다목적계획기법 등을 활용하여 평가한다.",
+    "source_ref": {
+      "file": "K000007582/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 6
+    },
+    "selection_reason": "Pilot config selected exec_006."
+  },
+  "mission_facts": {
+    "org_name": "가람환경평가 사무소",
+    "domain": "가람시 동서연결도로 건설사업 환경영향평가의 주거지 구간 소음 대안 평가",
+    "period": [
+      "2026년 11월 대안 평가 회의 준비 기간"
+    ],
+    "trend_pattern": "대안 1, 대안 2, 대안 3 순으로 저감 후 주거지 예측 소음도는 67dB, 63dB, 55dB로 낮아지고 사업비는 820억원, 910억원, 1350억원으로 늘어난다.",
+    "main_issue": "저감 후 예측 소음도가 낮은 대안일수록 사업비가 많아서, 소음도와 사업비 중 한 가지만 보아서는 최적안이 정해지지 않는다.",
+    "feedback_themes": [
+      "주거지 구간 소음",
+      "사업비 부담"
+    ],
+    "decision_goal": "목표기준(저감 후 주거지 예측 소음도 65dB 이하)을 충족하는 대안 가운데 사업비가 가장 적은 대안을 최적안으로 선정한다."
+  },
+  "mission": {
+    "title": "도로 소음 대안 중 최적안 고르기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "decision_making"
+    ],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 가람환경평가 사무소에서 일을 배우고 있는 환경영향평가원 인턴입니다.",
+      "context": "사무소는 가람시 동서연결도로 건설사업의 환경영향평가를 맡고 있습니다. 새 도로가 주거지 옆을 지나가는 구간이 있어 소음이 걱정되었고, 팀은 소음을 줄이기 위한 대안 3개를 마련했습니다. 담당 팀장님이 이렇게 부탁했습니다. \"이번 사업의 목표기준은 저감 후 주거지 예측 소음도 65dB 이하예요. 환경영향저감효과와 경제성을 함께 봐서, 목표기준을 충족하는 대안 가운데 사업비가 가장 적은 대안을 최적안으로 올리면 됩니다. 대안 비교표를 보고 하나 골라 주세요.\"",
+      "goal": "대안 비교표의 세 대안 가운데 최적안 하나를 고르고, 그 이유를 1~2문장으로 팀장님께 전합니다.",
+      "constraints": [
+        "목표기준: 저감 후 주거지 예측 소음도 65dB 이하",
+        "선정 규칙: 목표기준을 충족하는 대안 가운데 사업비가 가장 적은 대안을 최적안으로 한다.",
+        "대안 비교표에 적힌 값만 사용한다."
+      ],
+      "glossary": [
+        {
+          "term": "목표기준",
+          "definition": "환경 관련 법과 지역 조례의 기준을 바탕으로, 이 사업의 환경영향평가에서 꼭 달성하려고 정한 기준값입니다."
+        },
+        {
+          "term": "환경영향저감효과",
+          "definition": "대안을 적용했을 때 환경에 미치는 나쁜 영향이 얼마나 줄어드는지를 말합니다. 이 미션에서는 대안을 적용한 뒤 주거지에서 예상되는 소음도로 나타냅니다."
+        },
+        {
+          "term": "경제성",
+          "definition": "같은 목적을 얼마나 적은 돈으로 이룰 수 있는지를 따지는 것입니다. 이 미션에서는 대안별 사업비로 봅니다."
+        },
+        {
+          "term": "최적안",
+          "definition": "정해진 기준과 규칙에 따라 여러 대안 가운데 가장 알맞다고 골라낸 안입니다."
+        },
+        {
+          "term": "dB(데시벨)",
+          "definition": "소리의 크기를 나타내는 단위입니다. 숫자가 작을수록 조용합니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "alternative_comparison",
+        "title": "가람시 동서연결도로 주거지 구간 대안 비교표",
+        "description": "주거지 구간 소음을 줄이기 위해 설정한 대안 3개의 저감 방안, 저감 후 주거지 예측 소음도, 사업비를 한 행씩 정리한 표입니다. 소음도 단위는 dB, 사업비 단위는 억원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "시나리오의 목표기준과 선정 규칙을 세 대안에 적용해 최적안을 고르는 데 사용합니다.",
+        "evidence_source": [
+          "범주화",
+          "판단과 의사결정"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "대안"
+            },
+            {
+              "key": "strength",
+              "label": "저감 방안"
+            },
+            {
+              "key": "weakness",
+              "label": "환경영향저감효과: 저감 후 주거지 예측 소음도"
+            },
+            {
+              "key": "priority",
+              "label": "사업비(억원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "대안 1",
+              "strength": "원안 노선 유지, 주거지 앞 방음벽 설치",
+              "weakness": "67dB",
+              "priority": 820
+            },
+            {
+              "option": "대안 2",
+              "strength": "주거지 구간 노선을 200m 떨어뜨려 이전",
+              "weakness": "63dB",
+              "priority": 910
+            },
+            {
+              "option": "대안 3",
+              "strength": "주거지 구간을 터널로 통과",
+              "weakness": "55dB",
+              "priority": 1350
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": [
+            "표의 열 키(option, strength, weakness, priority)는 스키마 고정값이며, 각 열의 실제 의미는 label(대안, 저감 방안, 저감 후 주거지 예측 소음도, 사업비)을 따른다."
+          ]
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "대안 비교표를 보고, 팀장님이 말한 목표기준과 선정 규칙에 따라 최적안 하나를 골라 보세요. 고른 대안과 그 이유를 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "세 대안의 저감 후 주거지 예측 소음도를 65dB 목표기준과 맞대어 기준을 충족하는 대안을 가린 뒤, 그 가운데 사업비가 가장 적은 대안을 최적안으로 고르고 소음도와 사업비를 함께 본 근거를 1-2문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "선택한 최적안과 그 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "대안 1은 저감 후 주거지 예측 소음도가 67dB로 목표기준(65dB 이하)을 넘고, 대안 2(63dB)와 대안 3(55dB)은 목표기준을 충족한다.",
+      "목표기준을 충족하는 대안 2와 대안 3 가운데 사업비가 더 적은 대안 2(910억원)가 최적안이다. 사업비가 가장 적은 대안 1이나 소음을 가장 많이 줄이는 대안 3을 한 가지 기준만 보고 고르면 안 된다."
+    ],
+    "rubric": [
+      {
+        "criterion": "목표기준에 따른 대안 분류",
+        "description": "각 대안의 저감 후 예측 소음도를 65dB 목표기준과 맞대어, 기준을 충족하는 대안(대안 2, 대안 3)과 넘는 대안(대안 1)을 바르게 가려냈는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "범주화"
+        ]
+      },
+      {
+        "criterion": "최적안 선정과 근거",
+        "description": "기준을 충족하는 대안 가운데 사업비가 가장 적은 대안 2를 최적안으로 골랐는지, 그리고 사업비만 보거나 소음 저감효과만 보고 고르지 않았음이 근거 문장에 드러나는지 본다.",
+        "points": 60,
+        "linked_evidence": [
+          "판단과 의사결정"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_006",
+      "text": "설정된 대안에 대하여 비용편익분석, 다목적계획기법 등을 활용하여 평가한다.",
+      "source_ref": {
+        "file": "K000007582/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 6
+      },
+      "selection_reason": "Pilot config selected exec_006."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "협상, 갈등 해결",
+          "score": 96,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보의 의미 해석",
+          "score": 93,
+          "description": "정보가 뜻하는 바와 그것이 어떻게 사용되는지 번역하거나 설명하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보 작성, 기록",
+          "score": 91,
+          "description": "정보를 전자 또는 서면으로 작성, 기록, 저장, 관리하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 91,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "자원 관리",
+          "score": 91,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007582/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "추리력",
+          "score": 88,
+          "description": "문제해결 및 의사결정을 위해 새로운 정보가 가지는 의미를 파악한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 83,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "기술 분석",
+          "score": 79,
+          "description": "새로운 방법을 고안하고 기존의 방법을 개선하기 위해서 현재 사용되는 도구와 기술을 분석한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "지리",
+          "score": 87,
+          "description": "육지, 바다 그리고 하늘의 특성 및 상호관계에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "화학",
+          "score": 87,
+          "description": "물질의 구성, 구조, 특성, 화학적 변환과정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "생물",
+          "score": 85,
+          "description": "동.식물 또는 생명현상에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 91,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 89,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 85,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "범주화",
+          "판단과 의사결정"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "domain",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007582/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.08,
+    "AX2": 0.08,
+    "AX3": 0.68,
+    "AX4": 0.08,
+    "AX5": 0.08
+  }
+}

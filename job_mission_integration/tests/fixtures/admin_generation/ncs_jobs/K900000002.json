@@ -1,0 +1,27 @@
+{
+  "schema_version": "fixture",
+  "job_cd": "K900000002",
+  "job_name": "시범 직업 나",
+  "units": [
+    {
+      "unit_key": "90000002:01",
+      "exec_job_id": "exec_001",
+      "exec_job_text": "문장 하나",
+      "unit_name": "시범 능력단위 하나",
+      "scope": {
+        "documents": [
+          "서류 1"
+        ],
+        "considerations": []
+      },
+      "link": {
+        "match": "간접",
+        "indirect_kind": "상위 수준",
+        "reason": "문장 하나와 시범 능력단위 하나의 연결 이유(고정 데이터).",
+        "criteria_refs": [
+          "1.1"
+        ]
+      }
+    }
+  ]
+}

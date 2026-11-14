@@ -1,0 +1,542 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007581_normal_001",
+  "job_identity": {
+    "job_cd": "K000007581",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "제도사 및 기타 인쇄·목재 등 공학 기술자 및 시험원",
+    "job_smcl_nm": "3D프린팅모델러",
+    "source_ref": {
+      "file": "K000007581/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "작업이 제대로 진행되고 있는지를 파악하기 위해 수시로 프린터기의 진행사항을 점검한다.",
+    "source_ref": {
+      "file": "K000007581/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "누리3D 시제품 스튜디오",
+    "domain": "3D프린팅 시제품 출력",
+    "period": [
+      "09:00",
+      "10:00",
+      "11:00",
+      "12:00"
+    ],
+    "trend_pattern": "출력 진행률은 한 시간마다 올라가고, 점검 시점마다 노즐 온도·베드 온도·출력 속도 값이 조금씩 다르게 기록되어 있다.",
+    "main_issue": "출력 중 점검 기록에 남은 값이 출력 전에 정한 설정요건대로 유지되었는지 확인해야 한다.",
+    "feedback_themes": [
+      "노즐 온도",
+      "베드 온도",
+      "출력 속도"
+    ],
+    "decision_goal": "설정요건대로 출력되지 않은 점검 시점과 항목을 찾아 근거와 함께 선임에게 보고한다."
+  },
+  "mission": {
+    "title": "시제품 출력, 설정요건대로 되고 있을까?",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 누리3D 시제품 스튜디오의 3D프린팅모델러 인턴입니다.",
+      "context": "고객이 맡긴 시제품 케이스를 아침 9시부터 3D프린터로 출력하고 있습니다. 출력이 진행되는 동안 한 시간마다 프린터의 진행사항을 점검해 기록으로 남겼습니다. 선임 모델러 박OO 님이 \"점심 전에 점검 기록을 설정요건 메모와 맞춰 보고, 설정요건대로 출력되지 않은 때가 있었는지 알려 줘요.\"라고 부탁했습니다.",
+      "goal": "점검 기록의 값을 설정요건과 비교해, 설정요건대로 출력되지 않은 점검 시점과 항목을 근거와 함께 선임에게 짧게 보고해 보세요.",
+      "constraints": [
+        "설정요건 메모와 진행사항 점검 기록에 적힌 값만 사용하세요.",
+        "답은 2~3문장으로 짧게 적으세요.",
+        "보고에는 점검 시점, 항목, 근거가 되는 값이 들어가야 합니다."
+      ],
+      "glossary": [
+        {
+          "term": "설정요건",
+          "definition": "출력이 처음부터 끝까지 따라야 하는 기준입니다. 정해 둔 설정값과, 출력 중에 지켜야 하는 범위나 조건을 함께 말합니다."
+        },
+        {
+          "term": "슬라이서 데이터",
+          "definition": "3D 모델을 프린터가 한 층씩 쌓을 수 있게 바꾼 출력용 데이터입니다. 온도와 속도 같은 출력 설정이 함께 담깁니다."
+        },
+        {
+          "term": "노즐",
+          "definition": "재료를 녹여서 조금씩 짜내는 프린터의 끝부분입니다."
+        },
+        {
+          "term": "베드",
+          "definition": "출력물이 놓여 쌓이는 프린터의 바닥판입니다."
+        },
+        {
+          "term": "허용 오차",
+          "definition": "설정값에서 위아래로 이만큼까지 달라져도 괜찮다고 정한 폭입니다. 예를 들어 설정값이 100이고 허용 오차가 ±2이면 98부터 102까지는 괜찮습니다."
+        },
+        {
+          "term": "mm/s",
+          "definition": "1초에 몇 밀리미터를 움직이는지 나타내는 속도 단위입니다."
+        },
+        {
+          "term": "레이어",
+          "definition": "3D프린터가 한 번에 쌓는 얇은 한 층입니다."
+        },
+        {
+          "term": "필라멘트",
+          "definition": "3D프린터에 넣어 녹여 쓰는 실 모양의 재료입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "print_setting_requirements_memo",
+        "title": "시제품 케이스 출력 설정요건 (선임 모델러 박OO 작성)",
+        "description": "선임 모델러 박OO이 남긴 메모입니다. 아래 값은 출력 전에 점검한 슬라이서 데이터를 기준으로 정한 이번 출력의 설정요건입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "점검 기록의 값과 비교할 기준, 곧 항목별 설정값과 출력 중 지켜야 할 범위나 조건을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "상품 제조 및 공정",
+          "정보의 의미 해석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes"
+        ],
+        "data": {
+          "author": "선임 모델러 박OO",
+          "items": [
+            "노즐 온도: 205℃로 설정. 출력 중에는 200℃ 이상 210℃ 이하를 유지해야 함.",
+            "베드 온도: 60℃로 설정. 허용 오차는 ±5℃.",
+            "출력 속도: 50mm/s로 설정. 출력 중에는 바꾸지 않음."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "log",
+        "subtype": "printer_progress_inspection_log",
+        "title": "프린터기 진행사항 점검 기록 (시제품 케이스 출력)",
+        "description": "시제품 케이스를 출력하는 동안 한 시간마다 프린터의 작동 상태를 확인해 남긴 점검 기록입니다. 온도 단위는 ℃, 출력 속도 단위는 mm/s, 진행률 단위는 %입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "점검 시점마다 기록된 노즐 온도, 베드 온도, 출력 속도 값을 설정요건과 비교하는 데 씁니다.",
+        "evidence_source": [
+          "정보 처리",
+          "상품 제조 및 공정"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "09:00",
+              "actor": "김OO",
+              "event": "출력 시작 / 작동 상태 확인: 노즐 205℃, 베드 60℃, 출력 속도 50mm/s, 진행률 0%",
+              "note": "첫 레이어가 베드에 붙은 것을 눈으로 확인"
+            },
+            {
+              "time": "10:00",
+              "actor": "김OO",
+              "event": "작동 상태 확인: 노즐 206℃, 베드 56℃, 출력 속도 50mm/s, 진행률 24%",
+              "note": "출력물 표면을 눈으로 확인"
+            },
+            {
+              "time": "11:00",
+              "actor": "김OO",
+              "event": "작동 상태 확인: 노즐 214℃, 베드 59℃, 출력 속도 50mm/s, 진행률 47%",
+              "note": "필라멘트 남은 양 확인"
+            },
+            {
+              "time": "12:00",
+              "actor": "이OO",
+              "event": "작동 상태 확인: 노즐 207℃, 베드 61℃, 출력 속도 80mm/s, 진행률 78%",
+              "note": "교대 후 첫 점검"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "설정요건 메모와 진행사항 점검 기록을 함께 보고, 설정요건대로 출력되지 않은 점검 시점이 언제이고 어떤 항목이 벗어났는지 근거가 되는 값과 함께 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 설정값과 범위·조건을 점검 기록의 각 시점 값에 비춰 보고, 설정요건을 벗어난 점검 시점과 항목을 근거 값과 함께 짧게 서술한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "설정요건을 벗어난 점검 시점·항목과 근거"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "11:00 점검의 노즐 온도 214℃는 설정요건의 유지 범위인 200℃ 이상 210℃ 이하를 넘었다.",
+      "12:00 점검의 출력 속도 80mm/s는 출력 중 바꾸지 않기로 한 설정값 50mm/s와 다르다.",
+      "10:00 점검의 베드 온도 56℃는 설정값 60℃보다 낮지만 허용 오차 ±5℃(55~65℃) 안에 있으므로 설정요건을 지킨 값이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "노즐 온도가 범위를 벗어난 시점 찾기",
+        "description": "11:00 점검의 노즐 온도 214℃가 설정요건의 유지 범위(200℃ 이상 210℃ 이하)를 넘었다는 점을 시점, 항목, 근거 값과 함께 썼는지 본다.",
+        "points": 35,
+        "linked_evidence": [
+          "정보 처리",
+          "상품 제조 및 공정"
+        ]
+      },
+      {
+        "criterion": "출력 속도가 바뀐 시점 찾기",
+        "description": "12:00 점검의 출력 속도가 출력 중 바꾸지 않기로 한 설정값 50mm/s에서 80mm/s로 바뀌었다는 점을 시점, 항목, 근거 값과 함께 썼는지 본다.",
+        "points": 35,
+        "linked_evidence": [
+          "정보 처리",
+          "상품 제조 및 공정"
+        ]
+      },
+      {
+        "criterion": "허용 오차 안의 값을 바르게 해석하기",
+        "description": "10:00 베드 온도 56℃처럼 설정값과 다르지만 허용 오차 ±5℃(55~65℃) 안에 있는 값을 설정요건 위반으로 잘못 판단하지 않았는지 본다.",
+        "points": 30,
+        "linked_evidence": [
+          "정보의 의미 해석"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "작업이 제대로 진행되고 있는지를 파악하기 위해 수시로 프린터기의 진행사항을 점검한다.",
+      "source_ref": {
+        "file": "K000007581/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 96,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 95,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 95,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 89,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 86,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "창의력",
+          "score": 100,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 100,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "기술 설계",
+          "score": 100,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "상품 제조 및 공정",
+          "score": 80,
+          "description": "상품의 제조 및 유통을 효율적으로 하기 위해 필요한 원자재, 제조공정, 품질관리, 비용에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "기계",
+          "score": 74,
+          "description": "기계와 도구를 사용하고, 수리.유지하는 것과 관련된 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "디자인",
+          "score": 74,
+          "description": "밑그림, 제도와 같이 디자인에 필요한 기법 및 도구에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "자동화 정도",
+          "score": 99,
+          "description": "업무의 자동화 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "균형을 유지하기",
+          "score": 99,
+          "description": "(몸의) 균형을 유지하면서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "건강 및 안전에 대한 책임",
+          "score": 95,
+          "description": "함께 근무하는 사람의 건강 및 안전에 대한 책임",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "상품 제조 및 공정",
+          "정보의 의미 해석"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보 처리",
+          "상품 제조 및 공정"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 8,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007581/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007581/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.72,
+    "AX2": 0.07,
+    "AX3": 0.07,
+    "AX4": 0.07,
+    "AX5": 0.07
+  }
+}

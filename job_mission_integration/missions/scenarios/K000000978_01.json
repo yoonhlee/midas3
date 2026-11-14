@@ -1,0 +1,473 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000978_easy_001",
+  "job_identity": {
+    "job_cd": "K000000978",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "데이터·네트워크 및 시스템 운영 전문가",
+    "job_smcl_nm": "IT기술지원전문가",
+    "source_ref": {
+      "file": "K000000978/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "사용자가 상품을 사용하는 데 불편이 없는지를 평가하기 위해 소프트웨어, 하드웨어, 주변장치 등을 검사하고 모니터링한다.",
+    "source_ref": {
+      "file": "K000000978/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "솔빛상사 IT지원팀",
+    "domain": "사무실 하드웨어·주변장치 점검과 모니터링",
+    "period": [
+      "11월 10일",
+      "11월 11일",
+      "11월 12일"
+    ],
+    "trend_pattern": "점검 기간 3일 동안 로그에 3건이 기록됨: 11월 10일 파일 서버 디스크 읽기 오류 경고, 11월 11일 2층 공용 프린터 출력 실패 1건, 11월 12일 파일 서버 디스크 읽기 오류 경고",
+    "main_issue": "팀 점검 기준에 따라 장애가 나기 전에 사전 조치 대상으로 올릴 장비를 정해야 함",
+    "feedback_themes": [
+      "자동 재시도 후 파일 열림",
+      "용지 보충 후 출력됨"
+    ],
+    "decision_goal": "점검 기준을 로그에 적용해 사전 조치 대상으로 올릴 장비 하나를 고른다"
+  },
+  "mission": {
+    "title": "점검 로그에서 사전 조치 대상 고르기",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 솔빛상사 IT지원팀에 새로 들어온 인턴입니다.",
+      "context": "IT지원팀은 11월 10일부터 11월 12일까지 영업팀 사무실의 하드웨어와 주변장치를 점검하고 모니터링했습니다. 그동안 모니터링 도구와 점검 담당자가 남긴 기록이 점검 로그 한 장으로 정리되었습니다. 팀장님이 로그를 건네며 말합니다. \"우리 팀 점검 기준에 맞춰서, 사전 조치 대상으로 올릴 장비를 하나 골라 줄래요?\"",
+      "goal": "점검 로그에 팀 점검 기준을 적용해 사전 조치 대상으로 올릴 장비 하나를 고르고, 근거가 된 기록을 밝힙니다.",
+      "constraints": [
+        "팀 점검 기준: 지금은 사용에 문제가 없어도 같은 대상에서 같은 경고가 점검 기간 중 2회 이상 기록되면 비정상적인 작동상황으로 보고, 장애가 나기 전에 사전 조치 대상으로 올립니다.",
+        "점검 로그에 적힌 기록만 보고 판단합니다.",
+        "답은 1~2문장으로 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "로그",
+          "definition": "장비나 시스템에서 일어난 일을 시간 순서대로 적어 둔 기록입니다."
+        },
+        {
+          "term": "모니터링",
+          "definition": "장비나 시스템의 상태를 계속 지켜보며 확인하는 일입니다."
+        },
+        {
+          "term": "하드웨어",
+          "definition": "컴퓨터, 서버, 저장 장치처럼 손으로 만질 수 있는 기계 부분입니다."
+        },
+        {
+          "term": "주변장치",
+          "definition": "컴퓨터에 연결해서 쓰는 프린터, 스캐너, 모니터 같은 장치입니다."
+        },
+        {
+          "term": "파일 서버",
+          "definition": "팀원들이 함께 쓰는 파일을 저장해 두고 나눠 쓸 수 있게 해 주는 컴퓨터입니다."
+        },
+        {
+          "term": "디스크 읽기 오류",
+          "definition": "저장 장치(디스크)에서 자료를 읽어 오는 도중에 문제가 생긴 것을 말합니다."
+        },
+        {
+          "term": "자동 재시도",
+          "definition": "처음에 실패한 작업을 시스템이 스스로 한 번 더 시도하는 기능입니다."
+        },
+        {
+          "term": "장애",
+          "definition": "장비나 시스템이 멈추거나 제대로 작동하지 않아 업무에 쓸 수 없게 되는 상황입니다."
+        },
+        {
+          "term": "사전 조치",
+          "definition": "문제가 실제로 생기기 전에 미리 점검하거나 손보는 일입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "log",
+        "subtype": "system_inspection_log",
+        "title": "영업팀 사무실 시스템 점검 로그 (점검 기간 11월 10일~11월 12일)",
+        "description": "IT지원팀이 점검 기간 동안 영업팀 사무실의 하드웨어와 주변장치에서 기록된 내용을 시간 순서대로 모은 로그입니다. 각 줄에는 시각, 기록자, 발생 내용, 처리 메모가 적혀 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "팀 점검 기준을 각 기록에 적용해 사전 조치 대상으로 올릴 장비를 고르는 데 사용합니다.",
+        "evidence_source": [
+          "정보 처리",
+          "컴퓨터와 전자공학",
+          "고장의 발견.수리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "11월 10일 09:30",
+              "actor": "모니터링 도구",
+              "event": "[하드웨어] 파일 서버 디스크 읽기 오류 경고",
+              "note": "자동 재시도 후 파일 열림"
+            },
+            {
+              "time": "11월 11일 13:50",
+              "actor": "점검 담당자",
+              "event": "[주변장치] 2층 공용 프린터 출력 실패 1건",
+              "note": "용지 보충 후 출력됨"
+            },
+            {
+              "time": "11월 12일 10:20",
+              "actor": "모니터링 도구",
+              "event": "[하드웨어] 파일 서버 디스크 읽기 오류 경고",
+              "note": "자동 재시도 후 파일 열림"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.85,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "점검 로그에 팀 점검 기준을 적용해 사전 조치 대상으로 올릴 장비를 하나 고르고, 그 근거가 된 기록이 무엇인지 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "점검 기준을 로그의 기록에 한 번 적용해 사전 조치 대상 장비 하나를 고르고, 근거가 된 기록을 함께 밝힌 1~2문장을 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "사전 조치 대상 장비",
+        "근거가 된 기록"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "파일 서버의 디스크 읽기 오류 경고가 11월 10일과 11월 12일에 같은 내용으로 두 번 기록된 것을 찾아, 같은 대상의 같은 경고로 묶어 읽는다.",
+      "자동 재시도로 지금은 파일이 열리더라도 같은 경고가 점검 기간 중 2회 기록되었으므로 파일 서버를 장애 전 징후가 있는 사전 조치 대상으로 고르고, 한 번 생기고 용지 보충으로 끝난 프린터 출력 실패는 고르지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "반복된 기록 찾기",
+        "description": "로그에서 파일 서버의 디스크 읽기 오류 경고가 11월 10일과 11월 12일 두 번 기록된 것을 찾아 하나의 대상으로 묶어 근거로 제시했는지 확인한다.",
+        "points": 50,
+        "linked_evidence": [
+          "정보 처리",
+          "컴퓨터와 전자공학"
+        ]
+      },
+      {
+        "criterion": "사전 조치 대상 판단",
+        "description": "자동 재시도로 지금은 파일이 열리더라도 반복 경고를 장애 전 징후로 보고 파일 서버를 골랐는지, 한 번 생기고 조치로 끝난 프린터 출력 실패를 사전 조치 대상으로 고르지 않았는지 확인한다.",
+        "points": 50,
+        "linked_evidence": [
+          "고장의 발견.수리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "사용자가 상품을 사용하는 데 불편이 없는지를 평가하기 위해 소프트웨어, 하드웨어, 주변장치 등을 검사하고 모니터링한다.",
+      "source_ref": {
+        "file": "K000000978/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 96,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "자원 관리",
+          "score": 94,
+          "description": "경비지출과 자원을 관리하고 감독하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 91,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 91,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 90,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "가르치기",
+          "score": 96,
+          "description": "다른 사람들에게 일하는 방법에 대해 가르친다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "재정 관리",
+          "score": 95,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "고장의 발견.수리",
+          "score": 93,
+          "description": "오작동의 원인이 무엇인가를 확인하고 이를 어떻게 처리할 것인지 결정한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 93,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 88,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 80,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 92,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 88,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "외부 고객 대하기",
+          "score": 87,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 처리",
+          "컴퓨터와 전자공학",
+          "고장의 발견.수리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000978/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000978/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.4,
+    "AX2": 0.15,
+    "AX3": 0.15,
+    "AX4": 0.15,
+    "AX5": 0.15
+  }
+}

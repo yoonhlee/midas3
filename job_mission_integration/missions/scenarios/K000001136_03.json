@@ -1,0 +1,686 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001136_hard_001",
+  "job_identity": {
+    "job_cd": "K000001136",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "금융·보험 사무원",
+    "job_smcl_nm": "은행사무원",
+    "source_ref": {
+      "file": "K000001136/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_006",
+    "text": "차용신청서 또는 차용 및 보증신청서를 접수하여 개인이나 법인으로 분류하고, 담보내용, 서류, 거래실적, 자금용도, 상환자원 등을 조사·검토한다.",
+    "source_ref": {
+      "file": "K000001136/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 6
+    },
+    "selection_reason": "Pilot config selected exec_006."
+  },
+  "mission_facts": {
+    "org_name": "새솔은행 다온지점 여신팀",
+    "domain": "개인 고객 차용신청의 물적 담보 후보 검토",
+    "period": [
+      "6월",
+      "7월",
+      "8월",
+      "9월",
+      "10월"
+    ],
+    "trend_pattern": "갑 지역 아파트 낙찰가율은 88~90%에서 거의 변하지 않았고, 을 지역 상가 낙찰가율은 6월 84%에서 10월 70%로 매달 떨어졌다.",
+    "main_issue": "감정평가액이 3억 원으로 같은 두 담보 후보가 임대차 보증금, 지역 낙찰가율, 세금 완납 증명서 제출 상태에서 다르다.",
+    "feedback_themes": [
+      "후보 A: 갑 지역 아파트, 감정평가액 3억 원, 임차인 보증금 1억 원, 세금 완납 증명서 제출됨",
+      "후보 B: 을 지역 상가, 감정평가액 3억 원, 임대차 없음, 세금 완납 증명서 미제출(다음 주 제출 예정)"
+    ],
+    "decision_goal": "신청금액 2억 원의 차용신청서에 받을 담보로 후보 A와 B 중 하나를 추천한다."
+  },
+  "mission": {
+    "title": "차용신청 담보 후보 두 건 검토하기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "새솔은행 다온지점 여신팀의 여신 사무 담당 인턴",
+      "context": "당신은 새솔은행 다온지점 여신팀의 인턴입니다. 오늘 개인 고객의 차용신청서가 한 건 접수되었고, 고객은 빌린 돈을 갚지 못할 때를 대비해 담보로 내놓을 수 있는 부동산 두 건을 제시했습니다. 박 팀장이 팀의 평가 기준으로 두 후보를 검토하고 의견을 달라고 이메일을 보냈습니다.",
+      "goal": "아래 자료를 보고 두 담보 후보를 같은 기준으로 평가한 뒤, 어느 후보를 담보로 받으면 좋을지 이유와 함께 의견을 적어보세요.",
+      "constraints": [
+        "계산과 판단에는 이메일, 체크리스트, 낙찰통계에 나온 숫자만 사용하세요.",
+        "이번 검토는 담보 후보에 집중합니다. 자금용도와 상환자원은 따로 따지지 않아도 됩니다.",
+        "금액은 '1억 5천만 원'처럼 원 단위로 적으세요.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "차용신청서",
+          "definition": "고객이 은행에서 돈을 빌리겠다고 신청할 때 내는 서류입니다."
+        },
+        {
+          "term": "자금용도",
+          "definition": "빌린 돈을 어디에 쓸 것인지를 말합니다."
+        },
+        {
+          "term": "상환자원",
+          "definition": "빌린 돈을 갚는 데 쓸 돈이 어디서 나오는지를 말합니다."
+        },
+        {
+          "term": "물적 담보",
+          "definition": "돈을 빌려줄 때 갚지 못하는 경우에 대비해 받아 두는 부동산, 예금, 유가증권 같은 재산입니다."
+        },
+        {
+          "term": "감정평가서",
+          "definition": "평가 전문 기관이 부동산 같은 재산의 값을 평가해 적은 문서입니다. 여기에 적힌 값을 감정평가액이라고 합니다."
+        },
+        {
+          "term": "부동산 임대차 계약서",
+          "definition": "집이나 상가를 빌려주고 빌려 쓰는 조건을 적은 계약서입니다."
+        },
+        {
+          "term": "임차인",
+          "definition": "집이나 상가를 빌려 쓰는 사람입니다."
+        },
+        {
+          "term": "보증금",
+          "definition": "집이나 상가를 빌려 쓰는 사람이 주인에게 맡겨 두었다가 계약이 끝나면 돌려받는 돈입니다."
+        },
+        {
+          "term": "국세",
+          "definition": "나라에 내는 세금입니다."
+        },
+        {
+          "term": "변제",
+          "definition": "빚을 갚는 것입니다."
+        },
+        {
+          "term": "우선 특권",
+          "definition": "담보물을 팔아 생긴 돈에서 은행보다 먼저 돌려받을 수 있는 권리입니다. 이 미션에서는 임차인의 보증금과 밀린 국세를 가리킵니다."
+        },
+        {
+          "term": "세금 완납 증명서",
+          "definition": "내야 할 세금을 모두 냈다는 것, 곧 밀린 세금이 없다는 것을 보여 주는 증명서입니다."
+        },
+        {
+          "term": "낙찰통계",
+          "definition": "경매에서 부동산이 얼마에 팔렸는지를 지역별·기간별로 모은 통계입니다."
+        },
+        {
+          "term": "낙찰가율",
+          "definition": "경매에서 부동산이 실제로 팔린 값이 감정평가액의 몇 %였는지를 나타낸 비율입니다."
+        },
+        {
+          "term": "예상 낙찰가",
+          "definition": "담보물이 경매로 팔릴 때 받을 수 있을 것으로 보는 값입니다."
+        },
+        {
+          "term": "회수 예상액",
+          "definition": "담보물을 팔았을 때 은행이 빌려준 돈을 돌려받는 데 실제로 쓸 수 있을 것으로 보는 금액입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "internal_review_request",
+        "title": "차용신청서 담보 후보 2건 검토 요청",
+        "description": "여신팀 박 팀장이 접수된 차용신청서의 신청 내용과 고객이 제시한 물적 담보 후보 두 건의 사실을 정리해 보낸 내부 이메일입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "신청금액과 두 후보의 감정평가액, 임대차 보증금, 서류 제출 상태를 확인하는 데 씁니다.",
+        "evidence_source": [
+          "정보 처리",
+          "경제와 회계"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "새솔은행 다온지점 여신팀 박 팀장",
+              "to": "여신 사무 담당 인턴",
+              "subject": "차용신청서 담보 후보 2건 검토 요청",
+              "body": "안녕하세요, 박 팀장입니다.\n오늘 개인 고객의 차용신청서가 한 건 접수되었습니다. 신청금액은 2억 원이고, 자금용도는 점포 운영자금, 상환자원은 점포 매출이라고 적혀 있습니다.\n고객이 물적 담보로 내놓을 수 있다고 한 후보는 두 건입니다.\n- 후보 A: 갑 지역 아파트입니다. 감정평가서상 감정평가액은 3억 원입니다. 지금 임차인이 살고 있고, 부동산 임대차 계약서상 보증금은 1억 원입니다. 세금 완납 증명서는 제출되었습니다.\n- 후보 B: 을 지역 상가입니다. 감정평가서상 감정평가액은 3억 원입니다. 고객 본인이 직접 쓰고 있어서 임대차 계약은 없습니다. 세금 완납 증명서는 아직 제출되지 않았고, 고객이 다음 주에 내겠다고 했습니다.\n첨부한 담보 후보 평가 체크리스트로 두 후보를 평가해 주시고, 어느 쪽을 담보로 받을지 의견을 주세요. 지역별 낙찰가율은 함께 보낸 지역별 부동산 낙찰통계에 있습니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "checklist",
+        "subtype": "evaluation_criteria_form",
+        "title": "담보 후보 평가 체크리스트(여신팀 기준)",
+        "description": "여신팀이 물적 담보 후보를 평가할 때 차례대로 확인하는 세 단계 항목을 담은 빈 양식입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "두 후보 각각에 같은 순서로 적용해 예상 낙찰가와 회수 예상액을 구하고 서류를 확인하는 데 씁니다.",
+        "evidence_source": [
+          "수리력",
+          "경제와 회계"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "items": [
+            {
+              "label": "① 예상 낙찰가 산정: 감정평가액에 담보물이 있는 지역의 최근 달 낙찰가율을 곱해 예상 낙찰가를 구한다.",
+              "status": "unchecked",
+              "importance": "normal"
+            },
+            {
+              "label": "② 회수 예상액 산정: 예상 낙찰가에서 임대차 보증금, 국세 등 먼저 변제되는 금액(우선 특권)을 빼서 회수 예상액을 구한다.",
+              "status": "unchecked",
+              "importance": "normal"
+            },
+            {
+              "label": "③ 서류 확인: 세금 완납 증명서로 국세 체납이 없는지 확인한다.",
+              "status": "unchecked",
+              "importance": "normal"
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "chart",
+        "subtype": "monthly_trend",
+        "title": "지역별 부동산 낙찰통계 - 월별 낙찰가율(%)",
+        "description": "갑 지역 아파트와 을 지역 상가의 6월부터 최근 달인 10월까지 월별 낙찰가율을 보여 주는 통계입니다. 단위는 %입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "두 후보가 있는 지역의 최근 달 낙찰가율을 찾아 계산에 쓰고, 다섯 달 동안의 두 지역 추이를 견주는 데 씁니다.",
+        "evidence_source": [
+          "정보 처리",
+          "판단과 의사결정"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "chart_type": "line",
+          "x_axis": {
+            "label": "월",
+            "values": [
+              "6월",
+              "7월",
+              "8월",
+              "9월",
+              "10월"
+            ]
+          },
+          "y_axis": {
+            "label": "낙찰가율",
+            "unit": "%"
+          },
+          "series": [
+            {
+              "name": "갑 지역 아파트",
+              "values": [
+                88,
+                90,
+                89,
+                90,
+                90
+              ]
+            },
+            {
+              "name": "을 지역 상가",
+              "values": [
+                84,
+                80,
+                77,
+                73,
+                70
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "체크리스트의 세 항목을 후보 A와 후보 B에 각각 적용해 보세요. 후보별 회수 예상액과 항목별 확인 결과를 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "체크리스트 순서대로 두 후보의 예상 낙찰가와 회수 예상액을 계산하고, 세금 완납 증명서 확인 결과를 정리한다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 결과와 낙찰통계에 나온 두 지역의 낙찰가율 추이를 근거로, 이번 차용신청의 담보로 후보 A와 후보 B 중 하나를 추천해 보세요. 추천하는 후보, 그 후보가 다른 후보보다 나은 이유, 그 선택에 따르는 주의점 하나를 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "두 후보의 회수 예상액, 서류 상태, 낙찰가율 추이를 견주어 하나를 추천하고 이유와 주의점 하나를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 후보별 회수 예상액과 항목별 확인 결과",
+        "과제 2: 추천 후보, 이유, 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "후보 A: 10월 갑 지역 아파트 낙찰가율 90%를 써서 예상 낙찰가는 3억 원×90%=2억 7천만 원이고, 임차인 보증금 1억 원을 빼면 회수 예상액은 1억 7천만 원이다.",
+      "후보 B: 10월 을 지역 상가 낙찰가율 70%를 써서 예상 낙찰가는 3억 원×70%=2억 1천만 원이고, 뺄 보증금이 없어 회수 예상액은 2억 1천만 원이다.",
+      "항목 ③: 후보 A는 세금 완납 증명서가 제출되어 국세 체납 여부가 확인되었고, 후보 B는 제출되지 않아 국세 체납 여부, 곧 먼저 변제될 금액이 아직 확인되지 않았다.",
+      "흔한 오답: 감정평가액만 보고 두 후보가 같다고 보거나, A의 보증금을 빼지 않아 2억 7천만 원으로 적거나, B에 10월이 아닌 다른 달의 낙찰가율을 써서 실제보다 높게 계산하는 경우다.",
+      "자료만으로 정답이 하나로 정해지지 않는다. A는 낙찰가율이 88~90%로 안정적이고 서류가 갖추어졌지만 회수 예상액이 신청금액 2억 원보다 3천만 원 적다. B는 지금은 신청금액을 1천만 원 넘지만 낙찰가율이 84%에서 70%로 다섯 달째 떨어지고 있고 세금 완납 증명서가 없어 먼저 변제될 국세를 모른다.",
+      "예시: B 추천 - 회수 예상액 2억 1천만 원이 신청금액 2억 원을 넘는 반면 A는 1억 7천만 원으로 모자라므로 B가 낫다. 주의점은 을 지역 낙찰가율이 매달 3~4%p씩 떨어지고 있어 이 추세가 이어지면 회수 예상액이 신청금액 아래로 내려갈 수 있다는 점, 또는 세금 완납 증명서를 받기 전에는 국세가 먼저 변제될 수 있다는 점이다.",
+      "예시: A 추천 - 낙찰가율이 90% 안팎으로 안정적이고 서류가 모두 확인되어, 값이 계속 떨어지고 국세 확인이 안 된 B보다 회수가 확실하다(신청금액 조정 필요). 주의점은 회수 예상액이 신청금액보다 3천만 원 적어 신청금액 전체를 담보하지 못한다는 점이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "후보별 회수 예상액 계산",
+        "description": "과제 1에서 체크리스트 ①②와 낙찰통계의 최근 달(10월) 낙찰가율을 써서 후보 A는 3억 원×90%=2억 7천만 원에서 보증금 1억 원을 뺀 1억 7천만 원, 후보 B는 3억 원×70%=2억 1천만 원(뺄 보증금 없음)으로 적었는지 본다. 자료로 값이 하나로 정해지므로 이 값을 기대 답으로 한다. 두 후보 중 한 후보만 맞으면 절반을 주고, 보증금을 빼지 않았거나 10월이 아닌 달의 낙찰가율을 쓴 후보는 맞은 것으로 보지 않는다.",
+        "points": 30,
+        "linked_evidence": [
+          "정보 처리",
+          "수리력"
+        ]
+      },
+      {
+        "criterion": "세금 완납 증명서 확인 결과",
+        "description": "과제 1에서 항목 ③의 결과로, 후보 A는 세금 완납 증명서가 제출되어 국세 체납 여부가 확인되었고 후보 B는 제출되지 않아 국세 체납 여부, 곧 먼저 변제될 금액이 아직 확인되지 않았다고 적었는지 본다. 한 후보만 바르게 적으면 절반을 준다.",
+        "points": 20,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "추천 이유가 선택을 뒷받침하는 정도",
+        "description": "과제 2에서 특정 후보를 정답으로 요구하지 않는다. 이유가 과제 1의 회수 예상액·서류 확인 결과와 차트의 낙찰가율 추이에서 나와, 고른 후보가 다른 후보보다 왜 나은지를 보여 주면 만점을 준다. 자료의 참인 사실만 늘어놓고 다른 후보와 견준 설명이 없으면 부분 점수만 준다. 예: B 추천 - 회수 예상액 2억 1천만 원이 신청금액 2억 원을 넘지만 A는 1억 7천만 원으로 모자란다. 예: A 추천 - 낙찰가율이 90% 안팎으로 안정적이고 서류가 확인되어, 값이 계속 떨어지고 국세 확인이 안 된 B보다 회수가 확실하다.",
+        "points": 30,
+        "linked_evidence": [
+          "판단과 의사결정",
+          "경제와 회계"
+        ]
+      },
+      {
+        "criterion": "선택에 따르는 주의점",
+        "description": "과제 2에 쓴 주의점 하나가 고른 후보의 실제 위험이나 한계로 자료에 나타난 것이면 인정한다. 고르지 않은 후보의 약점만 적은 경우는 인정하지 않는다. 예: B를 고르면 을 지역 낙찰가율이 매달 3~4%p씩 떨어지고 있어 이 추세가 이어지면 회수 예상액이 신청금액 아래로 내려갈 수 있다는 점, 또는 세금 완납 증명서를 받기 전에는 국세가 먼저 변제될 수 있다는 점. 예: A를 고르면 회수 예상액이 신청금액보다 3천만 원 적어 신청금액 전체를 담보하지 못한다는 점.",
+        "points": 20,
+        "linked_evidence": [
+          "판단과 의사결정"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_006",
+      "text": "차용신청서 또는 차용 및 보증신청서를 접수하여 개인이나 법인으로 분류하고, 담보내용, 서류, 거래실적, 자금용도, 상환자원 등을 조사·검토한다.",
+      "source_ref": {
+        "file": "K000001136/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 6
+      },
+      "selection_reason": "Pilot config selected exec_006."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "행정, 관리 업무",
+          "score": 97,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 94,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무상 사람들을 직접 응대",
+          "score": 94,
+          "description": "식당, 상점에서 일반 손님을 접대하거나, 거래처 고객 또는 손님을 접대하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "부하 직원들에게 업무 안내, 지시, 동기부여",
+          "score": 90,
+          "description": "부하 직원들의 업무 기준을 정하여 업무 성과를 관찰하고 업무 방향과 지침을 제공하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보, 자료 분석",
+          "score": 90,
+          "description": "정보 또는 자료를 분석하여 근본 원리, 이유, 사실을 알아내기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "재정 관리",
+          "score": 92,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "협상",
+          "score": 91,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "판단과 의사결정",
+          "score": 87,
+          "description": "이득과 손실을 평가해서 결정을 내린다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "경제와 회계",
+          "score": 92,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 87,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 84,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "불쾌하거나 무례한 사람 상대",
+          "score": 95,
+          "description": "불쾌하거나, 화나거나, 혹은 무례한 사람을 대하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "외부 고객 대하기",
+          "score": 95,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 91,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 처리",
+          "경제와 회계"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "수리력",
+          "경제와 회계"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "정보 처리",
+          "판단과 의사결정"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.65,
+    "AX2": 0.0,
+    "AX3": 0.35,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

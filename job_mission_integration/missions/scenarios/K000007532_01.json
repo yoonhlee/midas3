@@ -1,0 +1,465 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007532_easy_001",
+  "job_identity": {
+    "job_cd": "K000007532",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "학예사·사서·기록물관리사",
+    "job_smcl_nm": "사서",
+    "source_ref": {
+      "file": "K000007532/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_007",
+    "text": "대출 및 반납자료의 현황을 파악하고 주제별, 자료형태별로 이용률을 계산하여 장서개발에 필요한 자료를 작성한다.",
+    "source_ref": {
+      "file": "K000007532/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 7
+    },
+    "selection_reason": "Pilot config selected exec_007."
+  },
+  "mission_facts": {
+    "org_name": "새솔구립도서관",
+    "domain": "공공도서관 자료 관리와 장서개발",
+    "period": [
+      "지난 1년"
+    ],
+    "trend_pattern": "자료형태마다 소장 자료 수와 대출 건수의 크기가 서로 다르다.",
+    "main_issue": "다음 주 장서개발 회의에 올릴 추가 구입 검토 대상 자료형태를 이용률로 정해야 한다.",
+    "feedback_themes": [
+      "자료형태별 이용률 계산",
+      "추가 구입 검토 대상 보고"
+    ],
+    "decision_goal": "이용률이 가장 높은 자료형태 한 가지를 골라 그 이용률과 함께 팀장에게 보고한다."
+  },
+  "mission": {
+    "title": "자료형태별 이용률로 추가 구입 검토 대상 고르기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "planning_and_proposal",
+      "communication_and_reporting"
+    ],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "새솔구립도서관 자료관리팀 인턴 사서",
+      "context": "당신은 새솔구립도서관 자료관리팀 인턴 사서입니다. 다음 주 장서개발 회의에서 어떤 자료를 더 사들일지 논의할 예정입니다. 팀장님이 지난 1년 동안의 통계 차트를 건네며 이렇게 부탁했습니다. \"이용률은 대출 건수를 소장 자료 수로 나눈 뒤 100을 곱해서 %로 계산해 주세요. 이용률이 가장 높은 자료형태를 이번 회의에 추가 구입 검토 대상으로 올리려고 해요.\"",
+      "goal": "통계 차트로 자료형태별 이용률을 계산해 보고, 회의에 올릴 추가 구입 검토 대상 자료형태 한 가지를 이용률과 함께 팀장님께 알려 드립니다.",
+      "constraints": [
+        "이용률은 대출 건수 ÷ 소장 자료 수 × 100으로 계산하고 %로 적습니다.",
+        "추가 구입 검토 대상은 이용률이 가장 높은 자료형태 한 가지입니다.",
+        "차트에 나온 수치만 사용합니다."
+      ],
+      "glossary": [
+        {
+          "term": "이용률",
+          "definition": "가지고 있는 자료에 비해 대출이 얼마나 많이 일어났는지를 나타내는 비율입니다."
+        },
+        {
+          "term": "장서개발",
+          "definition": "도서관이 앞으로 어떤 자료를 새로 사들이거나 보강할지 정하는 일입니다."
+        },
+        {
+          "term": "자료형태",
+          "definition": "일반도서, 잡지, 전자책, DVD처럼 자료가 만들어진 모양이나 담긴 방식에 따른 구분입니다."
+        },
+        {
+          "term": "소장 자료 수",
+          "definition": "도서관이 지금 가지고 있는 자료의 개수입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "chart",
+        "subtype": "grouped_bar",
+        "title": "자료형태별 소장 자료 수와 대출 건수(지난 1년, 정보서비스 통계시스템 집계)",
+        "description": "도서관 정보서비스 통계시스템에서 지난 1년 동안 집계한 자료형태별 소장 자료 수(단위: 개)와 대출 건수(단위: 건)를 나란히 보여 주는 막대 차트입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "자료형태마다 대출 건수와 소장 자료 수로 이용률을 계산하고 서로 비교하는 데 씁니다.",
+        "evidence_source": [
+          "범주화",
+          "행정, 관리 업무"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "data": {
+          "chart_type": "bar",
+          "x_axis": {
+            "label": "자료형태",
+            "values": [
+              "일반도서",
+              "잡지",
+              "전자책",
+              "DVD"
+            ]
+          },
+          "y_axis": {
+            "label": "수량",
+            "unit": "개/건"
+          },
+          "series": [
+            {
+              "name": "소장 자료 수",
+              "values": [
+                1000,
+                200,
+                400,
+                300
+              ]
+            },
+            {
+              "name": "대출 건수",
+              "values": [
+                500,
+                40,
+                320,
+                120
+              ]
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "차트의 소장 자료 수와 대출 건수로 네 자료형태의 이용률을 계산해 보세요. 그리고 추가 구입 검토 대상으로 올릴 자료형태 한 가지를 골라, 그 자료형태의 이용률과 함께 1~2문장으로 팀장님께 보고하듯 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "네 자료형태의 이용률을 계산해 비교한 뒤, 이용률이 가장 높은 자료형태와 그 이용률을 한두 문장의 보고로 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "추가 구입 검토 대상 자료형태와 그 이용률"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "자료형태별 이용률은 일반도서 50%, 잡지 20%, 전자책 80%, DVD 40%이다.",
+      "대출 건수가 가장 많은 자료형태는 일반도서(500건)이지만, 이용률이 가장 높은 자료형태는 전자책(80%)이다.",
+      "추가 구입 검토 대상으로 전자책을 이용률 80%와 함께 보고한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "자료형태별 이용률 계산",
+        "description": "대출 건수 ÷ 소장 자료 수 × 100으로 이용률을 바르게 계산했다(일반도서 50%, 잡지 20%, 전자책 80%, DVD 40%). 답에 네 값을 모두 적지 않았더라도 고른 자료형태의 이용률이 맞으면 바르게 계산한 것으로 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "범주화"
+        ]
+      },
+      {
+        "criterion": "이용률 기준으로 자료형태 선택",
+        "description": "대출 건수가 가장 많은 일반도서가 아니라 이용률이 가장 높은 전자책을 추가 구입 검토 대상으로 골랐다.",
+        "points": 40,
+        "linked_evidence": [
+          "범주화"
+        ]
+      },
+      {
+        "criterion": "보고 문장 작성",
+        "description": "고른 자료형태와 그 이용률(80%)을 한두 문장의 보고 형태로 함께 적었다.",
+        "points": 20,
+        "linked_evidence": [
+          "행정, 관리 업무"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_007",
+      "text": "대출 및 반납자료의 현황을 파악하고 주제별, 자료형태별로 이용률을 계산하여 장서개발에 필요한 자료를 작성한다.",
+      "source_ref": {
+        "file": "K000007532/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 7
+      },
+      "selection_reason": "Pilot config selected exec_007."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 100,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 99,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 99,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "상사, 동료, 부하직원과 소통",
+          "score": 99,
+          "description": "상사, 동료, 부하직원에게 정보를 서면, 이메일 또는 직접 전달하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 99,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 95,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 91,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "범주화",
+          "score": 89,
+          "description": "기준이나 법칙을 정하고 그에 따라 사물이나 행위를 분류한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "역사",
+          "score": 75,
+          "description": "역사적 사건과 원인 그리고 유적에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "사무",
+          "score": 66,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "국어",
+          "score": 64,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "앉아서 근무",
+          "score": 84,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "외부 고객 대하기",
+          "score": 84,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "다른 사람과의 접촉",
+          "score": 83,
+          "description": "업무 수행하면서 사람들과 접촉(전화, 대면, 메신저 등) 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "범주화",
+          "행정, 관리 업무"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007532/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007532/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.16,
+    "AX2": 0.16,
+    "AX3": 0.16,
+    "AX4": 0.36,
+    "AX5": 0.16
+  }
+}

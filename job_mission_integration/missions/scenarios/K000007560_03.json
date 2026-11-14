@@ -1,0 +1,649 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007560_hard_001",
+  "job_identity": {
+    "job_cd": "K000007560",
+    "job_lrcl_nm": "영업·판매·운전·운송직",
+    "job_mdcl_nm": "영업원 및 상품중개인",
+    "job_smcl_nm": "해외영업원",
+    "source_ref": {
+      "file": "K000007560/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_002",
+    "text": "해외 시장에 판매할 상품의 영업 전략을 수립하기 위하여 상품의 각종 특성 및 원가, 사업성을 분석하여 합리적인 의사결정을 위한 상품 분석보고서를 작성한다.",
+    "source_ref": {
+      "file": "K000007560/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 2
+    },
+    "selection_reason": "Pilot config selected exec_002."
+  },
+  "mission_facts": {
+    "org_name": "미르숨전자",
+    "domain": "소형 생활가전 수출(수출용 소형 공기청정기)",
+    "period": [
+      "다음 분기 해외 출시"
+    ],
+    "trend_pattern": "현지 경쟁사 주력 상품의 판매가격은 원화 환산 개당 41000원 수준이고, 다음 분기에는 현지 통화 약세로 원화 환산 판매가격이 약 5% 낮아질 수 있다.",
+    "main_issue": "수출용 소형 공기청정기의 예상 판매가격 후보 세 가지를 원가와 재경부서의 사업성 기준에 비추어 비교해야 한다.",
+    "feedback_themes": [
+      "재경부서 수익성 기준: 개당 이익률 25% 이상",
+      "경쟁사 주력 상품보다 비싸면 출시 초기 판매량이 줄어드는 경향",
+      "다음 분기 원화 환산 판매가격 약 5% 하락 전망"
+    ],
+    "decision_goal": "해외 시장 출시에 쓸 가격안 하나를 정해 팀장에게 추천한다."
+  },
+  "mission": {
+    "title": "수출용 공기청정기 가격안 사업성 검토",
+    "task_type": "communication_and_reporting",
+    "secondary_task_types": [
+      "decision_making"
+    ],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "미르숨전자 해외영업팀 인턴",
+      "context": "당신은 미르숨전자 해외영업팀 인턴입니다. 회사는 다음 분기에 수출용 소형 공기청정기를 동남아시아의 새 시장에 처음 내놓으려고 합니다. 팀장은 상품 분석보고서에 들어갈 가격 검토 부분의 초안을 부탁하면서, 여러 부서에서 모은 원가 자료, 해외영업팀이 정리한 가격 후보, 재경부서가 보낸 기준 메모를 넘겨주었습니다.",
+      "goal": "아래 자료를 보고 가격안마다 이익이 얼마나 남는지 따져 본 뒤, 해외 시장 출시에 쓸 가격안 하나를 팀장에게 추천해 보세요.",
+      "constraints": [
+        "판단에는 아래 세 자료와 용어 설명만 사용합니다.",
+        "금액은 모두 공기청정기 1대 기준이며 단위는 원입니다.",
+        "이익률은 %로 나타내고 소수점 첫째 자리까지 적으면 됩니다.",
+        "답은 과제마다 3~5문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "원가",
+          "definition": "상품 하나를 만들어 고객에게 보내기까지 드는 비용."
+        },
+        {
+          "term": "수익성",
+          "definition": "상품을 팔았을 때 이익이 얼마나 남는지를 나타내는 정도."
+        },
+        {
+          "term": "사업성",
+          "definition": "상품을 시장에 내놓아 사업으로 이어 갈 만한 가치가 있는지의 정도."
+        },
+        {
+          "term": "시장동향",
+          "definition": "시장에서 가격, 판매량, 경쟁 상품 같은 것들이 어떻게 움직이고 있는지를 나타내는 흐름."
+        },
+        {
+          "term": "이익률",
+          "definition": "판매가격 가운데 이익이 차지하는 비율로, 보통 백분율(%)로 나타낸다."
+        },
+        {
+          "term": "원화 환산",
+          "definition": "외국 돈으로 매긴 금액을 우리나라 돈(원)으로 바꿔 계산한 것."
+        },
+        {
+          "term": "현지 통화 약세",
+          "definition": "상품을 파는 나라의 돈 가치가 다른 나라 돈에 비해 떨어지는 것. 이 미션에서는 현지에서 같은 가격을 받아도 원화로 바꾸면 받는 금액이 줄어드는 상황을 말한다."
+        },
+        {
+          "term": "주력 상품",
+          "definition": "회사가 가장 앞세워 파는 대표 상품."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "cost_breakdown",
+        "title": "수출용 소형 공기청정기 상품원가 자료",
+        "description": "개발부서, 생산부서, 재경부서가 보내온 원가 항목을 모은 공기청정기 1대 기준 원가 내역이다. 금액 단위는 원이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 공기청정기 1대의 원가를 구하는 데 쓴다.",
+        "evidence_source": [
+          "경제와 회계"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "원가 항목"
+            },
+            {
+              "key": "strength",
+              "label": "자료 제공 부서"
+            },
+            {
+              "key": "weakness",
+              "label": "산정 기준"
+            },
+            {
+              "key": "priority",
+              "label": "개당 금액(원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "재료비",
+              "strength": "개발부서",
+              "weakness": "부품 구성표 기준",
+              "priority": 17000
+            },
+            {
+              "option": "가공비",
+              "strength": "생산부서",
+              "weakness": "조립 공정 시간 기준",
+              "priority": 7000
+            },
+            {
+              "option": "포장비",
+              "strength": "생산부서",
+              "weakness": "수출용 포장 기준",
+              "priority": 2000
+            },
+            {
+              "option": "해외 운송비",
+              "strength": "재경부서",
+              "weakness": "해상 운송 견적 기준",
+              "priority": 4000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "price_options",
+        "title": "해외 출시용 예상 판매가격 후보",
+        "description": "경쟁 상품 가격을 참고해 해외영업팀이 정리한 가격안 세 가지다. 가격은 공기청정기 1대를 현지에서 팔 때의 금액을 원화로 환산한 값이다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 가격안마다 이익률을 계산하고, 과제 2에서 추천할 가격안을 고르는 데 쓴다.",
+        "evidence_source": [
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "가격안"
+            },
+            {
+              "key": "strength",
+              "label": "가격 설정 근거"
+            },
+            {
+              "key": "weakness",
+              "label": "주요 판매 채널"
+            },
+            {
+              "key": "priority",
+              "label": "예상 판매가격(원, 개당 원화 환산)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안",
+              "strength": "현지 저가 상품과 같은 가격대",
+              "weakness": "현지 온라인몰",
+              "priority": 36000
+            },
+            {
+              "option": "B안",
+              "strength": "경쟁사 주력 상품보다 조금 낮게",
+              "weakness": "대형마트",
+              "priority": 40000
+            },
+            {
+              "option": "C안",
+              "strength": "경쟁사 주력 상품보다 높게, 필터 수명이 긴 점 반영",
+              "weakness": "가전 전문점",
+              "priority": 44000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "memo",
+        "subtype": "criteria_memo",
+        "title": "재경부서 담당자 메모: 사업성 판단 기준과 시장동향·외환 조건",
+        "description": "재경부서 담당자가 가격 검토에 적용할 기준과, 시장동향 자료와 외환 관련 자료에서 뽑은 조건을 적어 보낸 메모다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 이익률 계산 방법과 기준을 확인하고, 과제 2에서 시장 상황과 환율 전망을 따지는 데 쓴다.",
+        "evidence_source": [
+          "경제와 회계",
+          "영업과 마케팅"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "author": "재경부서 담당자",
+          "items": [
+            "수익성 기준: 개당 이익률은 (예상 판매가격 − 개당 원가) ÷ 예상 판매가격으로 계산하며, 이익률이 25% 이상인 가격안만 사업성이 있다고 봅니다.",
+            "시장동향: 현지 경쟁사 주력 상품의 판매가격은 원화 환산 개당 41000원 수준이며, 이보다 비싼 상품은 출시 초기 판매량이 줄어드는 경향이 있습니다.",
+            "외환: 다음 분기에는 현지 통화 약세가 전망되어, 원화로 환산한 판매가격이 지금보다 약 5% 낮아질 수 있습니다. 원가는 원화로 정해져 있어 그대로입니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.8,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "자료 1(상품원가 자료)의 네 원가 항목을 모두 더해 공기청정기 1대의 원가를 구한 뒤, 자료 2(예상 판매가격 후보)의 세 가격안마다 자료 3(재경부서 담당자 메모)에 적힌 방법으로 개당 이익률을 계산해 보세요. 그리고 가격안마다 자료 3의 수익성 기준을 충족하는지 판정해 3~5문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "개당 원가를 바탕으로 가격안별 이익률을 계산하고, 가격안마다 수익성 기준 충족 여부를 판정해 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 결과와 자료 3의 시장동향·외환 내용을 근거로, 해외 시장 출시에 쓸 가격안 하나를 팀장에게 추천해 보세요. 추천 이유에는 그 가격안이 자료 2의 다른 가격안보다 나은 까닭이 드러나게 쓰고, 추천한 가격안을 택할 때 조심해야 할 점 하나를 덧붙여 3~5문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "가격안 하나를 추천하고, 다른 가격안과 견준 추천 이유와 추천안의 주의점 하나를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "서술형 답안",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 가격안별 이익률과 수익성 기준 충족 여부",
+        "과제 2: 추천 가격안과 그 이유, 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "공기청정기 1대의 원가는 재료비 17000원, 가공비 7000원, 포장비 2000원, 해외 운송비 4000원을 더한 30000원이다.",
+      "개당 이익률은 A안 (36000 − 30000) ÷ 36000 ≈ 16.7%로 기준 미달, B안 (40000 − 30000) ÷ 40000 = 25%로 기준 충족, C안 (44000 − 30000) ÷ 44000 ≈ 31.8%로 기준 충족이다.",
+      "다음 분기에 원화 환산 판매가격이 약 5% 낮아지면 B안은 38000원이 되어 이익률이 약 21%로 기준 아래로 떨어지고, C안은 41800원이 되어 이익률이 약 28%로 기준을 지킨다. A안은 약 12%로 더 낮아진다.",
+      "B안은 경쟁사 주력 상품(41000원 수준)보다 싸서 출시 초기 판매에 유리하지만 환율 변화에 대한 여유가 없고, C안은 수익성에 여유가 있지만 경쟁사 주력 상품보다 비싸 출시 초기 판매량이 줄 수 있다. 자료만으로는 B안과 C안 중 하나로 답이 정해지지 않는다.",
+      "A안은 지금도 수익성 기준에 못 미쳐 자료 3의 기준으로는 사업성이 있다고 보기 어렵다.",
+      "예시: C안을 추천하고, 판매가격이 5% 낮아져도 이익률이 약 28%로 기준을 지키는 반면 B안은 약 21%로 기준 아래가 된다는 점을 이유로 들며, 경쟁사 주력 상품보다 비싸 출시 초기 판매량이 줄 수 있다는 점을 주의점으로 적는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "가격안별 이익률 계산과 수익성 기준 판정",
+        "description": "과제 1 답에서 네 원가 항목을 더한 개당 원가 30000원을 바탕으로 A안 약 16.7%(기준 미달), B안 25%(기준 충족), C안 약 31.8%(기준 충족)를 계산하고 판정했는지 본다. 원가 합계와 세 가격안의 이익률, 판정이 모두 맞으면 만점이고, 반올림에서 생긴 작은 차이는 인정한다. 원가 합계는 맞지만 이익률이나 판정이 하나라도 틀리면 부분 점수를 준다.",
+        "points": 40,
+        "linked_evidence": [
+          "경제와 회계"
+        ]
+      },
+      {
+        "criterion": "추천 가격안 이유의 타당성",
+        "description": "특정 가격안을 정답으로 요구하지 않는다. 과제 1 결과와 자료 3의 조건(경쟁사 주력 상품 41000원 수준, 다음 분기 원화 환산 판매가격 약 5% 하락 전망)에서 끌어낸 이유가, 자료 2의 다른 가격안보다 추천안이 나은 까닭을 실제로 보여 주면 만점을 준다. 자료 속 맞는 사실만 늘어놓고 다른 가격안보다 나은 까닭을 보이지 못하면 부분 점수만 준다. 자료 3의 수익성 기준에 못 미치는 안을 추천하면서 그 점을 다루지 않으면 이유가 기준과 맞지 않으므로 낮은 점수를 준다. 예: C안 — 판매가격이 5% 낮아져도 이익률이 약 28%로 기준을 지키지만, B안은 약 21%로 기준 아래가 된다.",
+        "points": 35,
+        "linked_evidence": [
+          "목표, 전략 수립",
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "criterion": "추천안의 주의점",
+        "description": "과제 2에 적은 주의점 하나가 추천한 가격안에 대해 자료가 보여 주는 실제 위험이나 한계이면 점수를 준다. 추천안과 관계없는 일반적인 걱정이나 자료에 없는 위험은 인정하지 않는다. 예: B안을 고르면 판매가격이 5% 낮아질 때 이익률이 약 21%로 기준 아래로 떨어질 수 있다. C안을 고르면 경쟁사 주력 상품(41000원 수준)보다 비싸 출시 초기 판매량이 줄 수 있다.",
+        "points": 25,
+        "linked_evidence": [
+          "영업과 마케팅"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_002",
+      "text": "해외 시장에 판매할 상품의 영업 전략을 수립하기 위하여 상품의 각종 특성 및 원가, 사업성을 분석하여 합리적인 의사결정을 위한 상품 분석보고서를 작성한다.",
+      "source_ref": {
+        "file": "K000007560/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 2
+      },
+      "selection_reason": "Pilot config selected exec_002."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사람들에게 영향력 행사",
+          "score": 99,
+          "description": "사람들에게 물건을 팔거나 그들의 생각과 행동을 바꾸도록 설득하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "업무상 사람들을 직접 응대",
+          "score": 99,
+          "description": "식당, 상점에서 일반 손님을 접대하거나, 거래처 고객 또는 손님을 접대하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무 계획, 우선순위 결정",
+          "score": 98,
+          "description": "업무의 우선순위를 결정, 배치하고 완수하기 위해 구체적인 목표와 계획 세우기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 98,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "협상, 갈등 해결",
+          "score": 97,
+          "description": "불평, 분쟁, 충돌을 해결하고 협상하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007560/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "협상",
+          "score": 98,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "말하기",
+          "score": 95,
+          "description": "자기가 알고 있는 것을 다른 사람에게 조리있게 말한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "시력",
+          "score": 94,
+          "description": "먼 곳이나 가까운 것을 보기 위해 눈을 사용한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "영어",
+          "score": 94,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 90,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "운송",
+          "score": 84,
+          "description": "비행기, 철도, 선박 그리고 자동차를 통해 사람들과 물품을 움직이는 원리와 방법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 90,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "재택근무",
+          "score": 90,
+          "description": "재택근무 가능성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "경제와 회계"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "영업과 마케팅"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "경제와 회계",
+          "영업과 마케팅"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007560/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.485,
+    "AX2": 0.085,
+    "AX3": 0.26,
+    "AX4": 0.085,
+    "AX5": 0.085
+  }
+}

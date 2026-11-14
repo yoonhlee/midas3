@@ -1,0 +1,684 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000918_hard_001",
+  "job_identity": {
+    "job_cd": "K000000918",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "무역·운송·생산·품질 사무원",
+    "job_smcl_nm": "무역사무원",
+    "source_ref": {
+      "file": "K000000918/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "수출입 허가서, 신용장 등 통관 서류를 인수하여 세관 신고서류를 작성하고 통관절차를 밟는다.",
+    "source_ref": {
+      "file": "K000000918/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "솔빛무역대행 수출팀",
+    "domain": "수출통관 서류 작성",
+    "period": [
+      "11월 13일(오늘)",
+      "11월 14일(A건 선적 예정)",
+      "11월 15일(B건 선적 예정)",
+      "11월 18일(C건 선적 예정)"
+    ],
+    "trend_pattern": "선적 예정일은 A건(11월 14일), B건(11월 15일), C건(11월 18일) 순으로 이르다.",
+    "main_issue": "인수한 신용장·허가서와 작성 기준에 맞춰 세 건의 수출신고서 초안을 점검하고, 오늘 오후에 1건만 신고할 수 있는 여건에서 먼저 신고할 건을 정해야 한다.",
+    "feedback_themes": [
+      "신고 세관은 물품소재지 관할 세관으로 적는다",
+      "하주 상호는 신용장과 허가서의 기재가 같으면 그대로 적고, 다르면 하주의 확인 회신을 받은 뒤 적는다",
+      "오늘 오후 수출신고는 1건만 처리할 수 있다",
+      "하주 상호 확인 회신 시각은 정해지지 않았다"
+    ],
+    "decision_goal": "오늘 오후에 수출신고할 1건을 정해 수출팀 과장에게 추천한다."
+  },
+  "mission": {
+    "title": "수출신고서 초안 점검하고 오늘 신고할 건 정하기",
+    "task_type": "communication_and_reporting",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 솔빛무역대행 수출팀에서 통관 업무를 처음 맡은 인턴입니다.",
+      "context": "솔빛무역대행 수출팀은 여러 하주의 수출 물품을 대신 맡아 세관에 수출신고를 합니다. 오늘은 11월 13일입니다. 담당자가 A·B·C 세 건의 수출신고서 초안을 먼저 작성해 두었고, 하주에게서 인수한 신용장과 허가서도 건별로 정리되어 있습니다. 수출팀 과장이 메모를 남기며 '초안이 그대로 신고해도 되는 상태인지 봐 주고, 오늘 오후에 어느 건부터 신고할지 추천해 달라'고 부탁했습니다.",
+      "goal": "세 건의 수출신고서 초안을 인수 서류와 과장의 작성 기준에 맞춰 점검하고, 오늘 오후에 먼저 수출신고할 1건을 이유와 주의할 점을 붙여 추천해 보세요.",
+      "constraints": [
+        "주어진 세 자료와 용어 설명에 있는 내용만 근거로 판단하세요.",
+        "자료에 없는 회신 시각이나 일정은 지어내지 마세요.",
+        "답은 과제마다 3~5문장으로 쓰세요."
+      ],
+      "glossary": [
+        {
+          "term": "통관",
+          "definition": "물품을 나라 밖으로 내보내거나 들여올 때 세관의 확인을 거쳐 통과시키는 일."
+        },
+        {
+          "term": "수출신고",
+          "definition": "물품을 외국으로 내보내기 전에 세관에 수출 내용을 알리는 절차. 수출신고서라는 양식을 작성해 낸다."
+        },
+        {
+          "term": "선적",
+          "definition": "수출할 물품을 배에 싣는 일."
+        },
+        {
+          "term": "신용장",
+          "definition": "수입하는 쪽의 은행이 물품 대금을 치르겠다고 약속하며 발행하는 문서. 거래하는 회사 이름과 물품 내용이 적혀 있다."
+        },
+        {
+          "term": "수출입 허가서",
+          "definition": "물품을 수출하거나 수입하기 위해 받아 두는 허가 문서. 이 미션에서는 수출 물품에 대해 받은 허가서를 말하며, 자료에서는 '허가서'라고 줄여 부른다."
+        },
+        {
+          "term": "하주 상호",
+          "definition": "하주(화물의 주인)의 공식 회사 이름. 이 미션에서는 하주가 물품을 수출하는 회사다."
+        },
+        {
+          "term": "물품소재지",
+          "definition": "수출할 물품이 실제로 보관되어 있는 장소."
+        },
+        {
+          "term": "물품소재지 관할 세관",
+          "definition": "수출할 물품이 보관된 장소(물품소재지)를 맡아 관리하는 세관."
+        },
+        {
+          "term": "수출신고가격",
+          "definition": "수출신고서에 적는 물품의 수출 가격. 이 미션의 초안에는 미국 달러(USD)로 적혀 있다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "work_instruction_memo",
+        "title": "수출팀 과장 메모: 수출신고서 작성 기준과 오늘 처리 여건",
+        "description": "수출팀 과장이 통관 담당자에게 남긴 업무 메모로, 수출신고서 작성 기준과 오늘 오후 처리 여건, 건별 선적 예정일이 적혀 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "수출신고서 초안의 신고 세관과 하주 상호를 점검할 기준, 그리고 오늘 신고할 건을 정할 때 필요한 처리 여건과 선적 예정일을 확인하는 데 씁니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "읽고 이해하기",
+          "업무 계획, 우선순위 결정"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "수출팀 과장",
+          "items": [
+            "① 신고 세관 기준: 수출물품을 선적하려면 물품소재지 관할 세관에 인터넷으로 수출신고를 해야 합니다. 그래서 수출신고서의 신고 세관은 물품소재지 관할 세관으로 적습니다.",
+            "② 하주 상호 기준: 수출신고서의 하주 상호는 인수한 신용장과 허가서의 기재가 같으면 그대로 적고, 서로 다르면 하주의 확인 회신을 받은 뒤에 적습니다. 오늘 오전에 A·B·C 세 건의 하주에게 하주 상호 확인을 함께 요청해 두었고, 회신 시각은 아직 정해지지 않았습니다.",
+            "③ 오늘 여건: 오늘 오후에는 수출신고를 1건만 처리할 수 있습니다. 선적 예정일은 A건 11월 14일(내일), B건 11월 15일, C건 11월 18일입니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "document_comparison_table",
+        "title": "인수 서류 하주 상호 대조표 (신용장·허가서)",
+        "description": "하주에게서 인수한 신용장과 허가서에 적힌 하주 상호와 물품 수량을 건별로 옮겨 적은 표입니다. 수량 단위는 상자입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "건마다 두 인수 서류의 하주 상호 기재를 메모의 하주 상호 기준과 맞춰 보는 데 씁니다.",
+        "evidence_source": [
+          "읽고 이해하기",
+          "기준에 따른 정보 평가"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "건"
+            },
+            {
+              "key": "strength",
+              "label": "신용장의 하주 상호"
+            },
+            {
+              "key": "weakness",
+              "label": "허가서의 하주 상호"
+            },
+            {
+              "key": "priority",
+              "label": "수량(상자)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A건",
+              "strength": "가온정밀(주)",
+              "weakness": "가온정밀산업(주)",
+              "priority": 120
+            },
+            {
+              "option": "B건",
+              "strength": "세움테크(주)",
+              "weakness": "세움테크(주)",
+              "priority": 80
+            },
+            {
+              "option": "C건",
+              "strength": "한결상사(주)",
+              "weakness": "한결상사(주)",
+              "priority": 200
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "declaration_draft_table",
+        "title": "수출신고서 초안 항목 (담당자 작성본)",
+        "description": "담당자가 먼저 작성해 둔 세 건의 수출신고서 초안에서 물품소재지, 신고 세관, 수출신고가격 항목을 옮긴 표입니다. 수출신고가격 단위는 미국 달러(USD)입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "초안의 신고 세관 항목을 물품소재지와 메모의 신고 세관 기준에 맞춰 점검하는 데 씁니다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "읽고 이해하기"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "건"
+            },
+            {
+              "key": "strength",
+              "label": "물품소재지"
+            },
+            {
+              "key": "weakness",
+              "label": "신고 세관"
+            },
+            {
+              "key": "priority",
+              "label": "수출신고가격(USD)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A건",
+              "strength": "평택 물류창고(평택세관 관할)",
+              "weakness": "평택세관",
+              "priority": 48000
+            },
+            {
+              "option": "B건",
+              "strength": "부산 공장(부산세관 관할)",
+              "weakness": "인천세관",
+              "priority": 36500
+            },
+            {
+              "option": "C건",
+              "strength": "인천 창고(인천세관 관할)",
+              "weakness": "인천세관",
+              "priority": 52000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "수출신고서 초안 표를 인수 서류 대조표와 과장 메모의 작성 기준에 하나씩 맞춰 보고, A·B·C 세 건이 지금 그대로 수출신고할 수 있는지 건마다 판정해 보세요. 그대로 신고할 수 없는 건은 어느 항목이 메모의 어떤 기준에 맞지 않는지, 또는 무엇을 확인해야 하는지 함께 적어 주세요. 3~5문장으로 쓰세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "세 건 각각의 신고 가능 여부를 판정하고, 그대로 신고할 수 없는 건은 기준에 맞지 않는 항목과 그 기준, 또는 확인할 사항을 적는다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 판정 결과와 메모에 적힌 선적 예정일, 오늘 처리 여건을 바탕으로 오늘 오후에 수출신고할 1건을 정해 과장에게 추천해 보세요. 고른 건과 그 건이 나머지 두 건보다 먼저 신고하기에 알맞은 이유, 그리고 그 선택에서 주의할 점 1가지를 함께 3~5문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "오늘 신고할 1건을 고르고, 다른 두 건과 견준 이유와 그 선택의 주의점 1가지를 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 건별 신고 가능 여부 판정",
+        "과제 2: 오늘 신고할 1건 추천, 이유, 주의할 점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "과제 1: A건은 신용장의 하주 상호 '가온정밀(주)'와 허가서의 하주 상호 '가온정밀산업(주)'가 서로 달라, 메모의 기준대로 하주의 확인 회신을 받기 전에는 하주 상호를 적을 수 없으므로 지금 신고할 수 없다. 신고 세관(평택세관)은 물품소재지 관할과 맞는다.",
+      "과제 1: B건은 물품소재지가 부산 공장(부산세관 관할)인데 초안의 신고 세관이 인천세관으로 적혀 있어, 신고 세관을 부산세관으로 고쳐야 신고할 수 있다. 하주 상호는 두 서류가 같아 그대로 적으면 된다. B건의 신고 세관 이름이 C건의 올바른 신고 세관과 같아 훑어보면 놓치기 쉽다.",
+      "과제 1: C건은 두 서류의 하주 상호가 같고 신고 세관도 물품소재지 관할인 인천세관이라 기준에 모두 맞아 그대로 신고할 수 있다.",
+      "과제 2: 자료만으로 정답이 하나로 정해지지 않는다. 오늘은 1건만 신고할 수 있고, A건은 선적이 가장 이르지만(11월 14일) 회신 시각이 정해지지 않았으며, B건은 신고 세관만 고치면 되고 선적이 11월 15일이고, C건은 바로 신고할 수 있지만 선적이 11월 18일로 가장 늦다는 점을 견주어야 한다. C건을 '준비가 끝났다'는 이유만으로 고르면 선적이 가장 늦은 건을 먼저 처리하는 셈이므로, 다른 두 건보다 나은 까닭을 보였는지 살핀다.",
+      "예시: 'B건을 추천한다. 신고 세관을 부산세관으로 고치면 오늘 바로 신고할 수 있고, 선적이 C건보다 이르다. A건은 회신 시각이 정해지지 않아 오늘 신고를 장담할 수 없다. 다만 내일 선적하는 A건은 회신이 오는 즉시 내일 신고해야 하므로 회신을 계속 챙겨야 한다.'"
+    ],
+    "rubric": [
+      {
+        "criterion": "세 건의 신고 가능 여부 판정",
+        "description": "과제 1에서 A·B·C 세 건의 판정이 자료와 맞는지 본다. 자료가 허용하는 판정은 하나뿐이다. A건은 신용장과 허가서의 하주 상호가 달라 하주 회신 전에는 그대로 신고할 수 없고, B건은 신고 세관을 고치기 전에는 그대로 신고할 수 없으며, C건은 그대로 신고할 수 있다. 세 건이 모두 맞으면 만점, 두 건이 맞으면 부분 점수, 한 건 이하가 맞으면 낮은 점수를 준다.",
+        "points": 25,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "읽고 이해하기"
+        ]
+      },
+      {
+        "criterion": "맞지 않는 항목과 기준 짚기",
+        "description": "그대로 신고할 수 없다고 판정한 건마다 해당 항목과 맞지 않는 기준, 또는 확인할 사항을 적었는지 본다. A건은 하주 상호 항목(신용장 '가온정밀(주)'와 허가서 '가온정밀산업(주)'가 달라 하주의 확인 회신이 필요함), B건은 신고 세관 항목(물품소재지가 부산 공장이라 관할인 부산세관으로 적어야 하는데 인천세관으로 적힘)을 짚어야 한다. 판정만 쓰고 항목이나 기준을 밝히지 않은 건이 있으면 부분 점수만 준다.",
+        "points": 20,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "추리력"
+        ]
+      },
+      {
+        "criterion": "추천한 건과 이유의 설득력",
+        "description": "과제 2에서 고른 1건과 이유를 본다. 특정한 건을 정답으로 요구하지 않는다. 학습자의 이유가 과제 1의 결과(A건 회신 대기, B건 신고 세관 수정 필요, C건 바로 가능)와 선적 예정일, 오늘 1건만 처리할 수 있다는 여건에 비추어 고른 건이 나머지 두 건보다 나은 까닭을 실제로 보여 주면 만점을 준다. 자료의 참인 사실만 늘어놓고 다른 두 건과 견주어 왜 이 건이 나은지 보이지 못하면 부분 점수만 준다. 예: B건을 고르고, 신고 세관만 고치면 오늘 신고할 수 있고 선적이 C건보다 이르며 A건은 회신 시각이 정해지지 않았다고 쓴 경우.",
+        "points": 35,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정",
+          "추리력"
+        ]
+      },
+      {
+        "criterion": "선택의 주의점",
+        "description": "과제 2에서 쓴 주의점 1가지가 학습자가 고른 방안의 실제 위험이나 한계로서 자료가 보여 주는 것인지 본다. 어떤 건을 골랐든 그 선택에 따르는 위험이면 인정한다. 고른 방안과 관계없는 일반적인 당부이거나 자료에 없는 위험이면 점수를 주지 않는다. 예: B건을 먼저 신고하면 내일 선적하는 A건은 회신이 오는 즉시 신고해야 하므로 회신을 계속 챙겨야 한다는 점, 또는 A건 회신을 기다리면 회신이 늦을 때 오늘 1건 처리 기회를 놓치고 B건도 밀린다는 점.",
+        "points": 20,
+        "linked_evidence": [
+          "업무 계획, 우선순위 결정",
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "수출입 허가서, 신용장 등 통관 서류를 인수하여 세관 신고서류를 작성하고 통관절차를 밟는다.",
+      "source_ref": {
+        "file": "K000000918/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 98,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 97,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보, 자료 분석",
+          "score": 95,
+          "description": "정보 또는 자료를 분석하여 근본 원리, 이유, 사실을 알아내기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 95,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "업무 계획, 우선순위 결정",
+          "score": 95,
+          "description": "업무의 우선순위를 결정, 배치하고 완수하기 위해 구체적인 목표와 계획 세우기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 92,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "시간 관리",
+          "score": 83,
+          "description": "자신의 시간과 다른 사람의 시간을 관리한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 81,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "운송",
+          "score": 97,
+          "description": "비행기, 철도, 선박 그리고 자동차를 통해 사람들과 물품을 움직이는 원리와 방법에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영어",
+          "score": 95,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 80,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 93,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 88,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "읽고 이해하기",
+          "업무 계획, 우선순위 결정"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "읽고 이해하기",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "읽고 이해하기"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "feedback_themes",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "domain",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.725,
+    "AX2": 0.0,
+    "AX3": 0.275,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

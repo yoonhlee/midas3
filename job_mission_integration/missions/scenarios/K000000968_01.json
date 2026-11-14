@@ -1,0 +1,493 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000968_easy_001",
+  "job_identity": {
+    "job_cd": "K000000968",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "데이터·네트워크 및 시스템 운영 전문가",
+    "job_smcl_nm": "네트워크시스템개발자",
+    "source_ref": {
+      "file": "K000000968/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_007",
+    "text": "시스템이 도입되면 단위 시스템에 대한 인터페이스와 설치 과정을 통해 시스템의 기능과 성능을 평가한다. -",
+    "source_ref": {
+      "file": "K000000968/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 7
+    },
+    "selection_reason": "Pilot config selected exec_007."
+  },
+  "mission_facts": {
+    "org_name": "하늘마루유통",
+    "domain": "신규 사무실 네트워크 구축과 장비별 성능 시험",
+    "period": [
+      "11월 둘째 주 단위시험 기간"
+    ],
+    "trend_pattern": "세 단위 시스템 인터페이스의 처리량 측정값이 874~941Mbps 범위에 있으며, 기준값 900Mbps 근처에 몰려 있다.",
+    "main_issue": "결과보고서 작성 전에 단위시험 기준(처리량 900Mbps 이상 적합, 미만 부적합)에 따라 각 단위 시스템의 적합여부를 판정해야 한다.",
+    "feedback_themes": [
+      "처리량 기준 충족 여부",
+      "결과보고서 작성 전 결과 확인"
+    ],
+    "decision_goal": "단위시험 결과표의 측정값을 기준과 비교해 기준에 못 미치는 단위 시스템이 있는지 판단한다."
+  },
+  "mission": {
+    "title": "단위시험 결과표로 장비 처리량 적합여부 판단하기",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 하늘마루유통 신규 사무실 네트워크 구축 프로젝트에 합류한 네트워크시스템개발 인턴입니다.",
+      "context": "새 사무실에 들여온 네트워크 장비를 하나씩 따로 시험하는 단위시험이 끝났고, 장비별 처리량 측정값이 결과표로 정리되었습니다. 팀장님이 단위시험 결과보고서를 쓰기 전에 결과를 먼저 확인해 달라고 부탁하면서 이번 기준을 알려 주었습니다. 각 단위 시스템 인터페이스의 처리량 측정값이 900Mbps 이상이면 적합, 900Mbps 미만이면 부적합입니다.",
+      "goal": "단위시험 결과표를 팀장님이 알려 준 기준과 비교해, 기준에 못 미치는 단위 시스템이 있는지 판단하고 팀장님께 짧게 알려 주세요.",
+      "constraints": [
+        "판단에는 결과표의 측정값과 팀장님이 알려 준 기준만 사용합니다.",
+        "답변은 1~2문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "단위시험",
+          "definition": "장비들을 서로 연결해 함께 시험하기 전에, 장비 하나하나를 따로 시험해 정해진 기준을 넘는지 확인하는 일입니다."
+        },
+        {
+          "term": "단위 시스템",
+          "definition": "전체 네트워크를 이루는 장비 하나하나를 말합니다. 단위시험은 이 단위로 따로 진행합니다."
+        },
+        {
+          "term": "인터페이스",
+          "definition": "장비에 케이블을 꽂아 다른 장비와 데이터를 주고받는 연결 지점입니다."
+        },
+        {
+          "term": "라우터",
+          "definition": "사내 네트워크와 바깥 인터넷처럼 서로 다른 네트워크를 이어 주는 장비입니다."
+        },
+        {
+          "term": "스위치",
+          "definition": "사무실 안의 컴퓨터와 장비들을 하나의 네트워크로 묶어 주는 장비입니다."
+        },
+        {
+          "term": "처리량",
+          "definition": "연결 지점을 통해 1초 동안 실제로 전달된 데이터의 양입니다. 숫자가 클수록 더 많이 전달한 것입니다."
+        },
+        {
+          "term": "Mbps",
+          "definition": "1초에 전달되는 데이터 양을 나타내는 단위(초당 메가비트)입니다."
+        },
+        {
+          "term": "1G 포트",
+          "definition": "1초에 최대 1,000Mbps까지 데이터를 주고받도록 만들어진 연결 지점입니다."
+        },
+        {
+          "term": "WAN 인터페이스",
+          "definition": "회사 바깥의 넓은 네트워크(인터넷 등)와 연결되는 쪽의 연결 지점입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "unit_test_result_table",
+        "title": "네트워크 단위시험 결과 (처리량, 단위: Mbps)",
+        "description": "신규 사무실 네트워크 장비의 단위시험에서 단위 시스템별 인터페이스 처리량을 측정해 정리한 결과표입니다. 측정값 단위는 Mbps입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "단위 시스템별 처리량 측정값을 팀장님이 알려 준 기준과 비교해 적합여부를 판단하는 데 씁니다.",
+        "evidence_source": [
+          "정보 처리",
+          "사물, 행동, 사건 파악",
+          "통신"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "단위 시스템"
+            },
+            {
+              "key": "strength",
+              "label": "인터페이스"
+            },
+            {
+              "key": "weakness",
+              "label": "시험 항목"
+            },
+            {
+              "key": "priority",
+              "label": "측정값(Mbps)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "스위치 A",
+              "strength": "1G 포트 1",
+              "weakness": "처리량",
+              "priority": 941
+            },
+            {
+              "option": "스위치 B",
+              "strength": "1G 포트 2",
+              "weakness": "처리량",
+              "priority": 905
+            },
+            {
+              "option": "라우터",
+              "strength": "WAN 인터페이스",
+              "weakness": "처리량",
+              "priority": 874
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "아래 단위시험 결과표의 측정값을 팀장님이 알려 준 기준과 하나씩 비교해 보고, 기준에 못 미치는 단위 시스템이 있는지 판단한 결과와 그 이유를 1~2문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "결과표의 처리량 측정값 세 개를 900Mbps 기준과 비교해 기준 미만인 단위 시스템을 부적합으로 판단하고, 측정값과 기준값을 근거로 1~2문장으로 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "판단 결과와 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "라우터 WAN 인터페이스의 처리량 874Mbps는 기준 900Mbps에 못 미치므로 부적합이다.",
+      "스위치 A(941Mbps)와 스위치 B(905Mbps)는 900Mbps 이상이므로 적합이며, 기준에 가까운 905Mbps도 부적합으로 보지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "기준 미달 단위 시스템 판단",
+        "description": "라우터 WAN 인터페이스의 측정값 874Mbps가 기준 900Mbps 미만임을 확인하고 부적합으로 판단했다.",
+        "points": 50,
+        "linked_evidence": [
+          "정보 처리",
+          "통신"
+        ]
+      },
+      {
+        "criterion": "기준 충족 값 구분",
+        "description": "스위치 A(941Mbps)와 스위치 B(905Mbps)를 기준 이상으로 보고, 기준에 가까운 905Mbps를 부적합으로 잘못 판단하지 않았다.",
+        "points": 30,
+        "linked_evidence": [
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "criterion": "판단 근거 제시",
+        "description": "측정값과 기준값을 함께 들어 판단 이유를 1~2문장으로 분명하게 설명했다.",
+        "points": 20,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_007",
+      "text": "시스템이 도입되면 단위 시스템에 대한 인터페이스와 설치 과정을 통해 시스템의 기능과 성능을 평가한다. -",
+      "source_ref": {
+        "file": "K000000968/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 7
+      },
+      "selection_reason": "Pilot config selected exec_007."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 97,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "전자장비 유지 보수",
+          "score": 93,
+          "description": "기계가 아닌 전자적 원리에 의해 작동되는 장비, 부품, 장치, 기계를 정비, 수리, 조절, 시험하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 93,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 92,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 87,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 91,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "조직체계의 분석 및 평가",
+          "score": 87,
+          "description": "환경이나 조건의 변화가 조직의 체계, 구성, 방식에 어떤 영향을 미칠지 분석하고, 시스템의 효율성을 평가한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "인적자원 관리",
+          "score": 85,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "통신",
+          "score": 97,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 90,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영어",
+          "score": 81,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "이메일 이용하기",
+          "score": 88,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "공문, 문서 주고받기",
+          "score": 84,
+          "description": "업무 수행하면서 공문이나 문서를 주고받는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "반복적인 신체행동, 정신적 활동",
+          "score": 84,
+          "description": "지속적이고 반복적인 신체적 행동이나 정신적 활동의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 처리",
+          "사물, 행동, 사건 파악",
+          "통신"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000968/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 9,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000968/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.5,
+    "AX2": 0.35,
+    "AX3": 0.05,
+    "AX4": 0.05,
+    "AX5": 0.05
+  }
+}

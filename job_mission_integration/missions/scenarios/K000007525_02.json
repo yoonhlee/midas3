@@ -1,0 +1,550 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000007525_normal_001",
+  "job_identity": {
+    "job_cd": "K000007525",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "회계·세무·감정 전문가",
+    "job_smcl_nm": "세무사",
+    "source_ref": {
+      "file": "K000007525/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_005",
+    "text": "고객의 업무 부담을 덜어주기 위하여 사업자의 사업실적에 대한 각종 회계장부의 작성을 대행하고 이에 대해 세무조정을 실시한다.",
+    "source_ref": {
+      "file": "K000007525/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 5
+    },
+    "selection_reason": "Pilot config selected exec_005."
+  },
+  "mission_facts": {
+    "org_name": "소리울공방",
+    "domain": "세무사 사무소의 고객사 회계장부 작성 대행",
+    "period": [
+      "10월분 결산 대상 기간: 10월 1일~10월 31일",
+      "보조장부 출력일: 11월 5일"
+    ],
+    "trend_pattern": "거래처별 외상매입금 잔액 네 건이 10월 8일부터 11월 3일 사이에 기록되어 있다.",
+    "main_issue": "10월분 결산을 앞두고 외상매입금 보조장부를 총계정원장 잔액과 맞춰 보고 마감할 수 있는지 정해야 한다.",
+    "feedback_themes": [
+      "결산 대상 기간 적용",
+      "보조장부 잔액 합산",
+      "총계정원장 잔액과의 대조",
+      "마감 또는 보류 판단"
+    ],
+    "decision_goal": "10월분 결산에서 외상매입금 보조장부를 마감할 수 있는지와 그 근거를 담당 세무사에게 전한다."
+  },
+  "mission": {
+    "title": "10월분 외상매입금 보조장부, 마감해도 될까?",
+    "task_type": "coordination_and_negotiation",
+    "secondary_task_types": [
+      "communication_and_reporting"
+    ],
+    "difficulty": {
+      "level": "normal",
+      "label": "보통",
+      "estimated_time_minutes": 15,
+      "material_bundle_style": "light_work_material_bundle",
+      "material_count_range": [
+        2,
+        2
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "2-3 short sentences",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "바름 세무회계사무소 인턴",
+      "context": "당신은 바름 세무회계사무소의 인턴입니다. 사무소는 고객사 소리울공방의 회계장부 작성을 대신 맡고 있습니다. 11월 초, 10월분 결산을 진행하던 담당 세무사가 장부마감 기준을 정리한 메모와 직원이 출력한 외상매입금 보조장부를 건네며, 이번 결산에서 이 보조장부를 마감해도 되는지 확인해 달라고 부탁했습니다.",
+      "goal": "담당 세무사의 장부마감 기준에 따라 외상매입금 보조장부를 10월분 결산에서 마감할 수 있는지 판단하고, 그 근거를 짧게 전합니다.",
+      "constraints": [
+        "메모와 보조장부 표에 있는 날짜와 금액만 사용하세요.",
+        "마감할 수 있는지에 대한 판단과 그 근거를 함께 2~3문장으로 적으세요."
+      ],
+      "glossary": [
+        {
+          "term": "보조장부",
+          "definition": "주요 장부(총계정원장, 분개장) 말고, 거래처별 기록처럼 세부 내용을 따로 적어 두는 장부입니다."
+        },
+        {
+          "term": "총계정원장",
+          "definition": "외상매입금 같은 계정마다 잔액을 모아 적어 두는 회사의 기본 장부입니다."
+        },
+        {
+          "term": "결산관리 주기",
+          "definition": "장부를 정리해 결과를 확정하는 간격입니다. 월별이면 한 달마다 결산합니다."
+        },
+        {
+          "term": "장부마감",
+          "definition": "정해진 기간의 기록이 맞는지 확인한 뒤, 그 기간의 장부를 닫아 더 고치지 않게 하는 일입니다."
+        },
+        {
+          "term": "외상매입금",
+          "definition": "재료나 물건을 먼저 받고 아직 치르지 않은 대금입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "memo",
+        "subtype": "closing_rule_memo",
+        "title": "담당 세무사 메모: 10월분 보조장부 마감 기준",
+        "description": "소리울공방 장부 작성을 맡은 담당 세무사가 사무소 회계관련규정에서 이번 결산에 쓸 장부마감 기준을 뽑아 정리한 메모입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "보조장부 마감 여부를 판단할 때 적용할 결산 대상 기간, 마감 규칙, 대조할 총계정원장 잔액을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "기준에 따른 정보 평가",
+          "경제와 회계"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "decision_goal"
+        ],
+        "data": {
+          "author": "소리울공방 담당 세무사",
+          "items": [
+            "이번 결산관리 주기는 월별입니다. 10월분 결산에는 10월 1일부터 10월 31일까지 발생한 거래만 반영합니다.",
+            "보조장부에서 반영 대상 거래처별 잔액을 합한 금액이 총계정원장의 같은 계정(외상매입금) 잔액과 같으면 보조장부를 마감합니다. 다르면 마감을 보류하고 차이 금액을 보고합니다.",
+            "10월 31일 기준 총계정원장 외상매입금 잔액은 4,800,000원입니다."
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "subsidiary_ledger",
+        "title": "소리울공방 거래처별 외상매입금 보조장부 (11월 5일 출력)",
+        "description": "사무소 직원이 11월 5일에 출력한 거래처별 외상매입금 잔액 기록입니다. 잔액 단위는 원입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "메모의 마감 기준을 거래처별 기록에 적용해 반영할 잔액을 합산하고 총계정원장 잔액과 맞춰 보는 데 쓴다.",
+        "evidence_source": [
+          "수리력",
+          "경제와 회계"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "거래처명"
+            },
+            {
+              "key": "strength",
+              "label": "채무 내용"
+            },
+            {
+              "key": "weakness",
+              "label": "발생일"
+            },
+            {
+              "key": "priority",
+              "label": "잔액(원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "가나상사",
+              "strength": "원재료 외상 매입",
+              "weakness": "10월 8일",
+              "priority": 1500000
+            },
+            {
+              "option": "다라유통",
+              "strength": "포장재 외상 매입",
+              "weakness": "10월 15일",
+              "priority": 2000000
+            },
+            {
+              "option": "마바산업",
+              "strength": "소모품 외상 매입",
+              "weakness": "10월 31일",
+              "priority": 1300000
+            },
+            {
+              "option": "사아물산",
+              "strength": "원재료 외상 매입",
+              "weakness": "11월 3일",
+              "priority": 700000
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "담당 세무사 메모의 장부마감 기준을 보조장부 표에 적용해, 10월분 결산에서 외상매입금 보조장부를 마감할 수 있는지 판단해 보세요. 판단과 함께 어떤 잔액을 합산했고 그 합계가 총계정원장 잔액과 어떻게 비교되는지 근거를 2~3문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002"
+        ],
+        "expected_action": "메모의 결산 대상 기간을 보조장부의 발생일에 적용해 반영할 잔액을 골라 합산하고, 그 합계를 총계정원장 잔액과 비교해 마감 가능 여부와 근거를 2~3문장으로 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 15,
+      "required_sections": [
+        "마감 가능 여부",
+        "근거: 합산한 잔액과 총계정원장 잔액의 비교"
+      ],
+      "length_hint": "2~3문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "10월분 결산에는 10월 1일부터 31일까지 발생한 거래만 반영하므로, 11월 3일에 발생한 사아물산 잔액 700,000원은 이번 합산에서 빠지고 다음 달 결산으로 넘어간다.",
+      "10월 31일에 발생한 마바산업 잔액 1,300,000원은 결산 대상 기간 안이므로 합산에 포함된다.",
+      "가나상사, 다라유통, 마바산업 잔액의 합계 4,800,000원이 총계정원장 외상매입금 잔액 4,800,000원과 같으므로 보조장부를 마감할 수 있다.",
+      "네 행을 모두 더한 5,500,000원이나 10월 31일분을 뺀 3,500,000원으로 비교하면 마감 보류로 잘못 판단하게 된다."
+    ],
+    "rubric": [
+      {
+        "criterion": "결산 대상 거래 선별",
+        "description": "메모의 10월 1일~31일 기준을 적용해 10월에 발생한 세 거래처 잔액만 골랐는지 확인한다. 11월 3일분을 포함하거나 10월 31일분을 빼면 기준을 잘못 적용한 것이다.",
+        "points": 35,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "잔액 합산과 총계정원장 대조",
+        "description": "고른 잔액을 정확히 합산해 4,800,000원을 구하고, 이를 총계정원장 외상매입금 잔액 4,800,000원과 비교했는지 확인한다.",
+        "points": 35,
+        "linked_evidence": [
+          "수리력",
+          "경제와 회계"
+        ]
+      },
+      {
+        "criterion": "마감 여부 판단과 근거 전달",
+        "description": "대조 결과에 맞게 보조장부를 마감할 수 있다고 판단하고, 그 근거를 금액과 함께 2~3문장으로 분명하게 전했는지 확인한다.",
+        "points": 30,
+        "linked_evidence": [
+          "기준에 따른 정보 평가",
+          "경제와 회계"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_005",
+      "text": "고객의 업무 부담을 덜어주기 위하여 사업자의 사업실적에 대한 각종 회계장부의 작성을 대행하고 이에 대해 세무조정을 실시한다.",
+      "source_ref": {
+        "file": "K000007525/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 5
+      },
+      "selection_reason": "Pilot config selected exec_005."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "행정, 관리 업무",
+          "score": 97,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "부하 직원들에게 업무 안내, 지시, 동기부여",
+          "score": 94,
+          "description": "부하 직원들의 업무 기준을 정하여 업무 성과를 관찰하고 업무 방향과 지침을 제공하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 89,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "인사 업무",
+          "score": 85,
+          "description": "조직에서 직원을 모집, 면담, 채용하고 승진시키기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "기준에 따른 정보 평가",
+          "score": 81,
+          "description": "사건이나 절차가 법, 규정, 기준을 정확히 준수했는지 판단하기 위해 관련 정보나 개인 의견을 사용하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "재정 관리",
+          "score": 99,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "수리력",
+          "score": 98,
+          "description": "어떤 문제를 해결하기 위해 수학을 사용한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "협상",
+          "score": 96,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "경제와 회계",
+          "score": 97,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 96,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "경영 및 행정",
+          "score": 91,
+          "description": "사업운영, 기획, 자원배분, 인적자원관리, 리더십, 생산기법에 대한 원리 등 경영 및 관리에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 98,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이미지/평판/재정에 미치는 강도",
+          "score": 97,
+          "description": "본인의 의사결정이 다른 사람 또는 회사 이미지/평판/재정에 어느 정도의 결과 초래",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "정확성, 정밀성 유지",
+          "score": 96,
+          "description": "업무 수행을 위해 정밀하거나 정확한 것의 중요성",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "기준에 따른 정보 평가",
+          "경제와 회계"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "수리력",
+          "경제와 회계"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007525/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "org_name",
+          "period",
+          "trend_pattern",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007525/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

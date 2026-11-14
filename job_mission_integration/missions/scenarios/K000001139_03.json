@@ -1,0 +1,657 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001139_hard_001",
+  "job_identity": {
+    "job_cd": "K000001139",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "광고·조사·상품기획·행사기획 전문가",
+    "job_smcl_nm": "조사전문가",
+    "source_ref": {
+      "file": "K000001139/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_001",
+    "text": "조사방법론을 토대로 설문조사나 인터뷰, 좌담회와 같은 자료수집 방식을 설계한다.",
+    "source_ref": {
+      "file": "K000001139/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 1
+    },
+    "selection_reason": "Pilot config selected exec_001."
+  },
+  "mission_facts": {
+    "org_name": "◎◎리서치",
+    "domain": "공공 실태조사의 자료수집 방식 설계",
+    "period": [
+      "계약 후 6주 안에 결과 보고서 제출",
+      "기존 조사 2024~2025년"
+    ],
+    "trend_pattern": "65세 이상을 대상으로 한 기존 조사에서 조사방법마다 완료 응답 수가 크게 달랐다(전화조사 470명, 온라인조사 42명, 면접조사 300명으로 목표 달성, FGI 28명).",
+    "main_issue": "65세 이상 응답자 500명 이상, 연령대별 비율 제시, 조사예산 3,000만원 이내, 계약 후 6주 안 보고라는 조건을 함께 맞출 자료수집 방식을 정해야 한다.",
+    "feedback_themes": [
+      "80세 이상 응답 거절로 자료수집 기간 연장",
+      "온라인 패널의 65세 이상 응답 부족",
+      "면접조사의 높은 비용과 긴 자료수집 기간",
+      "FGI의 적은 참여 인원"
+    ],
+    "decision_goal": "○○시 노인복지과에 제안할 자료수집 방식 하나를 정한다."
+  },
+  "mission": {
+    "title": "어르신 디지털 이용 실태조사, 어떤 방식으로 자료를 모을까",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "hard",
+      "label": "어려움",
+      "estimated_time_minutes": 20,
+      "material_bundle_style": "work_document_packet",
+      "material_count_range": [
+        3,
+        3
+      ],
+      "task_count_range": [
+        2,
+        2
+      ],
+      "answer_length_hint": "3-5 short sentences per task",
+      "requires_cross_material_reasoning": true,
+      "requires_tradeoff_judgment": true,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "◎◎리서치 조사기획팀 인턴",
+      "context": "당신은 ◎◎리서치 조사기획팀 인턴입니다. ○○시 노인복지과가 '어르신 디지털 이용 실태조사'를 맡길 곳을 찾으며 우리 팀에 제안요청서 주요 내용을 이메일로 보내왔습니다. 팀장님이 후보 조사방법 견적표와 예전에 65세 이상을 조사했던 기록을 함께 건네며 말했습니다. “고객 조건에 비추어 후보 방식을 하나씩 따져 보고, 우리가 어떤 방식으로 제안하면 좋을지 정리해 주세요.”",
+      "goal": "세 자료를 엮어 후보 자료수집 방식을 고객 조건별로 비교하고, ○○시에 제안할 방식 하나를 이유와 주의점과 함께 정합니다.",
+      "constraints": [
+        "세 자료와 용어 설명에 나온 정보만 사용합니다.",
+        "자료수집은 계약 직후 시작하고, 자료수집이 끝난 뒤 남은 기간에 결과를 정리해 보고서를 씁니다.",
+        "답은 과제마다 3~5문장으로 씁니다.",
+        "설문 문항이나 질문지 같은 세부 조사 도구는 만들지 않습니다."
+      ],
+      "glossary": [
+        {
+          "term": "제안요청서",
+          "definition": "조사를 맡기려는 쪽이 원하는 조사목적, 조사내용, 조건을 적어 조사 회사에 보내는 문서입니다. 조사 회사는 이 문서를 보고 어떻게 조사할지 제안합니다."
+        },
+        {
+          "term": "정량조사",
+          "definition": "많은 사람에게 같은 질문을 던져 답을 인원이나 비율 같은 숫자로 모으는 조사입니다."
+        },
+        {
+          "term": "정성조사",
+          "definition": "적은 사람에게 깊이 묻고 들어서 생각이나 이유를 말로 자세히 모으는 조사입니다."
+        },
+        {
+          "term": "면접조사",
+          "definition": "조사원이 응답자를 직접 만나 얼굴을 보고 질문하며 답을 받는 조사입니다."
+        },
+        {
+          "term": "FGI",
+          "definition": "Focus Group Interview의 줄임말로, 몇 사람을 한자리에 모아 진행자가 주제를 묻고 참여자들이 이야기를 나누게 하는 좌담회 형태의 조사입니다."
+        },
+        {
+          "term": "온라인 패널",
+          "definition": "설문에 응답하기로 미리 가입해 둔 회원 명단입니다. 이 미션에서는 ◎◎리서치가 가진 회원 명단을 말하며, 회사가 이 회원들에게 설문 링크를 보냅니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "email",
+        "subtype": "client_request",
+        "title": "○○시 노인복지과 제안요청서 요약 이메일",
+        "description": "○○시 노인복지과 담당 주무관이 ◎◎리서치 조사기획팀에 보낸 이메일로, 제안요청서의 조사목적, 조사내용, 조건을 담고 있습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 후보 조사방법을 견줄 고객의 조건을 확인하고, 과제 2에서 제안할 방식을 정할 기준으로 쓴다.",
+        "evidence_source": [
+          "사람들에게 조언, 상담"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "data": {
+          "thread": [
+            {
+              "from": "○○시 노인복지과 담당 주무관",
+              "to": "◎◎리서치 조사기획팀",
+              "subject": "'어르신 디지털 이용 실태조사' 제안요청서 주요 내용",
+              "body": "안녕하세요. ○○시 노인복지과 담당 주무관입니다. '어르신 디지털 이용 실태조사' 제안요청서의 주요 내용을 정리해 보내 드립니다.\n\n① 조사목적: 내년 어르신 디지털 교육 사업의 규모와 내용을 정하려고 합니다. 이를 위해 우리 시에 사는 65세 이상 어르신의 스마트폰·키오스크 이용 실태와 교육 희망 여부를 알고 싶습니다.\n② 조사내용: 기기를 쓰시는지와 얼마나 자주 쓰시는지, 디지털 교육을 원하시는지, 원하지 않으신다면 그 이유를 여쭤보려 합니다.\n③ 조건: 65세 이상 응답자가 500명 이상 필요합니다. 결과는 연령대(65~69세, 70대, 80세 이상)별 비율로 보여 주셔야 합니다. 조사예산은 3,000만원 이내이고, 계약 후 6주 안에 결과 보고서를 제출해 주셔야 합니다.\n④ 요청: 위 조건에 맞는 자료수집 방식을 제안해 주시기 바랍니다.\n\n감사합니다."
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_002",
+        "type": "table",
+        "subtype": "method_cost_estimate",
+        "title": "후보 조사방법 견적표",
+        "description": "이번 조사에 쓸 수 있는 조사방법 네 가지의 구분, 수행 방식과 자료수집 기간, 예상 비용(단위: 만원)을 정리한 조사기획팀 내부 견적표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1에서 네 조사방법의 비용과 자료수집 기간을 고객 조건과 견주는 데 쓴다.",
+        "evidence_source": [
+          "정보, 자료 분석",
+          "논리적 분석"
+        ],
+        "mission_fact_refs": [
+          "domain",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "조사방법"
+            },
+            {
+              "key": "strength",
+              "label": "구분"
+            },
+            {
+              "key": "weakness",
+              "label": "수행 방식과 기간"
+            },
+            {
+              "key": "priority",
+              "label": "예상 비용(만원)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "온라인조사",
+              "strength": "정량조사",
+              "weakness": "자사 온라인 패널에 설문 링크 발송, 500명 기준, 자료수집 2주",
+              "priority": 900
+            },
+            {
+              "option": "전화조사",
+              "strength": "정량조사",
+              "weakness": "조사원이 전화로 질문, 500명 기준, 자료수집 3주",
+              "priority": 1800
+            },
+            {
+              "option": "면접조사",
+              "strength": "정량조사",
+              "weakness": "조사원이 경로당·복지관을 찾아가 1:1로 질문, 500명 기준, 자료수집 5주",
+              "priority": 2900
+            },
+            {
+              "option": "FGI",
+              "strength": "정성조사",
+              "weakness": "어르신 7명씩 모아 진행자가 묻고 답하는 좌담회 4회(총 28명), 자료수집 2주",
+              "priority": 1400
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      },
+      {
+        "material_id": "mat_003",
+        "type": "table",
+        "subtype": "past_project_record",
+        "title": "기존 조사 수행 자료: 65세 이상 대상 과제",
+        "description": "◎◎리서치가 2024~2025년에 65세 이상을 대상으로 수행한 과제 네 건의 조사방법, 진행 기록, 65세 이상 완료 응답 수(단위: 명)를 정리한 기록입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "과제 1과 과제 2에서 조사방법별로 65세 이상 응답을 실제로 얼마나 모았는지와 진행 중 있었던 일을 확인하는 데 쓴다.",
+        "evidence_source": [
+          "정보, 자료 분석"
+        ],
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "과제"
+            },
+            {
+              "key": "strength",
+              "label": "조사방법"
+            },
+            {
+              "key": "weakness",
+              "label": "진행 기록"
+            },
+            {
+              "key": "priority",
+              "label": "65세 이상 완료 응답(명)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "△△구 어르신 건강 실태조사(2025)",
+              "strength": "전화조사",
+              "weakness": "목표 500명, 80세 이상의 응답 거절이 많아 자료수집 기간을 1주 늘림",
+              "priority": 470
+            },
+            {
+              "option": "□□시 디지털 서비스 만족도조사(2025)",
+              "strength": "온라인조사",
+              "weakness": "자사 온라인 패널의 65세 이상 회원 전원에게 설문 링크 발송",
+              "priority": 42
+            },
+            {
+              "option": "◇◇군 경로당 이용 실태조사(2024)",
+              "strength": "면접조사",
+              "weakness": "목표 300명, 경로당 12곳 방문, 조사원 6명 투입",
+              "priority": 300
+            },
+            {
+              "option": "☆☆구 어르신 여가 프로그램 좌담회(2024)",
+              "strength": "FGI",
+              "weakness": "4회 진행, 프로그램에 참여하지 않는 이유를 자세히 들음",
+              "priority": 28
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "고객 이메일에 적힌 조건(65세 이상 응답자 500명 이상, 연령대별 비율, 조사예산, 보고 기한)에 비추어 견적표의 네 조사방법을 비교해 보세요. 방법마다 조건을 충족하는지와 걸리는 점을 견적표의 비용·기간과 기존 조사 수행 자료의 응답 수를 근거로 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "네 조사방법 각각이 고객 조건을 충족하는지와 걸리는 점을 세 자료의 수치로 비교해 쓴다."
+      },
+      {
+        "task_id": "task_002",
+        "instruction": "과제 1의 비교 결과를 바탕으로 ○○시에 제안할 자료수집 방식 하나를 정해 보세요. 고른 방식, 그 방식이 다른 후보보다 이번 조건에 더 맞는 이유, 그 방식을 택할 때 주의할 점 하나를 3~5문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001",
+          "mat_002",
+          "mat_003"
+        ],
+        "expected_action": "자료수집 방식 하나를 골라 다른 후보와 견준 추천 이유와 그 방식의 주의점 하나를 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "written_response",
+      "estimated_time_minutes": 20,
+      "required_sections": [
+        "과제 1: 조사방법별 조건 충족 여부와 걸리는 점",
+        "과제 2: 추천 방식, 다른 후보보다 나은 이유, 주의점"
+      ],
+      "length_hint": "과제마다 3~5문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "온라인조사는 900만원·2주로 가장 싸고 빠르지만, 자사 온라인 패널의 65세 이상 회원 전원에게 보냈던 기존 조사에서 완료 응답이 42명뿐이어서 500명 조건을 채우기 어렵다.",
+      "FGI는 좌담회 4회로 28명을 만나는 정성조사라 500명 이상과 연령대별 비율 조건을 낼 수 없다. 교육을 원하지 않는 이유를 깊이 들을 수 있다는 점은 있지만 이번 조건을 대신하지 못한다.",
+      "면접조사는 기존 조사에서 목표 300명을 모두 채웠지만, 2,900만원이라 조사예산 여유가 100만원뿐이고 자료수집 5주 뒤 보고서 작성에 1주만 남는다.",
+      "전화조사는 1,800만원·3주로 예산과 기한에 여유가 있지만, 기존 조사에서 80세 이상 응답 거절로 자료수집 기간을 1주 늘리고도 470명에 그쳤다.",
+      "전화조사와 FGI를 함께 쓰면 3,200만원으로 조사예산 3,000만원을 넘는다. 과제는 방식 하나를 고르게 하므로 이는 배경 정보로만 본다.",
+      "자료만으로는 전화조사와 면접조사 가운데 정답이 하나로 정해지지 않는다. 고른 방식이 택하지 않은 후보보다 이번 조건에 더 맞는 이유를 수치로 보였는지가 핵심이다.",
+      "예시: 전화조사를 추천한다. 1주를 늘려도 자료수집이 4주라 6주 안에 보고할 수 있고 예산도 1,200만원 남는 반면, 면접조사는 예산 여유가 100만원이고 보고서 작성 기간이 1주뿐이라 일정이나 비용이 조금만 틀어져도 조건을 어기게 된다. 주의점은 기존 조사에서 80세 이상 응답 거절로 목표에 못 미쳤으므로 80세 이상 응답 수를 따로 챙기고 일정 여유를 두는 것이다."
+    ],
+    "rubric": [
+      {
+        "criterion": "조사방법별 조건 충족 판단(과제 1)",
+        "description": "네 조사방법 각각에 대해 고객 조건 가운데 무엇을 충족하고 무엇이 걸리는지를 견적표와 기존 조사 수행 자료의 수치로 판단했는지 본다. 자료로 정해지는 판단: 온라인조사는 65세 이상 패널 회원 전원에게 보내도 완료 응답이 42명이라 500명을 채우기 어렵다. FGI는 28명 규모의 정성조사라 500명 이상과 연령대별 비율을 낼 수 없다. 면접조사는 기존 조사에서 목표 응답을 모두 채웠지만 2,900만원으로 조사예산 여유가 100만원이고 자료수집 5주로 보고서 작성에 1주만 남는다. 전화조사는 1,800만원·3주로 예산과 기한에 여유가 있지만 기존 조사에서 80세 이상 응답 거절로 기간을 1주 늘리고도 470명에 그쳤다. 네 방법을 모두 수치에 근거해 판단하면 만점, 근거 수치 없이 장단점만 말하거나 일부 방법의 판단이 빠지면 부분 점수.",
+        "points": 40,
+        "linked_evidence": [
+          "정보, 자료 분석",
+          "논리적 분석"
+        ]
+      },
+      {
+        "criterion": "추천 방식과 다른 후보보다 나은 이유(과제 2)",
+        "description": "특정 방식을 정답으로 요구하지 않는다. 이유가 과제 1의 결과와 자료의 수치에 근거하고, 자료가 보여 주는 다른 후보, 특히 전화조사와 면접조사 가운데 택하지 않은 쪽보다 왜 이번 조건에 더 맞는지를 보여 주면 만점. 맞는 사실을 들지만 다른 후보보다 나은 이유를 보이지 못하면 부분 점수. 자료에서 조건을 채우기 어렵다고 드러난 방식을 고르면서 그 한계를 넘는 이유를 보이지 못하면 낮은 점수. 예: 전화조사를 택해 1주를 늘려도 자료수집이 4주라 6주 안에 보고할 수 있고 예산이 1,200만원 남는 반면 면접조사는 예산 여유 100만원, 보고서 작성 1주뿐이라는 점을 든 경우. 면접조사를 택해 목표 응답을 모두 채운 실적을 앞세운 이유도 같은 기준으로 인정한다.",
+        "points": 40,
+        "linked_evidence": [
+          "사람들에게 조언, 상담",
+          "논리적 분석"
+        ]
+      },
+      {
+        "criterion": "추천 방식의 주의점(과제 2)",
+        "description": "추천한 방식을 택할 때 자료가 보여 주는 실제 위험이나 한계를 하나 들었는지 본다. 예: 전화조사를 택했다면 기존 조사에서 80세 이상 응답 거절로 목표 500명에 못 미쳤으므로 80세 이상 응답을 따로 챙기고 일정 여유를 두어야 한다는 점. 면접조사를 택했다면 예산 여유가 100만원이고 보고서 작성 기간이 1주뿐이라 일정이 밀리면 기한을 넘길 수 있다는 점. 추천한 방식과 상관없는 일반론은 인정하지 않는다.",
+        "points": 20,
+        "linked_evidence": [
+          "사람들에게 조언, 상담"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_001",
+      "text": "조사방법론을 토대로 설문조사나 인터뷰, 좌담회와 같은 자료수집 방식을 설계한다.",
+      "source_ref": {
+        "file": "K000001139/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 1
+      },
+      "selection_reason": "Pilot config selected exec_001."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "사물, 행동, 사건 파악",
+          "score": 99,
+          "description": "차이점과 유사점을 분류하고 어떤 상황에서 변화를 알아차림으로써 정보를 파악하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "사람들의 업무와 활동을 조직, 편성",
+          "score": 99,
+          "description": "그룹 내 구성원들이 업무 완수를 위해 함께 일하도록 조율하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무 계획, 우선순위 결정",
+          "score": 99,
+          "description": "업무의 우선순위를 결정, 배치하고 완수하기 위해 구체적인 목표와 계획 세우기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들에게 조언, 상담",
+          "score": 99,
+          "description": "경영진이나 다른 사람들에게 기술, 시스템 또는 관련 절차를 전문적으로 조언하고 안내하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 99,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "가르치기",
+          "score": 89,
+          "description": "다른 사람들에게 일하는 방법에 대해 가르친다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "공간지각력",
+          "score": 79,
+          "description": "자신의 위치를 파악하거나 다른 대상들이 자신을 중심으로 어디에 있는지 안다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 79,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "사무",
+          "score": 82,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 82,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "국어",
+          "score": 78,
+          "description": "맞춤법, 작문법, 문법에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 99,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 92,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "사람들에게 조언, 상담"
+        ]
+      },
+      {
+        "material_id": "mat_002",
+        "supported_by": [
+          "정보, 자료 분석",
+          "논리적 분석"
+        ]
+      },
+      {
+        "material_id": "mat_003",
+        "supported_by": [
+          "정보, 자료 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "main_issue",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_002",
+        "mission_fact_refs": [
+          "domain",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001139/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      },
+      {
+        "target_type": "material",
+        "target_id": "mat_003",
+        "mission_fact_refs": [
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001139/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.6,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.4
+  }
+}

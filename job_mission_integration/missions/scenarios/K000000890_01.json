@@ -1,0 +1,460 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000890_easy_001",
+  "job_identity": {
+    "job_cd": "K000000890",
+    "job_lrcl_nm": "예술·디자인·방송·스포츠직",
+    "job_mdcl_nm": "디자이너",
+    "job_smcl_nm": "UX·UI디자이너",
+    "source_ref": {
+      "file": "K000000890/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_004",
+    "text": "디자인 리서치를 통해 제품 또는 서비스에 대하여 사용자의 요구와 목표를 파악하고 해석한다.",
+    "source_ref": {
+      "file": "K000000890/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 4
+    },
+    "selection_reason": "Pilot config selected exec_004."
+  },
+  "mission_facts": {
+    "org_name": "시립미술관 전시 안내 앱(스마트문화앱) 디자인팀",
+    "domain": "미술관 전시 안내 스마트폰 앱의 작품 설명 화면 사용자 조사",
+    "period": [
+      "조사 당일 14:05~15:10"
+    ],
+    "trend_pattern": "관람객 3명이 전시실에서 작품 설명 화면을 쓰는 모습을 시간 순으로 관찰해 행동과 발언을 기록함",
+    "main_issue": "참여자들의 발언이 서로 달라 작품 설명 화면을 어떤 방향으로 고칠지 정하기 어려움",
+    "feedback_themes": [
+      "설명이 좀 더 짧으면 좋겠다",
+      "아이 보랴 화면 보랴 바빴다",
+      "글씨가 더 컸으면 좋겠다"
+    ],
+    "decision_goal": "관찰 기록에서 사용자들이 공통으로 보인 행동방식을 찾고, 그 행동으로 보아 사용자가 원하는 숨겨진 니즈를 해석해 화면 개선 방향에 반영한다"
+  },
+  "mission": {
+    "title": "미술관 앱 관찰 기록에서 숨겨진 니즈 읽어 내기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 시립미술관 전시 안내 앱(스마트문화앱)을 만드는 디자인팀의 UX·UI디자이너 인턴입니다.",
+      "context": "디자인팀은 앱의 작품 설명 화면을 고치기 전에 디자인 리서치로 전시실에서 앱을 쓰는 관람객 3명을 관찰했습니다. 관찰자는 참여자의 행동과 발언만 기록했고, 해석은 아직 아무도 하지 않았습니다. 앱 기획 담당자가 메신저로 이렇게 요청했습니다. \"세 관찰 기록에서 사용자들이 공통으로 보인 행동방식을 찾고, 그 행동으로 보아 사용자가 원하는 숨겨진 니즈를 1~2문장으로 해석해 주세요.\"",
+      "goal": "관찰 기록에 나온 세 사람의 공통 행동을 근거로, 사용자가 작품 설명 화면에서 원하는 숨겨진 니즈를 1~2문장으로 해석해 기획 담당자에게 전달합니다.",
+      "constraints": [
+        "관찰 기록에 적힌 내용만 근거로 삼습니다.",
+        "공통 행동방식은 세 기록 모두에서 볼 수 있는 것이어야 합니다.",
+        "답은 1~2문장으로 씁니다."
+      ],
+      "glossary": [
+        {
+          "term": "디자인 리서치",
+          "definition": "제품이나 서비스를 디자인하기 전에 사용자를 관찰하거나 이야기를 들어 사용자에 대한 정보를 모으는 일입니다."
+        },
+        {
+          "term": "숨겨진 니즈",
+          "definition": "사용자가 스스로 말로 표현하지는 않았지만 실제로 바라고 있는 것입니다."
+        },
+        {
+          "term": "UX",
+          "definition": "사용자가 제품이나 서비스를 쓰면서 겪는 경험 전체를 말합니다. 쓰기 편한지, 쓰는 동안 어떤 느낌이 드는지까지 포함합니다."
+        },
+        {
+          "term": "스마트문화앱",
+          "definition": "미술관이나 박물관 같은 문화 시설의 정보와 안내를 담은 스마트폰 앱입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "log",
+        "subtype": "user_observation_log",
+        "title": "시립미술관 전시 안내 앱(스마트문화앱) 사용자 조사 관찰 기록",
+        "description": "디자인팀 관찰자가 전시실에서 작품 설명 화면을 쓰는 관람객 3명을 관찰하고 시간 순으로 남긴 기록입니다. 메모 칸에는 참여자가 한 말만 그대로 적었습니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "세 참여자의 행동 기록을 서로 비교해 공통된 행동방식을 찾고, 그 행동에서 사용자의 숨겨진 니즈를 해석하는 데 씁니다.",
+        "evidence_source": [
+          "정보 수집",
+          "심리",
+          "논리적 분석"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "data": {
+          "entries": [
+            {
+              "time": "14:05",
+              "actor": "참여자 A (20대 대학생)",
+              "event": "작품 앞에서 작품 설명 글을 읽으며 화면과 작품을 4번 번갈아 봄. 화면으로 돌아올 때마다 위로 스크롤해 읽던 줄을 다시 찾음.",
+              "note": "발언: \"설명이 좀 더 짧으면 좋겠어요.\""
+            },
+            {
+              "time": "14:30",
+              "actor": "참여자 B (40대 회사원, 자녀 동반)",
+              "event": "자녀에게 작품을 가리키며 설명 글을 소리 내어 읽음. 작품을 가리킬 때마다 화면에서 읽던 곳을 놓쳐 처음부터 다시 읽음.",
+              "note": "발언: \"아이 보랴 화면 보랴 바빴어요.\""
+            },
+            {
+              "time": "15:10",
+              "actor": "참여자 C (60대 퇴직자)",
+              "event": "글자 크기를 가장 크게 키운 뒤 스크롤이 길어지자, 휴대폰을 작품 쪽으로 들어 올려 작품과 글을 한 시야에 두려고 함.",
+              "note": "발언: \"글씨가 더 컸으면 좋겠어요.\""
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "관찰 기록 세 건을 읽고, 세 사람이 공통으로 보인 행동을 근거로 사용자가 작품 설명 화면에서 원하는 숨겨진 니즈를 1~2문장으로 해석해 보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "세 기록에 공통된 행동방식을 근거로 들고, 그 행동이 보여 주는 사용자의 숨겨진 니즈를 1-2문장으로 해석한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "공통 행동과 숨겨진 니즈 해석"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "세 참여자 모두 작품과 화면을 번갈아 보다가 긴 설명 글에서 읽던 곳을 놓치거나, 작품과 글을 함께 보려고 애쓰는 행동을 보였다.",
+      "설명을 짧게, 글씨를 크게 해 달라는 발언을 그대로 옮기지 않고, '작품에서 눈을 떼지 않고도 설명을 따라가고 싶다'는 숨겨진 니즈로 해석한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "공통 행동방식을 근거로 제시",
+        "description": "세 기록에 공통된 행동(작품과 화면을 번갈아 보다가 긴 설명 글에서 읽던 곳을 놓침)을 기록에서 찾아 근거로 들었는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보 수집",
+          "논리적 분석"
+        ]
+      },
+      {
+        "criterion": "숨겨진 니즈 해석",
+        "description": "공통 행동에서 '작품에서 눈을 떼지 않고도 설명을 따라가고 싶다'는 사용자의 바람을 읽어 냈는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "심리",
+          "논리적 분석"
+        ]
+      },
+      {
+        "criterion": "표면 발언과 구분",
+        "description": "설명을 짧게, 글씨를 크게 같은 발언을 그대로 결론으로 옮기지 않고 행동에 근거해 해석했는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "심리"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_004",
+      "text": "디자인 리서치를 통해 제품 또는 서비스에 대하여 사용자의 요구와 목표를 파악하고 해석한다.",
+      "source_ref": {
+        "file": "K000000890/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 4
+      },
+      "selection_reason": "Pilot config selected exec_004."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "창조적 생각",
+          "score": 99,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000890/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "컴퓨터 업무",
+          "score": 98,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000890/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "팀 구성, 협업 촉진",
+          "score": 95,
+          "description": "팀 구성원이 서로 신뢰하고 존중하며 협력할 수 있도록 격려하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000890/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "사람들의 능력 개발, 지도",
+          "score": 89,
+          "description": "사람들의 능력을 개발하고, 조언하거나, 지식과 기술을 개선하는데 도움을 주기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000890/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보 수집",
+          "score": 87,
+          "description": "모든 관련 자료에서 정보를 수집, 관찰하기 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000890/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "기술 설계",
+          "score": 100,
+          "description": "사용자의 요구에 맞도록 장비와 기술을 개발하여 적용한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "전산",
+          "score": 100,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "창의력",
+          "score": 99,
+          "description": "주어진 주제나 상황에 대하여 독특하고 기발한 아이디어를 산출한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "디자인",
+          "score": 98,
+          "description": "밑그림, 제도와 같이 디자인에 필요한 기법 및 도구에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "예술",
+          "score": 88,
+          "description": "음악, 무용, 미술, 드라마에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "심리",
+          "score": 86,
+          "description": "사람들의 행동, 성격, 흥미, 동기 등에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 97,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "앉아서 근무",
+          "score": 91,
+          "description": "앉아서 근무하는 빈도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "갈등 상황",
+          "score": 87,
+          "description": "업무 수행 시 갈등 상황 노출 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "정보 수집",
+          "심리",
+          "논리적 분석"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "trend_pattern",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000890/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000890/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 5,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.68,
+    "AX2": 0.08,
+    "AX3": 0.08,
+    "AX4": 0.08,
+    "AX5": 0.08
+  }
+}

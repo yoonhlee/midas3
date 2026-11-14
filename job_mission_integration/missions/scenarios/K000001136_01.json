@@ -1,0 +1,466 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001136_easy_001",
+  "job_identity": {
+    "job_cd": "K000001136",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "금융·보험 사무원",
+    "job_smcl_nm": "은행사무원",
+    "source_ref": {
+      "file": "K000001136/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "신용대출을 위해 고객과 신용약정체결을 하며 고객의 거래실적에 따라 금리를 결정한다.",
+    "source_ref": {
+      "file": "K000001136/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "한마루은행 중앙지점",
+    "domain": "법인 고객 신용대출의 신용약정체결 전 서류 확인",
+    "period": [
+      "2026-11-03",
+      "2026-11-05"
+    ],
+    "trend_pattern": "11월 3일부터 5일까지 하루에 한 건씩 서류가 접수되었다.",
+    "main_issue": "약정체결 전에 받아야 하는 필요서류 네 가지와 지금까지 접수된 서류가 일치하는지 확인해야 한다.",
+    "feedback_themes": [
+      "법인 고객 필요서류 네 가지 모두 받기",
+      "11월 9일(월) 신용약정체결 예정"
+    ],
+    "decision_goal": "신용약정체결 전에 고객에게서 더 받아야 할 서류가 있는지 확인해 팀장에게 알린다."
+  },
+  "mission": {
+    "title": "신용약정체결 전 필요서류 확인하기",
+    "task_type": "decision_making",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 한마루은행 중앙지점 기업금융 창구에서 일하는 인턴입니다.",
+      "context": "법인 고객인 도담정밀 주식회사가 신용대출을 신청했고, 11월 9일(월)에 은행과 신용약정체결을 할 예정입니다. 창구에서는 11월 3일부터 5일까지 고객이 가져온 서류를 받아 접수 현황 표에 적어 두었습니다. 11월 5일 오후, 대출 담당 팀장이 이렇게 부탁했습니다. “월요일 약정체결 전에 서류가 다 갖춰졌는지 접수 현황 표를 보고 확인해 줄래요?”",
+      "goal": "필요서류 목록과 접수 현황 표를 맞춰 보고, 약정체결 전에 고객에게서 더 받아야 할 서류가 있는지 팀장에게 알려 주세요.",
+      "constraints": [
+        "우리 은행에서는 법인 고객과 신용약정체결을 하기 전에 법인 등기사항전부증명서, 사업자 등록증, 인감증명서, 이사회의사록 사본 네 가지를 모두 받아 두어야 합니다.",
+        "접수 현황 표에 적힌 서류만 받은 서류로 봅니다.",
+        "확인 결과는 1~2문장으로 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "신용대출",
+          "definition": "집이나 땅 같은 담보를 맡기지 않고, 고객의 신용(그동안의 거래 기록과 갚을 능력)을 믿고 돈을 빌려주는 대출입니다."
+        },
+        {
+          "term": "신용약정체결",
+          "definition": "신용대출을 해 주기 전에 은행과 고객이 대출 조건에 합의하고 약정서에 서명해 계약을 맺는 일입니다."
+        },
+        {
+          "term": "법인 등기사항전부증명서",
+          "definition": "회사의 이름, 주소, 대표자, 임원처럼 공식적으로 등록된 기본 정보를 모두 보여 주는 서류입니다."
+        },
+        {
+          "term": "사업자 등록증",
+          "definition": "세무서에 사업자로 등록했다는 것을 보여 주는 서류입니다."
+        },
+        {
+          "term": "인감증명서",
+          "definition": "회사가 계약서 등에 찍는 공식 도장(인감)이 미리 등록된 도장이 맞다는 것을 증명하는 서류입니다."
+        },
+        {
+          "term": "이사회의사록 사본",
+          "definition": "회사의 이사들이 회의에서 결정한 내용(예: 대출을 받기로 한 결정)을 적은 기록의 복사본입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "서류 접수 현황표",
+        "title": "도담정밀 주식회사 신용대출 서류 접수 현황 (11월 5일 기준)",
+        "description": "한마루은행 중앙지점 기업금융 창구가 도담정밀 주식회사의 신용약정체결을 앞두고 지금까지 받은 서류를 접수일 순서로 적은 표입니다. 부수는 받은 서류의 묶음 수입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "시나리오에 적힌 필요서류 목록과 한 줄씩 맞춰 보며 서류가 갖춰졌는지 확인하는 데 쓴다.",
+        "evidence_source": [
+          "행정, 관리 업무",
+          "정보 처리"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "서류명"
+            },
+            {
+              "key": "strength",
+              "label": "접수일"
+            },
+            {
+              "key": "weakness",
+              "label": "접수 담당"
+            },
+            {
+              "key": "priority",
+              "label": "부수"
+            }
+          ],
+          "rows": [
+            {
+              "option": "법인 등기사항전부증명서",
+              "strength": "11월 3일(화)",
+              "weakness": "김○○",
+              "priority": 1
+            },
+            {
+              "option": "사업자 등록증",
+              "strength": "11월 4일(수)",
+              "weakness": "이○○",
+              "priority": 1
+            },
+            {
+              "option": "인감증명서",
+              "strength": "11월 5일(목)",
+              "weakness": "김○○",
+              "priority": 1
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "시나리오에 적힌 필요서류 네 가지와 접수 현황 표를 하나씩 맞춰 보고, 신용약정체결 전에 고객에게서 아직 받아야 할 서류가 있는지 확인한 결과를 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "필요서류 네 가지와 접수 현황 표의 세 행을 하나씩 대조해, 아직 받지 못한 서류가 무엇인지와 약정체결 전에 그 서류를 고객에게서 받아야 한다는 점을 1~2문장으로 적는다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "서류 확인 결과"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "필요서류 네 가지 중 법인 등기사항전부증명서, 사업자 등록증, 인감증명서는 접수 현황 표에 있고, 이사회의사록 사본은 표에 없어 아직 받지 않은 서류다.",
+      "11월 9일 신용약정체결 전에 도담정밀 주식회사에서 이사회의사록 사본을 받아야 한다."
+    ],
+    "rubric": [
+      {
+        "criterion": "빠진 서류를 정확히 짚기",
+        "description": "필요서류 네 가지와 접수 현황 표의 세 행을 대조해, 접수되지 않은 서류가 이사회의사록 사본 하나라는 점을 정확히 적었는지 본다. 이미 받은 서류를 빠졌다고 적거나 빠진 서류를 놓치면 감점한다.",
+        "points": 60,
+        "linked_evidence": [
+          "정보 처리"
+        ]
+      },
+      {
+        "criterion": "약정체결 전 조치 적기",
+        "description": "확인한 서류를 신용약정체결 전에 고객에게서 받아야 한다는 점을 팀장에게 전달하듯 분명하게 적었는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "행정, 관리 업무"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "신용대출을 위해 고객과 신용약정체결을 하며 고객의 거래실적에 따라 금리를 결정한다.",
+      "source_ref": {
+        "file": "K000001136/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "행정, 관리 업무",
+          "score": 97,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 94,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "업무상 사람들을 직접 응대",
+          "score": 94,
+          "description": "식당, 상점에서 일반 손님을 접대하거나, 거래처 고객 또는 손님을 접대하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "부하 직원들에게 업무 안내, 지시, 동기부여",
+          "score": 90,
+          "description": "부하 직원들의 업무 기준을 정하여 업무 성과를 관찰하고 업무 방향과 지침을 제공하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "정보, 자료 분석",
+          "score": 90,
+          "description": "정보 또는 자료를 분석하여 근본 원리, 이유, 사실을 알아내기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "재정 관리",
+          "score": 92,
+          "description": "업무를 완료하기 위해 필요한 비용을 파악하고 구체적 소요 내역을 산출한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "협상",
+          "score": 91,
+          "description": "사람들과의 의견차이를 좁혀 합의점을 찾는다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "판단과 의사결정",
+          "score": 87,
+          "description": "이득과 손실을 평가해서 결정을 내린다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "경제와 회계",
+          "score": 92,
+          "description": "돈의 흐름, 은행업무, 그리고 재무자료의 보고와 분석과 같은 경제 및 회계원리에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "법",
+          "score": 87,
+          "description": "법률, 규정에 관한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "영업과 마케팅",
+          "score": 84,
+          "description": "상품이나 서비스를 판매하거나 촉진을 하는 것에 관한 지식(마케팅 전략, 상품의 전시와 판매기법, 영업관리 등)",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "불쾌하거나 무례한 사람 상대",
+          "score": 95,
+          "description": "불쾌하거나, 화나거나, 혹은 무례한 사람을 대하는 빈도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "외부 고객 대하기",
+          "score": 95,
+          "description": "외부 고객 혹은 민원인을 대하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "마감시간",
+          "score": 91,
+          "description": "마감시간을 엄격하게 지켜야하는 빈도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001136/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "행정, 관리 업무",
+          "정보 처리"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "period",
+          "decision_goal"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001136/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.6,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.4,
+    "AX5": 0.0
+  }
+}

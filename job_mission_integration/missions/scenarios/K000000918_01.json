@@ -1,0 +1,478 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000000918_easy_001",
+  "job_identity": {
+    "job_cd": "K000000918",
+    "job_lrcl_nm": "경영·사무·금융·보험직",
+    "job_mdcl_nm": "무역·운송·생산·품질 사무원",
+    "job_smcl_nm": "무역사무원",
+    "source_ref": {
+      "file": "K000000918/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "무역절차의 흐름을 파악하여 거래에 필요한 자료나 정보를 정리하고, 계약상 필요한 서류 등을 작성한다.",
+    "source_ref": {
+      "file": "K000000918/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "청람무역",
+    "domain": "의류 수출 계약 서류 작성",
+    "period": [
+      "2026년 11월 셋째 주"
+    ],
+    "trend_pattern": "약식계약서 초안에 세 품목의 품질·포장·수량이 품목별로 한 줄씩 정리되어 있다.",
+    "main_issue": "거래처에 보내기 전에 약식계약서 초안의 거래조건이 합의 내용대로 적혔는지 확인해야 한다.",
+    "feedback_themes": [
+      "품질 조건",
+      "포장 조건",
+      "수량 조건"
+    ],
+    "decision_goal": "합의와 다르게 적힌 거래조건 하나를 계약서에 들어갈 바른 문구로 고쳐 쓴다."
+  },
+  "mission": {
+    "title": "약식계약서 초안의 거래조건 바로잡기",
+    "task_type": "research_and_analysis",
+    "secondary_task_types": [
+      "communication_and_reporting"
+    ],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 청람무역 해외영업팀 인턴입니다.",
+      "context": "청람무역은 해외 의류 거래처에 면 티셔츠, 면 셔츠, 면 바지를 수출하기로 하고 지난주 협의에서 수출입거래조건을 합의했습니다. 담당 선임이 합의 내용을 바탕으로 약식계약서 초안을 만들어 두었고, 거래처에 보내기 전에 한 번 더 확인하려고 합니다. 팀장님이 메신저로 합의 조건을 다시 알려 주었습니다. \"거래처와 합의한 조건은 세 품목 모두 면 100%(견본과 동일), 수출용 골판지 상자에 상자당 20장씩 포장, 수량은 티셔츠 1,000장·셔츠 600장·바지 400장이에요. 초안이 이대로 적혔는지 봐 주세요.\"",
+      "goal": "아래 약식계약서 초안의 품질·포장·수량을 팀장님이 알려 준 합의 조건과 맞춰 보고, 합의와 다르게 적힌 조건 하나를 계약서에 들어갈 바른 문구로 고쳐 써 보세요.",
+      "constraints": [
+        "팀장님이 메신저로 알려 준 합의 조건을 기준으로 삼습니다.",
+        "이번에는 품질·수량·포장조건만 확인하고, 가격·인도·결제 조건은 확인 범위에 넣지 않습니다.",
+        "고친 문구에는 어느 품목의 어떤 조건인지 함께 적어 계약서에 바로 옮길 수 있게 합니다."
+      ],
+      "glossary": [
+        {
+          "term": "약식계약서",
+          "definition": "정식 계약서는 아니지만 거래 조건을 적어 주고받으며 계약을 성립시키는 서식입니다. 현업에서 흔히 약식계약서라고 부릅니다."
+        },
+        {
+          "term": "Proforma Invoice",
+          "definition": "약식계약서로 쓰이는 서식의 영어 이름입니다. 품목별 거래조건을 적어 거래상대방에게 보냅니다."
+        },
+        {
+          "term": "포장조건",
+          "definition": "물건을 어떤 상자에, 한 상자에 몇 개씩 담아 보낼지 정한 계약 조건입니다."
+        },
+        {
+          "term": "수출입거래조건",
+          "definition": "수출입 계약에서 사는 쪽과 파는 쪽이 합의해 정하는 품질, 수량, 가격, 포장 같은 조건입니다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "contract_terms_table",
+        "title": "약식계약서(Proforma Invoice) 초안 - 품목별 거래조건",
+        "description": "청람무역 해외영업팀 선임이 거래처에 보내기 전에 작성한 약식계약서 초안 중 품목별 품질·포장·수량 부분입니다. 수량 단위는 장입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "팀장님이 알려 준 합의 조건과 초안의 품목별 품질·포장·수량을 한 칸씩 맞춰 보는 데 씁니다.",
+        "evidence_source": [
+          "읽고 이해하기",
+          "기준에 따른 정보 평가",
+          "정보 작성, 기록"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "품목"
+            },
+            {
+              "key": "strength",
+              "label": "품질"
+            },
+            {
+              "key": "weakness",
+              "label": "포장"
+            },
+            {
+              "key": "priority",
+              "label": "수량(장)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "면 티셔츠",
+              "strength": "면 100%, 견본과 동일",
+              "weakness": "수출용 골판지 상자, 상자당 20장",
+              "priority": 1000
+            },
+            {
+              "option": "면 셔츠",
+              "strength": "면 100%, 견본과 동일",
+              "weakness": "수출용 골판지 상자, 상자당 10장",
+              "priority": 600
+            },
+            {
+              "option": "면 바지",
+              "strength": "면 100%, 견본과 동일",
+              "weakness": "수출용 골판지 상자, 상자당 20장",
+              "priority": 400
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "팀장님이 알려 준 합의 조건과 약식계약서 초안의 품질·포장·수량을 맞춰 보세요. 합의와 다르게 적힌 조건 하나를 어느 품목의 어떤 조건인지 밝혀, 계약서에 들어갈 바른 문구로 고쳐 1~2문장으로 적어 보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "합의 조건과 초안의 거래조건을 대조해 다르게 적힌 조건 하나를 합의 내용 그대로의 계약서 문구로 고쳐 쓴다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "고쳐 쓴 계약서 문구"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "면 셔츠 행의 포장이 '상자당 10장'으로 적혀 있어 합의한 '상자당 20장'과 다르다는 점을 찾는다.",
+      "면 셔츠의 포장 조건을 '수출용 골판지 상자, 상자당 20장'으로 합의 내용 그대로 고쳐 쓴다.",
+      "품질과 수량은 세 품목 모두 합의와 같으므로 바꾸지 않는다."
+    ],
+    "rubric": [
+      {
+        "criterion": "합의와 다른 조건 찾기",
+        "description": "초안의 세 품목 중 면 셔츠의 포장 조건이 합의 내용과 다르다는 점을 정확히 짚었는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "읽고 이해하기",
+          "기준에 따른 정보 평가"
+        ]
+      },
+      {
+        "criterion": "합의대로 고쳐 쓴 문구",
+        "description": "면 셔츠의 포장 조건을 '수출용 골판지 상자, 상자당 20장'처럼 합의된 조건 그대로, 계약서에 옮길 수 있는 문구로 적었는지 본다.",
+        "points": 40,
+        "linked_evidence": [
+          "정보 작성, 기록"
+        ]
+      },
+      {
+        "criterion": "합의와 같은 조건 유지",
+        "description": "합의와 같게 적힌 품질과 수량은 바꾸지 않고 그대로 두었는지 본다.",
+        "points": 20,
+        "linked_evidence": [
+          "기준에 따른 정보 평가"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "무역절차의 흐름을 파악하여 거래에 필요한 자료나 정보를 정리하고, 계약상 필요한 서류 등을 작성한다.",
+      "source_ref": {
+        "file": "K000000918/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "업무, 활동에 대한 일정관리",
+          "score": 98,
+          "description": "이벤트, 프로그램, 활동에 대한 일정을 관리하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 97,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "정보, 자료 분석",
+          "score": 95,
+          "description": "정보 또는 자료를 분석하여 근본 원리, 이유, 사실을 알아내기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "정보 처리",
+          "score": 95,
+          "description": "정보 또는 자료를 수집, 분류, 계산, 검증하거나 표로 만들기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "업무 계획, 우선순위 결정",
+          "score": 95,
+          "description": "업무의 우선순위를 결정, 배치하고 완수하기 위해 구체적인 목표와 계획 세우기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "전산",
+          "score": 92,
+          "description": "다양한 목적을 위해 소프트웨어나 인터넷을 활용하거나 프로그램을 작성한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "시간 관리",
+          "score": 83,
+          "description": "자신의 시간과 다른 사람의 시간을 관리한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "글쓰기",
+          "score": 81,
+          "description": "글을 통해서 다른 사람과 효과적으로 의사소통한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "운송",
+          "score": 97,
+          "description": "비행기, 철도, 선박 그리고 자동차를 통해 사람들과 물품을 움직이는 원리와 방법에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "영어",
+          "score": 95,
+          "description": "영어를 읽고, 쓰고, 듣고 말하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "사무",
+          "score": 80,
+          "description": "워드 프로세스, 문서처리 및 기타 다른 사무절차에 관한 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "재택근무",
+          "score": 93,
+          "description": "재택근무 가능성",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 90,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "전화 대화하기",
+          "score": 88,
+          "description": "업무 수행하면서 전화로 대화하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "읽고 이해하기",
+          "기준에 따른 정보 평가",
+          "정보 작성, 기록"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue",
+          "feedback_themes"
+        ],
+        "source_refs": [
+          {
+            "file": "K000000918/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 4,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 10,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000918/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 6,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 1.0,
+    "AX2": 0.0,
+    "AX3": 0.0,
+    "AX4": 0.0,
+    "AX5": 0.0
+  }
+}

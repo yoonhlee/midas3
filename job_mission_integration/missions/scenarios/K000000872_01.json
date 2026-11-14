@@ -13,31 +13,31 @@
     }
   },
   "target_exec_job": {
-    "exec_job_id": "exec_009",
-    "text": "제작된 광고를 검토·평가한 후 광고를 실시하며, 시행광고의 효과를 조사·분석한다.",
+    "exec_job_id": "exec_005",
+    "text": "광고제작팀과 협의하여 광고기획서를 수정·보완하고 광고주의 의사결정자와 협의하여 광고의 제작방향을 결정한다.",
     "source_ref": {
       "file": "K000000872/dtlGb_2.xml",
       "field": "jobsDo.execJob",
-      "index": 9
+      "index": 5
     },
-    "selection_reason": "광고 성과를 검토·평가하고 효과를 조사·분석하는 업무로 데이터 기반 진단 및 개선에 초점이 맞아 난이도(쉬움)에서도 단일 차트로 정리하기 적합함."
+    "selection_reason": "Pilot config selected exec_005."
   },
   "mission_facts": {
-    "org_name": "그린허브 구독마켓(가상)",
-    "domain": "식음료 구독 서비스 광고",
+    "org_name": "하늘결 광고기획",
+    "domain": "저당 탄산음료 신제품 광고 기획",
     "period": [
-      "최근 2주"
+      "11월 첫째 주 소비자 사전 조사"
     ],
-    "trend_pattern": "초반 유지 후 중간부터 클릭률 급감",
-    "main_issue": "광고 클릭률(CTR)이 눈에 띄게 떨어짐",
+    "trend_pattern": "사전 조사 선호 응답 수는 A안 112명, C안 95명, B안 87명 순이다.",
+    "main_issue": "광고주 마케팅 이사와 협의한 조건에 맞는 광고 콘셉트를 후보 3개 가운데 하나로 정해야 한다.",
     "feedback_themes": [
-      "숫자 변화는 보이는데, 무엇을 먼저 점검할지 감으로 넘어가는 경우가 있음",
-      "차트의 ‘변화 구간’을 정확히 짚어주면 다음 액션이 쉬워짐"
+      "청량한 탄산감",
+      "설탕 0g"
     ],
-    "decision_goal": "광고 성과 차트에서 보이는 이상 패턴을 한 가지로 말하고, 그에 맞는 첫 점검 포인트를 짧게 제안"
+    "decision_goal": "셀링포인트 '설탕 0g', 대상 소비자 20대라는 협의 조건에 맞는 광고 콘셉트 한 안을 제작방향으로 결정한다."
   },
   "mission": {
-    "title": "광고 클릭률 차트로 ‘첫 점검 포인트’ 찾기",
+    "title": "신제품 음료 광고, 어떤 콘셉트로 만들까?",
     "task_type": "diagnosis_and_improvement",
     "secondary_task_types": [
       "decision_making"
@@ -45,7 +45,7 @@
     "difficulty": {
       "level": "easy",
       "label": "쉬움",
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 10,
       "material_bundle_style": "single_work_material",
       "material_count_range": [
         1,
@@ -61,68 +61,92 @@
       "requires_domain_expertise": false
     },
     "scenario": {
-      "role": "당신은 마케팅팀 신입 인턴입니다.",
-      "context": "그린허브 구독마켓에서는 ‘간편 도시락’ 구독을 늘리기 위해 최근 2주 동안 동일한 광고를 집행했어요. 오늘 아침, 담당자가 “집행 후 리포트 차트만 보고, 먼저 어디부터 이상 징후를 점검할지 한 가지로 말해줘”라고 요청했습니다.",
-      "goal": "아래 클릭률(CTR) 차트를 보고, 가장 눈에 띄는 이상 변화와 그에 맞는 첫 점검 포인트를 1-2문장으로 적어보세요.",
+      "role": "당신은 광고대행사 '하늘결 광고기획' 기획팀의 인턴입니다.",
+      "context": "광고주 '온새음료'가 저당 탄산음료 신제품 광고를 준비하고 있습니다. 기획팀은 광고 콘셉트 후보 3개를 만들고, 같은 소비자 사전 조사에서 각 안의 선호도를 확인했습니다. 오늘 오전 광고주의 마케팅 이사와 협의한 결과, 이번 광고는 '설탕 0g'을 셀링포인트로 소구하고 대상 소비자는 20대로 하기로 정했습니다.",
+      "goal": "기획팀 팀장이 요청했습니다. '이사님과 정한 조건에 맞는 광고 콘셉트를 하나 골라 주세요. 그 안을 제작팀에 제작방향으로 전달하겠습니다.'",
       "constraints": [
-        "답은 반드시 제공된 차트 숫자(변화 구간)에서만 근거를 찾아주세요.",
-        "원인 분석을 길게 하지 말고, ‘먼저 확인할 것 1가지’만 짧게 말해주세요.",
-        "분량은 1-2문장으로 끝내주세요."
+        "광고주 마케팅 이사와 협의한 조건은 셀링포인트 '설탕 0g', 대상 소비자 20대입니다.",
+        "비교표에 있는 후보 3개 가운데 한 안만 고릅니다.",
+        "고른 안과 이유를 1~2문장으로 적습니다."
       ],
       "glossary": [
         {
-          "term": "CTR",
-          "definition": "광고가 보인 횟수 대비 실제로 클릭된 비율입니다(클릭률)."
+          "term": "광고 콘셉트",
+          "definition": "광고가 전하려는 핵심 생각을 한 문장으로 정리한 것으로, 제작팀이 광고를 어떤 방향으로 만들지 알려 주는 기준입니다."
+        },
+        {
+          "term": "셀링포인트",
+          "definition": "대상 소비자가 사고 싶어지도록 광고에서 가장 앞세우는 상품의 장점입니다."
+        },
+        {
+          "term": "소구",
+          "definition": "광고에서 상품의 특징을 내세워 소비자의 공감과 구매 마음을 이끌어 내는 것입니다."
         }
       ]
     },
     "materials": [
       {
-        "material_id": "mat_chart_001",
-        "type": "chart",
-        "subtype": "ctr_drop_over_days",
-        "title": "간편 도시락 구독 광고 CTR 추이(최근 2주)",
-        "description": "같은 광고를 게재한 날짜별 클릭률(CTR) 변화를 정리한 차트입니다.",
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "option_comparison",
+        "title": "저당 탄산음료 신제품 광고 콘셉트 후보 비교표",
+        "description": "기획팀이 준비한 광고 콘셉트 후보 3개의 셀링포인트, 대상 소비자, 소비자 사전 조사 선호 응답 수(단위: 명)를 정리한 표입니다. 선호 응답 수는 같은 사전 조사에서 각 안을 가장 좋다고 고른 응답자 수입니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "집행 후 광고 성과 차트에서 이상 변화 구간을 관찰하고, 첫 점검 포인트를 짧게 제안하기",
+        "used_for": "협의한 조건과 각 후보의 셀링포인트, 대상 소비자를 대조해 제작방향으로 정할 안을 고르는 데 쓴다.",
         "evidence_source": [
-          "정보 수집",
-          "읽고 이해하기"
+          "읽고 이해하기",
+          "사물, 행동, 사건 파악",
+          "영업과 마케팅"
         ],
         "mission_fact_refs": [
+          "org_name",
           "domain",
           "period",
-          "main_issue"
+          "trend_pattern",
+          "feedback_themes"
         ],
         "data": {
-          "chart_type": "line",
-          "x_axis": {
-            "label": "광고 게재일",
-            "values": [
-              "D1",
-              "D2",
-              "D3",
-              "D4"
-            ]
-          },
-          "y_axis": {
-            "label": "클릭률(CTR)",
-            "unit": "%"
-          },
-          "series": [
+          "columns": [
             {
-              "name": "CTR",
-              "values": [
-                3.2,
-                3.1,
-                3.0,
-                1.4
-              ]
+              "key": "option",
+              "label": "광고 콘셉트"
+            },
+            {
+              "key": "strength",
+              "label": "셀링포인트"
+            },
+            {
+              "key": "weakness",
+              "label": "대상 소비자"
+            },
+            {
+              "key": "priority",
+              "label": "선호 응답 수(명)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "A안 '운동 후 한 모금의 상쾌함'",
+              "strength": "청량한 탄산감",
+              "weakness": "20대 운동하는 사람",
+              "priority": 112
+            },
+            {
+              "option": "B안 '당 걱정 없는 오후 간식'",
+              "strength": "설탕 0g",
+              "weakness": "30대 직장인",
+              "priority": 87
+            },
+            {
+              "option": "C안 '설탕 없이도 달콤한 하루'",
+              "strength": "설탕 0g",
+              "weakness": "20대 대학생",
+              "priority": 95
             }
           ]
         },
         "confidence": {
-          "score": 0.78,
+          "score": 0.9,
           "checks": {
             "synthetic_material": true
           },
@@ -133,54 +157,54 @@
     "tasks": [
       {
         "task_id": "task_001",
-        "instruction": "차트를 보고 CTR이 ‘가장 크게 변한 구간(언제부터/어느 쪽으로)’을 한 문장으로 말하고, 그 구간을 확인하기 위해 ‘첫 점검 포인트’ 1가지를 이유와 함께 1-2문장으로 적어주세요.",
+        "instruction": "광고 콘셉트 후보 비교표를 보고, 마케팅 이사와 협의한 조건에 맞아 제작방향으로 정할 안을 하나 골라 그 이유와 함께 1~2문장으로 적어보세요.",
         "required_materials": [
-          "mat_chart_001"
+          "mat_001"
         ],
-        "expected_action": "차트의 이상 패턴을 짚고, 첫 점검 포인트를 짧게 제안하기"
+        "expected_action": "협의한 셀링포인트와 대상 소비자 조건을 각 후보와 대조해 한 안을 고르고, 두 조건을 근거로 이유를 쓴다."
       }
     ],
     "submission_format": {
-      "type": "text",
-      "estimated_time_minutes": 5,
+      "type": "short_text",
+      "estimated_time_minutes": 10,
       "required_sections": [
-        "가장 큰 변화 구간",
-        "첫 점검 포인트(이유 1개 포함)"
+        "고른 안과 이유"
       ],
-      "length_hint": "1-2문장"
+      "length_hint": "1~2문장"
     }
   },
   "evaluation": {
     "expected_insights": [
-      "CTR이 언제부터 급격히 떨어지는지(변화 구간)를 정확히 관찰한다.",
-      "차트 패턴에 맞춰 첫 점검 포인트를 하나로 연결해 말한다.",
-      "답이 짧고(1-2문장) 핵심이 드러난다."
+      "셀링포인트 '설탕 0g'과 대상 소비자 20대라는 두 조건을 모두 만족하는 안은 C안 '설탕 없이도 달콤한 하루'이다.",
+      "A안은 선호 응답 수가 112명으로 가장 많고 대상 소비자도 20대지만, 셀링포인트가 '청량한 탄산감'이라 협의 조건과 다르다.",
+      "B안은 셀링포인트가 '설탕 0g'으로 맞지만 대상 소비자가 30대 직장인이라 협의 조건에 맞지 않는다."
     ],
     "rubric": [
       {
-        "criterion": "차트에서 가장 눈에 띄는 변화 구간을 정확히 지적함",
-        "description": "CTR 값이 급감한 구간(예: D3 이후 하락 등)을 1문장 안에 분명하게 말한다.",
+        "criterion": "조건에 맞는 안 선택",
+        "description": "셀링포인트 '설탕 0g'과 대상 소비자 20대를 모두 만족하는 C안을 골랐다.",
         "points": 50,
         "linked_evidence": [
-          "읽고 이해하기",
-          "정보 수집"
+          "사물, 행동, 사건 파악",
+          "영업과 마케팅"
         ]
       },
       {
-        "criterion": "첫 점검 포인트가 변화 구간과 자연스럽게 연결됨",
-        "description": "급감 구간에 맞춰 ‘먼저 확인할 것 1가지’를 이유와 함께 제안한다(길게 원인 추적하지 않음).",
+        "criterion": "선호 응답 수에만 기대지 않은 판단",
+        "description": "선호 응답 수가 가장 많다는 이유만으로 A안을 고르지 않고, 협의한 조건을 선택 기준으로 삼았다.",
+        "points": 20,
+        "linked_evidence": [
+          "읽고 이해하기",
+          "사물, 행동, 사건 파악"
+        ]
+      },
+      {
+        "criterion": "두 조건을 근거로 든 이유",
+        "description": "이유에 셀링포인트와 대상 소비자 두 조건을 모두 근거로 들어 짧게 설명했다.",
         "points": 30,
         "linked_evidence": [
           "읽고 이해하기",
-          "글쓰기"
-        ]
-      },
-      {
-        "criterion": "문장이 짧고(1-2문장) 명확함",
-        "description": "무엇을 봤는지(구간)와 무엇을 먼저 확인할지(1가지)가 한눈에 드러난다.",
-        "points": 20,
-        "linked_evidence": [
-          "글쓰기"
+          "영업과 마케팅"
         ]
       }
     ]
@@ -193,7 +217,7 @@
     "human_review_required": true,
     "warning_count": 0,
     "fail_count": 0,
-    "repair_count": 1,
+    "repair_count": 0,
     "score_breakdown": {
       "schema": {
         "max": 20,
@@ -224,14 +248,14 @@
   "evidence_chain": {
     "created_by": "validator.v1",
     "source_exec_job": {
-      "exec_job_id": "exec_009",
-      "text": "제작된 광고를 검토·평가한 후 광고를 실시하며, 시행광고의 효과를 조사·분석한다.",
+      "exec_job_id": "exec_005",
+      "text": "광고제작팀과 협의하여 광고기획서를 수정·보완하고 광고주의 의사결정자와 협의하여 광고의 제작방향을 결정한다.",
       "source_ref": {
         "file": "K000000872/dtlGb_2.xml",
         "field": "jobsDo.execJob",
-        "index": 9
+        "index": 5
       },
-      "selection_reason": "광고 성과를 검토·평가하고 효과를 조사·분석하는 업무로 데이터 기반 진단 및 개선에 초점이 맞아 난이도(쉬움)에서도 단일 차트로 정리하기 적합함."
+      "selection_reason": "Pilot config selected exec_005."
     },
     "linked_evidence": {
       "activities": [
@@ -399,33 +423,42 @@
     },
     "material_evidence_map": [
       {
-        "material_id": "mat_chart_001",
+        "material_id": "mat_001",
         "supported_by": [
-          "정보 수집",
-          "읽고 이해하기"
+          "읽고 이해하기",
+          "사물, 행동, 사건 파악",
+          "영업과 마케팅"
         ]
       }
     ],
     "items": [
       {
         "target_type": "material",
-        "target_id": "mat_chart_001",
+        "target_id": "mat_001",
         "mission_fact_refs": [
+          "org_name",
           "domain",
           "period",
-          "main_issue"
+          "trend_pattern",
+          "feedback_themes"
         ],
         "source_refs": [
-          {
-            "file": "K000000872/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
-            "index": 2,
-            "source_root": "data/api_raw"
-          },
           {
             "file": "K000000872/dtlGb_5.xml",
             "field": "ablKnwEnv.jobAbil",
             "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000000872/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1,
             "source_root": "data/api_raw"
           }
         ],
@@ -435,10 +468,10 @@
     ]
   },
   "axis_signals_derived": {
-    "AX1": 0.72,
-    "AX2": 0.07,
-    "AX3": 0.07,
-    "AX4": 0.07,
-    "AX5": 0.07
+    "AX1": 0.33,
+    "AX2": 0.43,
+    "AX3": 0.08,
+    "AX4": 0.08,
+    "AX5": 0.08
   }
 }

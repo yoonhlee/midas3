@@ -1,0 +1,464 @@
+{
+  "schema_version": "mission_output.v1",
+  "mission_id": "mission_K000001085_easy_001",
+  "job_identity": {
+    "job_cd": "K000001085",
+    "job_lrcl_nm": "연구직 및 공학 기술직",
+    "job_mdcl_nm": "컴퓨터시스템 전문가",
+    "job_smcl_nm": "정보통신컨설턴트 및 감리원",
+    "source_ref": {
+      "file": "K000001085/dtlGb_2.xml",
+      "field": "jobsDo",
+      "index": null
+    }
+  },
+  "target_exec_job": {
+    "exec_job_id": "exec_003",
+    "text": "네트워크 컨설턴트는 네트워크시스템의 분석, 설계, 구축과 운영 관리 등에 관한 기술적 운영 관리적 측면에서의 컨설팅서비스를 제공한다.",
+    "source_ref": {
+      "file": "K000001085/dtlGb_2.xml",
+      "field": "jobsDo.execJob",
+      "index": 3
+    },
+    "selection_reason": "Pilot config selected exec_003."
+  },
+  "mission_facts": {
+    "org_name": "다온물류",
+    "domain": "물류 창고 IoT 서비스의 통신 네트워크 구성 방안 검토",
+    "period": [
+      "2026년 11월 셋째 주"
+    ],
+    "trend_pattern": "창고에 설치할 디바이스마다 전원 방식과 데이터 전송 주기가 서로 다르다.",
+    "main_issue": "구성 방안 초안에 배정된 디바이스별 통신방식이 고객사와 정한 원칙에 맞는지 고객사에 보내기 전에 확인해야 한다.",
+    "feedback_themes": [
+      "배터리로 동작하는 센서는 배터리를 자주 갈지 않도록 하고 싶다는 고객사 요청",
+      "창고 온도, 출입문, 냉동기 상태를 원격으로 확인하고 싶다는 고객사 요청"
+    ],
+    "decision_goal": "원칙에 맞지 않게 통신방식이 배정된 디바이스 하나를 찾아 이유를 설명한다."
+  },
+  "mission": {
+    "title": "물류 창고 IoT 센서, 통신방식 배정 확인하기",
+    "task_type": "operation_and_scheduling",
+    "secondary_task_types": [],
+    "difficulty": {
+      "level": "easy",
+      "label": "쉬움",
+      "estimated_time_minutes": 10,
+      "material_bundle_style": "single_work_material",
+      "material_count_range": [
+        1,
+        1
+      ],
+      "task_count_range": [
+        1,
+        1
+      ],
+      "answer_length_hint": "1-2 short sentences",
+      "requires_cross_material_reasoning": false,
+      "requires_tradeoff_judgment": false,
+      "requires_domain_expertise": false
+    },
+    "scenario": {
+      "role": "당신은 네트워크 컨설팅 회사 온결네트워크컨설팅의 인턴입니다.",
+      "context": "고객사 다온물류는 창고에 IoT 디바이스를 달아 창고 온도, 출입문 상태, 냉동기 상태를 원격으로 확인하는 서비스를 준비하고 있습니다. 선배 컨설턴트가 이 서비스의 통신 네트워크 구성 방안 초안을 만들었고, 고객사에 보내기 전에 디바이스 특성표를 한 번 더 봐 달라고 부탁했습니다. 선배는 이렇게 말했습니다. \"고객사와 정한 원칙이 하나 있어요. 배터리로 동작하는 디바이스는 LPWA나 LTE-MTC 같은 저전력 통신으로 연결한다는 거예요.\"",
+      "goal": "디바이스 특성표를 고객사와 정한 원칙에 비추어 보고, 원칙에 맞지 않게 통신방식이 배정된 디바이스 하나를 찾아 이유를 적어보세요.",
+      "constraints": [
+        "적용 원칙: 배터리로 동작하는 디바이스는 LPWA나 LTE-MTC 같은 저전력 통신으로 연결한다.",
+        "표에 나온 정보만 보고 판단합니다.",
+        "답은 1~2문장으로 적습니다."
+      ],
+      "glossary": [
+        {
+          "term": "IoT",
+          "definition": "사물인터넷. 센서 같은 기기가 인터넷에 연결되어 스스로 데이터를 주고받는 것."
+        },
+        {
+          "term": "저전력 통신",
+          "definition": "기기가 전기를 적게 쓰도록 만든 통신 방식. 배터리로 움직이는 기기를 오래 쓰기 위해 사용한다."
+        },
+        {
+          "term": "LPWA",
+          "definition": "전기를 아주 적게 쓰면서 먼 거리까지 데이터를 보낼 수 있게 만든 사물인터넷용 저전력 통신 방식."
+        },
+        {
+          "term": "LTE-MTC",
+          "definition": "기존 휴대전화 이동통신망을 쓰되 전송 속도를 낮추고 절전 기능을 넣어 전기 소모를 줄인 사물인터넷용 저전력 통신 방식."
+        },
+        {
+          "term": "일반 LTE",
+          "definition": "휴대전화에서 쓰는 보통의 이동통신 방식. 속도가 빠른 대신 절전 기능이 따로 없어 전기를 더 많이 쓴다."
+        },
+        {
+          "term": "상시전원",
+          "definition": "콘센트 등 전기선에 연결되어 전기를 계속 공급받는 방식. 배터리를 쓰지 않는다."
+        }
+      ]
+    },
+    "materials": [
+      {
+        "material_id": "mat_001",
+        "type": "table",
+        "subtype": "device_profile_table",
+        "title": "다온물류 창고 IoT 서비스 통신 네트워크 구성 방안 초안 - 디바이스 특성표",
+        "description": "선배 컨설턴트가 작성한 구성 방안 초안에서 디바이스별 전원, 배정된 통신방식, 데이터 전송 주기(분 단위)를 정리한 표입니다.",
+        "factual_status": "synthetic_mission_material",
+        "used_for": "디바이스별 전원과 통신방식을 시나리오의 원칙과 대조하는 데 사용합니다.",
+        "evidence_source": [
+          "통신",
+          "절차, 자료, 주변환경 관찰"
+        ],
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue"
+        ],
+        "data": {
+          "columns": [
+            {
+              "key": "option",
+              "label": "디바이스"
+            },
+            {
+              "key": "strength",
+              "label": "전원"
+            },
+            {
+              "key": "weakness",
+              "label": "통신방식"
+            },
+            {
+              "key": "priority",
+              "label": "전송 주기(분)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "창고 온도 센서",
+              "strength": "배터리",
+              "weakness": "LPWA",
+              "priority": 60
+            },
+            {
+              "option": "출입문 개폐 센서",
+              "strength": "배터리",
+              "weakness": "일반 LTE",
+              "priority": 10
+            },
+            {
+              "option": "냉동기 상태 모니터",
+              "strength": "상시전원",
+              "weakness": "일반 LTE",
+              "priority": 1
+            }
+          ]
+        },
+        "confidence": {
+          "score": 0.9,
+          "checks": {
+            "synthetic_material": true
+          },
+          "warnings": []
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "task_id": "task_001",
+        "instruction": "디바이스 특성표의 전원과 통신방식을 시나리오의 원칙과 대조해 보세요. 원칙에 맞지 않게 통신방식이 배정된 디바이스 하나를 골라, 그 이유와 함께 1~2문장으로 적어보세요.",
+        "required_materials": [
+          "mat_001"
+        ],
+        "expected_action": "배터리로 동작하는데 저전력 통신이 아닌 통신방식이 배정된 디바이스를 하나 고르고, 전원과 통신방식을 근거로 원칙에 맞지 않는 이유를 1~2문장으로 설명한다."
+      }
+    ],
+    "submission_format": {
+      "type": "short_text",
+      "estimated_time_minutes": 10,
+      "required_sections": [
+        "원칙에 맞지 않는 디바이스와 그 이유"
+      ],
+      "length_hint": "1~2문장"
+    }
+  },
+  "evaluation": {
+    "expected_insights": [
+      "출입문 개폐 센서는 배터리로 동작하는데 일반 LTE가 배정되어 있어, 배터리 디바이스는 LPWA나 LTE-MTC 같은 저전력 통신으로 연결한다는 원칙에 맞지 않는다.",
+      "냉동기 상태 모니터는 일반 LTE를 쓰고 전송 주기도 가장 짧지만 상시전원이므로 원칙의 대상이 아니다."
+    ],
+    "rubric": [
+      {
+        "criterion": "원칙에 맞지 않는 디바이스 선택",
+        "description": "배터리로 동작하는데 저전력 통신이 아닌 통신방식(일반 LTE)이 배정된 출입문 개폐 센서를 정확히 골랐는지 확인한다. 상시전원인 냉동기 상태 모니터를 함께 고르면 감점한다.",
+        "points": 60,
+        "linked_evidence": [
+          "절차, 자료, 주변환경 관찰"
+        ]
+      },
+      {
+        "criterion": "전원과 통신방식을 근거로 한 이유",
+        "description": "이유에 전원이 배터리라는 점과 배정된 통신방식이 LPWA나 LTE-MTC 같은 저전력 통신이 아니라는 점이 함께 들어 있는지 확인한다.",
+        "points": 40,
+        "linked_evidence": [
+          "통신",
+          "절차, 자료, 주변환경 관찰"
+        ]
+      }
+    ]
+  },
+  "reliability": {
+    "score": 1.0,
+    "raw_score": 100,
+    "passed": true,
+    "calculated_by": "validator.v1",
+    "human_review_required": true,
+    "warning_count": 0,
+    "fail_count": 0,
+    "repair_count": 0,
+    "score_breakdown": {
+      "schema": {
+        "max": 20,
+        "earned": 20
+      },
+      "system_decisions": {
+        "max": 15,
+        "earned": 15
+      },
+      "materials": {
+        "max": 20,
+        "earned": 20
+      },
+      "mission_facts": {
+        "max": 15,
+        "earned": 15
+      },
+      "evidence": {
+        "max": 20,
+        "earned": 20
+      },
+      "evaluation": {
+        "max": 10,
+        "earned": 10
+      }
+    }
+  },
+  "evidence_chain": {
+    "created_by": "validator.v1",
+    "source_exec_job": {
+      "exec_job_id": "exec_003",
+      "text": "네트워크 컨설턴트는 네트워크시스템의 분석, 설계, 구축과 운영 관리 등에 관한 기술적 운영 관리적 측면에서의 컨설팅서비스를 제공한다.",
+      "source_ref": {
+        "file": "K000001085/dtlGb_2.xml",
+        "field": "jobsDo.execJob",
+        "index": 3
+      },
+      "selection_reason": "Pilot config selected exec_003."
+    },
+    "linked_evidence": {
+      "activities": [
+        {
+          "name": "컴퓨터 업무",
+          "score": 95,
+          "description": "프로그램 제작, 소프트웨어 저작, 기능 설정, 정보 입력, 정보 처리를 하기 위한 컴퓨터 시스템 사용하기 활동 중요도",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 1
+          }
+        },
+        {
+          "name": "창조적 생각",
+          "score": 95,
+          "description": "새로운 소프트웨어, 생각, 시스템, 제품 등을 설계하고 개발하기 활동 중요도",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 2
+          }
+        },
+        {
+          "name": "절차, 자료, 주변환경 관찰",
+          "score": 93,
+          "description": "문제점을 확인하고 평가하기 위하여 자료, 사건, 주변 환경에서 정보를 관찰하고 검토하기 활동 중요도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3
+          }
+        },
+        {
+          "name": "행정, 관리 업무",
+          "score": 93,
+          "description": "서류 작업, 정보 파일 보관과 같은 일상적인 행정, 관리 업무 하기 활동 중요도",
+          "rank": 4,
+          "source_ref": {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 4
+          }
+        },
+        {
+          "name": "새로운 지식의 습득, 활용",
+          "score": 92,
+          "description": "최신 기술을 익히고 새로운 지식을 업무에 적용하기 활동 중요도",
+          "rank": 5,
+          "source_ref": {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 5
+          }
+        }
+      ],
+      "abilities": [
+        {
+          "name": "물적자원 관리",
+          "score": 98,
+          "description": "업무를 수행하는데 필요한 장비, 시설, 자재 등을 구매하고 관리한다",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1
+          }
+        },
+        {
+          "name": "조직체계의 분석 및 평가",
+          "score": 98,
+          "description": "환경이나 조건의 변화가 조직의 체계, 구성, 방식에 어떤 영향을 미칠지 분석하고, 시스템의 효율성을 평가한다",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 2
+          }
+        },
+        {
+          "name": "인적자원 관리",
+          "score": 98,
+          "description": "직원의 근로의욕을 높이고 능력을 개발하며 적재적소에 인재를 배치한다",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 3
+          }
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "컴퓨터와 전자공학",
+          "score": 94,
+          "description": "컴퓨터의 하드웨어, 회로판, 처리장치, 반도체, 전자장비에 관한 지식",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 1
+          }
+        },
+        {
+          "name": "통신",
+          "score": 88,
+          "description": "전화기, 네트워크, 방송 등의 통신기기를 조작하고 통제하는데 필요한 지식",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2
+          }
+        },
+        {
+          "name": "공학과 기술",
+          "score": 85,
+          "description": "다양한 물건을 만들고 설계하거나 서비스를 제공하기 위해 필요한 공학적인 원리, 기법, 장비 등을 실제로 적용시키는 지식",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 3
+          }
+        }
+      ],
+      "work_environment": [
+        {
+          "name": "연설, 발표, 회의하기",
+          "score": 90,
+          "description": "사람들 앞에서 공식적으로 연설(발표,회의 등의 상황)",
+          "rank": 1,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 1
+          }
+        },
+        {
+          "name": "다른 사람과의 상호작용",
+          "score": 88,
+          "description": "업무 수행위해 팀/집단으로 함께 일하는 것의 중요성",
+          "rank": 2,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 2
+          }
+        },
+        {
+          "name": "이메일 이용하기",
+          "score": 87,
+          "description": "업무 수행하면서 이메일 사용하는 정도",
+          "rank": 3,
+          "source_ref": {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobsEnv",
+            "index": 3
+          }
+        }
+      ]
+    },
+    "material_evidence_map": [
+      {
+        "material_id": "mat_001",
+        "supported_by": [
+          "통신",
+          "절차, 자료, 주변환경 관찰"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "target_type": "material",
+        "target_id": "mat_001",
+        "mission_fact_refs": [
+          "org_name",
+          "domain",
+          "main_issue"
+        ],
+        "source_refs": [
+          {
+            "file": "K000001085/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
+            "index": 2,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000001085/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 3,
+            "source_root": "data/api_raw"
+          }
+        ],
+        "connection_reason": "직업 profile evidence와 생성 자료가 간접 연결됨",
+        "traceability": "indirect"
+      }
+    ]
+  },
+  "axis_signals_derived": {
+    "AX1": 0.04,
+    "AX2": 0.84,
+    "AX3": 0.04,
+    "AX4": 0.04,
+    "AX5": 0.04
+  }
+}

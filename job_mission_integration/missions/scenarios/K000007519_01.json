@@ -13,37 +13,39 @@
     }
   },
   "target_exec_job": {
-    "exec_job_id": "exec_001",
-    "text": "국내외 보험상품 관련 제도를 조사하고, 소비자심리 및 보험료에 영향을 미치는 요인을 분석한다.",
+    "exec_job_id": "exec_004",
+    "text": "보험약관에 의한 대출금을 계산하고 각종 적립금이나 준비금 등을 평가하여 보험사업 전반에 걸친 수리 및 통계분석 업무를 한다.",
     "source_ref": {
       "file": "K000007519/dtlGb_2.xml",
       "field": "jobsDo.execJob",
-      "index": 1
+      "index": 4
     },
-    "selection_reason": "국내외 보험상품 관련 제도 조사와 소비자심리·보험료 영향요인 분석이 핵심이어서 연구·분석 과업에 적합하며, 난이도(쉬움)에서 체크리스트로 자료 정리/검증 절차를 간단히 수행할 수 있다."
+    "selection_reason": "Pilot config selected exec_004."
   },
   "mission_facts": {
-    "org_name": "별빛보험(가상)",
-    "domain": "보험상품 관련 제도 조사와 소비자심리·보험료 영향요인 정리",
+    "org_name": "누리온생명",
+    "domain": "생명보험 상품 통계분석",
     "period": [
-      "2026년 5월~6월"
+      "2026년 3분기"
     ],
-    "trend_pattern": "고객 설문에서 ‘월 보험료가 부담스럽다’는 느낌이 커지고, 그 이유를 ‘보장 범위/자기부담금’으로 설명하려는 경향이 보임",
-    "main_issue": "조사 요약 문서에 ‘소비자가 보험료를 어떻게 느끼는지’와 연결되는 핵심 항목이 빠져 있음",
+    "trend_pattern": "통계 DB에서 뽑은 상품 A의 2026년 3분기 집계값은 계약 1,200건, 지급 84건, 입금 3,480건이다.",
+    "main_issue": "상품개발팀장이 상품 A의 2026년 3분기 계약 건수 대비 지급 건수 비율을 백분율(%)로 구해 달라고 요청했다.",
     "feedback_themes": [
-      "문서에 체크해야 할 항목이 누락되면 다음 단계 분석이 흔들림",
-      "무엇을 근거로 말하는지(설문/리포트 등) 표시가 중요함"
+      "상품개발팀은 비율을 백분율(%) 형태로 받기를 원한다",
+      "집계표에는 요청과 관계없는 집계값도 함께 들어 있다"
     ],
-    "decision_goal": "다음 자료 점검에서 무엇을 먼저 보완해야 하는지 한 가지를 콕 집어 설명하기"
+    "decision_goal": "집계표에서 요청에 맞는 두 건수를 골라 계약 건수 대비 지급 건수 비율을 백분율로 산출한다."
   },
   "mission": {
-    "title": "조사 요약 문서 체크리스트 한 가지 점검",
+    "title": "상품 A 3분기 집계표로 비율 구하기",
     "task_type": "research_and_analysis",
-    "secondary_task_types": [],
+    "secondary_task_types": [
+      "decision_making"
+    ],
     "difficulty": {
       "level": "easy",
       "label": "쉬움",
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 10,
       "material_bundle_style": "single_work_material",
       "material_count_range": [
         1,
@@ -59,50 +61,103 @@
       "requires_domain_expertise": false
     },
     "scenario": {
-      "role": "당신은 별빛보험 상품개발팀의 신입 인턴입니다.",
-      "context": "팀에서 국내외 보험상품 관련 제도들을 모아 ‘조사 요약 문서’를 만들고 있습니다. 방금 선배가 초안을 만들었는데, 다음 분석(소비자심리와 보험료 영향요인 찾기)로 넘기기 전, 체크리스트로 한 번만 빠르게 걸러보라고 했습니다.",
-      "goal": "아래 체크리스트를 보고, 표시된 문제 항목이 무엇인지와 그 이유를 한 문장으로 적어주세요.",
+      "role": "당신은 누리온생명 상품개발팀에서 보험 통계를 처음 다뤄 보는 인턴입니다.",
+      "context": "누리온생명 상품개발팀은 판매 중인 보험 상품 A의 상황을 분기마다 점검합니다. 이번 주에 통계 DB에서 상품 A의 2026년 3분기 집계값을 뽑아 두었고, 이 건수로 비율 같은 2차적 통계모수를 구해 팀에 전달하는 것이 당신의 일입니다. 오전에 팀장님이 메신저로 이렇게 요청했습니다. \"상품 A의 2026년 3분기 계약 건수 대비 지급 건수 비율을 백분율(%)로 구해 주세요.\"",
+      "goal": "아래 집계표를 보고 팀장님이 요청한 비율을 백분율로 구해 보세요.",
       "constraints": [
-        "정답은 하나만 고르듯이 작성하세요.",
-        "답변은 1~2개의 짧은 문장으로 제한하세요.",
-        "자료는 아래 체크리스트의 상태 표시만 보고 판단하세요."
+        "표에 적힌 건수만 사용합니다.",
+        "결과는 % 단위로 적고, 나누어떨어지지 않으면 소수점 첫째 자리까지 적습니다.",
+        "어떤 건수를 어떤 건수로 나눴는지도 함께 적습니다."
       ],
-      "glossary": []
+      "glossary": [
+        {
+          "term": "2차적 통계모수",
+          "definition": "이미 집계된 건수나 금액을 한 번 더 계산해서 얻는 값입니다. 두 건수를 나눠 구한 비율이나 평균이 여기에 해당합니다."
+        },
+        {
+          "term": "통계 DB",
+          "definition": "계약, 지급, 입금 같은 보험 업무 기록을 모아 두고 필요한 건수를 뽑아 볼 수 있게 만든 회사의 통계 데이터베이스입니다."
+        },
+        {
+          "term": "A 대비 B 비율",
+          "definition": "A를 기준으로 B가 얼마나 되는지를 나타내는 값입니다. 백분율로는 (B ÷ A) × 100으로 구합니다."
+        },
+        {
+          "term": "유지 계약",
+          "definition": "해지되지 않고 아직 효력이 살아 있는 보험 계약입니다."
+        },
+        {
+          "term": "보험금 지급",
+          "definition": "사고나 질병 등 약속한 일이 생겼을 때 회사가 계약자에게 정해진 돈을 내주는 일입니다."
+        },
+        {
+          "term": "보험료 입금",
+          "definition": "계약자가 보험을 유지하려고 내는 돈이 회사 계좌에 들어온 것입니다."
+        }
+      ]
     },
     "materials": [
       {
         "material_id": "mat_001",
-        "type": "checklist",
-        "subtype": "document_quality_check",
-        "title": "조사 요약 문서 점검 체크리스트(초안)",
-        "description": "국내외 제도 조사 결과를 소비자심리와 보험료 영향요인 분석으로 이어가기 위한 초안 점검용 체크리스트입니다.",
+        "type": "table",
+        "subtype": "statistics_aggregate_table",
+        "title": "상품 A 2026년 3분기 통계 DB 집계표",
+        "description": "통계 DB에서 뽑은 상품 A의 2026년 3분기 통계 구분별 집계 건수입니다. 건수 단위는 '건'입니다.",
         "factual_status": "synthetic_mission_material",
-        "used_for": "조사 요약 문서가 다음 분석에 넘겨져도 되는지 빠르게 점검",
+        "used_for": "팀장님 요청에 맞는 건수를 찾아 비율을 계산하는 데 쓴다.",
         "evidence_source": [
-          "읽고 이해하기",
-          "기준에 따른 정보 평가"
+          "정보 처리",
+          "수리력",
+          "산수와 수학"
         ],
         "mission_fact_refs": [
+          "org_name",
           "domain",
-          "main_issue",
-          "decision_goal"
+          "period",
+          "trend_pattern"
         ],
         "data": {
-          "items": [
+          "columns": [
             {
-              "label": "문서에 ‘고객이 보험료를 어떻게 느끼는지(예: 부담/납득/비교 기준)’가 제도 내용과 연결돼 정리돼 있는가",
-              "status": "issue",
-              "importance": "높음"
+              "key": "option",
+              "label": "집계 기간"
             },
             {
-              "label": "문서에 각 주장(예: 고객 반응, 중요하다고 한 요소)의 근거가 설문/시장리포트 같은 ‘자료 종류’로 표시돼 있는가",
-              "status": "checked",
-              "importance": "중간"
+              "key": "strength",
+              "label": "대상 상품"
+            },
+            {
+              "key": "weakness",
+              "label": "통계 구분"
+            },
+            {
+              "key": "priority",
+              "label": "건수(건)"
+            }
+          ],
+          "rows": [
+            {
+              "option": "2026년 3분기",
+              "strength": "상품 A",
+              "weakness": "계약(분기 말 유지 계약 건수)",
+              "priority": 1200
+            },
+            {
+              "option": "2026년 3분기",
+              "strength": "상품 A",
+              "weakness": "지급(분기 중 보험금 지급 건수)",
+              "priority": 84
+            },
+            {
+              "option": "2026년 3분기",
+              "strength": "상품 A",
+              "weakness": "입금(분기 중 보험료 입금 건수)",
+              "priority": 3480
             }
           ]
         },
         "confidence": {
-          "score": 0.86,
+          "score": 0.9,
           "checks": {
             "synthetic_material": true
           },
@@ -113,43 +168,43 @@
     "tasks": [
       {
         "task_id": "task_001",
-        "instruction": "체크리스트에서 상태가 ‘issue’인 항목을 한 가지 골라, 그것이 왜 문제인지 1~2개의 짧은 문장으로 적어보세요.",
+        "instruction": "집계표에서 팀장님 요청에 맞는 건수 두 개를 골라 비율을 백분율로 계산하고, 사용한 두 건수와 결과를 한두 문장으로 적어보세요.",
         "required_materials": [
           "mat_001"
         ],
-        "expected_action": "issue 항목을 식별하고 이유를 한 문장으로 설명"
+        "expected_action": "요청에 맞는 지급 건수 84건(분자)과 계약 건수 1,200건(분모)을 골라 84 ÷ 1,200 × 100 = 7%를 계산하고, 사용한 값과 결과를 한두 문장으로 적는다."
       }
     ],
     "submission_format": {
-      "type": "text",
-      "estimated_time_minutes": 5,
+      "type": "short_text",
+      "estimated_time_minutes": 10,
       "required_sections": [
-        "핵심 선택(1문장)",
-        "이유(1문장 이내)"
+        "사용한 두 건수와 계산한 비율(%)"
       ],
-      "length_hint": "1-2 short sentences"
+      "length_hint": "1~2문장"
     }
   },
   "evaluation": {
     "expected_insights": [
-      "‘issue’로 표시된 누락/불충분 항목이 다음 분석 단계에 어떤 영향을 주는지 간단히 연결해 설명하기"
+      "요청에 맞는 값은 지급 건수 84건(분자)과 계약 건수 1,200건(분모)이며, 입금 건수 3,480건은 이번 요청에 쓰지 않는다.",
+      "84 ÷ 1,200 × 100 = 7%이므로 상품 A의 2026년 3분기 계약 건수 대비 지급 건수 비율은 7%다."
     ],
     "rubric": [
       {
-        "criterion": "issue 항목을 정확히 지목함",
-        "description": "체크리스트에서 ‘issue’로 표시된 항목을 맞게 골랐는지 평가",
+        "criterion": "요청에 맞는 분자와 분모 선택",
+        "description": "팀장님 요청에 맞춰 지급 건수(84건)를 분자로, 계약 건수(1,200건)를 분모로 골랐는지 확인한다. 입금 건수를 쓰거나 분자와 분모를 바꾸면 감점한다.",
         "points": 50,
         "linked_evidence": [
-          "기준에 따른 정보 평가"
+          "정보 처리"
         ]
       },
       {
-        "criterion": "왜 문제가 되는지 연결 설명이 적절함",
-        "description": "해당 항목이 소비자심리·보험료 영향요인 분석으로 이어질 때 어떤 점이 막히는지 1~2문장 안에 이해 가능한 이유로 적었는지 평가",
+        "criterion": "백분율 비율 계산",
+        "description": "84 ÷ 1,200 × 100 = 7%를 바르게 계산하고 결과를 % 단위로 적었는지 확인한다.",
         "points": 50,
         "linked_evidence": [
-          "읽고 이해하기",
-          "정보, 자료 분석"
+          "수리력",
+          "산수와 수학"
         ]
       }
     ]
@@ -193,14 +248,14 @@
   "evidence_chain": {
     "created_by": "validator.v1",
     "source_exec_job": {
-      "exec_job_id": "exec_001",
-      "text": "국내외 보험상품 관련 제도를 조사하고, 소비자심리 및 보험료에 영향을 미치는 요인을 분석한다.",
+      "exec_job_id": "exec_004",
+      "text": "보험약관에 의한 대출금을 계산하고 각종 적립금이나 준비금 등을 평가하여 보험사업 전반에 걸친 수리 및 통계분석 업무를 한다.",
       "source_ref": {
         "file": "K000007519/dtlGb_2.xml",
         "field": "jobsDo.execJob",
-        "index": 1
+        "index": 4
       },
-      "selection_reason": "국내외 보험상품 관련 제도 조사와 소비자심리·보험료 영향요인 분석이 핵심이어서 연구·분석 과업에 적합하며, 난이도(쉬움)에서 체크리스트로 자료 정리/검증 절차를 간단히 수행할 수 있다."
+      "selection_reason": "Pilot config selected exec_004."
     },
     "linked_evidence": {
       "activities": [
@@ -370,8 +425,9 @@
       {
         "material_id": "mat_001",
         "supported_by": [
-          "읽고 이해하기",
-          "기준에 따른 정보 평가"
+          "정보 처리",
+          "수리력",
+          "산수와 수학"
         ]
       }
     ],
@@ -380,20 +436,27 @@
         "target_type": "material",
         "target_id": "mat_001",
         "mission_fact_refs": [
+          "org_name",
           "domain",
-          "main_issue",
-          "decision_goal"
+          "period",
+          "trend_pattern"
         ],
         "source_refs": [
           {
-            "file": "K000007519/dtlGb_5.xml",
-            "field": "ablKnwEnv.jobAbil",
-            "index": 4,
+            "file": "K000007519/dtlGb_7.xml",
+            "field": "jobActv.jobActvImprtnc",
+            "index": 7,
             "source_root": "data/api_raw"
           },
           {
-            "file": "K000007519/dtlGb_7.xml",
-            "field": "jobActv.jobActvImprtnc",
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.jobAbil",
+            "index": 1,
+            "source_root": "data/api_raw"
+          },
+          {
+            "file": "K000007519/dtlGb_5.xml",
+            "field": "ablKnwEnv.Knwldg",
             "index": 1,
             "source_root": "data/api_raw"
           }
