@@ -735,10 +735,43 @@
 
 ---
 
+### 2026-11-14 — 관리자 화면을 새 미션 만들기 · 생성 기록 · 미션 카탈로그로, README를 새 흐름에 맞춤
+왜:
+- 관리자 페이지의 미션 생성을 새 방식으로 바꾸는 일의 셋째 · 넷째 부분. 앞에서 만든 서버 경로를 브라우저에서 쓸 수 있게 관리자 화면을 새로 만들고, README의 관리자 미션 생성 설명을 새 흐름에 맞췄다
+
+바뀐 것:
+- `app/admin.html`은 틀만 남기고 화면은 `app/admin/`의 모듈이 그린다. 주소의 `#/…`로 화면을 바꾼다: `#/new`(새 미션 만들기), `#/runs`(생성 기록), `#/runs/<실행 번호>`(실행 하나: 생성 중 → 결과와 근거 · 검수), `#/catalog`(미션 카탈로그). 서버와는 `/api/admin/mission-generation` 아래의 경로 열둘로만 이야기한다
+- 모듈: `main.js`(시작, 주소 따라 화면 바꾸기), `api.js`(암호 보관, 요청), `shell.js`(사이드바, 위 띠, 용어 안내, 암호 화면, 확인 창, 알림, 여러 화면이 같이 쓰는 표시), `labels.js`(화면의 말), `basis.js`(미리보기의 한 부분 → 근거 기록에서 보여 줄 것), `screenNew.js`, `screenRun.js`, `screenHistory.js`, `screenCatalog.js`, `admin.css`
+- 새 미션 만들기: 직업(이름 검색) → 하는 일 문장(고를 수 없는 문장은 접어 두고 까닭을 보인다) → 생성 설정(능력단위, 난이도, 자료 형태(자동), 내용 검수 포함, 예상 소요와 비용) → `미션 생성`. 도는 실행이 있으면 버튼 자리에 "지금 만들고 있는 미션 보기"가 보인다
+- 실행 화면: 도는 중에는 서버가 주는 단계 여섯을 1.5초마다 다시 받아 그대로 그린다. 끝나면 탭 둘(`미리보기와 근거`, `검수`). 미리보기의 과제 · 자료 · 채점 기준과 "하는 일 문장 → 능력단위 → 수행준거 → 미션" 네 칸을 누르면 근거 기록의 글을 그대로 보여 준다(글 안의 조각 번호만 "수행준거 2.2" 같은 이름으로 바꾼다). 근거 기록에 없는 부분은 "이 부분의 근거 기록이 없습니다."를 보인다. 버튼은 `카탈로그에 추가`, `삭제`, 검수 탭의 `검수 돌리기` · `검수 다시 돌리기`
+- 검수 판정: 통과 · 문제 · 검수 실패 · 검수 안 함은 표시로, 의심은 작은 글 "확인할 점 N건"으로 보인다. 문제면 카탈로그에 추가할 수 없다
+- 생성 기록: 줄을 누르면 그 실행으로 간다. 줄마다 `삭제`가 있고, 서비스에 추가된 미션이면 서비스에서도 빠진다고 알리고 묻는다. 미션 카탈로그: 직업별 난이도 개수, 펼치면 미션과 `열기`(사용자 화면에서 그 미션을 연다), 관리자 페이지에서 추가한 미션에만 `삭제`(서비스에서만 뺀다)
+- 조회 전용 열기(`ADMIN_DEMO_UNLOCK=true`)에서는 둘러볼 수 있고 생성 · 추가 · 삭제 버튼은 눌리지 않는다. 암호를 넣는 버튼이 위 띠 아래와 사이드바에 있다. 이때는 GET이 암호와 상관없이 열리므로, 넣은 암호가 맞는지는 `POST /runs/-/review`(없는 실행)의 응답으로 확인한다
+- 좁은 창: 1180px 아래에서 사이드바가 아이콘만 남는다. 생성 기록의 표는 560px보다 좁아지면 칸 안에서 옆으로 움직이고 삭제 칸이 오른쪽에 붙는다. "삭제", 난이도, 상태 같은 짧은 칸은 줄이 바뀌지 않는다
+- 관리자 화면의 채용공고 칸을 없앴다(`app/admin.js` 삭제). 서버의 관리자용 채용공고 경로(`/api/admin/postings/*`)와 사용자 쪽 채용공고 기능은 그대로다
+- 자료(표, 체크리스트 등)의 스타일을 `app/index.html`에서 `app/styles/materials.css`로 떼어 사용자 화면과 관리자 미리보기가 같이 쓴다. `renderMaterial`을 내보낸다(`app/components/missionScreens.js`)
+- 새 설정 `MISSIONS_DIR`(`.env.example`, `src/server/config.ts`): 미션 폴더를 바꾼다(비우면 `missions`). 관리자 화면 E2E가 복사한 미션 폴더(`test-results/admin-missions`)를 쓰는 데 쓴다
+- 새 E2E `npm run test:e2e:admin`(`playwright.admin.config.ts`, 포트 8093, 가짜 생성 모드, `scripts/prepare-admin-e2e.mjs`가 미션 폴더를 복사한다): 고르기 → 생성 → 근거 → 카탈로그에 추가 → 삭제로 이어지는 흐름 하나와, 암호가 틀리면 들어가지 못하는 것. CI(`.github/workflows/ci.yml`)에 단계를 더했다
+- README: 맨 위 소개, 준비물(Python 패키지 `anthropic`, `data/ncs/jobs/`), 환경 설정 표(Claude 설정, 하루 한도, 형태 좁히기, 가짜 모드, `MISSIONS_DIR`), "관리자 미션 생성 방법", "고를 수 있는 직업과 문장", "생성 결과가 저장되는 위치", "CLI로 미션 생성하기"(새 방식의 명령 셋과 예전 방식), 검증 명령, 문제 해결을 새 흐름에 맞췄다
+
+수정 파일:
+- 새 파일: `app/admin/`(`main.js`, `api.js`, `shell.js`, `labels.js`, `basis.js`, `screenNew.js`, `screenRun.js`, `screenHistory.js`, `screenCatalog.js`, `admin.css`), `app/styles/materials.css`, `scripts/prepare-admin-e2e.mjs`, `playwright.admin.config.ts`, `tests/e2e-admin/admin.spec.ts`, `tests/unit/adminScreens.test.ts`
+- 고친 파일: `app/admin.html`(다시 씀), `app/index.html`, `app/components/missionScreens.js`, `src/server/config.ts`, `package.json`, `.env.example`, `README.md`, `AGENTS.md`, `.github/workflows/ci.yml`
+- 지운 파일: `app/admin.js`
+
+검증:
+- typecheck 통과, check:frontend 34/34, test:unit 95/95(새 테스트 3개), test:e2e 4/4, test:e2e:postings 6/6, test:e2e:features 9/9, test:e2e:admin 2/2, Python 테스트 386개 통과
+- 자료 스타일을 떼어 내기 전과 뒤에, 사용자 화면의 미션 수행 화면에서 자료 칸 안 모든 요소의 계산된 스타일과 크기를 견주었다(이메일 · 기록 · 체크리스트 · 표 · 메모 · 차트 · 일정표 자료가 든 미션 셋, 375px과 1280px). 모두 같았다
+- 가짜 모드(`ADMIN_GENERATION_MODE=fake`, 복사한 미션 폴더)로 띄운 서버에서 브라우저로 여섯 화면을 확인했다: 암호(틀린 값, 맞는 값), 메뉴와 새로고침, 용어 안내 여닫기, 직업 74개와 검색, 문장 · 능력단위 · 난이도 · 검수 스위치에 따라 바뀌는 생성 설정, 생성 → 결과 → 근거 칸 → 검수 탭 → 카탈로그에 추가 → 사용자 화면에서 열기 → 카탈로그에서 삭제(생성 기록의 상태가 검토 대기로 돌아옴), 생성 기록의 삭제 확인 창 두 가지, 검수 없이 만든 실행의 `검수 돌리기`, 없는 실행 번호, 조회 전용 열기. 730px과 490px에서 "삭제"가 한 줄로 보였다
+- 도는 중 · 실패 · 중단 화면은 응답을 바꿔 끼워 그려서 확인했다(가짜 모드의 생성은 1초쯤에 끝난다)
+- 실제 Python과 Claude 설정으로 띄운 서버에서 사이드바의 "Claude API 연결됨"과 자료 형태 줄(정보보안전문가의 분야 한정 문장, 보통 → 메모 · 기록)을 확인했다(비용 없음)
+- 검사 뒤 `git status --short -- missions` 변화 없음
+
+---
+
 ## Open Items (Next)
 
 0000. 관리자 미션 생성 후속(2026-11-14)
-- 관리자 화면(`app/admin.js`)은 아직 옛 계약을 쓴다. 화면을 바꿀 때까지 미션 생성 칸이 돌지 않는다
 - Python 테스트는 CI에 걸려 있지 않다
 - `pilot_runner`의 `--ncs-targets` 도움말이 이 브랜치에 없는 모듈(`target_planner`)을 가리킨다
 - 문장 ↔ 능력단위 연결은 사람이 확인하지 않았다(판단 기준은 자료에 적혀 있다)
@@ -792,6 +825,7 @@ npm run test:unit
 npm run test:e2e
 npm run test:e2e:postings
 npm run test:e2e:features
+npm run test:e2e:admin
 npm run eval:quality -- --runs=1
 python3 scripts/build_manual_missions.py K000001196 --check
 ```
