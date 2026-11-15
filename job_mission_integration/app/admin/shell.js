@@ -154,7 +154,7 @@ export function renderShell(root, ctx) {
       ${ctx.readOnly ? `<div class="roband" role="status">${icon("lock")}<span>조회만 열려 있습니다. 생성 · 추가 · 삭제는 관리자 암호가 필요합니다.</span><button class="btn" type="button" data-shell="ask">암호 입력</button></div>` : ""}
       <div class="content">
         <div class="gloss" id="gloss"${closed ? " hidden" : ""}>
-          <div class="gh">${icon("book", { style: "color:var(--ac-h)" })}용어 안내<button class="x" type="button" id="gloss-close">닫기</button></div>
+          <div class="gh">${icon("book")}용어 안내<button class="x" type="button" id="gloss-close">닫기</button></div>
           <div class="ggrid">
             ${GLOSSARY.map(([term, text]) => `<div class="g"><b>${esc(term)}</b><span>${esc(text)}</span></div>`).join("")}
           </div>

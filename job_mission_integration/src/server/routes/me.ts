@@ -69,12 +69,14 @@ export function meRouter({ db, missionStore, jobsCatalog }: MeDeps) {
     const attempts = attemptSummaries(user.id);
     const interests = listInterests(db, user.id);
     const drafts = listDrafts(db, user.id);
-    const jobsTried = new Set(attempts.flatMap((a) => a.jobs.map((j) => j.code)));
+    // 숫자는 끝낸 체험만 센다. 시작만 한 체험은 목록에 나오지 않아 지울 수도 없다.
+    const completed = attempts.filter((a) => a.status === "completed");
+    const jobsTried = new Set(completed.flatMap((a) => a.jobs.map((j) => j.code)));
     res.setHeader("Cache-Control", "no-store");
     return res.json({
       user: { id: user.id, nickname: user.nickname, provider: user.provider, created_at: user.created_at },
       counts: {
-        attempts: attempts.filter((a) => a.status === "completed").length,
+        attempts: completed.length,
         jobs_tried: jobsTried.size,
         missions: countUserMissions(db, user.id),
         interests: interests.length

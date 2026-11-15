@@ -264,7 +264,7 @@ export function updateAttemptMissionSelfReport(db: Db, id: string, selfReport: R
 }
 
 export function countUserMissions(db: Db, userId: string) {
-  const row = db.prepare(`SELECT COUNT(*) AS n FROM attempt_missions m JOIN attempts a ON a.id = m.attempt_id WHERE a.user_id = ?`).get(userId) as { n: number };
+  const row = db.prepare(`SELECT COUNT(*) AS n FROM attempt_missions m JOIN attempts a ON a.id = m.attempt_id WHERE a.user_id = ? AND a.status = 'completed'`).get(userId) as { n: number };
   return Number(row?.n ?? 0);
 }
 

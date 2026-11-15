@@ -321,16 +321,27 @@ test("체험 기록: 로그인 전 결과는 브라우저에 묶였다가 로그
     assert.equal((await new Client(srv.base).get(`/api/attempts/${attempt.id}`)).status, 404);
     assert.equal((await anon.get("/api/auth/session")).json.anonymous_results, 1);
 
+    // 시작만 하고 끝내지 않은 체험(목록에 나오지 않는다)
+    const unfinished = (await anon.post("/api/attempts", { job_codes: ["K000000832"] })).json.attempt;
+    assert.equal((await anon.post("/api/evaluate", { mission_key: MISSION_KEY, answer: GOOD_ANSWER, attempt_id: unfinished.id })).status, 200);
+
     // 같은 브라우저에서 로그인하면 옮겨진다
     await anon.devSignup("mover");
     const summary = await anon.get("/api/me/summary");
     assert.equal(summary.json.counts.attempts, 1);
-    assert.equal(summary.json.attempts[0].jobs[0].name, "데이터분석가(빅데이터분석가)");
-    assert.deepEqual(summary.json.attempts[0].scoring_modes, ["fake"]);
+    // 체험한 직무와 제출한 미션은 끝낸 체험만 센다
+    assert.equal(summary.json.counts.jobs_tried, 1);
+    assert.equal(summary.json.counts.missions, 1);
+    const done = summary.json.attempts.find((a: any) => a.status === "completed");
+    assert.equal(done.jobs[0].name, "데이터분석가(빅데이터분석가)");
+    assert.deepEqual(done.scoring_modes, ["fake"]);
 
     // 기록 하나 지우기
     assert.equal((await anon.del(`/api/attempts/${attempt.id}`)).status, 200);
-    assert.equal((await anon.get("/api/me/summary")).json.counts.attempts, 0);
+    const afterDelete = (await anon.get("/api/me/summary")).json.counts;
+    assert.equal(afterDelete.attempts, 0);
+    assert.equal(afterDelete.jobs_tried, 0);
+    assert.equal(afterDelete.missions, 0);
   } finally {
     await srv.close();
   }
